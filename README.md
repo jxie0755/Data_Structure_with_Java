@@ -1,1 +1,1 @@
-# Data_Strucuture_with_Java
+# Data_Structure_with_Java
