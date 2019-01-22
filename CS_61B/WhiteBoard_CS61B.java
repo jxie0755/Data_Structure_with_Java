@@ -1,4 +1,4 @@
-public class WhiteBoard {
+public class WhiteBoard_CS61B {
 
 
 
