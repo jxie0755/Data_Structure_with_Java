@@ -25,7 +25,7 @@ public class C04_While_Loop {
         }
 
         System.out.println("");
-        System.out.println("while loop 2: ");
+        System.out.println("while loop break: ");
         x = 0;
         while (x <= 10) {
             if (x == 5) {

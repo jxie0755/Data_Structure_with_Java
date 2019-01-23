@@ -3,7 +3,7 @@ package chapter_01;
 public class C05_For_Loop {
     public static void main(String[] args) {
 
-        System.out.print("for loop 1: ");
+        System.out.print("for loop: ");
         for (int x = 0; x < 10; x = x + 1) {
             System.out.println(x); // >>> For loop:0123456789
         // System.out.println(x);  // indentation does not impact, because loop defined in {}
@@ -21,7 +21,7 @@ public class C05_For_Loop {
         }
 
         System.out.println("");
-        System.out.print("for loop 2: ");
+        System.out.print("for loop break: ");
         for (int x = 0; x < 10; x = x + 1) {
             if (x == 5){
                 break;
