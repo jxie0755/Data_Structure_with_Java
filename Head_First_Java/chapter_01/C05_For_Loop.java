@@ -41,4 +41,5 @@ public class C05_For_Loop {
 
 /*
  * for loop defines start value, limit, and step
+ * break work the same way as python
  */
