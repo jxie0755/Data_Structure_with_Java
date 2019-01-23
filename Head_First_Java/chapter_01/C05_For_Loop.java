@@ -3,22 +3,38 @@ package chapter_01;
 public class C05_For_Loop {
     public static void main(String[] args) {
 
-        System.out.print("for loop: ");
+        System.out.print("for loop 1: ");
         for (int x = 0; x < 10; x = x + 1) {
-            System.out.print(x); // >>> For loop:0123456789
-        // System.out.println("?");  // indentation doesnot impact, because loop defined in {}
-            System.out.println("?"); // but to look nice, we use indentation
+            System.out.println(x); // >>> For loop:0123456789
+        // System.out.println(x);  // indentation does not impact, because loop defined in {}
+            // >>>
+            //for loop 1: 0
+            //1
+            //2
+            //3
+            //4
+            //5
+            //6
+            //7
+            //8
+            //9
+        }
+
+        System.out.println("");
+        System.out.print("for loop 2: ");
+        for (int x = 0; x < 10; x = x + 1) {
+            if (x == 5){
+                break;
+            } else {
+                System.out.println(x); // >>> For loop:0123456789
+            }
+
             // >>>
             //for loop 2: 0?
-            //1?
-            //2?
-            //3?
-            //4?
-            //5?
-            //6?
-            //7?
-            //8?
-            //9?
+            //1
+            //2
+            //3
+            //4
         }
     }
 }
