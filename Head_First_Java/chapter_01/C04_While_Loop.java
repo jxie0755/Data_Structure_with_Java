@@ -27,7 +27,6 @@ public class C04_While_Loop {
 }
 
 /*
- * for loop defines start value, limit, and step
  * while loop is more like python, define indicator outside
  * java中,int和boolean不同, 所以不能while(0)或者while(1)
  */
