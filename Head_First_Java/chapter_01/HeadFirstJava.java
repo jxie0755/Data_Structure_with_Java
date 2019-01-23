@@ -2,12 +2,37 @@ package chapter_01;
 
 public class HeadFirstJava {
 
+    public static void main_head(String[] args) {   // this will not be executed
+        System.out.println("From main 2");
+    }
+
+    public static int larger(int x, int y) {
+		if (x > y) {
+			return x;
+		}
+		return y;
+	}
+
     public static void main(String[] args) {
         int x = 5;
         int y = x +3;  // must also claim y's type
+        System.out.println("From main():");
         System.out.println(y);
+        System.out.println(larger(99, 101));
+        System.out.println(larger_tail(99, 101));  // Actually the method (larger_tail) can be behind main()
+
     }
 
+    public static void main_tail(String[] args) {   // this will not be executed
+        System.out.println("From main 2");
+    }
+
+    public static int larger_tail(int x, int y) {
+		if (x > y) {
+		    return x;
+		}
+		return y;
+	}
 }
 
 /**
