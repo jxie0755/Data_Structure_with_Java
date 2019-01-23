@@ -42,8 +42,6 @@ public class C04_While_Loop {
             //3
             //4
         }
-
-
     }
 }
 
