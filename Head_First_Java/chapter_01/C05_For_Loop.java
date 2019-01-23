@@ -20,7 +20,7 @@ public class C05_For_Loop {
             //9
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.print("for loop break: ");
         for (int x = 0; x < 10; x = x + 1) {
             if (x == 5){

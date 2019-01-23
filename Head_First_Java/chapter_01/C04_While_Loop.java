@@ -24,7 +24,7 @@ public class C04_While_Loop {
             //10
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.println("while loop break: ");
         x = 0;
         while (x <= 10) {
