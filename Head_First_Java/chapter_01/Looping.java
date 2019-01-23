@@ -54,6 +54,7 @@ public class Looping {
 /**
  * print command (keep next print/println command at the same as this line)
  * println command (keep next print/println command at a new line)
+ * from now on, just use println
  * for loop defines start value, limit, and step
  * while loop is more like python, define indicator outside
  */
