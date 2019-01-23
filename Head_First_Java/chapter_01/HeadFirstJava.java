@@ -13,7 +13,8 @@ public class HeadFirstJava {
 		return y;
 	}
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {  // The main has to be public
+                                              // If private, then there is nothing to execute
         int x = 5;
         int y = x +3;  // must also claim y's type
         System.out.println("From main():");
