@@ -1,6 +1,6 @@
 package chapter_01;
 
-public class IfElse {
+public class C02_If_Else {
     public static void main(String[] args) {
 
         System.out.println("if then no else: ");

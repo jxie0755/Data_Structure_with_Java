@@ -1,6 +1,6 @@
 package chapter_01;
 
-public class Looping {
+public class C03_Looping {
     public static void main(String[] args) {
         System.out.print("for loop 1: ");
         for (int x = 0; x < 10; x = x + 1) {
