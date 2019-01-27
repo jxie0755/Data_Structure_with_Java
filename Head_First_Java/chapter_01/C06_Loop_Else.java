@@ -88,4 +88,5 @@ public class C06_Loop_Else {
 
 /*
  * Use label to achieve for...else and while...else
+ * Need to learn why this label could work in java
  */
