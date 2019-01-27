@@ -3,13 +3,13 @@ package chapter_01;
 public class C06_Loop_Else {
     public static void main(String[] args) {
         System.out.println("for...else...");
-        label: {
+        loop1: {   // label the loop
             for (int x=0; x <= 5; x = x+1) {
                 System.out.println(x);
                 if (x == 3) {
                     System.out.print("found ");
                     System.out.println(x);
-                    break label;                // 注意这里break是break整个label而不是break for loop
+                    break loop1;                // 注意这里break是break整个label而不是break for loop
                 }
             }
             System.out.println("found no number");  // 所以这行就被忽略了, 因为整个label内的内容都被终止了
@@ -21,13 +21,13 @@ public class C06_Loop_Else {
         //3
         //found 3
 
-        label: {
+        loop2: {
             for (int x=0; x <= 5; x = x+1) {
                 System.out.println(x);
                 if (x == 6) {
                     System.out.print("found ");
                     System.out.println(x);
-                    break label;
+                    break loop2;
                 }
             }
             System.out.println("found no number");
@@ -42,14 +42,14 @@ public class C06_Loop_Else {
 
         System.out.println();
         System.out.println("while...else...");
-        label: {
+        loop2: {   // label name can repeat
             int x = 0;
             while (x <= 5) {
                 System.out.println(x);
                 if (x == 3) {
                     System.out.print("found ");
                     System.out.println(x);
-                    break label;
+                    break loop2;
                 }
                 x = x + 1;
             }
@@ -101,6 +101,21 @@ public class C06_Loop_Else {
         //11
         //12
         //13   // 直接break了两重for loop, 跳出multiloop
+
+        // 扩展: 不止是break loop,可以break任何代码块
+        code_snippet :{
+            int x = 0;
+            if (x == 5) {
+                System.out.println(x);
+            } else if (x == 0) {
+                System.out.println(x);
+                System.out.println("ABC");
+                break code_snippet;
+
+            } else {
+                System.out.print("already break");
+            }
+        }
     }
 }
 
