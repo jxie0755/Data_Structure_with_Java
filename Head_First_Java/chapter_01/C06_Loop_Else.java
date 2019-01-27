@@ -107,5 +107,5 @@ public class C06_Loop_Else {
 
 /*
  * Use label to achieve for...else and while...else
- * This break can be used to break a specific multiple loop
+ * Use labeled break statement to terminate the outer loop.
  */
