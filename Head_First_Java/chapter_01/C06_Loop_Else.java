@@ -9,10 +9,10 @@ public class C06_Loop_Else {
                 if (x == 3) {
                     System.out.print("found ");
                     System.out.println(x);
-                    break label;
+                    break label;                // 注意这里break是break整个label而不是break for loop
                 }
             }
-            System.out.println("found no number");
+            System.out.println("found no number");  // 所以这行就被忽略了, 因为整个label内的内容都被终止了
         }
         // >>>
         //0
@@ -82,11 +82,30 @@ public class C06_Loop_Else {
         //4
         //5
         //found no number
+
+        // 扩展: 一次break多个loop
+        multiloop: {
+            for (int x=0; x <= 5; x = x+1) {
+                System.out.println(x);
+                for (int y=10; y <= 15; y = y+1) {
+                System.out.println(y);
+                if (y == 13) {
+                    break multiloop;
+                }
+                }
+            }
+        }
+        // >>>
+        //0
+        //10
+        //11
+        //12
+        //13   // 直接break了两重for loop, 跳出multiloop
     }
 }
 
 
 /*
  * Use label to achieve for...else and while...else
- * Need to learn why this label could work in java
+ * This break can be used to break a specific multiple loop
  */
