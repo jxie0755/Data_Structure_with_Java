@@ -123,6 +123,7 @@ public class C06_Loop_Else {
 /*
  * Use label to achieve for...else and while...else
  * Use labeled break statement to terminate the outer loop.
+ * Label system is designed to use break or continue in multi-loop scenarios
  * See more labeled loop in https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
  * Also see more in Java 11 language specifcation Section 14.7
  */
