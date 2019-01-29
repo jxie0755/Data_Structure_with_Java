@@ -20,9 +20,12 @@ public class C01_Hello_World {
         System.out.println("From main():");
         System.out.println(y);
         System.out.println(larger(99, 101));
+        System.out.println("From larger_tail:");
         System.out.println(larger_tail(99, 101));  // Actually the method (larger_tail) can be behind main()
 
     }
+
+    // Defined after main?
 
     public static void main_tail(String[] args) {   // this will not be executed
         System.out.println("From main 2");
