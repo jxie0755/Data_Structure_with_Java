@@ -1,4 +1,4 @@
-public class WhiteBoard_HFJ {
+public class WhiteBoard_JRef {
 
 
 

@@ -1,4 +1,4 @@
-package week_01;
+package cs61b_week_01;
 
 public class HelloNumbers {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package chapter_01;
+package java_reference_chapter_01;
 
 public class C02_Print {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package chapter_01;
+package java_reference_chapter_01;
 
 public class C01_Hello_World {
 

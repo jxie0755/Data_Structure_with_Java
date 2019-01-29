@@ -1,4 +1,4 @@
-package chapter_01;
+package java_reference_chapter_01;
 
 public class C06_Loop_Else {
     public static void main(String[] args) {
