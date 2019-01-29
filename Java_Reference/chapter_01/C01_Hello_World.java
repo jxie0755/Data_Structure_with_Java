@@ -1,6 +1,6 @@
 package chapter_01;
 
-public class C01_Head_First_Java {
+public class C01_Hello_World {
 
     public static void main_head(String[] args) {   // this will not be executed
         System.out.println("From main 2");
