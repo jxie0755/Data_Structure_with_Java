@@ -1,8 +1,11 @@
 package java_reference_chapter_01;
 
+// 1.4
+
 public class C05_Conditional_If_Else {
     public static void main(String[] args) {
 
+        // 1.4.1
         System.out.println("if then no else: ");
         if (3 < 5) {
             System.out.println("3 < 5!!");
@@ -28,7 +31,7 @@ public class C05_Conditional_If_Else {
         } else
             System.out.println("Not showen");
 
-
+        // 1.4.2
         // Another Conditional Expressions (Not commonly used)
         System.out.println (3 < 4 ? "Less" : "More"); // Prints Less
         System.out.println (4 < 3 ? "Less" : "More"); // Prints More
@@ -39,7 +42,7 @@ public class C05_Conditional_If_Else {
         // The above two mean the same, and print 3.1 (multiple if/else if/else)
 
 
-
+        // 1.4.3
         // Use of {} in conditional 2
         System.out.println("\nif elif else (with no {}): ");
         if (3 > 5)
