@@ -52,5 +52,4 @@ public class C01_Hello_World {
  * 源文件(*.java)会被编译成类文件(*.class)
  * 真正被执行的是类
  * 要执行某个程序就代表要命令java虚拟机(JVM)去加载这个类,开始执行它的main(),直到main()被执行完成
-
 */
