@@ -23,4 +23,5 @@ public class C02_Print {
  * print command (keep next print/println command at the same as this line)
  * println command (keep next print/println command at a new line)
  * From now on it is suggested to only use println unless necessary
+ * println()相当于python的'\n'
  */
