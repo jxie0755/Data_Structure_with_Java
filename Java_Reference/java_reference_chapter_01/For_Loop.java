@@ -1,6 +1,6 @@
 package java_reference_chapter_01;
 
-public class C05_For_Loop {
+public class For_Loop {
     public static void main(String[] args) {
 
         System.out.print("for loop: ");

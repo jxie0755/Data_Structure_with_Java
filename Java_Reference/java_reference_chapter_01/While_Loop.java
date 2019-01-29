@@ -1,6 +1,6 @@
 package java_reference_chapter_01;
 
-public class C04_While_Loop {
+public class While_Loop {
     public static void main(String[] args) {
 
         System.out.println("while loop 1: ");

@@ -1,6 +1,6 @@
 package java_reference_chapter_01;
 
-public class C06_Loop_Else {
+public class Loop_Else {
     public static void main(String[] args) {
         System.out.println("for...else...");
         loop1: {   // label the loop
