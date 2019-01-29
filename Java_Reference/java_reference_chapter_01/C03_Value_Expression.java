@@ -43,6 +43,59 @@ public class C03_Value_Expression {
         System.out.println(Float.NEGATIVE_INFINITY);  // >>>  -Infinity
 
 
+        /*
+         * Comparison and Logical Operations
+         * and and or are both short-circuits
+         */
+        System.out.println (true);
+        System.out.println (3 < 4);
+        System.out.println (3 <= 4); System.out.println (3 <= 3);
+        System.out.println (4 > 3);
+        System.out.println (4 >= 3); System.out.println (3 >= 3);
+        System.out.println (4 != 3); System.out.println (3 == 3);
+        // A. All print true
+
+        System.out.println (false);
+        System.out.println (3 < 3); System.out.println (3 != 3);
+        // B. All print false
+
+        System.out.println (3 < 4 && 3 < 5);    // and
+        System.out.println (3 > 4 || 4 < 5);    // or,
+        System.out.println (! (3 < 4 && 4 < 3));  // not
+        // C. All print true
+
+        System.out.println (3 < 4 || 1/0 == 0);       // (short-circuited, first true then true)
+        System.out.println (3 > 4 && 1/0 == 0);       // (short-circuited, first false then false)
+        // D. All print true
+
+
+        /*
+         * Strings
+         * when one of its operands is a string, and the other isn’t, it converts the other operand to a string
+         */
+        System.out.println ("Simple string.");
+        System.out.println ("");                //  An empty string
+        System.out.println ("Say \"Hello.\"");  //  \" is double quote
+        System.out.println ("Name:\tJohn");     //  \t is tab
+        System.out.println ("\\FOO\\BAR");      //  \\ is \
+        System.out.println ("One thing\nThe other thing");  // \n is next line same as python
+
+        System.out.println ("The value of" + " 17+25 is " + (17+25) + ".");
+        // >>> The value of 17+25 is 42  // concatenation same as python
+
+        // A few quick string methods
+        System.out.println(("19-character string").length ());  // >>> 19
+        System.out.println(("abcd").charAt (3));                // >>> "d"
+
+        System.out.println(("abcd").equals ("abcd"));  // >>> true
+        System.out.println(("abcd") == ("abcd"));      // >>> true
+        // You might think that == would work, but that is not a reliable way to compare strings
+
+        // slice
+        System.out.println(("Hello, world!").substring (4, 9));  // >>> "o, wo" (not include "r" at 9)
+                          // 0123456789
+        System.out.println(("Hello, world!").substring (7));     // >>> "world!"0  (from 7 to the end)
+                          // 0123456789
 
     }
 }
