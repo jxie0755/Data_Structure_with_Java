@@ -110,4 +110,5 @@ public class C05_Conditional_If_Else {
 * the else if and else actually does not need {} (can also have)
 * The expressions after ‘?’ and ‘:’ must be the same type of thing; 3<4 ? 1 : "Hello" is erroneous.
 * Single line skip {}, multiline needs {}
+* Google Java style guide: Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
 * */
