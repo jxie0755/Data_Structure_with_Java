@@ -1,5 +1,7 @@
 package java_reference_chapter_01;
 
+// 1.1
+
 public class C02_Print {
     public static void main(String[] args) {
         System.out.print("1");
@@ -13,9 +15,6 @@ public class C02_Print {
         // >>>
         //1234
         //new line567
-
-
-
     }
 }
 
