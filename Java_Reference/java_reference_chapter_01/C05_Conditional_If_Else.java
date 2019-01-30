@@ -28,8 +28,11 @@ public class C05_Conditional_If_Else {
             System.out.println("3 < 5!!");
         } else if (2 < 5) {
             System.out.println("elif 2 < 5");
-        } else
+        } else {
             System.out.println("Not showen");
+        }
+
+
 
         // 1.4.2
         // Another Conditional Expressions (Not commonly used)
@@ -110,5 +113,8 @@ public class C05_Conditional_If_Else {
 * the else if and else actually does not need {} (can also have)
 * The expressions after ‘?’ and ‘:’ must be the same type of thing; 3<4 ? 1 : "Hello" is erroneous.
 * Single line skip {}, multiline needs {}
+* Skip {} does not allow variable statement, as this involves scopes structure
 * Google Java style guide: Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
+* Blocks: https://stackoverflow.com/questions/15786949/is-there-a-difference-in-removing-the-curly-braces-from-if-statements-in-java
+* Blacks: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html
 * */
