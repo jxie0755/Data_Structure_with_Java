@@ -111,17 +111,20 @@ public class C03_Value_Expression {
         System.out.println((int) Math.pow(25, 0.5)); // >>> 5     convert to int
 
         System.out.println(Math.sqrt(9));  // >>> 3.0
+        System.out.println(Math.cbrt(64));          // >>> 4.0
+
         System.out.println(Math.pow(64, 1 / 3.0));  // >>> 3.9999996
         System.out.println((int) Math.pow(64, 1 / 3.0));  // >>> 3  !!! not right!!
         System.out.println(Math.round(Math.pow(64, 1 / 3.0)));  // >>> 4
 
+        // 四舍五入到整数 (字符串)
         System.out.println(Math.round(2.001));  // >>> 2
         System.out.println(Math.round(2.997));  // >>> 3
-        System.out.println(Math.round(1.499));  // >>> 1   // 四舍五入到整数
+        System.out.println(Math.round(1.499));  // >>> 1
         System.out.println(Math.round(1.500));  // >>> 2
         System.out.println(Math.round(1.501));  // >>> 2
 
-        // 小数的四舍五入
+        // 小数的四舍五入 (字符串)
         double d = 0.6545;
         String s1 = String.format("%.2f", d);
         System.out.println(s1);  // >>> 0.65
@@ -141,19 +144,18 @@ public class C03_Value_Expression {
         float f1 = 1.0f;  //有小数点的话，必须要加f或者F
         float f2 = 1.0F;  //有小数点的话，必须要加f或者F,  1.0f后面的f只是为了区别double，并不代表任何数字上的意义
 
-        float f3 = 1;
-        System.out.println(f3);  // >>> 1.0  展示还是带小数点
-
         double d0 = 1.0;  // 不一定要加f  //java中默认声明的小数是double类型的，如double d=4.0
         double d1 = 1.0f;
         double d2 = 1.0F;
         System.out.println(d0 == d1);  // >>> true
         System.out.println(d1 == d2);  // >>> true
+
+        float f3 = 1;
+        System.out.println(f3);  // >>> 1.0  展示还是带小数点
         double d3 = 1;
         System.out.println(d3);  // >>> 1.0  展示还是带小数点
 
         System.out.println(f1 == d1);  // >>> true  值是相同就行,虽然类型不同
-
 
         /*
          * char表示字符，定义时用单引号，只能存储一个字符，如char c='x';而String表示字符串，定义时用双引号，可以存储一个或多个字符，如String name="tom";
