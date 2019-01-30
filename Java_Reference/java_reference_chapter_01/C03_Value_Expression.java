@@ -99,6 +99,33 @@ public class C03_Value_Expression {
         System.out.println(("Hello, world!").substring (7));     // >>> "world!"0  (from 7 to the end)
                           // 0123456789
 
+
+        // Additional:
+        System.out.println("\nAddtional");
+        System.out.println(Math.pow(2, 3));         // >>> 8.0   always float
+        System.out.println(Math.pow(49, 0.5));      // >>> 5.0
+        System.out.println((int)Math.pow(25, 0.5)); // >>> 5     convert to int
+
+        System.out.println(Math.sqrt(9));  // >>> 3.0
+        System.out.println(Math.pow(64, 1/3.0) );  // >>> 3.9999996
+        System.out.println((int)Math.pow(64, 1/3.0));  // >>> 3  !!! not right!!
+        System.out.println(Math.round(Math.pow(64, 1 / 3.0)));  // >>> 4
+
+        System.out.println(Math.round(2.001));  // >>> 2
+        System.out.println(Math.round(2.997));  // >>> 3
+        System.out.println(Math.round(1.499));  // >>> 1   // 四舍五入到整数
+        System.out.println(Math.round(1.500));  // >>> 2
+        System.out.println(Math.round(1.501));  // >>> 2
+
+        // 小数的四舍五入
+        double d = 0.6545;
+        String s1=String.format("%.2f",d);
+        System.out.println(s1);  // >>> 0.65
+        String s2=String.format("%.3f",d);
+        System.out.println(s2);  // >>> 0.655
+        System.out.println(s2.getClass().getName());  // >>> java.lang.String
+
+
     }
 }
 
