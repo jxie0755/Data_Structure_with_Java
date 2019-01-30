@@ -125,7 +125,30 @@ public class C03_Value_Expression {
         System.out.println(s2);  // >>> 0.655
         System.out.println(s2.getClass().getName());  // >>> java.lang.String
 
+        /*
+         * double 和 float 的区别是double精度高，有效数字16位，float精度7位。
+         * 但double消耗内存是float的两倍，double的运算速度比float慢得多
+         * java语言中数学函数名称double 和 float不同，不要写错
+         * 能用单精度时不要用双精度
+         */
 
+        // float f0 = 1.0;  报错
+        // 或者float f0 = (float)1.0
+        float f1 = 1.0f;  //有小数点的话，必须要加f或者F
+        float f2 = 1.0F;  //有小数点的话，必须要加f或者F,  1.0f后面的f只是为了区别double，并不代表任何数字上的意义
+
+        float f3 = 1;
+        System.out.println(f3);  // >>> 1.0  展示还是带小数点
+
+        double d0 = 1.0;  // 不一定要加f  //java中默认声明的小数是double类型的，如double d=4.0
+        double d1 = 1.0f;
+        double d2 = 1.0F;
+        System.out.println(d0 == d1);  // >>> true
+        System.out.println(d1 == d2);  // >>> true
+        double d3 = 1;
+        System.out.println(d3);  // >>> 1.0  展示还是带小数点
+
+        System.out.println(f1 == d1);  // >>> true  值是相同就行,虽然类型不同
     }
 }
 
