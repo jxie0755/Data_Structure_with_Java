@@ -83,7 +83,7 @@ public class C05_Conditional_If_Else {
         //       CLIMB = 5,
         //       etc.
 
-        // switch (action) {
+        // switch (action) {   // 本质上也是label statement
         //  case PICK_UP:
         //      acquireObject ();
         //      break;
