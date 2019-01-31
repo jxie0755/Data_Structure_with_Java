@@ -102,3 +102,4 @@ $RECYCLE.BIN/
 
 /venv
 .vscode
+*.xml
