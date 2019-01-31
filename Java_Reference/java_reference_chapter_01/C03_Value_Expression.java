@@ -163,7 +163,19 @@ public class C03_Value_Expression {
          */
         char chr = 'x';
         String str = "YY";
-        System.out.print(chr + str);  // >>> xYY   char + String would work
+        System.out.println(chr + str);  // >>> xYY   char + String would work
+
+
+        int A, B;
+        A = 5; // does not need to give value at the same time.
+        System.out.println(A);
+        B = 6;
+        System.out.println(B);
+
+        int C = 7, D = 8;
+        System.out.println(C + D);
+
+
     }
 }
 
