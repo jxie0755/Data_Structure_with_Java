@@ -1,6 +1,6 @@
 package java_reference_chapter_01;
 
-public class Label_Break_Continue {
+public class C10_Label_Break_Continue {
     public static void main(String[] args) {
 
         // 利用label和break label来实现python的for else和while else
