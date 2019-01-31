@@ -1,21 +1,23 @@
 package java_reference_chapter_01;
 
+import java.util.Arrays;
+
 public class C11_Arrays {
 
     // Practice of finding primes with The Sieve of Eratosthenes
     /** Returns an array, p, of size N+1 such that p[k] is true iff
       * k is a prime. */
     public static boolean[] primes (int n) {
-        boolean[] sieve = new boolean[n + 1];  // a list of boolean length at n+1, initialized list will be all false!
+        boolean[] prime_sieve = new boolean[n + 1];  // a list of boolean length at n+1, initialized list will be all false!
         // All entries are initially true.
-        sieve[0] = sieve[1] = true;
-        sieve[2] = false;
+        Arrays.fill(prime_sieve, true);
+        prime_sieve[0] = prime_sieve[1] = false;
         for (int k = 2; k * k <= n; k += 1) {
             for (int j = k * k; j <= n; j += k) {
-                sieve[j] = true;
+                prime_sieve[j] = false;
             }
         }
-        return sieve;
+        return prime_sieve;
     }
 
     public static void main(String[] args) {
@@ -31,7 +33,7 @@ public class C11_Arrays {
         boolean[] S = primes(20);
         int i = 0;
         while (i != S.length) {
-            if (!S[i]) {
+            if (S[i]) {
                 System.out.println(i);
             }
             i += 1;
