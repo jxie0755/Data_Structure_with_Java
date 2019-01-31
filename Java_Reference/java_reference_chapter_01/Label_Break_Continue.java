@@ -1,15 +1,17 @@
 package java_reference_chapter_01;
 
-public class Loop_Else {
+public class Label_Break_Continue {
     public static void main(String[] args) {
+
+        // 利用label和break label来实现python的for else和while else
         System.out.println("for...else...");
-        loop1: {   // label the loop
+        for_loop_1: {   // label the loop
             for (int x=0; x <= 5; x = x+1) {
                 System.out.println(x);
                 if (x == 3) {
                     System.out.print("found ");
                     System.out.println(x);
-                    break loop1;                // 注意这里break是break整个label而不是break for loop
+                    break for_loop_1;                // 注意这里break是break整个label而不是break for loop
                 }
             }
             System.out.println("found no number");  // 所以这行就被忽略了, 因为整个label内的内容都被终止了
@@ -21,13 +23,13 @@ public class Loop_Else {
         //3
         //found 3
 
-        loop2: {
+        for_loop_2: {
             for (int x=0; x <= 5; x = x+1) {
                 System.out.println(x);
                 if (x == 6) {
                     System.out.print("found ");
                     System.out.println(x);
-                    break loop2;
+                    break for_loop_2;
                 }
             }
             System.out.println("found no number");
@@ -42,14 +44,14 @@ public class Loop_Else {
 
         System.out.println();
         System.out.println("while...else...");
-        loop2: {   // label name can repeat
+        while_loop_1: {   // label name can repeat
             int x = 0;
             while (x <= 5) {
                 System.out.println(x);
                 if (x == 3) {
                     System.out.print("found ");
                     System.out.println(x);
-                    break loop2;
+                    break while_loop_1;
                 }
                 x = x + 1;
             }
@@ -62,14 +64,14 @@ public class Loop_Else {
         //3
         //found 3
 
-        label: {
+        while_loop_2: {
             int x = 0;
             while (x <= 5) {
                 System.out.println(x);
                 if (x == 6) {
                     System.out.print("found ");
                     System.out.println(x);
-                    break label;
+                    break while_loop_2;
                 }
                 x = x + 1;
             }
@@ -83,7 +85,8 @@ public class Loop_Else {
         //5
         //found no number
 
-        // 扩展: 一次break多个loop
+
+        // 扩展: break label一次break多个loop
         multiloop: {
             for (int x=0; x <= 5; x = x+1) {
                 System.out.println(x);
@@ -116,6 +119,24 @@ public class Loop_Else {
                 System.out.print("already break");
             }
         }
+        // >>>
+        // 0
+        // ABC
+
+        // Continue则是跳过当前循环节,进入下一个循环
+        for (int i = 0; i <= 50; i += 10) {
+            if (i == 30) {
+                continue;
+            } else {
+                System.out.println(i);
+            }
+        }
+        // >>>
+        // 0
+        // 10
+        // 20   // 30被跳过
+        // 40
+        // 50
     }
 }
 
