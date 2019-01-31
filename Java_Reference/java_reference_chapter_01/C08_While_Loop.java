@@ -1,6 +1,6 @@
 package java_reference_chapter_01;
 
-public class While_Loop {
+public class C08_While_Loop {
     public static void main(String[] args) {
 
         System.out.println("while loop 1: ");
@@ -42,6 +42,32 @@ public class While_Loop {
             //3
             //4
         }
+
+
+        // do-while loop
+        int response = 0;
+        do {
+            System.out.println ("reponse is now: " + response);
+            response += 1;
+        } while (response != 5);
+        // >>>
+        // reponse is now: 0
+        // reponse is now: 1
+        // reponse is now: 2
+        // reponse is now: 3
+        // reponse is now: 4
+
+
+        // This won't work
+        // while (false) {
+        //     System.out.println ("Hello!");
+        // }
+
+        // This prints at lease once Hello
+        do {
+            System.out.println ("Hello!");
+        } while (false);
+
     }
 }
 
@@ -49,4 +75,5 @@ public class While_Loop {
  * while loop is more like python, define indicator outside
  * java中,int和boolean不同, 所以不能while(0)或者while(1)
  * Use break the same way
+ * 只有do-while loop, 没有do-for loop
  */
