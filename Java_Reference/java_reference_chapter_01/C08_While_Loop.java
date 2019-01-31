@@ -45,6 +45,8 @@ public class C08_While_Loop {
 
 
         // do-while loop
+        // 对于 while 语句而言，如果不满足条件，则不能进入循环
+        // 但有时候我们需要即使不满足条件，也至少执行一次
         int response = 0;
         do {
             System.out.println ("reponse is now: " + response);
