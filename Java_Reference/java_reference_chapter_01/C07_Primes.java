@@ -1,5 +1,7 @@
 package java_reference_chapter_01;
 
+// 1.6
+
 public class C07_Primes {
 
     /**Print all prime numbers smaller than x*/
@@ -18,7 +20,7 @@ public class C07_Primes {
 
     }
 
-
+    // Use of two methods
     private static boolean isPrime(int x) {
         if (x == 2) {
             return true;
@@ -33,13 +35,15 @@ public class C07_Primes {
     }
 
     private static void primes_2 (int x) {
-                for (int i = 2; i <= x; i = i + 1) {
-                    if (isPrime(i)) {
-                        System.out.print(i + " ");
-                    }
-                }
+        for (int i = 2; i <= x; i = i + 1) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
             }
+        }
+    }
 
+
+    // Main
     public static void main(String[] args) {
 
         System.out.println("From loop in main: ");
