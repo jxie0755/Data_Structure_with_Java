@@ -5,6 +5,8 @@ import java.util.List;   // ArrayList 属于List Class旗下的subclass
 public class List_Array {
     public static void main(String[] args) {
         List<Integer> l1 = new ArrayList(3);   // Initial capacity 只是内存占用,并不影响实际长度
+                                                          // 如果没有initialCapacity参数则默认为10
+                                                          // tips: 在新建一个ArrayList时可以预估需要的大小,可以避免在使用ArrayList时多次扩容。
 
         l1.add(5);
         l1.add(6);
@@ -19,6 +21,7 @@ public class List_Array {
         System.out.println(l1.size());  // >>> 5    not full length
 
         List<String> l2 = new ArrayList(3);   // String list原理完全相同
+        System.out.println(l2.ca);
 
     }
 }
@@ -35,8 +38,11 @@ public class List_Array {
     * 比如说int[] a = new int[3]; 或者 int[] a = new int[]{1,2,3};
     * 如果我们仅仅写int[] a=new int[]; 编译器就会无情地给我们报错。
 
- * List由于空间不必连续，所以无须指定初始大小
-
+ * ArryList由于空间不必连续，所以无须指定初始大小,但是它有个initial capacity的概念
+    * Java ArrayList do not provide a way to access its current capacity.
+    * You can only construct an ArrayList specifying an initial capacity or increase the capacity by calling ensureCapacity().
+    * Expanding the capacity of an ArrayList is slow.
+        * To avoid this, estimate how many elements are needed and construct an ArrayList of that many plus some extra
 
     * 总结1： 当不确定大小时，最好使用List代替Array。
     * 总结2： 当需要大量的查找操作时，最好使用Array。
