@@ -24,7 +24,6 @@ public class List_and_Array {
         System.out.println(l1.size());  // >>> 5    not full length
 
         List<String> l2 = new ArrayList(3);   // String list原理完全相同
-        System.out.println(l2.ca);
 
     }
 }

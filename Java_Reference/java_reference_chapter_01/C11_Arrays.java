@@ -27,6 +27,12 @@ public class C11_Arrays {
         System.out.println(A);  // >>> [I@1e643faf   // Does not print out A
         System.out.println(A.length);  // >>> 3
 
+        System.out.println(A[0]);            // >>> 1
+        System.out.println(A[1]);            // >>> 1
+        System.out.println(A[A.length-1]);   // >>> 1
+        // System.out.println(A[-1]);            // negative index is not allowed in java as in python
+
+
         A = new int[100];  // this create a new int list of length at 100
         System.out.println(A.length);  // >>> 100
 

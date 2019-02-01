@@ -7,13 +7,34 @@ public class C12_Array_Grid {
 
         // two dimentional grid
         int[][] A = {
-                { 1, 3, 5, 7 },
-                { 2, 5, 8, 11 },
-                { 3, 7, 11, 15 }
+                {1, 3, 5, 7},    // 0
+                {2, 5, 8, 11},   // 1
+                {3, 7, 11, 15}   // 2
+                //0  1   2  3
         };
 
+        System.out.println(A[1][2]);  // >>> 8  第1行第2个
 
     }
+
+    // Build a Pascal Triangle
+    public static int[][] Pascal(int N) {
+
+        int[][] result = new int[N][];  // Create array of N initially null rows.
+                                        // Does not need length for sub arrays
+
+        for (int i = 0; i < N; i += 1) {
+
+            result[i] = new int[i + 1];       // Build an empty row with length
+            result[i][0] = result[i][i] = 1;  // The ends of the row are 1.
+
+            for (int j = 1; j < i; j += 1)
+                result[i][j] = result[i - 1][j - 1] + result[i - 1][j];  // 上一行相邻两数相加
+        }
+        return result;
+    }
+
+
 }
 
 
