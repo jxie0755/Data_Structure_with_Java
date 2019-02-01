@@ -1,6 +1,6 @@
 package java_reference_chapter_01;
 
-import java.util.Arrays;
+import java.util.Arrays;  // Array并不是列表
 
 public class C11_Arrays {
 
