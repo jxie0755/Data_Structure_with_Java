@@ -49,4 +49,6 @@ public class List_and_Array {
 
     * 总结1： 当不确定大小时，最好使用List代替Array。
     * 总结2： 当需要大量的查找操作时，最好使用Array。
+
+    * Addtional: 在JKD1.6中实现是，如果通过无参构造的话，初始数组容量为10，每次通过copeOf的方式扩容后容量为原来的1.5倍
  */
