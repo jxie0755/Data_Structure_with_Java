@@ -23,7 +23,7 @@ public class C11_Arrays {
     public static void main(String[] args) {
         int[] A;
         // System.out.println(A);  Not initialized, only created a null point (linked list)
-        A = new int[]{1, 2, 3};
+        A = new int[]{1, 2, 3};   // 必须填充一些内容或者给出长度
         System.out.println(A);  // >>> [I@1e643faf   // Does not print out A
         System.out.println(A.length);  // >>> 3
 
