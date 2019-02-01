@@ -54,6 +54,11 @@ public class C11_Arrays {
         // 17
         // 19
 
+        // int T[] = new int[3]{1,2,3};
+        // Error:(57, 29) java: array creation with both dimension expression and initialization is illegal
+
+        int T[] = new int[]{1,2,3};  // This expression will also work
+        System.out.println(T[1]);  // >>> 2
 
     }
 
