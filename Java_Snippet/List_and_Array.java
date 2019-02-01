@@ -2,8 +2,11 @@ import java.util.ArrayList;
 import java.util.List;   // ArrayList 属于List Class旗下的subclass
 
 
-public class List_Array {
+public class List_and_Array {
     public static void main(String[] args) {
+
+
+        // This is to understand the difference between ArrayList and Array
         List<Integer> l1 = new ArrayList(3);   // Initial capacity 只是内存占用,并不影响实际长度
                                                           // 如果没有initialCapacity参数则默认为10
                                                           // tips: 在新建一个ArrayList时可以预估需要的大小,可以避免在使用ArrayList时多次扩容。
