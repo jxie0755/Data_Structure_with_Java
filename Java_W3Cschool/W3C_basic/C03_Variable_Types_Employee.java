@@ -25,12 +25,17 @@ public class C03_Variable_Types_Employee {
         C03_Variable_Types_Employee empOne = new C03_Variable_Types_Employee("Denis");
         empOne.setSalary(1000);
         empOne.printEmp();
+        // empOne.DEPARTMENT = "Lab";  DEPARTMENT is static, can not be re-write in instance
+
         // >>>
         // name  : Denis
         // salary :1000.0
 
         System.out.println(DEPARTMENT);  // >>>  Development
+
+        // For other Class to visit
         System.out.println(C03_Variable_Types_Employee.DEPARTMENT); // >>> Development
+        // For instance to vist
         System.out.println(empOne.DEPARTMENT);                      // >>>  Development
     }
 
