@@ -36,7 +36,5 @@ public class C03_Variable_Types {
         * 局部变量没有默认值，所以局部变量被声明后，必须经过初始化，才可以使用。
 
      * 实例变量 - 见C03_Variable_Types_Employee
-
-
-     * 类变量
+     * 类变量   - 见C03_Variable_Types_Employee
  */

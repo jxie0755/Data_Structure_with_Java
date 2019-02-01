@@ -5,6 +5,8 @@ public class C03_Variable_Types_Employee {
     public String name;  // 这个成员变量对子类可见
     private double salary;  // 私有变量，仅在该类可见
 
+    public static final String DEPARTMENT = "Development ";  // DEPARTMENT是一个常量
+
     public C03_Variable_Types_Employee (String empName){ //在构造器中对name赋值
         name = empName;
     }
@@ -26,6 +28,10 @@ public class C03_Variable_Types_Employee {
         // >>>
         // name  : Denis
         // salary :1000.0
+
+        System.out.println(DEPARTMENT);  // >>>  Development
+        System.out.println(C03_Variable_Types_Employee.DEPARTMENT); // >>> Development
+        System.out.println(empOne.DEPARTMENT);                      // >>>  Development
     }
 
 }
