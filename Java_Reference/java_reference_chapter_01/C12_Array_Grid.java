@@ -18,10 +18,12 @@ public class C12_Array_Grid {
     }
 
     // Build a Pascal Triangle
+    // https://stackoverflow.com/questions/54482724/java-pascal-triangle-initialization-question
     public static int[][] Pascal(int N) {
 
         int[][] result = new int[N][];  // Create array of N initially null rows.
                                         // Does not need length for sub arrays
+        // Because result is an [] of int[], so we only statement one length of the big array
 
         for (int i = 0; i < N; i += 1) {
 
@@ -33,8 +35,6 @@ public class C12_Array_Grid {
         }
         return result;
     }
-
-
 }
 
 
