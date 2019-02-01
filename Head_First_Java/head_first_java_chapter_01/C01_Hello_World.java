@@ -1,0 +1,9 @@
+package head_first_java_chapter_01;
+
+
+public class C01_Hello_World {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+
