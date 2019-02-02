@@ -5,7 +5,7 @@ import java_reference_chapter_01.C07_Primes;
 public class C04_OOP_Dog {
     String name;
     String breed;
-    String color = "white";  // 初始化的时候直接用这里的值作为默认
+    String color = "White";  // 初始化的时候直接用这里的值作为默认
     int age;  // 若不说默认则为0
 
     // Initialization  等同于python __init__
@@ -37,8 +37,8 @@ public class C04_OOP_Dog {
     }
 
     public int getAge(){
-       return age;
-   }
+        return age;
+    }
 
 
     public static void main(String[] args) {
