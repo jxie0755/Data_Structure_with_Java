@@ -3,16 +3,18 @@ package W3C_basic;
 import java_reference_chapter_01.C07_Primes;
 
 public class C04_OOP_Dog {
+    String name;
     String breed;
     String color = "white";  // 初始化的时候直接用这里的值作为默认
     int age;  // 若不说默认则为0
 
     // Initialization  等同于python __init__
     public C04_OOP_Dog(String name){
+        this.name = name;
         System.out.println("Dog " + name + " is created");
     }
 
-    // 两个个方法
+    // 三个方法
     void barking(){
         System.out.println("Woo Woo!");
     }
@@ -22,6 +24,12 @@ public class C04_OOP_Dog {
         System.out.println("I am hungry!");
     }
 
+    public void printinfo(){
+       System.out.println("Name: " + this.name);
+       System.out.println("Age: " + this.age);
+       System.out.println("Breed: " + this.breed);
+       System.out.println("Color: " + this.color);
+   }
 
     // set and get
     public void setAge (int new_age) {
@@ -50,6 +58,14 @@ public class C04_OOP_Dog {
         System.out.println(d1.age);    // >>> 0          int 缺省为0
         d1.setAge(5);
         System.out.println(d1.age);  // >>> 5
+
+        d1.printinfo();
+        // >>>
+        // Name: Jackie
+        // Age: 5
+        // Breed: null
+        // Color: white
+
 
         // 引用另一个包里的类才需要import
         C03_Variable_Types_Employee new_worker = new C03_Variable_Types_Employee ("Denis");
