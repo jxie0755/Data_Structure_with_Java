@@ -3,12 +3,14 @@ package W3C_basic;
 import java_reference_chapter_01.C07_Primes;
 
 public class C04_OOP_Dog {
+
+    // 类变量其实也是init的一部分
     String name;
     String breed;
     String color = "White";  // 初始化的时候直接用这里的值作为默认
     int age;  // 若不说默认则为0
 
-    // Initialization  等同于python __init__
+    // Initialization  等同于python __init__, 但是如果创立时不需要特别指定参数,可以不写
     public C04_OOP_Dog(String name){
         this.name = name;
         System.out.println("Dog " + name + " is created");
@@ -16,7 +18,7 @@ public class C04_OOP_Dog {
 
     // 三个方法
     void barking(){
-        System.out.println("Woo Woo!");
+        System.out.println(this.name + ": Woo Woo!");
     }
 
     void hungry(){
@@ -70,6 +72,9 @@ public class C04_OOP_Dog {
         // 引用另一个包里的类才需要import
         C03_Variable_Types_Employee new_worker = new C03_Variable_Types_Employee ("Denis");
         C07_Primes new_primes = new C07_Primes();
+
+        Cat cat_1 = new Cat("Garfield");
+        cat_1.sound();
     }
 }
 
@@ -92,3 +97,21 @@ public class C04_OOP_Dog {
  * 类有若干种访问级别，并且类也分不同的类型：抽象类和final类等。这些将在访问控制章节介绍。
  * 除了上面提到的几种类型，Java还有一些特殊的类，如：内部类、匿名类。
  */
+
+
+
+class Cat {
+    String name;
+
+    public Cat(String name){
+        this.name = name;
+    }
+
+    void sound(){
+        System.out.println(this.name + ": Meow Meow!");
+    }
+
+    public static void main(String[] args) {
+
+    }
+    }

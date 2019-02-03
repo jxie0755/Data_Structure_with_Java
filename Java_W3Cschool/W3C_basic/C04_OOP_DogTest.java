@@ -33,6 +33,9 @@ public class C04_OOP_DogTest {
         // Age: 3
         // Breed: Poodle
         // Color: white
+
+        Cat cat_2 = new Cat("Tom");
+        cat_2.sound();
     }
 }
 
