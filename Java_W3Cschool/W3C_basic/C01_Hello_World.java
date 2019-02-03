@@ -7,7 +7,16 @@ public class C01_Hello_World {
     public static void main(String []args) {
        System.out.println("Hello World"); // 打印 Hello World
     }
+    /*
+     * public：代表着该函数访问权限是最大的
+     * static：代表主函数随着类的加载就已经存在了
+     * void：主函数没有具体的返回值
+     * main：不是关键字，但是一个特殊的单词，能够被JVM识别
+     * （String[] args）：函数的参数，参数类型是一个数组，该数组中的元素师字符串，字符串数组。main(String[] args) 字符串数组的 此时空数组的长度是0，但也可以在 运行的时候向其中传入参数。
+     */
 }
+
+
 
 /*
  * 编写Java程序时，应注意以下几点：
