@@ -72,9 +72,6 @@ public class C04_OOP_Dog {
         // 引用另一个包里的类才需要import
         C03_Variable_Types_Employee new_worker = new C03_Variable_Types_Employee ("Denis");
         C07_Primes new_primes = new C07_Primes();
-
-        Cat cat_1 = new Cat("Garfield");
-        cat_1.sound();
     }
 }
 
@@ -98,20 +95,3 @@ public class C04_OOP_Dog {
  * 除了上面提到的几种类型，Java还有一些特殊的类，如：内部类、匿名类。
  */
 
-
-
-class Cat {
-    String name;
-
-    public Cat(String name){
-        this.name = name;
-    }
-
-    void sound(){
-        System.out.println(this.name + ": Meow Meow!");
-    }
-
-    public static void main(String[] args) {
-
-    }
-    }
