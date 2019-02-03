@@ -1,3 +1,4 @@
+import W3C_basic.C05_OOP_Private;
 import W3C_basic.C05_OOP_Public_A;
 import W3C_basic.C05_OOP_Static;
 
@@ -20,6 +21,13 @@ public class OOP_Test_Another_Source {
         C05_OOP_Static.foo();                          // 同上
         // System.out.println(C05_OOP_Static.barrr);   // 由于barrr不是static所以不行
         // C05_OOP_Static.fooo_barrr();                // 同上
+
+
+        // Test private  // (只测实例,因为static已经是类专用)
+        C05_OOP_Private AAA = new C05_OOP_Private();
+        // System.out.println(AAA.Priv);  // private的话,就算同包类的类中建造一个实例都不行
+        // System.out.println(AAA.Def_NotPriv);  // >>> This is not private  // 另一个源中,default不行
+        System.out.println(AAA.Pub_NotPriv);  // >>> This is not private  // 同包类,public当然也就可以
     }
 }
 
