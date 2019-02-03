@@ -1,6 +1,6 @@
 package W3C_basic;
 
-// Learn multi class in one file
+// Learn public class in a .java file
 
 public class C05_OOP_A {
 
@@ -31,4 +31,6 @@ class C05_OOP_C {
         * 同源中上一级的包中的类
         * 同源同包中下一级包的类
         * 不同源的类
+
+ * import 只能导入包所包含的类，而不能导入包。 为方便起见，我们一般不导入单独的类，而是导入包下所有的类，例如 import java.util.*;。
  */
