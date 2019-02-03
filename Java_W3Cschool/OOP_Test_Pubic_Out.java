@@ -40,6 +40,7 @@ public class OOP_Test_Pubic_Out {
         // Sub_Out.def_test();
         // Sub_Out.pri_test();
         // Sub_Out.prot_test();
+        // Sub_Out.fin_test();  // final在外包也不能运行
     }
 }
 
@@ -56,6 +57,7 @@ class C05_OOP_Out_Sub extends C05_OOP_Public_A {
         // Sub_Out.def_test();
         // Sub_Out.pri_test();
         Sub_Out.prot_test();    // 在包外子类的实例中就可以访问protected
+        // Sub_Out.fin_test();  // final在外包子类也不能运行
 
 
         //但是如果在保外子类main建立一个父类实例 (则只能访问public)
@@ -64,5 +66,6 @@ class C05_OOP_Out_Sub extends C05_OOP_Public_A {
         // A_special.def_test();
         // A_special.pri_test();
         // A_special.prot_test();    // 在包外子类的实例中就可以访问protected
+        // A_special.fin_test();     // 父类实例final在外包也不能运行
     }
 }

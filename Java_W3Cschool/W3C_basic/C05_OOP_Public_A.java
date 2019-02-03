@@ -4,6 +4,14 @@ package W3C_basic;
 
 public class C05_OOP_Public_A {
 
+    final String fin;
+    String notfin;
+
+    public C05_OOP_Public_A (){
+        this.fin = "This is final";
+        this.notfin = "This is not final";
+    }
+
     class C05_OOP_Internal_B {
 
     }
@@ -33,10 +41,26 @@ public class C05_OOP_Public_A {
         System.out.println("This is protected method test");
     }
 
+    // final方法
+    final String fin_test() {
+        return "This is final method test";
+    }
+
+
 
     // main必须是public
     public static void main(String[] args) {
         // C05_OOP_Internal_B B = new C05_OOP_Internal_B();  // 内部类不能被static main访问, 甚至不能被造实例
+
+        // test final
+        C05_OOP_Public_A A_final = new C05_OOP_Public_A();
+
+        System.out.println(A_final.fin);  // >>> This is final
+        // A_final.fin = "fin Changed";   // can't change final       (set方法同样也是不行)
+
+        System.out.println(A_final.notfin);  // >>> This is not final
+        A_final.notfin = "notfin Changed";
+        System.out.println(A_final.notfin);        // >>> notfin Changed
     }
 }
 
@@ -46,6 +70,12 @@ class C05_OOP_Not_Public_C {
     // default类，在同一包内可见，不使用任何修饰符。
 }
 
+// final类
+final class C05_OOP_Not_Public_final_C {
+
+}
+
+// class sub_final extends C05_OOP_Not_Public_final_C {} // final类不可继承
 
 
 /*
@@ -83,4 +113,11 @@ class C05_OOP_Not_Public_C {
         * 不同源的类
 
  * import 只能导入包所包含的类，而不能导入包。 为方便起见，我们一般不导入单独的类，而是导入包下所有的类，例如 import java.util.*;。
+ */
+
+/*
+ * final
+     * 被声明为final的变量必须在声明时给定初值（当然，空白final可以延迟到构造器中赋值），
+     * 而且被修饰的变量不能修改值。当修饰类时，该类不能派生出子类
+     * 修饰方法时，该方法不能被子类覆盖
  */

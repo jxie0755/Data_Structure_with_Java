@@ -39,6 +39,7 @@ public class C05_OOP_Mirror {
         Sub_In.def_test();
         // Sub_In.pri_test();
         Sub_In.prot_test();
+        Sub_In.fin_test();  // 被ignore了
     }
 }
 
@@ -54,6 +55,7 @@ class C05_OOP_Sub extends C05_OOP_Public_A {   // 继承Public_A
         Sub_In.def_test();
         // Sub_In.pri_test();
         Sub_In.prot_test();
+        Sub_In.fin_test();  // 被ignore了
 
 
         //但是如果在main建立一个父类实例 (由于同包, 只有private不行,其他都行)
