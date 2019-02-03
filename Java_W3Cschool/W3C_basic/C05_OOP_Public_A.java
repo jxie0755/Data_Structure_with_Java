@@ -8,19 +8,41 @@ public class C05_OOP_Public_A {
 
     }
 
-    public void test() {
+    public void internal_test() {
         C05_OOP_Internal_B B = new C05_OOP_Internal_B();  // 内部类只能在外部类中non static时使用
     }
 
+
+    // public 方法
+    public void pub_test() {
+        System.out.println("This is pubic method test");
+    }
+
+    // 缺省default方法
+    void def_test() {
+        System.out.println("This is default method test");
+    }
+
+    // private方法
+    private void pri_test () {
+        System.out.println("This is private method test");
+    }
+
+
+    // main必须是public
     public static void main(String[] args) {
         // C05_OOP_Internal_B B = new C05_OOP_Internal_B();  // 内部类不能被static main访问, 甚至不能被造实例
 
     }
 }
 
+
+// default类
 class C05_OOP_Not_Public_C {
     // default类，在同一包内可见，不使用任何修饰符。
 }
+
+
 
 /*
  * 这样会产生两个.class文件:
@@ -28,6 +50,16 @@ class C05_OOP_Not_Public_C {
     * C05_OOP_Multi_C.class
     * B 没有被生成
  */
+
+
+/*
+ * 对于类, 只有public和default两个概念, 没有private类,因为类就是为了被人引用的才造出来的
+ * 而对于方法和变量, 有分public, default, private三种类型, 因为这些东西可以被:
+    * public: 任何外部使用
+    * default: 同包内使用
+    * private: 仅本类使用
+ */
+
 
 /*
  * 一个.java最多只能有一个public类, 且public类必须与文件同名
