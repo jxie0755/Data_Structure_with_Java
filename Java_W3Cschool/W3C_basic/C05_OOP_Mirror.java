@@ -1,6 +1,6 @@
 package W3C_basic;
 
-public class C05_OOP_A_Mirror {
+public class C05_OOP_Mirror {
     public static void main(String[] args) {
 
         // Test public
