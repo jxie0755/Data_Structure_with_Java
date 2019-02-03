@@ -1,7 +1,7 @@
 package W3C_basic;
 
 // Learn static
-public class C05_OOP_AA {
+public class C05_OOP_Static {
 
     //变量
     public static String fooo = "fooo!!";  //变量必须为static才能在static main中运行
@@ -23,7 +23,7 @@ public class C05_OOP_AA {
         System.out.println(fooo);       // 直接可以出!!!
 
         // System.out.println(barrr);       // not static 不能出
-        C05_OOP_AA bar_out = new C05_OOP_AA();
+        C05_OOP_Static bar_out = new C05_OOP_Static();
         System.out.println(bar_out.barrr);  // 怎么办? 造一个实例就可以出
 
         foo();

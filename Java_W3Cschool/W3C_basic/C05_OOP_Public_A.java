@@ -2,29 +2,29 @@ package W3C_basic;
 
 // Learn public class in a .java file
 
-public class C05_OOP_A {
+public class C05_OOP_Public_A {
 
-    class C05_OOP_B {
+    class C05_OOP_Internal_B {
 
     }
 
     public void test() {
-        C05_OOP_B BBB = new C05_OOP_B();  // 内部类只能在外部类中non static时使用
+        C05_OOP_Internal_B BBB = new C05_OOP_Internal_B();  // 内部类只能在外部类中non static时使用
     }
 
     public static void main(String[] args) {
-        // C05_OOP_B BBB = new C05_OOP_B();  // 内部类不能被static main访问
+        // C05_OOP_Internal_B BBB = new C05_OOP_Internal_B();  // 内部类不能被static main访问
 
     }
 }
 
-class C05_OOP_C {
+class C05_OOP_Not_Public_C {
     // default类，在同一包内可见，不使用任何修饰符。
 }
 
 /*
  * 这样会产生两个.class文件:
-    * C05_OOP_A.class
+    * C05_OOP_Public_A.class
     * C05_OOP_Multi_C.class
     * B 没有被生成
  */
