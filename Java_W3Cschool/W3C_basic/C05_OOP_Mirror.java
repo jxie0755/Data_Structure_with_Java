@@ -47,12 +47,14 @@ public class C05_OOP_Mirror {
 class C05_OOP_Sub extends C05_OOP_Public_A {   // 继承Public_A
 
     public static void main(String[] args) {
+
         // Test 同包子类环境 (子类实例, 由于同包, 只有private不行,其他都行)
         C05_OOP_Sub Sub_In = new C05_OOP_Sub();
         Sub_In.pub_test();
         Sub_In.def_test();
         // Sub_In.pri_test();
         Sub_In.prot_test();
+
 
         //但是如果在main建立一个父类实例 (由于同包, 只有private不行,其他都行)
         C05_OOP_Public_A A_special = new C05_OOP_Public_A();

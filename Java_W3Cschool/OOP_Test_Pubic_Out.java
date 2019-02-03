@@ -58,7 +58,7 @@ class C05_OOP_Out_Sub extends C05_OOP_Public_A {
         Sub_Out.prot_test();    // 在包外子类的实例中就可以访问protected
 
 
-        //但是如果在main建立一个父类实例 (只能访问public)
+        //但是如果在保外子类main建立一个父类实例 (则只能访问public)
         C05_OOP_Public_A A_special = new C05_OOP_Public_A();
         A_special.pub_test();
         // A_special.def_test();
