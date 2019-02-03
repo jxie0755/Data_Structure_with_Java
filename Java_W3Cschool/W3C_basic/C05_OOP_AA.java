@@ -1,7 +1,6 @@
 package W3C_basic;
 
 // Learn Static
-
 public class C05_OOP_AA {
 
     //变量
@@ -11,7 +10,7 @@ public class C05_OOP_AA {
     public static void foo() {   // 必须要static, 不然static main无法运行
         System.out.println("foo");
         System.out.println(fooo);
-        // System.out.println(fooo);
+        // System.out.println(barrr);
     }
 
     public void fooo_barrr() {
@@ -30,24 +29,24 @@ public class C05_OOP_AA {
         foo();
         // fooo_barrr();                // not static
         bar_out.fooo_barrr();           // 怎么办? 造一个实例就可以出
-
-
-
     }
-
 }
 
 
 
 /*
- * 默认访问修饰符-不使用任何关键字
-    * 使用默认访问修饰符声明的变量和方法，对同一个包内的类是可见的。
+ * static
     * static修饰符，用来创建类方法和类变量。
+    * 本质上static就是区分实例可用还是类可用
+        * static就是实例+类均可用
+        * 非static就是必须被实例用,不能被类用
+
     * 本类中:
-        * static main 必须运行static的方法和变量
         * static 的方法 必须运行static的方法和变量
+            * (原因很简单, static说明它必须提前加载,所以它用的东西也都是可以提前被加载的,否则会引起冲突)
         * 非static的方法可以运行static或者非static的方法和变量
-    * 其他类中:
+            * (因为它只能被实例所用,能不能提前加载就无所谓了)
+    * 其他类中其实同理:
         * 不管类在哪,只要是public类的public方法和public变量就可以被import但是:
             * static可以直接call类
             * 非static必须要建造一个实例才行
