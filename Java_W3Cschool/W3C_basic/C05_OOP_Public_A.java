@@ -53,7 +53,8 @@ class C05_OOP_Not_Public_C {
 
 
 /*
- * 对于类, 只有public和default两个概念, 没有private类,因为类就是为了被人引用的才造出来的
+ * 对于类(外部类), 只有public和default两个概念, 没有private类,因为类就是为了被人引用的才造出来的
+ * 对于(内部类) 是可以private的, 甚至可以protected
  * 而对于方法和变量, 有分public, default, private三种类型, 因为这些东西可以被:
     * public: 任何外部使用
     * default: 同包内使用

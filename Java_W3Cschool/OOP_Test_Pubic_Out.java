@@ -1,7 +1,9 @@
 import W3C_basic.C05_OOP_Public_A;
 import W3C_basic.C05_OOP_Static;
 
-public class OOP_Test_Pubic_Above {
+// 提供一个包外环境, 测试修饰符public, private, default, protected
+
+public class OOP_Test_Pubic_Out {
     public static void main(String[] args) {
 
         // Test public
