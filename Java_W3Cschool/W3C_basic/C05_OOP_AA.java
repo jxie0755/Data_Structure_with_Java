@@ -1,6 +1,6 @@
 package W3C_basic;
 
-// Learn static
+// Learn static in class
 public class C05_OOP_AA {
 
     //变量
