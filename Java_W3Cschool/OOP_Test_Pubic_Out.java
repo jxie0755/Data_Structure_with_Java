@@ -4,6 +4,7 @@ import W3C_basic.C05_OOP_Static;
 // 提供一个包外环境, 测试修饰符public, private, default, protected
 
 public class OOP_Test_Pubic_Out {
+
     public static void main(String[] args) {
 
         // Test public
@@ -14,6 +15,7 @@ public class OOP_Test_Pubic_Out {
         A.pub_test();    // public任何地方都可以
         // A.def_test();    // default不同包就不行行了
         // A.pri_test();  private的方法和变量只能本类中用, 同包类都不行
+        // A.prot_test();  // 不同包内, 如果没有继承关系protected相当于private和public
 
 
 
@@ -28,6 +30,39 @@ public class OOP_Test_Pubic_Out {
         C05_OOP_Static.foo();                          // 同上
         // System.out.println(C05_OOP_Static.barrr);   // 由于barrr不是static所以不行
         // C05_OOP_Static.fooo_barrr();                // 同上
+
+
+
+        // 注意, 这里和下面不同是因为这里并不是子类的main,
+        // 而是包外非子类的main中建立了一个包外子类的实例, 这里的访问同样限制在public
+        C05_OOP_Out_Sub Sub_Out = new C05_OOP_Out_Sub();
+        Sub_Out.pub_test();
+        // Sub_Out.def_test();
+        // Sub_Out.pri_test();
+        // Sub_Out.prot_test();
     }
 }
 
+
+// 提供一个包外子类环境, 测试修饰符public, private, default, protected
+class C05_OOP_Out_Sub extends C05_OOP_Public_A {
+
+    public static void main(String[] args) {
+
+        // Test 不同包子类环境
+        // 子类中建立一个子类的实例
+        C05_OOP_Out_Sub Sub_Out = new C05_OOP_Out_Sub();
+        Sub_Out.pub_test();
+        // Sub_Out.def_test();
+        // Sub_Out.pri_test();
+        Sub_Out.prot_test();    // 在包外子类的实例中就可以访问protected
+
+
+        //但是如果在main建立一个父类实例 (只能访问public)
+        C05_OOP_Public_A A_special = new C05_OOP_Public_A();
+        A_special.pub_test();
+        // A_special.def_test();
+        // A_special.pri_test();
+        // A_special.prot_test();    // 在包外子类的实例中就可以访问protected
+    }
+}

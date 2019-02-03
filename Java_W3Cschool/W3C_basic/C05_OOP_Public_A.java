@@ -15,7 +15,7 @@ public class C05_OOP_Public_A {
 
     // public 方法
     public void pub_test() {
-        System.out.println("This is pubic method test");
+        System.out.println("This is pubilc method test");
     }
 
     // 缺省default方法
@@ -26,6 +26,11 @@ public class C05_OOP_Public_A {
     // private方法
     private void pri_test () {
         System.out.println("This is private method test");
+    }
+
+    // protected方法
+    protected void prot_test () {
+        System.out.println("This is protected method test");
     }
 
 
@@ -55,10 +60,15 @@ class C05_OOP_Not_Public_C {
 /*
  * 对于类(外部类), 只有public和default两个概念, 没有private类,因为类就是为了被人引用的才造出来的
  * 对于(内部类) 是可以private的, 甚至可以protected
- * 而对于方法和变量, 有分public, default, private三种类型, 因为这些东西可以被:
+ * 而对于方法和变量, 有分public, default, private, protected四种类型, 因为这些东西可以被:
     * public: 任何外部使用
     * default: 同包内使用
     * private: 仅本类使用
+    * protected: 关键字所处理的是所谓“继承”的观念。
+        * 对于同一包的其他类，protected＝默认，其它类可访问protected.
+        * 对于 不同包的类，    如果存在继承关系，而baseClass存在protected属性，则可以被其自继承. 但
+            * 是子类实例可以访问其从基类继承而来的protected方法，而不能访问基类实例的protected方法。
+        * 但是 不同包的其他类  则不能访问类的protected属性。
  */
 
 
