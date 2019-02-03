@@ -74,7 +74,7 @@ public class C04_OOP_Dog {
         C07_Primes new_primes = new C07_Primes();
 
         C05_OOP_A AAA = new C05_OOP_A();
-        C05_OOP_Multi_C CCC = new C05_OOP_Multi_C();  // 不是public所以不能被import
+        C05_OOP_C CCC = new C05_OOP_C();  // 只能被同包中的另一个类import
     }
 }
 
