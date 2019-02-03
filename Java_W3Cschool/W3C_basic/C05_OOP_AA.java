@@ -38,8 +38,8 @@ public class C05_OOP_AA {
  * static
     * static修饰符，用来创建类方法和类变量。
     * 本质上static就是区分实例可用还是类可用
-        * static就是实例+类均可用
-        * 非static就是必须被实例用,不能被类用
+        * static就是实例+类均可用            (像是python中的类变量)
+        * 非static就是必须被实例用,不能被类用  (像是python中的实例变量)
 
     * 本类中:
         * static 的方法 必须运行static的方法和变量
