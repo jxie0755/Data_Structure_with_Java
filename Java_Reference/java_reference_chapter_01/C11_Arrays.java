@@ -1,6 +1,6 @@
 package java_reference_chapter_01;
 
-import java.util.Arrays;
+import java.util.Arrays;  // Array并不是列表
 
 public class C11_Arrays {
 
@@ -23,9 +23,15 @@ public class C11_Arrays {
     public static void main(String[] args) {
         int[] A;
         // System.out.println(A);  Not initialized, only created a null point (linked list)
-        A = new int[]{1, 2, 3};
+        A = new int[]{1, 2, 3};   // 必须填充一些内容或者给出长度
         System.out.println(A);  // >>> [I@1e643faf   // Does not print out A
         System.out.println(A.length);  // >>> 3
+
+        System.out.println(A[0]);            // >>> 1
+        System.out.println(A[1]);            // >>> 1
+        System.out.println(A[A.length-1]);   // >>> 1
+        // System.out.println(A[-1]);            // negative index is not allowed in java as in python
+
 
         A = new int[100];  // this create a new int list of length at 100
         System.out.println(A.length);  // >>> 100
@@ -48,6 +54,11 @@ public class C11_Arrays {
         // 17
         // 19
 
+        // int T[] = new int[3]{1,2,3};
+        // Error:(57, 29) java: array creation with both dimension expression and initialization is illegal
+
+        int T[] = new int[]{1,2,3};  // This expression will also work
+        System.out.println(T[1]);  // >>> 2
 
     }
 

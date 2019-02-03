@@ -36,6 +36,20 @@ public class C09_For_Loop {
             //3
             //4
         }
+
+        System.out.println("\n增强型for loop");
+        // for(声明语句 : 表达式)
+        String [] names = {"Denis", "Cindy", "Adrienne", "Simon"};
+        for (String name: names) {     // name的类型必须和数组元素类型一致
+            System.out.println(name);
+        }
+        // >>>
+        // Denis
+        // Cindy
+        // Adrienne
+        // Simon
+
+        // 等同于python的for i in interable
     }
 }
 
