@@ -9,12 +9,11 @@ public class C05_OOP_Public_A {
     }
 
     public void test() {
-        C05_OOP_Internal_B BBB = new C05_OOP_Internal_B();  // 内部类只能在外部类中non static时使用
+        C05_OOP_Internal_B B = new C05_OOP_Internal_B();  // 内部类只能在外部类中non static时使用
     }
 
     public static void main(String[] args) {
-        // C05_OOP_Internal_B BBB = new C05_OOP_Internal_B();  // 内部类不能被static main访问
-
+        // C05_OOP_Internal_B B = new C05_OOP_Internal_B();  // 内部类不能被static main访问, 甚至不能被造实例
     }
 }
 
