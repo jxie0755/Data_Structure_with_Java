@@ -9,7 +9,7 @@ public class C05_OOP_A {
     }
 
     public void test() {
-        C05_OOP_B BBB = new C05_OOP_B();  // 内部类只能在外围类中non static时使用
+        C05_OOP_B BBB = new C05_OOP_B();  // 内部类只能在外部类中non static时使用
     }
 
     public static void main(String[] args) {
