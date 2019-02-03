@@ -19,7 +19,7 @@ public class C05_OOP_A {
 }
 
 class C05_OOP_C {
-
+    // default类，在同一包内可见，不使用任何修饰符。
 }
 
 /*
