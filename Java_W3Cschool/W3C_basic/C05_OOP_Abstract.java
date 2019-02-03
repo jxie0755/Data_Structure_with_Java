@@ -26,6 +26,7 @@ abstract class C05_OOP_Abstract {
         // abs.print_name();                     // abstract类无法实例化
 
 
+        // 通过一个子类的实例就可以实现abstract类的方法和变量
         System.out.println("This is an abstract class's sub-class");
         Sub_Abstract A_sub = new Sub_Abstract("ABS");
         System.out.println(A_sub.show_name());   // >>> ABS
