@@ -5,7 +5,8 @@ public class C01_Hello_World {
     * 它将打印字符串 Hello World
     */
     public static void main(String []args) {
-       System.out.println("Hello World"); // 打印 Hello World
+
+        System.out.println("Hello World"); // 打印 Hello World
     }
     /*
      * public：代表着该函数访问权限是最大的
