@@ -72,6 +72,9 @@ public class C04_OOP_Dog {
         // 引用另一个包里的类才需要import
         C03_Variable_Types_Employee new_worker = new C03_Variable_Types_Employee ("Denis");
         C07_Primes new_primes = new C07_Primes();
+
+        C05_OOP_A AAA = new C05_OOP_A();
+        C05_OOP_Multi_C CCC = new C05_OOP_Multi_C();  // 不是public所以不能被import
     }
 }
 
