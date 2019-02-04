@@ -1,5 +1,3 @@
-package java_reference_chapter_01;
-
 public class C10_Label_Break_Continue {
     public static void main(String[] args) {
 

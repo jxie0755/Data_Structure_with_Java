@@ -1,5 +1,3 @@
-package java_reference_chapter_01;
-
 // 1.4
 
 public class C05_Conditional_If_Else {
