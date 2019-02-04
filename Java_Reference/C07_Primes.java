@@ -4,7 +4,7 @@ public class C07_Primes {
 
     /**Print all prime numbers smaller than x*/
                // void means do not return anything
-    private static void primes_1(int x) {
+    public static void primes_1(int x) {
         for (int i=2; i <= x; i += 1) {
             inner: {
                 for (int j = 2; j < (int)Math.pow(i, 0.5) + 1; j += 1) {
@@ -19,7 +19,7 @@ public class C07_Primes {
     }
 
     // Use of two methods
-    private static boolean isPrime(int x) {
+    public static boolean isPrime(int x) {
         if (x == 2) {
             return true;
         } else {
@@ -32,7 +32,7 @@ public class C07_Primes {
         return true;
     }
 
-    private static void primes_2 (int x) {
+    public static void primes_2 (int x) {
         for (int i = 2; i <= x; i = i + 1) {
             if (isPrime(i)) {
                 System.out.print(i + " ");
