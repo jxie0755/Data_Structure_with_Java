@@ -16,6 +16,7 @@ public class C04_OOP_Dog {
         System.out.println("Dog " + name + " is created");
     }
 
+
     // 三个方法
     void barking(){
         System.out.println(this.name + ": Woo Woo!");
