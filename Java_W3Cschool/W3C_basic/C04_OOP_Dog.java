@@ -1,6 +1,6 @@
 package W3C_basic;
 
-import cs61b_week_01.LargerDemo;
+import cs_61b.cs61b_week_01.LargerDemo;
 
 public class C04_OOP_Dog {
 
