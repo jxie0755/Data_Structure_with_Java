@@ -1,6 +1,6 @@
 package W3C_basic;
 
-import java_reference_chapter_01.C07_Primes;
+import cs61b_week_01.LargerDemo;
 
 public class C04_OOP_Dog {
 
@@ -15,6 +15,7 @@ public class C04_OOP_Dog {
         this.name = name;
         System.out.println("Dog " + name + " is created");
     }
+
 
     // 三个方法
     void barking(){
@@ -71,7 +72,7 @@ public class C04_OOP_Dog {
 
         // 引用另一个包里的类才需要import
         C03_Variable_Types_Employee new_worker = new C03_Variable_Types_Employee ("Denis");
-        C07_Primes new_primes = new C07_Primes();
+        LargerDemo to_be_import = new LargerDemo();
     }
 }
 

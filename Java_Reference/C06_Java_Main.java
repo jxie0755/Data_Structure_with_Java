@@ -1,5 +1,3 @@
-package java_reference_chapter_01;
-
 // 1.5
 
 public class C06_Java_Main {

@@ -1,5 +1,3 @@
-package java_reference_chapter_01;
-
 public class C09_For_Loop {
     public static void main(String[] args) {
 

@@ -1,5 +1,3 @@
-package java_reference_chapter_01;
-
 // 1.6
 
 public class C07_Primes {
