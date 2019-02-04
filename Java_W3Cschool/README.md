@@ -1,0 +1,1 @@
+This is to learn Java's basic languange knowledge on simply OOP and structure ideas. 
