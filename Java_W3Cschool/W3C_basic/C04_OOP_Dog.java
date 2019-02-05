@@ -23,7 +23,7 @@ public class C04_OOP_Dog {
     }
 
     void hungry(){
-        this.barking();  // 用this来指该实例
+        this.barking();  // 用this来指该实例 (相当于python的self)
         System.out.println("I am hungry!");
     }
 
