@@ -1,6 +1,6 @@
 package W3C_basic;
 
-import cs_61b.cs61b_week_01.LargerDemo;
+import java_reference.C07_Primes;
 
 public class C04_OOP_Dog {
 
@@ -72,7 +72,8 @@ public class C04_OOP_Dog {
 
         // 引用另一个包里的类才需要import
         C03_Variable_Types_Employee new_worker = new C03_Variable_Types_Employee ("Denis");
-        LargerDemo to_be_import = new LargerDemo();
+        C07_Primes primes_example = new C07_Primes();
+
     }
 }
 

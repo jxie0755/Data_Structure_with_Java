@@ -1,4 +1,4 @@
-package cs_61b.cs61b_week_01;
+package cs_61b.week_01;
 
 public class LargerDemo {
 	/** Returns the larger of x and y. */
