@@ -28,7 +28,7 @@ class Dog_3 extends Animal_3 {
     public int move(int n) {
         super.move(0);    // 同样使用Super来继承父类的方法
         System.out.println("狗可以跑和走" + n + "步");
-        return n;
+        return n + super.move(10);  // 继续使用super
     }
 
 }
@@ -68,7 +68,7 @@ class TestDog_3 {
         b.move(4);//执行 Dog 类的方法
         // >>>
         // 动物可以移动0步
-        // 狗可以跑和走4步
+        // 动物可以移动10步
 
         c.move(5);   // 直接继承Animal
         // >>> 动物可以移动5步
