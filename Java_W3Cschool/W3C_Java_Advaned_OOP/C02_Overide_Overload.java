@@ -12,7 +12,6 @@ class Animal_3 {
     }
 
     public int move(int n) {
-        System.out.println("动物可以移动" + n + "步");
         return n;
     }
 }
@@ -26,9 +25,8 @@ class Dog_3 extends Animal_3 {
 
 
     public int move(int n) {
-        super.move(0);    // 同样使用Super来继承父类的方法
-        System.out.println("狗可以跑和走" + n + "步");
-        return n + super.move(10);  // 继续使用super
+        System.out.println("狗可以两倍速移动");
+        return super.move(2 * n);  // 继续使用super, 狗每次是普通动物两倍速
     }
 
 }
@@ -38,11 +36,6 @@ class Cat_3 extends Animal_3 {
     public Cat_3 (String name) {
         super(name);
     }
-
-    // public int move(int n) {
-    //     System.out.println("Cat move " + n + "Steps!");
-    //     return n;
-    // }
 
     public void meow(int n) {
     System.out.println("Cat MEWO" + n + "times");
@@ -62,16 +55,16 @@ class TestDog_3 {
         Cat_3 c = new Cat_3("Garfield");
         Animal_3 c2 = new Cat_3("Tom");
 
-        a.move(3);// 执行 Animal 类的方法
-        // >>> 动物可以移动3步
+        System.out.println(a.move(3));// 执行 Animal 类的方法
+        // >>> 3
 
-        b.move(4);//执行 Dog 类的方法
+         System.out.println(b.move(3));//执行 Dog 类的方法
         // >>>
-        // 动物可以移动0步
-        // 动物可以移动10步
+        // 狗可以两倍速移动
+        // 6
 
-        c.move(5);   // 直接继承Animal
-        // >>> 动物可以移动5步
+        System.out.println(c.move(3));   // 直接继承Animal
+        // >>> 3
     }
 }
 
