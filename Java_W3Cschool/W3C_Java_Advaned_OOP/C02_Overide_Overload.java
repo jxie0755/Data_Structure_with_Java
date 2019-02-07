@@ -25,6 +25,7 @@ class Dog_3 extends Animal_3 {
 
 
     public int move(int n) {
+
         System.out.println("狗可以两倍速移动");
         return super.move(2 * n);  // 继续使用super, 狗每次是普通动物两倍速
     }
@@ -48,6 +49,7 @@ class Cat_3 extends Animal_3 {
 class TestDog_3 {
 
     public static void main(String args[]) {
+
         Animal_3 a = new Animal_3("Animal One"); // Animal 对象
         Dog_3 b = new Dog_3("Didi"); // Dog 对象
 
@@ -83,4 +85,70 @@ class TestDog_3 {
     * 明的更广泛的强制性异常，反之则可以。
     * 构造方法不能被重写。
     * 如果不能继承一个方法，则不能重写这个方法。
+ */
+
+
+// Leanr Overload
+// 重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型呢？可以相同也可以不同。
+// 每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表
+// 只能重载构造函数
+
+
+class AA {
+
+    // AA类中存在多个test方法, 它们可以并存
+    int test() {
+        System.out.println("test 1");
+        return 1;
+    }
+
+    void test(int a) {
+        System.out.println("test 2");
+    }
+
+    String test(int a, String s) {
+        System.out.println(s);
+        return "return test 3";
+    }
+
+    String test(String s, int a) {
+        System.out.println(s);
+        return "return test 4";
+    }
+
+    public static void main(String[] args) {
+
+        AA a_overload = new AA();
+
+        System.out.println(a_overload.test());
+        // >>>
+        // test 1
+        // 1
+
+        a_overload.test(1);
+        // >>> test 2
+
+        System.out.println(a_overload.test(3, "T3"));
+        // >>>
+        // T3
+        // return test 3
+
+        System.out.println(a_overload.test("T4", 4));
+        // >>>
+        // T4
+        // return test 4
+
+    }
+
+
+}
+
+
+/*
+ * 重载规则
+     * 被重载的方法必须改变参数列表 (哪怕只是改变顺序)
+     * 被重载的方法可以改变返回类型
+     * 被重载的方法可以改变访问修饰符
+     * 被重载的方法可以声明新的或更广的检查异常
+     * 方法能够在同一个类中或者在一个子类中被重载
  */
