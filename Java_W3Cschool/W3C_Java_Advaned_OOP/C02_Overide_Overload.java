@@ -51,7 +51,6 @@ class TestDog_3 {
         Animal_3 a = new Animal_3("Animal One"); // Animal 对象
         Dog_3 b = new Dog_3("Didi"); // Dog 对象
 
-
         Cat_3 c = new Cat_3("Garfield");
         Animal_3 c2 = new Cat_3("Tom");
 
