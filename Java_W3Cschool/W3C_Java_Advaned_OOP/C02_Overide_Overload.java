@@ -6,6 +6,11 @@ public class C02_Overide_Overload {
 
 // 重写Override
 class Animal_3 {
+    public String name;
+    public Animal_3(String name) {
+        this.name = name;
+    }
+
     public int move(int n) {
         System.out.println("动物可以移动" + n + "步");
         return n;
@@ -14,7 +19,14 @@ class Animal_3 {
 
 class Dog_3 extends Animal_3 {
 
+    // 不需要再声明String name的实例变量
+    public Dog_3 (String name) {
+        super(name);          // 使用super来继承父类方法
+    }
+
+
     public int move(int n) {
+        super.move(0);    // 同样使用Super来继承父类的方法
         System.out.println("狗可以跑和走" + n + "步");
         return n;
     }
@@ -22,6 +34,10 @@ class Dog_3 extends Animal_3 {
 }
 
 class Cat_3 extends Animal_3 {
+
+    public Cat_3 (String name) {
+        super(name);
+    }
 
     // public int move(int n) {
     //     System.out.println("Cat move " + n + "Steps!");
@@ -39,18 +55,20 @@ class Cat_3 extends Animal_3 {
 class TestDog_3 {
 
     public static void main(String args[]) {
-        Animal_3 a = new Animal_3(); // Animal 对象
-        Dog_3 b = new Dog_3(); // Dog 对象
+        Animal_3 a = new Animal_3("Animal One"); // Animal 对象
+        Dog_3 b = new Dog_3("Didi"); // Dog 对象
 
 
-        Cat_3 c = new Cat_3();
-        Animal_3 c2 = new Cat_3();
+        Cat_3 c = new Cat_3("Garfield");
+        Animal_3 c2 = new Cat_3("Tom");
 
         a.move(3);// 执行 Animal 类的方法
         // >>> 动物可以移动3步
 
         b.move(4);//执行 Dog 类的方法
-        // >>> 狗可以跑和走4步
+        // >>>
+        // 动物可以移动0步
+        // 狗可以跑和走4步
 
         c.move(5);   // 直接继承Animal
         // >>> 动物可以移动5步
