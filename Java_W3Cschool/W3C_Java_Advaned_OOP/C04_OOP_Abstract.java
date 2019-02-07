@@ -1,11 +1,11 @@
-package W3C_basic;
+package W3C_Java_Advaned_OOP;
 
 // Learn abstract
 
-abstract class C05_OOP_Abstract {
+abstract class C04_OOP_Abstract {
     String name;
 
-    public C05_OOP_Abstract (String name) {
+    public C04_OOP_Abstract(String name) {
         this.name = name;
     }
 
@@ -24,7 +24,7 @@ abstract class C05_OOP_Abstract {
     public static void main(String[] args) {
 
         System.out.println("This is an abstract class");
-        // C05_OOP_Abstract abs = new  C05_OOP_Abstract("abstract one");
+        // C04_OOP_Abstract abs = new  C04_OOP_Abstract("abstract one");
         // System.out.println(abs.show_name());
         // abs.print_name();                     // abstract类无法实例化
 
@@ -40,7 +40,7 @@ abstract class C05_OOP_Abstract {
 }
 
 
-class Sub_Abstract extends C05_OOP_Abstract {
+class Sub_Abstract extends C04_OOP_Abstract {
 
     public Sub_Abstract (String name) {
         super(name);
