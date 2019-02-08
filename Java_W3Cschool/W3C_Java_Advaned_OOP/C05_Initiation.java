@@ -31,9 +31,7 @@ class Superman_2 {
         this.name = hero_name;
     }
 
-    public Superman_2 () {
-
-    }
+    public Superman_2 () { }
 }
 
 class Supermario_2 extends Superman_2 { }
@@ -47,9 +45,7 @@ class Superman_3 {
         this.name = hero_name;
     }
 
-    public Superman_3 () {
-
-    }
+    public Superman_3 () { }
 
 }
 
@@ -60,5 +56,4 @@ class Supermario_3 extends Superman_3 {
     public Supermario_3(String mario_name) {
         this.name = mario_name;
     }
-
 }
