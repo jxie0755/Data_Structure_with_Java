@@ -55,7 +55,7 @@ class Superman_3 {
 
 class Supermario_3 extends Superman_3 {
 
-    // 必须要有一个public的构造器提供重载才能被重写
+    // 父类必须要提供一个重载的public的构造器才能被子类重写
     String name;
     public Supermario_3(String mario_name) {
         this.name = mario_name;
