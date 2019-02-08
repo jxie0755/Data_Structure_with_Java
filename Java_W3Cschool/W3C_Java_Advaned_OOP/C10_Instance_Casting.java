@@ -1,6 +1,6 @@
 package W3C_Java_Advaned_OOP;
 
-public class C10_Instance_Prefix {
+public class C10_Instance_Casting {
 }
 
 // This is to leanr why we put (ClassName) before an instance
@@ -35,6 +35,12 @@ class BBB extends AAA {
 
         System.out.println(((AAA)bb) instanceof AAA);  // >>> true
         System.out.println(((AAA)bb) instanceof BBB);  // >>> true
+
+
+        AAA aa = new AAA();
+        aa.foo();
+        // ((BBB) aa).foo();   // cannot reversely cast
+        // ((BBB) aa).bar();
 
 
     }
