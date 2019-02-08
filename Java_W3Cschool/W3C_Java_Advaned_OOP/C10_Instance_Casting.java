@@ -6,45 +6,71 @@ public class C10_Instance_Casting {
 // This is to leanr why we put (ClassName) before an instance
 
 
-class AAA {
-    void foo() {
-        System.out.println("Foo A");
+class Animal_6 {
+	public String name;
+	Animal_6(String name) {
+		this.name = name;
+	}
+
+	void foo(){
+	    System.out.println("Foo ANIMAL");
     }
+
+}
+class Cat_6 extends Animal_6 {
+	public String eyesColor;
+	Cat_6(String n,String c) {
+		super(n);
+		eyesColor = c;
+	}
+
+	void foo(){
+	    System.out.println("Foo CAT");
+    }
+
+}
+class Dog_6 extends Animal_6 {
+	public String furColor;
+	Dog_6(String n,String c) {
+		super(n);
+		furColor = c;
+	}
+
+	void foo(){
+	    System.out.println("Foo Dog");
+    }
+
 }
 
-class BBB extends AAA {
-
-    void bar() {
-        System.out.println("Bar B");
-    }
-
-    public static void main(String[] args) {
-        BBB bb = new BBB();
-
-        System.out.println(bb.equals((AAA) bb));  // true
-        System.out.println(bb.equals((BBB) bb));  // true
-
-        bb.foo();  // >>> Foo A
-        bb.bar();  // >>> Bar B
-
-        ((BBB)bb).foo();      // >>> Foo A
-        ((BBB)bb).bar();      // >>> Bar B
-
-        ((AAA)bb).foo();      // >>> Foo A
-        // ((AAA)bb).bar();   // can't run
-
-        System.out.println(((AAA)bb) instanceof AAA);  // >>> true
-        System.out.println(((AAA)bb) instanceof BBB);  // >>> true
+class TestAnimal_6 {
+	public static void main(String[] args) {
+		Animal_6 animal_6 = new Animal_6("animal_name");
+		Cat_6 cat_6 = new Cat_6("cat_name", "blue");
+		Dog_6 dog_6 = new Dog_6("dog_name", "black");
 
 
-        AAA aa = new AAA();
-        aa.foo();
-        // ((BBB) aa).foo();   // cannot reversely cast
-        // ((BBB) aa).bar();
 
+		// Dog_6 animal_6 = new Dog_6("big_yellow", "yellow");  // this will not be allowed as animal_6 is already created
+        // That is why we need casting:
+        // Originally animal_6 is just Animal instance, now we change it into Dog instance under the same name
+        animal_6 = new Dog_6("big_yellow", "yellow");  // in such way animal_6 is now like a Dog_6 instance, the subclass instance
 
-    }
+		System.out.println(animal_6.name);  // >>> big_yellow
+		// System.out.println(animal_6.furColor);  // but animal_6 is really still an animal istance that does not have furColor
+
+        System.out.println(animal_6 instanceof Animal_6);  // >>> true
+		System.out.println(animal_6 instanceof Dog_6);     // >>> true
+
+		Dog_6 d1 = (Dog_6)animal_6;  // another new instance of Dog_6, d1, does not need to be created as a new instance
+        // It will be like a copy of animal_6
+		System.out.println(d1.furColor); // >>> yellow
+
+        ((Dog_6) dog_6).foo();     // >>> Foo Dog
+        // ((Cat_6) dog_6).foo();  not allowed
+        ((Animal_6) dog_6).foo();  // >>> Foo Dog  does not impact
+	}
 }
+
 
 
 /*
@@ -61,3 +87,8 @@ class BBB extends AAA {
      * If you want more information you can read oracle docs about "Polymorphism" and "Casting".
  * https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
  */
+
+/*
+ * https://stackoverflow.com/questions/5289393/casting-variables-in-java
+ */
+
