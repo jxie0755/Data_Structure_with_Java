@@ -55,7 +55,7 @@ class TestAnimal_6 {
 		animal_6 = new Dog_6("big_yellow", "yellow");  // in such way animal_6 is now like a Dog_6 instance, the subclass instance
 		System.out.println(animal_6.getClass()); // >>> Dog_6
 
-		Dog_6 d1 = (Dog_6) animal_6;  // another new instance of Dog_6, d1, does not need to be created as a new instance
+		Dog_6 d1 = (Dog_6) animal_6;  // another new instance of Dog_6, d1, does not need to be created as a new instance but to cast
 		System.out.println(d1.getClass());  // Dog_6
 
 		System.out.println(animal_6.name);  // >>> big_yellow
@@ -72,23 +72,41 @@ class TestAnimal_6 {
 }
 
 
+class AAA {
+
+}
+
+class BBB extends AAA {
+
+
+    public static void main(String[] args) {
+        BBB bb = new BBB();
+        System.out.println(bb.equals((AAA) bb));  // true
+        System.out.println(bb.equals((BBB) bb));  // true
+    }
+}
 
 /*
  * So ((AAA)bb) is forcing bb only using AAA's method, so that bar() can't be run, because bar is defined in BBB.
  * ((BBB)bb) is exactly the same as bb, it will have both methods of AAA and BBB.
  */
 
+
 /*
  * Casting
- *https://stackoverflow.com/questions/54599447/what-is-the-use-of-classname-instancename-in-java/54599576#54599576
+ * https://stackoverflow.com/questions/54599447/what-is-the-use-of-classname-instancename-in-java/54599576#54599576
      * What are you seeing here is Casting, in this case, explicit casting,
      * because you are telling the compiler that "bb" will be an instance of class "AAA".
      * This let you call specific "AAA" class methods even when "bb" is instanciated as a "BBB" class.
      * If you want more information you can read oracle docs about "Polymorphism" and "Casting".
- * https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+ * more in:
+ 	* https://stackoverflow.com/questions/5289393/casting-variables-in-java
  */
 
-/*
- * https://stackoverflow.com/questions/5289393/casting-variables-in-java
- */
+
+
+// Oracle example
+// https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
+
+
 
