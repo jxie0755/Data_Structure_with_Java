@@ -2,10 +2,10 @@ package W3C_Java_Advaned_OOP;
 
 // Learn abstract
 
-abstract class C04_OOP_Abstract {
+abstract class C04_Abstraction {
     String name;
 
-    public C04_OOP_Abstract(String name) {
+    public C04_Abstraction(String name) {
         this.name = name;
     }
 
@@ -23,14 +23,14 @@ abstract class C04_OOP_Abstract {
     public static void main(String[] args) {
 
         System.out.println("This is an abstract class");
-        // C04_OOP_Abstract abs = new  C04_OOP_Abstract("abstract one");
+        // C04_Abstraction abs = new  C04_Abstraction("abstract one");
         // System.out.println(abs.show_name());
         // abs.print_name();                     // abstract类无法实例化
 
 
         // 通过一个子类的实例就可以实现abstract类的方法和变量
         System.out.println("This is an abstract class's sub-class");
-        Sub_Abstract A_sub = new Sub_Abstract("ABS");
+        Sub_Abstraction A_sub = new Sub_Abstraction("ABS");
         System.out.println(A_sub.show_name());   // >>> ABS
         A_sub.print_name();                      // >>> ABS
 
@@ -39,9 +39,9 @@ abstract class C04_OOP_Abstract {
 }
 
 
-class Sub_Abstract extends C04_OOP_Abstract {
+class Sub_Abstraction extends C04_Abstraction {
 
-    public Sub_Abstract (String name) {
+    public Sub_Abstraction(String name) {
         super(name);
     }
 
