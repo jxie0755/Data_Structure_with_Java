@@ -47,27 +47,27 @@ class TestAnimal_6 {
 		Animal_6 animal_6 = new Animal_6("animal_name");
 		Cat_6 cat_6 = new Cat_6("cat_name", "blue");
 		Dog_6 dog_6 = new Dog_6("dog_name", "black");
-
-
+		System.out.println(animal_6.getClass()); // >>> Animal_6
 
 		// Dog_6 animal_6 = new Dog_6("big_yellow", "yellow");  // this will not be allowed as animal_6 is already created
-        // That is why we need casting:
-        // Originally animal_6 is just Animal instance, now we change it into Dog instance under the same name
-        animal_6 = new Dog_6("big_yellow", "yellow");  // in such way animal_6 is now like a Dog_6 instance, the subclass instance
+		// That is why we need casting:
+		// Originally animal_6 is just Animal instance, now we change it into Dog instance under the same name
+		animal_6 = new Dog_6("big_yellow", "yellow");  // in such way animal_6 is now like a Dog_6 instance, the subclass instance
+		System.out.println(animal_6.getClass()); // >>> Dog_6
+
+		Dog_6 d1 = (Dog_6) animal_6;  // another new instance of Dog_6, d1, does not need to be created as a new instance
+		System.out.println(d1.getClass());  // Dog_6
 
 		System.out.println(animal_6.name);  // >>> big_yellow
 		// System.out.println(animal_6.furColor);  // but animal_6 is really still an animal istance that does not have furColor
 
-        System.out.println(animal_6 instanceof Animal_6);  // >>> true
-		System.out.println(animal_6 instanceof Dog_6);     // >>> true
-
-		Dog_6 d1 = (Dog_6)animal_6;  // another new instance of Dog_6, d1, does not need to be created as a new instance
-        // It will be like a copy of animal_6
+		// It will be like a copy of animal_6
+		System.out.println(d1.name);  // >>> big_yellow
 		System.out.println(d1.furColor); // >>> yellow
 
-        ((Dog_6) dog_6).foo();     // >>> Foo Dog
-        // ((Cat_6) dog_6).foo();  not allowed
-        ((Animal_6) dog_6).foo();  // >>> Foo Dog  does not impact
+		((Dog_6) dog_6).foo();     // >>> Foo Dog
+		// ((Cat_6) dog_6).foo();  not allowed
+		((Animal_6) dog_6).foo();  // >>> Foo Dog  does not impact
 	}
 }
 
