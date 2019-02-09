@@ -24,14 +24,27 @@ class  test1 {
     public static void main(String[] args) {
 
         // 实践向上转型
+        System.out.println("向上转型第一种写法: ");
 		China a1 = new HongKong();  //子类实例被包装成父类(向上)
-		a1.language();  // >>> people lived in HongKong speak Chinese
-		//a1.location();   // 向上转型时，子类单独定义的方法会丢失
+        a1.language();       // >>> people lived in HongKong speak Chinese
+
+        //a1.location();   // 向上转型时，子类单独定义的方法会丢失
+        ((HongKong) a1).location(); // 但是可以利用前置括号子类,再强行转回
+
+        // 第二种写法
+        System.out.println("向上转型第二种写法: ");
+        China a1b = HongKong.class.cast(new HongKong());
+        a1b.language();     // >>> people lived in HongKong speak Chinese
+
+        System.out.println(a1.getClass().equals(a1b.getClass()));  // >>> true
+
         // 子类引用不能指向父类对象 Hongkong c = (Hongkong)new China()这样是不行的
         // 那么你可能会有疑问，为什么不用HongKong al=new HongKong,直接调用location（）方法呢？这样做其实就丧失了面向对象继承多态性的灵活: 见下面例子Material and MyMenu的应用
 
 
+
         // 实践向下转型
+        System.out.println("向下转型第一种写法: ");
         // 用于父类调用子类方法或者父类给子类变量赋值，利于程序扩展。最多的应用是Java的泛型，但向下转型存在风险
         China a2 = new HongKong();  // 同样是向上转型
         if (a2 instanceof HongKong) {  // 用if来避免问题
@@ -41,8 +54,43 @@ class  test1 {
             b2.language(); // >>> people lived in HongKong speak Chinese
             // 这样b2就用上了子类的方法
         }
+
+        // 第二种写法
+        System.out.println("向下转型第二种写法: ");
+        China a2b2 = HongKong.class.cast(new HongKong());
+        if (a2b2 instanceof HongKong) {  // 用if来避免问题
+            China b22 = China.class.cast(a2b2);  // 再造一个父类实例b2,它是a2的cast,而a2其实是子类实例, 所以这个父类实例b2能支持子类的方法!!!!!
+            // 上面这三行操作是精髓
+            System.out.println(b22.getClass());  // >>> Hongkong  // 父类变子类成功!!
+            b22.language(); // >>> people lived in HongKong speak Chinese
+            // 这样b2就用上了子类的方法
+        }
 	}
 }
+
+// 向上转型语法实战
+// define: fun(SuperClass Instance_Var) { }
+
+// use: Var.method() -- use SubClass method
+
+// 向下转型语法:
+// define: fun(SuperClass Instance_Var) { }                     // 和向上转型相同!
+
+// use:    if (Var instanceof SubClass) {              // additional if condition to make ensure correct casting
+//              SuperClass New_Var = (SuperClass) Instance_Var
+//              New_Var.method()                       // 调用子类方法
+//              New_Var.specialmethod()                // 调用子类独有的方法
+//              Special Processing(New_Var)            // 调用其他方法,只对这个子类使用
+//              }
+
+
+// 其他语法:
+// SuperClass instace_var_1 = SubClass.class.cast(new SubClass());   // 向上专型
+// SuperClass instace_var_2 = SuperClass.class.cast(instace_var_1);  // 向下专型 (但是需要先使用向上专型)
+// (SubClass) SuperClass_Instance_b; 向下转型使用: 强制父类实例b使用子类的特性, 注意容易出错
+
+
+
 
 
 // 向上转型详细解释:
@@ -128,9 +176,10 @@ class Animal_7_Test {
         // 正确操作
         Animal_7 a_x = new Cat_7();  // Cat_7新造的实例被cast成Animal类, 所以是先向上转型
         System.out.println(a_x.getClass()); // >>> Cat_7
+
         Animal_7 a_x_cast = (Animal_7) a_x;  // 向下转型
         System.out.println(a_x_cast.getClass()); // >>> Cat_7
-        a_x_cast.eat(); // >>> 我吃鱼
+        a_x_cast.eat();    // >>> 我吃鱼
         // 向下转型的前提是父类对象指向的是子类对象（也就是说，在向下转型之前，它得先向上转型）
         // 向下转型只能转型为子类对象（猫是不能变成狗的,因为他们是平行关系）
 
