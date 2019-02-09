@@ -1,6 +1,6 @@
 package W3C_Java_Advaned_OOP;
 
-public class C02_Overide_Overload {
+public class C02_Override_Overload {
 }
 
 
