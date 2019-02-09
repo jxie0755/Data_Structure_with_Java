@@ -28,10 +28,11 @@ class  test1 {
 		China a1 = new HongKong();  //子类实例被包装成父类(向上)
     //   定义方法       实际变量
 
+        System.out.println(a1.getClass()); // >>> HongKong
         a1.language();       // >>> people lived in HongKong speak Chinese
 
         //a1.location();   // 向上转型时，子类单独定义的方法会丢失
-        ((HongKong) a1).location(); // 但是可以利用前置括号子类,再强行转回
+        ((HongKong) a1).location(); // 但是可以利用前置括号子类,再强行转回 (这其实就是向下转型了)
 
         // 第二种写法
         System.out.println("向上转型第二种写法: ");
@@ -50,10 +51,11 @@ class  test1 {
         // 用于父类调用子类方法或者父类给子类变量赋值，利于程序扩展。最多的应用是Java的泛型，但向下转型存在风险
         China a2 = new HongKong();  // 同样是向上转型
         if (a2 instanceof HongKong) {  // 用if来避免问题
-            China b2 = (China) a2;  // 再造一个父类实例b2,它是a2的cast,而a2其实是子类实例, 所以这个父类实例b2能支持子类的方法!!!!!
+            HongKong b2 = (HongKong) a2;  // 再造一个父类实例b2,它是a2的cast,而a2其实是子类实例, 所以这个父类实例b2能支持子类的方法!!!!!
             // 上面这三行操作是精髓
             System.out.println(b2.getClass());  // >>> Hongkong  // 父类变子类成功!!
             b2.language(); // >>> people lived in HongKong speak Chinese
+            b2.location(); // >>> South of China
             // 这样b2就用上了子类的方法
         }
 
@@ -61,10 +63,11 @@ class  test1 {
         System.out.println("向下转型第二种写法: ");
         China a2b2 = new HongKong();
         if (a2b2 instanceof HongKong) {  // 用if来避免问题
-            China b22 = China.class.cast(a2b2);  // 这就不多余, 再造一个父类实例b22,它是a2b2的cast,所以能被特殊看成是一个子类实例, 所以这个父类实例b22能支持子类的方法!!!!!
+            HongKong b22 = HongKong.class.cast(a2b2);  // 这就不多余, 再造一个父类实例b22,它是a2b2的cast,所以能被特殊看成是一个子类实例, 所以这个父类实例b22能支持子类的方法!!!!!
             // 上面这三行操作是精髓
             System.out.println(b22.getClass());  // >>> Hongkong  // 父类变子类成功!!
             b22.language(); // >>> people lived in HongKong speak Chinese
+            b22.location(); // >>> South of China
             // 这样b2就用上了子类的方法
         }
 	}
@@ -88,14 +91,14 @@ class  test1 {
 
 // 其他语法:
 // SuperClass instace_var_1 = SubClass.class.cast(new SubClass());   // 向上专型
-// SuperClass instace_var_2 = SuperClass.class.cast(instace_var_1);  // 向下专型 (但是需要先使用向上专型)
+// SubClass instace_var_2 = SubClass.class.cast(instace_var_1);  // 向下专型 (但是需要先使用向上专型)
 // (SubClass) SuperClass_Instance_b; 向下转型使用: 强制父类实例b使用子类的特性, 注意容易出错
 
 
 
 
 
-// 向上转型详细解释:
+// 实战详细解释:
 class Material {
     public void intro() { }
 }
