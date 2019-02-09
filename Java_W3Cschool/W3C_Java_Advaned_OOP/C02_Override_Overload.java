@@ -4,7 +4,7 @@ public class C02_Override_Overload {
 }
 
 
-// 重写Override
+// 重写Override, 就是子类改写父类的方法,让不同子类用同一个方法分别出不同结果.
 class Animal_3 {
     public String name;
     public Animal_3(String name) {
@@ -18,14 +18,13 @@ class Animal_3 {
 
 class Dog_3 extends Animal_3 {
 
-    // 不需要再声明String name的实例变量
+    // 不需要再声明String name的实例变量,因为继承了
     public Dog_3 (String name) {
         super(name);          // 使用super来继承父类方法
     }
 
 
     public int move(int n) {
-
         System.out.println("狗可以两倍速移动");
         return super.move(2 * n);  // 继续使用super, 狗每次是普通动物两倍速
     }
@@ -39,8 +38,7 @@ class Cat_3 extends Animal_3 {
     }
 
     public void meow(int n) {
-    System.out.println("Cat MEWO" + n + "times");
-
+        System.out.println("Cat MEWO" + n + "times");
     }
 
 }
