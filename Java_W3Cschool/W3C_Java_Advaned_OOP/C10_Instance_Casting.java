@@ -26,6 +26,8 @@ class  test1 {
         // 实践向上转型
         System.out.println("向上转型第一种写法: ");
 		China a1 = new HongKong();  //子类实例被包装成父类(向上)
+    //   定义方法       实际变量
+
         a1.language();       // >>> people lived in HongKong speak Chinese
 
         //a1.location();   // 向上转型时，子类单独定义的方法会丢失
@@ -33,7 +35,7 @@ class  test1 {
 
         // 第二种写法
         System.out.println("向上转型第二种写法: ");
-        China a1b = HongKong.class.cast(new HongKong());
+        China a1b = HongKong.class.cast(new HongKong());   // 这就谁让一个子类的实例 - 能被看成父类实例
         a1b.language();     // >>> people lived in HongKong speak Chinese
 
         System.out.println(a1.getClass().equals(a1b.getClass()));  // >>> true
@@ -57,9 +59,9 @@ class  test1 {
 
         // 第二种写法
         System.out.println("向下转型第二种写法: ");
-        China a2b2 = HongKong.class.cast(new HongKong());
+        China a2b2 = new HongKong();
         if (a2b2 instanceof HongKong) {  // 用if来避免问题
-            China b22 = China.class.cast(a2b2);  // 再造一个父类实例b2,它是a2的cast,而a2其实是子类实例, 所以这个父类实例b2能支持子类的方法!!!!!
+            China b22 = China.class.cast(a2b2);  // 这就不多余, 再造一个父类实例b22,它是a2b2的cast,所以能被特殊看成是一个子类实例, 所以这个父类实例b22能支持子类的方法!!!!!
             // 上面这三行操作是精髓
             System.out.println(b22.getClass());  // >>> Hongkong  // 父类变子类成功!!
             b22.language(); // >>> people lived in HongKong speak Chinese
@@ -220,3 +222,30 @@ class Animal_7_Test {
         * 向下转型的用处是, 能够使父类参数执行子类中独特的方法(附加处理)或者是父类没有的方法
     * 这些都是python作为动态语言不会出现的问题,因为python不检查参数类型,而java会检查,导致了参数不能多态
  */
+
+
+class AAAA {
+
+    void foo() {
+        System.out.println("From AAAA");
+    }
+
+}
+
+class BBBB extends  AAAA {
+
+    void foo() {
+        System.out.println("From BBBB");
+    }
+
+}
+
+class Test_AAAA {
+
+    public static void main(String[] args) {
+        AAAA aaaa = new BBBB();
+        ((BBBB) aaaa).foo();
+
+    }
+
+}
