@@ -3,176 +3,80 @@ package W3C_Java_Advaned_OOP;
 public class C10_Instance_Casting {
 }
 
-// This is to leanr why we put (ClassName) before an instance
 
 
-class Animal_6 {
-	public String name;
-	Animal_6(String name) {
-		this.name = name;
-	}
 
-	void foo(){
-	    System.out.println("Foo ANIMAL");
-    }
+// 由导出类转型成基类， 就是一个向上转型       如"Human a1=new Woman( );
+// 父类转型成子类,     就是向下转型，        如“Human a1=new Woman( ); Woman b1=(Woman) a1;”。
 
-}
-class Cat_6 extends Animal_6 {
-	public String eyesColor;
-	Cat_6(String n,String c) {
-		super(n);
-		eyesColor = c;
-	}
-
-	void foo(){
-	    System.out.println("Foo CAT");
-    }
-
-}
-class Dog_6 extends Animal_6 {
-	public String furColor;
-	Dog_6(String n,String c) {
-		super(n);
-		furColor = c;
-	}
-
-	void foo(){
-	    System.out.println("Foo Dog");
-    }
-
+class China {
+	public void language(){System.out.println("Chinese speak Chinese");}
+	public void flu(){System.out.println("yellow");}
 }
 
-class TestAnimal_6 {
-	public static void main(String[] args) {
-		Animal_6 animal_6 = new Animal_6("animal_name");
-		Cat_6 cat_6 = new Cat_6("cat_name", "blue");
-		Dog_6 dog_6 = new Dog_6("dog_name", "black");
-		System.out.println(animal_6.getClass()); // >>> Animal_6
-
-		// Dog_6 animal_6 = new Dog_6("big_yellow", "yellow");  // this will not be allowed as animal_6 is already created
-		// That is why we need casting:
-		// Originally animal_6 is just Animal instance, now we change it into Dog instance under the same name
-		animal_6 = new Dog_6("big_yellow", "yellow");  // in such way animal_6 is now like a Dog_6 instance, the subclass instance
-		System.out.println(animal_6.getClass()); // >>> Dog_6
-
-		Dog_6 d1 = (Dog_6) animal_6;  // another new instance of Dog_6, d1, does not need to be created as a new instance but to cast
-		System.out.println(d1.getClass());  // Dog_6
-
-		System.out.println(animal_6.name);  // >>> big_yellow
-		// System.out.println(animal_6.furColor);  // but animal_6 is really still an animal istance that does not have furColor
-
-		// It will be like a copy of animal_6
-		System.out.println(d1.name);  // >>> big_yellow
-		System.out.println(d1.furColor); // >>> yellow
-
-		((Dog_6) dog_6).foo();     // >>> Foo Dog
-		// ((Cat_6) dog_6).foo();  not allowed
-		((Animal_6) dog_6).foo();  // >>> Foo Dog  does not impact
-	}
+class HongKong extends China {
+	public void language(){System.out.println("people lived in HongKong speak Chinese");}
+	public void flu(){System.out.println("yellow");}
+	public void location(){System.out.println("South of China");}
 }
 
-
-class AAA {
-
-}
-
-class BBB extends AAA {
-
+class  test1 {
 
     public static void main(String[] args) {
-        BBB bb = new BBB();
-        System.out.println(bb.equals((AAA) bb));  // true
-        System.out.println(bb.equals((BBB) bb));  // true
-    }
-}
 
-/*
- * So ((AAA)bb) is forcing bb only using AAA's method, so that bar() can't be run, because bar is defined in BBB.
- * ((BBB)bb) is exactly the same as bb, it will have both methods of AAA and BBB.
- */
+        // 实践向上转型
+		China a1 = new HongKong();
+		a1.language();  // >>> people lived in HongKong speak Chinese
+		//a1.location();   // 如果把注释掉的a1.location（）加上他会提示找不到loaction()，所以用不了子类新扩展的location（）方法
 
+        // 那么你可能会有疑问，为什么不用HongKong al=new HongKong,直接调用location（）方法呢？这样做其实就丧失了面向对象继承多态性的灵活: 见下面例子Material and MyMenu的应用
 
-/*
- * Casting
- * https://stackoverflow.com/questions/54599447/what-is-the-use-of-classname-instancename-in-java/54599576#54599576
-     * What are you seeing here is Casting, in this case, explicit casting,
-     * because you are telling the compiler that "bb" will be an instance of class "AAA".
-     * This let you call specific "AAA" class methods even when "bb" is instanciated as a "BBB" class.
-     * If you want more information you can read oracle docs about "Polymorphism" and "Casting".
- * more in:
- 	* https://stackoverflow.com/questions/5289393/casting-variables-in-java
- */
-
-
-
-// Oracle example
-// https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html
-
-class Bicycle {
-
-    // the Bicycle class has three fields
-    public int cadence;
-    public int gear;
-    public int speed;
-
-    // the Bicycle class has one constructor
-    public Bicycle(int startCadence, int startSpeed, int startGear) {
-        gear = startGear;
-        cadence = startCadence;
-        speed = startSpeed;
-    }
-
-    // the Bicycle class has four methods
-    public void setCadence(int newValue) {
-        cadence = newValue;
-    }
-
-    public void setGear(int newValue) {
-        gear = newValue;
-    }
-
-    public void applyBrake(int decrement) {
-        speed -= decrement;
-    }
-
-    public void speedUp(int increment) {
-        speed += increment;
-    }
-
-}
-
-class MountainBike extends Bicycle {
-
-    // the MountainBike subclass adds one field
-    public int seatHeight;
-
-    // the MountainBike subclass has one constructor
-    public MountainBike(int startHeight,
-                        int startCadence,
-                        int startSpeed,
-                        int startGear) {
-        super(startCadence, startSpeed, startGear);
-        seatHeight = startHeight;
-    }
-
-    // the MountainBike subclass adds one method
-    public void setHeight(int newValue) {
-        seatHeight = newValue;
-    }
-}
-
-class Test_Bike {
-
-	public static void main(String[] args) {
-
-		Object obj_0 = new Object();
-
-		// implicit casting: super class as subclass
-		Object obj = new MountainBike(1, 2, 3,4);
-
-		// explicit casting: subclass as super class
-		MountainBike myBike = (MountainBike)obj;
-
+        //实践向下转型
 
 	}
+}
+
+
+
+// 向上转型实用性解释:
+class Material {
+    public void intro() { }
+}
+
+//盐类
+class Salt extends Material {
+    public void intro() { System.out.println("我是盐"); }
+}
+
+//肉类
+class Meat extends Material {
+    public void intro() { System.out.println("我是肉"); }
+}
+
+//蔬菜类
+class Vegetable extends Material {
+    public void intro() { System.out.println("我是蔬菜"); }
+}
+
+
+class MyMenu {
+
+    // 不用casting
+    public static void add(Salt m) { m.intro(); }
+    public static void add(Meat m) { m.intro(); }
+    public static void add(Vegetable m) { m.intro(); }
+
+    // 使用casting
+    public static void add_2(Material m) { m.intro(); }
+
+    public static void main(String[] args) {
+        add(new Salt());
+        add(new Meat());
+        add(new Vegetable());
+
+        // add_2因为casting可以同时套用到三个子类上,分别输出子类的方法, 这样节省了重复代码
+        add_2(new Salt());
+        add_2(new Meat());
+        add_2(new Vegetable());
+    }
 }
