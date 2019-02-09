@@ -11,11 +11,11 @@ public class C10_Instance_Casting {
 
 
 class China {
-	public void language(){System.out.println("Chinese speak Chinese");}
+	public void language(){System.out.println("Chinese people speak Chinese");}
 }
 
 class HongKong extends China {
-	public void language(){System.out.println("people lived in HongKong speak Chinese");}
+	public void language(){System.out.println("people lived in HongKong speak Cantonese");}
 	public void location(){System.out.println("South of China");}
 }
 
@@ -24,81 +24,80 @@ class  test1 {
     public static void main(String[] args) {
 
         // 实践向上转型
-        System.out.println("向上转型第一种写法: ");
+        System.out.println("\n向上转型第一种写法: ");
 		China a1 = new HongKong();  //子类实例被包装成父类(向上)
-    //   定义方法       实际变量
+    //   定义变量       实际实例       理解: a1真是身份HongKong实例,但是被包装成父类实例
+        System.out.println(a1.getClass()); // >>> HongKong  (暴露出真实身份)
+        a1.language();       // >>> people lived in HongKong speak Cantonese  (这里可行是因为language()在父类和子类中都存在,所以真实身份(HongKong)的方法被执行)
 
-        System.out.println(a1.getClass()); // >>> HongKong
-        a1.language();       // >>> people lived in HongKong speak Chinese
-
-        //a1.location();   // 向上转型时，子类单独定义的方法会丢失
-        ((HongKong) a1).location(); // 但是可以利用前置括号子类,再强行转回 (这其实就是向下转型了)
+        //a1.location();   // 然而由于a1被包装成了父类, 向上转型时，子类单独定义的方法会丢失
+        ((HongKong) a1).location(); // 但是可以利用前置括号子类,再强行转回真实身份 (这其实就是向下转型了)
 
         // 第二种写法
-        System.out.println("向上转型第二种写法: ");
-        China a1b = HongKong.class.cast(new HongKong());   // 这就谁让一个子类的实例 - 能被看成父类实例
-        a1b.language();     // >>> people lived in HongKong speak Chinese
+        System.out.println("\n向上转型第二种写法: ");
+        China a1b = HongKong.class.cast(new HongKong());  // 同理, 只是写成cast方法来, 同样是把a1b的HongKong真实身份用China包装
 
-        System.out.println(a1.getClass().equals(a1b.getClass()));  // >>> true
+        System.out.println(a1.getClass()); // >>> HongKong  (暴露出真实身份)
+        a1b.language();     // >>> people lived in HongKong speak Cantonese
 
         // 子类引用不能指向父类对象 Hongkong c = (Hongkong)new China()这样是不行的
-        // 那么你可能会有疑问，为什么不用HongKong al=new HongKong,直接调用location（）方法呢？这样做其实就丧失了面向对象继承多态性的灵活: 见下面例子Material and MyMenu的应用
+        // 那么你可能会有疑问，为什么不用HongKong a_X =new HongKong,直接调用location（）方法呢？这样做其实就丧失了面向对象继承多态性的灵活: 见下面例子Material and MyMenu的应用
 
 
 
         // 实践向下转型
-        System.out.println("向下转型第一种写法: ");
+        System.out.println("\n向下转型第一种写法: ");
         // 用于父类调用子类方法或者父类给子类变量赋值，利于程序扩展。最多的应用是Java的泛型，但向下转型存在风险
-        China a2 = new HongKong();  // 同样是向上转型
-        if (a2 instanceof HongKong) {  // 用if来避免问题
-            HongKong b2 = (HongKong) a2;  // 再造一个父类实例b2,它是a2的cast,而a2其实是子类实例, 所以这个父类实例b2能支持子类的方法!!!!!
+        China a2 = new HongKong();  // 同样是向上转型, 这是必须的前提操作
+
+        if (a2 instanceof HongKong) {  // 用if来避免问题(因为一个父类可能有多个子类,我们必须确定子类身份)
+
+            HongKong b2 = (HongKong) a2;  // 再造一个子类变量b2,它指向的是被转回成HongKong类的a2,所以这个变量b2能支持子类的方法(尤其是指定了特定子类的HongKong的方法)!!!!!
             // 上面这三行操作是精髓
-            System.out.println(b2.getClass());  // >>> Hongkong  // 父类变子类成功!!
-            b2.language(); // >>> people lived in HongKong speak Chinese
+
+            // 这样b2就能以HongKong的身份执行HongKong的所有方法了
+            b2.language(); // >>> people lived in HongKong speak Cantonese
             b2.location(); // >>> South of China
-            // 这样b2就用上了子类的方法
         }
 
         // 第二种写法
-        System.out.println("向下转型第二种写法: ");
-        China a2b2 = new HongKong();
+        System.out.println("\n向下转型第二种写法: ");
+        China a2b2 = new HongKong();   // 同样的向上转型,包装a2b2为China身份
+
         if (a2b2 instanceof HongKong) {  // 用if来避免问题
-            HongKong b22 = HongKong.class.cast(a2b2);  // 这就不多余, 再造一个父类实例b22,它是a2b2的cast,所以能被特殊看成是一个子类实例, 所以这个父类实例b22能支持子类的方法!!!!!
+            HongKong b22 = HongKong.class.cast(a2b2);  // 这就不多余, 再造一个子类变量b22,它是a2b2变回回HongKong的cast,所以能被特殊看成是一个HongKong实例
             // 上面这三行操作是精髓
-            System.out.println(b22.getClass());  // >>> Hongkong  // 父类变子类成功!!
-            b22.language(); // >>> people lived in HongKong speak Chinese
-            b22.location(); // >>> South of China
+
             // 这样b2就用上了子类的方法
+            b22.language(); // >>> people lived in HongKong speak Cantonese
+            b22.location(); // >>> South of China
         }
 	}
 }
 
-// 向上转型语法实战
-// define: fun(SuperClass Instance_Var) { }
 
-// use: Var.method() -- use SubClass method
+// 向上转型语法
+// define: fun(SuperClass ins_Var) { }
+// use:    ins_Var.method() -- use SubClass method
 
 // 向下转型语法:
-// define: fun(SuperClass Instance_Var) { }                     // 和向上转型相同!
+// define: fun(SuperClass ins_Var) { }                     // 和向上转型相同!
 
-// use:    if (Var instanceof SubClass) {              // additional if condition to make ensure correct casting
-//              SuperClass New_Var = (SuperClass) Instance_Var
-//              New_Var.method()                       // 调用子类方法
-//              New_Var.specialmethod()                // 调用子类独有的方法
-//              Special Processing(New_Var)            // 调用其他方法,只对这个子类使用
+// use:    if (ins_Var instanceof SubClass) {              // additional if condition to make ensure correct casting
+//              SubClass new_Var = (SubClass) ins_Var
+//              new_Var.method()                       // 调用子类方法
+//              new_Var.specialmethod()                // 调用子类独有的方法
+//              special_processing(new_Var)            // 调用其他方法,只对这个子类使用
 //              }
 
 
 // 其他语法:
-// SuperClass instace_var_1 = SubClass.class.cast(new SubClass());   // 向上专型
-// SubClass instace_var_2 = SubClass.class.cast(instace_var_1);  // 向下专型 (但是需要先使用向上专型)
-// (SubClass) SuperClass_Instance_b; 向下转型使用: 强制父类实例b使用子类的特性, 注意容易出错
+// SuperClass ins_Var_1 = SubClass.class.cast(new SubClass());   // 向上专型
+// SubClass ins_Var_2 = SubClass.class.cast(ins_Var_1);  // 向下专型 (但是需要先使用向上专型)
+// ((SubClass) ins_Var_1).SubClass_method();   // 另类写法, 直接引用SubClass
 
 
-
-
-
-// 实战详细解释:
+// 实战: 利用Casting来简化代码,避免重载, 而且方便未来扩展代码
 class Material {
     public void intro() { }
 }
@@ -123,26 +122,27 @@ class Vegetable extends Material {
 
 class MyMenu {
 
-    // 实战:
     // 不用casting,为三个子类分别写方法, 相当于使用重载overload
     public static void add(Salt m) { m.intro(); m.health(); }
     public static void add(Meat m) { m.intro(); m.price(); }
     public static void add(Vegetable m) { m.intro(); }
+    // 如果因为开发需要,必须增加一个新的Material子类Sugar怎么办?
+    // public static void add(Sugar m) { m.intro(); }  // 只能手动添加一个新的重载方法
 
 
     // 使用casting
-    // 向上向下转型混合实战:
-    public static void add_2(Material m) {  // 向上转型
+    public static void add_2(Material m) {  // 向上转型, 形参使用父类声明,一个方法可以通用所有子类的实参
         if (m instanceof Salt) {
-            Salt m_2 = (Salt) m;     // 需要对Salt特殊health(), 所以向下转型, 使用if来安全执行
+            Salt m_2 = (Salt) m;     // 需要对Salt特殊health(), 所以向下转型为m_2, 使用if来安全执行
+            // 这里m_2其实就是((Salt) m), m_2前面的Salt只不过是声明变量前必须给出类型
             m_2.intro();
             m_2.health();
         } else if (m instanceof  Meat) {
-            Meat m_2 = (Meat) m;    // 需要对Meat特殊health(), 所以向下转型, 使用else if来安全执行
-            m_2.intro();
-            m_2.price();
+            ((Meat) m).intro();     // 比Salt更直接的向下转型的写法(其实是一个意思)
+            ((Meat) m).price();
+            System.out.println("肉类含有丰富动物蛋白质");
         } else {
-            m.intro();      // 不做特殊处理的话就是单纯向上转型即可
+            m.intro();      // 如果只是运行父类和子类共有的方法, 就是单纯向上转型即可
         }
     }
 
@@ -152,21 +152,23 @@ class MyMenu {
         add(new Vegetable());
 
         // add_2因为casting可以同时套用到三个子类上,分别输出子类的方法, 这样节省了重复代码
-        // 向上转型是统一的单个方法来执行子类中重写的不同方法, 避免重载的麻烦
         add_2(new Salt());
         // >>>
         // 我是盐
-        // 做菜少放盐
+        // 做菜少放盐  // Salt的特殊方法
 
         add_2(new Meat());
         // >>>
         // 我是肉
-        // 我很贵!!
+        // 我很贵!!               // Meat的特殊方法
+        // 肉类含有丰富动物蛋白质    // 针对Meat的特殊处理
 
         add_2(new Vegetable());
         // >>>
         // 我是蔬菜
-        // 如果我又有一种新菜加进来，我只需要实现它自己的类，让他继承Material就可以了，而不需要为它单独写一个add方法。是不是提高了扩展性?
+
+        // 如果我又有一种新菜加进来，我只需要实现它自己的类，让他继承Material就可以了，而不需要为它单独写一个add_2方法。是不是提高了扩展性?
+        // add_2(new Sugar());
     }
 }
 
