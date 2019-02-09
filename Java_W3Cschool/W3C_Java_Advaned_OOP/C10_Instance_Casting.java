@@ -93,7 +93,7 @@ class MyMenu {
 
 
 
-// 向下转型详细解释
+// 向下转型详细解释:
 class Animal_7 {
     public void eat(){ System.out.println("animal eatting..."); }
 }
