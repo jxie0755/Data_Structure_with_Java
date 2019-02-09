@@ -19,7 +19,7 @@ class HongKong extends China {
 	public void location(){System.out.println("South of China");}
 }
 
-class  test1 {
+class Geography_Test {
 
     public static void main(String[] args) {
 
