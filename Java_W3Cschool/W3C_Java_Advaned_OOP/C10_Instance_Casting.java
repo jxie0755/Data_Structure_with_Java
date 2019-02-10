@@ -64,7 +64,7 @@ class Geography_Test {
         System.out.println("\n向下转型第二种写法: ");
         China a2b2 = new HongKong();   // 同样的向上转型,包装a2b2为China身份
 
-        if (a2b2 instanceof HongKong) {  // 用if来避免问题
+        if (a2b2 instanceof HongKong) {
             HongKong b22 = HongKong.class.cast(a2b2);  // 这就不多余, 再造一个子类变量b22,它是a2b2变回回HongKong的cast,所以能被特殊看成是一个HongKong实例
             // 上面这三行操作是精髓
 
