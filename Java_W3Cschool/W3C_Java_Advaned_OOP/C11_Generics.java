@@ -16,7 +16,6 @@ public class C11_Generics {
 
 
 // 容器box
-
 class Box {
     private Object object;
     // set()方法可以接受任何java对象作为参数
@@ -182,6 +181,12 @@ class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子
         this.contents.add(t);
     }
 
+    void fill(T[] ta){
+        for (T t: ta) {
+            this.contents.add(t);
+        }
+    }
+
     void print_contents(){
         System.out.println(this.contents);
     }
@@ -207,6 +212,9 @@ class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子
              * 但是Box<Integer>与Box<Double>并不是Box<Number>的子类，不存在继承关系
              * Box<Integer>与Box<Double>的共同父类是Object
          */
+
+        box1.fill(new Short[]{10,20,30});
+        box1.print_contents();  // >>> [123, 456.789, 10, 20, 30]
     }
 }
 
