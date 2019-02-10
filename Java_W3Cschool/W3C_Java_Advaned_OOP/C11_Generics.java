@@ -188,6 +188,7 @@ class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子
 
     // 但是,有一种情况容易误操作
     void boxTest(Generic_Box_Num_2<Number> n) { }
+    // 这里形参是Box<Number>, 所以实参必须也是Box<Number>或其子类
 
     public static void main(String[] args) {
 
