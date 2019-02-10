@@ -151,7 +151,6 @@ class Util_Test {
 // 这里的extends既可以表示继承了某个类，也可以表示实现了某个接口
 
 class Generic_Box_Num<T extends Number> extends Generic_Box {  //类型参数限定为Number的子类
-    private T t;
 
     public void print_class() { System.out.println(this.get().getClass().getName()); }
 
@@ -169,3 +168,46 @@ class Generic_Box_Num<T extends Number> extends Generic_Box {  //类型参数限
         //报错，因为String类型不是Number的子类
     }
 }
+
+
+// 泛型类的继承
+class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子类
+    private ArrayList<T> contents;
+
+    Generic_Box_Num_2(){
+        this.contents = new ArrayList<>();
+    }
+
+    void add(T t){
+        this.contents.add(t);
+    }
+
+    void print_contents(){
+        System.out.println(this.contents);
+    }
+
+    // 但是,有一种情况容易误操作
+    void boxTest(Generic_Box_Num_2<Number> n) { }
+
+    public static void main(String[] args) {
+
+        Generic_Box_Num_2<Number> box1 = new Generic_Box_Num_2<>();
+        box1.add(123);
+        box1.add(456.789);
+        box1.print_contents();
+        // >>> [123, 456.789]   这里box可以同时支持放入Integer和Double, 因为它们都是Number的子类\
+
+        // Test boxTest
+        // boxTest(Box<Integer>);
+        // boxTest(Box<Double>);
+        /*
+         * 以上皆出错, 因为:
+             * 虽然Integer和Double都是Number的子类
+             * 但是Box<Integer>与Box<Double>并不是Box<Number>的子类，不存在继承关系
+             * Box<Integer>与Box<Double>的共同父类是Object
+         */
+    }
+}
+
+
+// 类型推断
