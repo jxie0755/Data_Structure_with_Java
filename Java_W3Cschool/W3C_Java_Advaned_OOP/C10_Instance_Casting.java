@@ -136,11 +136,11 @@ class MyMenu {
             Salt m_2 = (Salt) m;     // 需要对Salt特殊health(), 所以向下转型为m_2, 使用if来安全执行
             // 这里m_2其实就是((Salt) m), m_2前面的Salt只不过是声明变量前必须给出类型
             m_2.intro();
-            m_2.health();
+            m_2.health();           // Salt的特殊方法
         } else if (m instanceof  Meat) {
             ((Meat) m).intro();     // 比Salt更直接的向下转型的写法(其实是一个意思)
-            ((Meat) m).price();
-            System.out.println("肉类含有丰富动物蛋白质");
+            ((Meat) m).price();     // Meat的特殊方法
+            System.out.println("肉类含有丰富动物蛋白质");  // 针对Meat的特殊处理
         } else {
             m.intro();      // 如果只是运行父类和子类共有的方法, 就是单纯向上转型即可
         }
@@ -155,20 +155,20 @@ class MyMenu {
         add_2(new Salt());
         // >>>
         // 我是盐
-        // 做菜少放盐  // Salt的特殊方法
+        // 做菜少放盐
 
         add_2(new Meat());
         // >>>
         // 我是肉
-        // 我很贵!!               // Meat的特殊方法
-        // 肉类含有丰富动物蛋白质    // 针对Meat的特殊处理
+        // 我很贵!!
+        // 肉类含有丰富动物蛋白质
 
         add_2(new Vegetable());
         // >>>
         // 我是蔬菜
 
         // 如果我又有一种新菜加进来，我只需要实现它自己的类，让他继承Material就可以了，而不需要为它单独写一个add_2方法。是不是提高了扩展性?
-        // add_2(new Sugar());
+        // add_2(new Sugar()); // 直接可用
     }
 }
 
