@@ -68,7 +68,7 @@ class Geography_Test {
             HongKong b22 = HongKong.class.cast(a2b2);  // 这就不多余, 再造一个子类变量b22,它是a2b2变回回HongKong的cast,所以能被特殊看成是一个HongKong实例
             // 上面这三行操作是精髓
 
-            // 这样b2就用上了子类的方法
+            // 这样b22就用上了子类的方法
             b22.language(); // >>> people lived in HongKong speak Cantonese
             b22.location(); // >>> South of China
         }
