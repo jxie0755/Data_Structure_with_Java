@@ -38,7 +38,7 @@ public class C05_Conditional_If_Else {
 
         System.out.println(1 < 0 ? 1.1 : 1 > 2 ? 2.1 : 3.1);
         System.out.println(1 < 0 ? 1.1 : (1 > 2 ? 2.1 : 3.1));
-        // The above two mean the same, and print 3.1 (multiple if/else if/else)
+        // The above two mean the same, and print_class 3.1 (multiple if/else if/else)
 
 
         // 1.4.3

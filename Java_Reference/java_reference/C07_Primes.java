@@ -56,7 +56,7 @@ public class C07_Primes {
             }
         }
 
-        // Above will work to print out a sequence of numbers 2 3 5 7 11 13 17 19 when x = 20
+        // Above will work to print_class out a sequence of numbers 2 3 5 7 11 13 17 19 when x = 20
 
         System.out.println("\nFrom primes_1 method: ");
         primes_1(20);

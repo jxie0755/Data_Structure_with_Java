@@ -17,9 +17,9 @@ public class C02_Print {
 }
 
 /*
- * print command (keep next print/println command at the same as this line)
- * println command (keep next print/println command at a new line)
+ * print_class command (keep next print_class/println command at the same as this line)
+ * println command (keep next print_class/println command at a new line)
  * From now on it is suggested to only use println unless necessary
  * println()相当于python的'\n'
- * use print to break the printing of a complex line of output into pieces.
+ * use print_class to break the printing of a complex line of output into pieces.
  */

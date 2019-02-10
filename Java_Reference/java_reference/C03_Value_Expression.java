@@ -12,12 +12,12 @@ public class C03_Value_Expression {
         System.out.println(42); // Base 10
         System.out.println(052); // Base 8 (starts with 0)
         System.out.println(0x2a); // Base 16 (a=10, b=11, ..., f=15)
-        // A. All print 42
+        // A. All print_class 42
 
         System.out.println(31.45);
         System.out.println(3.145e1); // en or En means ×10n
         System.out.println(3145e-2);
-        // B. All print 31.45
+        // B. All print_class 31.45
 
         System.out.println(12345678901L);  // C. Prints 12345678901
 
@@ -56,21 +56,21 @@ public class C03_Value_Expression {
         System.out.println(3 >= 3);
         System.out.println(4 != 3);
         System.out.println(3 == 3);
-        // A. All print true
+        // A. All print_class true
 
         System.out.println(false);
         System.out.println(3 < 3);
         System.out.println(3 != 3);
-        // B. All print false
+        // B. All print_class false
 
         System.out.println(3 < 4 && 3 < 5);    // and
         System.out.println(3 > 4 || 4 < 5);    // or,
         System.out.println(!(3 < 4 && 4 < 3));  // not
-        // C. All print true
+        // C. All print_class true
 
         System.out.println(3 < 4 || 1 / 0 == 0);       // (short-circuited, first true then true)
         System.out.println(3 > 4 && 1 / 0 == 0);       // (short-circuited, first false then false)
-        // D. All print true
+        // D. All print_class true
 
 
         /*
