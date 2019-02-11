@@ -7,6 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Head_First_Java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Java_Reference" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Java_Snippet" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java_W3Cschool" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java_ZSnippet" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
