@@ -384,4 +384,225 @@ class WildcardScenarios {
  */
 
 
+
+
 // 类型擦除
+/*
+ * java编译器在处理泛型的时候，会做下面几件事：
+     * （1）将没有限定的类型参数用Object替换，保证class文件中只含有正常的类、接口与方法；
+     * （2）在必要的时候进行类型转换，保证类型安全；
+     * （3）在泛型的继承上使用桥接方法（bridge methods）保持多态性。
+ * 这类操作被称为类型擦除。
+ */
+
+class Node<T> {
+
+    private T data;
+    private Node<T> next;
+
+    public Node(T data, Node<T> next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public T getData() {
+        return data;
+    }
+    // ...
+}
+
+// Node类中的T没有被extends或者super限定，会被编译器替换成Object. 实际变成:
+class Node_compiler {
+
+    private Object data;
+    private Node next;
+
+    public Node_compiler(Object data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public Object getData() { return data; }
+    // ...
+}
+
+// 如果T加了限定，编译器会将它替换成合适的类型
+
+class Node_generics<T extends Comparable<T>> {   //也就是去掉泛型,变成一个普通类
+
+    private T data;
+    private Node<T> next;
+
+    public Node_generics(T data, Node<T> next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public T getData() {
+        return data;
+    }
+    // ...
+}
+
+// 改造成:
+
+class Node_generics_compiler {
+
+    private Comparable data;
+    private Node next;
+
+    public Node_generics_compiler(Comparable data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public Comparable getData() { return data;}
+    //...
+}
+
+
+// 类型擦除可能造成意外
+class Node_suprise<T> {
+
+    public T data;
+
+    public Node_suprise(T data) { this.data = data; }
+
+    public void setData(T data) {
+       System.out.println("Node.setData");
+        this.data = data;
+    }
+}
+
+class MyNode extends Node_suprise<Integer> {
+
+    public MyNode(Integer data) { super(data); }
+
+    public void setData(Integer data) {
+        System.out.println("MyNode.setData");
+        super.setData(data);
+    }
+}
+
+class MyNode_Test {
+    public static void main(String[] args) {
+        MyNode mn = new MyNode(5);
+        Node_suprise n = mn;
+        n.setData("Hello");
+        Integer x = mn.data;    // 抛出ClassCastException异常
+
+        // MyNode mn = new MyNode(5);
+        // Node_suprise n = (MyNode) mn;
+        // n.setData("Hello");
+        // Integer x = (String) mn.data;   // 抛出ClassCastException异常, 很正常因为类型不match
+
+        /*
+         * 我们来看看代码是怎么执行的:
+         * （1）n.setData("Hello")调用的其实是MyNode类的setData(Object)方法（从Node类继承的）
+         * （2）n引用的对象中的data字段被赋值一个String变量
+         * （3）mn引用的相同对象中的data预期为Integer类型（mn为Node<Integer>类型）
+         * （4）第四行代码试图将一个String赋值给Integer类型的变量，所以引发了ClassCastException异常
+         * 当编译一个继承了带有参数化泛型的类或借口时，编译器会根据需要创建被称为bridge method的桥接方法，这是类型擦除中的一部分
+         */
+    }
+}
+
+
+
+
+// 最后: 注意事项
+
+
+// 不能用基本类型实例化类型参数
+// class Pair<K,V>
+// Pair<int, char> p = new Pair<>(8, 'a'); // 编译错误
+// Pair<Integer, Character> p = new Pair<>(8, 'a'); // 正确写法
+
+
+// 不可实例化类型参数
+// public static <E> void append(List<E> list) {
+//     E elem = new E();  // 编译错误
+//     list.add(elem);
+// }
+// 通过反射实例化带有类型参数的对象
+// public static <E> void append(List<E> list, Class<E> cls) throws Exception{
+//     E elem = cls.newInstance();   // 正确
+//     list.add(elem);
+// }
+//
+// List<String> ls = new ArrayList<>();
+// append(ls,String.class);  //传入类型参数的Class对象
+
+
+// 不能在静态字段上使用泛型
+// public class MobileDevice <T> {
+//     private static T os;  //假如我们定义了一个带泛型的静态字段
+//
+//     // ...
+// }
+//
+// MobileDevice<Smartphone> phone = new MobileDevice<>();
+// MobileDevice<Pager> pager = new MobileDevice<>();
+// MobileDevice<TabletPC> pc = new MobileDevice<>();
+// 因为静态变量是类变量，被所有实例共享，此时，静态变量os的真实类型是什么呢？显然不能同时是Smartphone、Pager、TabletPC
+
+
+// 不能对带有参数化类型的类使用cast或instanceof方法
+// public static <E> void rtti(List<E> list) {
+//     if (list instanceof ArrayList<Integer>){  // 编译错误
+//         // ...
+//     }
+// }
+// 同样，不能将参数转换成一个带参数化类型的对象，除非它的参数化类型为无限定通配符（<?>）
+// List<Integer> li = new ArrayList<>();
+// List<Number>  ln = (List<Number>) li;  // 编译错误
+// 当然，如果编译器知道参数化类型肯定有效，是允许这种转换的:
+// List<String> l1 = ...;
+// ArrayList<String> l2 = (ArrayList<String>)l1;  // 允许转变，类型参数没变化
+
+
+// 不能创建带有参数化类型的数组
+// List<Integer>[] arrayOfLists = new List<Integer>[2]; // 编译错误
+// 下面通过两段代码来解释为什么不行。先来看一个正常的操作:
+// Object [] strings = new String[2];
+// string s[0] = "hi";   // 插入正常
+// string s[1] = 100;    //报错，因为100不是String类型
+// 同样的操作，如果使用的是泛型数组，就会出问题:
+// Object[] stringLists = new List<String>[]; // 该句代码实际上会报错，但是我们先假定它可以执行
+// string Lists[0] =new ArrayList<String>();   // 插入正常
+// string Lists[1] =new ArrayList<Integer>();  // 该句代码应该报ArrayStoreException的异常，但是运行环境探测不到
+
+
+// 不能创建、捕获泛型异常
+// 泛型类不能直接或间接继承Throwable类
+// class MathException<T> extends Exception { /* ... */ }    //编译错误
+// class QueueFullException<T> extends Throwable { /* ... */} // 编译错误
+// 方法不能捕获泛型异常:
+// public static<T extends Exception, J> void execute(List<J> jobs) {
+//     try {
+//         for (J job : jobs)
+//             // ...
+//     } catch (T e) {   // 编译错误
+//         // ...
+//     }
+// }
+// 但是，我们可以在throw子句中使用类型参数:
+// class Parser<T extends Exception> {
+//     public void parse(File file) throws T{     // 正确
+//         // ...
+//     }
+// }
+
+
+// 不能重载经过类型擦除后形参转化为相同原始类型的方法
+// List<String> l1 = new ArrayList<String>();
+// List<Integer> l2 = new ArrayList<Integer>();
+// System.out.println(l1.getClass()== l2.getClass());   // 竟然是true
+// 因为一个泛型类的所有实例在运行时具有相同的运行时类(class)，而不管他们的实际类型参数
+// 事实上，泛型之所以叫泛型，就是因为它对所有其可能的类型参数，有同样的行为；同样的类可以被当作许多不同的类型
+// class Example {
+//     public void print(Set<String> strSet){ }  //编译错误
+//     public void print(Set<Integer> intSet) { }  //编译错误
+// }
+// 因为Set<String>与Set<Integer>本质上属于同一个运行时类，在经过类型擦出以后
+// 上面的两个方法会共享一个方法签名，相当于一个方法，所以重载出错
