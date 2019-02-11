@@ -1,5 +1,6 @@
 package W3C_Java_Advaned_OOP;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class C11_Generics {
@@ -50,6 +51,7 @@ class Generic_Box<T> {   // 当我们使用该类时会指定T的具体类型，
 
     // 如果使用泛型来做write()就会简单
     <T> void write(T t, T[] ta){}
+
 }
 
 class Generic_Box_Test {
@@ -181,11 +183,12 @@ class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子
         this.contents.add(t);
     }
 
-    void fill(T[] ta){
+     void fill(T[] ta){
         for (T t: ta) {
             this.contents.add(t);
         }
     }
+
 
     void print_contents(){
         System.out.println(this.contents);
@@ -220,3 +223,38 @@ class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子
 
 
 // 类型推断
+// 例子
+// https://stackoverflow.com/questions/54623214/java-generic-method-not-working-the-parameter-is-not-being-restricted#54623214
+class Demo {
+
+    // 静态方法pick()在三个地方使用了泛型，分别限定了两个输入参数的类型与返回类型
+    // <T> in method, It defines that T is a generic type and not a defined type named T
+    static <T> T pick(T a1, T a2) {
+        return a2;
+    }
+
+    public static void main(String[] args) {
+        //前文已经提到，上面的代码可以简写为：
+        Integer ret = Demo.<Integer>pick(1, 2);
+
+
+        // 那么问题来了，假如两个输入参数为不同的类型，应该返回什么类型呢？
+        // 为什么这里, "d"和123被允许代入到pick呢?
+        System.out.println(pick("d", 123)); // >>> 123
+        // 因为Java会自动做类型推断,找出这两个参数的共有类型
+        // 虽然String和Integer看似不相干, 但是总有一个root共有类型,也就是Object
+        // The compiler will walk down the inheritance tree of  a1 and a2 to find a common ancestor
+        // 所以在这里, <T>就成了Object
+
+        // 延伸:
+        Object picked = pick("d", 123); // 可行
+        // Integer picked_2 = pick("d", 123); // 不可行, 虽然返回的是Integer,但是必须声明为"d"和123的共有类型
+
+        // 第一个参数为String类型，第二个参数为ArrayList类型
+        Serializable x = pick("d", new ArrayList<Number>());   // 如果不确定共有类型,在Intellij可以按着Ctrl/CMD把鼠标放到pick上
+
+        // java编译器就会根据这两个参数类型来推断，尽量使返回类型为最明确的一种。
+        // 本例中，String与ArrayList都实现了同样的接口——Serializable，当然，他们也是Object的子类，
+        // Serializable类型显然比Object类型更加明确，因为它的范围更小更细分，所以最终的返回类型应该为Serializable
+    }
+}
