@@ -2,6 +2,7 @@ package W3C_Java_Advaned_OOP;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class C11_Generics {
 }
@@ -189,33 +190,19 @@ class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子
         }
     }
 
-
     void print_contents(){
         System.out.println(this.contents);
     }
 
-    // 但是,有一种情况容易误操作
-    void boxTest(Generic_Box_Num_2<Number> n) { }
-    // 这里形参是Box<Number>, 所以实参必须也是Box<Number>或其子类
-
     public static void main(String[] args) {
 
         Generic_Box_Num_2<Number> box1 = new Generic_Box_Num_2<>();
+        Generic_Box_Num_2<Integer> box2 = new Generic_Box_Num_2<>();
+        Generic_Box_Num_2<Double> box3 = new Generic_Box_Num_2<>();
         box1.add(123);
         box1.add(456.789);
         box1.print_contents();
         // >>> [123, 456.789]   这里box可以同时支持放入Integer和Double, 因为它们都是Number的子类\
-
-        // Test boxTest
-        // boxTest(Box<Integer>);
-        // boxTest(Box<Double>);
-        /*
-         * 以上皆出错, 因为:
-             * 虽然Integer和Double都是Number的子类
-             * 但是Box<Integer>与Box<Double>并不是Box<Number>的子类，不存在继承关系
-             * Box<Integer>与Box<Double>的共同父类是Object
-         */
-
         box1.fill(new Short[]{10,20,30});
         box1.print_contents();  // >>> [123, 456.789, 10, 20, 30]
     }
@@ -260,4 +247,102 @@ class Demo {
 }
 
 
+// 通配符
+class Generic_Box_Num_3 extends Generic_Box_Num_2 {
 
+    // 虽然说G_Box_Num_2<T extends Number>可以支持制造Box实例能装Number的各种子类
+    // 但是,有一种情况容易误操作, 就是G_Box_Num<Integer>和G_Box_Num<Double>并不是G_Box_Num<Number>的子类
+    static void boxTest(Generic_Box_Num_2<Number> n) { }
+    // 这里形参是Box<Number>, 所以实参必须也是Box<Number>或其子类
+
+    // 上限通配符（upper bounded wildcard）
+    static void boxTest_upper(Generic_Box_Num_2<? extends Number> n) { }  // 通配符解决问题
+    // ? extends Number”就代表可以接受Number以及它的子类作为参数
+
+    // 下限通配符（lower bounded wildcard）
+    static void boxTest_lower(Generic_Box_Num_2<? super Integer> n) { }  // 通配符解决问题
+    // “? super Integer”代表可以接受Integer以及它的父类作为参数 (Number, Object)
+
+    // 无限定通配符（Unbounded Wildcards)
+    static void boxTest_infinite(Generic_Box_Num_2<?> n) { }  // 通配符解决问题
+    // “? super Integer”代表可以接受Integer以及它的父类作为参数 (Number, Object)
+
+
+    // 适用无限通配符
+    public static void printList(List<Object> list) {  // 这要求List必须是Object类,不能是子类
+        for (Object elem : list)
+            System.out.print(elem + " ");
+        System.out.println();
+    }
+
+    public static void printList_fix(List<? extends Object> list) {  // 这要求List必须是Object类,不能是子类
+        for (Object elem : list)
+            System.out.print(elem + " ");
+        System.out.println();
+    }
+
+    public static void printList_inf(List<?> list) {  // 相当于上方,只是写起来简单
+        for (Object elem : list)
+            System.out.print(elem + " ");
+        System.out.println();
+    }
+
+
+    public static void main(String[] args) {
+        // Test boxTest
+        // boxTest(new Generic_Box_Num_2<Integer>());
+        // boxTest(new Generic_Box_Num_2<Double>());
+
+        /*
+         * 以上皆出错, 除非 boxTest(new Generic_Box_Num_2<Number>());
+             * 虽然Integer和Double都是Number的子类
+             * 但是G_Box_Num_2<Integer>与G_Box_Num_2<Double>并不是G_Box_Num_2<Number>的子类，不存在继承关系
+             * G_Box_Num_2<Integer>与G_Box_Num_2<Double>的共同父类是Object
+         */
+        // 那怎么办呢?? 使用通配符 (boxTest_upper and boxTest_lower)
+        boxTest_upper(new Generic_Box_Num_2<Integer>());
+        boxTest_upper(new Generic_Box_Num_2<Double>());
+
+        boxTest_lower(new Generic_Box_Num_2<Integer>());
+        boxTest_lower(new Generic_Box_Num_2<Number>());
+
+        boxTest_infinite(new Generic_Box_Num_2<Integer>());
+        boxTest_infinite(new Generic_Box_Num_2<Number>());
+
+        // boxTest_infinite(new Generic_Box_Num_2<Object>());
+        // boxTest_lower(new Generic_Box_Num_2<Object>());
+        // Object不行因为这里G_Box_Num_2限定了最高只能到Number, 如果类限制是<T>就可以
+
+        /*
+         * 通常在两种情况下会使用无限定通配符:
+             * 如果正在编写一个方法，可以使用Object类中提供的功能来实现
+             * 代码实现的功能与类型参数无关，比如List.clear()与List.size()方法，还有经常使用的Class<?>方法，
+             * 或者方法实现的功能与类型参数无关
+         */
+
+        List<Object> obj_lst = new ArrayList();
+        obj_lst.add("A"); obj_lst.add("B"); obj_lst.add("C");
+
+        obj_lst.add(1); obj_lst.add(2); obj_lst.add(3);
+        Generic_Box_Num_3.printList(obj_lst);       // >>> A B C 1 2 3
+        Generic_Box_Num_3.printList_inf(obj_lst);   // >>> A B C 1 2 3
+
+        List<String> str_lst = new ArrayList();
+        str_lst.add("A"); str_lst.add("B"); str_lst.add("C");
+        // Generic_Box_Num_3.printList(str_lst);  实现不了
+        Generic_Box_Num_3.printList_fix(str_lst); // >>> A B C
+        Generic_Box_Num_3.printList_inf(str_lst); // >>> A B C
+    }
+
+
+
+}
+
+
+
+// 比如展示ArrayList中的元素, 与元素类型无关
+//         public static void printList (List<Object> lst) {
+//             for (Object elem : lst)
+//                 System.out.println(elem + "");
+//             System.out.println();
+//         }
