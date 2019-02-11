@@ -251,10 +251,13 @@ class Demo {
         // Integer picked_2 = pick("d", 123); // 不可行, 虽然返回的是Integer,但是必须声明为"d"和123的共有类型
 
         // 第一个参数为String类型，第二个参数为ArrayList类型
-        Serializable x = pick("d", new ArrayList<Number>());   // 如果不确定共有类型,在Intellij可以按着Ctrl/CMD把鼠标放到pick上
+        Serializable x = pick(new String("d"), new ArrayList<Number>());   // 如果不确定共有类型,可以查看Navigate - Type Hierarchy 或者Show Diagram
 
         // java编译器就会根据这两个参数类型来推断，尽量使返回类型为最明确的一种。
         // 本例中，String与ArrayList都实现了同样的接口——Serializable，当然，他们也是Object的子类，
         // Serializable类型显然比Object类型更加明确，因为它的范围更小更细分，所以最终的返回类型应该为Serializable
     }
 }
+
+
+
