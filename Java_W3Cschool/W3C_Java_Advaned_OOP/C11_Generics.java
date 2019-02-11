@@ -252,19 +252,23 @@ class Generic_Box_Num_3 extends Generic_Box_Num_2 {
 
     // 虽然说G_Box_Num_2<T extends Number>可以支持制造Box实例能装Number的各种子类
     // 但是,有一种情况容易误操作, 就是G_Box_Num<Integer>和G_Box_Num<Double>并不是G_Box_Num<Number>的子类
-    static void boxTest(Generic_Box_Num_2<Number> n) { }
+    static void boxTest(Generic_Box_Num_2<Number> n) {
+    }
     // 这里形参是Box<Number>, 所以实参必须也是Box<Number>或其子类
 
     // 上限通配符（upper bounded wildcard）
-    static void boxTest_upper(Generic_Box_Num_2<? extends Number> n) { }  // 通配符解决问题
+    static void boxTest_upper(Generic_Box_Num_2<? extends Number> n) {
+    }  // 通配符解决问题
     // ? extends Number”就代表可以接受Number以及它的子类作为参数
 
     // 下限通配符（lower bounded wildcard）
-    static void boxTest_lower(Generic_Box_Num_2<? super Integer> n) { }  // 通配符解决问题
+    static void boxTest_lower(Generic_Box_Num_2<? super Integer> n) {
+    }  // 通配符解决问题
     // “? super Integer”代表可以接受Integer以及它的父类作为参数 (Number, Object)
 
     // 无限定通配符（Unbounded Wildcards)
-    static void boxTest_infinite(Generic_Box_Num_2<?> n) { }  // 通配符解决问题
+    static void boxTest_infinite(Generic_Box_Num_2<?> n) {
+    }  // 通配符解决问题
     // “? super Integer”代表可以接受Integer以及它的父类作为参数 (Number, Object)
 
 
@@ -295,9 +299,9 @@ class Generic_Box_Num_3 extends Generic_Box_Num_2 {
 
         /*
          * 以上皆出错, 除非 boxTest(new Generic_Box_Num_2<Number>());
-             * 虽然Integer和Double都是Number的子类
-             * 但是G_Box_Num_2<Integer>与G_Box_Num_2<Double>并不是G_Box_Num_2<Number>的子类，不存在继承关系
-             * G_Box_Num_2<Integer>与G_Box_Num_2<Double>的共同父类是Object
+         * 虽然Integer和Double都是Number的子类
+         * 但是G_Box_Num_2<Integer>与G_Box_Num_2<Double>并不是G_Box_Num_2<Number>的子类，不存在继承关系
+         * G_Box_Num_2<Integer>与G_Box_Num_2<Double>的共同父类是Object
          */
         // 那怎么办呢?? 使用通配符 (boxTest_upper and boxTest_lower)
         boxTest_upper(new Generic_Box_Num_2<Integer>());
@@ -315,34 +319,69 @@ class Generic_Box_Num_3 extends Generic_Box_Num_2 {
 
         /*
          * 通常在两种情况下会使用无限定通配符:
-             * 如果正在编写一个方法，可以使用Object类中提供的功能来实现
-             * 代码实现的功能与类型参数无关，比如List.clear()与List.size()方法，还有经常使用的Class<?>方法，
-             * 或者方法实现的功能与类型参数无关
+         * 如果正在编写一个方法，可以使用Object类中提供的功能来实现
+         * 代码实现的功能与类型参数无关，比如List.clear()与List.size()方法，还有经常使用的Class<?>方法，
+         * 或者方法实现的功能与类型参数无关
          */
 
         List<Object> obj_lst = new ArrayList();
-        obj_lst.add("A"); obj_lst.add("B"); obj_lst.add("C");
+        obj_lst.add("A");
+        obj_lst.add("B");
+        obj_lst.add("C");
 
-        obj_lst.add(1); obj_lst.add(2); obj_lst.add(3);
+        obj_lst.add(1);
+        obj_lst.add(2);
+        obj_lst.add(3);
         Generic_Box_Num_3.printList(obj_lst);       // >>> A B C 1 2 3
         Generic_Box_Num_3.printList_inf(obj_lst);   // >>> A B C 1 2 3
 
         List<String> str_lst = new ArrayList();
-        str_lst.add("A"); str_lst.add("B"); str_lst.add("C");
+        str_lst.add("A");
+        str_lst.add("B");
+        str_lst.add("C");
         // Generic_Box_Num_3.printList(str_lst);  实现不了
         Generic_Box_Num_3.printList_fix(str_lst); // >>> A B C
         Generic_Box_Num_3.printList_inf(str_lst); // >>> A B C
+
+        // 这招也可以用来申明变量_
+        List<? extends Integer> intList = new ArrayList<>();  // 缺省就是<?>不是<Object>
+        List<? extends Number> numList = intList;  // 不会报错，
+        // List<? extends Integer> 是 List<? extends Number>的子类
     }
-
-
-
 }
 
+// 编译器可以通过类型推断机制来决定通配符的类型，这种情况被称为通配符捕获 (类似类型推断)
+// 大多时候我们不必担心通配符捕获，除非编译器报出了包含“capture of”的错误
+
+class WildcardScenarios {
+
+    // void foo_error(List<?> i) {
+    //     i.set(0, i.get(0));  //会报编译错误, 编译器无法推断i.get(0)是什么类型, 虽然说不论是什么类型,取出来都能放回去
+    // }
+
+    // 该方法可以确保编译器通过通配符捕获来推断出参数类型
+    void  foo_fix(List<?> i) {  // 不能前置<?>, 借用private方法来处理
+        fooHelper(i);
+    }
+
+    private <T> void fooHelper(List<T> l) {
+        l.set(0, l.get(0));
+    }
+}
+
+/*
+ * 于什么时候该使用上限通配符，什么时候该使用下限通配符，应该遵循一下几项指导规则。
+ * 首先将变量分为in-变量与out-变量:
+     * in-变量持有为当前代码服务的数据
+     * out-变量持有其他地方需要使用的数据
+        * 例如copy(src, dest)方法实现了从src源头将数据复制到dest目的地的功能，那么src就是in-变量，而dest就是out-变量
+        * 当然，在一些情况下，一个变量可能既是in-变量也是out-变量
+            * in-变量使用上限通配符
+            * out-变量使用下限通配符
+            * 当in-变量可以被Object类中的方法访问时，使用无限定通配符
+            * 一个变量既是in-变量也是out-变量时，不使用通配符
+        * 注意，上面的规则不适用于方法的返回类型
+ */
 
 
-// 比如展示ArrayList中的元素, 与元素类型无关
-//         public static void printList (List<Object> lst) {
-//             for (Object elem : lst)
-//                 System.out.println(elem + "");
-//             System.out.println();
-//         }
+// 类型擦除
