@@ -7,3 +7,4 @@ public class C08_Javac_GBK {
 // 解决方案:
 // 执行 javac -encoding utf-8 XXX.java 以取代 javac XXX.java
 // 运行时直接 java XXX, 不需要再转编码
+
