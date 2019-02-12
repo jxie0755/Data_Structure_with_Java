@@ -83,22 +83,21 @@ class Auction {
         double d = 0.0;
         boolean err = false;
 
-//        方法内部进行了异常处理
+        // 方法内部进行了异常处理
         try{
             d = Double.parseDouble(bidPrice); // 转化string为double
+
         }catch (NumberFormatException e){
-            System.out.println(e);
             err = true;
             throw new AuctionException("字符转化不成数字");
 
         } finally {  // finally必须被执行
             if (! err && iniPrice > d) {
-                System.out.println("???????????");
+                System.out.print("??????????? ");
                 throw new AuctionException("出价还不够起价");
             }
-            iniPrice = d;
         }
-
+        iniPrice = d;  // 这个一定要放finally外面,因为finally就算遇到错误也会执行
     }
 
 
@@ -108,16 +107,21 @@ class Auction {
         // vase.bid("123"); // 不然会出现unhandled exception
 
         try{
+            vase.bid("abc");
+        }catch (AuctionException ae){
+            System.out.println(ae);
+        }
+        // >>> W3C_basic.AuctionException: 字符转化不成数字
+
+        try{
             vase.bid("12");
         }catch (AuctionException ae){
             System.out.println(ae);
         }
-
-        try{
-            vase.bid("abc");
-        }catch (AuctionException ae){
-            System.out.println(ae);
-        }  // 记住一旦throw出Exception代码就终止运行了,后面不会再显示
+        // >>> ??????????? W3C_basic.AuctionException: 出价还不够起价
     }
 }
 
+
+
+// 详细例子: 自定义的异常类
