@@ -123,5 +123,114 @@ class Auction {
 }
 
 
-
 // 详细例子: 自定义的异常类
+class InsufficientFundsException extends Exception {  // 制造一个Exception子类
+    // Exception类也可以有变量和方法
+    static String false_deposit = "Sorry, but you are try to deposit ";
+    static String false_withdraw = "Sorry, but you are short $";
+
+    private double amount;
+    public InsufficientFundsException(double amount) { this.amount = amount; }
+    public double getAmount() { return amount; }
+
+    public void false_deposit() {
+        System.out.println(false_deposit + this.getAmount());
+    }
+
+    public void false_withdraw() {
+        System.out.println(false_withdraw + this.getAmount() + ", withdrawal cancelled");
+    }
+
+}
+
+
+class CheckingAccount {
+    private double balance;
+    private int account_number;
+
+    public double getBalance() { return balance; }
+    public int getAccount_number() { return account_number; }
+
+    // 开户, 生成账户号码
+    public CheckingAccount(int new_acct_number) {
+        this.account_number = new_acct_number;
+    }
+
+
+    // 存款
+    public void deposit(double amount) throws  InsufficientFundsException {
+        if (amount == 0) {
+            System.out.println("You have to deposit something!");
+            throw new InsufficientFundsException(amount);
+        } else if (amount < 0) {
+            System.out.println("Ilegal deposit!");
+            throw new InsufficientFundsException(amount);
+        }
+        balance += amount;
+    }
+
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            double needs = amount - balance;
+            throw new InsufficientFundsException(needs);
+        }
+    }
+}
+
+class BankDemo {
+    public static void main(String[] args) {
+        CheckingAccount c = new CheckingAccount(101);
+
+        try {
+            c.deposit(-20.00);
+        } catch (InsufficientFundsException e1) {
+            e1.false_deposit();
+        } finally {
+            System.out.println("Current balance: " + c.getBalance());
+        }
+        // >>>
+        // Ilegal deposit!
+        // Sorry, but you are try to deposit -20.0
+        // Current balance: 0.0
+
+        try {
+            c.deposit(0);
+        } catch (InsufficientFundsException e2) {
+            e2.false_deposit();
+        } finally {
+            System.out.println("Current balance: " + c.getBalance());
+        }
+        // >>>
+        // You have to deposit something!
+        // Sorry, but you are try to deposit 0.0
+        // Current balance: 0.0
+
+        System.out.println("Depositing $500...");
+        try {
+            c.deposit(500.00);
+        } catch (InsufficientFundsException e3) {
+            e3.false_deposit();
+        } finally {
+            System.out.println("Current balance: " + c.getBalance());
+        } // >>> Current balance: 500.0
+
+        try {
+            System.out.println("\nWithdrawing $100...");
+            c.withdraw(100.00);
+            System.out.println("\nWithdrawing $600...");
+            c.withdraw(600.00);
+        } catch (InsufficientFundsException e) {
+            e.false_withdraw();
+            e.printStackTrace();
+        } finally {
+            System.out.println("Current balance: " + c.getBalance());
+        }
+        // >>>
+        // Withdrawing $100...
+        // Withdrawing $600...
+        // Sorry, but you are short $200.0, withdrawal cancelled
+        // Current balance: 400.0
+    }
+}
