@@ -7,8 +7,8 @@ public class C04_Static_Methods {
      * non-static method (or instance methods)
      */
 
+    /** Return the square of x */
     static int square_1 (int x) {
-        /** Return the square of x */
         return x * x;
     }
 
