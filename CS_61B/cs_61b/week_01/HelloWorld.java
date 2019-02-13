@@ -6,7 +6,6 @@ public class HelloWorld {
 	}
 }
 
-
 /*
 1. All code in Java must be part of a class.
 2. We delimit the beginning and end of segments of code
