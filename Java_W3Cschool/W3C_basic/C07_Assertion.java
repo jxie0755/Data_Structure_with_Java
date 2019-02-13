@@ -44,3 +44,10 @@ class Solution {
  * 因此，应当避免在Java中使用assert关键字，除非哪一天Java默认支持开启-ea的开关，这时候可以考虑。对比一下，assert能给你带来多少好处，多少麻烦，这是我们选择是否使用的的原则
 
  */
+
+/*
+ * 在IDE中可以通过调整VM的option来使用发现assertion错误
+    * Intellij中, 顶部菜单Run -> Edit Configuration -> 左侧菜单
+    * 可以单独在Application中添加"-ea"命令
+    * 也可以在下面Template中的application模板中添加"-ea"命令到整个project
+ */
