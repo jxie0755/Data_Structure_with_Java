@@ -232,5 +232,6 @@ class BankDemo {
         // Withdrawing $600...
         // Sorry, but you are short $200.0, withdrawal cancelled
         // Current balance: 400.0
+
     }
 }
