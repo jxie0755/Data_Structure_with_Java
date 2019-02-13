@@ -1,6 +1,6 @@
-package W3C_basic;
+package W3C_Java_Classes;
 
-public class C02_Basic_Types {
+public class C00_Basic_Types {
     public static void main(String[] args) {
         // byte 基本类型：byte 二进制位数, 包装类：java.lang.Byte
         // byte类型用在大型数组中节约空间，主要代替整数，因为byte变量占用的空间只有int类型的四分之一. 默认值是0

@@ -1,6 +1,6 @@
 package W3C_basic;
 
-public class C03_Variable_Types {
+public class C02_Variable_Types {
 
     public static void pupAge() {
         int age = 0;
