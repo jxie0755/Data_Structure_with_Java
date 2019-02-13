@@ -21,7 +21,7 @@ class Solution {
         assert Fib(2) == 1;
         System.out.println(Fib(5));
         assert Fib(5) == 5;
-        assert Fib(5 ) == 10;  // 这里不会报错, 只有在console中运行 java -ea Solution才会
+        assert Fib(5 ) == 10: "WTF???";  // 这里不会报错, 只有在console中运行 java -ea Solution才会
     }
 }
 
