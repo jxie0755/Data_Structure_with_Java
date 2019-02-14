@@ -37,6 +37,7 @@ class Boxing_Unboxing {
 class Math_Test {
     public static void main (String []args)
     {
+        // 三角函数
         System.out.println("90 度的正弦值：" + Math.sin(Math.PI/2));
         System.out.println("0度的余弦值：" + Math.cos(0));
         System.out.println("60度的正切值：" + Math.tan(Math.PI/3));
@@ -46,9 +47,9 @@ class Math_Test {
 
 
         // Number和Math常用方法
-        System.out.println("");
+        // 只能用于Integer, 方法都只能用于Number类,不能是基本类型
         Integer x1 = 1000;
-        System.out.println(x1.byteValue()); // >>> -24
+        x1.byteValue(); // >>> -24
         // basically within -128 to 127, it return the same value
         // beyound the scope will extend additional -128 to 127 scope
         // 127 to 127
@@ -70,12 +71,11 @@ class Math_Test {
 
         // Convert         // 如果用的基本类型!  (就像cast)
         double x2 = 12.345;
-        int y2 = (int) x2;
-        System.out.println(y2); // >>> 12
+        int y2 = (int) x2;     // >>> 12
 
         double x3 = 1000;
-        byte y3 = (byte) x3;
-        System.out.println(y3); // >>> -24 // Same result
+        byte y3 = (byte) x3;  // >>> -24 // Same result
+
 
         // Double x4 = 12.5;
         // Byte y4 = (Byte) x4;  // 但是Cast只支持基本类型
@@ -84,7 +84,25 @@ class Math_Test {
         // 由于Double, Byte不是继承关系,所以不行,而基本类型的box/unbox是自动的.
 
 
+        // valueOf
+        Integer x4 = Integer.valueOf(9);  // >>> 9
+        Double x5 = Double.valueOf(5);   // >>> 5.0
+        Float x6 = Float.valueOf("80.5");  // >>> 80.5
+        Integer x7 = Integer.valueOf("100",2);   // >>> 4 二进制的100也就是十进制的4
+        Boolean boo = Boolean.valueOf(true);
+        System.out.println(boo);
+        // 对比 parse方法:
+        double x8 = Double.parseDouble("88.88");
+        Double x9 = Double.parseDouble("88.88");
+        double x10 = Double.valueOf("88.88");
+        Double x11 = Double.valueOf("88.88");
+        // System.out.println(Double.parseDouble("88.88").getClass());  // >>> 返回 double
+        System.out.println(Double.valueOf("88.88").getClass());        // >>>  返回 Double实例
 
+
+        // toString
+        Integer x12 = 123;
+        System.out.println(x12.toString().getClass()); // >>> "123"  class java.lang.String
 
 
 
