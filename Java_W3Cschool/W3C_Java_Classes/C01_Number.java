@@ -85,6 +85,7 @@ class Math_Test {
 
 
         // valueOf
+        // 一种更省空间的制造实例的方式
         Integer x4 = Integer.valueOf(9);  // >>> 9
         Double x5 = Double.valueOf(5);   // >>> 5.0
         Float x6 = Float.valueOf("80.5");  // >>> 80.5
@@ -99,12 +100,17 @@ class Math_Test {
         // System.out.println(Double.parseDouble("88.88").getClass());  // >>> 返回 double
         System.out.println(Double.valueOf("88.88").getClass());        // >>>  返回 Double实例
 
+        // parse
+        // 也是把字符串变成数字的方法
+        Integer x12 = Integer.parseInt("88");
+        Double x13 = Double.parseDouble("88.88");
+        System.out.println(">>>>> " + (Boolean.parseBoolean("asdf"))); // >>> false
+        // only true if string is "true" or "TRUE" or "True" or even "tRuE" (ignore case)
+
 
         // toString
-        Integer x12 = 123;
+        // 把数字翻译成字符串,相当于python的str()
+        Float x14 = 123.123f;
         System.out.println(x12.toString().getClass()); // >>> "123"  class java.lang.String
-
-
-
     }
 }
