@@ -66,6 +66,36 @@ class Math_Method_Test {
         // may be defined by the statements
         double f = Math.random()/Math.nextDown(1.0);
         double x_range = 3*(1.0 - f) + 5*f;  // range(3, 5)
+
+
+        // nextUp and nextDown
+        // float and double
+        // nextUp: Returns the floating-point value adjacent to d in the direction of positive infinity
+        double dd = 0.0; // remember double type
+        double d_up = Math.nextUp(dd);
+        System.out.println(d_up + ">>>>>>>>");  // 4.9E-324
+        System.out.println((d_up - dd) == Double.MIN_VALUE);
+        System.out.println(Double.MIN_VALUE); // but only worked for 0.0
+
+        // nextDown: Returns the floating-point value adjacent to d in the direction of negative infinity.
+        double d_down = Math.nextDown(dd);
+        System.out.println(d_down + ">>>>>>>>");  // 4.9E-324
+        System.out.println((dd - d_down) == Double.MIN_VALUE);
+        System.out.println(Double.MIN_VALUE); // but only worked for 0.0
+        // https://stackoverflow.com/questions/54699305/java-nextup-is-not-adding-float-min-value?noredirect=1#comment96185999_54699305
+        // Your assumption would only be correct if all doubles were evenly spaced, but of course they are not.
+
+        // nextAfter
+        // double, float
+        // same thing but add a second parameter to go with the direction
+        double ddd = 1.5;
+        double d_after1 = Math.nextAfter(ddd, 2.0);  // 1.5000000000000002
+        double d_after2 = Math.nextAfter(ddd, 1.0);  // 1.4999999999999998
+        double d_after3 = Math.nextAfter(ddd, 1.5);  // 1.5
+        // 简单的说就是
+        // if second para > dd, return Math.nextUp()
+        // if second para < dd, return Math.nextDown()
+        // if second para == dd, reurn dd
     }
 }
 
