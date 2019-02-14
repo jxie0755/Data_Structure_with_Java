@@ -173,8 +173,6 @@ public class C03_Value_Expression {
         int C = 7, D = 8, E;
         System.out.println("C: " + C + " D: " + D);
         // System.out.println(E);  // Error variable not been initialized
-
-
     }
 }
 
