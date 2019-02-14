@@ -3,7 +3,8 @@ package W3C_Java_Classes;
 public class C01_Number {
 }
 
-//
+// https://docs.oracle.com/en/java/javase/11/
+// https://docs.oracle.com/en/java/javase/11/docs/api/index.html
 
 /*
  * Java Number类
@@ -34,20 +35,13 @@ class Boxing_Unboxing {
 
 
 // Java Math类
-class Math_Test {
+class Number_Method_Test {
     public static void main (String []args)
     {
-        // 三角函数
-        System.out.println("90 度的正弦值：" + Math.sin(Math.PI/2));
-        System.out.println("0度的余弦值：" + Math.cos(0));
-        System.out.println("60度的正切值：" + Math.tan(Math.PI/3));
-        System.out.println("1的反正切值： " + Math.atan(1));
-        System.out.println("π/2的角度值：" + Math.toDegrees(Math.PI/2));
-        System.out.println(Math.PI);
+        // Number常用方法
+        // 方法都只能用于Number类,不能用于基本类型
 
-
-        // Number和Math常用方法
-        // 只能用于Integer, 方法都只能用于Number类,不能是基本类型
+        // Number类自带的的Value方法
         Integer x1 = 1000;
         x1.byteValue(); // >>> -24
 
@@ -73,16 +67,21 @@ class Math_Test {
         // Convert         // 如果用的基本类型!  (就像cast)
         double x2 = 12.345;
         int y2 = (int) x2;     // >>> 12
-
         double x3 = 1000;
         byte y3 = (byte) x3;  // >>> -24 // Same result
-
-
         // Double x4 = 12.5;
         // Byte y4 = (Byte) x4;  // 但是Cast只支持基本类型
         // STOF 解释:
         // https://stackoverflow.com/questions/17281919/why-is-wrapper-integer-to-float-conversion-not-possible-in-java
         // 由于Double, Byte不是继承关系,所以不行,而基本类型的box/unbox是自动的.
+
+
+        // parse
+        // 也是把字符串变成数字的方法
+        Integer x12 = Integer.parseInt("88");
+        Double x13 = Double.parseDouble("88.88");
+        System.out.println(">>>>> " + (Boolean.parseBoolean("asdf"))); // >>> false
+        // only true if string is "true" or "TRUE" or "True" or even "tRuE" (ignore case)
 
 
         // valueOf
@@ -93,20 +92,14 @@ class Math_Test {
         Integer x7 = Integer.valueOf("100",2);   // >>> 4 二进制的100也就是十进制的4
         Boolean boo = Boolean.valueOf(true);
         System.out.println(boo);
-        // 对比 parse方法:
+
+        // valueOf 对比 parse方法:
         double x8 = Double.parseDouble("88.88");
         Double x9 = Double.parseDouble("88.88");
         double x10 = Double.valueOf("88.88");
         Double x11 = Double.valueOf("88.88");
         // System.out.println(Double.parseDouble("88.88").getClass());  // >>> 返回 double
         System.out.println(Double.valueOf("88.88").getClass());        // >>>  返回 Double实例
-
-        // parse
-        // 也是把字符串变成数字的方法
-        Integer x12 = Integer.parseInt("88");
-        Double x13 = Double.parseDouble("88.88");
-        System.out.println(">>>>> " + (Boolean.parseBoolean("asdf"))); // >>> false
-        // only true if string is "true" or "TRUE" or "True" or even "tRuE" (ignore case)
 
 
         // toString
