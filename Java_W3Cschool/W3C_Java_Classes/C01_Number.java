@@ -50,6 +50,7 @@ class Math_Test {
         // 只能用于Integer, 方法都只能用于Number类,不能是基本类型
         Integer x1 = 1000;
         x1.byteValue(); // >>> -24
+
         // basically within -128 to 127, it return the same value
         // beyound the scope will extend additional -128 to 127 scope
         // 127 to 127
@@ -112,5 +113,7 @@ class Math_Test {
         // 把数字翻译成字符串,相当于python的str()
         Float x14 = 123.123f;
         System.out.println(x12.toString().getClass()); // >>> "123"  class java.lang.String
+        float fff = 123.123f;
+        System.out.print(Float.toString(fff)); // 这样可以work
     }
 }
