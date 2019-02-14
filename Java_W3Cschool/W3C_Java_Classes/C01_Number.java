@@ -108,5 +108,8 @@ class Number_Method_Test {
         System.out.println(x12.toString().getClass()); // >>> "123"  class java.lang.String
         float fff = 123.123f;
         System.out.println(Float.toString(fff)); // 这样可以work
+
+
+
     }
 }
