@@ -1,17 +1,41 @@
 package Java_Basics.W3C_Package_Example_2;
 
-public class C12_Package {
+public class C12_Package { }
 
-    /*
+
+// 假设fakejava文件夹下有如下文件:
+/*
+ * fakejava
+    * com
+        * Car.java       -- 头部标明 package路径, com.car
+        * CarTest.java   -- 头部标明 package路径, com.test, 然后import com.car.Car
+        * car            -- 路径 (javac后生成)
+        * test           -- 路径 (javac后生成)
+ */
+
+/*
+     * javac 编译命令
      * 在编译一个*.java文件时, 如果直接使用 javac xxx.java的话, 那么将会在java文件同处生成*.class文件.
      * 但是, 在此例中,或者很多地方, *.java文件头部会标明package位置, 那么相应的*.class文件如果需要生成到package位置, 需要使用 -d
         * 使用 -d 时后接 . 直接可以在*.java文件所在目录生成package的目录, 然后把*.class生成在package中:
-            * javac -d . C12_Package.java
+            * javac -d . *.java (编译当前路径下所有java文件, 不包含子路径)
         * 使用 -d 时也可以强行指定在任何地方生成package目录
-            * javac -d ~/Documents C12_Package.java
-            * 这里会先在Documents中生成Java_Basics/W3C_Package_Example_2的两层路径, 然后*.class文件在此生成.
+            * javac -d ~/Documents *.java
+            * 这里会先在当前路径先生成Documents, 然后在其中生成com/car或者test的两层路径, 然后*.class文件在此生成.
      */
-}
+
+    /*
+     * java 执行
+     * 位处于*.class位置执行
+        * java ***.class  (注意使用全名: 包名.类名.class)
+     * 可以在*.java位置执行, 使用
+        * java -cp .:/ com.test.CarTest
+            * -cp 是-classpath的意思
+            * . 表示从当前位置开始
+            * :/ 表示往下
+            * 最后 加上类全名
+     */
+
 
 /*
  * Java包
