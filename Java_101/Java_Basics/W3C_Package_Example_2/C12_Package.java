@@ -1,6 +1,16 @@
 package Java_Basics.W3C_Package_Example_2;
 
 public class C12_Package {
+
+    /*
+     * 在编译一个*.java文件时, 如果直接使用 javac xxx.java的话, 那么将会在java文件同处生成*.class文件.
+     * 但是, 在此例中,或者很多地方, *.java文件头部会标明package位置, 那么相应的*.class文件如果需要生成到package位置, 需要使用 -d
+        * 使用 -d 时后接 . 直接可以在*.java文件所在目录生成package的目录, 然后把*.class生成在package中:
+            * javac -d . C12_Package.java
+        * 使用 -d 时也可以强行指定在任何地方生成package目录
+            * javac -d ~/Documents C12_Package.java
+            * 这里会先在Documents中生成Java_Basics/W3C_Package_Example_2的两层路径, 然后*.class文件在此生成.
+     */
 }
 
 /*
