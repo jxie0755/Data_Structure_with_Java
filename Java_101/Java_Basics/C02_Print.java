@@ -13,6 +13,12 @@ public class C02_Print {
         // >>>
         //1234
         //new line567
+        System.out.println();
+
+        // Learn printf
+        System.out.printf("%5.2f", 3.444789);   // "  3.46"
+        // 格式化浮点模式,总长度5位,小数点后两位, 注意如果不够5位会用空字符弥补, 会自动四舍五入
+        System.out.printf("\n%d%n", 3123);   // "  3.46"   // "\n"和"%n"都是换行
     }
 }
 
