@@ -85,6 +85,20 @@ public class C02b_Keywords {
  */
 
 
+// 注释
+
+/*
+ * This is
+ * okay.
+ */
+
+// And so
+// is this.
+
+/* Or you can
+ * even do this. */
+
+
 @Deprecated  // 尽管标注了,但是还是会执行
 class DontRun {
     public static void main(String[] args) {
