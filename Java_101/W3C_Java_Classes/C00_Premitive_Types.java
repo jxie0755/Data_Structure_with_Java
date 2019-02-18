@@ -1,6 +1,6 @@
 package W3C_Java_Classes;
 
-public class C00_Basic_Types {
+public class C00_Premitive_Types {
     public static void main(String[] args) {
 
         // 数值类型:
