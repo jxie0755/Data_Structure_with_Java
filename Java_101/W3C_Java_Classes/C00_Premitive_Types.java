@@ -190,6 +190,16 @@ public class C00_Premitive_Types {
         Boolean default_Bool3 = new Boolean("TRUE");  // true
         Boolean default_Bool4 = new Boolean("tRuE");  // true
         System.out.println(default_Bool2 + " " + default_Bool3 + " " + default_Bool4 + " " + default_Bool);  // >>> true true true false  // similar to Boolean.parseeBoolean
+
+
+        // 除此之外其他全是reference types (引用类型) 见 C00_Reference_Types
+        /*
+         * 类    Class
+         * 接口  Interface
+         * 数组  Array
+         */
+        // Java中的引用数据类型， 相当于C等语言中指针（pointer） 类型， 引用事实上就是指针， 是指向一个对象的内存地址
+
     }
 }
 
