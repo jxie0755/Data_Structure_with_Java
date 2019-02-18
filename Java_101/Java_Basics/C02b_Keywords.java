@@ -41,7 +41,7 @@ public class C02b_Keywords {
      * this
  * Class variables
      * static
-     * final
+     * final   // 常量
  * Assertions
      * assert
  * Exceptions
