@@ -70,3 +70,24 @@ public class C02b_Keywords {
      * const
      * goto
  */
+
+
+// 注释用词
+/*
+ * @author       // 说明类和接口的作者
+ * @deprecated   // 说明类,接口,成员已被废弃
+ * @param        // 介绍参数值
+ * @return       // 介绍return值
+ * @see          // 参考另一个主题的链接
+ * @exception    // 说明方法会抛出的异常
+ * @throws       // 同上
+ * @versin       // 类或接口的版本
+ */
+
+
+@Deprecated  // 尽管标注了,但是还是会执行
+class DontRun {
+    public static void main(String[] args) {
+        System.out.println("OKKKKK");
+    }
+}
