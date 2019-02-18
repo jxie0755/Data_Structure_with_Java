@@ -19,7 +19,7 @@ public class C00_Basic_Types {
         System.out.println();
 
         // int 基本类型：int 二进制位数, 包装类：java.lang.Integer
-        // 一般地整型变量默认为int类型, 默认值是0
+        // 一般地整型变量默认为int类型, 默认值是0 (也就是直接声明, 例如 1 是int类型而不是byte,short或者long)
         System.out.println(Integer.SIZE);          // >>> 32
         System.out.println(Integer.MIN_VALUE);  // >>> -2147483648  (-1后面31个0)
         System.out.println(Integer.MAX_VALUE);  // >>> 2147483647   (31个1)
@@ -41,7 +41,7 @@ public class C00_Basic_Types {
         System.out.println();
 
         // double 基本类型：double 二进制位数, 包装类：java.lang.Double
-        // 浮点数的默认类型为double类型, 默认值是0.0d
+        // 浮点数的默认类型为double类型, 默认值是0.0d (也就是直接声明,例如1.234是double而不是float).
         // double类型同样不能表示精确的值，如货币
         System.out.println(Double.SIZE);      // >>> 64
         System.out.println(Double.MIN_VALUE);  // >>> 4.9E-324
