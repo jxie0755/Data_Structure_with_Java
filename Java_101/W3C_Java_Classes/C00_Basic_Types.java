@@ -48,6 +48,25 @@ public class C00_Basic_Types {
         System.out.println(Double.MAX_VALUE);  // >>> 1.7976931348623157E308
         System.out.println();
 
+
+        // 其他进制数字表示方法
+        /*
+         * 如果为一个整数变量赋值， 使用二进制数、 八进制数和十六进制数表示， 它们的表示方式分别如下：
+             * 二进制数： 以 0b 或0B为前缀， 注意0是阿拉伯数字， 不要误认为是英文字母o。
+             * 八进制数： 以0为前缀， 注意0是阿拉伯数字。
+             * 十六进制数： 以 0x或0X为前缀， 注意0是阿拉伯数字
+         */
+        int decimalInt = 28;
+
+        int binaryInt1 = 0b11100;
+        int binaryInt2 = 0B11100;
+
+        int octalInt = 034;
+
+        int hexadecimalInt1 = 0x1C;
+        int hexadecimalInt2 = 0X1C;
+
+
         // char 基本类型：char 二进制位数, 包装类：java.lang.Character
         // char数据类型可以储存任何字符
         System.out.println(Character.SIZE);  // >>> 16
