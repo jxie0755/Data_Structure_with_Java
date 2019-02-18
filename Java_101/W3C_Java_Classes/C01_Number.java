@@ -80,6 +80,9 @@ class Number_Method_Test {
         // 也是把字符串变成数字的方法
         Integer x12 = Integer.parseInt("88");
         Double x13 = Double.parseDouble("88.88");
+
+        // TODO
+        // move to Boolean method
         System.out.println(">>>>> " + (Boolean.parseBoolean("asdf"))); // >>> false
         // only true if string is "true" or "TRUE" or "True" or even "tRuE" (ignore case)
 
