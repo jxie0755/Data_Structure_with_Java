@@ -1,4 +1,4 @@
-package Java_Basics.W3C_Package_Example_2;
+package Java_Basics;
 
 public class C03b_Operators {
     public static void main(String[] args) {
