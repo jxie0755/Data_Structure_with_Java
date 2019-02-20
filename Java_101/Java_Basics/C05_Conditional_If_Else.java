@@ -55,7 +55,7 @@ public class C05_Conditional_If_Else {
             System.out.println("Not showen");
 
 
-        char grade = 'A';
+        char grade = 'D';
         switch (grade) {
             case 'A':
                 System.out.println("优秀");
@@ -67,7 +67,8 @@ public class C05_Conditional_If_Else {
                 System.out.println("良好");
                 break;
             case 'D':
-                System.out.println("及格");
+            case 'E':
+                System.out.println("及格");   // D和E是贯通的表示不论是D还是E都是及格
             case 'F':
                 System.out.println("你需要继续努力");
                 break;
@@ -77,9 +78,12 @@ public class C05_Conditional_If_Else {
         }
         System.out.println("你的等级是 " + grade);
         // >>>
-        // 优秀
-        // 还行           // 如果没有 break则分析完会进入下一个case
-        // 你的等级是 A
+        // 及格
+        // 你需要继续努力          // 如果没有 break则分析完会进入下一个case
+        // 你的等级是 D
+
+        // switch语句中“表达式”计算结果只能是int、 byte、 short和char类型， 不能是long更不能其他的类型。 每个case后面只能跟一个int、 byte、 short和char类型的常量
+
     }
 }
 
