@@ -70,6 +70,8 @@ public class C09_While_Loop {
             System.out.println ("Hello!");
         } while (false);
 
+        // 其实相当于while True, 执行一段代码, 然后if条件不符合,就break
+
     }
 }
 
