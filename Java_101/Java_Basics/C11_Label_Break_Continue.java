@@ -140,8 +140,8 @@ public class C11_Label_Break_Continue {
 
         // Continue也可以配合label
         label1:
-        for (int x = 0; x < 4; x++) {
-            for (int y = 4; y > 0; y--) {
+        for (int x = 1; x <=3; x++) {
+            for (int y = 3; y > 0; y--) {
                 if (y == x) {
                     continue label1;
                 }
@@ -151,18 +151,12 @@ public class C11_Label_Break_Continue {
         }
         System.out.println("Game Over!");
         // >>>
-        // (x,y) = (0,4)
-        // (x,y) = (0,3)
-        // (x,y) = (0,2)
-        // (x,y) = (0,1)
-        // (x,y) = (1,4)
         // (x,y) = (1,3)
         // (x,y) = (1,2)
-        // (x,y) = (2,4)
         // (x,y) = (2,3)
-        // (x,y) = (3,4)
         // Game Over!
         // 中途跳过了(1,1), (2,2),(2,1), (3,3)(3,2),(3,1)
+        // 不然普通continue只会跳过(1,1),(2,2),(3,3)
     }
 }
 
