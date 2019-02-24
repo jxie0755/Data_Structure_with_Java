@@ -140,3 +140,53 @@ class ArrayPrint {
         System.out.println(java.util.Arrays.toString(intArray)); // >>> [1, 35, 3, 4]
     }
 }
+
+// 引用数据
+// 这里需要注意的是引用类型数组， 每一个元素保存都是指向实际对象的内存地址
+class BoxedArrays {
+
+    public static void main(String[] args) {
+        String a = "ABC";
+        String b = "DEF";
+        String c = "GHI";
+
+        String[] strArray = new String[]{a, b, c};
+        System.out.println(Arrays.toString(strArray));  // >>>  [ABC, DEF, GHI]
+
+        // 若此时改变a
+        a = "XXX";
+        System.out.println(Arrays.toString(strArray));  // >>> [ABC, DEF, GHI]
+        // 这里a虽然变了,但是由于String是不可变类型,所以a指向了另一个内存地址中的"XXX",并没有改变strArray通过一开始a指向的那个String.
+        // 所以a变了不会导致strArray变了
+
+        // 若是可变类型的数组 (二维数组), 就会出现数组元素变化导致数组变化
+        int[] aa = new int[]{1,3,5,7};
+        int[] bb = new int[]{2,5,8,11};
+        int[] cc = new int[]{3,7,11,15};
+
+        int[][] A = {aa,bb, cc};
+
+        for (int i=0; i<3; i+=1) {
+            System.out.println(Arrays.toString(A[i]));
+            // >>>
+            // [1, 3, 5, 7]
+            // [2, 5, 8, 11]
+            // [3, 7, 11, 15]
+        }
+
+        // 此时A中的aa不是全新的数组而是aa本身指向的那个数组
+        aa[0] = 123;
+        bb[1] = 99;
+        // 若是改变aa,则同样会改变A中的aa
+
+        for (int i=0; i<3; i+=1) {
+            System.out.println(Arrays.toString(A[i]));
+            // >>>
+            // [123, 3, 5, 7]
+            // [2, 99, 8, 11]
+            // [3, 7, 11, 15]
+        }
+
+    }
+
+}
