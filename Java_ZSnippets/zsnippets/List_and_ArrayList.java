@@ -107,7 +107,7 @@ class Child2 extends Father {
     }
 }
 
-class Tttt {
+class Testttt {
 
     public static void main(String[] args) {
         Child1 C1 = new Child1();
