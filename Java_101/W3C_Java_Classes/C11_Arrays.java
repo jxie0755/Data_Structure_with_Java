@@ -165,6 +165,7 @@ class BoxedArrays {
 
         int[][] A = {aa,bb, cc};
 
+        // 打印grid
         for (int i=0; i<3; i+=1) {
             System.out.println(Arrays.toString(A[i]));
             // >>>
