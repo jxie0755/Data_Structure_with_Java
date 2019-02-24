@@ -93,7 +93,6 @@ public class C11_Arrays {
     }
 }
 
-
 class ArraysAsList {
 
     public static void main(String[] args) {
@@ -186,7 +185,6 @@ class BoxedArrays {
             // [2, 99, 8, 11]
             // [3, 7, 11, 15]
         }
-
     }
 
 }
