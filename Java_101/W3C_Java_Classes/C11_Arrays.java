@@ -124,5 +124,19 @@ class ArraysAsList {
         intList2b.add(99);
         System.out.println(intList2b); // >>> [21, 32, 43, 45, 99]
     }
+}
 
+
+// Print Array?
+class ArrayPrint {
+
+    public static void main(String[] args) {
+        int[] intArray = {1, 2, 3, 4};
+        System.out.println(intArray);  // >>> [I@1e643faf   // don't use this
+        for (int i = 0; i <= 5; i += 1) {
+            intArray[1] = i * 7;
+        }
+        // Use toString method to print
+        System.out.println(java.util.Arrays.toString(intArray)); // >>> [1, 35, 3, 4]
+    }
 }
