@@ -133,5 +133,13 @@ class Testttt {
 
         F2.foo(5); // >>>  from Child 222 7  // 顺利的继承了Child1的方法
         // F2.bar(5); // F2也没有bar, 因为Father 没有Bar(), 虽然new Child2()有
+
+        Father F1b = new Child1();
+        System.out.println(F1b.i);  // >>> 0
+        F1b.foo(8);              // >>> from Child 111 9
+
+        // Father F1b = new Child2();   若原地改
+        // System.out.println(F1b.i);    // >>> 0
+        // F1b.foo(8);                   // >>> from Child 222 10  // 可以直接换Child2的方法
     }
 }
