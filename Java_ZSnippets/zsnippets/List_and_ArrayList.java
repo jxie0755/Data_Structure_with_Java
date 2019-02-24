@@ -68,7 +68,7 @@ class Father {
     }
 
     public void foo(int n) {
-        System.out.print("from Father" );
+        System.out.print("from Father foo" );
         System.out.println(n);
     }
 }
@@ -80,12 +80,12 @@ class Child1 extends Father {
     }
 
     public void foo(int n) {
-        System.out.print("from Child 111 ");
+        System.out.print("from Child foo 111 ");
         System.out.println(n+1);
     }
 
     public void bar(int n) {
-        System.out.print("from Child 11111111 ");
+        System.out.print("from Child bar 11111111 ");
         System.out.println(n+1);
     }
 }
@@ -97,12 +97,12 @@ class Child2 extends Father {
     }
 
     public void foo(int n) {
-        System.out.print("from Child 222 ");
+        System.out.print("from Child foo 222 ");
         System.out.println(n+2);
     }
 
     public void bar(int n) {
-        System.out.print("from Child 22222222 ");
+        System.out.print("from Child bar 22222222 ");
         System.out.println(n+2);
     }
 }
@@ -122,17 +122,22 @@ class Testttt {
         System.out.println(F1.i); // >>> 0     // 注意这里属性跟随的居然是父类的属性
         System.out.println(F2.i); // >>> 0     // 注意这里属性跟随的居然是父类的属性
 
-        C1.foo(5); // >>> from Child 111 6
-        C1.bar(5); // >>> from Child 11111111 6
+        C1.foo(5); // >>> from Child foo 111 6
+        C1.bar(5); // >>> from Child bar 11111111 6
 
-        C2.foo(5); // >>> from Child 222 7
-        C2.bar(5); // >>> from Child 22222222 7
+        C2.foo(5); // >>> from Child foo 222 7
+        C2.bar(5); // >>> from Child bar 22222222 7
 
-        F1.foo(5); // >>>  from Child 111 6 // 顺利的继承了Child1的方法
+        F1.foo(5); // >>>  from Child foo 111 6 // 顺利的继承了Child1的方法
         // F1.bar(5); // F1没有bar, 因为Father 没有Bar(), 虽然new Child1()有
+        // 通过转型来运行bar
+        ((Child1) F1).bar(5);  // >>> from Child bar 11111111 6
+        // ((Child1) F2).bar(5);  // 不行, 虽然有方法同名
 
-        F2.foo(5); // >>>  from Child 222 7  // 顺利的继承了Child1的方法
+        F2.foo(5); // >>>  from Child foo 222 7  // 顺利的继承了Child1的方法
         // F2.bar(5); // F2也没有bar, 因为Father 没有Bar(), 虽然new Child2()有
+        // 通过转型来运行bar
+        ((Child2) F2).bar(5);  // >>> from Child bar 22222222 7
 
         Father F1b = new Child1();
         System.out.println(F1b.i);  // >>> 0
