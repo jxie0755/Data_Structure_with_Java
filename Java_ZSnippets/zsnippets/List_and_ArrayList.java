@@ -37,8 +37,10 @@ public class List_and_ArrayList {
         /*
          * 如果 List a=new ArrayList();
             * 则a拥有List与ArrayList的所有属性和方法，不会减少
-            * 如果List与ArrayList中有相同的属性（如int i), 则a.i是调用了ArrayList中的i
-            * 如果List与ArrayList中有相同的方法（如void f()),a.f()是调用了ArrayList中的f()
+            * 如果List与ArrayList中有相同的属性（如int i),    则a.i是调用了   !!!!!父类!!!!! List中的i
+            * 如果List与ArrayList中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! ArrayList中的f()
+                * 注意这个python的OOP思想不同!!!
+                * 这是因为python没有泛型, 没有办法规定一个实例是父类, 但是通过子类来实例来实现
             * 但是a没有ArrayList独有的,而List没有的方法
          */
 
@@ -67,7 +69,7 @@ class Father {
 
     public void foo(int n) {
         System.out.print("from Father" );
-        System.out.println(n*2);
+        System.out.println(n);
     }
 }
 
@@ -78,13 +80,13 @@ class Child1 extends Father {
     }
 
     public void foo(int n) {
-        System.out.print("from Child 11111111 ");
-        System.out.println(n*5);
+        System.out.print("from Child 111 ");
+        System.out.println(n+1);
     }
 
     public void bar(int n) {
         System.out.print("from Child 11111111 ");
-        System.out.println(n*500);
+        System.out.println(n+1);
     }
 }
 
@@ -95,13 +97,13 @@ class Child2 extends Father {
     }
 
     public void foo(int n) {
-        System.out.print("from Child 222222 ");
-        System.out.println(n*513);
+        System.out.print("from Child 222 ");
+        System.out.println(n+2);
     }
 
     public void bar(int n) {
-        System.out.print("from Child 2222 ");
-        System.out.println(n*11100);
+        System.out.print("from Child 22222222 ");
+        System.out.println(n+2);
     }
 }
 
@@ -117,19 +119,19 @@ class Tttt {
         // 各自继承自己的属性, 没有问题
         System.out.println(C1.i); // >>> 1
         System.out.println(C2.i); // >>> 2
-        System.out.println(F1.i); // >>> 0
-        System.out.println(F2.i); // >>> 0
+        System.out.println(F1.i); // >>> 0     // 注意这里属性跟随的居然是父类的属性
+        System.out.println(F2.i); // >>> 0     // 注意这里属性跟随的居然是父类的属性
 
-        C1.foo(5); // >>> from Child 11111111 25
-        C1.bar(5); // >>> from Child 11111111 2500
+        C1.foo(5); // >>> from Child 111 6
+        C1.bar(5); // >>> from Child 11111111 6
 
-        C2.foo(5); // >>> from Child 222222 2565
-        C2.bar(5); // >>> from Child 2222 55500
+        C2.foo(5); // >>> from Child 222 7
+        C2.bar(5); // >>> from Child 22222222 7
 
-        F1.foo(5); // >>>  from Child 11111111 25  // 顺利的继承了Child1的方法
+        F1.foo(5); // >>>  from Child 111 6 // 顺利的继承了Child1的方法
         // F1.bar(5); // F1没有bar, 因为Father 没有Bar(), 虽然new Child1()有
 
-        F2.foo(5); // >>>  from Child 222222 2565  // 顺利的继承了Child1的方法
+        F2.foo(5); // >>>  from Child 222 7  // 顺利的继承了Child1的方法
         // F2.bar(5); // F2也没有bar, 因为Father 没有Bar(), 虽然new Child2()有
     }
 }
