@@ -54,8 +54,8 @@ public class List_and_ArrayList {
             * 假设你开始用 ArrayList alist = new ArrayList(), 这下你有的改了，特别是如果你使用了 ArrayList特有的方法和属性
 
             * 所以这个事是各有利弊:
-                * 用List = 就更通用,但是不能使用子类的独特特性
-                * 用ArrayList = 就专注于ArrayList的独特特性, 但是不好换型
+                * 用List = 就更通用,但是不能使用子类的独特特性, (但是可以通过转型来弥补这一缺陷!, 所以这样写更优!)
+                * 用ArrayList = 就专注于ArrayList的独特特性, 但是不好换型 (而且无法转型)
          */
     }
 }
