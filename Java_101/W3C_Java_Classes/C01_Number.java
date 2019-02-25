@@ -35,7 +35,7 @@ public class C01_Number {
 
 
 // Java Math类方法
-class NumberZMethods {
+class Number_zMethods {
     public static void main (String []args)
     {
         // Number常用方法
