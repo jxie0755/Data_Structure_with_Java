@@ -1,6 +1,6 @@
 package W3C_Java_Classes;
 
-public class C00_Premitive_Types {
+public class A00_Premitive_Types {
     public static void main(String[] args) {
 
         // 数值类型:
@@ -192,7 +192,7 @@ public class C00_Premitive_Types {
         System.out.println(default_Bool2 + " " + default_Bool3 + " " + default_Bool4 + " " + default_Bool);  // >>> true true true false  // similar to Boolean.parseeBoolean
 
 
-        // 除此之外其他全是reference types (引用类型) 见 C00_Reference_Types
+        // 除此之外其他全是reference types (引用类型) 见 A00_Reference_Types
         /*
          * 类    Class
          * 接口  Interface

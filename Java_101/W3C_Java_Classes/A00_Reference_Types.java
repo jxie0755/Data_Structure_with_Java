@@ -1,6 +1,6 @@
 package W3C_Java_Classes;
 
-public class C00_Reference_Types {
+public class A00_Reference_Types {
     public static void main(String[] args) {
         int x = 7;
         int y = x;

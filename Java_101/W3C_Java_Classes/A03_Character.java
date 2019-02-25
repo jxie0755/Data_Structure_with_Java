@@ -1,6 +1,6 @@
 package W3C_Java_Classes;
 
-public class C03_Character {
+public class A03_Character {
 
     public static void main(String[] args) {
 

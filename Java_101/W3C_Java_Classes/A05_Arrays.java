@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;  // Array并不是列表
 import java.util.List;
 
-public class C05_Arrays {
+public class A05_Arrays {
 
     // Practice of finding primes with The Sieve of Eratosthenes
     /** Returns an array, p, of size N+1 such that p[k] is true iff
@@ -245,3 +245,4 @@ class Arrays_Grid {
         return result;
     }
 }
+

@@ -1,6 +1,6 @@
 package W3C_Java_Classes;
 
-public class C02_Math {
+public class A02_Math {
 }
 
 class Math_zMethods {

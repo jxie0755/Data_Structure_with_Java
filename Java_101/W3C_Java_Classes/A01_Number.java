@@ -1,6 +1,6 @@
 package W3C_Java_Classes;
 
-public class C01_Number {
+public class A01_Number {
 
     public static void main(String[] args) {
 
