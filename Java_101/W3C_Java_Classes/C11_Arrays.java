@@ -93,39 +93,6 @@ public class C11_Arrays {
     }
 }
 
-class ArraysAsList {
-
-    public static void main(String[] args) {
-        // 学习怎么使用Arrays.asList
-        // https://www.jianshu.com/p/2b113f487e5e
-
-        // List 是一种很有用的数据结构，如果需要将一个数组转换为 List 以便进行更丰富的操作的话
-        String strArray1[] = {"A", "B", "C"};
-        List<String> strList2 = Arrays.asList(strArray1);  // >>> [A, B, C]
-
-        // 但是如果类型是基本类型(int, char, etc...)
-        int intArray1[] = {21,32,43,45};
-        // List<Integer> intList2 = Arrays.asList(intArray1);  // 就不行!!
-        // 这个错误产生的原因可解释为：asList 方法的参数必须是对象或者对象数组，而原生数据类型不是对象
-        // 如果需要将一个整型数组转换为 List，那么就将数组的类型声明为 Integer 而不是 int
-        Integer intArray2[] = {21,32,43,45};
-        List<Integer> intList2 = Arrays.asList(intArray2);  // >>>  [21, 32, 43, 45]
-
-        // 此List不可更改长度, 文档说说明了:
-        // Returns a fixed-size list backed by the specified array
-        // intList2.add(99);  // 而且只有在编译时报错, IDE不能提前发现!
-        // asList 方法返回的确实是一个 ArrayList ,但这个 ArrayList 并不是 java.util.ArrayList ，
-        // 而是 java.util.Arrays 的一个内部类
-        // 解决方案, 使用真正的ListArray
-        List<Integer> intList2b = new ArrayList<Integer>(Arrays.asList(intArray2));
-        // 这里相当于二次转换, 先转换成一个假的ArrayList,然后再造一个真的Arraylist把假的arraylist代入进去
-        // 可能还不如手动写一个直接转换的来的方便
-        intList2b.add(99);
-        System.out.println(intList2b); // >>> [21, 32, 43, 45, 99]
-    }
-}
-
-
 // Print Array?
 class ArrayPrint {
 
@@ -187,4 +154,51 @@ class BoxedArrays {
             // [3, 7, 11, 15]
         }
     }
+}
+
+
+// Arrays方法
+// 筛选一些重要的方法来学
+
+class ArraysAsList {
+
+    public static void main(String[] args) {
+        // 学习怎么使用Arrays.asList
+        // https://www.jianshu.com/p/2b113f487e5e
+
+        // List 是一种很有用的数据结构，如果需要将一个数组转换为 List 以便进行更丰富的操作的话
+        String strArray1[] = {"A", "B", "C"};
+        List<String> strList2 = Arrays.asList(strArray1);  // >>> [A, B, C]
+
+        // 但是如果类型是基本类型(int, char, etc...)
+        int intArray1[] = {21,32,43,45};
+        // List<Integer> intList2 = Arrays.asList(intArray1);  // 就不行!!
+        // 这个错误产生的原因可解释为：asList 方法的参数必须是对象或者对象数组，而原生数据类型不是对象
+        // 如果需要将一个整型数组转换为 List，那么就将数组的类型声明为 Integer 而不是 int
+        Integer intArray2[] = {21,32,43,45};
+        List<Integer> intList2 = Arrays.asList(intArray2);  // >>>  [21, 32, 43, 45]
+
+        // 此List不可更改长度, 文档说说明了:
+        // Returns a fixed-size list backed by the specified array
+        // intList2.add(99);  // 而且只有在编译时报错, IDE不能提前发现!
+        // asList 方法返回的确实是一个 ArrayList ,但这个 ArrayList 并不是 java.util.ArrayList ，
+        // 而是 java.util.Arrays 的一个内部类
+        // 解决方案, 使用真正的ListArray
+        List<Integer> intList2b = new ArrayList<Integer>(Arrays.asList(intArray2));
+        // 这里相当于二次转换, 先转换成一个假的ArrayList,然后再造一个真的Arraylist把假的arraylist代入进去
+        // 可能还不如手动写一个直接转换的来的方便
+        intList2b.add(99);
+        System.out.println(intList2b); // >>> [21, 32, 43, 45, 99]
+    }
+}
+
+class ArrayMethods {
+
+    public static void main(String[] args) {
+
+        // asList
+
+
+    }
+
 }
