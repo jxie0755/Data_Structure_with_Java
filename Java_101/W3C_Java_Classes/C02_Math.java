@@ -3,7 +3,7 @@ package W3C_Java_Classes;
 public class C02_Math {
 }
 
-class MathZMethods {
+class Math_zMethods {
     public static void main(String[] args) {
         // ceil, floor, and rint
         // 返回doubnle值

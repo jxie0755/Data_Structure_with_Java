@@ -9,6 +9,6 @@ public class C03_Character {
 
 // Character 类
 
-class CharacterZMethods {
+class Character_zMethods {
 
 }
