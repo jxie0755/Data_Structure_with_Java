@@ -1,4 +1,4 @@
-package zsnippets;
+package zlearnings;
 
 import java.util.ArrayList;
 import java.util.List;   // ArrayList 属于List Class旗下的subclass
