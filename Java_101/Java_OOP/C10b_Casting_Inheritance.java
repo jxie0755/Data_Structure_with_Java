@@ -1,11 +1,11 @@
 package Java_OOP;
 
-public class C01b_Inheritance_example {
+public class C10b_Casting_Inheritance {
 
 }
 
 
-// 以下是更清晰的继承与多态的方法和属性演示:
+// 以下是更清晰演示转型中的继承与多态:
 class Father {
     int i;
     public Father (){
