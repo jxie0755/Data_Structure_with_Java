@@ -90,6 +90,25 @@ public class A05_Arrays {
         intArray2[2] = 43;
         intArray2[3] = 45;
 
+        // boolean Arrays
+        boolean[] b1 = new boolean[3];  // Initiation is always filled wilth false
+        for (boolean j: b1) {
+            System.out.println(i);
+        }
+        // >>>
+        // false
+        // false
+        // false
+
+        boolean[] b2 = new boolean[3];
+        Arrays.fill(b2, true);
+        for (boolean k: b2) {
+            System.out.println(i);
+        }
+        // >>>
+        // true
+        // true
+        // true
     }
 }
 

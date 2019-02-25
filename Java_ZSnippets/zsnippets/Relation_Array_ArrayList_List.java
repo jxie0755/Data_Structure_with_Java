@@ -1,9 +1,67 @@
 package zsnippets;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List;   // ArrayList 属于List Class旗下的subclass
 
-public class List_and_ArrayList {
+
+public class Relation_Array_ArrayList_List {
+
+}
+
+class Array_and_ArrayList {
+
+    public static void main(String[] args) {
+
+        // Array and ArrayList
+        // This is to understand the difference between ArrayList and Array
+        List<Integer> l1 = new ArrayList(3);   // Initial capacity 只是内存占用,并不影响实际长度
+                                                          // 如果没有initialCapacity参数则默认为10
+                                                          // tips: 在新建一个ArrayList时可以预估需要的大小,可以避免在使用ArrayList时多次扩容。
+
+        l1.add(5);
+        l1.add(6);
+        System.out.println(l1);  // >>> [5, 6]
+        System.out.println(l1.size());  // >>> 2    not full length
+
+        l1.add(7);
+        l1.add(8);    // 虽然起始长度是3, 但是可以随时添加
+        l1.add(9);
+
+        System.out.println(l1);  // >>> [5, 6, 7, 8, 9]
+        System.out.println(l1.size());  // >>> 5    not full length
+
+        List<String> l2 = new ArrayList(3);   // String list原理完全相同
+
+    }
+}
+
+/*
+ * Array(数组)和List(列表)都属于顺序表。
+ * Array是一段连续的存储结构 (类似链表)
+    * int[] i=new int[3]
+    * i其实记录的是数组的首地址，而i[1]其实相当于在i的地址的基础上加上1个整数的地址偏移，然后再取这块地址中的值。
+ * List则是不连续的存储结构,List的每个节点都有着一个Next属性，这个属性则记录着他的下一个节点的地址。
+      * 也就是说当我们想找第100个节点的时候，他还是需要从第一个节点，然后做99次Next操作，才能找到list[99]节点。
+
+ * Array必须要在初始化时分配固定的大小
+    * 比如说int[] a = new int[3]; 或者 int[] a = new int[]{1,2,3};
+    * 如果我们仅仅写int[] a=new int[]; 编译器就会无情地给我们报错。
+
+ * ArryList由于空间不必连续，所以无须指定初始大小,但是它有个initial capacity的概念
+    * Java ArrayList do not provide a way to access its current capacity.
+    * You can only construct an ArrayList specifying an initial capacity or increase the capacity by calling ensureCapacity().
+    * Expanding the capacity of an ArrayList is slow.
+        * To avoid this, estimate how many elements are needed and construct an ArrayList of that many plus some extra
+
+    * 总结1： 当不确定大小时，最好使用List代替Array。
+    * 总结2： 当需要大量的查找操作时，最好使用Array。
+
+    * Addtional: 在JKD1.6中实现是，如果通过无参构造的话，初始数组容量为10，每次通过copeOf的方式扩容后容量为原来的1.5倍
+ */
+
+
+
+class List_and_ArrayList {
 
     public static void main(String[] args) {
         /*
@@ -57,94 +115,5 @@ public class List_and_ArrayList {
                 * 用List = 就更通用,但是不能使用子类的独特特性, (但是可以通过转型来弥补这一缺陷!, 所以这样写更优!)
                 * 用ArrayList = 就专注于ArrayList的独特特性, 但是不好换型 (而且无法转型)
          */
-    }
-}
-
-// 以下是更清晰的继承与多态的方法和属性演示:
-class Father {
-    int i;
-    public Father (){
-        this.i = 0;
-    }
-
-    public void foo(int n) {
-        System.out.print("from Father foo" );
-        System.out.println(n);
-    }
-}
-
-class Child1 extends Father {
-    int i;
-    public Child1 (){
-        this.i = 1;
-    }
-
-    public void foo(int n) {
-        System.out.print("from Child foo 111 ");
-        System.out.println(n+1);
-    }
-
-    public void bar(int n) {
-        System.out.print("from Child bar 11111111 ");
-        System.out.println(n+1);
-    }
-}
-
-class Child2 extends Father {
-    int i;
-    public Child2 (){
-        this.i = 2;
-    }
-
-    public void foo(int n) {
-        System.out.print("from Child foo 222 ");
-        System.out.println(n+2);
-    }
-
-    public void bar(int n) {
-        System.out.print("from Child bar 22222222 ");
-        System.out.println(n+2);
-    }
-}
-
-class Testttt {
-
-    public static void main(String[] args) {
-        Child1 C1 = new Child1();
-        Child2 C2 = new Child2();
-
-        Father F1 = new Child1();
-        Father F2 = new Child2();
-
-        // 各自继承自己的属性, 没有问题
-        System.out.println(C1.i); // >>> 1
-        System.out.println(C2.i); // >>> 2
-        System.out.println(F1.i); // >>> 0     // 注意这里属性跟随的居然是父类的属性
-        System.out.println(F2.i); // >>> 0     // 注意这里属性跟随的居然是父类的属性
-
-        C1.foo(5); // >>> from Child foo 111 6
-        C1.bar(5); // >>> from Child bar 11111111 6
-
-        C2.foo(5); // >>> from Child foo 222 7
-        C2.bar(5); // >>> from Child bar 22222222 7
-
-        F1.foo(5); // >>>  from Child foo 111 6 // 顺利的继承了Child1的方法
-        // F1.bar(5); // F1没有bar, 因为Father 没有Bar(), 虽然new Child1()有
-        // 通过转型来运行bar
-        ((Child1) F1).bar(5);  // >>> from Child bar 11111111 6
-        // ((Child1) F2).bar(5);  // 不行, 虽然有方法同名
-
-        F2.foo(5); // >>>  from Child foo 222 7  // 顺利的继承了Child1的方法
-        // F2.bar(5); // F2也没有bar, 因为Father 没有Bar(), 虽然new Child2()有
-        // 通过转型来运行bar
-        ((Child2) F2).bar(5);  // >>> from Child bar 22222222 7
-
-        Father F1b = new Child1();
-        System.out.println(F1b.i);  // >>> 0
-        F1b.foo(8);              // >>> from Child 111 9
-
-        // Father F1b = new Child2();   若原地改
-        // System.out.println(F1b.i);    // >>> 0
-        // F1b.foo(8);                   // >>> from Child 222 10  // 可以直接换Child2的方法
     }
 }
