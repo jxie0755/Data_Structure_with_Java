@@ -1,6 +1,16 @@
 package W3C_Java_Classes;
 
 public class C01_Number {
+
+    public static void main(String[] args) {
+
+        // 演示装箱和拆包
+        Integer x = 5; // box int to an Integer object
+        x = x + 10;    // unboxes the Integer to a int
+        // 当x被赋为整型值时，由于x是一个对象，所以编译器要对x进行装箱。
+        // 然后，为了使x能进行加运算，所以要对x进行拆箱
+    }
+
 }
 
 // https://docs.oracle.com/en/java/javase/11/
@@ -23,19 +33,9 @@ public class C01_Number {
     * Number类属于java.lang包
  */
 
-// 演示装箱和拆包
-class Boxing_Unboxing {
-    public static void main(String[] args) {
-        Integer x = 5; // box int to an Integer object
-        x = x + 10;    // unboxes the Integer to a int
-        // 当x被赋为整型值时，由于x是一个对象，所以编译器要对x进行装箱。
-        // 然后，为了使x能进行加运算，所以要对x进行拆箱
-    }
-}
 
-
-// Java Math类
-class Number_Method_Test {
+// Java Math类方法
+class NumberZMethods {
     public static void main (String []args)
     {
         // Number常用方法
