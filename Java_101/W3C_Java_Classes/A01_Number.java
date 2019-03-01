@@ -138,5 +138,6 @@ class Number_zMethods {
         Float objFloat2 = new Float(100);
         int result = objFloat2.compareTo(objFloat1);
         System.out.println(result);
+
     }
 }
