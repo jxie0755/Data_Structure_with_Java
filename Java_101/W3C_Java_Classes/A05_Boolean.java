@@ -1,5 +1,7 @@
 package W3C_Java_Classes;
 
+
+
 public class A05_Boolean {
 
     public static void main(String[] args) {
