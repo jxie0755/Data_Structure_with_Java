@@ -38,6 +38,12 @@ public class A01_Number {
 class Number_zMethods {
     public static void main (String []args)
     {
+        // 构造方法
+        Integer someInt = new Integer(80);
+        // 通过字符串也可以:
+        Double someDouble = new Double("80.0");
+
+
         // Number常用方法
         // 方法都只能用于Number类,不能用于基本类型
 
@@ -63,8 +69,11 @@ class Number_zMethods {
         // x1.doubleValue();
         // x1.floatValue();
         // x1.intValue();
+        // 用此法来转换成基本类型:
+        long longVar = x1.longValue();
 
-        // Convert         // 如果用的基本类型!  (就像cast)
+
+        // 另一种转换类型的方法是转型, 如果用的基本类型!  (就像cast)
         double x2 = 12.345;
         int y2 = (int) x2;     // >>> 12
         double x3 = 1000;
@@ -80,6 +89,8 @@ class Number_zMethods {
         // 也是把字符串变成数字的方法
         Integer x12 = Integer.parseInt("88");
         Double x13 = Double.parseDouble("88.88");
+        int intVar3 = Integer.parseInt("ABC", 16);  // 把16进制的数字ABC转换成10进制的数字 (2748)
+
 
         // TODO
         // move to Boolean method
@@ -88,7 +99,7 @@ class Number_zMethods {
 
 
         // valueOf
-        // 一种更省空间的制造实例的方式
+        // 一种更省空间的制造实例的方式 (类方法)
         Integer x4 = Integer.valueOf(9);  // >>> 9
         Double x5 = Double.valueOf(5);   // >>> 5.0
         Float x6 = Float.valueOf("80.5");  // >>> 80.5
@@ -108,11 +119,24 @@ class Number_zMethods {
         // toString
         // 把数字翻译成字符串,相当于python的str()
         Float x14 = 123.123f;
-        System.out.println(x12.toString().getClass()); // >>> "123"  class java.lang.String
+        System.out.println(x14.toString().getClass()); // >>> "123"  class java.lang.String
         float fff = 123.123f;
         System.out.println(Float.toString(fff)); // 这样可以work
+        // 100转换为10进制字符串
+        String str1 = Integer.toString(100);
+        // 100转换为16进制字符串结果是64
+        String str2 = Integer.toString(100, 16);
+        System.out.println("str1 = " + str1);
+        System.out.println("str2 = " + str2);
 
-
-
+        // compareTo
+        // return the value 0 if anotherFloat is numerically equal to this Float;
+        // a value less than 0 if this Float is numerically less than anotherFloat;
+        // and a value greater than 0 if this Float is numerically greater than anotherFloat.
+        // 主要用于比较两个值, 用 boolean <, > = 0来判断, 不需要纠结到底返回的值是多少
+        Float objFloat1 = new Float(90);
+        Float objFloat2 = new Float(100);
+        int result = objFloat2.compareTo(objFloat1);
+        System.out.println(result);
     }
 }
