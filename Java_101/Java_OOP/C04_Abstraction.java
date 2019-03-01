@@ -41,10 +41,12 @@ abstract class C04_Abstraction {
 
 class Sub_Abstraction extends C04_Abstraction {
 
+    // 子类必须也有制造方法
     public Sub_Abstraction(String name) {
         super(name);
     }
 
+    // 子类必须重写全部抽象方法
     public int ABS_method (int i) {
         return i;
     }
