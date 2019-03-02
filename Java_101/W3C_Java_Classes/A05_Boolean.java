@@ -35,6 +35,10 @@ class Boolean_zMethods {
         // 变成String
         String bool_str = b2.toString();  // false
 
+        // logic and or and xor
+        Boolean bb1 = Boolean.logicalAnd(b1, b2);  // false
+        Boolean bb2 = Boolean.logicalOr(b1, b2);   // true
+        Boolean bb3 = Boolean.logicalXor(b1, b2);  // true  // 两个值不相同，则异或结果为1。 如果a、b两个值相同，异或结果为0
     }
 }
 
