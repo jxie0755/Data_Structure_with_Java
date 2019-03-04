@@ -236,18 +236,17 @@ class String_zMethods {
 
         //String toLowerCase()  使用默认语言环境的规则将此 String 中的所有字符都转换为小写
         // String toUpperCase() 使用默认语言环境的规则将此 String 中的所有字符都转换为大写。
-        String str_g2 = "GOOgle";
-        System.out.println(str_g2.toLowerCase()); // >>>  google
-        System.out.println(str_g2.toUpperCase()); // >>>  GOOGLE
+        String str_g2 = "   Google x  ";
+        System.out.println(str_g2.toLowerCase()); // >>>  "   google x  "
+        System.out.println(str_g2.toUpperCase()); // >>>  "   GOOGLE X  "
 
 
         // String toString()  返回此对象本身（它已经是一个字符串！）
 
 
         // String trim() 返回字符串的副本，忽略前导空白和尾部空白。
-        String str_g3 = "   Google x  ";
-        System.out.println(str_g3.length());        // >>>  13       "   Google x  "
-        System.out.println(str_g3.trim().length()); // >>>  8            12345678
+        System.out.println(str_g2.length());        // >>>  13       "   Google x  "
+        System.out.println(str_g2.trim().length()); // >>>  8            12345678
     }
 }
 
