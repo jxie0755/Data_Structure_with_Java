@@ -80,6 +80,10 @@ public class A06_Arrays {
         //静态初始化int数组,声明同时初始化数组
         int intArray1[] = {21,32,43,45};
         String strArray1[] = {"A", "B", "C"};
+        char[] chaArray = new char[5];
+        char cc1 = chaArray[0];
+        char cc2 = '\u0000';
+        System.out.println(cc1 == cc2); // >>> true   // '\u0000' 是 null字符,长度为1, 不是空格, 也不是''空字符
 
         // 动态初始化int数组
         int intArray2[];
