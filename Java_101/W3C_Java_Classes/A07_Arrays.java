@@ -172,6 +172,8 @@ class Arrays_asList {
 class Arrays_deepMethods {
 
     public static void main(String[] args) {
+        // 用于多维数组
+
         // deepEquals​(Object[] a1, Object[] a2)
         // Returns true if the two specified arrays are deeply equal to one another.
         int[][] A = {
@@ -195,6 +197,26 @@ class Arrays_deepMethods {
     }
 }
 
+
+class Arrays_equals {
+
+    public static void main(String[] args) {
+
+        // Equality
+
+        // 	equals​(int[] a, int[] a2)
+        // 	equals​(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
+
+        int[] intArray1 = {1, 2,3,4, 5,6};
+        //                 0  1 2 3  4 5
+        int[] intArray2 = {0,0, 2,3,4, 7};
+        //                 0 1  2 3 4  5
+
+        System.out.println(Arrays.equals(intArray1, intArray2)); // >>>  false
+        System.out.println(Arrays.equals(intArray1, 1, 4,
+                                         intArray2, 2, 5)); // >>>  true
+    }
+}
 
 
 class Arrays_zMethods {
