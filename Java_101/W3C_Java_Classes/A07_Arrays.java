@@ -1,5 +1,6 @@
 package W3C_Java_Classes;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;  // Array并不是列表
 import java.util.List;
@@ -167,6 +168,76 @@ class Arrays_asList {
         System.out.println(intList2b); // >>> [21, 32, 43, 45, 99]
     }
 }
+
+class Arrays_deepMethods {
+
+    public static void main(String[] args) {
+        // deepEquals​(Object[] a1, Object[] a2)
+        // Returns true if the two specified arrays are deeply equal to one another.
+        int[][] A = {
+                {1, 3, 5, 7},    // 0
+                {2, 5, 8, 11},   // 1
+                {3, 7, 11, 15},  // 2
+                //0  1  2   3
+        };
+
+        int[][] B = {
+                {1, 3, 5, 7},    // 0
+                {2, 5, 8, 11},   // 1
+                {3, 7, 11, 16},  // 2
+                //0  1  2   3
+        };
+        System.out.println(Arrays.deepEquals(A, B)); // >>>  false
+
+        // 	deepToString​(Object[] a)
+        System.out.println(Arrays.deepToString(B));
+        // >>>  [[1, 3, 5, 7], [2, 5, 8, 11], [3, 7, 11, 16]]
+    }
+}
+
+
+
+class Arrays_zMethods {
+
+    public static void main(String[] args) {
+
+        // 大多数方法都被重载给了所有基本类型, 这里只用int[]举例
+
+        // binarySearch
+        // The array must be sorted (as by the sort(int[]) method) prior to making this call.
+        // If it is not sorted, the results are undefined.
+
+        int[] intArray1 = {1,2,3,4,5,6};
+        // return index of the search key, if it is contained in the array;
+        System.out.println(Arrays.binarySearch(intArray1, 4));  // >>>  3  // index 3
+        // return:  otherwise, (-(insertion point) - 1)
+        int[] intArray2 = {1,3,5,6};
+        System.out.println(Arrays.binarySearch(intArray2, 4));
+        // >>>  4应该在 index 2, 所以返回 -2-1 = -3
+
+        // If the array contains multiple elements with the specified value,
+        // there is no guarantee which one will be found
+        int[] intArray3 = {1,3,3,3,3,3,3,4,5,6};
+        System.out.println(Arrays.binarySearch(intArray3, 3)); // >>> 4,  肯定是对的,但是没法判断它会给哪个index
+
+
+        // copyOf​(int[] original, int newLength)
+        int[] intArray4 = {1,2,3,4,5,6};
+        int[] intArray5 = Arrays.copyOf(intArray4,3); // 小于原长度
+        System.out.println(Arrays.toString(intArray5)); // >>>  [1, 2, 3]
+        int[] intArray6 = Arrays.copyOf(intArray4,10); // 大于原长度, 填充默认值
+        System.out.println(Arrays.toString(intArray6)); // >>>  [1, 2, 3, 4, 5, 6, 0, 0, 0, 0]
+
+        // copyOfRange​(int[] original, int from, int to)
+        int[] intArray7 = Arrays.copyOfRange(intArray4,1, 5); // 从index1开始,长度为4
+        System.out.println(Arrays.toString(intArray7)); // >>>  [2, 3, 4, 5]
+
+    }
+
+}
+
+
+
 
 
 // 引用数据
