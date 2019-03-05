@@ -219,6 +219,31 @@ class Arrays_equals {
 }
 
 
+class Arrays_fill {
+
+    public static void main(String[] args) {
+
+        // fill values in Arrays
+
+        // 	fill​(int[] a, int val)
+        // 	fill​(int[] a, int fromIndex, int toIndex, int val)   // 局部填充
+
+        int[] intArray1 = new int[5];
+        Arrays.fill(intArray1, 9);
+        System.out.println(Arrays.toString(intArray1)); // >>>  [9, 9, 9, 9, 9]
+        // 可以重复fill, 反正就是全改
+        Arrays.fill(intArray1, 8);
+        System.out.println(Arrays.toString(intArray1)); // >>>  [8, 8, 8, 8, 8]
+
+        int[] intArray2 = new int[5];
+        Arrays.fill(intArray2, 0, 2, 3);
+        System.out.println(Arrays.toString(intArray2));  // >>>  [3, 3, 0, 0, 0]
+        Arrays.fill(intArray2, 1, 4, 9);
+        System.out.println(Arrays.toString(intArray2));  // >>>  [3, 9, 9, 9, 0]
+    }
+}
+
+
 class Arrays_zMethods {
 
     public static void main(String[] args) {
