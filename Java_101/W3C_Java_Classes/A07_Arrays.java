@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;  // Array并不是列表
 import java.util.List;
 
+
 public class A07_Arrays {
 
     // Practice of finding primes with The Sieve of Eratosthenes
@@ -127,6 +128,8 @@ class Arrays_toString {
         }
         // Use toString method to print
         System.out.println(java.util.Arrays.toString(intArray)); // >>> [1, 35, 3, 4]
+        System.out.println(Arrays.toString(intArray));
+
     }
 }
 
@@ -164,19 +167,6 @@ class Arrays_asList {
         System.out.println(intList2b); // >>> [21, 32, 43, 45, 99]
     }
 }
-
-class Arrays_zMethods {
-
-    public static void main(String[] args) {
-
-        // asList
-
-    }
-
-}
-
-
-
 
 
 // 引用数据
