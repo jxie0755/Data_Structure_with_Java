@@ -95,7 +95,7 @@ public class C03_Value_Expression {
         System.out.println(("abcd") == ("abcd"));      // >>> true
         // You might think that == would work, but that is not a reliable way to compare strings
 
-        // slice
+        // slice 相当于切片
         System.out.println(("Hello, world!").substring(4, 9));  // >>> "o, wo" (not include "r" at 9)
         // 0123456789
         System.out.println(("Hello, world!").substring(7));     // >>> "world!"0  (from 7 to the end)
