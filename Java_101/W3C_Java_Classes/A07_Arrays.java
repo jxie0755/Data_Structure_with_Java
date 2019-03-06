@@ -129,7 +129,7 @@ class Arrays_toString {
         }
         // Use toString method to print
         System.out.println(java.util.Arrays.toString(intArray)); // >>> [1, 35, 3, 4]
-        System.out.println(Arrays.toString(intArray));
+        System.out.println(Arrays.toString(intArray));           // >>> [1, 35, 3, 4]
 
     }
 }
@@ -244,6 +244,63 @@ class Arrays_fill {
 }
 
 
+class Arrays_copyOf {
+
+    public static void main(String[] args) {
+
+        // 相当于切片slice了, 但是换了一种形式
+        // copyOf​(int[] original, int newLength)
+        int[] intArray4 = {1,2,3,4,5,6};
+        int[] intArray5 = Arrays.copyOf(intArray4,3); // 小于原长度
+        System.out.println(Arrays.toString(intArray5)); // >>>  [1, 2, 3]
+        int[] intArray6 = Arrays.copyOf(intArray4,10); // 大于原长度, 填充默认值
+        System.out.println(Arrays.toString(intArray6)); // >>>  [1, 2, 3, 4, 5, 6, 0, 0, 0, 0]
+
+        int[] intArray_copy = Arrays.copyOf(intArray4, intArray4.length);
+        System.out.println("Copy: " + Arrays.toString(intArray_copy));
+        intArray_copy[3] = 99;
+        System.out.println("Copy: " + Arrays.toString(intArray_copy));  // Copy: [1, 2, 3, 99, 5, 6]
+        System.out.println("Original: " + Arrays.toString(intArray4));  // Original: [1, 2, 3, 4, 5, 6]
+
+
+        // copyOfRange​(int[] original, int from, int to)
+        int[] intArray7 = Arrays.copyOfRange(intArray4,1, 5); // 从index1开始,长度为4
+        System.out.println(Arrays.toString(intArray7)); // >>>  [2, 3, 4, 5]
+    }
+}
+
+
+class Arrays_sort {
+
+    public static void main(String[] args) {
+
+        // 并行排序算法
+        // parallelSort​(int[] a)
+        // parallelSort​(int[] a, int fromIndex, int toIndex)
+        // Sorts the specified range of the array into ascending numerical order.
+        int[] iA6 = {2,3,1,5,4,0};
+        Arrays.parallelSort(iA6);
+        System.out.println(Arrays.toString(iA6)); // >>> [0, 1, 2, 3, 4, 5]
+        char[] cA6 = {'z','n','l','m','6','a'};
+        Arrays.parallelSort(cA6, 1, 5);
+        System.out.println(Arrays.toString(cA6)); // >>> [z, 6, l, m, n, a]
+
+        // 为串行排序
+        // sort​(int[] a)
+        // sort​(int[] a, int fromIndex, int toIndex)
+        int[] iA7 = {2,3,1,5,4,0};
+        Arrays.sort(iA7);
+        System.out.println(Arrays.toString(iA7)); // >>> [0, 1, 2, 3, 4, 5]
+        char[] cA7 = {'z','n','l','m','6','a'};
+        Arrays.sort(cA7, 1, 5);
+        System.out.println(Arrays.toString(cA7)); // >>> [z, 6, l, m, n, a]
+
+        // 以上两者用法完全相同,结果也完全相同
+        // 当数据规模达到很大时，并行排序的性能要超过串行排序
+
+    }
+}
+
 class Arrays_zMethods {
 
     public static void main(String[] args) {
@@ -268,16 +325,35 @@ class Arrays_zMethods {
         System.out.println(Arrays.binarySearch(intArray3, 3)); // >>> 4,  肯定是对的,但是没法判断它会给哪个index
 
 
-        // copyOf​(int[] original, int newLength)
-        int[] intArray4 = {1,2,3,4,5,6};
-        int[] intArray5 = Arrays.copyOf(intArray4,3); // 小于原长度
-        System.out.println(Arrays.toString(intArray5)); // >>>  [1, 2, 3]
-        int[] intArray6 = Arrays.copyOf(intArray4,10); // 大于原长度, 填充默认值
-        System.out.println(Arrays.toString(intArray6)); // >>>  [1, 2, 3, 4, 5, 6, 0, 0, 0, 0]
+        // hashCode​(int[] a)
+        int hc = Arrays.hashCode(intArray1);
+        System.out.println(hc); // >>>  918073252
 
-        // copyOfRange​(int[] original, int from, int to)
-        int[] intArray7 = Arrays.copyOfRange(intArray4,1, 5); // 从index1开始,长度为4
-        System.out.println(Arrays.toString(intArray7)); // >>>  [2, 3, 4, 5]
+
+        // mismatch​(int[] a, int[] b)
+        // mismatch​(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
+        // Finds and returns the relative index of the first mismatch
+        // between two int arrays over the specified ranges,
+        // otherwise return -1 if no mismatch is found.
+        int[] iA1 = {1,2,3,4,5,6};
+        //           0 1 2 3 4 5
+        int[] iA2 = {1,2,3,5,6,7};
+        //           0 1 2 3 4 5
+        int[] iA3 = {1,2,3,5,6,7};
+        //           0 1 2 3 4 5
+        int[] iA4 = {2,3,5,6,7,8};
+        //           0 1 2 3 4 5
+        int[] iA5 = {1,2,3,5,6,7,8};
+        //           0 1 2 3 4 5,6
+
+        System.out.println(Arrays.mismatch(iA1, iA2)); // >>> 3 (index 3的时候出现不同)
+        System.out.println(Arrays.mismatch(iA2, iA3)); // >>> -1 (完全相同)
+
+        System.out.println(Arrays.mismatch(iA3, 1, iA3.length, iA4, 0, iA4.length));
+        // >>> 5  (iA4 在index5还有数8, iA3从1开始,所以已经完结)
+
+        System.out.println(Arrays.mismatch(iA5, 1, iA5.length, iA4, 0, iA4.length));
+        // >>> -1  (iA5 从index1开始的话,和iA4一模一样)
 
     }
 
