@@ -266,6 +266,54 @@ class Arrays_copyOf {
         // copyOfRange​(int[] original, int from, int to)
         int[] intArray7 = Arrays.copyOfRange(intArray4,1, 5); // 从index1开始,长度为4
         System.out.println(Arrays.toString(intArray7)); // >>>  [2, 3, 4, 5]
+
+
+        // 那么copyOf到底是浅copy还是深copy呢? 是浅Copy
+        System.out.println("\nCopy test, grid: ");
+        int[] iA1 = {1,3,5,7,9};
+        int[] iA2 = {0,2,4,6,8};
+        int[] iA3 = {9,9,9,9,9};
+
+        int[][] grid = {iA1,iA2,iA3};
+        for (int[] i: grid) {
+            System.out.println(Arrays.toString(i));
+        }
+        // >>>
+        // [1, 3, 5, 7, 9]
+        // [0, 2, 4, 6, 8]
+        // [9, 9, 9, 9, 9]
+
+        System.out.println("Copy of grid");
+        int[][] grid_copy = Arrays.copyOf(grid, 3);
+        for (int[] i: grid_copy) {
+            System.out.println(Arrays.toString(i));
+        }
+        // >>>
+        // [1, 3, 5, 7, 9]
+        // [0, 2, 4, 6, 8]
+        // [9, 9, 9, 9, 9]
+
+        System.out.println("revise iArray, now grid is: ");
+
+        iA1[0] = 999;
+        iA2[1] = 999;
+        iA3[4] = 0;
+        for (int[] i: grid) {
+            System.out.println(Arrays.toString(i));
+        }
+        // >>>
+        // [999, 3, 5, 7, 9]
+        // [0, 999, 4, 6, 8]
+        // [9, 9, 9, 9, 0]
+
+        System.out.println("Copy of grid: ");
+        for (int[] i: grid_copy) {
+            System.out.println(Arrays.toString(i));
+        }
+        // >>>
+        // [999, 3, 5, 7, 9]
+        // [0, 999, 4, 6, 8]
+        // [9, 9, 9, 9, 0]
     }
 }
 
