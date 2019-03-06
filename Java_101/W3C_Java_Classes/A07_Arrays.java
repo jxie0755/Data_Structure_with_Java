@@ -269,6 +269,7 @@ class Arrays_copyOf {
 
 
         // 那么copyOf到底是浅copy还是深copy呢? 是浅Copy
+        // java没有自带的deepcopy,只能自己写,用for loop就可以了 (省略)
         System.out.println("\nCopy test, grid: ");
         int[] iA1 = {1,3,5,7,9};
         int[] iA2 = {0,2,4,6,8};
