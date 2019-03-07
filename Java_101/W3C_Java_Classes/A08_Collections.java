@@ -198,9 +198,9 @@ class List_copy {
         System.out.println(LO11.equals(LO1)); // >>> true
 
         // 若是多维数组可以吗?
-        List<Object> LL1 = new ArrayList<>(Arrays.asList(1, 2));
-        List<Object> LL2 = new ArrayList<>(Arrays.asList(4, 5, 6));
-        List<Object> LL3 = new ArrayList<>(Arrays.asList(7, 8, 9));
+        List<Integer> LL1 = new ArrayList<>(Arrays.asList(1, 2));
+        List<Integer> LL2 = new ArrayList<>(Arrays.asList(4, 5, 6));
+        List<Integer> LL3 = new ArrayList<>(Arrays.asList(7, 8, 9));
 
         List<List<Integer>> Lgrid = new ArrayList(Arrays.asList(LL1, LL2, LL3));
         System.out.println(Lgrid);  // >>> [[1, 2], [4, 5, 6], [7, 8, 9]]
