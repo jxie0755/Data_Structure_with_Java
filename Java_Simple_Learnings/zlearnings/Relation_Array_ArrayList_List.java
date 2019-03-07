@@ -66,13 +66,12 @@ class List_and_ArrayList {
     public static void main(String[] args) {
         /*
          * List是一个接口，而ListArray是一个类。
-            * ListArray继承并实现了List。 \
+            * ListArray继承并实现了List。
             * 所以List不能被构造，但可以向上面那样为List创建一个引用，而ListArray就可以被构造。
          */
 
         // List<Object> list;     //正确   list=null;
         // List<Object> list2=new List();    //   是错误的用法
-
 
 
         /*
