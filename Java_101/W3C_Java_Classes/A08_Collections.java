@@ -202,24 +202,17 @@ class List_copy {
         List<Object> LL2 = new ArrayList<>(Arrays.asList(4, 5, 6));
         List<Object> LL3 = new ArrayList<>(Arrays.asList(7, 8, 9));
 
-        // List<Object> Lgrid = new ArrayList<>(Arrays.asList(LL1, LL2, LL3));
-        // 注意, 这里不应该用List<Object>
         List<List<Integer>> Lgrid = new ArrayList(Arrays.asList(LL1, LL2, LL3));
-
         System.out.println(Lgrid);  // >>> [[1, 2], [4, 5, 6], [7, 8, 9]]
         LL1.add(3);
-        System.out.println(Lgrid);  // >>> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-        List<List> Lgrid2 = new ArrayList<>(Lgrid);
+        System.out.println(Lgrid);  // >>> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  // impacted by LL1
+
+        List<List<Integer>> Lgrid2 = new ArrayList<>(Lgrid);
         LL1.add(3);
-        System.out.println(Lgrid2);
+        System.out.println(Lgrid2); // >>> [[1, 2, 3, 3], [4, 5, 6], [7, 8, 9]]  // impacted by LL1
+
         Lgrid.get(0).add(3);
-        System.out.println(Lgrid);
-        System.out.println(Lgrid2);  // also chanced, so it is shallow copy
-
-        // 注意声明时,类型要彻底
-        List<List<List>> Cube = new ArrayList(Arrays.asList(Lgrid, Lgrid2));
-        System.out.println(Cube.get(0).get(1).get(1)); // >>> 5
-
-
+        System.out.println(Lgrid2);
+        // still changed, so it is shallow copy
     }
 }
