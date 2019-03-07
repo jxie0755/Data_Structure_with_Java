@@ -70,7 +70,7 @@ class List_zMethods {
     public static void main(String[] args) {
         // 构造方法
         // List L1 = new ArrayList();  // 空列表   // 可以省略泛型,但是不规范:
-        List<Object> L1 = new ArrayList();
+        List<Object> LO1 = new ArrayList();
 
 
         // 快速构建
@@ -79,58 +79,91 @@ class List_zMethods {
         // 可行但是这样是固定长度了(参见Arrays.asList)
         // 正确方法
         List<Integer> L2 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
-        List<Object> S1 = new ArrayList<>(Arrays.asList("a", "b", "c"));   // 不限定类型, List后不要<>
-
-
+        List<Object> LO2 = new ArrayList<>(Arrays.asList("a", "b", "c"));   // 不限定类型, List后不要<>
 
         // 通用方法
-        System.out.println(L1.isEmpty());  // >>> true
-        System.out.println(L1.add(5)); // >>> true  [5]
-        S1.addAll(L2); // >>> [a, b, c, 1, 2, 3, 2, 1]
+        System.out.println(LO1.isEmpty());  // >>> true
 
         // L2.clear();  // 清空
+
+        // contains 和 containsAll (代替in)
         System.out.println(L2.contains(3));  // >>> true
-        System.out.println(S1.containsAll(L2)); // >>>  true
+        System.out.println(LO2.containsAll(L2)); // >>>  true
 
-        List<Object> L3 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));   // 注意, L3和L2有一点点不同,L3不限类型
-        System.out.println(L3.equals(L2)); // >>> true         // 只要内容相等即可, 不在乎类型
+        List<Object> LO3 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));   // 注意, L3和L2有一点点不同,L3不限类型
+        System.out.println(LO3.equals(L2)); // >>> true         // 只要内容相等即可, 不在乎类型
 
-        S1.removeAll(L2);        //     [a, b, c, 1, 2, 3, 2, 1] 变成:
-        System.out.println(S1);  // >>> [a, b, c]
-        List<Object> S2 = new ArrayList<>(Arrays.asList("c", "d", "e"));
-        S1.removeAll(S2);        //     [a, b]   // 只删S1中有的
-
-        List<Object> S3 = new ArrayList<>(Arrays.asList("a", "b", "c","c", "d", "e"));
-        List<Object> S4 = new ArrayList<>(Arrays.asList("c", "d"));
-        S3.retainAll(S4);  // >>>  [c, c, d]
-
-        L3.remove(new Integer(1));   // [1, 2, 3, 2, 1] 变成 [2, 3, 2, 1]  从头开始找
-
-        System.out.println(L3.size()); // >>>  4
 
 
 
         // List接口的专有方法 (除了Collections通用方法多出来的方法)
-        // remove 被重载了, 通用方法是remove object, 特殊方法是remove index
-        List<Object> L4 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
-        L4.remove(1);                // [1, 3, 2, 1] 注意这里remove的是index
 
-        // add    被重载了, 支持选择插入位置
-        L4.add(2, 99);   // [1, 3, 99, 2, 1]
+        // retainAll
+        List<Object> LO4 = new ArrayList<>(Arrays.asList("a", "b", "c","c", "d", "e"));
+        List<Object> LO5 = new ArrayList<>(Arrays.asList("c", "d"));
+        LO4.retainAll(LO5);  // >>>  [c, c, d]
 
-        // addAll 被重载了, 支持选择一个index位置加
-        List<Object> S5 = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        List<Object> S6 = new ArrayList<>(Arrays.asList(1, 2, 3));
-        S5.addAll(1, S6);  // [a, 1, 2, 3, b, c]
-
+        // get and set
+        List<Object> LO6 = new ArrayList<>(Arrays.asList("c", "d", "e"));
+        LO6.set(1, "x");  // [c, x, e]
+        System.out.println(LO6.get(1)); // >>>  x  (this is a copy)
 
 
+        // indexOf and lastIndexOf 从两端找index
+        List<Object> LO7 = new ArrayList<>(Arrays.asList("c", "d", "e", "d"));
+        System.out.println(LO7.indexOf("d"));          // >>> 1
+        System.out.println(LO7.lastIndexOf("d"));   // >>> 3
 
+        // subList
+        List<Object> LO8 = LO7.subList(1, 4);
+        System.out.println(LO8);  // >>>  [d, e, d]
 
 
     }
 }
 
+class List_add {
+    public static void main(String[] args) {
+
+        List<Object> LO7 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
+        // add    被重载了, 支持选择插入位置
+        LO7.add(99);                   // [1, 2, 3, 2, 1, 99]  // 默认是末尾
+        LO7.add(2, 99);   // [1, 2, 99, 3, 2, 1, 99]
+
+        // addAll 被重载了, 支持选择一个index位置加
+        List<Object> LO8 = new ArrayList<>(Arrays.asList("a", "b", "c"));
+        List<Object> LO9 = new ArrayList<>(Arrays.asList(1, 2, 3));
+        LO7.addAll(LO8);   // [1, 2, 99, 3, 2, 1, 99, a, b, c]  // 默认是末尾
+        LO8.addAll(1, LO9);  // [a, 1, 2, 3, b, c]
+
+        // List能否直接相加?
+        // List<Object> LO10 = LO7 + LO8;   // 不行
+
+    }
+
+}
+
+class List_remove {
+    public static void main(String[] args) {
+
+        List<Integer> L2 = new ArrayList(Arrays.asList("a", "b", "c", 1, 2, 3, 2, 1));
+        List<Object> LO2 = new ArrayList<>(Arrays.asList("a", "b", "c", "c", "c"));
+        List<Object> LO3 = new ArrayList<>(Arrays.asList("c", "d", "e"));
+        List<Object> LO4 = new ArrayList<>(Arrays.asList(1, 2, 1, 3, 1, 4, 1, 5, 1, 6));
+
+        // remove (object)
+        LO4.remove(Integer.valueOf(1)); // [2, 1, 3, 1, 4, 1, 5, 1, 6] 从头开始找, 只删1个
+        // 特殊方法是remove index, remove (重载)
+        LO4.remove(0);            //     [1, 3, 1, 4, 1, 5, 1, 6]
+
+
+        // removeAll
+        LO2.removeAll(L2);        //     [a, b, c, 1, 2, 3, 2, 1] 变成: [a, b, c]
+        LO2.removeAll(LO3);        //     [a, b]   // 只删LO3中有的, 但是会全删(比如"c")
+        // 删掉所有1?
+        LO4.removeAll(Arrays.asList(1));  // [3, 4, 5, 6]   //巧用Arrays.asList
+    }
+}
 
 class List_toArray {
     public static void main(String[] args) {
@@ -151,5 +184,42 @@ class List_toArray {
         // 如果创建的额String[]比l还长很多会如何?
         String[] strs2 = new String[5];
         l.toArray(strs2);   // [A, B, C, null, null]  // 多出两个null
+    }
+}
+
+class List_copy {
+    public static void main(String[] args) {
+
+        // CopyOf  // 注意,这个copy是imutable
+        List<Object> LO1 = new ArrayList<>(Arrays.asList("a", 1, 2, 3, "b", "c"));
+        List<Object> LO10 = List.copyOf(LO1);  // [a, 1, 2, 3, b, c]
+        // 解决方案, 直接代入到new instance (相当于浅copy)
+        List<Object> LO11 = new ArrayList<>(LO1);  // [a, 1, 2, 3, b, c]
+        System.out.println(LO11.equals(LO1)); // >>> true
+
+        // 若是多维数组可以吗?
+        List<Object> LL1 = new ArrayList<>(Arrays.asList(1, 2));
+        List<Object> LL2 = new ArrayList<>(Arrays.asList(4, 5, 6));
+        List<Object> LL3 = new ArrayList<>(Arrays.asList(7, 8, 9));
+
+        // List<Object> Lgrid = new ArrayList<>(Arrays.asList(LL1, LL2, LL3));
+        // 注意, 这里不应该用List<Object>
+        List<List<Integer>> Lgrid = new ArrayList(Arrays.asList(LL1, LL2, LL3));
+
+        System.out.println(Lgrid);  // >>> [[1, 2], [4, 5, 6], [7, 8, 9]]
+        LL1.add(3);
+        System.out.println(Lgrid);  // >>> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+        List<List> Lgrid2 = new ArrayList<>(Lgrid);
+        LL1.add(3);
+        System.out.println(Lgrid2);
+        Lgrid.get(0).add(3);
+        System.out.println(Lgrid);
+        System.out.println(Lgrid2);  // also chanced, so it is shallow copy
+
+        // 注意声明时,类型要彻底
+        List<List<List>> Cube = new ArrayList(Arrays.asList(Lgrid, Lgrid2));
+        System.out.println(Cube.get(0).get(1).get(1)); // >>> 5
+
+
     }
 }
