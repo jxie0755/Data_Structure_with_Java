@@ -25,7 +25,9 @@ class Collections_zMethods {
     public static void main(String[] args) {
         // 这里不实现这些方法,到子类具体再使用
 
-        // 构造 也是要通过子类实现, 比如ArrayList
+        // 构造 也是要通过子类实现, 比如ArrayList, 但没必要, 这个interface太抽象了
+        Collection<Object> objBox = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
+
         // boolean add(E e) //向集合中添加一个元素，若添加元素后集合发生了变化就返回true，
         // 若没有发生变化，就返回false。 (用于Set)
         // boolean addAll(Collection<? extends E> c) //添加给定集合c中的所有元素到该集合中
@@ -145,10 +147,10 @@ class List_add {
 class List_remove {
     public static void main(String[] args) {
 
-        List<Integer> L2 = new ArrayList(Arrays.asList("a", "b", "c", 1, 2, 3, 2, 1));
-        List<Object> LO2 = new ArrayList<>(Arrays.asList("a", "b", "c", "c", "c"));
-        List<Object> LO3 = new ArrayList<>(Arrays.asList("c", "d", "e"));
-        List<Object> LO4 = new ArrayList<>(Arrays.asList(1, 2, 1, 3, 1, 4, 1, 5, 1, 6));
+        List<Object> L2 = new ArrayList<>(Arrays.asList("a", "b", "c", 1, 2, 3, 2, 1));
+        List<String> LO2 = new ArrayList<>(Arrays.asList("a", "b", "c", "c", "c"));
+        List<String> LO3 = new ArrayList<>(Arrays.asList("c", "d", "e"));
+        List<Integer> LO4 = new ArrayList<>(Arrays.asList(1, 2, 1, 3, 1, 4, 1, 5, 1, 6));
 
         // remove (object)
         LO4.remove(Integer.valueOf(1)); // [2, 1, 3, 1, 4, 1, 5, 1, 6] 从头开始找, 只删1个
