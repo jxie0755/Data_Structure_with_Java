@@ -1,28 +1,13 @@
 package W3C_Java_Classes;
 
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;  // Array并不是列表
+import java.util.Arrays;
 import java.util.List;
 
-
-public class A07_Arrays {
-
-    // Practice of finding primes with The Sieve of Eratosthenes
-    /** Returns an array, p, of size N+1 such that p[k] is true iff
-      * k is a prime. */
-    public static boolean[] primes (int n) {
-        boolean[] prime_sieve = new boolean[n + 1];  // a list of boolean length at n+1, initialized list will be all false!
-        // All entries are initially true.
-        Arrays.fill(prime_sieve, true);
-        prime_sieve[0] = prime_sieve[1] = false;
-        for (int k = 2; k * k <= n; k += 1) {
-            for (int j = k * k; j <= n; j += k) {
-                prime_sieve[j] = false;
-            }
-        }
-        return prime_sieve;
-    }
+// Array的构造方法, 是在java.lang.reflect.Array
+public class A07_Array {
 
     public static void main(String[] args) {
         int[] A;
@@ -39,24 +24,6 @@ public class A07_Arrays {
 
         A = new int[100];  // this create a new int list of length at 100
         System.out.println(A.length);  // >>> 100
-
-        boolean[] S = primes(20);
-        int i = 0;
-        while (i != S.length) {
-            if (S[i]) {
-                System.out.println(i);
-            }
-            i += 1;
-        }
-        // >>>
-        // 2
-        // 3
-        // 5
-        // 7
-        // 11
-        // 13
-        // 17
-        // 19
 
         // int T[] = new int[3]{1,2,3};
         // Error:(57, 29) java: array creation with both dimension expression and initialization is illegal
@@ -78,7 +45,6 @@ public class A07_Arrays {
          */
 
         // 一维数组
-
         //静态初始化int数组,声明同时初始化数组
         int intArray1[] = {21,32,43,45};
         String strArray1[] = {"A", "B", "C"};
@@ -99,23 +65,36 @@ public class A07_Arrays {
         // boolean Arrays
         boolean[] b1 = new boolean[3];  // Initiation is always filled wilth false
         for (boolean j: b1) {
-            System.out.println(i);
+            System.out.println(j);
         }
         // >>>
         // false
         // false
         // false
 
-        boolean[] b2 = new boolean[3];
-        Arrays.fill(b2, true);
-        for (boolean k: b2) {
-            System.out.println(i);
-        }
-        // >>>
-        // true
-        // true
-        // true
+
+        // get方法
+        // getLength
+        int intArray3[] = {21,32,43,45};
+        System.out.println(Array.getLength(intArray3));     // >>> 4
+        // get
+        System.out.println(Array.get(intArray3, 2));  // >>>  43
+        // getBoolean和get基本类型
+        // System.out.println(Array.getBoolean(intArray3, 2)); 必须作用于Boolean数组或者boolean数组
+        System.out.println(Array.getBoolean(b1, 1)); // >>> false
+
+        // set方法
+        Array.set(intArray3,0, 99);
+        System.out.println(Arrays.toString(intArray3));  // >>> [99, 32, 43, 45]
+        // set也有专门针对各种其他基本类型的方法比如setBoolean等等
     }
+}
+
+
+
+// 这里是对Arrays操作的static方法,不是这个类的定义
+class A07_java_util_Arrays {
+
 }
 
 // Print Array?
@@ -134,9 +113,10 @@ class Arrays_toString {
     }
 }
 
-// Arrays方法
-// 筛选一些重要的方法来学
 
+
+// java.util.Arrays方法, 不是Array
+// 筛选一些重要的方法来学
 class Arrays_asList {
 
     public static void main(String[] args) {
@@ -350,6 +330,8 @@ class Arrays_sort {
     }
 }
 
+
+//
 class Arrays_zMethods {
 
     public static void main(String[] args) {
@@ -502,3 +484,41 @@ class Arrays_Grid {
     }
 }
 
+
+class Array_Application {
+    // Practice of finding primes with The Sieve of Eratosthenes
+    /** Returns an array, p, of size N+1 such that p[k] is true iff
+      * k is a prime. */
+    public static boolean[] primes (int n) {
+        boolean[] prime_sieve = new boolean[n + 1];  // a list of boolean length at n+1, initialized list will be all false!
+        // All entries are initially true.
+        Arrays.fill(prime_sieve, true);
+        prime_sieve[0] = prime_sieve[1] = false;
+        for (int k = 2; k * k <= n; k += 1) {
+            for (int j = k * k; j <= n; j += k) {
+                prime_sieve[j] = false;
+            }
+        }
+        return prime_sieve;
+    }
+
+    public static void main(String[] args) {
+        boolean[] S = primes(20);
+        int i = 0;
+        while (i != S.length) {
+            if (S[i]) {
+                System.out.println(i);
+            }
+            i += 1;
+        }
+        // >>>
+        // 2
+        // 3
+        // 5
+        // 7
+        // 11
+        // 13
+        // 17
+        // 19
+    }
+}
