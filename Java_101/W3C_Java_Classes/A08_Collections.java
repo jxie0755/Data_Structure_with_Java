@@ -138,7 +138,6 @@ class List_add {
 
         // List能否直接相加?
         // List<Object> LO10 = LO7 + LO8;   // 不行
-
     }
 
 }
