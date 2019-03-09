@@ -1,6 +1,6 @@
 package W3C_Java_Classes;
 
-public class A05_StringBuffer_StringBuilder {
+public class A05_Mutable_String {
 
 }
 
@@ -14,7 +14,7 @@ public class A05_StringBuffer_StringBuilder {
     * 然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类
  */
 
-class z_StringBuffer {
+class A05a_StringBuffer {
 
     public static void main(String[] args) {
 
@@ -94,7 +94,7 @@ class z_StringBuffer {
 }
 
 
-class z_StringBuilder {
+class A05b_StringBuilder {
 
     public static void main(String[] args) {
 
