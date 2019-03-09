@@ -118,7 +118,7 @@ class List_Iterator {
         System.out.println(IL33.previous());
         System.out.println(IL33.next());
         System.out.println(IL33.next());
-        System.out.println(IL33.next());
+        System.out.println(IL33.next());  // cursor after 3
         // 也就是ListIterator 被call next和previous不会让元素消失
 
         // 	nextIndex() and previousIndex()
