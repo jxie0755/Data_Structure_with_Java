@@ -56,8 +56,7 @@ public class A09_Iterator {
         String s = it2.next();  // "c"
         it2.remove();
         System.out.println(list2);  // >>>  [a, b, d, e]
-
-
+        System.out.println(s); // >>>  c
     }
 }
 
