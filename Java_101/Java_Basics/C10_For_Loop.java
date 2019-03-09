@@ -6,6 +6,16 @@ import java.util.Iterator;
 import java.util.List;
 
 public class C10_For_Loop {
+
+    /*
+     * for loop defines start value, limit, and step
+        * for loop      相当于 for i in range(0, len(array)):
+        * for-each loop 相当于 for i in array:
+        * for-each loop 也可以用于iterator
+
+     * break work the same way as python
+     */
+
     public static void main(String[] args) {
 
         System.out.print("for loop: ");
@@ -76,11 +86,3 @@ class C10c_For_loop_Iterator {
 }
 
 
-/*
- * for loop defines start value, limit, and step
-    * for loop      相当于 for i in range(0, len(array)):
-    * for-each loop 相当于 for i in array:
-    * for-each loop 也可以用于iterator
-
- * break work the same way as python
- */

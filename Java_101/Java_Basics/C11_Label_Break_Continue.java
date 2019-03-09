@@ -1,6 +1,15 @@
 package Java_Basics;
 
 public class C11_Label_Break_Continue {
+
+    /*
+     * Use label to achieve for...else and while...else
+     * Use labeled break statement to terminate the outer loop.
+     * Label system is designed to use break or continue in multi-loop scenarios
+     * See more labeled loop in https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
+     * Also see more in Java 11 language specifcation Section 14.7
+     */
+
     public static void main(String[] args) {
 
         // 利用label和break label来实现python的for else和while else
@@ -162,10 +171,3 @@ public class C11_Label_Break_Continue {
 
 
 
-/*
- * Use label to achieve for...else and while...else
- * Use labeled break statement to terminate the outer loop.
- * Label system is designed to use break or continue in multi-loop scenarios
- * See more labeled loop in https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html
- * Also see more in Java 11 language specifcation Section 14.7
- */

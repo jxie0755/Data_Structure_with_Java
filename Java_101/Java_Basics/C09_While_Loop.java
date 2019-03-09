@@ -1,6 +1,14 @@
 package Java_Basics;
 
 public class C09_While_Loop {
+
+    /*
+     * while loop is more like python, define indicator outside
+     * java中,int和boolean不同, 所以不能while(0)或者while(1)
+     * Use break the same way
+     * 只有do-while loop, 没有do-for loop
+     */
+
     public static void main(String[] args) {
 
         System.out.println("while loop 1: ");
@@ -75,9 +83,3 @@ public class C09_While_Loop {
     }
 }
 
-/*
- * while loop is more like python, define indicator outside
- * java中,int和boolean不同, 所以不能while(0)或者while(1)
- * Use break the same way
- * 只有do-while loop, 没有do-for loop
- */
