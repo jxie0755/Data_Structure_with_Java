@@ -1,21 +1,18 @@
 package W3C_Java_Classes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
-public class A08_Collections {
+public class A08_Collection {
 
     /*
-     * Collection的常用子接口
-     * List接口
-        * ArrayList、LinkedList、Vector、Stack
-     * Set接口
-        * HashSet、LinkedHashSet、TreeSet
-     * Deque接口
-     */
 
+         * Collection的常用子接口
+         * List接口
+            * ArrayList、LinkedList、Vector、Stack
+         * Set接口
+            * HashSet、LinkedHashSet、TreeSet
+         * Deque接口
+     */
 }
 
 
@@ -47,6 +44,15 @@ class Collections_zMethods {
     }
 }
 
+// 还有一个Module java.base / Package java.util / Class Collections
+// 属于工具方法
+
+class java_util_Collections {
+
+    public static void main(String[] args) {
+
+    }
+}
 
 
 
@@ -97,7 +103,6 @@ class List_zMethods {
 
 
 
-
         // List接口的专有方法 (除了Collections通用方法多出来的方法)
 
         // retainAll
@@ -120,6 +125,9 @@ class List_zMethods {
         List<Object> LO8 = LO7.subList(1, 4);
         System.out.println(LO8);  // >>>  [d, e, d]
 
+        // 	sort​(Comparator<? super E> c)
+        // 使用List.sort()传入自己实现Commparator接口的类的对象，实现自定义排序
+        // 这里涉及到自行设计一个Comparator所以此方法不常用, 更多的是用java.util.Collections.sort
 
     }
 }
