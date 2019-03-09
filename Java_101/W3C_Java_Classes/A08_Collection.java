@@ -16,7 +16,7 @@ public class A08_Collection {
 }
 
 
-class Collections_zMethods {
+class A08_Collections_zMethods {
 
     // 所有子接口都同样有这些方法
     public static void main(String[] args) {
@@ -47,14 +47,13 @@ class Collections_zMethods {
 // 还有一个Module java.base / Package java.util / Class Collections
 // 属于工具方法
 
-class java_util_Collections {
 
-    public static void main(String[] args) {
-
-    }
-}
+class A08_java_util_Collections { }
 
 
+
+
+class A08b_List { }
 
 /*
  * List
@@ -72,7 +71,7 @@ class java_util_Collections {
  */
 
 
-class List_zMethods {
+class A08b_List_zMethods {
 
 
     public static void main(String[] args) {
@@ -146,7 +145,7 @@ class List_zMethods {
     }
 }
 
-class List_add {
+class A08b_List_add {
     public static void main(String[] args) {
 
         List<Object> LO7 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
@@ -166,7 +165,7 @@ class List_add {
 
 }
 
-class List_remove {
+class A08b_List_remove {
     public static void main(String[] args) {
 
         List<Object> L2 = new ArrayList<>(Arrays.asList("a", "b", "c", 1, 2, 3, 2, 1));
@@ -196,7 +195,7 @@ class List_remove {
     }
 }
 
-class List_toArray {
+class A08b_List_toArray {
     public static void main(String[] args) {
 
         List l = new ArrayList<>(Arrays.asList("A", "B", "C"));
@@ -218,7 +217,7 @@ class List_toArray {
     }
 }
 
-class List_copy {
+class A08b_List_copy {
     public static void main(String[] args) {
 
         // CopyOf  // 注意,这个copy是imutable
