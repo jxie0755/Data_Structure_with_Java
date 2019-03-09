@@ -80,5 +80,8 @@ public class C10_For_Loop {
 
 /*
  * for loop defines start value, limit, and step
+    * for loop      相当于 for i in range(0, len(array)):
+    * for-each loop 相当于 for i in array:
+
  * break work the same way as python
  */
