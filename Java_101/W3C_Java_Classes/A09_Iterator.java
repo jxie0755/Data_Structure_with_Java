@@ -36,7 +36,7 @@ public class A09_Iterator {
         }
 
         // forEachRemaining 能够将Iterator中迭代剩余的元素传递给一个函数
-        List<String> list = Arrays.asList("a", "b", "c", "d", "e");
+        List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e"));
         Iterator<String> it = list.iterator();
         it.next();  // "a"
         it.next();  // "b"  // 先消耗两个
@@ -46,6 +46,18 @@ public class A09_Iterator {
         // WTF c
         // WTF d
         // WTF e
+
+
+        // remove 所以remove必须要跟在next(), 只能执行一次
+        List<String> list2 = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e"));
+        Iterator<String> it2 = list2.iterator();
+        it2.next();
+        it2.next();
+        String s = it2.next();  // "c"
+        it2.remove();
+        System.out.println(list2);  // >>>  [a, b, d, e]
+
+
     }
 }
 
