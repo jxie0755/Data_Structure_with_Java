@@ -4,6 +4,8 @@ import java.util.*;
 
 public class A09_Iterator {
 
+    // 迭代器和Python思路基本相同
+
     public static void main(String[] args) {
 
         // 构造方法

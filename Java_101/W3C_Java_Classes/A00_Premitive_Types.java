@@ -1,6 +1,24 @@
 package W3C_Java_Classes;
 
 public class A00_Premitive_Types {
+
+    /*
+     * Java 基本数据类型
+     * 变量就是申请内存来存储值。也就是说，当创建变量的时候，需要在内存中申请空间。
+     * 内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。
+     * 因此，通过定义不同类型的变量，可以在内存中储存整数、小数或者字符。
+     * Java的两大数据类型：
+        * 内置数据类型
+        * 引用数据类型
+            * 引用类型变量由类的构造函数创建，可以使用它们访问所引用的对象。这些变量在声明时被指定为一个特定的类型，比如Employee、Pubby等
+            * 变量一旦声明后，类型就不能被改变了。
+            * 对象、数组都是引用数据类型。
+            * 所有引用类型的默认值都是null。
+            * 一个引用变量可以用来引用与任何与之兼容的类型。例子：Animal animal = new Animal(“giraffe”)。
+     */
+
+    // 除此之外其他全是reference types (引用类型) 见 A00_Reference_Types
+
     public static void main(String[] args) {
 
         // 数值类型:
@@ -183,38 +201,8 @@ public class A00_Premitive_Types {
         boolean[] boo = new boolean[3];
         System.out.println(boo[0] + " " + boo[1] + " " + boo[2]); // >>> false false false
 
-        // TODO
-        // 而Boolean可以赋值其他数据
-        Boolean default_Bool = new Boolean("Truee");  // false
-        Boolean default_Bool2 = new Boolean("True");  // true
-        Boolean default_Bool3 = new Boolean("TRUE");  // true
-        Boolean default_Bool4 = new Boolean("tRuE");  // true
-        System.out.println(default_Bool2 + " " + default_Bool3 + " " + default_Bool4 + " " + default_Bool);  // >>> true true true false  // similar to Boolean.parseeBoolean
-
-
-        // 除此之外其他全是reference types (引用类型) 见 A00_Reference_Types
-        /*
-         * 类    Class
-         * 接口  Interface
-         * 数组  Array
-         */
-        // Java中的引用数据类型， 相当于C等语言中指针（pointer） 类型， 引用事实上就是指针， 是指向一个对象的内存地址
-
     }
 }
 
 
-/*
- * Java 基本数据类型
- * 变量就是申请内存来存储值。也就是说，当创建变量的时候，需要在内存中申请空间。
- * 内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。
- * 因此，通过定义不同类型的变量，可以在内存中储存整数、小数或者字符。
- * Java的两大数据类型：
-    * 内置数据类型
-    * 引用数据类型
-        * 引用类型变量由类的构造函数创建，可以使用它们访问所引用的对象。这些变量在声明时被指定为一个特定的类型，比如Employee、Pubby等
-        * 变量一旦声明后，类型就不能被改变了。
-        * 对象、数组都是引用数据类型。
-        * 所有引用类型的默认值都是null。
-        * 一个引用变量可以用来引用与任何与之兼容的类型。例子：Animal animal = new Animal(“giraffe”)。
- */
+

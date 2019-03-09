@@ -2,12 +2,7 @@ package W3C_Java_Classes;
 
 
 
-public class A06_Boolean {
-
-    public static void main(String[] args) {
-
-    }
-}
+public class A06_Boolean { }
 
 class Boolean_zMethods {
 
@@ -15,7 +10,14 @@ class Boolean_zMethods {
 
         // 两种构造方法
         Boolean b1 = new Boolean(true); // 通过一个boolean值创建Boolean对象。
+
         Boolean b2 = new Boolean("asdf"); // 通过字符串创建Boolean对象。 s不能为null， s如果是忽略大小写"true"则转换为true对象， 其他字符串都转换为false对象。
+        Boolean default_Bool = new Boolean("Truee");  // false
+        Boolean default_Bool2 = new Boolean("True");  // true
+        Boolean default_Bool3 = new Boolean("TRUE");  // true
+        Boolean default_Bool4 = new Boolean("tRuE");  // true
+        // similar to Boolean.parseeBoolean
+
         Boolean b3 = true;  // 或者更直接一点
 
         // compareTo

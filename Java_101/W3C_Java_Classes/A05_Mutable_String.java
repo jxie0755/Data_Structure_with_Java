@@ -2,17 +2,17 @@ package W3C_Java_Classes;
 
 public class A05_Mutable_String {
 
+    /*
+     * String 字符串常量
+     * StringBuffer 字符串变量（线程安全）
+     * StringBuilder 字符串变量（非线程安全）
+        * StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象
+        * 由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。
+        * 然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类
+     */
 }
 
 
-/*
- * String 字符串常量
- * StringBuffer 字符串变量（线程安全）
- * StringBuilder 字符串变量（非线程安全）
-    * StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象
-    * 由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。
-    * 然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类
- */
 
 class A05b_StringBuffer {
 

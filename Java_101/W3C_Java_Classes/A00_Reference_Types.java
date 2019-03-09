@@ -1,6 +1,16 @@
 package W3C_Java_Classes;
 
 public class A00_Reference_Types {
+
+    // 除8项基本类型外其他全是reference types (引用类型)
+    /*
+     * 类    Class
+     * 接口  Interface
+     * 数组  Array
+     */
+
+    // Java中的引用数据类型， 相当于C等语言中指针（pointer） 类型， 引用事实上就是指针， 是指向一个对象的内存地址
+
     public static void main(String[] args) {
         int x = 7;
         int y = x;
@@ -14,11 +24,3 @@ public class A00_Reference_Types {
     }
 }
 
-// 除此8项基本类型外其他全是reference types (引用类型)
-/*
- * 类    Class
- * 接口  Interface
- * 数组  Array
- */
-
-// Java中的引用数据类型， 相当于C等语言中指针（pointer） 类型， 引用事实上就是指针， 是指向一个对象的内存地址

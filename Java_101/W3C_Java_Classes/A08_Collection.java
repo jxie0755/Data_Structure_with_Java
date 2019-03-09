@@ -53,22 +53,48 @@ class A08_java_util_Collections { }
 
 
 
-class A08b_List { }
+class A08b_List {
+    /*
+     * List
+     * List代表一个元素有序、可重复的集合，集合中每个元素都有其对应的顺序索引。
+        * List是一个接口, 不能被直接实现, 需要通过其他子类实现, 常用子类
+        * ArrayList
+        * LinkedList
+        * Stack
+        * Vector (多线程, 一般不用)
 
-/*
- * List
- * List代表一个元素有序、可重复的集合，集合中每个元素都有其对应的顺序索引。
-    * List是一个接口, 不能被直接实现, 需要通过其他子类实现, 常用子类
-    * ArrayList
-    * LinkedList
-    * Stack
-    * Vector (多线程, 一般不用)
+    * 注意：
+        * List集合默认按元素的添加顺序设置元素索引，例如第一次添加元素索引为0，第二次添加索引为1…
+        * List是Collection的子接口，可以使用Collection接口里的全部方法。
+        * 因为List是有序集合，所以它有一些根据索引来操作集合元素的方法。
+     */
 
-* 注意：
-    * List集合默认按元素的添加顺序设置元素索引，例如第一次添加元素索引为0，第二次添加索引为1…
-    * List是Collection的子接口，可以使用Collection接口里的全部方法。
-    * 因为List是有序集合，所以它有一些根据索引来操作集合元素的方法。
- */
+    /*
+     * List 最基本的操作
+        * get                        相当于lst[i]
+        * set                        相当于lst[i] = n
+
+        * add​(E e)                   相当于append
+        * add​(int index, E element)  相当于insert
+
+        * remove​(int index)          相当于pop
+        * remove​(Object o)           相当于del
+
+        * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
+
+        * size()                     相当于len
+        * clear()
+
+        * contains                   相当于x in lst
+
+        * indexOf
+        * lastIndexOf
+
+     * 最基本Collections 工具操作
+        *
+     */
+}
+
 
 
 class A08b_List_zMethods {
@@ -249,27 +275,7 @@ class A08b_List_copy {
     }
 }
 
-/*
- * 最基本的操作
-    * get                        相当于lst[i]
-    * set                        相当于lst[i] = n
+class A08c_Set {
 
-    * add​(E e)                   相当于append
-    * add​(int index, E element)  相当于insert
 
-    * remove​(int index)          相当于pop
-    * remove​(Object o)           相当于del
-
-    * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
-
-    * size()                     相当于len
-    * clear()
-
-    * contains                   相当于x in lst
-
-    * indexOf
-    * lastIndexOf
-
- * 最基本Collections 工具操作
-    *
- */
+}

@@ -2,13 +2,8 @@ package W3C_Java_Classes;
 
 import java.util.Arrays;
 
-public class A04_String {
 
-    public static void main(String[] args) {
-
-    }
-}
-
+public class A04_String { }
 
 class String_format {
 
@@ -135,8 +130,6 @@ class String_regexMethods {
         // String[] split(String regex)  根据给定正则表达式的匹配拆分此字符串。
         // String[] split(String regex, int limit)  根据匹配给定的正则表达式来拆分此字符串。
         // boolean startsWith(String prefix)   测试此字符串是否以指定的前缀开始。
-
-
 
     }
 

@@ -1,7 +1,6 @@
 package W3C_Java_Classes;
 
-public class A02_Math {
-}
+public class A02_Math { }
 
 class Math_zMethods {
     public static void main(String[] args) {
