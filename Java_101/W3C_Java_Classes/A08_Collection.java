@@ -129,6 +129,14 @@ class List_zMethods {
         // 使用List.sort()传入自己实现Commparator接口的类的对象，实现自定义排序
         // 这里涉及到自行设计一个Comparator所以此方法不常用, 更多的是用java.util.Collections.sort
 
+        // iterator 把list变成一个iterator()
+
+        // for loop
+        List<Integer> IL1 = new ArrayList<>(Arrays.asList(1,2,1,3,1,4));
+        for (Integer i: IL1) {
+            // System.out.print(i);
+        }
+
     }
 }
 
