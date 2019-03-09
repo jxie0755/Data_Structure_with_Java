@@ -10,19 +10,7 @@ public class C10_For_Loop {
 
         System.out.print("for loop: ");
         for (int x = 0; x < 10; x = x + 1) {
-            System.out.println(x); // >>> For loop:0123456789
-        // System.out.println(x);  // indentation does not impact, because loop defined in {}
-            // >>>
-            //for loop 1: 0
-            //1
-            //2
-            //3
-            //4
-            //5
-            //6
-            //7
-            //8
-            //9
+            System.out.println(x); // >>> For loop: 0123456789
         }
 
         System.out.println();
@@ -31,18 +19,11 @@ public class C10_For_Loop {
             if (x == 5){
                 break;
             } else {
-                System.out.println(x); // >>> For loop:0123456789
+                System.out.println(x); // >>> For loop: 01234 break 56789
             }
-
-            // >>>
-            //for loop 2: 0?
-            //1
-            //2
-            //3
-            //4
         }
 
-        // 双参数
+        // 双参数 multiple parameters
         int x;
         int y;
         for (x = 0, y = 10; x < y; x++, y--) {
@@ -69,19 +50,13 @@ class C10b_For_each_Loop {
         for (String name: names) {     // name的类型必须和数组元素类型一致
             System.out.println(name);
         }
-        // >>>
-        // Denis
-        // Cindy
-        // Adrienne
-        // Simon
 
         // 再来一个例子
         // for-each loop in ArrayList
         List<Integer> intList = new ArrayList<>(Arrays.asList(1,2,3,4,5));
         for (Integer int_x: intList) {
-            System.out.print(int_x);  // >>> 12345
+            System.out.println(int_x);  // >>> 12345
         }
-        System.out.println();
     }
 }
 
@@ -95,14 +70,8 @@ class C10c_For_loop_Iterator {
         List<String> strTuple = List.of("A", "B", "C", "D", "E");
         for (Iterator<String> iter = strTuple.iterator(); iter.hasNext();) { // 注意这里还需要对Iterator定型
             String str_sample = iter.next();
-            System.out.println(str_sample);
+            System.out.println(str_sample);  // >>> A B C D E
         }
-        // >>>
-        // A
-        // B
-        // C
-        // D
-        // E
     }
 
 }
