@@ -245,27 +245,32 @@ class List_copy {
         Lgrid.get(0).add(3);
         System.out.println(Lgrid2);
         // still changed, so it is shallow copy
+
+
     }
 }
 
 /*
  * 最基本的操作
-    * get
-    * set
+    * get                        相当于lst[i]
+    * set                        相当于lst[i] = n
 
-    * add​(E e)
-    * add​(int index, E element)
+    * add​(E e)                   相当于append
+    * add​(int index, E element)  相当于insert
 
-    * remove​(int index)  相当于pop()
-    * remove​(Object o)
+    * remove​(int index)          相当于pop
+    * remove​(Object o)           相当于del
 
-    * subList​(int fromIndex, int toIndex)
+    * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
 
-    * size()
+    * size()                     相当于len
     * clear()
 
-    * contains
+    * contains                   相当于x in lst
 
     * indexOf
     * lastIndexOf
+
+ * 最基本Collections 工具操作
+    *
  */
