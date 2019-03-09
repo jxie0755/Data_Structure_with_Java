@@ -129,7 +129,10 @@ class List_zMethods {
         // 使用List.sort()传入自己实现Commparator接口的类的对象，实现自定义排序
         // 这里涉及到自行设计一个Comparator所以此方法不常用, 更多的是用java.util.Collections.sort
 
-        // iterator 把list变成一个iterator()
+        // iterator
+        // listIterator()
+        // listIterator​(int index)  starting at a specific index
+        //  把list变成一个Iterator或者是ListIterator
 
         // for loop
         List<Integer> IL1 = new ArrayList<>(Arrays.asList(1,2,1,3,1,4));
@@ -233,3 +236,24 @@ class List_copy {
         // still changed, so it is shallow copy
     }
 }
+
+/*
+ * 最基本的操作
+    * get
+    * set
+
+    * add​(E e)
+    * add​(int index, E element)
+
+    * remove​(int index)
+    * remove​(Object o)
+
+    * subList​(int fromIndex, int toIndex)
+
+    * size()
+    * clear()
+
+    * contains
+
+    * indexOf
+ */
