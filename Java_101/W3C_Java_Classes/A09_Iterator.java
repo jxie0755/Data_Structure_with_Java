@@ -51,8 +51,8 @@ public class A09_Iterator {
         // remove 所以remove必须要跟在next(), 只能执行一次
         List<String> list2 = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e"));
         Iterator<String> it2 = list2.iterator();
-        it2.next();
-        it2.next();
+        it2.next();  // "a"
+        it2.next();  // "b"
         String s = it2.next();  // "c"
         it2.remove();
         System.out.println(list2);  // >>>  [a, b, d, e]
