@@ -172,10 +172,18 @@ class List_remove {
         List<Integer> LO4 = new ArrayList<>(Arrays.asList(1, 2, 1, 3, 1, 4, 1, 5, 1, 6));
 
         // remove (object)
-        LO4.remove(Integer.valueOf(1)); // [2, 1, 3, 1, 4, 1, 5, 1, 6] 从头开始找, 只删1个
-        // 特殊方法是remove index, remove (重载)
-        LO4.remove(0);            //     [1, 3, 1, 4, 1, 5, 1, 6]
+        // return true if the element is removed
+        System.out.println(LO4.remove(Integer.valueOf(1)));
+        // true:  now [2, 1, 3, 1, 4, 1, 5, 1, 6] 从头开始找, 只删1个
+        System.out.println(LO4.remove(Integer.valueOf(99)));
+        // false: now still [2, 1, 3, 1, 4, 1, 5, 1, 6] 找不到就不删
 
+
+        // 特殊方法是remove index, remove (重载)
+        // 自带return被删去的值,相当于python的pop()!!!!
+        Integer a = LO4.remove(0);            //     [1, 3, 1, 4, 1, 5, 1, 6]
+        System.out.println(a);
+        System.out.println(LO4);  // >>>  [1, 3, 1, 4, 1, 5, 1, 6]
 
         // removeAll
         LO2.removeAll(L2);        //     [a, b, c, 1, 2, 3, 2, 1] 变成: [a, b, c]
@@ -222,7 +230,7 @@ class List_copy {
         List<Integer> LL2 = new ArrayList<>(Arrays.asList(4, 5, 6));
         List<Integer> LL3 = new ArrayList<>(Arrays.asList(7, 8, 9));
 
-        List<List<Integer>> Lgrid = new ArrayList(Arrays.asList(LL1, LL2, LL3));
+        List<List<Integer>> Lgrid = new ArrayList<>(Arrays.asList(LL1, LL2, LL3));
         System.out.println(Lgrid);  // >>> [[1, 2], [4, 5, 6], [7, 8, 9]]
         LL1.add(3);
         System.out.println(Lgrid);  // >>> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  // impacted by LL1
@@ -245,7 +253,7 @@ class List_copy {
     * add​(E e)
     * add​(int index, E element)
 
-    * remove​(int index)
+    * remove​(int index)  相当于pop()
     * remove​(Object o)
 
     * subList​(int fromIndex, int toIndex)
@@ -256,4 +264,5 @@ class List_copy {
     * contains
 
     * indexOf
+    * lastIndexOf
  */
