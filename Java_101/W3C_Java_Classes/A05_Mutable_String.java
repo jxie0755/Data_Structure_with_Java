@@ -14,7 +14,7 @@ public class A05_Mutable_String {
     * 然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类
  */
 
-class A05a_StringBuffer {
+class A05b_StringBuffer {
 
     public static void main(String[] args) {
 
