@@ -66,7 +66,7 @@ class C10c_For_loop_Iterator {
     public static void main(String[] args) {
 
         // For loop in Iterator
-        // build a Tuple
+        // build a Tuple, then build an iterator in the for loop
         List<String> strTuple = List.of("A", "B", "C", "D", "E");
         for (Iterator<String> iter = strTuple.iterator(); iter.hasNext();) { // 注意这里还需要对Iterator定型
             String str_sample = iter.next();
