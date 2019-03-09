@@ -140,6 +140,9 @@ class List_zMethods {
             // System.out.print(i);
         }
 
+        // List.of()  相当于一个不可变List, 如同一个python的tuple
+        List<Integer> tuple = List.of(1,2,3,4);
+        System.out.println(tuple); // >>>  [1, 2, 3, 4]
     }
 }
 
