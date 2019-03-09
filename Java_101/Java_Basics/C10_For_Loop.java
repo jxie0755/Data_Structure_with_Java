@@ -1,6 +1,8 @@
 package Java_Basics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class C10_For_Loop {
@@ -40,28 +42,6 @@ public class C10_For_Loop {
             //4
         }
 
-        System.out.println("\n增强型for loop");
-        // for-each(声明语句 : 表达式)
-        String [] names = {"Denis", "Cindy", "Adrienne", "Simon"};
-        for (String name: names) {     // name的类型必须和数组元素类型一致
-            System.out.println(name);
-        }
-        // >>>
-        // Denis
-        // Cindy
-        // Adrienne
-        // Simon
-
-        // 再来一个例子
-        // for-each loop
-        // 先构建一个int Array
-        int[] int_list = new int[]{1,2,3,4,5};
-        for (Integer int_x: int_list) {
-            System.out.print(int_x);  // >>> 12345
-        }
-        System.out.println();
-        // 等同于python的for i in interable
-
         // 双参数
         int x;
         int y;
@@ -77,6 +57,56 @@ public class C10_For_Loop {
         }
     }
 }
+
+class C10b_For_each_Loop {
+
+    public static void main(String[] args) {
+
+        // 等同于python的for i in interable
+        System.out.println("\n增强型for loop");
+        // for-each(声明语句 : 表达式)
+        String [] names = {"Denis", "Cindy", "Adrienne", "Simon"};
+        for (String name: names) {     // name的类型必须和数组元素类型一致
+            System.out.println(name);
+        }
+        // >>>
+        // Denis
+        // Cindy
+        // Adrienne
+        // Simon
+
+        // 再来一个例子
+        // for-each loop in ArrayList
+        List<Integer> intList = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+        for (Integer int_x: intList) {
+            System.out.print(int_x);  // >>> 12345
+        }
+        System.out.println();
+    }
+}
+
+
+class C10c_For_loop_Iterator {
+
+    public static void main(String[] args) {
+
+        // For loop in Iterator
+        // build a Tuple
+        List<String> strTuple = List.of("A", "B", "C", "D", "E");
+        for (Iterator<String> iter = strTuple.iterator(); iter.hasNext();) { // 注意这里还需要对Iterator定型
+            String str_sample = iter.next();
+            System.out.println(str_sample);
+        }
+        // >>>
+        // A
+        // B
+        // C
+        // D
+        // E
+    }
+
+}
+
 
 /*
  * for loop defines start value, limit, and step
