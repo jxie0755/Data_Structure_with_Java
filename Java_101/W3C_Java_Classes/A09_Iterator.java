@@ -61,7 +61,7 @@ public class A09_Iterator {
 }
 
 
-class A09b_List_Iterator {
+class A09b_ListIterator {
 
     // An iterator for lists that allows the programmer to traverse the list in either direction,
     // modify the list during iteration, and obtain the iterator's current position in the list.
