@@ -48,7 +48,7 @@ public class A09_Iterator {
         // WTF e
 
 
-        // remove 所以remove必须要跟在next(), 只能执行一次
+        // remove 所以remove必须要跟在next(), remove被next()call到的那个元素, 只能执行一次
         List<String> list2 = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e"));
         Iterator<String> it2 = list2.iterator();
         it2.next();  // "a"
