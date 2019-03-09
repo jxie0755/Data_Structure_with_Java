@@ -127,7 +127,7 @@ class List_Iterator {
         System.out.println(IL44.nextIndex()); // >>> 0
         System.out.println(IL44.nextIndex()); // >>> 0
         System.out.println(IL44.nextIndex()); // >>> 0
-        // 不会移动cursor
+        // 重复call, 不会移动cursor
 
         // set  Replaces the last element returned by next() or previous()
         IL44.next();  // 1
