@@ -1,13 +1,45 @@
 package Java_OOP;
 
 public class C10_Instance_Casting {
+    // 由导出类转型成基类， 就是一个向上转型       如"Human a1=new Woman( );                            通俗地说就是是将子类对象转为父类对象
+    // 父类转型成子类,     就是向下转型，        如“Human a1=new Woman( ); Woman b1=(Woman) a1;”。     向下转型是把父类对象转为子类对象
+
+
+    // 向上转型语法
+    // define: fun(SuperClass ins_Var) { }
+    // use:    ins_Var.method() -- use SubClass method
+
+    // 向下转型语法:
+    // define: fun(SuperClass ins_Var) { }                     // 和向上转型相同!
+
+    // use:    if (ins_Var instanceof SubClass) {              // additional if condition to make ensure correct casting
+    //              SubClass new_Var = (SubClass) ins_Var
+    //              new_Var.method()                       // 调用子类方法
+    //              new_Var.specialmethod()                // 调用子类独有的方法
+    //              special_processing(new_Var)            // 调用其他方法,只对这个子类使用
+    //              }
+
+    // 其他语法:
+    // SuperClass ins_Var_1 = SubClass.class.cast(new SubClass());   // 向上专型
+    // SubClass ins_Var_2 = SubClass.class.cast(ins_Var_1);  // 向下专型 (但是需要先使用向上专型)
+    // ((SubClass) ins_Var_1).SubClass_method();   // 另类写法, 直接引用SubClass
+
+    /*
+     * 用法总结:
+        * 向上转型和向下转型,原则上都是用父类作为一个方法的形参(向上转型),给它带入子类的形参, 让它可以分别执行子类的方法
+            * 向上转型的用处是, 执行各子类相同的方法时,避免重载导致代码重复
+            * 向下转型的用处是, 能够使父类形参执行子类实参的独特方法或是附加处理
+        * 这么做的动机:
+            * 为了规避类型检查的特性,只需要用定义一个父类的形参,让他们能在方法中展现出子类实参的特性,
+            * 有些子类中的方法是父类也有的, 虽然被重写, 这样直接对子类call这个方法时安全的(向上转型)
+            * 有些子类中的方法是父类没有的,或者需要对子类进行特别操作, 因此需要根据不同子类来分别对待,这时这个父类形参必须是安全的向下转型回子类实参
+        * 这些都是python作为动态语言不会出现的问题,因为python不检查参数类型,而java会检查,导致了参数不能多态
+     */
+
+    // 使用转型的优秀例子: 使用List来创造ArrayList
+    // 参见 zsnippets.List_and_ArrayList;
 }
 
-
-
-
-// 由导出类转型成基类， 就是一个向上转型       如"Human a1=new Woman( );                            通俗地说就是是将子类对象转为父类对象
-// 父类转型成子类,     就是向下转型，        如“Human a1=new Woman( ); Woman b1=(Woman) a1;”。     向下转型是把父类对象转为子类对象
 
 
 class China {
@@ -74,28 +106,6 @@ class Geography_Test {
         }
 	}
 }
-
-
-// 向上转型语法
-// define: fun(SuperClass ins_Var) { }
-// use:    ins_Var.method() -- use SubClass method
-
-// 向下转型语法:
-// define: fun(SuperClass ins_Var) { }                     // 和向上转型相同!
-
-// use:    if (ins_Var instanceof SubClass) {              // additional if condition to make ensure correct casting
-//              SubClass new_Var = (SubClass) ins_Var
-//              new_Var.method()                       // 调用子类方法
-//              new_Var.specialmethod()                // 调用子类独有的方法
-//              special_processing(new_Var)            // 调用其他方法,只对这个子类使用
-//              }
-
-
-// 其他语法:
-// SuperClass ins_Var_1 = SubClass.class.cast(new SubClass());   // 向上专型
-// SubClass ins_Var_2 = SubClass.class.cast(ins_Var_1);  // 向下专型 (但是需要先使用向上专型)
-// ((SubClass) ins_Var_1).SubClass_method();   // 另类写法, 直接引用SubClass
-
 
 // 实战: 利用Casting来简化代码,避免重载, 而且方便未来扩展代码
 class Material {
@@ -171,20 +181,3 @@ class MyMenu {
         // add_2(new Sugar()); // 直接可用
     }
 }
-
-
-/*
- * 用法总结:
-    * 向上转型和向下转型,原则上都是用父类作为一个方法的形参(向上转型),给它带入子类的形参, 让它可以分别执行子类的方法
-        * 向上转型的用处是, 执行各子类相同的方法时,避免重载导致代码重复
-        * 向下转型的用处是, 能够使父类形参执行子类实参的独特方法或是附加处理
-    * 这么做的动机:
-        * 为了规避类型检查的特性,只需要用定义一个父类的形参,让他们能在方法中展现出子类实参的特性,
-        * 有些子类中的方法是父类也有的, 虽然被重写, 这样直接对子类call这个方法时安全的(向上转型)
-        * 有些子类中的方法是父类没有的,或者需要对子类进行特别操作, 因此需要根据不同子类来分别对待,这时这个父类形参必须是安全的向下转型回子类实参
-    * 这些都是python作为动态语言不会出现的问题,因为python不检查参数类型,而java会检查,导致了参数不能多态
- */
-
-
-// 使用转型的优秀例子: 使用List来创造ArrayList
-// 参见 zsnippets.List_and_ArrayList;

@@ -2,9 +2,13 @@ package Java_OOP;
 
 public class C01_Inheritance_Extends {
 
-    public static void main(String[] args) {
-
-    }
+    /*
+     * 通过使用关键字extends，子类可以继承父类的除private属性外所有的属性
+         * Animal类是Mammal类的父类。
+         * Animal类是Reptile类的父类。
+         * Mammal类和Reptile类是Animal类的子类。
+         * Dog类既是Mammal类的子类又是Animal类的子类。
+     */
 
 }
 
@@ -41,14 +45,6 @@ class Dog extends Mammal{
 // public class Apple extends Fruit implements Fruit1, Fruit2{}
 
 }
-/*
- * 通过使用关键字extends，子类可以继承父类的除private属性外所有的属性
-     * Animal类是Mammal类的父类。
-     * Animal类是Reptile类的父类。
-     * Mammal类和Reptile类是Animal类的子类。
-     * Dog类既是Mammal类的子类又是Animal类的子类。
- */
-
 
 // Use of extends 2 (Has-A 关系)
 

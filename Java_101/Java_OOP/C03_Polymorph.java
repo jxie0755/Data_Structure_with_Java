@@ -1,6 +1,13 @@
 package Java_OOP;
 
 public class C03_Polymorph {
+    /*
+     * 因为Deer类具有多重继承，所以它具有多态性。以上实例解析如下:
+         * 一个 Deer IS-A（是一个） Animal_4
+         * 一个 Deer IS-A（是一个） Vegetarian_4
+         * 一个 Deer IS-A（是一个） Deer_4
+         * 一个 Deer IS-A（是一个） Object
+     */
 }
 
 
@@ -33,10 +40,4 @@ class test {
     }
 }
 
-/*
- * 因为Deer类具有多重继承，所以它具有多态性。以上实例解析如下:
-     * 一个 Deer IS-A（是一个） Animal_4
-     * 一个 Deer IS-A（是一个） Vegetarian_4
-     * 一个 Deer IS-A（是一个） Deer_4
-     * 一个 Deer IS-A（是一个） Object
- */
+

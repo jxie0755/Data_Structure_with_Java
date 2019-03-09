@@ -1,10 +1,13 @@
 package Java_OOP;
 
 public class C09_Interface_3 {
+
+    // Aditional 致命方块, 多重继承接口时出现同名方法(彻底重名,无法重载)
+    // 如果类型实现两个接口，并且每个接口定义具有相同签名的方法，则实际上只有一个方法，并且它们是不可区分的
+
 }
 
-// Aditional 致命方块, 多重继承接口时出现同名方法(彻底重名,无法重载)
-// 如果类型实现两个接口，并且每个接口定义具有相同签名的方法，则实际上只有一个方法，并且它们是不可区分的
+
 interface Friend_X {
     public void play() ;
     public void beFriendly();

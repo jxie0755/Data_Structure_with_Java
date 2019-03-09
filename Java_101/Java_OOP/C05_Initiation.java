@@ -1,12 +1,13 @@
 package Java_OOP;
 
 public class C05_Initiation {
+
+    // 子类是否必须要重写父类的构造函数?
+    // 若父类只有构造函数, 则子类必须重写
 }
 
 
-// 子类是否必须要重写父类的构造函数?
 
-// 若父类只有构造函数, 则子类必须重写
 class Superman_1 {
 
     String name;
