@@ -134,10 +134,10 @@ class A08b_List_zMethods {
         //  把list变成一个Iterator或者是ListIterator
 
         // for loop
+        // 支持for和for-each loop
         List<Integer> IL1 = new ArrayList<>(Arrays.asList(1,2,1,3,1,4));
-        for (Integer i: IL1) {
-            // System.out.print(i);
-        }
+        for (int j=0; j < IL1.size(); j += 1) {}
+        for (Integer i: IL1) {}
 
         // List.of()  相当于一个不可变List, 如同一个python的tuple
         List<Integer> tuple = List.of(1,2,3,4);
