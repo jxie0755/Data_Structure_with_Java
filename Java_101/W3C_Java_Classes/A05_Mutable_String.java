@@ -94,7 +94,7 @@ class A05b_StringBuffer {
 }
 
 
-class A05b_StringBuilder {
+class A05c_StringBuilder {
 
     public static void main(String[] args) {
 
