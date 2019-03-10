@@ -11,6 +11,7 @@ abstract class C04_Abstraction {
          * 由于抽象类不能实例化对象，所以抽象类必须被继承，才能被使用。也是因为这个原因，通常在设计阶段决定要不要设计抽象类。
          * 父类包含了子类集合的常见的方法，但是由于父类本身是抽象的，所以不能使用这些方法。
          * 在Java中抽象类表示的是一种继承关系，一个类只能继承一个抽象类，而一个类却可以实现多个接口。
+
      * abstract 方法
         * 如果你想设计这样一个类，该类包含一个特别的成员方法，该方法的具体实现由它的子类确定，那么你可以在父类中声明该方法为抽象方法。
         * 抽象类中不一定包含抽象方法，但是有抽象方法的类必定是抽象类。
@@ -21,14 +22,15 @@ abstract class C04_Abstraction {
 
     String name;
 
+    // 构造方法
     public C04_Abstraction(String name) {
         this.name = name;
     }
 
+    // 非abstract方法
     String show_name() {
         return this.name;
     }
-
     void print_name() {
         System.out.println(this.name);
     }
@@ -36,6 +38,25 @@ abstract class C04_Abstraction {
     // abstract方法
     public abstract int ABS_method(int i);
 
+}
+
+
+class Sub_Abstraction extends C04_Abstraction {
+
+    // 子类必须也有制造方法
+    public Sub_Abstraction(String name) {
+        super(name);
+    }
+
+    // 子类必须重写全部抽象方法
+    public int ABS_method (int i) {
+        return i;
+    }
+}
+
+
+
+class Abtraction_Test {
     public static void main(String[] args) {
 
         System.out.println("This is an abstract class");
@@ -51,20 +72,6 @@ abstract class C04_Abstraction {
         A_sub.print_name();                      // >>> ABS
 
         System.out.println(A_sub.ABS_method(5));  // >>> 5  abstract method
-    }
-}
-
-
-class Sub_Abstraction extends C04_Abstraction {
-
-    // 子类必须也有制造方法
-    public Sub_Abstraction(String name) {
-        super(name);
-    }
-
-    // 子类必须重写全部抽象方法
-    public int ABS_method (int i) {
-        return i;
     }
 }
 
