@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C10b_Casting_Inheritance {
+public class C08b_Casting_Inheritance {
     /*
      *  Java的继承与Python不同
         *  Python的实例只能来自它本身的类
