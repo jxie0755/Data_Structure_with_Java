@@ -69,4 +69,7 @@ public class C00_OOP_Static {
 }
 
 
+protected class AA {
+}
+
 
