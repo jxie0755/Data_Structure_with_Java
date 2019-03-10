@@ -13,8 +13,8 @@ public class C00_OOP_Public_A {
         * private: 仅本类使用
         * protected: 关键字所处理的是所谓“继承”的观念。
             * 对于同一包的其他类，protected＝默认，其它类可访问protected.
-            * 对于 不同包的类，    如果存在继承关系，而baseClass存在protected属性，则可以被其自继承. 但
-                * 是子类实例可以访问其从基类继承而来的protected方法，而不能访问基类实例的protected方法。
+            * 对于 不同包的类，  如果存在继承关系，而baseClass存在protected属性，则可以被其自继承.
+                * 但是子类实例可以访问其从基类继承而来的protected方法，而不能访问基类实例的protected方法。
             * 但是 不同包的其他类  则不能访问类的protected属性。
      */
 
