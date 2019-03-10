@@ -131,7 +131,6 @@ class MyType2<E> {
         return Arrays.asList("John", "Mary");
     }
 
-
     public static void main(String[] args) {
         MyType rawType = new MyType();
         // unchecked warning!
