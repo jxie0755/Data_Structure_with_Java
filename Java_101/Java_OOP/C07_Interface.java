@@ -8,7 +8,7 @@ public class C07_Interface {
      * 接口并不是类，编写接口的方式和类很相似，但是它们属于不同的概念
         * 类描述对象的属性和方法。接口则包含类要实现的方法
      * 除非实现接口的类是抽象类，否则该类要定义接口中的所有方法
-        * 接口无法被实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类
+        * 接口无法 直接 实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类
         * 另外，在Java中，接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象
      */
 
@@ -212,5 +212,42 @@ class Test {
         Dog_Y.Dog_Y2 DX2 = new Dog_Y.Dog_Y2();
         DX2.beFriendly();  // >>> Friendly Pet
         DX2.play();        // >>> Play as Pet
+    }
+}
+
+
+// 如果接口要实例化，就涉及到多态
+interface Intf {
+    void fook();
+    void bark();
+}
+
+class CCC implements Intf {
+    String name;
+    CCC (String name) {
+        this.name = name;
+    }
+
+    public void fook(){
+        System.out.println("foo");
+    }
+
+    public void bark() {
+        System.out.println("bar");
+    }
+
+    public  void foobar() {
+        System.out.println("foobar");
+    }
+}
+
+class CCC_test {
+    public static void main(String[] args) {
+        Intf IT = new CCC("jack");
+        IT.fook();
+        IT.bark();
+        // IT.foobar(); // 除非通过转型
+
+
     }
 }
