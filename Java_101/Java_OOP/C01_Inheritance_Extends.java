@@ -61,6 +61,7 @@ class Vehicle {
         this.model = model;
         this.maxspd = MaxSpeed;
         this.speed = new Speed();
+        System.out.println(this.model + " starting speed: " + this.speed.spd);
     }
 
     void add_speed(int n) {
@@ -83,10 +84,6 @@ class Speed{
      */
 
     int spd = 0;
-
-    public Speed() {
-        System.out.println("starting speed: " + spd);
-    }
 
     public void set_speed(int new_speed) {
         this.spd = new_speed;
@@ -111,7 +108,7 @@ class Vehicle_Test {
         V1.add_speed(55);
         V1.full_speed();
         // >>>
-        // starting speed: 0
+        // Altima starting speed: 0
         // Altima speed: 55
         // Altima speed: 120
 
@@ -120,7 +117,7 @@ class Vehicle_Test {
         J1.add_speed(80);
         J1.full_speed();
         // >>>
-        // starting speed: 0
+        // Grand Cherokee starting speed: 0
         // Grand Cherokee speed: 80
         // Grand Cherokee speed: 180
     }
