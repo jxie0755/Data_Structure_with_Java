@@ -275,7 +275,12 @@ class A08b_List_copy {
     }
 }
 
+
+
 class A08c_Set {
 
+    public static void main(String[] args) {
 
+
+    }
 }
