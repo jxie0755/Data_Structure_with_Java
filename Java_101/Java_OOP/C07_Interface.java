@@ -113,21 +113,21 @@ class Mammal_5 implements Animal_5 {
 
 // interface的继承, 和多重实现
 interface Sports {
-   public void sports1();
-   public void sports2();
+   void sports1();
+   void sports2();
 }
 
 interface Football extends Sports {
-   public void football1(int points);
-   public void football2(int points);
+   void football1(int points);
+   void football2(int points);
 }
 
 interface Events {
-    public int event1(int time);
+   int event1(int time);
 
     // 接口中方法若重复怎么办?
-    public String football1(String name);
-    public String football2(String name);
+    String football1(String name);
+    String football2(String name);
 }
 
 interface EPL extends Football, Events { }
@@ -174,13 +174,13 @@ interface EventListener_X {}
  */
 
 interface Friend_X {
-    public void play() ;
-    public void beFriendly();
+    void play() ;
+    void beFriendly();
 }
 
 interface Pet_X {
-    public void play() ;
-    public void beFriendly();
+    void play() ;
+    void beFriendly();
 }
 
 // 这样建立一个狗类,既是朋友,也是宠物!
@@ -257,7 +257,5 @@ class CCC_test {
         IT.fook();
         IT.bark();
         // IT.foobar(); // 除非通过转型
-
-
     }
 }
