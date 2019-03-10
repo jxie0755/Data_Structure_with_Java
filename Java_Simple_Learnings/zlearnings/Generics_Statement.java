@@ -126,6 +126,7 @@ class rawTypeTest {
 
 
 class MyType2<E> {
+
     List<String> getNames() {
         return Arrays.asList("John", "Mary");
     }
