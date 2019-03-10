@@ -82,9 +82,11 @@ class Generic_Box_Test {
 }
 
 
+
+// 泛型的继承
 interface Pair<K, V> {
-    public K getKey();
-    public V getValue();
+    K getKey();
+    V getValue();
 }
 
 class OrderedPair<K, V> implements Pair<K, V> {
@@ -100,7 +102,6 @@ class OrderedPair<K, V> implements Pair<K, V> {
     public K getKey() {
         return key;
     }
-
     public V getValue() {
         return value;
     }
@@ -141,7 +142,7 @@ class Util_Test {
 
         // boolean same = Util.<Integer, String>compare(p1, p2);
         //实际上，编译器可以通过Pair当中的类型来推断compare需要使用的类型，所以可以简写为：
-        boolean same_1_2= Util. compare(p1, p2);
+        boolean same_1_2 = Util.compare(p1, p2);
         System.out.println(same_1_2);  // >>> false
 
         // boolean same_2_3= Util. compare(p2, p3);  // 两个Pair泛型不同无法比较
@@ -269,18 +270,17 @@ class Generic_Box_Num_3 extends Generic_Box_Num_2 {
 
     // 无限定通配符（Unbounded Wildcards)
     static void boxTest_infinite(Generic_Box_Num_2<?> n) {
-    }  // 通配符解决问题
-    // “? super Integer”代表可以接受Integer以及它的父类作为参数 (Number, Object)
+    }
 
 
-    // 适用无限通配符
+    // 为何使用无限通配符
     public static void printList(List<Object> list) {  // 这要求List必须是Object类,不能是子类
         for (Object elem : list)
             System.out.print(elem + " ");
         System.out.println();
     }
 
-    public static void printList_fix(List<? extends Object> list) {  // 这要求List必须是Object类,不能是子类
+    public static void printList_fix(List<? extends Object> list) {  // 这允许List时任何Object的子类
         for (Object elem : list)
             System.out.print(elem + " ");
         System.out.println();
