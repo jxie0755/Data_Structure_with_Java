@@ -59,13 +59,13 @@ public class C07_Interface {
 
 
 
-
 interface Animal_5 {
     // public static String T;  只能声明方法,不能声明变量
 
+    // 接口是管理动作的, 不需要初始化实例, 如果需要就不应该做成interface而是做成抽象类或者别的
     public void eat();
-
-    public void travel();
+    void travel();
+    // interface 不需要public方法修饰符, 因为方法必须被子类实现
 }
 
 // 接口的实现
@@ -73,11 +73,16 @@ interface Animal_5 {
 
 class Mammal_5 implements Animal_5 {
 
+    String name;
+
+    public Mammal_5 (String m_name){
+        this.name = m_name;
+    }
+
     // eat和travel必须全部实现
     public void eat() {
         System.out.println("Mammal eats");
     }
-
     public void travel() {
         System.out.println("Mammal travels");
     }
@@ -88,7 +93,7 @@ class Mammal_5 implements Animal_5 {
     }
 
     public static void main(String args[]) {
-        Mammal_5 m = new Mammal_5();
+        Mammal_5 m = new Mammal_5("Jackie");
         m.eat();      // >>> Mammal eats
         m.travel();   // >>> Mammal travels
     }
@@ -97,95 +102,54 @@ class Mammal_5 implements Animal_5 {
 
 
 // interface的继承, 和多重实现
-interface Sports
-{
-   public void setHomeTeam();
-   public void setVisitingTeam();
+interface Sports {
+   public void sports1();
+   public void sports2();
 }
 
-
-interface Football extends Sports
-{
-   public void homeTeamScored(int points);
-   public void visitingTeamScored(int points);
-
+interface Football extends Sports {
+   public void football1(int points);
+   public void football2(int points);
 }
 
 interface Events {
-    public int starting_time(int time);
+    public int event1(int time);
 
     // 接口中方法若重复怎么办?
-    public String setHomeTeam(String name);
-    public String setVisitingTeam(String name);
-
+    public String football1(String name);
+    public String football2(String name);
 }
 
-interface EPL extends Football, Events {
-
-}
+interface EPL extends Football, Events { }
 
 
 // 这里演示一个类继承多个接口
 class PremierLeauge_Game_1 implements Football, Events {
 
-    // 由于Football继承了Sports的两个方法, 所以在实现类中必须定义全部四个方法
-    public void setHomeTeam() {
-    }
+    // 由于Football继承了Sports的两个方法, 所以在实现类中必须定义全部Football和Sports四个方法
+    public void sports1() { }
+    public void sports2() { }
+    public void football1(int points) { }
+    public void football2(int points) { }
 
-    public void setVisitingTeam() {
-    }
-
-    public void homeTeamScored(int points) {
-    }
-
-    public void visitingTeamScored(int points) {
-    }
-
-    // 另外还要实现多重继承的另一个类的方法
-    public int starting_time(int time) {
+    // 另外还要实现多重继承的Events类的方法
+    public int event1(int time) {
         return time;
     }
-
-    // 在这里同样必须要把Events中相同的方法实现一次, 但是可以利用重载
-    public String setHomeTeam(String name){
+    // 虽然football1和football2的方法有了,但是可以重载来实现Events里的方法
+    public String football1(String name){
         return name;
     }
-    public String setVisitingTeam(String name){
+    public String football2(String name){
         return name;
     }
 
 }
 
 
-// 这里演示一个类继承一个多重继承的接口, 其实是一样的, 总之要把所有接口中的方法都给实现了
-class PremierLeauge_Game_2 implements EPL {
+// 这里演示一个类继承一个多重继承的接口, 其实和上面是一模一样的, 总之要把所有接口中的方法都给实现了
+// class PremierLeauge_Game_2 implements EPL { }
 
-    // 由于Football继承了Sports的两个方法, 所以在实现类中必须定义全部四个方法
-    public void setHomeTeam() {
-    }
-
-    public void setVisitingTeam() {
-    }
-
-    public void homeTeamScored(int points) {
-    }
-
-    public void visitingTeamScored(int points) {
-    }
-
-    // 另外还要实现多重继承的另一个类的方法
-    public int starting_time(int time) {
-        return time;
-    }
-
-    // 在这里同样必须要把Events中相同的方法实现一次, 但是可以利用重载
-    public String setHomeTeam(String name){
-        return name;
-    }
-    public String setVisitingTeam(String name){
-        return name;
-    }
-}
 
 // 空接口 (标记接口)
 interface EventListener_X {}

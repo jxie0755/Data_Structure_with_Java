@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C08_Interface_2 {
+public class    C08_Interface_2 {
     // 继续研究多重继承时同名方法的问题
     // Subject类实现了InterfaceA和InterfaceB两个接口的方法
     // 其中method是InterfaceA和InterfaceB共用的相同方法
