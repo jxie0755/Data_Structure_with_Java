@@ -52,45 +52,54 @@ class Vehicle {
     int year;
     String build;
     String model;
-    int speed;
-    int max_speed;
+    int maxspd;
+    public Speed speed;  // has-a 继承关系
 
     public Vehicle(int year, String build, String model, int MaxSpeed) {
         this.year = year;
         this.build = build;
         this.model = model;
-        this.speed = 0;
-        this.max_speed = MaxSpeed;
+        this.maxspd = MaxSpeed;
+        this.speed = new Speed();
     }
 
-    void ignition() {
-        System.out.println("This " + this.model + " is started");
-        System.out.println("Speed is " + this.speed);
+    void add_speed(int n) {
+        this.speed.set_speed(n);
+        System.out.println(this.model + " speed: " + this.speed.spd);
     }
 
-    void setSpeed (int new_speed) {
-        this.speed = new_speed;
-    }
-
-    int full_speed() {
-        this.ignition();
-        this.setSpeed(this.max_speed);
-        System.out.println(this.model + "'s speed is now " + this.speed);
-        return this.speed;
+    void full_speed() {
+        this.speed.set_speed(this.maxspd);
+        System.out.println(this.model + " speed: " + this.speed.spd);
     }
 
 }
 
-class Speed{}
+class Speed{
+    /*
+     * Vehicle has speed. Van also has speed
+     * 这样就不用将Speed类的全部代码粘贴到Van类中了
+     * 并且Speed类也可以重复利用于多个应用程序
+     */
+
+    int spd = 0;
+
+    public Speed() {
+        System.out.println("starting speed: " + spd);
+    }
+
+    public void set_speed(int new_speed) {
+        this.spd = new_speed;
+
+    }
+
+}
 
 class SUV extends Vehicle{
-
-    private Speed sp;
 
     public SUV (int year, String build, String model, int MaxSpeed){
         super(year, build, model, MaxSpeed);
     }
-
 
 }
 
@@ -99,27 +108,24 @@ class Vehicle_Test {
 
     public static void main(String[] args) {
         Vehicle V1 = new Vehicle(2000, "Nissan", "Altima", 120);
+        V1.add_speed(55);
         V1.full_speed();
         // >>>
-        // This Altima is started
-        // Speed is 0
-        // Altima's speed is now 120
+        // starting speed: 0
+        // Altima speed: 55
+        // Altima speed: 120
 
+        System.out.println();
         SUV J1 = new SUV(2015, "Jeep", "Grand Cherokee", 180);
+        J1.add_speed(80);
         J1.full_speed();
         // >>>
-        // This Grand Cherokee is started
-        // Speed is 0
-        // Grand Cherokee's speed is now 180
-
+        // starting speed: 0
+        // Grand Cherokee speed: 80
+        // Grand Cherokee speed: 180
     }
-
 }
 
-/*
- * Vehicle has speed. Van also has speed
- * 这样就不用将Speed类的全部代码粘贴到Van类中了
- * 并且Speed类也可以重复利用于多个应用程序
- */
+
 
 
