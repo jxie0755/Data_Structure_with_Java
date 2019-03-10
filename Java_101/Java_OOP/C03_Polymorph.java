@@ -36,7 +36,6 @@ class test {
         // 但是如果这样
         Animal_4 A4 = new Animal_4();
         // Deer_4 D4 = A4;  // 就不行, 必须是父类引用子类的对象
-
     }
 }
 
