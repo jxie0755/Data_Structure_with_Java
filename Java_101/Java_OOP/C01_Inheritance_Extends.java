@@ -79,7 +79,7 @@ class Speed{
     /*
      * Vehicle has speed. Van also has speed
      * 这样就不用将Speed类的全部代码粘贴到Van类中了
-     * 并且Speed类也可以重复利用于多个应用程序
+     * 并且Speed类也可以重复利用于多个类
      */
 
     int spd = 0;
