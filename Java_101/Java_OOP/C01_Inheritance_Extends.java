@@ -76,6 +76,14 @@ class Vehicle {
 
 }
 
+class SUV extends Vehicle{
+
+    public SUV (int year, String build, String model, int MaxSpeed){
+        super(year, build, model, MaxSpeed);
+    }
+
+}
+
 class Speed{
     /*
      * Vehicle has speed. Van also has speed
@@ -88,14 +96,6 @@ class Speed{
     public void set_speed(int new_speed) {
         this.spd = new_speed;
 
-    }
-
-}
-
-class SUV extends Vehicle{
-
-    public SUV (int year, String build, String model, int MaxSpeed){
-        super(year, build, model, MaxSpeed);
     }
 
 }
