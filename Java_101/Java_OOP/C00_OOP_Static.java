@@ -67,9 +67,3 @@ public class C00_OOP_Static {
         bar_out.fooo_barrr();           // 怎么办? 造一个实例就可以出
     }
 }
-
-
-protected class AA {
-}
-
-
