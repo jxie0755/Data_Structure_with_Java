@@ -16,7 +16,7 @@ public class A08_Collection {
 }
 
 
-class A08_Collections_zMethods {
+class A08_Collection_zMethods {
 
     // 所有子接口都同样有这些方法
     public static void main(String[] args) {
@@ -145,6 +145,7 @@ class A08b_List_zMethods {
         // 	sort​(Comparator<? super E> c)
         // 使用List.sort()传入自己实现Commparator接口的类的对象，实现自定义排序
         // 这里涉及到自行设计一个Comparator所以此方法不常用, 更多的是用java.util.Collections.sort
+        // TODO learn Comparater
 
         // iterator
         // listIterator()
