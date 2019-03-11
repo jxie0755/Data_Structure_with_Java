@@ -272,8 +272,17 @@ class A08b_List_copy {
 
 class A08c_Set {
 
+    /*
+     * Set<E>
+     * 集合, 不可重复性, 交集并集补集
+     * 另外还有 EventSet, List<E>, NavigableSet<E>, SortedSet<E>
+     */
+}
+
+class A08c_Set_zMethods {
+
     public static void main(String[] args) {
 
-
     }
+
 }

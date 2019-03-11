@@ -24,7 +24,10 @@ public class A08b_java_util_Collections {
         * rotate     轮转, 方便
      */
 
+}
 
+
+class Collections_for_General {
 
     // 和java.util.Arrays与Array类的关系一样, 提供static方法给Collection的子类使用
     // 重要的方法会独立出来总结
@@ -139,6 +142,7 @@ public class A08b_java_util_Collections {
 
     }
 }
+
 
 
 class Collections_for_Set {
