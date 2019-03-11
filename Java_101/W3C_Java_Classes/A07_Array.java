@@ -96,8 +96,65 @@ public class A07_Array {
 // 这里是对Arrays操作的static方法,不是这个类的定义
 class A07_java_util_Arrays {
 
+    public static void main(String[] args) {
+
+        // 大多数方法都被重载给了所有基本类型, 这里只用int[]举例
+        // 重要的方法在后面独立出来总结
+
+        // binarySearch
+        // The array must be sorted (as by the sort(int[]) method) prior to making this call.
+        // If it is not sorted, the results are undefined.
+
+        int[] intArray1 = {1,2,3,4,5,6};
+        // return index of the search key, if it is contained in the array;
+        System.out.println(Arrays.binarySearch(intArray1, 4));  // >>>  3  // index 3
+        // return:  otherwise, (-(insertion point) - 1)
+        int[] intArray2 = {1,3,5,6};
+        System.out.println(Arrays.binarySearch(intArray2, 4));
+        // >>>  4应该在 index 2, 所以返回 -2-1 = -3
+
+        // If the array contains multiple elements with the specified value,
+        // there is no guarantee which one will be found
+        int[] intArray3 = {1,3,3,3,3,3,3,4,5,6};
+        System.out.println(Arrays.binarySearch(intArray3, 3)); // >>> 4,  肯定是对的,但是没法判断它会给哪个index
+
+
+        // hashCode​(int[] a)
+        int hc = Arrays.hashCode(intArray1);
+        System.out.println(hc); // >>>  918073252
+
+
+        // mismatch​(int[] a, int[] b)
+        // mismatch​(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
+        // Finds and returns the relative index of the first mismatch
+        // between two int arrays over the specified ranges,
+        // otherwise return -1 if no mismatch is found.
+        int[] iA1 = {1,2,3,4,5,6};
+        //           0 1 2 3 4 5
+        int[] iA2 = {1,2,3,5,6,7};
+        //           0 1 2 3 4 5
+        int[] iA3 = {1,2,3,5,6,7};
+        //           0 1 2 3 4 5
+        int[] iA4 = {2,3,5,6,7,8};
+        //           0 1 2 3 4 5
+        int[] iA5 = {1,2,3,5,6,7,8};
+        //           0 1 2 3 4 5,6
+
+        System.out.println(Arrays.mismatch(iA1, iA2)); // >>> 3 (index 3的时候出现不同)
+        System.out.println(Arrays.mismatch(iA2, iA3)); // >>> -1 (完全相同)
+
+        System.out.println(Arrays.mismatch(iA3, 1, iA3.length, iA4, 0, iA4.length));
+        // >>> 5  (iA4 在index5还有数8, iA3从1开始,所以已经完结)
+
+        System.out.println(Arrays.mismatch(iA5, 1, iA5.length, iA4, 0, iA4.length));
+        // >>> -1  (iA5 从index1开始的话,和iA4一模一样)
+
+    }
+
 }
 
+
+// 重要的的Arrays static方法
 // Print Array?
 class Arrays_toString {
 
@@ -335,61 +392,6 @@ class Arrays_sort {
 
 //
 class Arrays_zMethods {
-
-    public static void main(String[] args) {
-
-        // 大多数方法都被重载给了所有基本类型, 这里只用int[]举例
-
-        // binarySearch
-        // The array must be sorted (as by the sort(int[]) method) prior to making this call.
-        // If it is not sorted, the results are undefined.
-
-        int[] intArray1 = {1,2,3,4,5,6};
-        // return index of the search key, if it is contained in the array;
-        System.out.println(Arrays.binarySearch(intArray1, 4));  // >>>  3  // index 3
-        // return:  otherwise, (-(insertion point) - 1)
-        int[] intArray2 = {1,3,5,6};
-        System.out.println(Arrays.binarySearch(intArray2, 4));
-        // >>>  4应该在 index 2, 所以返回 -2-1 = -3
-
-        // If the array contains multiple elements with the specified value,
-        // there is no guarantee which one will be found
-        int[] intArray3 = {1,3,3,3,3,3,3,4,5,6};
-        System.out.println(Arrays.binarySearch(intArray3, 3)); // >>> 4,  肯定是对的,但是没法判断它会给哪个index
-
-
-        // hashCode​(int[] a)
-        int hc = Arrays.hashCode(intArray1);
-        System.out.println(hc); // >>>  918073252
-
-
-        // mismatch​(int[] a, int[] b)
-        // mismatch​(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
-        // Finds and returns the relative index of the first mismatch
-        // between two int arrays over the specified ranges,
-        // otherwise return -1 if no mismatch is found.
-        int[] iA1 = {1,2,3,4,5,6};
-        //           0 1 2 3 4 5
-        int[] iA2 = {1,2,3,5,6,7};
-        //           0 1 2 3 4 5
-        int[] iA3 = {1,2,3,5,6,7};
-        //           0 1 2 3 4 5
-        int[] iA4 = {2,3,5,6,7,8};
-        //           0 1 2 3 4 5
-        int[] iA5 = {1,2,3,5,6,7,8};
-        //           0 1 2 3 4 5,6
-
-        System.out.println(Arrays.mismatch(iA1, iA2)); // >>> 3 (index 3的时候出现不同)
-        System.out.println(Arrays.mismatch(iA2, iA3)); // >>> -1 (完全相同)
-
-        System.out.println(Arrays.mismatch(iA3, 1, iA3.length, iA4, 0, iA4.length));
-        // >>> 5  (iA4 在index5还有数8, iA3从1开始,所以已经完结)
-
-        System.out.println(Arrays.mismatch(iA5, 1, iA5.length, iA4, 0, iA4.length));
-        // >>> -1  (iA5 从index1开始的话,和iA4一模一样)
-
-    }
-
 }
 
 
