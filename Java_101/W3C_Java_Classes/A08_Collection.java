@@ -66,14 +66,18 @@ class A08b_List {
     /*
      * List 最基本的操作
         * 来自Collection
-            * add​(E e)                   相当于append
+            * add​(E e)                     相当于append, 附带return boolean
             * addAll​(Collection<? extends E> c)
 
-            * remove​(Object o)           相当于del
-            * contains​(Object o)                  相当于x in lst
+            * remove​(Object o)             相当于del
+            * removeAll​(Collection<?> c)
+            * retainAll​(Collection<?> c)
 
-            * size()                     相当于len
-            * equals​(Object o)           相当于 == 但是更准确
+            * contains​(Object o)           相当于x in lst
+            * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
+
+            * size()                       相当于len
+            * equals​(Object o)             相当于 == 但是更准确
             * clear()
             * isEmpty()
             * iterator()
@@ -295,28 +299,36 @@ class A08c_Set {
      * Python set    不能重复, 无序
      * Java HashSet  不能重复, 无序
      * 所以非常对等
+
+     * 注意:
+        * HashSet允许包含值为null的元素，但最多只能有一个null元素
+        * print一个Set每次显示顺序可能不同
      */
 
     /*
      * HaseSet 最基本的操作
         * 来自Collection (所以Collection的方法不牵涉到任何index)
-            * add​(E e)                   相当于append
+            * add​(E e)                     相当于append, 附带return boolean
             * addAll​(Collection<? extends E> c)
 
-            * remove​(Object o)           相当于del
-            * contains​(Object o)                  相当于x in lst
+            * remove​(Object o)             相当于del
+            * removeAll​(Collection<?> c)
+            * retainAll​(Collection<?> c)
 
-            * size()                     相当于len
-            * equals​(Object o)           相当于 == 但是更准确
+            * contains​(Object o)           相当于x in Set
+            * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
+
+            * size()                       相当于len
+            * equals​(Object o)             相当于 == 但是更准确
             * clear()
             * isEmpty()
             * iterator()
             * toArray()
 
         * 来自HashSet
-            *
+            * copyOf
+            * of
      */
-
 }
 
 class A08c_Set_zMethods {
@@ -330,15 +342,25 @@ class A08c_Set_zMethods {
         // 快速构建  // 类似List, 从Arrays构建
         Set<Integer> S1 = new HashSet<>(Arrays.asList(1, 2, 3, 2, 1));
         System.out.println(S1);  // >>>  [1, 2, 3] 自动消除重复元素
-
+        System.out.println(S1.add(3)); // >>>  false
 
         // Collection中的常用方法这里跳过, 直接参考List, 注意Collection方法不带index
 
 
+
         // Set接口的专有方法 (除了Collections通用方法多出来的方法)
 
+        // copyOf  (List也有) 浅Copy  (从另一个Collectin中的元素变成一个Set)
+        // Returns an unmodifiable Set containing the elements of the given Collection.
+        List<Integer> IL1 = new ArrayList<>(Arrays.asList(1, 2, 2, 1));
+        Set<Integer> IS1 = Set.copyOf(IL1);
+        Set<Integer> IS2 = new HashSet<>(IL1);  // 也可以不必copyOf来实现
+        System.out.println(IS1.equals(IS2)); // >>> true  // 虽然这样mutable,但是二者内容目前相等
 
 
+        // of (List 也有)
+        // Returns an unmodifiable set
+        Set<Integer> IS3 = Set.of(1,2,3);
     }
 
 }
