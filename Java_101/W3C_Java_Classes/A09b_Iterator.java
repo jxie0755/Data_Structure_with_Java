@@ -2,7 +2,7 @@ package W3C_Java_Classes;
 
 import java.util.*;
 
-public class A09_Iterator {
+public class A09b_Iterator {
 
     // 迭代器和Python思路基本相同
 

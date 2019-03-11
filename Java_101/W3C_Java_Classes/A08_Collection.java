@@ -50,7 +50,7 @@ class A08b_List {
      * List
      * List代表一个元素有序、可重复的集合，集合中每个元素都有其对应的顺序索引。
         * List是一个接口, 不能被直接实现, 需要通过其他子类实现, 常用子类
-        * ArrayList
+        * 主要靠ArrayList实现
         * LinkedList
         * Stack
         * Vector (多线程, 一般不用)
@@ -94,8 +94,8 @@ class A08b_List_zMethods {
 
     public static void main(String[] args) {
         // 构造方法
-        // List L1 = new ArrayList();  // 空列表   // 可以省略泛型,但是不规范:
-        List<Object> LO1 = new ArrayList();
+        List<Object> LO1 = new ArrayList<>();  // 空列表   // 不要省略泛型
+                                               // 参数可以是任何一个Collection子类
 
 
         // 快速构建
@@ -275,13 +275,35 @@ class A08c_Set {
     /*
      * Set<E>
      * 集合, 不可重复性, 交集并集补集
-     * 另外还有 EventSet, List<E>, NavigableSet<E>, SortedSet<E>
+     * 主要依靠HashSet实现
+     * 另外还有 EventSet, NavigableSet<E>, SortedSet<E>
+     */
+
+    /*
+     * Python set
+        * 不能重复
+        * 无序
+     * HashSet
+        * 不能重复
+        *
      */
 }
 
 class A08c_Set_zMethods {
 
     public static void main(String[] args) {
+
+        // 构造方法
+        Set<Object> S0 = new HashSet<>();  // 空列表   // 不要省略泛型
+                                           // 参数可以是任何一个Collection子类
+
+        // 快速构建  // 类似List, 从Arrays构建
+        Set<Integer> S1 = new HashSet<>(Arrays.asList(1, 2, 3, 2, 1));
+        System.out.println(S1);  // >>>  [1, 2, 3] 自动消除重复元素
+
+
+
+
 
     }
 
