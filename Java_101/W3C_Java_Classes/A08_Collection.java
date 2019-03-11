@@ -44,14 +44,6 @@ class A08_Collections_zMethods {
     }
 }
 
-// 还有一个Module java.base / Package java.util / Class Collections
-// 属于工具方法
-
-
-class A08_java_util_Collections { }
-
-
-
 
 class A08b_List {
     /*
