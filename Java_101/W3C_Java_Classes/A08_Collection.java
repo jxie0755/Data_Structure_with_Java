@@ -63,27 +63,35 @@ class A08b_List {
 
     /*
      * List 最基本的操作
-        * get                        相当于lst[i]
-        * set                        相当于lst[i] = n
+        * 来自Collection
+            * add​(E e)                   相当于append
+            * addAll​(Collection<? extends E> c)
 
-        * add​(E e)                   相当于append
-        * add​(int index, E element)  相当于insert
+            * remove​(Object o)           相当于del
+            * contains​(Object o)                  相当于x in lst
 
-        * remove​(int index)          相当于pop
-        * remove​(Object o)           相当于del
+            * size()                     相当于len
+            * clear()
+            * isEmpty()
+            * iterator()
+            * toArray()
 
-        * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
+        * 来自List
+            * get                        相当于lst[i]
+            * set                        相当于lst[i] = n
 
-        * size()                     相当于len
-        * clear()
+            * add​(int index, E element)  相当于insert
+            * addAll​(int index, Collection<? extends E> c)
 
-        * contains                   相当于x in lst
+            * remove​(int index)          相当于pop
+            * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
 
-        * indexOf
-        * lastIndexOf
+            * indexOf​(Object o)
+            * lastIndexOf​(Object o)
+            * containsAll​(Collection<?> c)  判断是否subList
 
-     * 最基本Collections 工具操作
-        *
+            * copyOf​(Collection<? extends E> coll) (inmutable)
+            * of (build a tuple)
      */
 }
 
@@ -300,6 +308,10 @@ class A08c_Set_zMethods {
         // 快速构建  // 类似List, 从Arrays构建
         Set<Integer> S1 = new HashSet<>(Arrays.asList(1, 2, 3, 2, 1));
         System.out.println(S1);  // >>>  [1, 2, 3] 自动消除重复元素
+
+
+        // Collection中的常用方法这里跳过, 直接参考List, 只列几个返回Set的
+        //
 
 
 

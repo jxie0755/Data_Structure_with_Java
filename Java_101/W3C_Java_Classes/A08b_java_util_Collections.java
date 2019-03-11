@@ -159,7 +159,6 @@ class Collections_for_Map {
     public static void main(String[] args) {
 
         // newSetFromMap​(Map<E,​Boolean> map)
-
         // singletonMap​(K key, V value)
     }
 }
