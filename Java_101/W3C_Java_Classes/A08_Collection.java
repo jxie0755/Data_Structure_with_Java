@@ -25,6 +25,8 @@ class A08_Collection_zMethods {
         // 构造 也是要通过子类实现, 比如ArrayList, 但没必要, 这个interface太抽象了
         Collection<Object> objBox = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
 
+        // 因为Collection子类有Set是无序的, 所以Collection作为通用方法不带任何index参数
+
         // boolean add(E e) //向集合中添加一个元素，若添加元素后集合发生了变化就返回true，
         // 若没有发生变化，就返回false。 (用于Set)
         // boolean addAll(Collection<? extends E> c) //添加给定集合c中的所有元素到该集合中
@@ -290,13 +292,31 @@ class A08c_Set {
      */
 
     /*
-     * Python set
-        * 不能重复
-        * 无序
-     * HashSet
-        * 不能重复
-        *
+     * Python set    不能重复, 无序
+     * Java HashSet  不能重复, 无序
+     * 所以非常对等
      */
+
+    /*
+     * HaseSet 最基本的操作
+        * 来自Collection (所以Collection的方法不牵涉到任何index)
+            * add​(E e)                   相当于append
+            * addAll​(Collection<? extends E> c)
+
+            * remove​(Object o)           相当于del
+            * contains​(Object o)                  相当于x in lst
+
+            * size()                     相当于len
+            * equals​(Object o)           相当于 == 但是更准确
+            * clear()
+            * isEmpty()
+            * iterator()
+            * toArray()
+
+        * 来自HashSet
+            *
+     */
+
 }
 
 class A08c_Set_zMethods {
