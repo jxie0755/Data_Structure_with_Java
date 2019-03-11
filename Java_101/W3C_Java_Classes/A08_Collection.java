@@ -332,10 +332,10 @@ class A08c_Set_zMethods {
         System.out.println(S1);  // >>>  [1, 2, 3] 自动消除重复元素
 
 
-        // Collection中的常用方法这里跳过, 直接参考List, 只列几个返回Set的
-        //
+        // Collection中的常用方法这里跳过, 直接参考List, 注意Collection方法不带index
 
 
+        // Set接口的专有方法 (除了Collections通用方法多出来的方法)
 
 
 
