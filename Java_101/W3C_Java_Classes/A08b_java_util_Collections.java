@@ -12,6 +12,20 @@ import java.util.List;
 
 public class A08b_java_util_Collections {
 
+    /*
+     * 最常用方法
+        * addAll     连续add很多个element
+        * copy       更像是copy and paste
+        * min 和 max  容易理解,     可以自定义规则 (key=)
+        * nCopys     一次生成n个相同的值
+        * reverse    反序
+        * sort       按从小到大顺序, 或者自定义规则 (key=)
+        * swap       交换两个值, 很方便
+        * rotate     轮转, 方便
+     */
+
+
+
     // 和java.util.Arrays与Array类的关系一样, 提供static方法给Collection的子类使用
     // 重要的方法会独立出来总结
     public static void main(String[] args) {
@@ -121,6 +135,8 @@ public class A08b_java_util_Collections {
         // Returns an unmodifiable view of the specified ABC.
         // 以List为例, 输出看起来还是同一个List:
         List<String> SL10 = Collections.unmodifiableList(SL8); // [BC, B, A, X, Y]
+        // 还是相当于Tuple
+
     }
 }
 
