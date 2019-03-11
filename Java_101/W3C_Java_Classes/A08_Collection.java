@@ -71,6 +71,7 @@ class A08b_List {
             * contains​(Object o)                  相当于x in lst
 
             * size()                     相当于len
+            * equals​(Object o)           相当于 == 但是更准确
             * clear()
             * isEmpty()
             * iterator()
@@ -80,15 +81,15 @@ class A08b_List {
             * get                        相当于lst[i]
             * set                        相当于lst[i] = n
 
-            * add​(int index, E element)  相当于insert
+            * add​(int index, E element)             相当于insert
             * addAll​(int index, Collection<? extends E> c)
 
-            * remove​(int index)          相当于pop
+            * remove​(int index)                     相当于pop
             * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
 
             * indexOf​(Object o)
             * lastIndexOf​(Object o)
-            * containsAll​(Collection<?> c)  判断是否subList
+            * containsAll​(Collection<?> c)          判断是否subList
 
             * copyOf​(Collection<? extends E> coll) (inmutable)
             * of (build a tuple)
@@ -125,6 +126,7 @@ class A08b_List_zMethods {
 
         List<Object> LO3 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));   // 注意, L3和L2有一点点不同,L3不限类型
         System.out.println(LO3.equals(L2)); // >>> true         // 只要内容相等即可, 不在乎类型
+        // System.out.println(LO3 == L2);  就不行
 
 
 
