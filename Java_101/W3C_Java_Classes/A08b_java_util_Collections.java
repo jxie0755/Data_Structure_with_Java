@@ -14,17 +14,20 @@ public class A08b_java_util_Collections {
 
     /*
      * 最常用方法
-        * addAll     连续add很多个element
-        * copy       更像是copy and paste
-        * min 和 max  容易理解,     可以自定义规则 (key=)
-        * nCopys     一次生成n个相同的值
-        * reverse    反序
-        * sort       按从小到大顺序, 或者自定义规则 (key=)
-        * swap       交换两个值, 很方便
-        * rotate     轮转, 方便
+        * addAll      批量add很多个element (到末尾)
+        * copy        更像是copy and paste
+        * min 和 max   容易理解,     可以自定义规则 (key=)
+        * nCopys      一次生成n个相同的值
+        * reverse     反序
+        * sort        按从小到大顺序, 或者自定义规则 (key=)
+        * swap        交换两个值的位置, 很方便
+        * rotate      轮转, 方便
+        * replaceAll  批量替换元素
+        * shuffle     随机排列
 
         * unmodifiableCollection    返回一个inmutable copy?
         * singletonCollection       单点, 意义不大
+        * synchronizedCollection    返回一个多线程copy
      */
 
 }
