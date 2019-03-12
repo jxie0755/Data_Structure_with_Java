@@ -12,11 +12,11 @@ public class A08c_ArrayList {
 
         * 来自Collection
             * add​(E e)                     相当于append, 附带return boolean
-            * addAll​(Collection<? extends E> c)
-
             * remove​(Object o)             相当于del
-            * removeAll​(Collection<?> c)
-            * retainAll​(Collection<?> c)
+
+            * addAll​(Collection<? extends E> c)    // 类并集
+            * removeAll​(Collection<?> c)           // 类差集
+            * retainAll​(Collection<?> c)           // 类交集
 
             * contains​(Object o)           相当于x in lst
             * containsAll​(Collection<?> c) 相当于 lst A is a subList of B

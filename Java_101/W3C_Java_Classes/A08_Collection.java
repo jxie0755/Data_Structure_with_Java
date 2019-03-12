@@ -29,7 +29,6 @@ class A08_Collection_zMethods {
 
         // boolean add(E e) //向集合中添加一个元素，若添加元素后集合发生了变化就返回true，
         // 若没有发生变化，就返回false。 (用于Set)
-        // boolean addAll(Collection<? extends E> c) //添加给定集合c中的所有元素到该集合中
         // void clear() //(optional operation).
         // boolean contains(Object o) //判断该集合中是否包含指定对象
         // boolean containsAll(Collection<?> c)
@@ -38,8 +37,11 @@ class A08_Collection_zMethods {
         // boolean isEmpty()//size==0?
         // Iterator<E> iterator()
         // boolean remove(Object o) //移除给定对象的一个实例（有的具体集合类型允许重复元素）
+
+        // boolean addAll(Collection<? extends E> c) //添加给定集合c中的所有元素到该集合中
         // boolean removeAll(Collection<?> c) //移除元素集合c
         // boolean retainAll(Collection<?> c) //仅保留给定集合c中的元素
+
         // int size()
         // Object[] toArray()
         // <T> T[] toArray(T[] a)
@@ -73,11 +75,11 @@ class A08b_List {
 
         * 来自Collection
             * add​(E e)                     相当于append, 附带return boolean
-            * addAll​(Collection<? extends E> c)
-
             * remove​(Object o)             相当于del
-            * removeAll​(Collection<?> c)
-            * retainAll​(Collection<?> c)
+
+            * addAll​(Collection<? extends E> c)    // 类并集
+            * removeAll​(Collection<?> c)           // 类差集
+            * retainAll​(Collection<?> c)           // 类交集
 
             * contains​(Object o)           相当于x in lst
             * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
@@ -316,11 +318,11 @@ class A08c_Set {
 
         * 来自Collection (所以Collection的方法不牵涉到任何index)
             * add​(E e)                     相当于append, 附带return boolean
-            * addAll​(Collection<? extends E> c)
-
             * remove​(Object o)             相当于del
-            * removeAll​(Collection<?> c)
-            * retainAll​(Collection<?> c)
+
+            * addAll​(Collection<? extends E> c)    // 并集
+            * removeAll​(Collection<?> c)           // 差集
+            * retainAll​(Collection<?> c)           // 交集
 
             * contains​(Object o)           相当于x in Set
             * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
@@ -374,12 +376,26 @@ class A08c_Set_zMethods {
 
         // Set的各种交集并集补集:
 
-        // 交集 (retainAll)
+        // 交集 set1.retainAll(set2);
         Set<Integer> IS4 = new HashSet<>(Arrays.asList(1,2,3,4));
         Set<Integer> IS5 = new HashSet<>(Arrays.asList(3,4,5,6));
-        Set<Integer> intercross = new HashSet<>(IS4);
-        intercross.retainAll(IS5);
-        System.out.println(intercross);  // >>>  [3, 4]
+        Set<Integer> intersect = new HashSet<>(IS4);  // 先复制一份
+        intersect.retainAll(IS5);
+        System.out.println(intersect);  // >>>  [3, 4]
+
+        // 并集 set1.addAll(set2);
+        Set<Integer> union = new HashSet<>(IS4);      // 先复制一份
+        union.addAll(IS5);
+        System.out.println(union);     // >>>  [1, 2, 3, 4, 5, 6]
+
+        // 差集 set1.removeAll(set2);
+        Set<Integer> diff = new HashSet<>(IS4);        // 先复制一分
+        diff.removeAll(IS5);
+        System.out.println(diff);      // >>>  [1, 2]
+
+
+
+
 
 
 

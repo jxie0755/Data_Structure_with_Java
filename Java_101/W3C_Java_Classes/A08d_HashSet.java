@@ -13,11 +13,11 @@ public class A08d_HashSet {
 
         * 来自Collection (所以Collection的方法不牵涉到任何index)
             * add​(E e)                     相当于append, 附带return boolean
-            * addAll​(Collection<? extends E> c)
-
             * remove​(Object o)             相当于del
-            * removeAll​(Collection<?> c)
-            * retainAll​(Collection<?> c)
+
+            * addAll​(Collection<? extends E> c)    // 并集
+            * removeAll​(Collection<?> c)           // 差集
+            * retainAll​(Collection<?> c)           // 交集
 
             * contains​(Object o)           相当于x in Set
             * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
