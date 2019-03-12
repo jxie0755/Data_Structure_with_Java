@@ -71,6 +71,8 @@ class C10b_For_each_Loop {
 
         // ArrayList的特殊forEach方法(根源来自interface Iterable)
         // 所以可以被用于所有Iterable的子interface的多态实例包括Collection, Set, List, ArrayList, HasSet等等
+        // 本质上和 for-each(声明语句 : 表达式) 是一样的
+        // 实际上完全可以不必使用, 用for-each更普遍
         ArrayList<Integer> IAL = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
 
         IAL.forEach(i -> System.out.println(i));
@@ -93,6 +95,12 @@ class C10b_For_each_Loop {
 
         List<String> SL = new ArrayList<>(Arrays.asList("A", "B", "C"));
         SL.forEach(i -> System.out.println(i));
+        // >>>
+        // A
+        // B
+        // C
+
+        SL.forEach(System.out::println);  // 另一个种方式
         // >>>
         // A
         // B
