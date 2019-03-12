@@ -22,6 +22,7 @@ public class A08b_java_util_Collections {
         * sort       按从小到大顺序, 或者自定义规则 (key=)
         * swap       交换两个值, 很方便
         * rotate     轮转, 方便
+        * unmodifiableCollection    返回一个inmutable copy?
      */
 
 }
@@ -139,7 +140,6 @@ class Collections_for_General {
         // 以List为例, 输出看起来还是同一个List:
         List<String> SL10 = Collections.unmodifiableList(SL8); // [BC, B, A, X, Y]
         // 还是相当于Tuple
-
     }
 }
 
