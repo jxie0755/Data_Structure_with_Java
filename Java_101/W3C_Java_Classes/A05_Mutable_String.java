@@ -16,6 +16,12 @@ public class A05_Mutable_String {
 
 class A05b_StringBuffer {
 
+    /*
+     * Module java.base
+     * Package java.lang
+     * Class StringBuffer
+     */
+
     public static void main(String[] args) {
 
         // 构造方法非常类似String
@@ -95,6 +101,12 @@ class A05b_StringBuffer {
 
 
 class A05c_StringBuilder {
+
+    /*
+     * Module java.base
+     * Package java.lang
+     * Class StringBuilder
+     */
 
     public static void main(String[] args) {
 

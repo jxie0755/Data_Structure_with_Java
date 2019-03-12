@@ -2,7 +2,15 @@ package W3C_Java_Classes;
 
 
 
-public class A06_Boolean { }
+public class A06_Boolean {
+
+    /*
+     * Module java.base
+     * Package java.lang
+     * Class Boolean
+     */
+
+}
 
 class Boolean_zMethods {
 

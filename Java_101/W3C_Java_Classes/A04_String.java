@@ -3,7 +3,15 @@ package W3C_Java_Classes;
 import java.util.Arrays;
 
 
-public class A04_String { }
+public class A04_String {
+
+    /*
+     * Module java.base
+     * Package java.lang
+     * Class String
+     */
+
+}
 
 class String_format {
 

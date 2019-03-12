@@ -5,7 +5,12 @@ import java.util.Arrays;
 
 public class A08c_ArrayList {
 
-    /* ArrayList 最基本的操作
+    /*
+     * Module java.base
+     * Package java.util
+     * Class ArrayList<E>
+
+     *ArrayList 最基本的操作
         * 来自Iterable
             * forEach()
             * iterator()

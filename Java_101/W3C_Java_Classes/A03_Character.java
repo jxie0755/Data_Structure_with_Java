@@ -1,8 +1,15 @@
 package W3C_Java_Classes;
 
-public class A03_Character { }
+public class A03_Character {
 
-// Character 类
+    /*
+     * Module java.base
+     * Package java.lang
+     * Class Character
+     */
+}
+
+
 
 class Character_zMethods {
 

@@ -5,8 +5,16 @@ import java.util.Arrays;
 import java.util.List;
 
 
-// 这里是对Arrays操作的static方法,不是这个类的定义
+
 public class A07b_java_util_Arrays {
+
+    /*
+     * Module java.base
+     * Package java.util
+     * Class Arrays
+
+     * Arrays提供一系列操作Array的static方法, 不是这个Array类的定义
+     */
 
     public static void main(String[] args) {
 

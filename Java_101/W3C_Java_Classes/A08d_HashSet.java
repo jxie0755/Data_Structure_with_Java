@@ -6,6 +6,10 @@ import java.util.HashSet;
 public class A08d_HashSet {
 
     /*
+     * Module java.base
+     * Package java.util
+     * Class HashSet<E>
+
      * HashSet 最基本的操作
         * 来自Iterable:
             * forEach

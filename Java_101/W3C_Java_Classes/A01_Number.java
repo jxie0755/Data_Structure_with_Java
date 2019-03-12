@@ -3,6 +3,10 @@ package W3C_Java_Classes;
 public class A01_Number {
 
     /*
+     * Module java.base
+     * Package java.lang
+     * Class Number
+
      * Java Number类
         * 一般我们可以直接使用基本类型byte, int, long, short, double等等
         * 然而，在实际开发过程中，我们经常会遇到需要使用对象，而不是内置数据类型的情形。

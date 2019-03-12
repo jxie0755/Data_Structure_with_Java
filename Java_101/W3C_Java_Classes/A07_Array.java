@@ -2,14 +2,16 @@ package W3C_Java_Classes;
 
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 // Array的构造方法, 是在java.lang.reflect.Array
 public class A07_Array {
 
     /*
+     * Module java.base
+     * Package java.lang.reflect
+     * Class Array
+
      * 在计算机语言中数组是非常重要的集合类型， 大部分计算机语言中数组具有如下三个基本特性：
          * 01. 一致性： 数组只能保存相同数据类型元素， 元素的数据类型可以是任何相同的数据类型。
          * 02. 有序性： 数组中的元素是有序的， 通过下标访问。
@@ -22,28 +24,29 @@ public class A07_Array {
      */
 
     public static void main(String[] args) {
+
+        // 构造方法
         int[] A;
         // System.out.println(A);  Not initialized, only created a null point (linked list)
         A = new int[]{1, 2, 3};   // 必须填充一些内容或者给出长度
-        System.out.println(A);  // >>> [I@1e643faf   // Does not print_class out A
-        System.out.println(A.length);  // >>> 3
+        A = new int[100];  // this create a new int list of length at 100
+        int Tarray[] = new int[]{1,2,3};  // This expression will also work
+        System.out.println(Tarray[1]);  // >>> 2
+        // int T[] = new int[3]{1,2,3};
+        // Error:(57, 29) java: array creation with both dimension expression and initialization is illegal
 
+        // direct call elements
         System.out.println(A[0]);            // >>> 1
         System.out.println(A[1]);            // >>> 1
         System.out.println(A[A.length-1]);   // >>> 1
         // System.out.println(A[-1]);            // negative index is not allowed in java as in python
 
-
-        A = new int[100];  // this create a new int list of length at 100
+        // length
         System.out.println(A.length);  // >>> 100
 
-        // int T[] = new int[3]{1,2,3};
-        // Error:(57, 29) java: array creation with both dimension expression and initialization is illegal
-
-        int T[] = new int[]{1,2,3};  // This expression will also work
-        System.out.println(T[1]);  // >>> 2
-
-
+        // Print Array?
+        System.out.println(A);  // >>> [I@1e643faf   // Does not print_class out A
+        // 参见A07b Arrays_toString
 
         // 一维数组
         //静态初始化int数组,声明同时初始化数组

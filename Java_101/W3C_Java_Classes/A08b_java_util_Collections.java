@@ -13,6 +13,10 @@ import java.util.List;
 public class A08b_java_util_Collections {
 
     /*
+     * Module java.base
+     * Package java.util
+     * Class Collections
+
      * 最常用方法
         * addAll      批量add很多个element (到末尾)
         * copy        更像是copy and paste

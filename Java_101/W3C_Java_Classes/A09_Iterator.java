@@ -4,8 +4,13 @@ import java.util.*;
 
 public class A09_Iterator {
 
-    // 迭代器和Python思路基本相同
+    /*
+     * Module java.base
+     * Package java.util
+     * Interface Iterator<E>
+     */
 
+    // 迭代器和Python思路基本相同
     public static void main(String[] args) {
 
         // 构造方法
@@ -65,6 +70,13 @@ public class A09_Iterator {
 
 
 class A09b_ListIterator {
+
+    /*
+     * Module java.base
+     * Package java.util
+     * Interface ListIterator<E>
+     */
+
 
     // An iterator for lists that allows the programmer to traverse the list in either direction,
     // modify the list during iteration, and obtain the iterator's current position in the list.

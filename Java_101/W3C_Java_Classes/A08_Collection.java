@@ -5,8 +5,11 @@ import java.util.*;
 public class A08_Collection {
 
     /*
+     * Module java.base
+     * Package java.util
+     * Interface Collection<E>
 
-         * Collection的常用子接口
+     * Collection的常用子接口
          * List接口
             * ArrayList、LinkedList、Vector、Stack
          * Set接口
@@ -53,7 +56,10 @@ class A08_Collection_zMethods {
 
 class A08b_List {
     /*
-     * List
+     * Module java.base
+     * Package java.util
+     * Interface List<E>
+
      * List代表一个元素有序、可重复的集合，集合中每个元素都有其对应的顺序索引。
         * List是一个接口, 不能被直接实现, 需要通过其他子类实现, 常用子类
         * 主要靠ArrayList实现
@@ -321,7 +327,10 @@ class A08b_List_copy {
 class A08c_Set {
 
     /*
-     * Set<E>
+     * Module java.base
+     * Package java.util
+     * Interface Set<E>
+
      * 集合, 不可重复性, 交集并集补集
      * 主要依靠HashSet实现
      * 另外还有 EventSet, NavigableSet<E>, SortedSet<E>
