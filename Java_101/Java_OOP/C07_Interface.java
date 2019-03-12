@@ -112,6 +112,12 @@ class Mammal_5 implements Animal_5 {
         Mammal_5 m = new Mammal_5("Jackie");
         m.eat();      // >>> Mammal eats
         m.travel();   // >>> Mammal travels
+        System.out.println(m.noOfLegs()); // >>>  4
+
+        Animal_5 a = new Mammal_5("Didi");
+        a.eat();      // >>> Mammal eats
+        a.travel();   // >>> Mammal travels   // 相同
+        // System.out.println(a.noOfLegs()); // 父类通过多态实现的实例不能有子类独有的方法
     }
 }
 
