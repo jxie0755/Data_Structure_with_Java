@@ -68,14 +68,6 @@ public class A08c_ArrayList {
         // forEach
         // 子类必须实现超interface Iterable中的抽象方法
         // 详见Java_Basics.C10b_For_each_Loop
-
-
-
-
-
-
-
-
     }
 }
 
