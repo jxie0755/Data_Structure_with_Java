@@ -22,7 +22,9 @@ public class A08b_java_util_Collections {
         * sort       按从小到大顺序, 或者自定义规则 (key=)
         * swap       交换两个值, 很方便
         * rotate     轮转, 方便
+
         * unmodifiableCollection    返回一个inmutable copy?
+        * singletonCollection       单点, 意义不大
      */
 
 }
