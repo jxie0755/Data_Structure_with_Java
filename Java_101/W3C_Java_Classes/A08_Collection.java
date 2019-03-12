@@ -303,15 +303,13 @@ class A08b_List_copy {
         LL1.add(3);
         System.out.println(Lgrid);  // >>> [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  // impacted by LL1
 
+        // 如果直接new对象. 能否是deep copy? 不行!
         List<List<Integer>> Lgrid2 = new ArrayList<>(Lgrid);
         LL1.add(3);
-        System.out.println(Lgrid2); // >>> [[1, 2, 3, 3], [4, 5, 6], [7, 8, 9]]  // impacted by LL1
-
+        System.out.println("before: " + Lgrid2); // >>> [[1, 2, 3, 3], [4, 5, 6], [7, 8, 9]]  // impacted by LL1
         Lgrid.get(0).add(3);
-        System.out.println(Lgrid2);
-        // still changed, so it is shallow copy
-
-
+        System.out.println("after:  " + Lgrid2);
+        // Lgrid2 changed, so it is still a shallow copy
     }
 }
 
