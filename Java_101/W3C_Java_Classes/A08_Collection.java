@@ -168,10 +168,11 @@ class A08b_List_zMethods {
         // 这里涉及到自行设计一个Comparator所以此方法不常用, 更多的是用java.util.Collections.sort
         // TODO learn Comparater
 
-        // iterator
+        // iterator()
         // listIterator()
         // listIterator​(int index)  starting at a specific index
-        //  把list变成一个Iterator或者是ListIterator
+        // 把list变成一个Iterator或者是ListIterator
+        // 详见 A09_Iterator
 
         // forEach loop
         // 详见Java_Basics.C10b_For_each_Loop
