@@ -145,10 +145,7 @@ class A08b_List_zMethods {
 
         // List接口的专有方法 (除了Collections通用方法多出来的方法)
 
-        // retainAll
-        List<Object> LO4 = new ArrayList<>(Arrays.asList("a", "b", "c","c", "d", "e"));
-        List<Object> LO5 = new ArrayList<>(Arrays.asList("c", "d"));
-        LO4.retainAll(LO5);  // >>>  [c, c, d]  // 类似求交集,但是不去重
+
 
         // get and set
         List<Object> LO6 = new ArrayList<>(Arrays.asList("c", "d", "e"));
@@ -185,22 +182,53 @@ class A08b_List_zMethods {
     }
 }
 
+class A08b_List_as_set {
+
+    public static void main(String[] args) {
+
+        // List同样支持Collectin中给Set的方法, 只是比较相似
+
+        // 类交集
+        // retainAll
+        List<Object> LO1 = new ArrayList<>(Arrays.asList("a", "b", "c","c", "d", "e"));
+        List<Object> LO2 = new ArrayList<>(Arrays.asList("c", "d"));
+        LO1.retainAll(LO2);  // >>>  [c, c, d]  // 类似求交集,但是不去重
+
+        // 类并集
+        List<Object> LO3 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
+        List<Object> LO4 = new ArrayList<>(Arrays.asList("a", "b", "c"));
+        LO3.addAll(LO4);   // [1, 2, 3, 2, 1 a, b, c]  // 默认是末尾
+
+        // 类差集
+        List<Object> LO5 = new ArrayList<>(Arrays.asList("a", "b", "c", 1, 2, 3, 2, 1));
+        List<Object> LO6 = new ArrayList<>(Arrays.asList("a", 1, 2, 3));
+        LO5.removeAll(LO6);        //     变成: [b, c]   (两个1都被删)
+
+
+        // 把一个list去重怎么办?
+        // 相当于pythong中 lst1 = list(set(lst2))
+        List<Object> LOX = new ArrayList<>(Arrays.asList(1, 2, "A", 1, 3, "A"));
+        List<Object> LOXsetList = new ArrayList<>(new HashSet<>(LOX));
+        System.out.println(LOXsetList);  // >>> [1, A, 2, 3]  注意顺序奇怪
+
+    }
+}
+
+
 class A08b_List_add {
     public static void main(String[] args) {
 
-        List<Object> LO7 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
+        List<Object> LO1 = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
         // add    被重载了, 支持选择插入位置
-        LO7.add(99);                   // [1, 2, 3, 2, 1, 99]  // 默认是末尾
-        LO7.add(2, 99);   // [1, 2, 99, 3, 2, 1, 99]
+        LO1.add(99);                   // [1, 2, 3, 2, 1, 99]  // 默认是末尾
+        LO1.add(2, 99);   // [1, 2, 99, 3, 2, 1, 99]
 
+        // addAll 有两种方式, 无index或者index
+        // 无index是类并集方法, 参见A08b_List_as_set
         // addAll 被重载了, 支持选择一个index位置加
-        List<Object> LO8 = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        List<Object> LO9 = new ArrayList<>(Arrays.asList(1, 2, 3));
-        LO7.addAll(LO8);   // [1, 2, 99, 3, 2, 1, 99, a, b, c]  // 默认是末尾
-        LO8.addAll(1, LO9);  // [a, 1, 2, 3, b, c]
-
-        // List能否直接相加?
-        // List<Object> LO10 = LO7 + LO8;   // 不行
+        List<Object> LO2 = new ArrayList<>(Arrays.asList("a", "b", "c"));
+        List<Object> LO3 = new ArrayList<>(Arrays.asList(1, 2, 3));
+        LO2.addAll(1, LO3);  // [a, 1, 2, 3, b, c]
     }
 
 }
@@ -220,7 +248,6 @@ class A08b_List_remove {
         System.out.println(LO4.remove(Integer.valueOf(99)));
         // false: now still [2, 1, 3, 1, 4, 1, 5, 1, 6] 找不到就不删
 
-
         // 特殊方法是remove index, remove (重载)
         // 自带return被删去的值,相当于python的pop()!!!!
         Integer a = LO4.remove(0);            //     [1, 3, 1, 4, 1, 5, 1, 6]
@@ -228,10 +255,9 @@ class A08b_List_remove {
         System.out.println(LO4);  // >>>  [1, 3, 1, 4, 1, 5, 1, 6]
 
         // removeAll
-        LO2.removeAll(L2);        //     [a, b, c, 1, 2, 3, 2, 1] 变成: [a, b, c]
-        LO2.removeAll(LO3);        //     [a, b]   // 只删LO3中有的, 但是会全删(比如"c")
+        // 类差集, 参见A08b_List_as_set
         // 删掉所有1?
-        LO4.removeAll(Arrays.asList(1));  // [3, 4, 5, 6]   //巧用Arrays.asList
+        LO4.removeAll(List.of(1));  // [3, 4, 5, 6]   //巧用 或者List.of
     }
 }
 
@@ -393,13 +419,5 @@ class A08c_Set_zMethods {
         diff.removeAll(IS5);
         System.out.println(diff);      // >>>  [1, 2]
 
-
-
-
-
-
-
-
     }
-
 }
