@@ -43,6 +43,8 @@ class A08_Collection_zMethods {
         // int size()
         // Object[] toArray()
         // <T> T[] toArray(T[] a)
+
+        // forEach  // 详见Java_Basics.C10b_For_each_Loop
     }
 }
 
@@ -65,6 +67,10 @@ class A08b_List {
 
     /*
      * List 最基本的操作
+        * 来自Iterable:
+            * forEach
+            * iterator()
+
         * 来自Collection
             * add​(E e)                     相当于append, 附带return boolean
             * addAll​(Collection<? extends E> c)
@@ -80,7 +86,6 @@ class A08b_List {
             * equals​(Object o)             相当于 == 但是更准确
             * clear()
             * isEmpty()
-            * iterator()
             * toArray()
 
         * 来自List
@@ -168,11 +173,8 @@ class A08b_List_zMethods {
         // listIterator​(int index)  starting at a specific index
         //  把list变成一个Iterator或者是ListIterator
 
-        // for loop
-        // 支持for和for-each loop
-        List<Integer> IL1 = new ArrayList<>(Arrays.asList(1,2,1,3,1,4));
-        for (int j=0; j < IL1.size(); j += 1) {}
-        for (Integer i: IL1) {}
+        // forEach loop
+        // 详见Java_Basics.C10b_For_each_Loop
 
         // List.of()  相当于一个不可变List, 如同一个python的tuple
         List<Integer> tuple = List.of(1,2,3,4);
@@ -306,7 +308,11 @@ class A08c_Set {
      */
 
     /*
-     * HaseSet 最基本的操作
+     * Set 最基本的操作
+        * 来自Iterable:
+            * forEach
+            * iterator()
+
         * 来自Collection (所以Collection的方法不牵涉到任何index)
             * add​(E e)                     相当于append, 附带return boolean
             * addAll​(Collection<? extends E> c)
@@ -322,7 +328,6 @@ class A08c_Set {
             * equals​(Object o)             相当于 == 但是更准确
             * clear()
             * isEmpty()
-            * iterator()
             * toArray()
 
         * 来自HashSet
@@ -361,6 +366,9 @@ class A08c_Set_zMethods {
         // of (List 也有)
         // Returns an unmodifiable set
         Set<Integer> IS3 = Set.of(1,2,3);
+
+        // forEach
+        // 详见Java_Basics.C10b_For_each_Loop
     }
 
 }
