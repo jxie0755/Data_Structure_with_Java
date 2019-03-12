@@ -76,6 +76,12 @@ interface Animal_5 {
     public void eat();
     void travel();
     // interface 不需要public方法修饰符, 因为方法必须被子类实现
+
+
+    // 注意: 静态方法还是需要声明完整, 而且子类不必继承!!
+    static void wtf() {
+        System.out.println("WFT!");
+    }
 }
 
 // 接口的实现

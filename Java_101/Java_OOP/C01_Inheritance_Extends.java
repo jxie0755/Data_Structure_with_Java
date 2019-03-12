@@ -8,6 +8,7 @@ public class C01_Inheritance_Extends {
          * Animal类是Reptile类的父类。
          * Mammal类和Reptile类是Animal类的子类。
          * Dog类既是Mammal类的子类又是Animal类的子类。
+         * 注意, 子类不继承父类的static方法, static方法时属于类的, 不属于对象, 也就不存在继承之说
      */
 
 }
