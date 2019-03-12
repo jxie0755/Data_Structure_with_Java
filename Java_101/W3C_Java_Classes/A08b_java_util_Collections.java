@@ -58,7 +58,7 @@ class Collections_for_General {
 
         // copy​(List<? super T> dest, List<? extends T> src)
         // 这个也在Collection本类中有类似的方法
-        // The destination list's size must be greater than or equal to the source list's size.
+        // len(dest) must >= len(src) !!
         List<Integer> IL2 = new ArrayList<>(Arrays.asList(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110));
         Collections.copy(IL2, IL1);
         System.out.println(IL2);  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 100, 110]

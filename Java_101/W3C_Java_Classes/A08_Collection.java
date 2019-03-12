@@ -310,6 +310,9 @@ class A08b_List_copy {
         Lgrid.get(0).add(3);
         System.out.println("after:  " + Lgrid2);
         // Lgrid2 changed, so it is still a shallow copy
+
+
+        // copy from Collections
     }
 }
 
