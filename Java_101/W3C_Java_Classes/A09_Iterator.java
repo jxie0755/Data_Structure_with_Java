@@ -38,6 +38,7 @@ public class A09_Iterator {
         }
 
         // forEachRemaining 能够将Iterator中迭代剩余的元素传递给一个函数
+        // 类似forEach  // 详见Java_Basics.C10b_For_each_Loop
         List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e"));
         Iterator<String> it = list.iterator();
         it.next();  // "a"
