@@ -237,6 +237,12 @@ class A10_Map_zMethods {
         System.out.println(Map1.getOrDefault("X", 0)); // >>>  0
 
 
+        // of (Map.of)
+        // quickly create an inmutable Map with from 0 up to 10 (K,V) pair
+        // Does not allow unlimited like List.of
+        Map<String, Integer> Map4 = Map.of("a", 10, "b", 20);
+        // 如果new HashMap<>() 可以变成Mutable 详见initialization
+
 
 
 
