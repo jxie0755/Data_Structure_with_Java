@@ -146,7 +146,7 @@ class A08b_List_zMethods {
         // retainAll
         List<Object> LO4 = new ArrayList<>(Arrays.asList("a", "b", "c","c", "d", "e"));
         List<Object> LO5 = new ArrayList<>(Arrays.asList("c", "d"));
-        LO4.retainAll(LO5);  // >>>  [c, c, d]
+        LO4.retainAll(LO5);  // >>>  [c, c, d]  // 类似求交集,但是不去重
 
         // get and set
         List<Object> LO6 = new ArrayList<>(Arrays.asList("c", "d", "e"));
@@ -331,9 +331,9 @@ class A08c_Set {
             * isEmpty()
             * toArray()
 
-        * 来自HashSet
-            * copyOf
+        * 来自Set
             * of
+            * copyOf
      */
 }
 
@@ -370,6 +370,20 @@ class A08c_Set_zMethods {
 
         // forEach
         // 详见Java_Basics.C10b_For_each_Loop
+
+
+        // Set的各种交集并集补集:
+
+        // 交集 (retainAll)
+        Set<Integer> IS4 = new HashSet<>(Arrays.asList(1,2,3,4));
+        Set<Integer> IS5 = new HashSet<>(Arrays.asList(3,4,5,6));
+        Set<Integer> intercross = new HashSet<>(IS4);
+        intercross.retainAll(IS5);
+        System.out.println(intercross);  // >>>  [3, 4]
+
+
+
+
     }
 
 }

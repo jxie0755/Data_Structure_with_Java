@@ -5,8 +5,11 @@ import java.util.Arrays;
 
 public class A08c_ArrayList {
 
-
     /* ArrayList 最基本的操作
+        * 来自Iterable
+            * forEach()
+            * iterator()
+
         * 来自Collection
             * add​(E e)                     相当于append, 附带return boolean
             * addAll​(Collection<? extends E> c)
@@ -22,7 +25,6 @@ public class A08c_ArrayList {
             * equals​(Object o)             相当于 == 但是更准确
             * clear()
             * isEmpty()
-            * iterator()
             * toArray()
 
         * 来自List
