@@ -37,14 +37,15 @@ public class A10_Map {
              * get                   根据Key取Value
              * getOrDefault​          增强型get, 提供一个default值,如果key不存在
              * put                   添加新Key和新Value (不能重复Key)
-             * putAll                批量添加(合并一个Map进来)
              * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
+             * putAll                批量添加(合并一个Map进来)
+
 
              * remove​(key)           删除并返回Value
-             * remove​(key, value)    增强版remove          带boolean确认
+             * remove​(key, value)    增强版remove          返回boolean确认
 
              * replace               修改Key的值
-             * replace​(K key, Vold, Vnew)   增强型replace  带boolean确认
+             * replace​(K key, Vold, Vnew)   增强型replace  返回boolean确认
 
              * clear()               清空
              * isEmpty()
@@ -194,6 +195,7 @@ class A10_Map_Entry {
     // Map.Entry and entry
     public static void main(String[] args) {
 
+        // Iteration of Map
 
         Map<String, Integer> Map1 = new HashMap<>(Map.ofEntries(
                 Map.entry("A", 1),

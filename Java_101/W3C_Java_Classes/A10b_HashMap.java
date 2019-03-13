@@ -13,8 +13,8 @@ public class A10b_HashMap {
              * get                   根据Key取Value
              * getOrDefault​          增强型get, 提供一个default值,如果key不存在
              * put                   添加新Key和新Value (不能重复Key)
-             * putAll                批量添加(合并一个Map进来)
              * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
+             * putAll                批量添加(合并一个Map进来)
 
              * remove​(key)           删除并返回Value
              * remove​(key, value)    增强版remove          带boolean确认
@@ -61,7 +61,3 @@ public class A10b_HashMap {
     }
 
 }
-
-
-// putAll​(Map<? extends K,​? extends V> m) Copies all of the mappings from the specified map to this map.
-// putAll​(Map<? extends K,​? extends V> m) Copies all of the mappings from the specified map to this map (optional operation).
