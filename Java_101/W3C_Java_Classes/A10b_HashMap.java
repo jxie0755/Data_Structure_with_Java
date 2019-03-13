@@ -1,5 +1,10 @@
 package W3C_Java_Classes;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class A10b_HashMap {
 
      /*
@@ -36,11 +41,27 @@ public class A10b_HashMap {
              * (static) entry       为Map.ofEntry添加新的键值对,以创建Map        为initializatin设计, 不限数目
 
          * 来自HashMap
+            * clone()               shallow copy
      */
 
     public static void main(String[] args) {
 
+        HashMap<String, List<Integer>> HM1 = new HashMap<>(Map.ofEntries(
+                Map.entry("A", new ArrayList<>(List.of(1,2,3))),
+                Map.entry("B", new ArrayList<>(List.of(4,5,6))),
+                Map.entry("C", new ArrayList<>(List.of(7,8,9)))
+        ));
+
+        // clone() return an Object as a shallow copy  // 注意正确使用转型.
+        HashMap<String, List<Integer>> HM1_copy = (HashMap<String, List<Integer>>) HM1.clone();
+        HM1.get("A").add(999);  // 改变value List的值, 而不是将key指引到其他List
+
+        System.out.println(HM1);       // >>>  {A=[1, 2, 3, 999], B=[4, 5, 6], C=[7, 8, 9]}
+        System.out.println(HM1_copy);  // >>>  {A=[1, 2, 3, 999], B=[4, 5, 6], C=[7, 8, 9]}
     }
 
 }
 
+
+// putAll​(Map<? extends K,​? extends V> m) Copies all of the mappings from the specified map to this map.
+// putAll​(Map<? extends K,​? extends V> m) Copies all of the mappings from the specified map to this map (optional operation).

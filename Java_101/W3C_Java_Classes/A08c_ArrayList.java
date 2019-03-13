@@ -63,12 +63,11 @@ public class A08c_ArrayList {
         System.out.println(IAL.getClass());  // class java.util.ArrayList
         System.out.println(IAL instanceof java.util.ArrayList); // >>> true
 
-        // clone() return an Object as a shallow copy
+        // clone() return an Object as a shallow copy  // 注意正确使用转型.
         ArrayList<Integer> IAL2 = (ArrayList<Integer>) IAL.clone();
         IAL2.add(5);
         System.out.println(IAL2);
         System.out.println(IAL);
-        // 专属于ArrayList的copy方法, 注意正确使用转型.
 
         // ensureCapacity​(int minCapacity) // 跳过
 
