@@ -8,7 +8,7 @@ import java.util.Map;
 public class A10b_HashMap {
 
      /*
-     * HashMap常用方法
+      * HashMap常用方法
          * 来自Map
              * get                   根据Key取Value
              * getOrDefault​          增强型get, 提供一个default值,如果key不存在
