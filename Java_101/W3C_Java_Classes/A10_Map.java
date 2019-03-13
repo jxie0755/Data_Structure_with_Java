@@ -13,55 +13,58 @@ public class A10_Map {
      * Interface Map<K,​V>
 
      * Map接口定义了一个保存key-value的对象
-         * 该对象中key值是不存在重复的
-         * 每个key值至多对应一个value
+     * 该对象中key值是不存在重复的
+     * 每个key值至多对应一个value
 
      * 常用 接口/类
-        * HasMap 类
-            * HashMap是实现了Map接口的key-value集合，实现了所有map的操作
-            * 允许key和value为null
-            * 无序
-            * 相当于python的dict, 作为重点学习
-        * HashTable 类
-            * 几乎和HashMap 相同
-            * 它不允许key-value为NULL值，另外一点值得注意的是Hashtable是线程安全的
-        * TreeMap 类
-            * TreeMap是基于红黑树的实现，也是记录了key-value的映射关系，
-            * 该映射根据key的自然排序进行排序或者根据构造方法中传入的比较器进行排序
-            * 也就是说TreeMap是有序的key-value集合
+     * HasMap 类
+     * HashMap是实现了Map接口的key-value集合，实现了所有map的操作
+     * 允许key和value为null
+     * 无序
+     * 相当于python的dict, 作为重点学习
+     * HashTable 类
+     * 几乎和HashMap 相同
+     * 它不允许key-value为NULL值，另外一点值得注意的是Hashtable是线程安全的
+     * TreeMap 类
+     * TreeMap是基于红黑树的实现，也是记录了key-value的映射关系，
+     * 该映射根据key的自然排序进行排序或者根据构造方法中传入的比较器进行排序
+     * 也就是说TreeMap是有序的key-value集合
      */
 
     /*
      * Map常用方法
-        * 来自Map
-            * get                   根据Key取Value
-            * getOrDefault​          增强型get, 提供一个default值,如果key不存在
-            * put                   添加新Key和新Value (不能重复Key)
-            * putAll                批量添加(合并一个Map进来)
-            * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
+     * 来自Map
+     * get                   根据Key取Value
+     * getOrDefault​          增强型get, 提供一个default值,如果key不存在
+     * put                   添加新Key和新Value (不能重复Key)
+     * putAll                批量添加(合并一个Map进来)
+     * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
 
-            * remove​(key)           删除并返回Value
-	        * remove​(key, value)    增强版remove          带boolean确认
+     * remove​(key)           删除并返回Value
+     * remove​(key, value)    增强版remove          带boolean确认
 
-            * replace               修改Key的值
-            * replace​(K key, Vold, Vnew)   增强型replace  带boolean确认
+     * replace               修改Key的值
+     * replace​(K key, Vold, Vnew)   增强型replace  带boolean确认
 
-            * clear()               清空
+     * clear()               清空
 
-            * containsKey​           k in Map?
-            * containsValue         v in Map?
+     * containsKey​           k in Map?
+     * containsValue         v in Map?
 
-            * CopyOf                inmutable copy
-            * entrySet()            生成Map.Entry集合, 便于iteration
-            * keySet()              提取Key变成Set
+     * CopyOf                inmutable copy
+     * entrySet()            生成Map.Entry集合, 便于iteration
 
-            * hashcode()
-            * isEmpty()
+     * keySet()              提取Key变成Set     (for iteration)
+     * values()              提取Values变成集合  (for iteration)
 
-            * of                   quick inmutable Map (up to 10 pairs)
+     * hashcode()
+     * isEmpty()
+
+     * of                   quick inmutable Map (up to 10 pairs)
+
+     * (static) ofEntries   根据一个Map.Entry的集合实例创造一个相应的Map
+     * (static) entry       为Map.ofEntry添加新的键值对,以创建Map        为initializatin设计, 不限数目
      */
-
-
 }
 
 
@@ -74,7 +77,7 @@ class A10_Map_Initialization {
         staticMap.put("Chocolate", 2);
     }
 
-    // static initializer 2
+    // static initializer 2  (works for any number of elements)
     private static Map<String, String> staticMap2 = new HashMap<>(Map.ofEntries(
             Map.entry("Banana", "good"),
             Map.entry("Mango", "bad")
