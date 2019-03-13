@@ -5,10 +5,7 @@ package W3C_Java_Classes;
 // 属于工具方法
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class A08b_java_util_Collections {
 
@@ -168,12 +165,17 @@ class Collections_for_Map {
     public static void main(String[] args) {
 
         // newSetFromMap​(Map<E,​Boolean> map)
-        // 从一个Map创造一个Set;
-
+        // K的数据类型必须与你想要创建的Set中元素的数据类型一致；而V必须是Boolean类型的，这是因为value字段用于标记该元素是否存在
+        // 从一个空Map创造一个Set, 然后为Set添加元素,此时Map为元素生成key,赋值为true;
+        Map<String, Boolean> Map1 = new HashMap<>();
+        Set<String> S1 = Collections.newSetFromMap(Map1);
+        S1.add("A");
+        S1.add("B");
+        S1.add("C");
+        System.out.println(S1);   // >>>  [A, B, C]
+        System.out.println(Map1); // >>>  {A=true, B=true, C=true}
 
         // singletonMap​(K key, V value)
-
-
     }
 }
 

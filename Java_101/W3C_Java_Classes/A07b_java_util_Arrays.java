@@ -14,6 +14,33 @@ public class A07b_java_util_Arrays {
      * Class Arrays
 
      * Arrays提供一系列操作Array的static方法, 不是这个Array类的定义
+        * binarySearch                    二分查找,需要先排序,如果不在返回 -理论i-1
+        * hashcode()
+
+        * toString                                用于打印Array
+        * deepToString​                            用于打印一个多维Array
+
+        * copyOf​(int[] o, newLen)                 是浅Copy, 可以从头开始选择任意长度, 注意超长会填充数组类的默认值
+        * copyOfRange​(int[] o, idx1, idx2)        切片复制, 任意片段
+
+        * asList                                  从Array快速创建一个不可变List
+        * deepEquals​(a1, a2)                      对比两个多维array是否相等
+
+        * fill​(int[] a, , val)                    填充
+        * fill​(int[] a, idxa,, idxb, val)         局部填充
+
+
+        * parallelSort​(int[] a)                   并行排序, 适用于大数据, 可选片段
+        * parallelSort​(int[] a, idxa, idxb)
+
+        * sort​(int[] a)                           为串行排序, 可选片段
+        * sort​(int[] a, idxa, idxb)
+
+        * mismatch​(int[] a, int[] b)              查找两个Arrays从哪个index开始发生分歧,如没有返回-1, 可以选特定子序列
+        * mismatch​(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2)
+
+        * equals​(int[] a, int[] a2)               查找两个Arrays是否相等, 可以选特定子序列
+        * equals​(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2,)
      */
 
     public static void main(String[] args) {
@@ -74,7 +101,7 @@ public class A07b_java_util_Arrays {
 
 
 // 重要的的Arrays static方法
-// Print Array?
+// Print Array?  对标py.__str__
 class Arrays_toString {
 
     public static void main(String[] args) {
@@ -93,7 +120,6 @@ class Arrays_toString {
 
 
 // java.util.Arrays方法, 不是Array
-// 筛选一些重要的方法来学
 class Arrays_asList {
 
     public static void main(String[] args) {

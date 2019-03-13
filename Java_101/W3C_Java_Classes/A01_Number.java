@@ -121,7 +121,7 @@ class Number_zMethods {
 
 
         // toString
-        // 把数字翻译成字符串,相当于python的str()
+        // 把数字翻译成字符串,对标py.__str__
         Float x14 = 123.123f;
         System.out.println(x14.toString().getClass()); // >>> "123"  class java.lang.String
         float fff = 123.123f;

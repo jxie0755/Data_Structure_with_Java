@@ -36,6 +36,6 @@ class Character_zMethods {
         // isLowerCase()    // 是否是小写字母
         // toUpperCase()    // 指定字母的大写形式
         // toLowerCase()    // 指定字母的小写形式
-        // toString()       // 返回字符的字符串形式，字符串的长度仅为1
+        // toString()       // 返回字符的字符串形式，字符串的长度仅为1, 对标py.__str__
     }
 }
