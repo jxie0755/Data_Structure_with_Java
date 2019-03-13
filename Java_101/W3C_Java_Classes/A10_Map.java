@@ -34,21 +34,31 @@ public class A10_Map {
     /*
      * Map常用方法
         * 来自Map
-            * get              根据Key取Value
-            * getOrDefault​     增强型get, 提供一个default值,如果key不存在
-            * put              添加新Key和新Value (不能重复Key)
-            * replace          修改Key的值
-            * clear()          清空
+            * get                   根据Key取Value
+            * getOrDefault​          增强型get, 提供一个default值,如果key不存在
+            * put                   添加新Key和新Value (不能重复Key)
+            * putAll                批量添加(合并一个Map进来)
+            * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
 
-            * containsKey​      k in Map?
-            * containsValue    v in Map?
+            * remove​(key)           删除并返回Value
+	        * remove​(key, value)    增强版remove          带boolean确认
 
-            * CopyOf           inmutable copy
-            * entrySet()       提取Key变成Set
-            * keySet()         提取Key变成Set
+            * replace               修改Key的值
+            * replace​(K key, Vold, Vnew)   增强型replace  带boolean确认
+
+            * clear()               清空
+
+            * containsKey​           k in Map?
+            * containsValue         v in Map?
+
+            * CopyOf                inmutable copy
+            * entrySet()
+            * keySet()              提取Key变成Set
 
             * hashcode()
             * isEmpty()
+
+            * of                   quick inmutable Map (up to 10 pairs)
      */
 
 
@@ -159,7 +169,24 @@ class A10_Map_Initialization {
 }
 
 
-class A10_Map_Map_Entry {
+class A10_Map_Entry {
+
+    /*
+     * Module java.base
+     * Package java.util
+     * Interface Map.Entry<K,​V>
+
+     * Map的子接口(注意不是继承, 是内部接口)
+     * 这个接口就是用于遍历Map的
+     * 也可以不用Map.Entry完成键值的遍历, 参见A10_Map_simple_iteration
+     */
+
+    /*
+     * 重要方法
+         * getKey()
+         * getValue()
+         * setValue()
+     */
 
     // Map.Entry and entry
     public static void main(String[] args) {
@@ -171,12 +198,99 @@ class A10_Map_Map_Entry {
                 Map.entry("C", 3)
         ));
 
-
-
-        // entrySet()
+        // Map.Entry相当于python的dict.items(), 实际是Map中一个一个的独立键值pair
+        // 构造方法通过Map中的entrySet()
+        // 这个Set中就成了Map中所有键值对的集合
         Set<Map.Entry<String, Integer>> SS1 = Map1.entrySet();
-        System.out.println(SS1); // >>>  [A=1, B=2, C=3]
 
+
+        // 利用Map.Entry遍历Map
+        // 方案A: 造一个iterator然后用for loop和while loop
+        Iterator iter1 = Map1.entrySet().iterator();
+        // while loop
+        while(iter1.hasNext()){
+            Map.Entry<String, Integer> entry= (Map.Entry<String, Integer>) iter1.next();  // 注意转型安全
+            System.out.println("key:"+entry.getKey()+" value"+entry.getValue());
+        }
+        // >>>
+        // key:A value1
+        // key:B value2
+        // key:C value3
+
+        // for loop
+        for (Iterator iter2 = Map1.entrySet().iterator(); iter2.hasNext();) {
+            Map.Entry<String, Integer> entry= (Map.Entry<String, Integer>) iter2.next();  // 注意转型安全
+            System.out.println("key:"+entry.getKey()+" value"+entry.getValue());
+        }
+        // >>> 与上相同
+
+
+        // 方案B: 不用iterator, 直接遍历entrySet()那个, 只能用for-each loop
+        // 这样不用转型, 更安全
+        // 推荐，尤其是Map容量大时
+        for (Map.Entry<String, Integer> entry : Map1.entrySet()) {
+            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+        }
+        // >>>
+        // Key = A, Value = 1
+        // Key = B, Value = 2
+        // Key = C, Value = 3
+
+
+        // setValue  根据key当场修改源Map中的value值
+        for (Map.Entry<String, Integer> entry : Map1.entrySet()) {
+            if (entry.getKey() == "B") {
+                entry.setValue(9);
+            }
+        }
+        System.out.println(Map1); // >>>  {A=1, B=9, C=3}
+    }
+
+}
+
+
+class A10_Map_simple_iteration {
+
+    // 要想遍历整个Map的键值对,必须用Map.Entry, 参见A10_Map_Entry
+    // 研究怎么遍历一个Map的keys和values
+    public static void main(String[] args) {
+
+        Map<String, Integer> Map1 = new HashMap<>(Map.ofEntries(
+                Map.entry("A", 4),
+                Map.entry("B", 6),
+                Map.entry("C", 8)
+        ));
+
+
+        // keys
+        for (String k: Map1.keySet()) {
+            System.out.println(k);
+        }
+        // >>>
+        // A
+        // B
+        // C
+
+
+        // values
+        for (Integer v: Map1.values()) {
+            System.out.println(v);
+        }
+        // >>>
+        // 4
+        // 6
+        // 8
+
+
+        // 不通过Map.Entry遍历Key和Value也行
+        // 只遍历keySet, 但是靠Map.get(key)来取value
+        for (String key : Map1.keySet()) {
+            System.out.println("key= "+ key + " and value= " + Map1.get(key));
+        }
+        // >>>
+        // key= A and value= 4
+        // key= B and value= 6
+        // key= C and value= 8
     }
 
 }
@@ -187,9 +301,11 @@ class A10_Map_zMethods {
     public static void main(String[] args) {
 
         // 跳过简单方法
-        // clear() 清空
-        // isEmpty()
-        // hasCode()
+        // clear()    清空
+        // isEmpty()  判断为空
+        // hasCode()  返回哈希值
+        // size()     长度
+        // values()   Collection view of values
 
         // containsKey​(Object key)
         // containsValue​(Object value)
@@ -200,6 +316,13 @@ class A10_Map_zMethods {
         ));
         System.out.println(Map1.containsKey("B")); // >>> true
         System.out.println(Map1.containsValue(2)); // >>> true
+
+
+        // entrySet()
+        // 返回一个实现Map.Entry接口的对象集合。集合中每个对象都是底层Map中一个特定的(键:值)对
+        Set<Map.Entry<String, Integer>> SS1 = Map1.entrySet();
+        System.out.println(SS1); // >>>  [A=1, B=2, C=3]
+        // A10_Map_Map_Entry
 
 
         // copyOf​(Map<? extends K,​? extends V> map)
@@ -237,14 +360,65 @@ class A10_Map_zMethods {
         System.out.println(Map1.getOrDefault("X", 0)); // >>>  0
 
 
+        // putAll
+        Map<String, Integer> Map4 = new HashMap<>(Map.ofEntries(
+                Map.entry("A", 1),
+                Map.entry("B", 2),
+                Map.entry("C", 3)
+        ));
+        Map<String, Integer> Map_add = new HashMap<>(Map.ofEntries(
+                Map.entry("X", 10),
+                Map.entry("Y", 20),
+                Map.entry("Z", 30)
+        ));
+        Map4.putAll(Map_add);
+        System.out.println(Map4); // >>>  {X=10, A=1, Y=20, B=2, Z=30, C=3}
+
+
+        // putIfAbsent​(K key, V value)   // 安全型put
+        System.out.println(Map4.putIfAbsent("X", 40)); // >>>  10 (若已经存在Key,则返回!原!value
+        System.out.println(Map4.putIfAbsent("Q", 40)); // >>>  10 (若不存在key, 则添加参数pair,返回null)
+        System.out.println(Map4); // >>> {A=1, Q=40, B=2, C=3, X=10, Y=20, Z=30}
+        Map4.put("K", null);
+        System.out.println(Map4); // >>>  {A=1, Q=40, B=2, C=3, X=10, Y=20, Z=30, K=null}
+        // 即使value指定Intger也可以用null作为value
+        System.out.println(Map4.putIfAbsent("K", 50));  // >>>  null  也是返回null, 因为K本身就map to null
+        System.out.println(Map4); // >>>  {A=1, Q=40, B=2, C=3, X=10, Y=20, Z=30, K=50}
+
+
         // of (Map.of)
         // quickly create an inmutable Map with from 0 up to 10 (K,V) pair
         // Does not allow unlimited like List.of
-        Map<String, Integer> Map4 = Map.of("a", 10, "b", 20);
+        Map<String, Integer> Map5 = Map.of("a", 10, "b", 20);
         // 如果new HashMap<>() 可以变成Mutable 详见initialization
 
 
+        // remove
+        // 被重载了, 有普通和增强型(确认删除)
+        Map<String, Integer> Map6 = new HashMap<>(Map.ofEntries(
+                Map.entry("A", 1),
+                Map.entry("B", 2),
+                Map.entry("C", 3)
+        ));
+        System.out.println(Map6.remove("A"));  // >>> 1  // 删除并返回Value
+        System.out.println(Map6.remove("B", 5));
+        // >>>  false // 存在key "B" 但是value不是5, 所以没有操作
+        System.out.println(Map6);   // >>> {B=2, C=3}
 
 
+        // replace
+        // 被重载了, 有普通和增强型(确认替换)
+        Map<String, Integer> Map7 = new HashMap<>(Map.ofEntries(
+                Map.entry("A", 4),
+                Map.entry("B", 6),
+                Map.entry("C", 8)
+        ));
+        System.out.println(Map7.replace("A", 9));  // >>> 4  // 替换并返回!原!Value
+        System.out.println(Map7.replace("B", 5, 9));
+        // >>>  false // 存在key "B" 但是value不是5, 所以没有操作
+        System.out.println(Map7);   // >>> {A=9, B=6, C=8}
+
+        // values()
+        System.out.println(Map7.values()); // >>>  [9, 6, 8]
     }
 }
