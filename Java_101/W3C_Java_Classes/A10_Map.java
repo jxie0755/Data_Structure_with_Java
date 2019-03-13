@@ -52,7 +52,7 @@ public class A10_Map {
             * containsValue         v in Map?
 
             * CopyOf                inmutable copy
-            * entrySet()
+            * entrySet()            生成Map.Entry集合, 便于iteration
             * keySet()              提取Key变成Set
 
             * hashcode()
@@ -239,7 +239,7 @@ class A10_Map_Entry {
 
         // setValue  根据key当场修改源Map中的value值
         for (Map.Entry<String, Integer> entry : Map1.entrySet()) {
-            if (entry.getKey() == "B") {
+            if (entry.getKey().equals("B")) {
                 entry.setValue(9);
             }
         }
@@ -283,14 +283,17 @@ class A10_Map_simple_iteration {
 
 
         // 不通过Map.Entry遍历Key和Value也行
-        // 只遍历keySet, 但是靠Map.get(key)来取value
+        // 只遍历keySet, 但是靠Map.get(key)来取value 或者 Map.replace(key)来换值
         for (String key : Map1.keySet()) {
             System.out.println("key= "+ key + " and value= " + Map1.get(key));
+            Map1.replace(key, 9);  // 也可以修改Key的value
+            // 注意for-loop期间不要删key
         }
         // >>>
         // key= A and value= 4
         // key= B and value= 6
         // key= C and value= 8
+        System.out.println(Map1); // >>>  {A=9, B=9, C=9}
     }
 
 }
@@ -418,7 +421,12 @@ class A10_Map_zMethods {
         // >>>  false // 存在key "B" 但是value不是5, 所以没有操作
         System.out.println(Map7);   // >>> {A=9, B=6, C=8}
 
+
         // values()
         System.out.println(Map7.values()); // >>>  [9, 6, 8]
+
+
+        // ofEntries
+        // 参见initializatin
     }
 }
