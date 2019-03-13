@@ -174,6 +174,7 @@ class Collections_for_Map {
         S1.add("C");
         System.out.println(S1);   // >>>  [A, B, C]
         System.out.println(Map1); // >>>  {A=true, B=true, C=true}
+        // 此工厂方法提供了一个对应于任何 map 实现的 set 实现。不必在已经有一个对应 set 实现（比如 hashmap 或 treemap）的 map 实现上使用此方法
 
         // singletonMap​(K key, V value)
     }
