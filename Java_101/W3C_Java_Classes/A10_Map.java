@@ -67,6 +67,7 @@ public class A10_Map {
 }
 
 
+
 class A10_Map_Initialization {
 
     // static initializer

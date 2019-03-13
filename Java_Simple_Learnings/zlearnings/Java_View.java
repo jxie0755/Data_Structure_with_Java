@@ -162,9 +162,6 @@ public class Java_View {
         System.out.println(S1); // >>> [B=2, C=3, D=4]
         S1.clear();
         System.out.println(Map3); // >>>  {}
-
-
-
     }
 }
 

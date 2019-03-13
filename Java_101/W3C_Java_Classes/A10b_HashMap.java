@@ -38,5 +38,9 @@ public class A10b_HashMap {
          * 来自HashMap
      */
 
+    public static void main(String[] args) {
+
+    }
+
 }
 

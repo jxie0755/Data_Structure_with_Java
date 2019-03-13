@@ -77,6 +77,7 @@ public class A07_Array {
         // false
 
 
+
         // get方法
         // getLength
         int intArray3[] = {21,32,43,45};
