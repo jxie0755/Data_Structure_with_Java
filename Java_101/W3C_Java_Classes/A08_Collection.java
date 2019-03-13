@@ -100,11 +100,13 @@ class A08b_List {
             * get                        相当于lst[i]
             * set                        相当于lst[i] = n
 
+            * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]  (建议always New一个)
+            * 也可以利用subList​ 批量set和批量remove, 但是一定要注意安全范围!! 详见Java_View
+
             * add​(int index, E element)             相当于insert
             * addAll​(int index, Collection<? extends E> c)
 
-            * remove​(int index)                     相当于pop
-            * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
+            * remove​(int index)                     相当于pop, 但是不能默认pop last item
 
             * indexOf​(Object o)
             * lastIndexOf​(Object o)
@@ -165,11 +167,17 @@ class A08b_List_zMethods {
         System.out.println(LO7.lastIndexOf("d"));   // >>> 3
 
         // subList
-        // 返回的是一个view non-structural改变view也会改变原List
-        //  创建view之后如果structural改原List, 则会让之前建立的subList作废
-        // 详见zLearnings.Java_View
-        List<Object> LO8 = LO7.subList(1, 4);
+        // 返回的是一个view of SubList
+        List<Object> LO8 = new ArrayList<>(LO7.subList(1, 4));  // always New一个对象避免冲突
         System.out.println(LO8);  // >>>  [d, e, d]
+        // 也可以用来批量修改和删除一个list
+
+        List<Integer> L3 = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+        List<Integer> L3sub = L3.subList(0, 3);
+        L3sub = List.of(7, 8, 9);
+        System.out.println(L3); // >>>  [1, 3, 4, 5]
+
+        // 其他注意点, 详见zLearnings.Java_View
 
         // 	sort​(Comparator<? super E> c)
         // 使用List.sort()传入自己实现Commparator接口的类的对象，实现自定义排序

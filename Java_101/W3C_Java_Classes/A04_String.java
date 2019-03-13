@@ -11,6 +11,43 @@ public class A04_String {
      * Class String
      */
 
+    /*
+     * String 基本操作
+        * "+"                             可以相加
+        * length()                         长度属性
+        * equals                          相等
+        * valueOf                         快速生成一个Object的__str__
+
+        * format                          格式化, 用于四舍五入,保留位数等等
+        * compareTo                       比较(规则略特殊)
+        * regionMatches                   测试两个字符串各自一个区域是否相等(同长但不同index)
+        * trim()                          返回字符串的副本，忽略前导空白和尾部空python strp
+
+        * getChars                        从String中找一段insert到char Array的任意位置 (注意长度)
+        * toCharArray                     整体变成char Array
+        * charAt                          获得一个index的char
+
+        * indexOf(char)                   返回指定char在此字符串中第一次出现处的索引
+        * indexOf(String)                 返回指定String在此字符串中第一次出现处的索引
+
+        * replace(oldChar, newChar)       批量替换char为另一个
+
+        * copyValueOf                     从char Array中提取任意一段变成新String
+        * intern                          一个复制,但是与常量池有关, 用于节省空间
+
+        * String substring(intA)          返回一个新的字符串，它是此字符串的一个子字符串。
+        * String substring(intA, intB)    返回一个新字符串，它是此字符串的一个子字符串。
+
+        * startsWith(String)              测试此字符串是否以指定的前缀开始
+        * endsWith(String)                测试此字符串是否以指定的前缀结束
+        * subSequence(intA, intB)         返回一个子序列的CharSequence
+
+        * toLowerCase()                   将此 String 中的所有字符都转换为小写
+        * toUpperCase()                   将此 String 中的所有字符都转换为大写
+
+        * hashCode()
+     */
+
 }
 
 class String_format {
@@ -138,6 +175,7 @@ class String_regexMethods {
         // String[] split(String regex)  根据给定正则表达式的匹配拆分此字符串。
         // String[] split(String regex, int limit)  根据匹配给定的正则表达式来拆分此字符串。
         // boolean startsWith(String prefix)   测试此字符串是否以指定的前缀开始。
+        // TODO learn 正则表达式
 
     }
 
