@@ -47,6 +47,7 @@ public class A10_Map {
      * replace​(K key, Vold, Vnew)   增强型replace  带boolean确认
 
      * clear()               清空
+     * isEmpty()
 
      * containsKey​           k in Map?
      * containsValue         v in Map?
@@ -58,10 +59,8 @@ public class A10_Map {
      * values()              提取Values变成集合  (for iteration)
 
      * hashcode()
-     * isEmpty()
 
      * of                   quick inmutable Map (up to 10 pairs)
-
      * (static) ofEntries   根据一个Map.Entry的集合实例创造一个相应的Map
      * (static) entry       为Map.ofEntry添加新的键值对,以创建Map        为initializatin设计, 不限数目
      */
@@ -344,6 +343,7 @@ class A10_Map_zMethods {
         // keySet()
         Set<String> SS2 = Map3.keySet();
         System.out.println(SS2);  // >>>  [A, B, C]   提取Key变成Set
+        // SS2.add("X");   view是不能更改的
 
 
         // equals​(Object o)
@@ -426,7 +426,9 @@ class A10_Map_zMethods {
 
 
         // values()
-        System.out.println(Map7.values()); // >>>  [9, 6, 8]
+        Collection<Integer> v7 =Map7.values();
+        System.out.println(v7); // >>>  [9, 6, 8]
+        // v7.add(10);  view是不能change的
 
 
         // ofEntries
