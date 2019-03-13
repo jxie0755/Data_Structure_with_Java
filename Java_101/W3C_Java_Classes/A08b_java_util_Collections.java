@@ -21,7 +21,7 @@ public class A08b_java_util_Collections {
         * addAll      批量add很多个element (到末尾)
         * copy        更像是copy and paste
         * min 和 max   容易理解,     可以自定义规则 (key=)
-        * nCopys      一次生成n个相同的值
+        * nCopies      一次生成n个相同的值
         * reverse     反序
         * sort        按从小到大顺序, 或者自定义规则 (key=)
         * swap        交换两个值的位置, 很方便
@@ -168,7 +168,12 @@ class Collections_for_Map {
     public static void main(String[] args) {
 
         // newSetFromMap​(Map<E,​Boolean> map)
+        // 从一个Map创造一个Set;
+
+
         // singletonMap​(K key, V value)
+
+
     }
 }
 

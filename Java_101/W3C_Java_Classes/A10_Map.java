@@ -324,6 +324,8 @@ class A10_Map_zMethods {
 
 
         // entrySet()
+        // The set is backed by the map, so changes to the map are reflected in the set, and vice-versa.
+        // 详见zLearnings.Java_View
         // 返回一个实现Map.Entry接口的对象集合。集合中每个对象都是底层Map中一个特定的(键:值)对
         Set<Map.Entry<String, Integer>> SS1 = Map1.entrySet();
         System.out.println(SS1); // >>>  [A=1, B=2, C=3]
@@ -341,9 +343,12 @@ class A10_Map_zMethods {
 
 
         // keySet()
+        //  The collection is backed by the map, so changes to the map are reflected in the collection,
+        //  and vice-versa.
+        // 详见zLearnings.Java_View
         Set<String> SS2 = Map3.keySet();
         System.out.println(SS2);  // >>>  [A, B, C]   提取Key变成Set
-        // SS2.add("X");   view是不能更改的
+        // 之后改变Map也会同时改变view, 改变view(比如去掉key)也会改变Map, 但是不能增加key,因为没有对应值
 
 
         // equals​(Object o)
@@ -426,9 +431,11 @@ class A10_Map_zMethods {
 
 
         // values()
+        //  The collection is backed by the map, so changes to the map are reflected in the collection,
+        //  and vice-versa.
+        // 详见zLearnings.Java_View
         Collection<Integer> v7 =Map7.values();
         System.out.println(v7); // >>>  [9, 6, 8]
-        // v7.add(10);  view是不能change的
 
 
         // ofEntries

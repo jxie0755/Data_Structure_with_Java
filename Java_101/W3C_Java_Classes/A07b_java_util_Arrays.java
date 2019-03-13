@@ -123,6 +123,13 @@ class Arrays_asList {
         // 可能还不如手动写一个直接转换的来的方便
         intList2b.add(99);
         System.out.println(intList2b); // >>> [21, 32, 43, 45, 99]
+
+        // 添加上new ArrayList 很适用于快速构造一个ArrayList或者List
+        List<Integer> intL = new ArrayList<>(Arrays.asList(1,2,3,4));
+
+        // 另外注意如果直接参数就是一个数组, 返回的是这个数组的List的view, view是受限制的
+        // 详见zLearnings.Java_View
+
     }
 }
 

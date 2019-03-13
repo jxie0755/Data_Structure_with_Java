@@ -165,6 +165,9 @@ class A08b_List_zMethods {
         System.out.println(LO7.lastIndexOf("d"));   // >>> 3
 
         // subList
+        // 返回的是一个view non-structural改变view也会改变原List
+        //  创建view之后如果structural改原List, 则会让之前建立的subList作废
+        // 详见zLearnings.Java_View
         List<Object> LO8 = LO7.subList(1, 4);
         System.out.println(LO8);  // >>>  [d, e, d]
 
