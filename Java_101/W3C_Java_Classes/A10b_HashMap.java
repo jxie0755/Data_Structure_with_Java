@@ -19,7 +19,7 @@ public class A10b_HashMap {
              * remove​(key)           删除并返回Value
              * remove​(key, value)    增强版remove          带boolean确认
 
-             * replace               修改Key的值
+             * replace                      修改Key的值
              * replace​(K key, Vold, Vnew)   增强型replace  带boolean确认
 
              * clear()               清空
