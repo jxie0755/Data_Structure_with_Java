@@ -9,13 +9,43 @@ public class A08_Collection {
      * Package java.util
      * Interface Collection<E>
 
-     * Collection的常用子接口
-         * List接口
-            * ArrayList、LinkedList、Vector、Stack
-         * Set接口
-            * HashSet、LinkedHashSet、TreeSet
-         * Deque接口
+     * Collection上接Iterable父接口
+
+     * Colection下接:
+     * List接口
+     * ArrayList、LinkedList、Vector、Stack
+     * Set接口
+     * HashSet、LinkedHashSet、TreeSet
+     * Queue
+     * Deque接口 既继承Collection也继承Queue
+     * LinkedList 也继承于Deque和Queue
      */
+
+    /*
+     * Collection 常用方法
+     * 因为Collection子类有Set是无序的, 所以Collection作为通用方法不带任何index参数
+
+     * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
+     * size()
+     * clear()                             清空
+     * isEmpty()                           size==0?
+
+     * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
+     * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
+
+     * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）
+     * removeAll(Collection<?> c)          移除元素集合c
+     * retainAll(Collection<?> c)          仅保留给定集合c中的元素
+
+     * contains(Object o)                  判断该集合中是否包含指定对象
+     * containsAll(Collection<?> c)
+
+     * equals(Object o)
+     * hashCode()
+     * iterator()
+     * toArray()
+     */
+
 }
 
 
@@ -27,29 +57,6 @@ class A08_Collection_zMethods {
 
         // 构造 也是要通过子类实现, 比如ArrayList, 但没必要, 这个interface太抽象了
         Collection<Object> objBox = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
-
-        // 因为Collection子类有Set是无序的, 所以Collection作为通用方法不带任何index参数
-
-        // boolean add(E e) //向集合中添加一个元素，若添加元素后集合发生了变化就返回true，
-        // 若没有发生变化，就返回false。 (用于Set)
-        // void clear() //(optional operation).
-        // boolean contains(Object o) //判断该集合中是否包含指定对象
-        // boolean containsAll(Collection<?> c)
-        // boolean equals(Object o)
-        // int hashCode()
-        // boolean isEmpty()//size==0?
-        // Iterator<E> iterator()
-        // boolean remove(Object o) //移除给定对象的一个实例（有的具体集合类型允许重复元素）
-
-        // boolean addAll(Collection<? extends E> c) //添加给定集合c中的所有元素到该集合中
-        // boolean removeAll(Collection<?> c) //移除元素集合c
-        // boolean retainAll(Collection<?> c) //仅保留给定集合c中的元素
-
-        // int size()
-        // Object[] toArray()
-        // <T> T[] toArray(T[] a)
-
-        // forEach  // 详见Java_Basics.C10b_For_each_Loop
     }
 }
 
@@ -61,62 +68,63 @@ class A08b_List {
      * Interface List<E>
 
      * List代表一个元素有序、可重复的集合，集合中每个元素都有其对应的顺序索引。
-        * List是一个接口, 不能被直接实现, 需要通过其他子类实现, 常用子类
-        * 主要靠ArrayList实现
-        * LinkedList
-        * Stack
-        * Vector (多线程, 一般不用)
+     * List是一个接口, 不能被直接实现, 需要通过其他子类实现, 常用子类
+     * 主要靠ArrayList实现
+     * LinkedList
+     * Stack
+     * Vector (多线程, 一般不用)
 
-    * 注意：
-        * List集合默认按元素的添加顺序设置元素索引，例如第一次添加元素索引为0，第二次添加索引为1…
-        * List是Collection的子接口，可以使用Collection接口里的全部方法。
-        * 因为List是有序集合，所以它有一些根据索引来操作集合元素的方法。
+     * 注意：
+     * List集合默认按元素的添加顺序设置元素索引，例如第一次添加元素索引为0，第二次添加索引为1…
+     * List是Collection的子接口，可以使用Collection接口里的全部方法。
+     * 因为List是有序集合，所以它有一些根据索引来操作集合元素的方法。
      */
 
     /*
      * List 最基本的操作
-        * 来自Iterable:
-            * forEach
-            * iterator()
+     * 来自Iterable
+     * forEach()
+     * iterator()
 
-        * 来自Collection
-            * add​(E e)                     相当于append, 附带return boolean
-            * remove​(Object o)             相当于del
+     * 来自Collection
+     * add​(E e)                     相当于append, 附带return boolean
+     * remove​(Object o)             相当于del
 
-            * addAll​(Collection<? extends E> c)    // 类并集
-            * removeAll​(Collection<?> c)           // 类差集
-            * retainAll​(Collection<?> c)           // 类交集
+     * addAll​(Collection<?> c)      类并集
+     * removeAll​(Collection<?> c)   类差集
+     * retainAll​(Collection<?> c)   类交集
 
-            * contains​(Object o)           相当于x in lst
-            * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
+     * contains​(Object o)           相当于x in lst
+     * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
 
-            * size()                       相当于len
-            * equals​(Object o)             相当于 == 但是更准确
-            * clear()
-            * isEmpty()
-            * toArray()
+     * size()                       相当于len
+     * equals​(Object o)             相当于 == 但是更准确
+     * clear()
+     * isEmpty()
+     * toArray()
+     * hashcode()
 
-        * 来自List
-            * get                        相当于lst[i]
-            * set                        相当于lst[i] = n
+     * 来自List
+     * get                        相当于lst[i]
+     * set                        相当于lst[i] = n
 
-            * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]  (建议always New一个)
-            * 也可以利用subList​ 批量set和批量remove, 但是一定要注意安全范围!! 详见Java_View
+     * add​(int index, E element)       相当于insert(重载)
+     * addAll​(idx, Collection<?>)      指定index(重载)
 
-            * add​(int index, E element)             相当于insert
-            * addAll​(int index, Collection<? extends E> c)
+     * remove​(int index)                     相当于pop
+     * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
 
-            * remove​(int index)                     相当于pop, 但是不能默认pop last item
+     * indexOf​(Object o)
+     * lastIndexOf​(Object o)
+     * containsAll​(Collection<?> c)          相当于 c is a subList of this
 
-            * indexOf​(Object o)
-            * lastIndexOf​(Object o)
-            * containsAll​(Collection<?> c)          判断是否subList
+     * copyOf​(Collection<? extends E> coll) (inmutable)
+     * of (build a tuple)
 
-            * copyOf​(Collection<? extends E> coll) (inmutable)
-            * of (build a tuple)
+     * listIterator()
+     * listIterator​(int index)                starting at a specific index
      */
 }
-
 
 
 class A08b_List_zMethods {
@@ -125,7 +133,7 @@ class A08b_List_zMethods {
     public static void main(String[] args) {
         // 构造方法
         List<Object> LO1 = new ArrayList<>();  // 空列表   // 不要省略泛型
-                                               // 参数可以是任何一个Collection子类
+        // 参数可以是任何一个Collection子类
 
 
         // 快速构建
@@ -169,7 +177,7 @@ class A08b_List_zMethods {
         System.out.println(LO8);  // >>>  [d, e, d]
         // 也可以用来批量修改和删除一个list
 
-        List<Integer> L3 = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+        List<Integer> L3 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
         List<Integer> L3sub = L3.subList(0, 3);
         L3sub = List.of(7, 8, 9);
         System.out.println(L3); // >>>  [1, 3, 4, 5]
@@ -192,7 +200,7 @@ class A08b_List_zMethods {
         // 详见Java_Basics.C10b_For_each_Loop
 
         // List.of()  相当于一个不可变List, 如同一个python的tuple
-        List<Integer> tuple = List.of(1,2,3,4);
+        List<Integer> tuple = List.of(1, 2, 3, 4);
         System.out.println(tuple); // >>>  [1, 2, 3, 4]
     }
 }
@@ -205,7 +213,7 @@ class A08b_List_as_set {
 
         // 类交集
         // retainAll
-        List<Object> LO1 = new ArrayList<>(Arrays.asList("a", "b", "c","c", "d", "e"));
+        List<Object> LO1 = new ArrayList<>(Arrays.asList("a", "b", "c", "c", "d", "e"));
         List<Object> LO2 = new ArrayList<>(Arrays.asList("c", "d"));
         LO1.retainAll(LO2);  // >>>  [c, c, d]  // 类似求交集,但是不去重
 
@@ -325,15 +333,249 @@ class A08b_List_copy {
         Lgrid.get(0).add(3);
         System.out.println("after:  " + Lgrid2);
         // Lgrid2 changed, so it is still a shallow copy
-
-
         // copy from Collections
     }
 }
 
 
+class A08c_Queue {
 
-class A08c_Set {
+    /*
+     * Module java.base
+     * Package java.util
+     * Interface Queue<E>
+     */
+
+    // 注意Queue没有index, 没有get和set
+
+    /*
+     * Queue常用方法
+     * 来自Iterable
+     * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
+     * iterator
+
+     * 来自Collection
+     * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
+     * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
+     * clear
+     * contains                           判断该集合中是否包含指定对象
+     * containsAll
+
+     * equals
+
+     * hashCode
+     * isEmpty
+
+     * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）若不存在返回null
+     * removeAll(Collection<?> c)          移除元素集合c
+     * removeIf
+     * retainAll(Collection<?> c)          仅保留给定集合c中的元素
+
+     * size
+     * toArray
+
+     * 来自Queue
+     * element()                           Retrieves, but does not remove, the head of this queue.
+     * peek()	                         与element相同, 但是如果为空,则返回null而不会报错
+     * poll()	                         在peek()基础上,再移除head, 安全型
+     * offer​(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
+     * remove                             砍头(重载), 并返回head的value
+     */
+}
+
+class A08c_Queue_zMethods {
+
+    public static void main(String[] args) {
+
+        // 构造方法 (通过LinkedList)
+        Queue<Integer> q1 = new LinkedList<>(Arrays.asList(1, 2, 3, 4, 5));
+        Queue<Integer> empt = new LinkedList<>();
+
+        // Queue的独特方法
+        // element
+        System.out.println(q1.element()); // >>>  1
+        // System.out.println(empt.element()); error
+
+        // peek
+        System.out.println(q1.peek());    // >>>  1
+        System.out.println(empt.peek());  // >>>  null
+
+        // poll
+        System.out.println(q1.poll());    // >>>  1
+        System.out.println(q1);           // [2, 3, 4, 5]
+        System.out.println(empt.poll());  // >>>  null
+
+        // offer
+        // add to the end if capacity allows
+        System.out.println(q1.offer(9));
+        System.out.println(q1); // >>>  [2, 3, 4, 5, 9]
+
+        // remove
+        System.out.println(q1.remove());  // >>>  2
+        // System.out.println(empt.remove());  // error
+    }
+
+}
+
+
+class A08d_Deque {
+
+    /*
+     * Module java.base
+     * Package java.util
+     * Interface Deque<E>
+     */
+
+    /*
+     * Deque上同时接Collection和Queue
+
+     * Deque虽然也是Collection旗下, 和List平级
+     * 但是LinkedList同时继承List接口和Deque接口,功能更强大
+     * 而ArrayList只继承List接口
+     */
+
+    // 注意Deque没有index, 没有get和set
+
+    /*
+     * Deque常用方法
+     * 来自Iterable
+         * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
+         * iterator
+
+         * 来自Collection
+         * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
+         * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
+
+         * clear
+         * contains                            判断该集合中是否包含指定对象
+         * containsAll
+
+         * equals
+         * hashCode
+         * isEmpty
+         * size
+         * toArray
+
+         * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）若不存在返回null
+         * removeAll(Collection<?> c)          移除元素集合c
+         * removeIf
+         * retainAll(Collection<?> c)          仅保留给定集合c中的元素
+
+     * 来自Queue
+         * element()                          Retrieves, but does not remove, the head of this queue.
+         * peek()	                          与element相同, 但是如果为空,则返回null而不会报错
+         * poll()	                          在peek()基础上,再移除head, 安全型
+         * offer​(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
+         * remove                             砍头(重载), 并返回head的value
+
+     * 来自Deque
+         * addFirst (E e)             insert at idx0    with capacity allowance
+         * addLast(E e)               insert at the end with capacity allowance
+         * push                       与addFirst完全相同
+         * offerFirst                 addFirst with capacity allowance (boolean确认)
+         * offerLast                  addLast with capacity allowance (boolean确认)
+
+         * descendingIterator()
+
+         * element()                  取head值,但是不去掉head   (non-empty)
+         * getFirst()                 get the first elmement (non-empty) 与element()相同
+         * getLast()                  get the last element   (non-empty)
+         * peekFirst()                安全型getFirst, 防止空表
+         * peekLast()                 安全型getLast, 防止空表
+
+         * pollFirst()                在peekFirst()基础上,再移除head, 安全型
+         * pollLast()                 在peekLast()基础上, 再移除tail, 安全型
+         * pop()                      非安全型pollFirst
+
+         * removeFirst()              非安全型pollFirst, 与pop完全相同
+         * removeLast()               非安全型pollLast
+         * removeFirstOccurrence​(Object o)    从头开始找,直接去值. boolean确认, 非安全型
+         * removeLastOccurrence​(Object o)     从尾开始找,直接去值. boolean确认, 非安全型
+     */
+}
+
+
+class A08d_Deque_zMethods {
+
+    public static void main(String[] args) {
+
+        //构造方法
+        Deque<Integer> d1 = new LinkedList<>(Arrays.asList(1, 2, 3, 4, 5));
+        Deque<Integer> empt = new LinkedList<>();
+
+        // addFirst
+        // addLast
+        d1.addFirst(0);
+        d1.addLast(6);
+        System.out.println(d1); // >>>  [0, 1, 2, 3, 4, 5, 6]
+
+
+        // descendingIterator()
+        // 逆序Iterator
+        Iterator<Integer> iter = d1.descendingIterator();
+
+
+        // element()
+        // must be non-empty list
+        System.out.println(d1.element()); // >>> 0
+        // System.out.println(empt.element());  // error
+
+        // getFirst  // same as element()
+        // getLast
+        // must be non-empty list
+        System.out.println(d1.getFirst()); // >>>  0
+        System.out.println(d1.getLast());  // >>>  7
+        // System.out.println(empt.getFirst()); // error
+        // System.out.println(empt.getLast());  // error
+
+        // offerFirst
+        // offerLast
+        // offer also linked to capacity
+        d1.offerFirst(-1);
+        d1.offerLast(8);
+        System.out.println(d1); // >>>  [-1, 0, 1, 2, 3, 4, 5, 6, 8]
+
+        // peekFirst
+        // peekLast
+        // 安全型get, 防止空表, 空表给null
+        System.out.println(d1.peekFirst());  // >>> -1
+        System.out.println(d1.peekLast());   // >>> 8
+
+        // pollFirst
+        // pollLast
+        // 安全型get, 防止空表, 空表给null
+        System.out.println(d1.pollFirst());  // >>> -1
+        System.out.println(d1.pollLast());   // >>> 8
+        System.out.println(d1);              // >>> [0, 1, 2, 3, 4, 5, 6]
+
+        // pop
+        System.out.println(d1.pop());       // >>> 0
+        System.out.println(d1);             // >>> [1, 2, 3, 4, 5, 6]
+
+        // push
+        d1.push(0);
+        System.out.println(d1);             // >>>  [0, 1, 2, 3, 4, 5, 6]
+
+        // removeFirst
+        // removeLast()
+        // Retrieves and removes the first element of this deque
+        System.out.println(d1.removeFirst()); // >>>  0
+        System.out.println(d1);               // >>>  [1, 2, 3, 4, 5, 6]
+        System.out.println(d1.removeLast());  // >>>  6
+        System.out.println(d1);               // >>>  [1, 2, 3, 4, 5]
+
+        // removeFirstOccurrence​(Object o)
+        // removeLastOccurrence​(Object o)   // boolean确认
+        Deque<Integer> d2 = new LinkedList<>(Arrays.asList(1, 2, 3, 2, 1));
+        System.out.println(d2.removeFirstOccurrence(1)); // >>> true
+        System.out.println(d2);                             // >>> [2, 3, 2, 1]
+        System.out.println(d2.removeLastOccurrence(1));  // >>> true
+        System.out.println(d2);                             // >>> [2, 3, 2]
+    }
+}
+
+
+class A08e_Set {
 
     /*
      * Module java.base
@@ -351,46 +593,46 @@ class A08c_Set {
      * 所以非常对等
 
      * 注意:
-        * HashSet允许包含值为null的元素，但最多只能有一个null元素
-        * print一个Set每次显示顺序可能不同
+     * HashSet允许包含值为null的元素，但最多只能有一个null元素
+     * print一个Set每次显示顺序可能不同
      */
 
     /*
      * Set 最基本的操作
-        * 来自Iterable:
-            * forEach
-            * iterator()
+     * 来自Iterable:
+     * forEach
+     * iterator()
 
-        * 来自Collection (所以Collection的方法不牵涉到任何index)
-            * add​(E e)                     相当于append, 附带return boolean
-            * remove​(Object o)             相当于del
+     * 来自Collection (所以Collection的方法不牵涉到任何index)
+     * add​(E e)                     相当于append, 附带return boolean
+     * remove​(Object o)             相当于del
 
-            * addAll​(Collection<? extends E> c)    // 并集
-            * removeAll​(Collection<?> c)           // 差集
-            * retainAll​(Collection<?> c)           // 交集
+     * addAll​(Collection<? extends E> c)    // 并集
+     * removeAll​(Collection<?> c)           // 差集
+     * retainAll​(Collection<?> c)           // 交集
 
-            * contains​(Object o)           相当于x in Set
-            * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
+     * contains​(Object o)           相当于x in Set
+     * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
 
-            * size()                       相当于len
-            * equals​(Object o)             相当于 == 但是更准确
-            * clear()
-            * isEmpty()
-            * toArray()
+     * size()                       相当于len
+     * equals​(Object o)             相当于 == 但是更准确
+     * clear()
+     * isEmpty()
+     * toArray()
 
-        * 来自Set
-            * of
-            * copyOf
+     * 来自Set
+     * of
+     * copyOf
      */
 }
 
-class A08c_Set_zMethods {
+class A08e_Set_zMethods {
 
     public static void main(String[] args) {
 
         // 构造方法
         Set<Object> S0 = new HashSet<>();  // 空列表   // 不要省略泛型
-                                           // 参数可以是任何一个Collection子类
+        // 参数可以是任何一个Collection子类
 
         // 快速构建  // 类似List, 从Arrays构建
         Set<Integer> S1 = new HashSet<>(Arrays.asList(1, 2, 3, 2, 1));
@@ -398,7 +640,6 @@ class A08c_Set_zMethods {
         System.out.println(S1.add(3)); // >>>  false
 
         // Collection中的常用方法这里跳过, 直接参考List, 注意Collection方法不带index
-
 
 
         // Set接口的专有方法 (除了Collections通用方法多出来的方法)
@@ -413,7 +654,7 @@ class A08c_Set_zMethods {
 
         // of (List 也有)
         // Returns an unmodifiable set
-        Set<Integer> IS3 = Set.of(1,2,3);
+        Set<Integer> IS3 = Set.of(1, 2, 3);
 
         // forEach
         // 详见Java_Basics.C10b_For_each_Loop
@@ -422,8 +663,8 @@ class A08c_Set_zMethods {
         // Set的各种交集并集补集:
 
         // 交集 set1.retainAll(set2);
-        Set<Integer> IS4 = new HashSet<>(Arrays.asList(1,2,3,4));
-        Set<Integer> IS5 = new HashSet<>(Arrays.asList(3,4,5,6));
+        Set<Integer> IS4 = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Set<Integer> IS5 = new HashSet<>(Arrays.asList(3, 4, 5, 6));
         Set<Integer> intersect = new HashSet<>(IS4);  // 先复制一份
         intersect.retainAll(IS5);
         System.out.println(intersect);  // >>>  [3, 4]
