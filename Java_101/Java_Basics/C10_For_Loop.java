@@ -105,8 +105,6 @@ class C10b_For_each_Loop {
         // A
         // B
         // C
-
-
     }
 }
 
