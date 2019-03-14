@@ -73,14 +73,31 @@ public class A08cc_LinkedList {
             * remove                             砍头(重载), 并返回head的value
 
         * 来自Deque
-            * addFirst                   insert at idx0
-            * addLast                    insert at the end
+            * addFirst (E e)             insert at idx0    with capacity allowance
+            * addLast(E e)               insert at the end with capacity allowance
+            * push                       与addFirst完全相同
+            * offerFirst                 addFirst with capacity allowance (boolean确认)
+            * offerLast                  addLast with capacity allowance (boolean确认)
+
+            * descendingIterator()
 
             * element()                  取head值,但是不去掉head   (non-empty)
-            * getFirst                   get the first elmement (non-empty) 与element()相同
-            * getLast                    get the last element   (non-empty)
+            * getFirst()                 get the first elmement (non-empty) 与element()相同
+            * getLast()                  get the last element   (non-empty)
+            * peekFirst()                安全型getFirst, 防止空表
+            * peekLast()                 安全型getLast, 防止空表
+
+            * pollFirst()                在peekFirst()基础上,再移除head, 安全型
+            * pollLast()                 在peekLast()基础上, 再移除tail, 安全型
+            * pop()                      非安全型pollFirst
+
+            * removeFirst()              非安全型pollFirst, 与pop完全相同
+            * removeLast()               非安全型pollLast
+            * removeFirstOccurrence​(Object o)    从头开始找,直接去值. boolean确认, 非安全型
+            * removeLastOccurrence​(Object o)     从尾开始找,直接去值. boolean确认, 非安全型
 
         * 来自LinkedList
+            * clone                      shallow copy
 
 
 
@@ -97,6 +114,9 @@ public class A08cc_LinkedList {
         // 来自List已经更上层接口的方法这里就跳过了, 参见ArrayList的用法
 
         // 测试LinkedList独有的功能
+        // clone()
+        // Returns a shallow copy of this LinkedList in Object type
+        LinkedList<Integer> li2 = (LinkedList<Integer>) li1.clone();
 
 
 
