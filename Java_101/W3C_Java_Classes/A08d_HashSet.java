@@ -37,12 +37,11 @@ public class A08d_HashSet {
             * copyOf
 
         * 来自HashSet
-            * 没有特别特殊的方法
+            * clone()
      */
 
 
     // 研究HashSet特有的方法
-    // 没有特别特殊的方法 (但是有新理解)
     public static void main(String[] args) {
 
         // 构造方法
@@ -50,6 +49,13 @@ public class A08d_HashSet {
         HashSet<Integer> HS2 = new HashSet<>(Arrays.asList(1,2,3,4));
         System.out.println(HS2.getClass());  // class java.util.HashSet
         System.out.println(HS2 instanceof java.util.HashSet); // >>> true
+
+        // clone()
+        // https://stackoverflow.com/q/55170506/8435726
+        // It is implementing the Cloneable interface,
+        // which at one point someone must have thought was a good idea.
+        // It's not a very useful interface
+
     }
 }
 

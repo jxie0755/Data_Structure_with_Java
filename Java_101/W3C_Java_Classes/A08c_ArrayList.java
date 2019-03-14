@@ -72,6 +72,10 @@ public class A08c_ArrayList {
         IAL2.add(5);
         System.out.println(IAL2);
         System.out.println(IAL);
+        // https://stackoverflow.com/q/55170506/8435726
+        // It is implementing the Cloneable interface,
+        // which at one point someone must have thought was a good idea.
+        // It's not a very useful interface
 
         // ensureCapacity​(int minCapacity) // 跳过
 
