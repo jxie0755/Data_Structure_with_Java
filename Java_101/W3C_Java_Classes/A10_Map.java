@@ -34,6 +34,8 @@ public class A10_Map {
     /*
      * Map常用方法
          * 来自Map
+             * size()                长度
+
              * get                   根据Key取Value
              * getOrDefault​          增强型get, 提供一个default值,如果key不存在
              * put                   添加新Key和新Value (不能重复Key)
@@ -311,9 +313,8 @@ class A10_Map_zMethods {
         // 跳过简单方法
         // clear()    清空
         // isEmpty()  判断为空
-        // hasCode()  返回哈希值
+        // hashCode()  返回哈希值
         // size()     长度
-        // values()   Collection view of values
 
         // containsKey​(Object key)
         // containsValue​(Object value)
