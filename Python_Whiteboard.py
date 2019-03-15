@@ -381,7 +381,8 @@ if __name__ == '__main__':
     q = Sudoku(hard_data_10_str)
     q.solve()
     q.show_answer()
-
+    print(q.deduct_history)
+    print(q.hash_board[(4,8)]['possible'])
 
     # problem solved!
     # 9  |6  9  1    3  7  2    4  8  5
@@ -400,40 +401,40 @@ if __name__ == '__main__':
     # Total hypothesis:  17
     # max_layer_counted: 4
 
-    import time
-    ultimate_puzzle_str_3 = [
-        ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
-        ['0', '0', '3', '6', '0', '0', '0', '0', '0'],
-        ['0', '7', '0', '0', '9', '0', '2', '0', '0'],
-        ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
-        ['0', '0', '0', '0', '4', '5', '7', '0', '0'],
-        ['0', '0', '0', '1', '0', '0', '0', '3', '0'],
-        ['0', '0', '1', '0', '0', '0', '0', '6', '8'],
-        ['0', '0', '8', '5', '0', '0', '0', '1', '0'],
-        ['0', '9', '0', '0', '0', '0', '4', '0', '0'],
-    ]
-
-    ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)
-    start_time = time.time()
-    ultimate_sudoku_3.solve()
-    ultimate_sudoku_3.show_statistics()
-    print(f"--- {time.time() - start_time}s seconds ---\n")
-
-    for i in ultimate_sudoku_3.guess_history:
-        print(i, "TRIED: ",  ultimate_sudoku_3.hash_board[i]['cur'])
-
-    # 简化版, 把guess数字添加以后, 不需要任何推理就可以完成
-    ultimate_puzzle_str_3b = [
-        ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
-        ['0', '4', '3', '6', '0', '0', '0', '0', '0'],
-        ['6', '7', '0', '0', '9', '0', '2', '0', '0'],
-        ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
-        ['3', '0', '0', '0', '4', '5', '7', '0', '0'],
-        ['2', '8', '0', '1', '0', '0', '0', '3', '0'],
-        ['5', '2', '1', '0', '0', '0', '3', '6', '8'],
-        ['0', '0', '8', '5', '0', '0', '9', '1', '0'],
-        ['7', '9', '0', '0', '0', '0', '4', '0', '0']]
-
-    ultimate_sudoku_3b = Sudoku(ultimate_puzzle_str_3b)
-    ultimate_sudoku_3b.direct_deduce()
-    print(ultimate_sudoku_3b.isSolved())
+    # import time
+    # ultimate_puzzle_str_3 = [
+    #     ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
+    #     ['0', '0', '3', '6', '0', '0', '0', '0', '0'],
+    #     ['0', '7', '0', '0', '9', '0', '2', '0', '0'],
+    #     ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
+    #     ['0', '0', '0', '0', '4', '5', '7', '0', '0'],
+    #     ['0', '0', '0', '1', '0', '0', '0', '3', '0'],
+    #     ['0', '0', '1', '0', '0', '0', '0', '6', '8'],
+    #     ['0', '0', '8', '5', '0', '0', '0', '1', '0'],
+    #     ['0', '9', '0', '0', '0', '0', '4', '0', '0'],
+    # ]
+    #
+    # ultimate_sudoku_3 = Sudoku(ultimate_puzzle_str_3)
+    # start_time = time.time()
+    # ultimate_sudoku_3.solve()
+    # ultimate_sudoku_3.show_statistics()
+    # print(f"--- {time.time() - start_time}s seconds ---\n")
+    #
+    # for i in ultimate_sudoku_3.guess_history:
+    #     print(i, "TRIED: ",  ultimate_sudoku_3.hash_board[i]['cur'])
+    #
+    # # 简化版, 把guess数字添加以后, 不需要任何推理就可以完成
+    # ultimate_puzzle_str_3b = [
+    #     ['8', '0', '0', '0', '0', '0', '0', '0', '0'],
+    #     ['0', '4', '3', '6', '0', '0', '0', '0', '0'],
+    #     ['6', '7', '0', '0', '9', '0', '2', '0', '0'],
+    #     ['0', '5', '0', '0', '0', '7', '0', '0', '0'],
+    #     ['3', '0', '0', '0', '4', '5', '7', '0', '0'],
+    #     ['2', '8', '0', '1', '0', '0', '0', '3', '0'],
+    #     ['5', '2', '1', '0', '0', '0', '3', '6', '8'],
+    #     ['0', '0', '8', '5', '0', '0', '9', '1', '0'],
+    #     ['7', '9', '0', '0', '0', '0', '4', '0', '0']]
+    #
+    # ultimate_sudoku_3b = Sudoku(ultimate_puzzle_str_3b)
+    # ultimate_sudoku_3b.direct_deduce()
+    # print(ultimate_sudoku_3b.isSolved())
