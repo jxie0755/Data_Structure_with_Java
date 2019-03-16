@@ -74,14 +74,14 @@ public class JavaSudokuSolver {
     }
 
     String process_raw(String[] row){
-        String x = "|";
+        StringBuilder x = new StringBuilder("|");
         for (String i: row){
             if (!JavaSudokuSolver.valid.contains(i)) {
-                x += JavaSudokuSolver.blank;
+                x.append(JavaSudokuSolver.blank);
             } else {
-                x += i;
+                x.append(i);
             }
-            x += "  ";
+            x.append("  ");
         }
 
         return x.substring(0, 9) + "  " + x.substring(9, 18) + "  " + x.substring(18);
