@@ -228,7 +228,7 @@ class A08b_List_as_set {
         LO5.removeAll(LO6);        //     变成: [b, c]   (两个1都被删)
 
 
-        // 把一个list去重怎么办?
+        // 把一个list去重怎么办? 类型转换
         // 相当于pythong中 lst1 = list(set(lst2))
         List<Object> LOX = new ArrayList<>(Arrays.asList(1, 2, "A", 1, 3, "A"));
         List<Object> LOXsetList = new ArrayList<>(new HashSet<>(LOX));
