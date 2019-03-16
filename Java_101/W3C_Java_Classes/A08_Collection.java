@@ -287,7 +287,7 @@ class A08b_List_remove {
 class A08b_List_toArray {
     public static void main(String[] args) {
 
-        List l = new ArrayList<>(Arrays.asList("A", "B", "C"));
+        List<String> l = new ArrayList<>(Arrays.asList("A", "B", "C"));
         Object[] objs = l.toArray();     // 可以
         // String[] strs = l.toArray();  // 不行, throw ClassCastException
 
@@ -298,6 +298,8 @@ class A08b_List_toArray {
         // 正确做法, 分两步:
         String[] strs = new String[l.size()];
         l.toArray(strs);
+        // 或者一步
+        String[] strs_b = l.toArray(new String[l.size()]);
         // 这样可以得到一个 String[]  [A, B, C]
 
         // 如果创建的额String[]比l还长很多会如何?

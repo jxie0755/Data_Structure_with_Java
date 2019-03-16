@@ -188,7 +188,8 @@ class String_zMethods {
         String str1 = "hello";  // 最简单方式
 
         char[] helloArray = { 'h', 'e', 'l', 'l', 'o'};  // 从一个char数组创建
-        String str2 = new String(helloArray);
+        String[] helloStrArray = {"h", "e", "l", "l", "o"};
+        String str2 = new String(helloArray); // 直接convert
 
         // String类有11种构造方法，这些方法提供不同的参数来初始化字符串
 
@@ -196,9 +197,14 @@ class String_zMethods {
         // 获取长度
         Integer str1_length = str1.length();  // 5
 
-        // join方法, 连接字符串  string1.concat(string2);
+        // concat方法, 连接字符串  string1.concat(string2);
         String str3 = str1.concat(str2).concat(str1);  // hellohellohello
         String str4 = str1 + str2 + str1;              // hellohellohello
+
+        // join方法, 把Array变成String
+        // join​(CharSequence delimiter, CharSequence... elements)
+        // join​(CharSequence delimiter, Iterable<? extends CharSequence> elements)
+        String str4b = String.join("", helloStrArray);
 
 
         // char charAt(int index)
