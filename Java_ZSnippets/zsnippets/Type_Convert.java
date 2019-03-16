@@ -57,6 +57,13 @@ public class Type_Convert {
         // 用iteration很容易
 
 
+        // String和StringBuilder之间的转换
+
+        // String to StringBuilder  // 直接constructor?
+        String E = "Denis";
+        StringBuilder SB_E = new StringBuilder(E);
+        // StringBuilder to String
+        String str_E = SB_E.toString();
 
 
         // 容器转换
@@ -70,21 +77,21 @@ public class Type_Convert {
 
         // 一维Array和一维ArrayList
         // Array to ArrayList
-        Integer[] E = new Integer[]{1, 2, 3, 4};
-        List<Integer> int_L = new ArrayList<>(Arrays.asList(E));
+        Integer[] X_array = new Integer[]{1, 2, 3, 4};
+        List<Integer> int_L = new ArrayList<>(Arrays.asList(X_array));
         // ArrayList to Array
         Integer[] int_array = int_L.toArray(new Integer[int_L.size()]);  // 利用重载方法
 
 
         // 二维Array和而维ArrayList
         // 二维Array to 二维ArrayList
-        Integer[][] F = new Integer[][]{
+        Integer[][] X_grid = new Integer[][]{
                 {1, 2},
                 {3, 4}
         };
 
         List<List<Integer>> list_grid = new ArrayList<>(); // 先定义空表
-        for (Integer[] array : F) {
+        for (Integer[] array : X_grid) {
             list_grid.add(new ArrayList<>(Arrays.asList(array)));
         } // 没有直接办法
 
