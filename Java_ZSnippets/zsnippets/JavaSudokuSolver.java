@@ -6,6 +6,7 @@ import java.util.*;
 /**
  * This is to create the same sudoku solver algorithm from python version
  * from: sudoku_solver_v3.py by using HashMap
+ * raw data must be in String[][] type.
  **/
 
 public class JavaSudokuSolver {
@@ -36,6 +37,8 @@ public class JavaSudokuSolver {
         this.board = puzzle;
 
         // 先处理hashboad
+        // 这里要注意, python中"cur"对应的是一个String, 而"possible"和"trie"对应的是List<String>
+        // 而Java字典中的值类型不同,会比较麻烦,所以"cur"也用List包装, 但是只装一个值
         for (Integer x = 1; x < 10; x++) {
             for (Integer y = 1; y < 10; y++) {
                 Map<String, List<String>> hash_boad_value = new HashMap<>();
@@ -103,6 +106,18 @@ public class JavaSudokuSolver {
         return to_print.toString();
     }
 
+    /**
+     * define reading of current value at coor location
+     */
+    String cur_value(List<Integer> coor) {
+        return this.hash_board.get(coor).get("cur").get(0);
+    }
+
+    /**Define insert movement, by adding value to the baord at coor location*/
+    void insert(List<Integer> coor, String value) {
+        this.hash_board.get(coor).get("cur").set(0, value);
+        this.count += 1;
+    }
 
 }
 
