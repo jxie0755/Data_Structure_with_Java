@@ -57,7 +57,8 @@ public class JavaSudokuSolver {
 
         // 将题读入hashboard
         this.load_quiz();
-
+        System.out.println("puzzle is generated:");
+        System.out.println(this + "\n");
     }
 
      void load_quiz() {
@@ -69,13 +70,37 @@ public class JavaSudokuSolver {
         }
     }
 
+    String process_raw(String[] row){
+        String x = "|";
+        for (String i: row){
+            if (!JavaSudokuSolver.valid.contains(i)) {
+                x += JavaSudokuSolver.blank;
+            } else {
+                x += i;
+            }
+            x += "  ";
+        }
+
+        return x.substring(0, 9) + "  " + x.substring(9, 18) + "  " + x.substring(18);
+    }
+
     public String toString() {
-        String to_print = "";
+        StringBuilder to_print = new StringBuilder();
+        int y_num = 9;
+        String separ = "    -----------------------------";
+        String x_num = "    1  2  3    4  5  6    7  8  9";
 
+        for (String[] row : this.board) {
+            String str_row = process_raw(row);
+            to_print.append(String.valueOf(y_num) + "  " + str_row + "\n");
+            if (List.of(7, 4).contains(y_num)) {
+                to_print.append("\n");
+            }
+            y_num -= 1;
+        }
 
-
-
-        return to_print;
+        to_print.append(separ + "\n" + x_num);
+        return to_print.toString();
     }
 
 
@@ -91,19 +116,6 @@ class sudokuTest {
     public static void main(String[] args) {
 
         // websudoku hard puzzle 10
-        // List<List<String>> hard_data_10_str = new ArrayList<>(Arrays.asList(
-        //         new ArrayList<>(Arrays.asList("0", "0", "0", "3", "7", "0", "0", "0", "5")),
-        //         new ArrayList<>(Arrays.asList("8", "0", "0", "0", "5", "1", "3", "0", "0")),
-        //         new ArrayList<>(Arrays.asList("0", "5", "0", "0", "0", "0", "0", "6", "2")),
-        //         new ArrayList<>(Arrays.asList("0", "5", "0", "0", "0", "0", "0", "6", "2")),
-        //         new ArrayList<>(Arrays.asList("0", "0", "0", "7", "0", "8", "0", "0", "0")),
-        //         new ArrayList<>(Arrays.asList("0", "0", "0", "0", "0", "0", "0", "5", "4")),
-        //         new ArrayList<>(Arrays.asList("1", "6", "0", "0", "0", "0", "0", "4", "0")),
-        //         new ArrayList<>(Arrays.asList("0", "0", "3", "1", "2", "0", "0", "0", "7")),
-        //         new ArrayList<>(Arrays.asList("5", "0", "0", "0", "6", "4", "0", "0", "0"))
-        // ));
-
-
         String[][] hard_10 = {
                 {"0", "0", "0", "3", "7", "0", "0", "0", "5"},
                 {"8", "0", "0", "0", "5", "1", "3", "0", "0"},
@@ -117,20 +129,12 @@ class sudokuTest {
         };
 
 
-
         // Test
         JavaSudokuSolver q1 = new JavaSudokuSolver(hard_10);
 
-        // q1.load_quiz();
-        for (List<Integer> key : q1.hash_board.keySet()) {
-            System.out.println(key + " -> " + q1.hash_board.get(key).get("cur"));
-        }
-
-
-
-
 
     }
+
 }
 
 
