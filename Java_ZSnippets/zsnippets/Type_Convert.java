@@ -21,18 +21,21 @@ public class Type_Convert {
         // int转String
         int B = 1;
         String str_B = String.valueOf(B);
+
         // String转int
         int int_B = Integer.valueOf(str_B);
 
         // char转String
         char C = 'X';
         String str_C = String.valueOf(C);
+
         //String转char? 可能没必要
         char char_c = str_C.charAt(0);
 
         // Character转String  // 基本同上
         Character D = 'Y';
         String str_D = String.valueOf(D);
+
         // Character转String
         Character Char_D = str_D.charAt(0);
 
