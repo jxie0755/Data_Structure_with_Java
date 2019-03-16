@@ -62,7 +62,7 @@ public class Type_Convert {
         // 容器转换
 
         // Collection转换  (直接通过constructor)
-        // List 和 Set的转换
+        // List 和 Set的转换 (list去重)
         List<Object> LOX = new ArrayList<>(Arrays.asList(1, 2, "A", 1, 3, "A"));
         List<Object> LOXsetList = new ArrayList<>(new HashSet<>(LOX));
         System.out.println(LOXsetList);  // >>> [1, A, 2, 3]  注意顺序奇怪
