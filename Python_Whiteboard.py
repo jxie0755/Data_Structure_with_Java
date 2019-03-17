@@ -28,7 +28,7 @@ class Sudoku(object):
         建造一个哈希表 self.history 来记录操作/推理的过程
         """
 
-        self.blank = '.'
+        self.blank = '0'
         self.valid = ['1', '2', '3', '4', '5','6', '7', '8', '9']
 
         # 保留原puzzle, 用于print
@@ -69,7 +69,7 @@ class Sudoku(object):
             x = '|'
             for i in row:
                 if i not in self.valid:
-                    x += self.blank
+                    x += '.'
                 else:
                     x += str(i)
                 x += '  '
@@ -151,28 +151,30 @@ class Sudoku(object):
         row_at = self.row(coor[1])
         col_at = self.col(coor[0])
 
-        if coor[0] in [1,2,3]:
-            if coor[1] in [1,2,3]:
+        x, y = coor[0], coor[1]
+
+        if x in [1,2,3]:
+            if y in [1,2,3]:
                 n = 7
-            elif coor[1] in [4,5,6]:
+            elif y in [4,5,6]:
                 n = 4
-            elif coor[1] in [7,8,9]:
+            elif y in [7,8,9]:
                 n = 1
 
-        elif coor[0] in [4,5,6]:
-            if coor[1] in [1,2,3]:
+        elif x in [4,5,6]:
+            if y in [1,2,3]:
                 n = 8
-            elif coor[1] in [4,5,6]:
+            elif y in [4,5,6]:
                 n = 5
-            elif coor[1] in [7,8,9]:
+            elif y in [7,8,9]:
                 n = 2
 
-        elif coor[0] in [7,8,9]:
-            if coor[1] in [1,2,3]:
+        elif x in [7,8,9]:
+            if y in [1,2,3]:
                 n = 9
-            elif coor[1] in [4,5,6]:
+            elif y in [4,5,6]:
                 n = 6
-            elif coor[1] in [7,8,9]:
+            elif y in [7,8,9]:
                 n = 3
 
         grid_at = self.grid(n)
@@ -381,8 +383,8 @@ if __name__ == '__main__':
     q = Sudoku(hard_data_10_str)
     q.solve()
     q.show_answer()
-    print(q.deduct_history)
-    print(q.hash_board[(4,8)]['possible'])
+
+
 
     # problem solved!
     # 9  |6  9  1    3  7  2    4  8  5

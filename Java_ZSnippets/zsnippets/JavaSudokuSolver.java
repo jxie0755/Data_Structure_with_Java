@@ -12,7 +12,7 @@ import java.util.*;
 public class JavaSudokuSolver {
 
     // constants
-    static String blank = ".";
+    static String blank = "0";
     static List<String> valid = new ArrayList<>(Arrays.asList(
             "1", "2", "3",
             "4", "5", "6",
@@ -81,7 +81,7 @@ public class JavaSudokuSolver {
         StringBuilder x = new StringBuilder("|");
         for (String i: row){
             if (!valid.contains(i)) {
-                x.append(blank);
+                x.append(".");
             } else {
                 x.append(i);
             }
@@ -183,8 +183,70 @@ public class JavaSudokuSolver {
      * 得到一个坐标的行,列,九宫格三列的值
      */
     List<List<String>> get_row_col_grid(List<Integer> coor) {
+        int x = coor.get(0);
+        int y = coor.get(1);
 
+        int grid_n;
+
+        List<Integer> A = List.of(1, 2, 3);
+        List<Integer> B = List.of(4, 5, 6);
+
+        if (A.contains(x)) {
+            if (A.contains(y)) {
+                grid_n = 7;
+            } else if (B.contains(y)) {
+                grid_n = 4;
+            } else {
+                grid_n = 1;
+            }
+        } else if (B.contains(x)) {
+            if (A.contains(y)) {
+                grid_n = 8;
+            } else if (B.contains(y)) {
+                grid_n = 5;
+            } else {
+                grid_n = 2;
+            }
+        } else {
+            if (A.contains(y)) {
+                grid_n = 9;
+            } else if (B.contains(y)) {
+                grid_n = 6;
+            } else {
+                grid_n = 3;
+            }
+        }
+        return new ArrayList<>(Arrays.asList(this.row(y), this.col(x), this.grid(grid_n)));
     }
+
+    /**
+     * Return if there is a conflict int he board
+     * 也就是横,竖,九宫格存在冲突
+     */
+    boolean no_conflict() {
+        List<List<String>> all_subs = new ArrayList<>();
+        for (int i = 1; i < 10; i += 1) {
+            all_subs.add(this.row(i));
+            all_subs.add(this.col(i));
+            all_subs.add(this.grid(i));
+        }
+
+        for (List<String> line : all_subs) {
+            List<String> check_list = new ArrayList<>();
+            for (String i : line) {
+                if (!i.equals(blank)) {
+                    if (!check_list.contains(i)) {
+                        check_list.add(i);
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+
 
 }
 
@@ -202,7 +264,7 @@ class sudokuTest {
                 {"0", "0", "0", "3", "7", "0", "0", "0", "5"},
                 {"8", "0", "0", "0", "5", "1", "3", "0", "0"},
                 {"0", "5", "0", "0", "0", "0", "0", "6", "2"},
-                {"0", "5", "0", "0", "0", "0", "0", "6", "2"},
+                {"9", "4", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "7", "0", "8", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "5", "4"},
                 {"1", "6", "0", "0", "0", "0", "0", "4", "0"},
@@ -213,7 +275,9 @@ class sudokuTest {
 
         // Test
         JavaSudokuSolver q1 = new JavaSudokuSolver(hard_10);
-        System.out.print(q1.grid(7));
+        System.out.println(q1.no_conflict());
+
+
 
     }
 
