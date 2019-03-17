@@ -31,6 +31,19 @@ public class JavaSudokuSolver {
     Integer guess = 0;
     Integer guess_layer = 0;
 
+    // for read grid
+    static Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
+                 Map.entry(1, List.of(7, 10, 1, 4)),
+                 Map.entry(2, List.of(7, 10, 4, 7)),
+                 Map.entry(3, List.of(7, 10, 7, 10)),
+                 Map.entry(4, List.of(4, 7, 1, 4)),
+                 Map.entry(5, List.of(4, 7, 4, 7)),
+                 Map.entry(6, List.of(4, 7, 7, 10)),
+                 Map.entry(7, List.of(1, 4, 1, 4)),
+                 Map.entry(8, List.of(1, 4, 4, 7)),
+                 Map.entry(9, List.of(1, 4, 7, 10))
+     ));
+
     public JavaSudokuSolver(String[][] puzzle) {
 
         // 生成棋盘读题
@@ -67,8 +80,8 @@ public class JavaSudokuSolver {
     String process_raw(String[] row){
         StringBuilder x = new StringBuilder("|");
         for (String i: row){
-            if (!JavaSudokuSolver.valid.contains(i)) {
-                x.append(JavaSudokuSolver.blank);
+            if (!valid.contains(i)) {
+                x.append(blank);
             } else {
                 x.append(i);
             }
@@ -149,22 +162,18 @@ public class JavaSudokuSolver {
         return col_n;
     }
 
-    List<String> single_grid(int a, int b, int c, int d){
+    List<String> grid(int n) {
         List<String> grid_n = new ArrayList<>();
+        int a = gridmap.get(n).get(0);
+        int b = gridmap.get(n).get(1);
+        int c = gridmap.get(n).get(2);
+        int d = gridmap.get(n).get(3);
         for (int y = a; y < b; y += 1) {
             for (int x = c; x < d; x += 1) {
                 grid_n.add(this.hash_board.get(List.of(x, y)).get("cur").get(0));
             }
         }
         return grid_n;
-    }
-
-
-    List<String> grid(int n) {
-        List<String> grids = new ArrayList<>();
-        grids.add(this.single_grid())
-
-
     }
 
 
@@ -197,8 +206,7 @@ class sudokuTest {
 
         // Test
         JavaSudokuSolver q1 = new JavaSudokuSolver(hard_10);
-
-        System.out.print(q1.col(1));
+        System.out.print(q1.grid(7));
 
     }
 
