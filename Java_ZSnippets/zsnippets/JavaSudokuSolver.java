@@ -7,7 +7,7 @@ import java.util.*;
  * This is to create the same sudoku solver algorithm from python version
  * from: sudoku_solver_v3.py by using HashMap
  * raw data must be in String[][] type.
- **/
+ */
 
 public class JavaSudokuSolver {
 
@@ -64,14 +64,6 @@ public class JavaSudokuSolver {
         System.out.println(this + "\n");
     }
 
-     void load_quiz() {
-        for (List<Integer> key : this.hash_board.keySet()) {
-            int x = key.get(0);
-            int y = key.get(1);
-            String given = this.board[9 - y][x - 1];
-            this.hash_board.get(key).get("cur").set(0, given);
-        }
-    }
 
     String process_raw(String[] row){
         StringBuilder x = new StringBuilder("|");
@@ -106,6 +98,15 @@ public class JavaSudokuSolver {
         return to_print.toString();
     }
 
+    void load_quiz() {
+        for (List<Integer> key : this.hash_board.keySet()) {
+            int x = key.get(0);
+            int y = key.get(1);
+            String given = this.board[9 - y][x - 1];
+            this.hash_board.get(key).get("cur").set(0, given);
+        }
+    }
+
     /**
      * define reading of current value at coor location
      */
@@ -113,11 +114,43 @@ public class JavaSudokuSolver {
         return this.hash_board.get(coor).get("cur").get(0);
     }
 
-    /**Define insert movement, by adding value to the baord at coor location*/
+    /**
+     * Define insert movement, by adding value to the baord at coor location
+     */
     void insert(List<Integer> coor, String value) {
         this.hash_board.get(coor).get("cur").set(0, value);
         this.count += 1;
     }
+
+
+    // 基础设施
+    /**
+     * 返回一个行的值
+     */
+    List<String> row(int n) {
+        List<String> row_n = new ArrayList<>();
+        for (List<Integer> coor : this.hash_board.keySet()) {
+            if (coor.get(1) == n) {
+                row_n.add(this.hash_board.get(coor).get("cur").get(0));
+            }
+        }
+        return row_n;
+    }
+
+    /**
+     * 返回一个列的值
+     */
+    List<String> col(int n) {
+        List<String> col_n = new ArrayList<>();
+        for (List<Integer> coor : this.hash_board.keySet()) {
+            if (coor.get(0) == n) {
+                col_n.add(this.hash_board.get(coor).get("cur").get(0));
+            }
+        }
+        return col_n;
+    }
+
+
 
 }
 
@@ -147,6 +180,7 @@ class sudokuTest {
         // Test
         JavaSudokuSolver q1 = new JavaSudokuSolver(hard_10);
 
+        System.out.print(q1.col(1));
 
     }
 
