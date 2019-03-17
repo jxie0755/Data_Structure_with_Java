@@ -11,12 +11,24 @@ import java.util.*;
 
 public class JavaSudokuSolver {
 
-    // constant
+    // constants
     static String blank = ".";
     static List<String> valid = new ArrayList<>(Arrays.asList(
             "1", "2", "3",
             "4", "5", "6",
             "7", "8", "9"));
+    // for read grid
+    static Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
+                 Map.entry(1, List.of(7, 10, 1, 4)),
+                 Map.entry(2, List.of(7, 10, 4, 7)),
+                 Map.entry(3, List.of(7, 10, 7, 10)),
+                 Map.entry(4, List.of(4, 7, 1, 4)),
+                 Map.entry(5, List.of(4, 7, 4, 7)),
+                 Map.entry(6, List.of(4, 7, 7, 10)),
+                 Map.entry(7, List.of(1, 4, 1, 4)),
+                 Map.entry(8, List.of(1, 4, 4, 7)),
+                 Map.entry(9, List.of(1, 4, 7, 10))
+     ));
 
     // main data structure
     String[][] board;
@@ -31,18 +43,6 @@ public class JavaSudokuSolver {
     Integer guess = 0;
     Integer guess_layer = 0;
 
-    // for read grid
-    static Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
-                 Map.entry(1, List.of(7, 10, 1, 4)),
-                 Map.entry(2, List.of(7, 10, 4, 7)),
-                 Map.entry(3, List.of(7, 10, 7, 10)),
-                 Map.entry(4, List.of(4, 7, 1, 4)),
-                 Map.entry(5, List.of(4, 7, 4, 7)),
-                 Map.entry(6, List.of(4, 7, 7, 10)),
-                 Map.entry(7, List.of(1, 4, 1, 4)),
-                 Map.entry(8, List.of(1, 4, 4, 7)),
-                 Map.entry(9, List.of(1, 4, 7, 10))
-     ));
 
     public JavaSudokuSolver(String[][] puzzle) {
 
@@ -162,6 +162,9 @@ public class JavaSudokuSolver {
         return col_n;
     }
 
+    /**
+     * 返回一个九宫格的值
+     */
     List<String> grid(int n) {
         List<String> grid_n = new ArrayList<>();
         int a = gridmap.get(n).get(0);
