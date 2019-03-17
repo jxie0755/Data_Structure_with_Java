@@ -179,8 +179,12 @@ public class JavaSudokuSolver {
         return grid_n;
     }
 
+    /**
+     * 得到一个坐标的行,列,九宫格三列的值
+     */
+    List<List<String>> get_row_col_sub(List<Integer> coor) {
 
-
+    }
 
 }
 
