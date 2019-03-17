@@ -38,7 +38,7 @@ class Sudoku(object):
         # self.pool = {card:9 for card in self.valid}
 
         self.hash_board = {
-            coor: {'cur': self.blank, 'possible': [], 'tried':[]}
+            coor: {'cur': [self.blank], 'possible': [], 'tried':[]}
             for coor in [(x, y) for x in range(1, 10) for y in range(1, 10)]
         }
 
@@ -98,29 +98,29 @@ class Sudoku(object):
             x, y = coor[0], coor[1]
             given = self.board[9-y][x-1]
             if given in self.valid:
-                value['cur'] = given
+                value['cur'][0] = given
 
     # define some verification method
     def cur_value(self, coor):
         """return the current value in hash_board"""
-        return self.hash_board[coor]['cur']
+        return self.hash_board[coor]['cur'][0]
 
     # Define moves to add numbers to the board
     def insert(self, coor, value):
         """to insert a value into the checkerboard
         for convenience, indext start from 1, and act like coordinates
         """
-        self.hash_board[coor]['cur'] = value
+        self.hash_board[coor]['cur'][0] = value
         self.count += 1
 
     # 基础设施, 判断行列
     def row(self, n):
         """返回一个行的值"""
-        return [self.hash_board[coor]['cur'] for coor in self.hash_board if coor[1] == n]
+        return [self.hash_board[coor]['cur'][0] for coor in self.hash_board if coor[1] == n]
 
     def col(self, n):
         """返回一个列的值"""
-        return [self.hash_board[coor]['cur'] for coor in self.hash_board if coor[0] == n]
+        return [self.hash_board[coor]['cur'][0] for coor in self.hash_board if coor[0] == n]
 
     def grid(self, n):
         """output a grid of 3*3 in the checkboard
@@ -133,15 +133,15 @@ class Sudoku(object):
 
         return: a list of numbers extracted from the grid
         """
-        g1 = [self.hash_board[(x, y)]["cur"] for y in range(7, 10) for x in range(1, 4)]
-        g2 = [self.hash_board[(x, y)]["cur"] for y in range(7, 10) for x in range(4, 7)]
-        g3 = [self.hash_board[(x, y)]["cur"] for y in range(7, 10) for x in range(7, 10)]
-        g4 = [self.hash_board[(x, y)]["cur"] for y in range(4, 7) for x in range(1, 4)]
-        g5 = [self.hash_board[(x, y)]["cur"] for y in range(4, 7) for x in range(4, 7)]
-        g6 = [self.hash_board[(x, y)]["cur"] for y in range(4, 7) for x in range(7, 10)]
-        g7 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(1, 4)]
-        g8 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(4, 7)]
-        g9 = [self.hash_board[(x, y)]["cur"] for y in range(1, 4) for x in range(7, 10)]
+        g1 = [self.hash_board[(x, y)]["cur"][0] for y in range(7, 10) for x in range(1, 4)]
+        g2 = [self.hash_board[(x, y)]["cur"][0] for y in range(7, 10) for x in range(4, 7)]
+        g3 = [self.hash_board[(x, y)]["cur"][0] for y in range(7, 10) for x in range(7, 10)]
+        g4 = [self.hash_board[(x, y)]["cur"][0] for y in range(4, 7) for x in range(1, 4)]
+        g5 = [self.hash_board[(x, y)]["cur"][0] for y in range(4, 7) for x in range(4, 7)]
+        g6 = [self.hash_board[(x, y)]["cur"][0] for y in range(4, 7) for x in range(7, 10)]
+        g7 = [self.hash_board[(x, y)]["cur"][0] for y in range(1, 4) for x in range(1, 4)]
+        g8 = [self.hash_board[(x, y)]["cur"][0] for y in range(1, 4) for x in range(4, 7)]
+        g9 = [self.hash_board[(x, y)]["cur"][0] for y in range(1, 4) for x in range(7, 10)]
         grids = [g1, g2, g3, g4, g5, g6, g7, g8, g9]
         return grids[n-1]
 
@@ -151,30 +151,28 @@ class Sudoku(object):
         row_at = self.row(coor[1])
         col_at = self.col(coor[0])
 
-        x, y = coor[0], coor[1]
-
-        if x in [1,2,3]:
-            if y in [1,2,3]:
+        if coor[0] in [1,2,3]:
+            if coor[1] in [1,2,3]:
                 n = 7
-            elif y in [4,5,6]:
+            elif coor[1] in [4,5,6]:
                 n = 4
-            elif y in [7,8,9]:
+            elif coor[1] in [7,8,9]:
                 n = 1
 
-        elif x in [4,5,6]:
-            if y in [1,2,3]:
+        elif coor[0] in [4,5,6]:
+            if coor[1] in [1,2,3]:
                 n = 8
-            elif y in [4,5,6]:
+            elif coor[1] in [4,5,6]:
                 n = 5
-            elif y in [7,8,9]:
+            elif coor[1] in [7,8,9]:
                 n = 2
 
-        elif x in [7,8,9]:
-            if y in [1,2,3]:
+        elif coor[0] in [7,8,9]:
+            if coor[1] in [1,2,3]:
                 n = 9
-            elif y in [4,5,6]:
+            elif coor[1] in [4,5,6]:
                 n = 6
-            elif y in [7,8,9]:
+            elif coor[1] in [7,8,9]:
                 n = 3
 
         grid_at = self.grid(n)
@@ -205,7 +203,7 @@ class Sudoku(object):
     def all_filled(self):
         """To ensure all the place is filled with a number"""
         for coor, value in self.hash_board.items():
-            if value['cur'] == self.blank:
+            if value['cur'][0] == self.blank:
                 return False
         return True
 
@@ -219,7 +217,7 @@ class Sudoku(object):
         {(x,y): [v1, v2, v3], (x,y): [v1, v2, v3], (x,y): [v1, v2, v3]}
         """
         for coor, value in self.hash_board.items():
-            if value['cur'] == self.blank:
+            if value['cur'][0] == self.blank:
                 cant_be = set(sum(self.get_row_col_grid(coor), []))
                 can_be = [i for i in self.valid if i not in cant_be]
                 value['possible'] = can_be
@@ -229,7 +227,7 @@ class Sudoku(object):
         """return True if all vacant spot can still fill in a possible number"""
         self.analysis()
         for coor, value in self.hash_board.items():
-            if value['cur'] == self.blank and value['possible'] == []:
+            if value['cur'][0] == self.blank and value['possible'] == []:
                 return False
         return True
 
@@ -244,7 +242,7 @@ class Sudoku(object):
             self.analysis()
             coor_operated = []
             for coor, value in self.hash_board.items():
-                if len(value['possible']) == 1 and value['cur']==self.blank:
+                if len(value['possible']) == 1 and value['cur'][0] ==self.blank:
                     self.insert(coor, value['possible'][0])
                     coor_operated.append(coor)
             if not coor_operated:
@@ -261,7 +259,7 @@ class Sudoku(object):
         coor_to_move = min(
             self.hash_board,
             key=lambda x: len(self.hash_board[x]['possible'])
-            if self.hash_board[x]['cur'] == self.blank else 10
+            if self.hash_board[x]['cur'][0] == self.blank else 10
         )
         self.guess_history.append(coor_to_move)
         return coor_to_move
@@ -283,9 +281,9 @@ class Sudoku(object):
         undo_deducted = self.deduct_history.pop()
         guess_deducted = self.guess_history[-1]
         for coor in undo_deducted:
-            self.hash_board[coor]['cur'] = self.blank
+            self.hash_board[coor]['cur'][0] = self.blank
 
-        self.hash_board[guess_deducted]['cur'] = self.blank
+        self.hash_board[guess_deducted]['cur'][0] = self.blank
 
 
     def last_guess_availble(self):
@@ -295,7 +293,7 @@ class Sudoku(object):
     def print_translate(self):
         for coor, value in self.hash_board.items():
             x, y = coor[0], coor[1]
-            self.board[9 - y][x - 1] = value['cur']
+            self.board[9 - y][x - 1] = value['cur'][0]
         print(self)
 
 
