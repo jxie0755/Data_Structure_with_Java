@@ -39,11 +39,10 @@ public class JavaSudokuSolver {
         // 先处理hashboad
         // 这里要注意, python中"cur"对应的是一个String, 而"possible"和"trie"对应的是List<String>
         // 而Java字典中的值类型不同,会比较麻烦,所以"cur"也用List包装, 但是只装一个值
-        for (Integer x = 1; x < 10; x++) {
-            for (Integer y = 1; y < 10; y++) {
+        for (int x = 1; x < 10; x++) {
+            for (int y = 1; y < 10; y++) {
                 Map<String, List<String>> hash_boad_value = new HashMap<>();
-                List<Integer> coor = List.of(x, y);
-                hash_board.put(coor, hash_boad_value);
+                hash_board.put(List.of(x, y), hash_boad_value);
             }
         }
 
@@ -149,6 +148,25 @@ public class JavaSudokuSolver {
         }
         return col_n;
     }
+
+    List<String> single_grid(int a, int b, int c, int d){
+        List<String> grid_n = new ArrayList<>();
+        for (int y = a; y < b; y += 1) {
+            for (int x = c; x < d; x += 1) {
+                grid_n.add(this.hash_board.get(List.of(x, y)).get("cur").get(0));
+            }
+        }
+        return grid_n;
+    }
+
+
+    List<String> grid(int n) {
+        List<String> grids = new ArrayList<>();
+        grids.add(this.single_grid())
+
+
+    }
+
 
 
 
