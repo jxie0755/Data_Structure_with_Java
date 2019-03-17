@@ -246,6 +246,17 @@ public class JavaSudokuSolver {
         return true;
     }
 
+    /**
+     * 判断棋盘是否已被填满
+     */
+    boolean all_filled() {
+        for (Map<String, List<String>> value : this.hash_board.values()) {
+            if (value.get("cur").get(0).equals(blank)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 }
@@ -275,8 +286,6 @@ class sudokuTest {
 
         // Test
         JavaSudokuSolver q1 = new JavaSudokuSolver(hard_10);
-        System.out.println(q1.no_conflict());
-
 
 
     }
