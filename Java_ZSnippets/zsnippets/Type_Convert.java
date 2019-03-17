@@ -1,9 +1,6 @@
 package zsnippets;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Type_Convert {
 
@@ -102,6 +99,11 @@ public class Type_Convert {
             List<Integer> to_add = list_grid.get(0);
             array_grid[i] = to_add.toArray(new Integer[to_add.size()]);
         } // 没有直接办法
+
+        Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
+                Map.entry(1, List.of(1,2,3,4))
+        ));
+
     }
 }
 
