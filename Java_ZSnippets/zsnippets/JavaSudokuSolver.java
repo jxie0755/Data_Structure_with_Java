@@ -35,11 +35,11 @@ public class JavaSudokuSolver {
 
     // main data structure
     String[][] board;
-    Map<List<Integer>, Map<String, Deque<String>>> hash_board = new HashMap<>();
+    Map<List<Integer>, Map<String, List<String>>> hash_board = new HashMap<>();
 
     // for derivitation
-    Deque<List<Integer>> guess_history = new LinkedList<>();
-    Deque<List<List<Integer>>> deduct_history = new LinkedList<>();
+    List<List<Integer>> guess_history = new ArrayList<>();
+    List<List<List<Integer>>> deduct_history = new ArrayList<>();
 
     // for statistics
     Integer count = 0;
@@ -58,7 +58,7 @@ public class JavaSudokuSolver {
         // 同时准备all_coors
         for (int x = 1; x < 10; x++) {
             for (int y = 1; y < 10; y++) {
-                Map<String, Deque<String>> hash_boad_value = new HashMap<>();
+                Map<String, List<String>> hash_boad_value = new HashMap<>();
                 hash_board.put(List.of(x, y), hash_boad_value);
                 all_coors.add(List.of(x, y));
             }
@@ -66,7 +66,7 @@ public class JavaSudokuSolver {
 
 
         for (List coor : this.all_coors) {
-            Map<String, Deque<String>> hashboard_items = hash_board.get(coor);
+            Map<String, List<String>> hashboard_items = hash_board.get(coor);
             hashboard_items.put("cur", new LinkedList<>(Arrays.asList(blank)));
             hashboard_items.put("tried", new LinkedList<>());
             hashboard_items.put("possible", new LinkedList<>());
@@ -117,7 +117,7 @@ public class JavaSudokuSolver {
             int x = key.get(0);
             int y = key.get(1);
             String given = this.board[9 - y][x - 1];
-            this.hash_board.get(key).get("cur").addLast(given);
+            this.hash_board.get(key).get("cur").set(0, given);
         }
     }
 
@@ -125,21 +125,19 @@ public class JavaSudokuSolver {
      * define reading of current value at coor location
      */
     String cur_value(List<Integer> coor) {
-        return this.hash_board.get(coor).get("cur").peekLast();
+        return this.hash_board.get(coor).get("cur").get(0);
     }
 
     /**
      * Define insert movement, by adding value to the baord at coor location
      */
     void insert(List<Integer> coor, String value) {
-        this.hash_board.get(coor).get("cur").clear();
-        this.hash_board.get(coor).get("cur").addLast(value);
+        this.hash_board.get(coor).get("cur").set(0,value);
         this.count += 1;
     }
 
     void cancel_insert(List<Integer> coor) {
-        this.hash_board.get(coor).get("cur").clear();
-        this.hash_board.get(coor).get("cur").addLast(blank);
+        this.hash_board.get(coor).get("cur").set(0,blank);
     }
 
 
@@ -151,7 +149,7 @@ public class JavaSudokuSolver {
         List<String> row_n = new ArrayList<>();
         for (List<Integer> coor : this.all_coors) {
             if (coor.get(1) == n) {
-                row_n.add(this.hash_board.get(coor).get("cur").peekLast());
+                row_n.add(this.hash_board.get(coor).get("cur").get(0));
             }
         }
         return row_n;
@@ -164,7 +162,7 @@ public class JavaSudokuSolver {
         List<String> col_n = new ArrayList<>();
         for (List<Integer> coor : this.all_coors) {
             if (coor.get(0) == n) {
-                col_n.add(this.hash_board.get(coor).get("cur").peekLast());
+                col_n.add(this.hash_board.get(coor).get("cur").get(0));
             }
         }
         return col_n;
@@ -181,7 +179,7 @@ public class JavaSudokuSolver {
         int d = gridmap.get(n).get(3);
         for (int y = a; y < b; y += 1) {
             for (int x = c; x < d; x += 1) {
-                grid_n.add(this.hash_board.get(List.of(x, y)).get("cur").peekLast());
+                grid_n.add(this.hash_board.get(List.of(x, y)).get("cur").get(0));
             }
         }
         return grid_n;
@@ -262,12 +260,12 @@ public class JavaSudokuSolver {
      * print current board according to hashboard
      */
     void print_translate() {
-        for (Map.Entry<List<Integer>, Map<String, Deque<String>>> entry : hash_board.entrySet()) {
+        for (Map.Entry<List<Integer>, Map<String, List<String>>> entry : hash_board.entrySet()) {
             List<Integer> coor = entry.getKey();
-            Map<String, Deque<String>> val = entry.getValue();
+            Map<String, List<String>> val = entry.getValue();
             int x = coor.get(0);
             int y = coor.get(1);
-            board[9 - y][x - 1] = val.get("cur").peekLast();
+            board[9 - y][x - 1] = val.get("cur").get(0);
         }
         System.out.println(this);
     }
@@ -277,8 +275,8 @@ public class JavaSudokuSolver {
      * 判断棋盘是否已被填满
      */
     boolean all_filled() {
-        for (Map<String, Deque<String>> value : this.hash_board.values()) {
-            if (value.get("cur").peekLast().equals(blank)) {
+        for (Map<String, List<String>> value : this.hash_board.values()) {
+            if (value.get("cur").get(0).equals(blank)) {
                 return false;
             }
         }
@@ -298,12 +296,12 @@ public class JavaSudokuSolver {
      * update the hashboard value on dict['possible'] for every coor
      */
     void analysis() {
-        for (Map.Entry<List<Integer>, Map<String, Deque<String>>> entry : this.hash_board.entrySet()) {
+        for (Map.Entry<List<Integer>, Map<String, List<String>>> entry : this.hash_board.entrySet()) {
             List<Integer> coor = entry.getKey();
-            Map<String, Deque<String>> dict_value = entry.getValue();
-            if (dict_value.get("cur").peekLast().equals(blank)) {
+            Map<String, List<String>> dict_value = entry.getValue();
+            if (dict_value.get("cur").get(0).equals(blank)) {
                 List<String> cant_be = this.get_row_col_grid(coor);
-                Deque<String> can_be = new LinkedList<>(valid);
+                List<String> can_be = new LinkedList<>(valid);
                 can_be.removeAll(cant_be);
                 dict_value.put("possible", can_be);
             }
@@ -317,10 +315,10 @@ public class JavaSudokuSolver {
      */
     boolean feasible() {
         this.analysis();
-        for (Map.Entry<List<Integer>, Map<String, Deque<String>>> entry : this.hash_board.entrySet()) {
+        for (Map.Entry<List<Integer>, Map<String, List<String>>> entry : this.hash_board.entrySet()) {
             List<Integer> coor = entry.getKey();
-            Map<String, Deque<String>> dict_value = entry.getValue();
-            if (dict_value.get("cur").peekLast().equals(blank) && dict_value.get("possible").isEmpty()) {
+            Map<String, List<String>> dict_value = entry.getValue();
+            if (dict_value.get("cur").get(0).equals(blank) && dict_value.get("possible").isEmpty()) {
                 return false;
             }
         }
@@ -339,11 +337,11 @@ public class JavaSudokuSolver {
         while (deduct_added) {
             this.analysis();
             List<List<Integer>> coor_operated = new ArrayList<>();
-            for (Map.Entry<List<Integer>, Map<String, Deque<String>>> entry : hash_board.entrySet()) {
+            for (Map.Entry<List<Integer>, Map<String, List<String>>> entry : hash_board.entrySet()) {
                 List<Integer> coor = entry.getKey();
-                Map<String, Deque<String>> val = entry.getValue();
-                if (val.get("possible").size() == 1 && val.get("cur").peekLast().equals(blank)) {
-                    this.insert(coor, val.get("possible").peekLast());
+                Map<String, List<String>> val = entry.getValue();
+                if (val.get("possible").size() == 1 && val.get("cur").get(0).equals(blank)) {
+                    this.insert(coor, val.get("possible").get(0));
                     coor_operated.add(coor);
                 }
             }
@@ -364,7 +362,7 @@ public class JavaSudokuSolver {
         List<List<Integer>> uncertain_coors = new ArrayList<>();
 
         for (List<Integer> coor : this.all_coors) {
-            if (this.hash_board.get(coor).get("cur").peekLast().equals(blank)) {
+            if (this.hash_board.get(coor).get("cur").get(0).equals(blank)) {
                 uncertain_coors.add(coor);
             }
         }
@@ -383,9 +381,9 @@ public class JavaSudokuSolver {
      * 从best guess得到的坐标中, 挑一个(最后一个)来进行假设试验
      */
     void hyper_move(List<Integer> coor) {
-        Deque<String> possibles = this.hash_board.get(coor).get("possible");
-        String value = possibles.pollLast();
-        this.hash_board.get(coor).get("tried").addLast(value);
+        List<String> possibles = this.hash_board.get(coor).get("possible");
+        String value = possibles.remove(possibles.size()-1);
+        this.hash_board.get(coor).get("tried").add(value);
         this.insert(coor, value);
         this.guess += 1;
     }
@@ -394,8 +392,8 @@ public class JavaSudokuSolver {
      * Undo a hyper_guess, also remove the deduced history follow by the hyper_guess
      */
     void undo() {
-        List<List<Integer>> undo_deducted = this.deduct_history.pollLast();
-        List<Integer> guess_deducted = this.guess_history.peekLast();
+        List<List<Integer>> undo_deducted = this.deduct_history.remove(this.deduct_history.size()-1);
+        List<Integer> guess_deducted = this.guess_history.get(this.guess_history.size()-1);
         for (List<Integer> coor : undo_deducted) {
             this.cancel_insert(coor);
         }
@@ -406,7 +404,7 @@ public class JavaSudokuSolver {
      * check if last guess still have possible value
      */
     boolean last_guess_available() {
-        return this.hash_board.get(this.guess_history.peekLast()).get("possible").size() > 0;
+        return this.hash_board.get(this.guess_history.get(this.guess_history.size()-1)).get("possible").size() > 0;
     }
 
 
@@ -433,12 +431,12 @@ public class JavaSudokuSolver {
                     if (this.last_guess_available()) {
                         break;
                     } else {
-                        this.guess_history.pollLast();
+                        this.guess_history.remove(this.guess_history.size()-1);
                         this.guess_layer.add(layer);
                         layer -= 1;
                     }
                 }
-                this.hyper_move(this.guess_history.peekLast());
+                this.hyper_move(this.guess_history.get(this.guess_history.size()-1));
             }
         }
         System.out.println("Problem solved!");
