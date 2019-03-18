@@ -416,7 +416,6 @@ public class JavaSudokuSolver {
         int layer = 0;
 
         while (!this.isSolved()) {
-            System.out.println(this.guess);
             this.direct_deduce();
 
             if (this.isSolved()) {
