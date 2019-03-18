@@ -41,8 +41,9 @@ public class C03b_Operators {
 
 
         // 逻辑运算符
-        // !, &, |
-        // 短路: &&, ||   // 优先用短路, 不再赘述原理
+        // !,    &,   |
+        // not, and,  or
+        // 短路:  &&,  ||   // 优先用短路, 不再赘述原理
 
 
         // 位运算 (不赘述, 需要时再看, 参见python bit calculation)
