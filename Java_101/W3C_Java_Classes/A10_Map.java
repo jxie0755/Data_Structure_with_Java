@@ -38,7 +38,7 @@ public class A10_Map {
 
              * get                   根据Key取Value
              * getOrDefault​          增强型get, 提供一个default值,如果key不存在
-             * put                   添加新Key和新Value (不能重复Key)
+             * put                   添加新Key和新Value (不能重复Key) (也可以用于修改已有key的值)
              * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
              * putAll                批量添加(合并一个Map进来)
 
