@@ -375,8 +375,15 @@ if __name__ == '__main__':
     ]
 
     q = Sudoku(hard_data_10_str)
-    q.solve()
-    q.show_answer()
+    q.direct_deduce()
+    print(q.best_guess())
+
+    print(q.hash_board[(1,5)])
+    print(q.hash_board[(2,2)])
+
+
+    # q.solve()
+    # q.show_answer()
 
 
 
