@@ -135,6 +135,7 @@ class A10_Map_Initialization {
         ));
         aMap4.put("e", "f");
         System.out.println(aMap4); // >>> {a=b, e=f, c=d}
+        // 注意put重复的key就可以用来修改当前key的值
 
 
         // Key是不是一定要是Inmutable?
