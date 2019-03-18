@@ -44,7 +44,7 @@ public class JavaSudokuSolver {
     // for statistics
     Integer count = 0;
     Integer guess = 0;
-    Integer guess_layer = 0;
+    List<Integer> guess_layer = new ArrayList<>();
 
 
     public JavaSudokuSolver(String[][] puzzle) {
@@ -64,11 +64,11 @@ public class JavaSudokuSolver {
             }
         }
 
-        System.out.println(all_coors);
 
         for (List coor : this.all_coors) {
             Map<String, Deque<String>> hashboard_items = hash_board.get(coor);
             hashboard_items.put("cur", new LinkedList<>(Arrays.asList(blank)));
+            hashboard_items.put("tried", new LinkedList<>());
             hashboard_items.put("possible", new LinkedList<>());
         }
 
@@ -117,7 +117,7 @@ public class JavaSudokuSolver {
             int x = key.get(0);
             int y = key.get(1);
             String given = this.board[9 - y][x - 1];
-            this.hash_board.get(key).get("cur").push(given);
+            this.hash_board.get(key).get("cur").addLast(given);
         }
     }
 
@@ -132,8 +132,14 @@ public class JavaSudokuSolver {
      * Define insert movement, by adding value to the baord at coor location
      */
     void insert(List<Integer> coor, String value) {
-        this.hash_board.get(coor).get("cur").push(value);
+        this.hash_board.get(coor).get("cur").clear();
+        this.hash_board.get(coor).get("cur").addLast(value);
         this.count += 1;
+    }
+
+    void cancel_insert(List<Integer> coor) {
+        this.hash_board.get(coor).get("cur").clear();
+        this.hash_board.get(coor).get("cur").addLast(blank);
     }
 
 
@@ -337,11 +343,10 @@ public class JavaSudokuSolver {
                 List<Integer> coor = entry.getKey();
                 Map<String, Deque<String>> val = entry.getValue();
                 if (val.get("possible").size() == 1 && val.get("cur").peekLast().equals(blank)) {
-                    insert(coor, val.get("possible").peekLast());
+                    this.insert(coor, val.get("possible").peekLast());
                     coor_operated.add(coor);
                 }
             }
-            System.out.println(coor_operated);
             if (coor_operated.size() == 0) {
                 deduct_added = false;
             } else {
@@ -380,7 +385,7 @@ public class JavaSudokuSolver {
     void hyper_move(List<Integer> coor) {
         Deque<String> possibles = this.hash_board.get(coor).get("possible");
         String value = possibles.pollLast();
-        this.hash_board.get(coor).get("tried").add(value);
+        this.hash_board.get(coor).get("tried").addLast(value);
         this.insert(coor, value);
         this.guess += 1;
     }
@@ -390,9 +395,66 @@ public class JavaSudokuSolver {
      */
     void undo() {
         List<List<Integer>> undo_deducted = this.deduct_history.pollLast();
-
+        List<Integer> guess_deducted = this.guess_history.peekLast();
+        for (List<Integer> coor : undo_deducted) {
+            this.cancel_insert(coor);
+        }
+        this.cancel_insert(guess_deducted);
     }
 
+    /**
+     * check if last guess still have possible value
+     */
+    boolean last_guess_available() {
+        return this.hash_board.get(this.guess_history.peekLast()).get("possible").size() > 0;
+    }
+
+
+    /**
+     * Final solution
+     */
+    void solve() {
+
+        int layer = 0;
+
+        while (!this.isSolved()) {
+            this.direct_deduce();
+
+            if (this.isSolved()) {
+                break;
+            } else if (this.feasible() && !this.all_filled()) {
+                List<Integer> best_coor = this.best_guess();
+                this.hyper_move(best_coor);
+                layer += 1;
+            } else {
+                while (true) {
+                    this.undo();
+                    if (this.last_guess_available()) {
+                        break;
+                    } else {
+                        this.guess_history.pollLast();
+                        this.guess_layer.add(layer);
+                        layer -= 1;
+                    }
+                }
+                this.hyper_move(this.guess_history.peekLast());
+            }
+        }
+        System.out.println("Problem solved!");
+    }
+
+    void show_answer() {
+        System.out.println("The answer is: ");
+        this.print_translate();
+        System.out.println('\n');
+    }
+
+    void show_statistics() {
+        System.out.println("total filled: " + this.count);
+        System.out.println("total guess: " + this.guess);
+        System.out.println("maximum layer: " + Collections.max(this.guess_layer));
+        System.out.println();
+    }
 
 }
 
@@ -421,10 +483,28 @@ class sudokuTest {
 
         // Test
         JavaSudokuSolver q1 = new JavaSudokuSolver(hard_10);
+        q1.solve();
+        q1.show_answer();
+        q1.show_statistics();
 
 
+        String[][] ultimate = {
+                {"8", "0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "3", "6", "0", "0", "0", "0", "0"},
+                {"0", "7", "0", "0", "9", "0", "2", "0", "0"},
+                {"0", "5", "0", "0", "0", "7", "0", "0", "0"},
+                {"0", "0", "0", "0", "4", "5", "7", "0", "0"},
+                {"0", "0", "0", "1", "0", "0", "0", "3", "0"},
+                {"0", "0", "1", "0", "0", "0", "0", "6", "8"},
+                {"0", "0", "8", "5", "0", "0", "0", "1", "0"},
+                {"0", "9", "0", "0", "0", "0", "4", "0", "0"}
+        };
+
+        JavaSudokuSolver q2 = new JavaSudokuSolver(ultimate);
+        q2.solve();
+        q2.show_answer();
+        q2.show_statistics();
     }
-
 }
 
 
