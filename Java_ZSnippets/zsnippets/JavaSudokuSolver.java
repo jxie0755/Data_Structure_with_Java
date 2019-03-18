@@ -182,7 +182,7 @@ public class JavaSudokuSolver {
     /**
      * 得到一个坐标的行,列,九宫格三列的值
      */
-    List<List<String>> get_row_col_grid(List<Integer> coor) {
+    List<String> get_row_col_grid(List<Integer> coor) {
         int x = coor.get(0);
         int y = coor.get(1);
 
@@ -216,7 +216,11 @@ public class JavaSudokuSolver {
                 grid_n = 3;
             }
         }
-        return new ArrayList<>(Arrays.asList(this.row(y), this.col(x), this.grid(grid_n)));
+        List<String> all_used = new ArrayList<>();
+        all_used.addAll(this.row(y));
+        all_used.addAll(this.col(x));
+        all_used.addAll(this.grid(grid_n));
+        return new ArrayList<>(new HashSet<>(all_used));
     }
 
     /**
@@ -257,6 +261,58 @@ public class JavaSudokuSolver {
         }
         return true;
     }
+
+    /**
+     * 判断是否已得出解
+     */
+    boolean isSolved() {
+        return this.all_filled() && this.no_conflict();
+    }
+
+
+    /**
+     * 核心算法: 局面分析
+     * update the hashboard value on dict['possible'] for every coor
+     */
+    void analysis() {
+        for (Map.Entry<List<Integer>, Map<String, List<String>>> entry : this.hash_board.entrySet()) {
+            List<Integer> coor = entry.getKey();
+            Map<String, List<String>> dict_value = entry.getValue();
+            if (dict_value.get("cur").get(0).equals(blank)) {
+                List<String> cant_be = this.get_row_col_grid(coor);
+                List<String> can_be = new ArrayList<>(valid);
+                can_be.removeAll(cant_be);
+                dict_value.put("possible", can_be);
+            }
+        }
+    }
+
+    /**
+     * 判断局面是否可以行, 也就是没有冲突, 每个格子仍然至少有一个数可填
+     * 先做analysis
+     * 然后基于最新的analysis来判断
+     */
+    boolean feasible() {
+        this.analysis();
+        for (Map.Entry<List<Integer>, Map<String, List<String>>> entry : this.hash_board.entrySet()) {
+            List<Integer> coor = entry.getKey();
+            Map<String, List<String>> dict_value = entry.getValue();
+            if (dict_value.get("cur").get(0).equals(blank) && dict_value.get("possible").isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    /**
+     * 核心算法: 直接推导, 把所有只有一种可能性的地方填满
+     * 不止填一次, 如果填完后经过analysis又有新的位置只剩下一种可能性,那么再次填写,直到无法继续
+     */
+    void direct_deduce() {
+
+    }
+
 
 
 }
