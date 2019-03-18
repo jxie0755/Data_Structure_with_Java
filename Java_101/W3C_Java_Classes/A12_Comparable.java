@@ -28,7 +28,16 @@ public class A12_Comparable {
 }
 
 // 一个例子来解释怎么用
-class Dog implements Comparable<Dog>{  // 记住不要忘了继承Comparable接口
+
+class Animal {
+    void foo() {
+        System.out.println("!!!!!!!!!!!");
+    }
+}
+
+
+class Dog extends Animal implements Comparable<Dog> {
+                         // 记住不要忘了继承Comparable接口
 
     String name;
     int age;
@@ -54,6 +63,8 @@ class Dog implements Comparable<Dog>{  // 记住不要忘了继承Comparable接�
         Dog d1 = new Dog("AA", 5);
         Dog d2 = new Dog("BB", 1);
         Dog d3 = new Dog("CC", 2);
+
+        d1.foo();
 
         List<Dog> doglist = new ArrayList<>(Arrays.asList(d1, d2, d3));
         System.out.println(doglist);
