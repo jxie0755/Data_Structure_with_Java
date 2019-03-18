@@ -35,8 +35,8 @@ public class JavaSudokuSolver {
     Map<List<Integer>, Map<String, List<String>>> hash_board = new HashMap<>();
 
     // for derivitation
-    List<List<Integer>> guess_history;
-    List<List<List<Integer>>> deduct_history;
+    List<List<Integer>> guess_history = new ArrayList<>();
+    List<List<List<Integer>>> deduct_history = new ArrayList<>();
 
     // for statistics
     Integer count = 0;
@@ -251,6 +251,21 @@ public class JavaSudokuSolver {
     }
 
     /**
+     * print current board according to hashboard
+     */
+    void print_translate() {
+        for (Map.Entry<List<Integer>, Map<String, List<String>>> entry : hash_board.entrySet()) {
+            List<Integer> coor = entry.getKey();
+            Map<String, List<String>> val = entry.getValue();
+            int x = coor.get(0);
+            int y = coor.get(1);
+            board[9 - y][x - 1] = val.get("cur").get(0);
+        }
+        System.out.println(this);
+    }
+
+
+    /**
      * 判断棋盘是否已被填满
      */
     boolean all_filled() {
@@ -310,7 +325,30 @@ public class JavaSudokuSolver {
      * 不止填一次, 如果填完后经过analysis又有新的位置只剩下一种可能性,那么再次填写,直到无法继续
      */
     void direct_deduce() {
+        boolean deduct_added = true;
+        List<List<Integer>> all_deduced = new ArrayList<>();
 
+        while (deduct_added) {
+            this.analysis();
+            List<List<Integer>> coor_operated = new ArrayList<>();
+            for (Map.Entry<List<Integer>, Map<String, List<String>>> entry : hash_board.entrySet()) {
+                List<Integer> coor = entry.getKey();
+                Map<String, List<String>> val = entry.getValue();
+                if (val.get("possible").size() == 1 && val.get("cur").get(0).equals(blank)) {
+                    insert(coor, val.get("possible").get(0));
+                    coor_operated.add(coor);
+                }
+            }
+            System.out.println(coor_operated);
+            if (coor_operated.size() == 0) {
+                deduct_added = false;
+            } else {
+                all_deduced.addAll(coor_operated);
+            }
+        }
+        System.out.println(all_deduced);
+        System.out.println(deduct_history);
+        this.deduct_history.add(all_deduced);
     }
 
 
@@ -342,6 +380,8 @@ class sudokuTest {
 
         // Test
         JavaSudokuSolver q1 = new JavaSudokuSolver(hard_10);
+
+
 
 
     }
