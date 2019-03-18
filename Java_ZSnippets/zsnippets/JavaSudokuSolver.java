@@ -346,12 +346,15 @@ public class JavaSudokuSolver {
                 all_deduced.addAll(coor_operated);
             }
         }
-        System.out.println(all_deduced);
-        System.out.println(deduct_history);
         this.deduct_history.add(all_deduced);
     }
 
+    /**
+     * 如果无法直接推导, 则优先找出当前可能性最少的一个位置进行猜测
+     */
+    List<Integer> best_guess() {
 
+    }
 
 }
 
