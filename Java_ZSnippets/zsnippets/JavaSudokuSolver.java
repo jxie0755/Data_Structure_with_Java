@@ -418,6 +418,7 @@ public class JavaSudokuSolver {
         int layer = 0;
 
         while (!this.isSolved()) {
+            System.out.println(this.guess);
             this.direct_deduce();
 
             if (this.isSolved()) {
@@ -455,7 +456,6 @@ public class JavaSudokuSolver {
         System.out.println("maximum layer: " + Collections.max(this.guess_layer));
         System.out.println();
     }
-
 }
 
 
@@ -500,10 +500,15 @@ class sudokuTest {
                 {"0", "9", "0", "0", "0", "0", "4", "0", "0"}
         };
 
+        double startTime=System.currentTimeMillis();   //获取开始时间
+
         JavaSudokuSolver q2 = new JavaSudokuSolver(ultimate);
         q2.solve();
         q2.show_answer();
         q2.show_statistics();
+
+        double endTime=System.currentTimeMillis(); //获取结束时间
+        System.out.println("--- "+ (endTime-startTime)/1000  + "s seconds ---");
     }
 }
 
