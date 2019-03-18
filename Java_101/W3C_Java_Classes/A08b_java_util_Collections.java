@@ -74,8 +74,7 @@ class Collections_for_General {
 
         // min and max
         // 同时支持自定义compare规则, 类似python的__lt__, __eq__, __get__等等
-        // max​(Collection<? extends T> coll, Comparator<? super T> comp) // TODO learn Comparator
-        // min​(Collection<? extends T> coll, Comparator<? super T> comp) // TODO learn Comparator
+        // 用法参见A11_Comparator
         System.out.println(Collections.min(IL2));  // >>>  1
         List<String> SL1 = new ArrayList<>(Arrays.asList("a", "A", "b", "c", "D", "d"));
         System.out.println(Collections.max(SL1)); // >>> d  (d > D) (比较ascii码)
@@ -87,8 +86,8 @@ class Collections_for_General {
 
 
         // reverse​(List<?> list)
-        // public static <T> Comparator<T> reverseOrder() // TODO learn Comparator
-        // public static <T> Comparator<T> reverseOrder​(Comparator<T> cmp) // TODO learn Comparator
+        // public static <T> Comparator<T> reverseOrder()
+        // public static <T> Comparator<T> reverseOrder​(Comparator<T> cmp)
         List<Integer> IL3 = new ArrayList<>(Arrays.asList(2,3,1,4,6,4,5));
         Collections.reverse(IL3);
         System.out.println(IL3);  // [5, 4, 6, 4, 1, 3, 2]  // 单纯反序
@@ -125,7 +124,8 @@ class Collections_for_General {
 
 
         // sort​(List<T> list)
-        // sort​(List<T> list, Comparator<? super T> c)  // TODO learn Comparator
+        // sort​(List<T> list, Comparator<? super T> c)
+        // 用法参见A11_Comparator
         List<String> SL8 = new ArrayList<>(Arrays.asList("BC", "B", "X", "Y", "A"));
         Collections.sort(SL8);   // >>> [A, B, BC, X, Y]
 

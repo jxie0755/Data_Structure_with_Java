@@ -76,7 +76,5 @@ class Comparator_test {
         Comparator<Integer> C = Comparator.comparingInt(x -> x);
         Collections.sort(lst2, C.reversed());
         System.out.println(lst2); // >>>  [5, 4, 3, 2, 1]
-
-
     }
 }
