@@ -108,7 +108,7 @@ class C8 extends C7 {
     }
 
     public C8(String name, int x) {
-        super(name + " " + x);        // 即使重载也必须先使用super
+        super(name + " " + x);        // 即使重载也必须先使用super, 必须第一行
         this.name = name; // 然后再覆盖?
         this.innt = x;
     }

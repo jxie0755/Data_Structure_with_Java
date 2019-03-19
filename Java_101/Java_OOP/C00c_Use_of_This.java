@@ -40,7 +40,7 @@ class Father2 {
     }
 
     public Father2(String a) {
-        this(a, "Nothing");
+        this(a, "Nothing");  // 必须第一行
     }
 
     public static void main(String[] args) {
