@@ -91,3 +91,29 @@ public class C00_OOP_Static {
         System.out.println(lst2);  // >>>  [1, 2, 3] // 通过static代码块
     }
 }
+
+
+class CCCC {
+    static int x = 5;
+
+    static void rx(int y) {
+        x += y;
+    }
+
+    void rx2(int y) {    // 不是静态方法也可以访问和修改静态变量, 前提是需要通过实例才能使用
+        System.out.println(y + x);
+        x += 10;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(x);
+        rx(3);
+        System.out.println(CCCC.x);
+
+        CCCC c = new CCCC();
+        c.rx2(1); // >>>  9
+
+        System.out.println(c.x); // >>>  18      // 不鼓励这样访问静态变量
+        System.out.println(CCCC.x); // >>>  18   // 鼓励这样访问静态变量
+    }
+}
