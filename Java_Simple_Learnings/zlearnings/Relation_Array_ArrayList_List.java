@@ -138,14 +138,17 @@ class TT {
     public static void main(String[] args) {
 
         // 两种实例
+        FatherX real_father = new FatherX();
         FatherX father_son = new SonX();
         SonX real_son = new SonX();
 
-        //两者不同!
-        System.out.println(father_son.x); // >>> Father    // 不继承SonX的变量,而是FatherX的边浪
-        System.out.println(real_son.x);   // >>>  Son
+        //泛型导致两者不同!
+        System.out.println(real_father.x);  // >>> Father  // of course
+        System.out.println(father_son.x);   // >>> Father    // 不继承SonX的变量,而是FatherX的边浪
+        System.out.println(real_son.x);     // >>>  Son
 
-        father_son.foo();  // >>> from son   // 仍然继承SonX的方法
+        real_father.foo(); // >>> from father  // of course
+        father_son.foo();  // >>> from son     // 仍然继承SonX的方法
         real_son.foo();    // >>> from son
 
     }
