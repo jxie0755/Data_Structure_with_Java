@@ -3,6 +3,8 @@ package Java_OOP;
 import Java_Basics.C01b_Primes;
 import Java_Basics.C04b_Variable_Types_Employee;
 
+import java.util.List;
+
 
 public class C00_OOP_101 {
     /*
@@ -23,6 +25,16 @@ public class C00_OOP_101 {
      * import语句和package语句对源文件中定义的所有类都有效。在同一源文件中，不能给不同的类不同的包声明。
      * 类有若干种访问级别，并且类也分不同的类型：抽象类和final类等。这些将在访问控制章节介绍。
      * 除了上面提到的几种类型，Java还有一些特殊的类，如：内部类、匿名类。
+     */
+
+    /*
+     * 构造方法
+     * 构造器可以有任何访问的修饰符，public、private、protected或者没有修饰符,都可以对构造方法进行修饰。
+     * 不同于实例方法的是构造方法不能有任何非访问性质的修饰符修饰，例如static、final、synchronized、abstract等
+        * 如果是private的话就是单例
+        * 如果是protected就是只能被子例中使用
+    * 当用户没有给java类定义明确的构造方法的时候,java为我们提供了一个默认的构造方法,这个构造方法没有参数,修饰符是public并且方法体为空。
+    * 如果用户有定义构造方法，就不会有默认构造方法！！！
      */
 }
 
@@ -97,6 +109,16 @@ class C00_OOP_Dog {
         // 引用另一个包里的类才需要import
         C04b_Variable_Types_Employee new_worker = new C04b_Variable_Types_Employee("Denis");
         C01b_Primes primes_example = new C01b_Primes();
+
+
+        // 空对象
+        String sss = null;
+        Integer iii = null;
+        List<Object> lll = null;
+
+        // 销毁实例
+
+
     }
 }
 
