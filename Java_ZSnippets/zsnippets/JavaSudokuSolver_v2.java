@@ -373,7 +373,7 @@ public class JavaSudokuSolver_v2 {
             }
         }
 
-        List<Integer> coor_to_move = Collections.max(uncertain_coors, new Comparator<List<Integer>>() {
+        List<Integer> coor_to_move = Collections.min(uncertain_coors, new Comparator<List<Integer>>() {
             @Override
             public int compare(List<Integer> o1, List<Integer> o2) {
                 return hash_board.get(o1).get("possible").size() - hash_board.get(o2).get("possible").size();
