@@ -1,6 +1,6 @@
-package zlearnings;
+package Java_OOP;
 
-public class Use_of_This {
+public class C00c_Use_of_This {
     // 学习什么时候该用this
 }
 
@@ -31,26 +31,26 @@ class Point2 {
 
 
 
-class Father {
+class Father2 {
 
     // 当一个类有多个Constructor的时候, 重载Constructor可以用this来省略一些代码
-    public Father(String a, String b) {
+    public Father2(String a, String b) {
         System.out.println(a);
         System.out.println(b);
     }
 
-    public Father(String a) {
+    public Father2(String a) {
         this(a, "Nothing");
     }
 
     public static void main(String[] args) {
 
-        Father A = new Father("AAA", "BBB");
+        Father2 A = new Father2("AAA", "BBB");
         // >>>
         // AAA
         // BBB
 
-        Father C = new Father("CCC");
+        Father2 C = new Father2("CCC");
         // >>>
         // CCC
         // Nothing

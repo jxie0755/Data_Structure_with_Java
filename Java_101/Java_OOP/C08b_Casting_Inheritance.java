@@ -23,12 +23,12 @@ class Father {
     }
 
     public void foo(int n) {
-        System.out.print("from Father foo" );
+        System.out.print("from Father2 foo" );
         System.out.println(n);
     }
 }
 
-class Child1 extends Father {
+class Child1 extends Father2 {
     int i;
     int j = 99;
     public Child1 (){
@@ -46,7 +46,7 @@ class Child1 extends Father {
     }
 }
 
-class Child2 extends Father {
+class Child2 extends Father2 {
     int i;
     public Child2 (){
         this.i = 2;
@@ -69,8 +69,8 @@ class Testttt {
         Child1 C1 = new Child1();
         Child2 C2 = new Child2();
 
-        Father F1 = new Child1();
-        Father F2 = new Child2();
+        Father2 F1 = new Child1();
+        Father2 F2 = new Child2();
 
         // 各自继承自己的属性, 没有问题
         System.out.println(C1.i); // >>> 1
@@ -98,11 +98,11 @@ class Testttt {
         // 通过向下转型来运行bar
         ((Child2) F2).bar(5);  // >>> from Child bar 22222222 7
 
-        Father F1b = new Child1();
+        Father2 F1b = new Child1();
         System.out.println(F1b.i);  // >>> 0
         F1b.foo(8);              // >>> from Child 111 9
 
-        // Father F1b = new Child2();   若原地改
+        // Father2 F1b = new Child2();   若原地改
         // System.out.println(F1b.i);    // >>> 0
         // F1b.foo(8);                   // >>> from Child 222 10  // 可以直接换Child2的方法
     }
