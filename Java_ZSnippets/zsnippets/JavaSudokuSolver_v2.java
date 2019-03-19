@@ -127,6 +127,23 @@ public class JavaSudokuSolver_v2 {
         }
     }
 
+    void show_answer() {
+        System.out.println("The answer is: ");
+        this.print_translate();
+        System.out.println('\n');
+    }
+
+    void show_statistics() {
+        System.out.println("total filled: " + this.count);
+        System.out.println("total guess: " + this.guess);
+        System.out.println("maximum layer: " + Collections.max(this.guess_layer));
+        System.out.println();
+    }
+
+    void show_original() {
+        System.out.println(this.original_board);
+    }
+
     /**
      * define reading of current value at coor location
      */
@@ -471,24 +488,6 @@ public class JavaSudokuSolver_v2 {
         } else {
             System.out.println("Problem solve!");
         }
-    }
-
-
-    void show_answer() {
-        System.out.println("The answer is: ");
-        this.print_translate();
-        System.out.println('\n');
-    }
-
-    void show_statistics() {
-        System.out.println("total filled: " + this.count);
-        System.out.println("total guess: " + this.guess);
-        System.out.println("maximum layer: " + Collections.max(this.guess_layer));
-        System.out.println();
-    }
-
-    void show_original() {
-        System.out.println(this.original_board);
     }
 }
 
