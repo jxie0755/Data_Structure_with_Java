@@ -29,16 +29,22 @@ class C5 {
 // 整个类都不行
 // class C6 extends C5{
 //     String name;
+//     int age;
+//
 //     // 这样是不行的
-//     public C6 (String name, int age) {
+//     private C6 (String name, int age) {
 //         this.name = name;
+//         this.age = age;
 //     }
 //
 //     public static void main(String[] args) {
 //         // C5 c5b = new C5("c2");  // 不能被构造
 //     }
-//
 // }
+// https://stackoverflow.com/a/19680673/8435726
+// Yes. If your only constructors are private, then you can't create a subclass of that class,
+// as there would be no accessible constructors to chain to
+// - leaving nested classes aside (where accessibility changes a little).
 
 
 
