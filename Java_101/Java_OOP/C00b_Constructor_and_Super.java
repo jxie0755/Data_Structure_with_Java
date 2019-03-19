@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C00b_Constructor {
+public class C00b_Constructor_and_Super {
     /*
      * 学习private构造器的用法
         * 单例模式
@@ -144,4 +144,23 @@ class C9 extends C8 {
         c99.foo("c99"); // >>>  c99 <<< yourself our father <<<your grandfather  // 链式继承super方法
     }
 
+}
+
+
+// 额外例子展示super访问父类变量
+class ParentClass {
+    // x成员变量
+    int x = 10;
+}
+
+class SubClass extends ParentClass {
+    // 屏蔽父类x成员变量
+    int x = 20;
+
+    public void print() {
+        // 访问子类对象x成员变量
+        System.out.println("x = " + x);
+        // 访问父类x成员变量
+        System.out.println("super.x = " + super.x);
+    }
 }
