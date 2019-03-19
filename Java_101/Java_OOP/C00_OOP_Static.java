@@ -93,6 +93,7 @@ public class C00_OOP_Static {
 }
 
 
+// 附加例子:静态变量和静态方法
 class CCCC {
     static int x = 5;
 
