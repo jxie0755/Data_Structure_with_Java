@@ -84,3 +84,61 @@ class Singleton_visit {
     }
 }
 
+
+// super constructor
+class C7 {
+    String name;
+    public C7(String name) {
+        this.name = name;
+        System.out.println("!! " + name + " !!");
+    }
+
+    void foo(String s) {
+        System.out.println(s + " <<<your grandfather");
+    }
+
+}
+
+
+class C8 extends C7 {
+    Integer innt;
+
+    public C8(String name) {
+        super(name);
+    }
+
+    public C8(String name, int x) {
+        super(name + " " + x);        // 即使重载也必须先使用super
+        this.name = name; // 然后再覆盖?
+        this.innt = x;
+    }
+
+    void foo(String s) {
+        super.foo(s + " <<<your father");  // super用于其他位置, 其实就是代表Parent
+    }
+
+}
+
+class C9 extends C8 {
+
+    public C9(String name) {
+        super(name);
+    }
+
+    void foo(String s) {
+        super.foo(s + " <<< yourself");
+    }
+
+    public static void main(String[] args) {
+
+        C7 c77 = new C7("c777"); // >>>  !! c777 !!
+        C8 c88 = new C8("c888"); // >>>  !! c888 !!
+        C8 c888 = new C8("c8888", 10); // >>>  !! c8888 10 !!
+        // System.out.println(c888.name); // >>>  c8888???>
+        c77.foo("c77");   // >>>  c77 <<<your grandfather
+        c88.foo("c88");   // >>>  c88 <<<your father <<<your grandfather
+        C9 c99 = new C9("c999");
+        c99.foo("c99"); // >>>  c99 <<< yourself our father <<<your grandfather  // 链式继承super方法
+    }
+
+}
