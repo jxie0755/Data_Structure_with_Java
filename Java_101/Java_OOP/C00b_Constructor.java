@@ -117,6 +117,8 @@ class C8 extends C7 {
         super.foo(s + " <<<your father");  // super用于其他位置, 其实就是代表Parent
     }
 
+    void bar() { }
+
 }
 
 class C9 extends C8 {
