@@ -55,10 +55,11 @@ class Dog_3 extends Animal_3 {
         super(name);          // 使用super来继承父类方法
     }
 
-
+    @Override
     public int move(int n) {
         System.out.println("狗可以两倍速移动");
-        return super.move(2 * n);  // 继续使用super, 狗每次是普通动物两倍速
+        int dog_speed = super.move(n) * 2;
+        return dog_speed;  // 继续使用super, 狗每次是普通动物两倍速
     }
 
 }
@@ -108,15 +109,18 @@ class AA {
         return 1;
     }
 
+    // Overload
     void test(int a) {
         System.out.println("test 2");
     }
 
+    // Overload
     String test(int a, String s) {
         System.out.println(s);
         return "return test 3";
     }
 
+    // Overload
     String test(String s, int a) {
         System.out.println(s);
         return "return test 4";
@@ -147,4 +151,115 @@ class AA {
     }
 }
 
+
+
+
+// 另一个例子
+class Grand {
+    int x = 99999;
+}
+
+
+class ParentClass2 extends Grand {
+    // x成员变量
+    int x = 0;
+
+    protected void setValue(int n) {
+        x = n;
+    }
+}
+
+class SubClass2 extends ParentClass2 {
+    // 屏蔽父类x成员变量
+    int x = 1;
+
+    @Override
+    public void setValue(int n) { // 覆盖父类方法 ②
+        // 访问子类对象x成员变量
+        x = n;
+        // 调用父类setValue()方法
+        super.setValue(n+1);
+    }
+
+    public void print() {
+        // 访问子类对象x成员
+        System.out.println("x = " + x);
+        // 访问父类x成员变量
+        System.out.println("super.x = " + super.x);
+        // System.out.println("super.super.x = " + Grand.x);
+    }
+
+    public static void main(String[] args) {
+        SubClass2 sub2 = new SubClass2();
+        sub2.print();
+        // >>>
+        // x = 1
+        // super.x = 0 存在区别   // 子类虽然含有同名变量,但不代表父类的那个变量就消失了
+
+        sub2.setValue(5);
+        sub2.print();
+        // >>>
+        // x = 5
+        // super.x = 6    // 通过父类方法修改的是父类的那个同名变量!!
+    }
+
+}
+
+
+// 研究super的跳跃层数
+// STOF: https://stackoverflow.com/q/55249557/8435726
+class Zero {
+    int n = 0;
+
+    void setN(int x) {
+        n += x;
+    }
+
+    void showZeroN() {
+        System.out.println(n);
+    }
+}
+
+class One extends Zero {
+    int n = 1;
+
+    void setN(int x) {
+        n += x;
+        super.setN(x);
+    }
+
+}
+
+class Two extends One {
+    int n = 2;
+
+    void setN(int x) {
+        n += x;
+        super.setN(x);
+    }
+
+    void show() {
+        System.out.println(n);
+        System.out.println(super.n);
+        // System.out.println(super.super.n);   error
+
+    }
+
+    public static void main(String[] args) {
+        Two two = new Two();
+        two.show();
+        // >>>
+        // 2
+        // 1
+
+        two.setN(1);
+        // 通过链式super直接改了Zero,One和Two的n属性,但是无法在Two直接看到两层后的Zero!
+        two.show();
+        // >>>
+        // 3
+        // 2
+
+        two.showZeroN(); // >>> 1  // 通过Zero中的showZeroN可以确定这个事实
+    }
+}
 

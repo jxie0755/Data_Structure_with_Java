@@ -63,6 +63,29 @@ class Array_and_ArrayList {
 
 class List_and_ArrayList {
 
+    /*
+     * 如果 List a=new ArrayList();
+        * 则a拥有List与ArrayList的所有属性和方法，不会减少
+        * 如果List与ArrayList中有相同的属性（如int i),    则a.i是调用了   !!!!!父类!!!!! List中的i
+        * 如果List与ArrayList中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! ArrayList中的f()
+            * 注意这个python的OOP思想不同!!!
+            * 这是因为python没有泛型, 没有办法规定一个实例是父类, 但是通过子类来实例来实现
+        * 但是a没有ArrayList独有的,而List没有的方法
+     */
+
+    /*
+     * 为什么要用 List list = new ArrayList() ,而不用 ArrayList alist = new ArrayList()呢？
+     * 问题就在于List有多个实现类，现在你用的是ArrayList，也许哪一天你需要换成其它的实现类，
+        * 如 LinkedList或者Vector等等，这时你只要改变这一行就行了:
+        * List list = new LinkedList(); 其它使用了list地方的代码根本不需要改动
+            * 理解: List作为父类, 它可以接受各种其他子类和它共有的方法, 这个优势如果建立ArrayList就没有.
+        * 假设你开始用 ArrayList alist = new ArrayList(), 这下你有的改了，特别是如果你使用了 ArrayList特有的方法和属性
+
+        * 所以这个事是各有利弊:
+            * 用List = 就更通用,但是不能使用子类的独特特性, (但是可以通过转型来弥补这一缺陷!, 所以这样写更优!)
+            * 用ArrayList = 就专注于ArrayList的独特特性, 但是不好换型 (而且无法转型)
+     */
+
     public static void main(String[] args) {
         /*
          * List是一个接口，而ListArray是一个类。
@@ -90,29 +113,5 @@ class List_and_ArrayList {
         ArrayList arrayList = new ArrayList();
         // list.trimToSize(); //错误，没有该方法。
         arrayList.trimToSize();   //ArrayList里有该方法。
-
-        /*
-         * 如果 List a=new ArrayList();
-            * 则a拥有List与ArrayList的所有属性和方法，不会减少
-            * 如果List与ArrayList中有相同的属性（如int i),    则a.i是调用了   !!!!!父类!!!!! List中的i
-            * 如果List与ArrayList中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! ArrayList中的f()
-                * 注意这个python的OOP思想不同!!!
-                * 这是因为python没有泛型, 没有办法规定一个实例是父类, 但是通过子类来实例来实现
-            * 但是a没有ArrayList独有的,而List没有的方法
-         */
-
-
-        /*
-         * 为什么要用 List list = new ArrayList() ,而不用 ArrayList alist = new ArrayList()呢？
-         * 问题就在于List有多个实现类，现在你用的是ArrayList，也许哪一天你需要换成其它的实现类，
-            * 如 LinkedList或者Vector等等，这时你只要改变这一行就行了:
-            * List list = new LinkedList(); 其它使用了list地方的代码根本不需要改动
-                * 理解: List作为父类, 它可以接受各种其他子类和它共有的方法, 这个优势如果建立ArrayList就没有.
-            * 假设你开始用 ArrayList alist = new ArrayList(), 这下你有的改了，特别是如果你使用了 ArrayList特有的方法和属性
-
-            * 所以这个事是各有利弊:
-                * 用List = 就更通用,但是不能使用子类的独特特性, (但是可以通过转型来弥补这一缺陷!, 所以这样写更优!)
-                * 用ArrayList = 就专注于ArrayList的独特特性, 但是不好换型 (而且无法转型)
-         */
     }
 }
