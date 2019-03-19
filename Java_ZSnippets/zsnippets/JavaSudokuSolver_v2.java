@@ -16,13 +16,13 @@ import java.util.*;
 public class JavaSudokuSolver_v2 {
 
     // constants
-    static String blank = "0";
-    static List<String> valid = new ArrayList<>(Arrays.asList(
+    static final String blank = "0";
+    static final List<String> valid = new ArrayList<>(Arrays.asList(
             "1", "2", "3",
             "4", "5", "6",
             "7", "8", "9"));
     // for read grid
-    static Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
+    static final Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
                  Map.entry(1, List.of(7, 10, 1, 4)),
                  Map.entry(2, List.of(7, 10, 4, 7)),
                  Map.entry(3, List.of(7, 10, 7, 10)),
@@ -38,6 +38,7 @@ public class JavaSudokuSolver_v2 {
     List<List<Integer>> all_coors = new ArrayList<>();
 
     // main data structure
+    String original_board;
     String[][] board;
     Map<List<Integer>, Map<String, Deque<String>>> hash_board = new HashMap<>();
 
@@ -55,6 +56,7 @@ public class JavaSudokuSolver_v2 {
 
         // 生成棋盘读题
         this.board = puzzle;
+        this.original_board = this.toString();
 
         // 先处理hashboad
         // 这里要注意, python中"cur"对应的是一个String, 而"possible"和"trie"对应的是List<String>
@@ -447,6 +449,31 @@ public class JavaSudokuSolver_v2 {
         System.out.println("Problem solved!");
     }
 
+    void single_step_solve() {
+
+        this.direct_deduce();
+        if (!this.isSolved()) {
+
+            if (this.feasible() && !this.all_filled()) {
+                List<Integer> best_coor = this.best_guess();
+                this.hyper_move(best_coor);
+            } else {
+                while (true) {
+                    this.undo();
+                    if (this.last_guess_available()) {
+                        break;
+                    } else {
+                        this.guess_history.pollLast();
+                    }
+                }
+                this.hyper_move(this.guess_history.peekLast());
+            }
+        } else {
+            System.out.println("Problem solve!");
+        }
+    }
+
+
     void show_answer() {
         System.out.println("The answer is: ");
         this.print_translate();
@@ -458,6 +485,10 @@ public class JavaSudokuSolver_v2 {
         System.out.println("total guess: " + this.guess);
         System.out.println("maximum layer: " + Collections.max(this.guess_layer));
         System.out.println();
+    }
+
+    void show_original() {
+        System.out.println(this.original_board);
     }
 }
 
