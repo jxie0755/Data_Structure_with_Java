@@ -127,6 +127,7 @@ class C9 extends C8 {
 
     void foo(String s) {
         super.foo(s + " <<< yourself");
+        // C8.foo(s + " <<< yourself")   意思就是这样,但是不能这么写
     }
 
     public static void main(String[] args) {
