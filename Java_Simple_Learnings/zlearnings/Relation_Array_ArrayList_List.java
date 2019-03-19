@@ -67,7 +67,7 @@ class List_and_ArrayList {
      * 如果 List a=new ArrayList();
         * 则a拥有List与ArrayList的所有属性和方法，不会减少
         * 如果List与ArrayList中有相同的属性（如int i),    则a.i是调用了   !!!!!父类!!!!! List中的i
-        * 如果List与ArrayList中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! ArrayList中的f()
+        * 如果List与ArrayList中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! ArrayList中的f()  (参见下面FatherX和SonX)
             * 注意这个python的OOP思想不同!!!
             * 这是因为python没有泛型, 没有办法规定一个实例是父类, 但是通过子类来实例来实现
         * 但是a没有ArrayList独有的,而List没有的方法
@@ -94,7 +94,7 @@ class List_and_ArrayList {
          */
 
         // List<Object> list;     //正确   list=null;
-        // List<Object> list2=new List();    //   是错误的用法
+        // List<Object> list2= new List();    //   是错误的用法 List是接口无法被实例化
 
 
         /*
@@ -113,5 +113,40 @@ class List_and_ArrayList {
         ArrayList arrayList = new ArrayList();
         // list.trimToSize(); //错误，没有该方法。
         arrayList.trimToSize();   //ArrayList里有该方法。
+    }
+}
+
+
+class FatherX {
+    String x = "Father";
+
+    void foo() {
+        System.out.println("from father");
+    }
+
+}
+
+class SonX extends FatherX{
+    String x = "Son";
+
+    void foo() {
+        System.out.println("from son");
+    }
+}
+
+class TT {
+    public static void main(String[] args) {
+
+        // 两种实例
+        FatherX father_son = new SonX();
+        SonX real_son = new SonX();
+
+        //两者不同!
+        System.out.println(father_son.x); // >>> Father    // 不继承SonX的变量,而是FatherX的边浪
+        System.out.println(real_son.x);   // >>>  Son
+
+        father_son.foo();  // >>> from son   // 仍然继承SonX的方法
+        real_son.foo();    // >>> from son
+
     }
 }
