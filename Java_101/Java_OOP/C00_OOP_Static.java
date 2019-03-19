@@ -2,6 +2,9 @@ package Java_OOP;
 
 // Learn static
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class C00_OOP_Static {
 
     /*
@@ -43,6 +46,24 @@ public class C00_OOP_Static {
     public static String fooo = "fooo!!";  //变量必须为static才能在static main中运行
     public String barrr = "barrr!!";  //变量必须为static才能在static main中运行
 
+    // 如果初始化静态变量不是简单常量， 需要进行计算才能初始化， 可以使用静态（static） 代码块， 静态代码块在类第一次加载时执行， 并只执行
+    static List<Integer> lst1 = new ArrayList<>(); // 这里还没完, 只是建了个空列表
+    static List<Integer> lst2 = new ArrayList<>(); // 这里还没完, 只是建了个空列表
+
+    static{
+
+        // 分别完成lst1和lst2
+        lst1.add(1);
+        lst1.add(2);
+        lst1.add(3);
+
+        lst2.add(4);
+    }
+    static {  // 可被分拆
+        lst2.add(5);
+        lst2.add(6);
+    }
+
     public static void foo() {   // 必须要static, 不然static main无法运行
         System.out.println("foo");
         System.out.println(fooo);
@@ -65,5 +86,8 @@ public class C00_OOP_Static {
         foo();
         // fooo_barrr();                // not static
         bar_out.fooo_barrr();           // 怎么办? 造一个实例就可以出
+
+        System.out.println(lst1);  // >>>  [1, 2, 3] // 通过static代码块
+        System.out.println(lst2);  // >>>  [1, 2, 3] // 通过static代码块
     }
 }
