@@ -49,6 +49,12 @@ public class Type_Convert {
         Character[] helloCArray = {'h', 'e', 'l', 'l', 'o'};
         String hello_1 = new String(hellocArray);
 
+        // String转char[]   (不能转Character[])
+        String Sman = "MANUTD";
+        char[] Chman = Sman.toCharArray();
+        // Character[] Chman2 = Sman.toCharArray();
+
+
         // Char[] 转String  // 似乎没有直接方法
         // String hello_2 = new String(helloCArray);  不work
         // 用iteration很容易

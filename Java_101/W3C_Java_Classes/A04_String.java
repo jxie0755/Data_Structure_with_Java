@@ -1,6 +1,8 @@
 package W3C_Java_Classes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class A04_String {
@@ -14,14 +16,19 @@ public class A04_String {
     /*
      * String 基本操作
         * "+"                             可以相加
-        * length()                         长度属性
+        * length()                        长度属性
         * equals                          相等
+        * equalsIgnoreCase
         * valueOf                         快速生成一个Object的__str__
 
         * format                          格式化, 用于四舍五入,保留位数等等
         * compareTo                       比较(规则略特殊)
+        * compareToIgnoreCase
         * regionMatches                   测试两个字符串各自一个区域是否相等(同长但不同index)
         * trim()                          返回字符串的副本，忽略前导空白和尾部空python strp
+
+        * split(String X)                 从所有X分割, 并且吞没X
+        * split(String X, int N)          同上, 但是限制最后最多分成N份
 
         * getChars                        从String中找一段insert到char Array的任意位置 (注意长度)
         * toCharArray                     整体变成char Array
@@ -31,21 +38,26 @@ public class A04_String {
         * indexOf(String)                 返回指定String在此字符串中第一次出现处的索引
 
         * replace(oldChar, newChar)       批量替换char为另一个
+        * replaceAll(oldStr, newStr)      批量提换String为另一个
+        * replaceFirst(oldStr, newStr)    提换第一个String为另一个
 
         * copyValueOf                     从char Array中提取任意一段变成新String
         * intern                          一个复制,但是与常量池有关, 用于节省空间
 
-        * String substring(intA)          返回一个新的字符串，它是此字符串的一个子字符串。
-        * String substring(intA, intB)    返回一个新字符串，它是此字符串的一个子字符串。
+        * String substring(idxA)          返回一个新的字符串，它是此字符串的一个子字符串。
+        * String substring(idxA, idxB)    返回一个新字符串，它是此字符串的一个子字符串。
 
         * startsWith(String)              测试此字符串是否以指定的前缀开始
         * endsWith(String)                测试此字符串是否以指定的前缀结束
-        * subSequence(intA, intB)         返回一个子序列的CharSequence
+        * subSequence(idxA, idxB)         返回一个子序列的CharSequence
 
         * toLowerCase()                   将此 String 中的所有字符都转换为小写
         * toUpperCase()                   将此 String 中的所有字符都转换为大写
 
         * hashCode()
+
+        * concat                          连接字符串
+        * static String.join(String connecter, String[] or List<String>).  连接string
      */
 
 }
@@ -168,15 +180,26 @@ class String_regexMethods {
     public static void main(String[] args) {
 
         // boolean matches(String regex)  告知此字符串是否匹配给定的正则表达式
+        String SS0 = "ABCDE";
+        System.out.println(SS0.matches("CD")); // >>> false
+        System.out.println(SS0.matches("NDSFABCDEsdfsd")); // >>> false
+        // TODO learn 正则表达式
 
-        // String replaceAll(String regex, String replacement    使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。
+        // String replaceAll(String regex, String replacement)   使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。
         // String replaceFirst(String regex, String replacement) 使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。
+        String SS1 = "ABACAD";
+        String SR1 = SS1.replaceAll("A", " ");
+        System.out.println(SR1); // >>>  " B C D"
 
         // String[] split(String regex)  根据给定正则表达式的匹配拆分此字符串。
         // String[] split(String regex, int limit)  根据匹配给定的正则表达式来拆分此字符串。
-        // boolean startsWith(String prefix)   测试此字符串是否以指定的前缀开始。
-        // TODO learn 正则表达式
+        String S1 = "ABCABC";
+        String[] SA1 = S1.split("C");
+        System.out.println(Arrays.toString(SA1)); // >>>  [AB, AB] // C被吞没, 末尾不留空字符(不像python)
 
+        String S2 = "ABCABCABCABCABC";
+        String[] SA2 = S2.split("C", 3);
+        System.out.println(Arrays.toString(SA2)); // >>>  [AB, AB, ABCABCABC]  最多只能分成三份
     }
 
 }
@@ -204,8 +227,10 @@ class String_zMethods {
         // join方法, 把Array变成String
         // join​(CharSequence delimiter, CharSequence... elements)
         // join​(CharSequence delimiter, Iterable<? extends CharSequence> elements)
-        String str4b = String.join("", helloStrArray);
-
+        // String str4b = String.join("", helloArray); not working
+        String str4c = String.join("", helloStrArray);
+        List<String> strList = new ArrayList<>(Arrays.asList("1", "2", "3"));
+        String str4d = String.join("", strList);
 
         // char charAt(int index)
         char c1 = str4.charAt(4);  // 'o'
