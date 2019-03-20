@@ -226,8 +226,10 @@ class A13_Enum_zMethods {
         System.out.println(day2); // >>>  星期三-WEDNESDAY
         // 也可以强制检查类型,两个参数
         EN_WeekDays day4 = Enum.valueOf(EN_WeekDays.class, "MONDAY");
+        EN_WeekDays day5 = Enum.valueOf(day4.getDeclaringClass(), "MONDAY");
         System.out.println(day4.getClass());    // class W3C_Java_Classes.EN_WeekDays
         System.out.println(EN_WeekDays.class);  // >>> class W3C_Java_Classes.EN_WeekDays
+        // STOF: https://stackoverflow.com/q/55265192/8435726
 
 
         // equals
@@ -244,7 +246,11 @@ class A13_Enum_zMethods {
 
         // 	getDeclaringClass()
         System.out.println(day1.getDeclaringClass()); // >>> class W3C_Java_Classes.EN_WeekDays
+        System.out.println(day1.getClass());          // >>>  class W3C_Java_Classes.EN_WeekDays
 
+        System.out.println(day1.getDeclaringClass() == day1.getClass());
+        // >>> true???  at runtime it is true, but false at the compiler
+        // STOF: https://stackoverflow.com/q/55266764/8435726
 
         // name()
         System.out.println(day1.name()); // >>>  "MONDAY"
@@ -262,6 +268,7 @@ enum WorkDays {
 class WorkDaysTest {
     public static void main(String[] args) {
         WorkDays day1 = WorkDays.valueOf("MONDAY");
-        System.out.println(day1); // >>>  MONDAY
+        WorkDays day2 = Enum.valueOf(WorkDays.class, "MONDAY");
+
     }
 }

@@ -63,20 +63,20 @@ public class Java_View {
 
         // Arrays.asList
         System.out.println();
-        String[] strArray = new String[]{"A", "B", "C"};
+        String[] strArray = new String[]{"GetClassExample", "GetB", "C"};
         List<String> strL1 = Arrays.asList(strArray);
         // 这里就是把一个数组, 当做一个List来看, 这个stringList是一个"把ArraysPS得像一个list的画面"
         // 所以如果改动这个List
         // strL1.add("X");  就会报错
         strL1.set(0, "X");
-        System.out.println(strL1); // >>> [X, B, C]  但是它可以修改内容?
+        System.out.println(strL1); // >>> [X, GetB, C]  但是它可以修改内容?
         // 这个对象带有底层数组的get和set方法, 也就是Arrays的方法, 此时再看原Array:
-        System.out.println(Arrays.toString(strArray)); // >>> [X, B, C] 也被改变了!!
+        System.out.println(Arrays.toString(strArray)); // >>> [X, GetB, C] 也被改变了!!
 
 
         // List.subList  (与python中的切片不同,python切片是新建一个全新的list)
         System.out.println();
-        List<String> strL3 = new ArrayList<>(Arrays.asList("A", "B", "C"));
+        List<String> strL3 = new ArrayList<>(Arrays.asList("GetClassExample", "GetB", "C"));
         List<String> strL3_sub = strL3.subList(0, 2);   // 这个List支持原List的一切改动, 也就是增改删除
 
         // 创建view之后如果structural改原List(增加或删除), 则会让之前建立的subList作废 (python同样没这个问题)
@@ -84,28 +84,28 @@ public class Java_View {
         // strL3.add(1, "W");
         strL3.set(1, "W");
 
-        System.out.println(strL3_sub); // >>>  [A, W]
-        strL3_sub.remove(1);           // [A]
-        strL3_sub.add("X");                 //  [A]
-        strL3_sub.set(1, "Y");              //  [A, Y]
-        System.out.println(strL3);     // >>>  [A, Y, C]
+        System.out.println(strL3_sub); // >>>  [GetClassExample, W]
+        strL3_sub.remove(1);           // [GetClassExample]
+        strL3_sub.add("X");                 //  [GetClassExample]
+        strL3_sub.set(1, "Y");              //  [GetClassExample, Y]
+        System.out.println(strL3);     // >>>  [GetClassExample, Y, C]
 
         // 如果再生成子subList呢
         List<String> strL3_sub_sub = strL3_sub.subList(0, 2);
         strL3_sub_sub.remove(1);
-        System.out.println(strL3); // >>>  [A, C] 链式关联, 可以追溯到源头被改变
+        System.out.println(strL3); // >>>  [GetClassExample, C] 链式关联, 可以追溯到源头被改变
         // strL3.add("N");   // 就不行了, 因为这个subList已经作为另一个subsubList的原List了, 所以原List操作被禁止增加
 
         // 再试两端重叠的subList
         System.out.println();
-        List<String> strL4 = new ArrayList<>(Arrays.asList("A", "B", "C", "D", "E"));
-        List<String> strL4_sub = strL4.subList(0, 3);   // ["A", "B", "C"]
-        List<String> strL4_sub2 = strL4.subList(1, 4);  // ["B", "C", "D"]
+        List<String> strL4 = new ArrayList<>(Arrays.asList("GetClassExample", "GetB", "C", "D", "E"));
+        List<String> strL4_sub = strL4.subList(0, 3);   // ["GetClassExample", "GetB", "C"]
+        List<String> strL4_sub2 = strL4.subList(1, 4);  // ["GetB", "C", "D"]
         strL4_sub2.remove(0);
         strL4_sub2.add(1, "Z");
         strL4_sub2.set(0, "P");
         System.out.println(strL4_sub2);   // >>> [P, Z, D]
-        System.out.println(strL4);        // >>> [A, P, Z, D, E]
+        System.out.println(strL4);        // >>> [GetClassExample, P, Z, D, E]
         // System.out.println(strL4_sub);  // 由于一个subList的改动干涉到了另一个subList, 所以那个subList被作废了
         strL4.add(0, "X");
         // System.out.println(strL4_sub2);   // 作废, 即使这一段没有被干涉, index整体变化了
@@ -117,32 +117,32 @@ public class Java_View {
         // Map.keySet()
         System.out.println();
         Map<String, Integer> Map1 = new HashMap<>(Map.ofEntries(
-                Map.entry("A", 1),
-                Map.entry("B", 2),
+                Map.entry("GetClassExample", 1),
+                Map.entry("GetB", 2),
                 Map.entry("C", 3)
         ));
 
         Set<String> kL = Map1.keySet();
-        kL.remove("B");
-        System.out.println(Map1); // >>> {A=1, C=3}  // 移除View的key也是移除了Map中的key
+        kL.remove("GetB");
+        System.out.println(Map1); // >>> {GetClassExample=1, C=3}  // 移除View的key也是移除了Map中的key
         // kL.add("X");  不能添加因为没有新键没有对应值,不会默认为null
         // 改变Map也会改变这个view
         Map1.put("X", 99);
-        System.out.println(kL); // >>>  [X, A, C]
+        System.out.println(kL); // >>>  [X, GetClassExample, C]
 
 
         // Map.values()
         System.out.println();
         Map<String, Integer> Map2 = new HashMap<>(Map.ofEntries(
-                Map.entry("A", 1),
-                Map.entry("B", 2),
+                Map.entry("GetClassExample", 1),
+                Map.entry("GetB", 2),
                 Map.entry("C", 3)
         ));
         Collection<Integer> vL = Map2.values();  // Collection没有index的概念
 
         // 增加一个key和value
         Map2.put("D", 4);
-        Map2.remove("A");
+        Map2.remove("GetClassExample");
         System.out.println(vL); // >>> //  [2, 3, 4]
         vL.remove(2);
         System.out.println(Map2); // >>> {C=3, D=4}
@@ -150,16 +150,16 @@ public class Java_View {
 
         // Map.entrySet()
         Map<String, Integer> Map3 = new HashMap<>(Map.ofEntries(
-                Map.entry("A", 1),
-                Map.entry("B", 2),
+                Map.entry("GetClassExample", 1),
+                Map.entry("GetB", 2),
                 Map.entry("C", 3)
         ));
         Set<Map.Entry<String, Integer>> S1 = Map3.entrySet();
-        System.out.println(S1); // >>> [A=1, B=2, C=3]
+        System.out.println(S1); // >>> [GetClassExample=1, GetB=2, C=3]
         // 原Map改动
         Map3.put("D", 4);
-        Map3.remove("A");
-        System.out.println(S1); // >>> [B=2, C=3, D=4]
+        Map3.remove("GetClassExample");
+        System.out.println(S1); // >>> [GetB=2, C=3, D=4]
         S1.clear();
         System.out.println(Map3); // >>>  {}
     }
