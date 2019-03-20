@@ -206,6 +206,62 @@ class SubClass2 extends ParentClass2 {
 }
 
 
+/*
+ * 研究继承属性和方法的不同
+ * 如果List与ArrayList中有相同的属性（如int i),    则a.i是调用了   !!!!!父类!!!!! List中的i
+    * 如果List与ArrayList中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! ArrayList中的f()  (参见下面FatherX和SonX)
+        * 注意这个python的OOP思想不同!!!
+        * 这是因为python没有泛型, 没有办法规定一个实例是父类, 但是通过子类来实例来实现
+ */
+class FatherX {
+    String x = "Father";
+
+    void foo() {
+        System.out.println("from father");
+    }
+
+}
+
+class SonX extends FatherX{
+    String x = "Son";
+
+    void foo() {
+        System.out.println("from son");
+    }
+}
+
+class TT {
+    public static void main(String[] args) {
+
+        // 两种实例
+        FatherX real_father = new FatherX();
+        FatherX father_son = new SonX();
+        SonX real_son = new SonX();
+        // 两个个fake指引
+        // SonX fake_son = (SonX) real_father;  // 不行
+        FatherX son_father = (FatherX) real_son;
+        FatherX son_father2 = (FatherX) father_son;
+
+        //泛型导致两者不同!
+        System.out.println(real_father.x);  // >>> Father  // of course
+        System.out.println(father_son.x);   // >>> Father    // 不继承SonX的变量,而是FatherX的边浪
+        System.out.println(real_son.x);     // >>>  Son
+        // System.out.println(fake_son.x);     // error
+        System.out.println(son_father.x); // >>> Father
+        System.out.println(son_father2.x); // >>> Father
+
+        System.out.println();
+        real_father.foo(); // >>> from father  // of course
+        father_son.foo();  // >>> from son     // 仍然继承SonX的方法
+        real_son.foo();    // >>> from son
+        // fake_son.foo();                    // error
+        son_father.foo();  // >>> from son   // 转型的Father仍然执行子类的方法, 这也是转型的目的
+        son_father2.foo(); // >>> from son
+    }
+}
+
+
+
 // 研究super的跳跃层数
 // STOF: https://stackoverflow.com/q/55249557/8435726
 class Zero {
