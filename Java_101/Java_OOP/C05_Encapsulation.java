@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C06_Encapsulation {
+public class C05_Encapsulation {
     // Java封装
 
     /*

@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C07_Interface {
+public class C06_Interface {
 
     /*
      * 接口Interface 在JAVA编程语言中是一个抽象类型，是抽象方法的集合，接口通常以interface来声明

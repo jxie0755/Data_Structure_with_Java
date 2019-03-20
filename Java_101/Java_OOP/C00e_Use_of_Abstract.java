@@ -2,7 +2,7 @@ package Java_OOP;
 
 // Learn abstract
 
-abstract class C04_Abstraction {
+abstract class C00e_Use_of_Abstract {
 
     /*
      * abstract类
@@ -23,7 +23,7 @@ abstract class C04_Abstraction {
     String name;
 
     // 构造方法
-    public C04_Abstraction(String name) {
+    public C00e_Use_of_Abstract(String name) {
         this.name = name;
     }
 
@@ -41,7 +41,7 @@ abstract class C04_Abstraction {
 }
 
 
-class Sub_Abstraction extends C04_Abstraction {
+class Sub_Abstraction extends C00e_Use_of_Abstract {
 
     // 子类必须也有制造方法
     public Sub_Abstraction(String name) {
@@ -60,7 +60,7 @@ class Abtraction_Test {
     public static void main(String[] args) {
 
         System.out.println("This is an abstract class");
-        // C04_Abstraction abs = new  C04_Abstraction("abstract one");
+        // C00e_Use_of_Abstract abs = new  C00e_Use_of_Abstract("abstract one");
         // System.out.println(abs.show_name());
         // abs.print_name();                     // abstract类无法实例化
 

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class C09_Generics {
+public class C08_Generics {
     // Java泛型
     // 使用泛型可以使错误在编译时被探测到，从而增加程序的健壮性
 

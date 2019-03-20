@@ -5,7 +5,7 @@ package Java_OOP;
 import java.util.ArrayList;
 import java.util.List;
 
-public class C00_Use_of_Static {
+public class C00a_Use_of_Static {
 
     /*
      * static
@@ -80,7 +80,7 @@ public class C00_Use_of_Static {
         System.out.println(fooo);       // 直接可以出!!!
 
         // System.out.println(barrr);       // not static 不能出
-        C00_Use_of_Static bar_out = new C00_Use_of_Static();
+        C00a_Use_of_Static bar_out = new C00a_Use_of_Static();
         System.out.println(bar_out.barrr);  // 怎么办? 造一个实例就可以出
 
         foo();

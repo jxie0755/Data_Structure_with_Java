@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C08_Instance_Casting {
+public class C07_Instance_Casting {
     // 由导出类转型成基类， 就是一个向上转型       如"Human a1=new Woman( );                            通俗地说就是是将子类对象转为父类对象
     // 父类转型成子类,     就是向下转型，        如“Human a1=new Woman( ); Woman b1=(Woman) a1;”。     向下转型是把父类对象转为子类对象
 

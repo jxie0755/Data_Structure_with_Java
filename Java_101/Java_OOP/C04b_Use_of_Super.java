@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C00b_Use_of_Super {
+public class C04b_Use_of_Super {
     /*
      * 学习private构造器的用法
         * 单例模式
