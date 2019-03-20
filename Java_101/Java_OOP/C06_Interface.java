@@ -74,6 +74,16 @@ public class C06_Interface {
      * 标识接口作用：简单形象的说就是给某个对象打个标（盖个戳），使对象拥有某个或某些特权。
      */
 
+    /*
+     * Java8 接口新特性
+     * Java 8之前， 尽管Java语言中接口已经非常优秀了， 但相比其他面向对象的语言而言Java接口存在如下不足之处：
+        * 不能可选实现方法， 接口的方法全部是抽象的， 实现接口时必须全部实现接口中方法， 哪怕是有些方法并不需要， 也必须实现。
+        * 没有静态方法
+            * 实现接口时接口中原有的抽象方法在实现类中必须实现
+            * 默认方法可以根据需要有选择实现（覆盖）
+            * 静态方法不需要实现， 实现类中不能拥有接口中的静态方法
+     */
+
 }
 
 
@@ -88,10 +98,16 @@ interface Animal_5 {
     public void eat();           // 默认就是抽象方法, 但是可以省略public字符, 因为方法必须被子类实现
     abstract void travel();      // 默认就是抽象方法, 但是可以省略abstract字符
 
-    // 注意: 静态方法还是需要声明完整, 而且子类不必继承!!
-    static void wtf() {
-        System.out.println("WFT!");
+    // 注意: 静态方法还是需要声明完整, 而且子类不必继承!!(java8)特性
+    static void wtf(Animal_5 animal) {
+        System.out.println(animal + " WTF!");
     }
+
+    // Java8新特性, 接口支持default方法 (必须声明default)
+    default String defMethod() {
+        return "这是默认方法...";
+    }
+
 }
 
 // 接口的实现
@@ -119,9 +135,6 @@ class Mammal_5 implements Animal_5 {
         return 4;
     }
 
-    public void showInterfaceType() {
-        System.out.println(super.type);
-    }
 
     public static void main(String args[]) {
         Mammal_5 m = new Mammal_5("Jackie");
@@ -130,8 +143,6 @@ class Mammal_5 implements Animal_5 {
         // 测试接口变量
         System.out.println(m.type);  // >>> Mammal
         System.out.println(a.type);  // >>> Animal  // 指向Animal接口的边浪
-
-
 
         // 测试接口方法
         System.out.println();
@@ -143,8 +154,12 @@ class Mammal_5 implements Animal_5 {
         a.travel();   // >>> Mammal travels   // 相同
         // System.out.println(a.noOfLegs()); // 父类通过多态实现的实例不能有子类独有的方法(除非转型)
 
-
-
+        // 测试静态方法
+        Animal_5.wtf(m); // >>> Java_OOP.Mammal_5@21bcffb5 WTF!
+        Animal_5.wtf(a); // >>> Java_OOP.Mammal_5@380fb434 WTF!
+        // 测试默认方法
+        System.out.println(m.defMethod()); // >>>  这是默认方法...
+        System.out.println(a.defMethod()); // >>>  这是默认方法...
     }
 }
 
