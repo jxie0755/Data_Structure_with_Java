@@ -212,6 +212,7 @@ class SubClass2 extends ParentClass2 {
     * 如果List与ArrayList中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! ArrayList中的f()  (参见下面FatherX和SonX)
         * 注意这个python的OOP思想不同!!!
         * 这是因为python没有泛型, 没有办法规定一个实例是父类, 但是通过子类来实例来实现
+    *  多态发生时， Java虚拟机运行时根据引用变量指向的实例调用它的方法， 而不是根据引用变量的类型调用
  */
 class FatherX {
     String x = "Father";
@@ -316,6 +317,10 @@ class Two extends One {
         // 2
 
         two.showZeroN(); // >>> 1  // 通过Zero中的showZeroN可以确定这个事实
+
+        System.out.println(two instanceof Two);  // >>> true
+        System.out.println(two instanceof One);  // >>> true
+        System.out.println(two instanceof Zero); // >>> true
     }
 }
 
