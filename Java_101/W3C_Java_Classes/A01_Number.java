@@ -23,8 +23,8 @@ public class A01_Number {
         * Number类属于java.lang包
 
         * 大数 (Number的两个子类)
-            * BigInteger
-            * BigDecima
+            * BigInteger - 是不可变的任意精度的大整数
+            * BigDecimal - 是不可变的任意精度的有符号十进制数
      */
 
     // https://docs.oracle.com/en/java/javase/11/
