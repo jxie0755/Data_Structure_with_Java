@@ -3,6 +3,9 @@ package Java_OOP;
 public class C06_Interface {
 
     /*
+     * 比抽象类更加抽象的是接口， 在接口中所有的方法都是抽象的。
+        * Java 8之后接口中新增加了默认方法， 因此“接口中所有的方法都是抽象的”这个提法在Java 8之后是有待商榷。
+
      * 接口Interface 在JAVA编程语言中是一个抽象类型，是抽象方法的集合，接口通常以interface来声明
         * 一个类通过继承接口的方式，从而来继承接口的抽象方法
      * 接口并不是类，编写接口的方式和类很相似，但是它们属于不同的概念
@@ -28,17 +31,23 @@ public class C06_Interface {
         * 接口文件保存在.java结尾的文件中，文件名使用接口名
         * 接口的字节码文件保存在.class结尾的文件中
         * 接口相应的字节码文件必须在与包名称相匹配的目录结构中
+
      * 接口与类的区别：
-        * 接口不能用于实例化对象
         * 接口没有构造方法
-        * 接口中所有的方法必须是抽象方法
+        * 接口不能用于直接实例化对象
+            * 可以通过子类向上转型UpCasting
+        * 接口中所有的方法必须是抽象方法 (除非是static)
+            * 默认为public abstract (即使不写出来)
         * 接口不能包含成员变量，除了static和final变量
+            * 在接口中成员变量都默认是static final变量， 即省略了public static final修饰符
         * 接口不是被类继承了，而是要被类实现
         * 接口支持多重继承
-     * 接口特性
-        * 接口是隐式抽象的，当声明一个接口的时候，不必使用abstract关键字。
-        * 接口中每一个方法也是隐式抽象的，声明时同样不需要abstract关键子。
-        * 接口中的方法都是公有的。
+
+     * 总结接口特性
+        * 接口不可能是private,但是可以是default或者public (因此需要声明public)
+        * 接口是默认抽象的，当声明一个接口的时候，不必使用abstract关键字。
+        * 接口中每一个方法也是默认抽象的，声明时同样不需要abstract关键子。
+        * 接口中的方法都是public absrtact的, 除非static方法
      */
 
     /*
@@ -46,7 +55,7 @@ public class C06_Interface {
         * 在Java中，类的多重继承是不合法，但接口允许多重继承
         * 一个类可以同时实现多个接口
         * 一个类只能继承一个类，但是能实现多个接口
-        * 一个接口能继承另一个接口，这和类之间的继承比较相似
+        * 一个接口只能单继承另一个接口，这和类之间的继承比较相似
      */
 
     /*
@@ -70,13 +79,14 @@ public class C06_Interface {
 
 
 interface Animal_5 {
+
+    String type = "Animal";  // 默认final静态变量
+
     // public static String T;  只能声明方法,不能声明变量
 
     // 接口是管理动作的, 不需要初始化实例, 如果需要就不应该做成interface而是做成抽象类或者别的
-    public void eat();
-    void travel();
-    // interface 不需要public方法修饰符, 因为方法必须被子类实现
-
+    public void eat();           // 默认就是抽象方法, 但是可以省略public字符, 因为方法必须被子类实现
+    abstract void travel();      // 默认就是抽象方法, 但是可以省略abstract字符
 
     // 注意: 静态方法还是需要声明完整, 而且子类不必继承!!
     static void wtf() {
@@ -90,6 +100,7 @@ interface Animal_5 {
 class Mammal_5 implements Animal_5 {
 
     String name;
+    String type = "Mammal";
 
     public Mammal_5 (String m_name){
         this.name = m_name;
@@ -108,16 +119,32 @@ class Mammal_5 implements Animal_5 {
         return 4;
     }
 
+    public void showInterfaceType() {
+        System.out.println(super.type);
+    }
+
     public static void main(String args[]) {
         Mammal_5 m = new Mammal_5("Jackie");
+        Animal_5 a = new Mammal_5("Didi");
+
+        // 测试接口变量
+        System.out.println(m.type);  // >>> Mammal
+        System.out.println(a.type);  // >>> Animal  // 指向Animal接口的边浪
+
+
+
+        // 测试接口方法
+        System.out.println();
         m.eat();      // >>> Mammal eats
         m.travel();   // >>> Mammal travels
         System.out.println(m.noOfLegs()); // >>>  4
 
-        Animal_5 a = new Mammal_5("Didi");
         a.eat();      // >>> Mammal eats
         a.travel();   // >>> Mammal travels   // 相同
-        // System.out.println(a.noOfLegs()); // 父类通过多态实现的实例不能有子类独有的方法
+        // System.out.println(a.noOfLegs()); // 父类通过多态实现的实例不能有子类独有的方法(除非转型)
+
+
+
     }
 }
 

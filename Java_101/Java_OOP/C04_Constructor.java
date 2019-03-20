@@ -4,6 +4,7 @@ public class C04_Constructor {
 
     // 子类是否必须要重写父类的构造函数?
     // 若父类只有构造函数, 则子类必须重写
+    // 当一个类有多个Constructor的时候, 重载Constructor可以用this来省略一些代码 (参见Use_of_This)
 }
 
 class Superman_1 {

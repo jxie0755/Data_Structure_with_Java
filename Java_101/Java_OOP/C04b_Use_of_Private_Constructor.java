@@ -1,11 +1,12 @@
 package Java_OOP;
 
-public class C04b_Use_of_Super {
+public class C04b_Use_of_Private_Constructor {
     /*
      * 学习private构造器的用法
         * 单例模式
         * 工具类Utils，里面全是静态方法和变量, 用于对其他类做编辑, 则没有必要实例化, 通过private来保护
             * 例如java.util.Collections,  java.util.Arrays等等
+
      */
 }
 
@@ -81,86 +82,5 @@ class Singleton {
 class Singleton_visit {
     public static void main(String[] args) {
         Singleton instance = Singleton.getInstance();
-    }
-}
-
-
-// super constructor
-class C7 {
-    String name;
-    public C7(String name) {
-        this.name = name;
-        System.out.println("!! " + name + " !!");
-    }
-
-    void foo(String s) {
-        System.out.println(s + " <<<your grandfather");
-    }
-
-}
-
-
-class C8 extends C7 {
-    Integer innt;
-
-    public C8(String name) {
-        super(name);
-    }
-
-    public C8(String name, int x) {
-        super(name + " " + x);        // 即使重载也必须先使用super, 必须第一行
-        this.name = name; // 然后再覆盖?
-        this.innt = x;
-    }
-
-    void foo(String s) {
-        super.foo(s + " <<<your father");  // super用于其他位置, 其实就是代表Parent
-    }
-
-    void bar() { }
-
-}
-
-class C9 extends C8 {
-
-    public C9(String name) {
-        super(name);
-    }
-
-    void foo(String s) {
-        super.foo(s + " <<< yourself");
-        // C8.foo(s + " <<< yourself")   意思就是这样,但是不能这么写
-    }
-
-    public static void main(String[] args) {
-
-        C7 c77 = new C7("c777"); // >>>  !! c777 !!
-        C8 c88 = new C8("c888"); // >>>  !! c888 !!
-        C8 c888 = new C8("c8888", 10); // >>>  !! c8888 10 !!
-        // System.out.println(c888.name); // >>>  c8888???>
-        c77.foo("c77");   // >>>  c77 <<<your grandfather
-        c88.foo("c88");   // >>>  c88 <<<your father <<<your grandfather
-        C9 c99 = new C9("c999");
-        c99.foo("c99"); // >>>  c99 <<< yourself our father <<<your grandfather  // 链式继承super方法
-    }
-
-}
-
-
-// 额外例子展示super访问父类变量
-class ParentClass {
-    // x成员变量
-    int x = 10;
-}
-
-class SubClass extends ParentClass {
-    // 屏蔽父类x成员变量
-    int x = 20;
-
-    public void print() {
-        // 访问子类对象x成员变量
-        System.out.println("x = " + x);
-        // 访问父类x成员变量
-        System.out.println("super.x = " + super.x);
     }
 }
