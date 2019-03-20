@@ -30,11 +30,13 @@ class GetClassTest {
 
 //出现继承时?
 class GetA {
-    public void func(){
+    public class GetC extends GetA {
+
     }
 }
 
 class GetB extends GetA {
+
 }
 
 class GetABTest {
@@ -49,6 +51,10 @@ class GetABTest {
         System.out.println(ab.getClass()); // >>> class ..GetB
         ab = a;
         System.out.println(ab.getClass()); // >>> class ..GetA // 是ab在运行到这一时刻是所属的类型
+
+        // 还有一个getSuperClass (对于class用而不是instance)
+        System.out.println(b.getClass().getSuperclass()); // >>> class ..GetA
+
     }
 
 }
