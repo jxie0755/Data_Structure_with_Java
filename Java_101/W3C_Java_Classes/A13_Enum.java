@@ -247,6 +247,7 @@ class A13_Enum_zMethods {
         // 	getDeclaringClass()
         System.out.println(day1.getDeclaringClass()); // >>> class W3C_Java_Classes.EN_WeekDays
         System.out.println(day1.getClass());          // >>>  class W3C_Java_Classes.EN_WeekDays
+        System.out.println(day1.getClass().getSuperclass()); // >>>  class java.lang.Enum
 
         System.out.println(day1.getDeclaringClass() == day1.getClass());
         // >>> true???  at runtime it is true, but false at the compiler
