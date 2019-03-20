@@ -21,6 +21,10 @@ public class A01_Number {
         * 这种由编译器特别支持的包装称为装箱，所以当内置数据类型被当作对象使用的时候，编译器会把内置类型装箱为包装类.
         * 相似的，编译器也可以把一个对象拆箱为内置类型
         * Number类属于java.lang包
+
+        * 大数 (Number的两个子类)
+            * BigInteger
+            * BigDecima
      */
 
     // https://docs.oracle.com/en/java/javase/11/
