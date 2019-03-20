@@ -115,7 +115,7 @@ class Material {
 
 //盐类
 class Salt extends Material {
-    String foodtype = "Salts";
+    String foodtype = "Salt";
     public void intro() { System.out.println("我是盐"); }
     public void health() { System.out.println("做菜少放盐!");}
 }
@@ -192,5 +192,8 @@ class MyMenu {
         System.out.println(M1.foodtype); // >>> Material
         System.out.println(M2.foodtype); // >>> Material
         System.out.println(M3.foodtype); // >>> Material
+        System.out.println(((Salt)M1).foodtype);      // >>> Salt
+        System.out.println(((Meat)M2).foodtype);      // >>> Meat
+        System.out.println(((Vegetable)M3).foodtype); // >>> Vegetable
     }
 }
