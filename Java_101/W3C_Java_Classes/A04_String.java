@@ -22,7 +22,7 @@ public class A04_String {
         * valueOf                         快速生成一个Object的__str__
 
         * format                          格式化, 用于四舍五入,保留位数等等
-        * compareTo                       比较(规则略特殊)
+        * compareTo                       比较大小
         * compareToIgnoreCase
         * regionMatches                   测试两个字符串各自一个区域是否相等(同长但不同index)
         * trim()                          返回字符串的副本，忽略前导空白和尾部空python strp
