@@ -208,11 +208,11 @@ class SubClass2 extends ParentClass2 {
 
 /*
  * 研究继承属性和方法的不同
- * 如果List与ArrayList中有相同的属性（如int i),    则a.i是调用了   !!!!!父类!!!!! List中的i
-    * 如果List与ArrayList中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! ArrayList中的f()  (参见下面FatherX和SonX)
-        * 注意这个python的OOP思想不同!!!
-        * 这是因为python没有泛型, 没有办法规定一个实例是父类, 但是通过子类来实例来实现
-    *  多态发生时， Java虚拟机运行时根据引用变量指向的实例调用它的方法， 而不是根据引用变量的类型调用
+ * 如果父类与子类中有相同的属性（如int i),    则a.i是调用了   !!!!!父类!!!!! 的i
+ * 如果父类与子类中有相同的方法（如void f()), 则a.f()是调用了 !!!!!子类!!!!! 的f()  (参见下面FatherX和SonX)
+    * 注意这个python的OOP思想不同!!!
+    * 这是因为python没有泛型, 没有办法规定一个实例是父类, 但是通过子类来实例来实现
+*  多态发生时， Java虚拟机运行时根据引用变量指向的实例调用它的方法， 而不是根据引用变量的类型调用
  */
 class FatherX {
     String x = "Father";

@@ -109,23 +109,27 @@ class Geography_Test {
 
 // 实战: 利用Casting来简化代码,避免重载, 而且方便未来扩展代码
 class Material {
+    String foodtype = "Material";
     public void intro() { }
 }
 
 //盐类
 class Salt extends Material {
+    String foodtype = "Salts";
     public void intro() { System.out.println("我是盐"); }
     public void health() { System.out.println("做菜少放盐!");}
 }
 
 //肉类
 class Meat extends Material {
+    String foodtype = "Meat";
     public void intro() { System.out.println("我是肉"); }
     public void price() { System.out.println("我很贵!!");}
 }
 
 //蔬菜类
 class Vegetable extends Material {
+    String foodtype = "Vegetable";
     public void intro() { System.out.println("我是蔬菜"); }
 }
 
@@ -157,27 +161,36 @@ class MyMenu {
     }
 
     public static void main(String[] args) {
+        Material M1 = new Salt();
+        Material M2 = new Meat();
+        Material M3 = new Vegetable();
         add(new Salt());
         add(new Meat());
         add(new Vegetable());
 
+        System.out.println();
         // add_2因为casting可以同时套用到三个子类上,分别输出子类的方法, 这样节省了重复代码
-        add_2(new Salt());
+        add_2(M1);
         // >>>
         // 我是盐
         // 做菜少放盐
 
-        add_2(new Meat());
+        add_2(M2);
         // >>>
         // 我是肉
         // 我很贵!!
         // 肉类含有丰富动物蛋白质
 
-        add_2(new Vegetable());
+        add_2(M3);
         // >>>
         // 我是蔬菜
 
         // 如果我又有一种新菜加进来，我只需要实现它自己的类，让他继承Material就可以了，而不需要为它单独写一个add_2方法。是不是提高了扩展性?
         // add_2(new Sugar()); // 直接可用
+
+        // 但是属性则是另一回事(详见C02_Override_Overload)
+        System.out.println(M1.foodtype); // >>> Material
+        System.out.println(M2.foodtype); // >>> Material
+        System.out.println(M3.foodtype); // >>> Material
     }
 }
