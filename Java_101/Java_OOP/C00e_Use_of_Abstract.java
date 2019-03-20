@@ -15,7 +15,8 @@ abstract class C00e_Use_of_Abstract {
      * abstract 方法
         * 如果你想设计这样一个类，该类包含一个特别的成员方法，该方法的具体实现由它的子类确定，那么你可以在父类中声明该方法为抽象方法。
         * 抽象类中不一定包含抽象方法，但是有抽象方法的类必定是抽象类。
-        * 抽象类中的抽象方法只是声明，不包含方法体，就是不给出方法的具体实现也就是方法的具体功能。抽象方法没有定义，方法名后面直接跟一个分号，而不是花括号。
+        * 抽象类中的抽象方法只是声明，不包含方法体，就是不给出方法的具体实现也就是方法的具体功能。
+        * 抽象方法没有定义，方法名后面直接跟一个分号，而不是花括号。
         * 抽象类的子类 !必须! 给出抽象类中的初始化方法和抽象方法的具体实现，除非该子类也是抽象类。
         * 构造方法，类方法（用 static 修饰的方法）不能声明为抽象方法。
      */
@@ -37,6 +38,7 @@ abstract class C00e_Use_of_Abstract {
 
     // abstract方法
     public abstract int ABS_method(int i);
+    // 注意抽象方法中只有方法的声明， 没有方法的实现， 即没有大括号{}部分
 
 }
 
@@ -62,16 +64,17 @@ class Abtraction_Test {
         System.out.println("This is an abstract class");
         // C00e_Use_of_Abstract abs = new  C00e_Use_of_Abstract("abstract one");
         // System.out.println(abs.show_name());
-        // abs.print_name();                     // abstract类无法实例化
+        // abs.print_name();                     // abstract类无法直接实例化
 
 
         // 通过一个子类的实例就可以实现abstract类的方法和变量
         System.out.println("This is an abstract class's sub-class");
-        Sub_Abstraction A_sub = new Sub_Abstraction("ABS");
-        System.out.println(A_sub.show_name());   // >>> ABS
-        A_sub.print_name();                      // >>> ABS
+        C00e_Use_of_Abstract A_sub = new Sub_Abstraction("AbstractClass");
+        Sub_Abstraction B_sub = new Sub_Abstraction("subABS");
 
-        System.out.println(A_sub.ABS_method(5));  // >>> 5  abstract method
+        System.out.println(B_sub.show_name());   // >>> subABS
+        B_sub.print_name();                      // >>> subABS
+        System.out.println(B_sub.ABS_method(5));  // >>> 5  abstract method
     }
 }
 
