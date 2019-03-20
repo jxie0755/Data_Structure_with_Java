@@ -22,7 +22,7 @@ public class A14_Date_Related {
 }
 
 
-class A14_Date {
+class A14b_Date {
 
     /*
      * Module java.base
@@ -51,7 +51,6 @@ class A14_Date {
         System.out.println(now1.getTime()); // >>>  1553106063217
         Date now2 = new Date(now1.getTime());
         System.out.println(now1.equals(now2)); // >>> true
-
 
         Date date1 = new Date(1234567890123L);
         System.out.println(date1); // >>>  Fri Feb 13 18:31:30 EST 2009
