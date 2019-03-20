@@ -56,6 +56,7 @@ public class C05_Conditional_If_Else {
 
         // 1.4.2
         // Another Conditional Expressions (Not commonly used)
+        // 相当于python的 a = x if ... else ...
         System.out.println(3 < 4 ? "Less" : "More"); // Prints Less
         System.out.println(4 < 3 ? "Less" : "More"); // Prints More
         System.out.println(3 > 4 ? 1 : "WTF");  // avoid using, check bottom comments
