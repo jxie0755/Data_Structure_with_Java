@@ -1,5 +1,8 @@
 package W3C_Java_Classes;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class A14_Date_Related {
@@ -41,6 +44,21 @@ class A14b_Date {
 
          * long getTime()： 返回自1970年1月1日00:00:00以来此Date对象表示的毫秒数
          * setTime(long time)： 用毫秒数time设置日期对象 time是自1970年1月1日00:00:00以来此Date对象表示的毫秒数
+
+                                                                     * get and set(省略) all deprecated
+                                                                         * getDate()
+                                                                         * getDay()
+                                                                         * getHours()
+                                                                         * getMinutes()
+                                                                         * getMonth()
+                                                                         * getSeonds()
+                                                                         * getYear()
+
+                                                                     * show as a String all deprecated
+                                                                        * toGMTString()
+                                                                        * toInstant()
+                                                                        * toLocaleString()
+                                                                        * toString
      */
 
     public static void main(String[] args) {
@@ -62,3 +80,92 @@ class A14b_Date {
     }
 }
 
+
+class A14c_DateFormat {
+    /*
+     * Module java.base
+     * Package java.text
+     * Class DateFormat (abstract)
+     */
+
+    // DateFormat是抽象类， 它的常用具体类是 java.text.SimpleDateFormat
+
+    /*
+     * Module java.base
+     * Package java.text
+     * Class SimpleDateFormat
+     */
+
+    /*
+     * String format(Date date)   将一个Date格式化为日期/时间字符串。
+     * Date parse(String source)  从给定字符串的开始解析文本，以生成一个日期对象. 如果解析失败则抛出ParseException。
+
+     * SimpleDateFormat构造方法
+        * SimpleDateFormat()                用默认的模式和默认语言环境的日期格式符号构造SimpleDateFormat。
+        * SimpleDateFormat(String pattern)  用给定的模式和默认语言环境的日期格式符号构造SimpleDateFormat。
+
+        * parse                             从StringFormat变成Date对象 (注意处理异常)
+     */
+
+    /*
+     * G	Era designator	                                  Text	    AD
+     * y	Year	                                          Year	    1996; 96
+     * Y	Week year	                                      Year	    2009; 09
+     * M	Month in year (context sensitive)	              Month	    July; Jul; 07
+     * L	Month in year (standalone form)	                  Month	    July; Jul; 07
+     * w	Week in year	                                  Number	27
+     * W	Week in month	                                  Number	2
+     * D	Day in year	                                      Number	189
+     * d	Day in month	                                  Number	10
+     * F	Day of week in month	                          Number	2
+     * E	Day name in week	                              Text	    Tuesday; Tue
+     * u	Day number of week (1 = Monday, 7 = Sunday)       Number	1
+     * a	Am/pm marker	                                  Text	    PM
+     * H	Hour in day (0-23)	                              Number	0
+     * k	Hour in day (1-24)	                              Number	24
+     * K	Hour in am/pm (0-11)	                          Number	0
+     * h	Hour in am/pm (1-12)	                          Number	12
+     * m	Minute in hour	                                  Number	30
+     * s	Second in minute	                              Number	55
+     * S	Millisecond	                                      Number	978
+
+     * z	Time zone	                             General timezone	 Pacific Standard Time; PST; GMT-08:00
+     * Z	Time zone	                             RFC 822 timezone	 -0800
+     * X	Time zone	                             ISO 8601 timezone -08; -0800; -08:00
+     */
+
+    public static void main(String[] args) {
+
+        Date date1 = new Date(1234567890123L);
+        System.out.println(date1);               // >>>  Fri Feb 13 18:31:30 EST 2009
+        DateFormat df = new SimpleDateFormat();  // 默认是
+        System.out.println(df.format(date1));    // >>>  2/13/09, 6:31 PM
+
+        DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println(df2.format(date1));    // >>>  2009-02-13 18:31:30
+        String str = "2018-08-18 08:18:58";
+        try {
+           Date date2 = df2.parse(df2.format(date1));
+        }  catch (ParseException ae){
+            System.out.println(ae);
+        }
+    }
+}
+
+class A14d_Calendar {
+
+    /*
+     * Module java.base
+     * Package java.util
+     * Class Calendar
+     */
+
+    /*
+     * 常用方法
+     */
+
+    public static void main(String[] args) {
+
+    }
+
+}
