@@ -240,8 +240,8 @@ class TT {
         SonX real_son = new SonX();
         // 两个个fake指引
         // SonX fake_son = (SonX) real_father;  // 不行
-        FatherX son_father = (FatherX) real_son;
-        FatherX son_father2 = (FatherX) father_son;
+        FatherX son_father = (FatherX) real_son;     // (向上转型)
+        FatherX son_father2 = (FatherX) father_son;  // (向上转型)
 
         //泛型导致两者不同!
         System.out.println(real_father.x);  // >>> Father  // of course
