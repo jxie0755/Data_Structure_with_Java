@@ -189,6 +189,7 @@ class MyMenu {
         // add_2(new Sugar()); // 直接可用
 
         // 但是属性则是另一回事(详见C02_Override_Overload)
+        // 为了避免问题, 不论是属性还是方法, 都转型就比较安全
         System.out.println(M1.foodtype); // >>> Material
         System.out.println(M2.foodtype); // >>> Material
         System.out.println(M3.foodtype); // >>> Material
