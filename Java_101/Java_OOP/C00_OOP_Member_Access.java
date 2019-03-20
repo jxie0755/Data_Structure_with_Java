@@ -2,7 +2,7 @@ package Java_OOP;
 
 // Learn public class in a .java file
 
-public class C00_OOP_Public_A {
+public class C00_OOP_Member_Access {
 
     /*
      * 对于类(外部类), 只有public和default两个概念, 没有private类,因为类就是为了被人引用的才造出来的
@@ -46,7 +46,7 @@ public class C00_OOP_Public_A {
     final String fin;
     String notfin;
 
-    public C00_OOP_Public_A(){
+    public C00_OOP_Member_Access(){
         this.fin = "This is final";
         this.notfin = "This is not final";
     }
@@ -92,7 +92,7 @@ public class C00_OOP_Public_A {
         // C05_OOP_Internal_B B = new C05_OOP_Internal_B();  // 内部类不能被static main访问, 甚至不能被造实例
 
         // test final
-        C00_OOP_Public_A A_final = new C00_OOP_Public_A();
+        C00_OOP_Member_Access A_final = new C00_OOP_Member_Access();
 
         System.out.println(A_final.fin);  // >>> This is final
         // A_final.fin = "fin Changed";   // can't change final       (set方法同样也是不行)
@@ -117,7 +117,7 @@ final class C00_OOP_Not_Public_final_C {
 
 /*
  * 这样会产生两个.class文件:
-    * C00_OOP_Public_A.class
+    * C00_OOP_Member_Access.class
     * C05_OOP_Multi_C.class
     * B 没有被生成
  */
