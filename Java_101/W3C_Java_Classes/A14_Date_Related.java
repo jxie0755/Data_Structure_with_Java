@@ -3,6 +3,7 @@ package W3C_Java_Classes;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class A14_Date_Related {
@@ -141,8 +142,8 @@ class A14c_DateFormat {
         DateFormat df = new SimpleDateFormat();  // 默认是
         System.out.println(df.format(date1));    // >>>  2/13/09, 6:31 PM
 
-        DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        System.out.println(df2.format(date1));    // >>>  2009-02-13 18:31:30
+        DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss aa");
+        System.out.println(df2.format(date1));    // >>>  2009-02-13 18:31:30 PM
         String str = "2018-08-18 08:18:58";
         try {
            Date date2 = df2.parse(df2.format(date1));
@@ -157,15 +158,49 @@ class A14d_Calendar {
     /*
      * Module java.base
      * Package java.util
-     * Class Calendar
+     * Class Calendar (abstract)
+     */
+
+    /*
+     * 有时为了取得更多的日期时间信息， 或对日期时间进行操作， 可以使用java.util.Calendar类
+     * Calendar是一个抽象类， 不能实例化
+     * 但是通过静态工厂方法getInstance()获得Calendar实例
      */
 
     /*
      * 常用方法
+        * Calendar.getInstance()                       构造方法
+        * set(yyyy, mm, dd)                            设置Calendar时间
+        * set(Calendar.YEAR, yyyy)
+        * set(Calendar.MONTH, mm)
+        * set(Calendar.DATE, dd)
+
+        * getTime                                      转化成Date实例
+        * clear                                        清除(重新初始化日历对象)
+        *
      */
 
     public static void main(String[] args) {
 
-    }
+        Calendar calA = Calendar.getInstance();
+        calA.set(2018, 7, 18);   // 注意月份是从0开始, 7是8月的意思
+        System.out.println(calA);  // not printable
+        System.out.println(calA.toString());  // not printable
 
+        Date date1 = calA.getTime(); // 转换成Date格式
+        System.out.println(date1); // >>>  Sat Aug 18 11:14:53 EDT 2018
+
+        calA.clear();
+
+        Calendar calB = Calendar.getInstance();
+        calB.set(Calendar.YEAR, 2019);
+        System.out.println(calB.getTime());  // >>>  Tue Jan 01 00:00:00 EST 2019 默认1月1号0点
+        calB.set(Calendar.MONTH, 3);
+        calB.set(Calendar.DATE, 21);
+        System.out.println(calB.getTime());  // >>>  Sun Apr 21 12:54:03 EDT 2019 // 月份是4月
+
+        System.out.println(calA.before(calB)); // >>> true
+        System.out.println(calA.after(calB));  // >>> false
+        System.out.println(calA.compareTo(calB)); // >>> -1
+    }
 }
