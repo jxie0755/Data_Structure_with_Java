@@ -52,7 +52,8 @@ class GetABTest {
         ab = a;
         System.out.println(ab.getClass()); // >>> class ..GetA // 是ab在运行到这一时刻是所属的类型
 
-        // 还有一个getSuperClass (对于class用而不是instance)
+        // 还有一个getSuperclass (对于class用而不是instance)
+        // 对于内部类也有用,参见C09_Inner_Class
         System.out.println(b.getClass().getSuperclass()); // >>> class ..GetA
 
     }
