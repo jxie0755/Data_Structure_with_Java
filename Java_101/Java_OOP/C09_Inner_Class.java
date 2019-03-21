@@ -23,12 +23,17 @@ public class C09_Inner_Class {
                     * 局部内部类访问级别只能是默认的, 不能是公有的, 私有的和保护的访问级别，
                         * 局部内部类也不能是静态， 即不能使用static修饰。
                         * 局部内部类可以访问外部类所有成员
+                        * 局部内部类可以出现在静态和费静态方法中, 如果在静态方法中也同样只能访问外部类的静态成员!
 
                 * 成员内部类  -- 成员内部类类似于外部类的成员变量， 在外边类的内部， 且方法体和代码块之外定义的内部类
                     * 实例成员内部类  -- 可以访问外部类的各种成员
                     * 静态成员内部类  -- 只能访问外部类的静态成员(方法/属性)
 
             * 匿名内部类
+                * 匿名内部类是没有名字的内部类, 本质上是没有名的局部内部类, 具有局部内部类所有特征。
+                * 可以访问外部类所有成员。
+                * 如果匿名内部类在方法中定义, 它所访问的参数需要声明为final
+                * 匿名内部类通常用来实现接口或抽象类的， 很少覆盖具体类
      */
 
 }
@@ -200,5 +205,50 @@ class Outer3 {
         // >>>
         // static OUT
         // 103
+    }
+}
+
+
+
+interface Inner4 {   // 建立一个inner4 接口
+    void display();
+}
+
+class Outer4 {
+
+    private String x = "OUT";  // Outer2变量
+    private static String staticX = "static OUT"; //  Outer2静态变量
+
+    void shoot(Inner4 inn) { // 参数为Inner4 实例, 但是需要一个子类实例化这个接口
+        inn.display();
+    }
+
+
+    // 运行时使用匿名内部类
+    public static void main(String[] args) {
+
+        Outer4 out4 = new Outer4();
+        // 方法参数是匿名内部类
+        out4.shoot(new Inner4() {  // 实际上是重写了一个Inner4在内部, 直接调用其方法,但是它的名字不再重要
+                                   // 匿名类可以直接实例化接口和抽象类,不必在乎接口和抽象类没有具体子类
+            @Override
+            public void display(){
+                System.out.println("来自匿内部类!!");
+            }
+        });
+        // >>> 来自匿内部类!!
+        // 使用时直接用这个实例, 所以这个out33的类名不再重要
+
+        // 继承类的匿名内部类(具体类作为内部类)
+        Outer3 out33 = new Outer3(){  // 实际上是重写了一个Outer3在这个类的内部
+            @Override
+            public void shoot(){
+                System.out.println("Shoot from Outer 4!!");
+            };
+        };
+        out33.shoot();
+        // >>> Shoot from Outer 4!!
+        // 使用时直接用这个实例, 所以这个out33的类名不再重要
+        // 匿名内部类通常用来实现接口或抽象类的， 很少覆盖具体类
     }
 }
