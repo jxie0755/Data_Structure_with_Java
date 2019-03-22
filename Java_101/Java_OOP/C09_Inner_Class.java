@@ -210,7 +210,7 @@ class Outer3 {
 
 
 
-interface Inner4 {   // 建立一个inner4 接口
+interface Inner4 {   // 建立一个inner4 接口 // 也可以是class这里无所谓
     void display();
 }
 
@@ -229,7 +229,8 @@ class Outer4 {
 
         Outer4 out4 = new Outer4();
         // 方法参数是匿名内部类
-        out4.shoot(new Inner4() {  // 实际上是重写了一个Inner4在内部, 直接调用其方法,但是它的名字不再重要
+        out4.shoot(new Inner4() {  // 实际上是new了一个Inner4实例在内部, 直接重写其display方法
+                                   // 因为new出来没有给名字所以匿名
                                    // 匿名类可以直接实例化接口和抽象类,不必在乎接口和抽象类没有具体子类
             @Override
             public void display(){
