@@ -7,7 +7,7 @@ public class C09_Inner_Class {
      * Java中还有一种内部类技术, 简单说就是在一个类的内部定义一个类。
      * 内部类看起来很简单, 但是当你深入其中, 你会发现它是极其复杂的。
      * 事实上Java应用程序开发过程中内部类使用的地方不是很多，一般在图形用户界面开发中用于事件处理
-         * Java语言中允许在一个类(或方法、 代码块) 的内部定义另一个类， 后者称为“内部类”(Inner Classes),
+         * Java语言中允许在一个类(或方法、 代码块) 的内部定义另一个类， 后者称为“内部类”(Inner3 Classes),
          * 也称为“嵌套类”(Nested Classes)
          * 封装它的类称为“外部类”
          * 内部类与外部类之间存在逻辑上的隶属关系, 内部类一般只用在封装它的外部类或代码块中使用
@@ -58,13 +58,13 @@ class Outer1 {
 
     // 测试调用内部类
     void test() {
-        Inner inner = new Inner();  // 通过外部类方法创建内部类实例
+        Inner1 inner = new Inner1();  // 通过外部类方法创建内部类实例
         inner.display();
     }
 
     // 建立实例成员内部类
-    class Inner {
-        private String x = "Inner"; // Inner变量
+    class Inner1 {
+        private String x = "Inner3"; // Inner变量
 
         void display() { // Inner方法
             Outer1.this.foo();
@@ -87,20 +87,20 @@ class Outer1 {
         // foooo
         // barrrr
         // OUT OUT y
-        // Inner
-        // Inner
+        // Inner3
+        // Inner3
 
         // 通过外部类实例通过new创建内部类实例, 然后用内部类实例访问内部类方法
-        Outer1.Inner inn1 = out1.new Inner();
+        Inner1 inn1 = out1.new Inner1();
         inn1.display();
         // >>>
         // foooo
         // barrrr
         // OUT OUT y
-        // Inner
-        // Inner
+        // Inner3
+        // Inner3
 
-        System.out.println(inn1.getClass()); // >>> class Java_OOP.Outer1$Inner
+        System.out.println(inn1.getClass()); // >>> class Java_OOP.Outer1$Inner3
         // 注意这里不会给出Outer1:
         System.out.println(inn1.getClass().getSuperclass());  // >>> class java.lang.Object // 内部类不是继承关系
     }
@@ -122,7 +122,7 @@ class Outer2 {
     }
 
     // 建立静态成员内部类
-    static class Inner {
+    static class Inner2 {
 
         void onClick() {
             System.out.println(Outer2.staticX);   // >>> static OUT
@@ -133,10 +133,10 @@ class Outer2 {
     }
 
     public static void main(String[] args) {
-        Outer2.Inner inn2 = new Outer2.Inner(); // 在声明静态内部时采用“内部类.静态内部类
+        Inner2 inn2 = new Inner2(); // 在声明静态内部时采用“内部类.静态内部类
         inn2.onClick();  // >>> static OUT
 
-        System.out.println(inn2.getClass()); // >>> class Java_OOP.Outer2$Inner
+        System.out.println(inn2.getClass()); // >>> class Java_OOP.Outer2$Inner3
         System.out.println(inn2.getClass().getSuperclass()); // >>> class java.lang.Object // 内部类不是继承关系
     }
 }
@@ -156,8 +156,8 @@ class Outer3 {
         int z = 100;
 
         // 建立局部内部类
-        class Inner {
-            void display() {
+        class Inner3 {
+            void display3() {
                 int summ = x + y + z;
                 Outer3.this.shoot3();
                 System.out.println(Outer3.this.x);
@@ -166,8 +166,8 @@ class Outer3 {
             }
         }
 
-        Inner inn3 = new Inner();
-        inn3.display();
+        Inner3 inn3 = new Inner3();
+        inn3.display3();
     }
 
     static void bar(int x, int y) {
@@ -187,7 +187,7 @@ class Outer3 {
 
         Inner inn3 = new Inner();
         inn3.display();
-        // new Inner().display2();
+        // new Inner3().display2();
         // 实例化Inner对象后马上调用它的方法， 没有为Inner对象分配一个引用变量名，
         // 这种写法称为“匿名对象”。 匿名对象适合只运行一次情况下。
         // 匿名对象写法使代码变得简洁， 但是给初学者阅读代码带来了难度
@@ -214,7 +214,7 @@ class Outer3 {
 
 
 interface Inner4 {   // 建立一个inner4 接口 // 也可以是class这里无所谓
-    void display();
+    void display4();
 }
 
 // 匿名内部类实例
@@ -224,7 +224,7 @@ class Outer4 {
     private static String staticX = "static OUT"; //  Outer2静态变量
 
     void shoot4(Inner4 inn) { // 参数为Inner4 实例, 但是需要一个子类实例化这个接口
-        inn.display();
+        inn.display4();
     }
 
 
@@ -238,7 +238,7 @@ class Outer4 {
                                    // 匿名类可以直接实例化接口和抽象类,不必在乎接口和抽象类没有具体子类
                                    // 从这里就可以引出lambda函数的思想
             @Override
-            public void display(){
+            public void display4(){
                 System.out.println("来自匿内部类!!");
             }
         });
