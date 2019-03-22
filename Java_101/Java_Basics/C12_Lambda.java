@@ -38,9 +38,10 @@ public class C12_Lambda {
 
     /*
      * Lambda表达式使用总结
+     * lambda方法的好处就在于, 在不同的地方用不同的表达式相当于不同的函数,但是不需要单独建立一个函数的名字
+     * 只要实现时,符合相同参数数目和类型的, 都可以归纳于这同一个lambda方法
 
         * 首先一定要建立一个函数式接口 ITF @FunctionalInterface
-
         * 然后在接口内声明一个lambda方法(抽象,只声明变量数目和类型)
 
             * 第一种方式, 在接口内部创造一个static方法(STM), 把lambda方法实现了
@@ -51,8 +52,8 @@ public class C12_Lambda {
 
             * 第二种方式, 在别的类应用时使用这个接口, 同时设计表达式(两种用法)
 
-                * 如果是在一个方法(metd)的参数中, 那么把参数设成ITF类的itf实例
-                    * 方法定义中使用itf.lambda(para1, para2,...)
+                * 如果是在一个方法(metd)的参数中, 那么把参数设成ITF类的insta实例
+                    * 方法定义中使用insta.lambda(para1, para2,...)
                         * 具体使用时, 才把参数替换成表达式 meth.(表达式, para1, para2)  // 最优
 
 
