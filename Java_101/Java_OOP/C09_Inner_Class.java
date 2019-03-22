@@ -184,7 +184,7 @@ class Outer3 {
 
         Inner inn3 = new Inner();
         inn3.display();
-        // new Inner().display();
+        // new Inner().display2();
         // 实例化Inner对象后马上调用它的方法， 没有为Inner对象分配一个引用变量名，
         // 这种写法称为“匿名对象”。 匿名对象适合只运行一次情况下。
         // 匿名对象写法使代码变得简洁， 但是给初学者阅读代码带来了难度

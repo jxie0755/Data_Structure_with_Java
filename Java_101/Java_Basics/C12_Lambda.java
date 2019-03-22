@@ -35,9 +35,37 @@ public class C12_Lambda {
      * Lambda表达式可以捕获所在外层作用域内定义的变量
      */
 
+
+    /*
+     * Lambda表达式使用总结
+
+        * 首先一定要建立一个函数式接口 ITF @FunctionalInterface
+
+        * 然后在接口内声明一个lambda方法(抽象,只声明变量数目和类型)
+
+            * 第一种方式, 在接口内部创造一个static方法(STM), 把lambda方法实现了
+                * 实现时在static方法内生成一个自身接口的实例insta
+                * 然后把这个实例通过 insta = 表达式, 指向lambda方法
+                * 最后返回这个实例
+                    * 在别的地方使用时,直接调用这个接口的静态方法 ITF.STM.lambda(para1, para2,...)
+
+            * 第二种方式, 在别的类应用时使用这个接口, 同时设计表达式(两种用法)
+
+                * 如果是在一个方法(metd)的参数中, 那么把参数设成ITF类的itf实例
+                    * 方法定义中使用itf.lambda(para1, para2,...)
+                        * 具体使用时, 才把参数替换成表达式 meth.(表达式, para1, para2)  // 最优
+
+
+                * 如果是在定义一个方法metd时就设计好表达式, 使用时就直接用
+                    * 在方法内部声明一个接口实例insta
+                    * 然后insta = 表达式
+                    * 然后meth直接返回这个insta
+                        * 使用时调用lambda方法 insta.lambda(para1, para2,...)
+     */
+
 }
 
-
+// 没有lambda表达式的时候, java通过匿名内部类来实现这个效果
 interface Calculable {
 
     /*
@@ -94,7 +122,7 @@ interface lamCalculable {
 
     // 这里必须是接口,不能是抽象类或者实体类, 可以通过批注确保
 
-    int calculateInt(int a, int b);
+    int lambda(int a, int b);
     // int calculateInt2(int a, int b); // 有且只能有一个抽象方法
 
     default void foo() { }  // 默认方法不被限制
@@ -102,21 +130,21 @@ interface lamCalculable {
 
 
     //以上匿名内部类的方法显得很臃肿, 使用lambda可以简化
-    static lamCalculable lambcalculate (char opr){
-        lamCalculable result;
+    static lamCalculable lamba_implement(char opr){
+        lamCalculable insta;
         if (opr == '+') {
-            result = (int a, int b) -> {return a + b;};  // Lambda表达式实现Calculable接口
+            insta = (int a, int b) -> {return a + b;};  // Lambda表达式实现Calculable接口
             // 它还是需要找到一个方法对应int a和b (所以前面的calculateInt不能去掉)
             // 简化书写:
-            // result = (a, b) -> {return a + b;};   // 省略参数类型
-            // result = a -> a*a*a                   // 若只有一个参数,可以省略掉小括号
-            // result = (int a, int b) -> a + b;     // 省略大括号和return
+            // insta = (a, b) -> {return a + b;};   // 省略参数类型
+            // insta = a -> a*a*a                   // 若只有一个参数,可以省略掉小括号
+            // insta = (int a, int b) -> a + b;     // 省略大括号和return
 
 
         } else {
-            result = (int a, int b) -> a - b;  // Lambda表达式实现Calculable接口
+            insta = (int a, int b) -> a - b;  // Lambda表达式实现Calculable接口
         }
-        return result;
+        return insta; // 返回lamcda接口对象,用于访问lamda函数
     }
 }
 
@@ -126,7 +154,7 @@ interface lamCalculable {
 @FunctionalInterface
 interface lamCalculable2 {
     // 快速声明一个lambda接口和一个抽象方法
-    int lamCalInt(int a, int b);
+    int lambda2(int a, int b);
 }
 
 
@@ -134,23 +162,24 @@ class HelloLambda {
 
     // 在一个类中的方法使用Lambda接口
 
-     // 使用函数式接口实例为参数
-    public static void display(lamCalculable2 calc, int n1, int n2) {
-        System.out.println(calc.lamCalInt(n1, n2)); // 使用lambda接口中的方法
+    // 或者用已有的定义好方法的接口, 例如lamCalculable中的方法
+    public static void display(char c, int n1, int n2) {
+        System.out.println(lamCalculable.lamba_implement(c).lambda(n1, n2));
     }
 
-    // 或者用已有的定义好方法的接口, 例如lamCalculable中的方法
-    public static void display2(char c, int n1, int n2) {
-        System.out.println(lamCalculable.lambcalculate(c).calculateInt(n1, n2));
+    // 使用函数式接口实例为参数
+    public static void display2(lamCalculable2 insta, int n1, int n2) {
+        System.out.println(insta.lambda2(n1, n2)); // 使用lambda接口中的方法
     }
+
 
     public static void main(String[] args) {
 
-        // 在一个全新的接口,使用时临时制定lambda函数的方法
-        display((a, b) -> a * b, 10, 5); // >>> 50
-                 // 此处声明参数类型为函数接口
+        display('+', 10, 5); // >>>  15
 
-        display2('+', 10, 5); // >>>  15
+        // 在一个全新的接口,使用时临时制定lambda函数的方法
+        display2((a, b) -> a * b, 10, 5); // >>> 50
+                 // 此处声明参数类型为函数接口
     }
 }
 
@@ -165,19 +194,19 @@ class LambdaDemo {
 
     // 静态方法， 进行加法运算
     public static lamCalculable2 add() {
-        lamCalculable2 func = (int a, int b) -> {
+        lamCalculable2 insta = (int a, int b) -> {
             // 访问静态成员变量， 不能访问实例成员变量
             LambdaDemo.staticValue += 1 ;
             int c = a + b + LambdaDemo.staticValue; // this.value;
             return c;
         };  // 到这里是定义完了lambda函数的内容
 
-        return func;
+        return insta;  // 返回lamcda接口对象,用于访问lamda接口中的函数
     }   // 完成add
 
     // 实例方法， 进行减法运算
     public lamCalculable2 sub() {
-        lamCalculable2 func = (int a, int b) -> {
+        lamCalculable2 insta = (int a, int b) -> {
             // 访问静态成员变量和实例成员变量
             staticValue += 1;
             this.value++;
@@ -185,13 +214,13 @@ class LambdaDemo {
             return c;
         }; // 到这里是定义完了lambda函数的内容
 
-        return func;
+        return insta;  // 返回lamcda接口对象,用于访问lamda接口中的函数
     }   // 完成sub
 
     public static void main(String[] args) {
-        System.out.println(add().lamCalInt(1,2)); // >>> 9
+        System.out.println(add().lambda2(1,2)); // >>> 9
 
         LambdaDemo ld = new LambdaDemo();
-        System.out.println(ld.sub().lamCalInt(1,2)); // >>> -19  为(1-2-7-11)
+        System.out.println(ld.sub().lambda2(1,2)); // >>> -19  为(1-2-7-11)
     }
 }
