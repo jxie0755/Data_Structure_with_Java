@@ -54,7 +54,10 @@ public class C12_Lambda {
 
                 * 如果是在一个方法(metd)的参数中, 那么把参数设成ITF类的insta实例
                     * 方法定义中使用insta.lambda(para1, para2,...)
-                        * 具体使用时, 才把参数替换成表达式 meth.(表达式, para1, para2)  // 最优
+                        * 具体使用时, 才把参数替换成表达式 meth.(表达式, para1, para2)
+                        * 这里para1, para2可以来自metd的其他参数
+                        * 相当这个metd变成一个高阶函数: fn(lam, p1, p2) -> return lam(p1,p2)
+                            * // 最优, 最自由, 具体用时才定义方法体, 符合使用匿名函数的初衷
 
 
                 * 如果是在定义一个方法metd时就设计好表达式, 使用时就直接用
