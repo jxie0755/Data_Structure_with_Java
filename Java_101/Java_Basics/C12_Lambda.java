@@ -29,6 +29,10 @@ public class C12_Lambda {
     /*
      * Lambda表达式用于一个方法的参数
         * 这需要声明参数的类型声明为函数式接口类型
+     * Lambda表达式可以访问所在外层作用域内定义的变量成员变量, 局部变量
+        *  实例成员变量和静态成员变量
+        *  在Lambda表达式中可以访问这些成员变量， 此时的Lambda表达式与普通方法一样， 可以读取成员变量， 也可以修改成员变量
+     * Lambda表达式可以捕获所在外层作用域内定义的变量
      */
 
 }
@@ -147,5 +151,47 @@ class HelloLambda {
                  // 此处声明参数类型为函数接口
 
         display2('+', 10, 5); // >>>  15
+    }
+}
+
+
+
+// Lambda接口访问成员变量
+class LambdaDemo {
+    // 实例成员变量
+    private int value = 10;
+    // 静态成员变量
+    private static int staticValue = 5;
+
+    // 静态方法， 进行加法运算
+    public static lamCalculable2 add() {
+        lamCalculable2 func = (int a, int b) -> {
+            // 访问静态成员变量， 不能访问实例成员变量
+            LambdaDemo.staticValue += 1 ;
+            int c = a + b + LambdaDemo.staticValue; // this.value;
+            return c;
+        };  // 到这里是定义完了lambda函数的内容
+
+        return func;
+    }   // 完成add
+
+    // 实例方法， 进行减法运算
+    public lamCalculable2 sub() {
+        lamCalculable2 func = (int a, int b) -> {
+            // 访问静态成员变量和实例成员变量
+            staticValue += 1;
+            this.value++;
+            int c = a - b - staticValue - this.value;
+            return c;
+        }; // 到这里是定义完了lambda函数的内容
+
+        return func;
+    }   // 完成sub
+
+    public static void main(String[] args) {
+        System.out.println(add().lamCalInt(1,2)); // >>> 9
+
+        LambdaDemo ld = new LambdaDemo();
+        System.out.println(ld.sub().lamCalInt(1,2)); // >>> -19  为(1-2-7-11)
     }
 }
