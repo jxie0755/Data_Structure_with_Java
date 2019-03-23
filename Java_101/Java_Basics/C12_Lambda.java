@@ -307,6 +307,7 @@ class LambdaDemo2 {
         display3(ld2::sub, 10, 5);         // >>> 5
         // 这里的好处就是一个Display方法, 可以运行显示两个函数的结果, 相当于display自由度很大
         // 可以让不同的方法在其中运行而不必重载
+        // 从某种意义上说, 这是把add和sub转型成了lambda方法
 
         // 同样的display3, 用B2的方案,完全可以实现相同的效果, 所以看情况区分使用引用还是直接写lambda表达式
         display3((a, b) -> a + b, 10, 5); // >>> 15
