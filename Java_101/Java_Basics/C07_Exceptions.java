@@ -79,9 +79,13 @@ public class C07_Exceptions {
                     * 然后在具体方法块中, 用throw来给出之前声明的异常, 交给上层代码用
                         * 如果声明抛出的多个异常类之间有父子关系, 可以只声明抛出父类
                         * 但如果没有父子关系情况下, 最好明确声明抛出每一个异常, 因为上层调用者会根据这些异常信息进行相应的处理
-                    * 所以用了throws/throw之后, 方法定义内就不需要用try-catch了, 交给运行方法时去try-catch
+                    * 所以用了throws之后, 方法定义内就不需要用try-catch了, 交给运行方法时去try-catch
 
-
+                * throw
+                    * throws用于方法后声明抛出异常， 而throw关键字用来人工引发异常
+                        * throw显式抛出的异常与系统生成并抛出的异常， 在处理方式上没有区别
+                    * 所有Throwable或其子类的实例都可以通过throw语句抛出
+                    * throws可以和throws配合使用
      */
 
     /*
@@ -207,16 +211,6 @@ class DateParseTest {
 
 
 
-
-
-
-
-
-
-
-
-
-
 // throws/throw关键字
 // 如果一个方法没有捕获一个检查性异常，那么该方法必须使用throws 关键字来声明。throws关键字放在方法签名的尾部
 
@@ -224,12 +218,14 @@ class DateParseTest {
 
 // 详细例子: 自定义的异常类
 class InsufficientFundsException extends Exception {  // 制造一个Exception子类
+
     // Exception类也可以有变量和方法
     static String false_deposit = "Sorry, but you are try to deposit ";
     static String false_withdraw = "Sorry, but you are short $";
 
     private double amount;
     public InsufficientFundsException(double amount) { this.amount = amount; }
+
     public double getAmount() { return amount; }
 
     public void false_deposit() {
@@ -294,6 +290,9 @@ class BankDemo {
         // Sorry, but you are try to deposit -20.0
         // Current balance: 0.0
 
+
+        System.out.println();
+
         try {
             c.deposit(0);
         } catch (InsufficientFundsException e2) {
@@ -306,7 +305,7 @@ class BankDemo {
         // Sorry, but you are try to deposit 0.0
         // Current balance: 0.0
 
-        System.out.println("Depositing $500...");
+        System.out.println("\nDepositing $500...");
         try {
             c.deposit(500.00);
         } catch (InsufficientFundsException e3) {
@@ -315,6 +314,7 @@ class BankDemo {
             System.out.println("Current balance: " + c.getBalance());
         } // >>> Current balance: 500.0
 
+        System.out.println();
         try {
             System.out.println("\nWithdrawing $100...");
             c.withdraw(100.00);
