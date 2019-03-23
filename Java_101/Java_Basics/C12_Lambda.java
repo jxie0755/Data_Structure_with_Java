@@ -47,14 +47,14 @@ public class C12_Lambda {
         * 首先一定要建立一个函数式接口 ITF @FunctionalInterface
         * 然后在接口内声明一个lambda方法(抽象,只声明变量数目和类型)
 
-            * 第一种方式, 在接口内部创造一个static方法(lambda_implement), 把lambda方法实现了
+            * 第一种方式A, 在接口内部创造一个static方法(lambda_implement), 把lambda方法实现了
                 * 实现时在static方法内生成一个自身接口的实例insta
                 * 然后把这个实例通过 insta = 表达式, 指向lambda方法
                 * 最后返回这个实例
                     * 在别的地方使用时,直接调用这个接口的静态方法 ITF.lambda_implement.lambda(para1, para2,...)
                     * 这个方案的意义在于, lambda_implement可以根据不同条件, 让lambda方法运行不同的表达式, 达到一个自由的目的
 
-            * 第二种方式, 接口只负责声明, 然后在别的类中使用这个接口, 同时设计表达式(两种用法)
+            * 第二种方式B, 接口只负责声明, 然后在别的类中使用这个接口, 同时设计表达式(两种用法)
 
                 * 用法1: 如果是在一个方法(metd)的参数中, 那么把参数设成ITF类的insta实例
                     * 方法定义中使用insta.lambda(para1, para2,...)
@@ -70,6 +70,40 @@ public class C12_Lambda {
                     * 然后meth直接返回这个insta
                         * 使用时调用lambda方法 insta.lambda(para1, para2,...)
                         * 这个方案的意义在于, 可以定义多个metd, 让它们的insta实现不同的表达式,实现自由的目的
+     */
+
+
+    /*
+     * 方法引用
+         * Java 8之后增加了双冒号“::”运算符， 该运算符用于“方法引用”
+         * 注意不是调用方法
+         * “方法引用”虽然没有直接使用Lambda表达式, 但也与Lambda表达式有关, 与函数式接口有关
+     * 方法引用分为： 静态方法的方法引用和实例方法的方法引用
+        * 类型名::静态方法 // 静态方法的方法引用
+        * 实例名::实例方法 // 实例方法的方法引用
+        * 被引用方法的参数列表和返回值类型， 必须与函数式接口方法参数列表和方法返回值类型一致
+
+     * 使用方法
+        * 首先一定要建立一个函数式接口 ITF @FunctionalInterface
+        * 然后在接口内声明一个lambda方法(抽象,只声明变量数目和类型)   // 这里与之前Lambda用法相同
+
+            * 在其他类C中, 直接写出不同的方法(metdA, metdB, metdC)
+                * 这些方法有个共同点, 就是参数的数目和类型与lambda方法相同
+
+            * 再写出另一个方法M
+                * 把参数设成ITF类的insta实例
+                * 其他的参数设为和lambda方法相同数目和类型!
+
+            * 运行M时, 通过使用引用(X::metdA, p1, p2)
+                * 如果metdA是静态就是C::metdA
+                * 如果metdA不是静态就是C的实例ci::metdA
+                * (而不是lambda表达式) 来调用A,B,C方法得到不同的结果:
+                    * metdA(p1, p2)
+                    * metdB(p1, p2)
+                    * metdC(p1, p2)
+
+            * 这个方式和B2的区别是, 这里先声明方法A,B,C,然后引用一个lambda函数取区分它们
+            * B2则是没有事先准备好方法A,B,C而是在运行时就地写出方法A,B,C
      */
 }
 
@@ -231,5 +265,51 @@ class LambdaDemo {
 
         LambdaDemo ld = new LambdaDemo();
         System.out.println(ld.sub().lambda2(1,2)); // >>> -19  为(1-2-7-11)
+    }
+}
+
+
+
+// Lambda接口作为一个参数用于方法
+@FunctionalInterface
+interface lamCalculable3 {
+    // 快速声明一个lambda接口和一个抽象方法
+    int lambda3(int a, int b);
+}
+
+
+// 方法引用
+class LambdaDemo2 {
+    // 静态方法， 进行加法运算
+    // 参数列表要与函数式接口方法calculateInt(int a, int b)兼容
+    public static int add(int a, int b) { // 这里add方法参数的数目和类型必须和lambda3一致
+        return a + b;
+    }
+    //实例方法，进行减法运算
+    // 参数列表要与函数式接口方法calculateInt(int a, int b)兼容
+    public int sub(int a, int b) {  // 这里sub方法参数的数目和类型必须和lambda3一致
+        return a - b;
+    }
+
+    public static void display3(lamCalculable3 insta, int n1, int n2) {
+                                // 使用接口实例作为参数
+        System.out.println(insta.lambda3(n1, n2));
+                            // 实例调用lambda方法
+    }
+
+
+
+    public static void main(String[] args) {
+
+        // add 和 sub 这两个方法必须与函数式接口方法参数列表一致， 方法返回值类型也要保持一致
+        display3(LambdaDemo2::add, 10, 5); // >>> 15
+        LambdaDemo2 ld2 = new LambdaDemo2();
+        display3(ld2::sub, 10, 5);         // >>> 5
+        // 这里的好处就是一个Display方法, 可以运行显示两个函数的结果, 相当于display自由度很大
+        // 可以让不同的方法在其中运行而不必重载
+
+        // 同样的display3, 用B2的方案,完全可以实现相同的效果, 所以看情况区分使用引用还是直接写lambda表达式
+        display3((a, b) -> a + b, 10, 5); // >>> 15
+        display3((a, b) -> a - b, 10, 5); // >>> 5
     }
 }
