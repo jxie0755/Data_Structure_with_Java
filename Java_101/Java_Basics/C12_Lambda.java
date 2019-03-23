@@ -150,7 +150,7 @@ interface Calculable {
 
         // 根据条件来实例化, 这样可以有不同的匿名类``
         if (opr == '+') {
-            result = new Calculable() { // 匿名内部类实现Calculable接口
+            result = new Calculable() {  // 匿名内部类实现Calculable接口
                 // 实现加法运算
                 @Override
                 public int calculateInt(int a, int b) {
