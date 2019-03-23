@@ -44,11 +44,12 @@ public class C12_Lambda {
         * 首先一定要建立一个函数式接口 ITF @FunctionalInterface
         * 然后在接口内声明一个lambda方法(抽象,只声明变量数目和类型)
 
-            * 第一种方式, 在接口内部创造一个static方法(STM), 把lambda方法实现了
+            * 第一种方式, 在接口内部创造一个static方法(lambda_implement), 把lambda方法实现了
                 * 实现时在static方法内生成一个自身接口的实例insta
                 * 然后把这个实例通过 insta = 表达式, 指向lambda方法
                 * 最后返回这个实例
-                    * 在别的地方使用时,直接调用这个接口的静态方法 ITF.STM.lambda(para1, para2,...)
+                    * 在别的地方使用时,直接调用这个接口的静态方法 ITF.lambda_implement.lambda(para1, para2,...)
+                    * 这个方案的意义在于, lambda_implement可以根据不同条件, 让lambda方法运行不同的表达式, 达到一个自由的目的
 
             * 第二种方式, 在别的类应用时使用这个接口, 同时设计表达式(两种用法)
 
@@ -65,8 +66,8 @@ public class C12_Lambda {
                     * 然后insta = 表达式
                     * 然后meth直接返回这个insta
                         * 使用时调用lambda方法 insta.lambda(para1, para2,...)
+                        * 这个方案的意义在于, 可以定义多个metd, 让它们的insta实现不同的表达式,实现自由的目的
      */
-
 }
 
 // 没有lambda表达式的时候, java通过匿名内部类来实现这个效果
@@ -148,8 +149,9 @@ interface lamCalculable {
         } else {
             insta = (int a, int b) -> a - b;  // Lambda表达式实现Calculable接口
         }
-        return insta; // 返回lamcda接口对象,用于访问lamda函数
+        return insta; // 返回lambda接口对象,用于访问lamda函数
     }
+
 }
 
 
