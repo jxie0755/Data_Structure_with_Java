@@ -148,7 +148,7 @@ interface Calculable {
         // 这里只声明, 不能实例化,一旦实例化就必须创造内部类
         Calculable result;
 
-        // 根据条件来实例化, 这样可以有不同的匿名类
+        // 根据条件来实例化, 这样可以有不同的匿名类``
         if (opr == '+') {
             result = new Calculable() { // 匿名内部类实现Calculable接口
                 // 实现加法运算
