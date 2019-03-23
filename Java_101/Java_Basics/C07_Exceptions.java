@@ -50,13 +50,37 @@ public class C07_Exceptions {
                 * 使用逻辑
                     * 当前方法有能力解决， 则捕获异常进行处理
                     * 没有能力解决， 则抛出给上层调用方法处理。
-                    * 如果上层调用方法还无力解决， 则继续抛给它的上层调用方法， 异常就是这样向上传递直到有方法处理它
-                    * 如果所有的方法都没有处理该异常， 那么JVM会终止程序运行
+                    * 如果上层调用方法还无力解决, 则继续抛给它的上层调用方法, 异常就是这样向上传递直到有方法处理它
+                    * 如果所有的方法都没有处理该异常, 那么JVM会终止程序运行
 
                 * try和多catch
-                    * 在多个catch代码情况下， 当一个catch代码块捕获到一个异常时， 其他的catch代码块就不再进行匹配(类似if elif的关系)
-                    * 当捕获的多个异常类之间存在父子关系时， 捕获异常顺序与catch代码块的顺序有关。
-                        * 一般先捕获子类， 后捕获父类， 否则子类捕获不到。
+                    * 在多个catch代码情况下， 当一个catch代码块捕获到一个异常时, 其他的catch代码块就不再进行匹配(类似if elif的关系)
+                    * 当捕获的多个异常类之间存在父子关系时, 捕获异常顺序与catch代码块的顺序有关。
+                        * 一般先捕获子类, 后捕获父类, 否则子类捕获不到。
+
+                * finally
+                    * 有时在try-catch语句中会占用一些非Java资源, 如: 打开文件, 网络连接, 打开数据库连接和使用数据结果集等
+                    * 这些资源并非Java资源, 不能通过JVM的垃圾收集器回收, 需要程序员释放。
+                    * 为了确保这些资源能够被释放可以使用finally代码块或Java 7之后提供自动资源管理（Automatic Resource Management） 技术
+                    * 无论try正常结束还是catch异常结束都会执行finally代码块
+                    * (也就是避免在打开文件时, 其他操作不能执行, 比如删除,和修改) python 用with open来自动释放
+
+                * 自动资源管理可以替代finally代码块， 优化代码结构， 提高程序可读性
+                    * 采用了自动资源管理后不再需要finally代码块， 不需要自己close这些资源， 释放过程交给了JVM
+                        * try(自动管理) {
+                        * } except {
+                        * }
+
+                * throws
+                    * 在一个方法中如果能够处理异常, 则需要捕获并处理。
+                    * 但是本方法没有能力处理该异常, 捕获它没有任何意义
+                    * 则需要在方法后面声明抛出该异常, 通知上层调用者该方法有可以发生异常
+                    * throws用于方法声明之后, 声明这个方法可能给出的异常
+                    * 然后在具体方法块中, 用throw来给出之前声明的异常, 交给上层代码用
+                        * 如果声明抛出的多个异常类之间有父子关系, 可以只声明抛出父类
+                        * 但如果没有父子关系情况下, 最好明确声明抛出每一个异常, 因为上层调用者会根据这些异常信息进行相应的处理
+                    * 所以用了throws/throw之后, 方法定义内就不需要用try-catch了, 交给运行方法时去try-catch
+
 
      */
 
@@ -196,57 +220,6 @@ class DateParseTest {
 // throws/throw关键字
 // 如果一个方法没有捕获一个检查性异常，那么该方法必须使用throws 关键字来声明。throws关键字放在方法签名的尾部
 
-//这是自定义的异常类
-class AuctionException extends Exception{
-    public AuctionException(){}
-    public AuctionException(String msg){super(msg);}
-}
-
-class Auction {
-    private double iniPrice = 30.0;
-
-    public void bid(String bidPrice) throws AuctionException{ // 可支持多个已异常,用括号间隔
-        double d = 0.0;
-        boolean err = false;
-
-        // 方法内部进行了异常处理
-        try{
-            d = Double.parseDouble(bidPrice); // 转化string为double
-
-        }catch (NumberFormatException e){
-            err = true;
-            throw new AuctionException("字符转化不成数字");
-
-        } finally {  // finally必须被执行
-            if (! err && iniPrice > d) {
-                System.out.print("??????????? ");
-                throw new AuctionException("出价还不够起价");
-            }
-        }
-        iniPrice = d;  // 这个一定要放finally外面,因为finally就算遇到错误也会执行
-    }
-
-
-    public static void main(String args[]){
-        Auction vase = new Auction();
-        // main方法为调用者，必须使用try进行异常处理
-        // vase.bid("123"); // 不然会出现unhandled exception
-
-        try{
-            vase.bid("abc");
-        }catch (AuctionException ae){
-            System.out.println(ae);
-        }
-        // >>> W3C_basic.AuctionException: 字符转化不成数字
-
-        try{
-            vase.bid("12");
-        }catch (AuctionException ae){
-            System.out.println(ae);
-        }
-        // >>> ??????????? W3C_basic.AuctionException: 出价还不够起价
-    }
-}
 
 
 // 详细例子: 自定义的异常类
