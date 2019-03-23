@@ -36,6 +36,9 @@ public class C12_Lambda {
         *  实例成员变量和静态成员变量
         *  在Lambda表达式中可以访问这些成员变量， 此时的Lambda表达式与普通方法一样， 可以读取成员变量， 也可以修改成员变量
      * Lambda表达式可以捕获所在外层作用域内定义的变量
+
+     * lambda表达式但是对于访问外层局部变量时， 会发生“捕获变量”情况。
+        * Lambda表达式中捕获变量时， 会将变量当成final的
      */
 
 
@@ -259,8 +262,9 @@ class LambdaDemo {
 
     // 静态方法， 进行加法运算
     public static lamCalculable2 add() {
+
         lamCalculable2 insta = (int a, int b) -> {
-            // 访问静态成员变量， 不能访问实例成员变量
+            // 静态方法内只能访问静态成员变量， 不能访问实例成员变量
             LambdaDemo.staticValue += 1 ;
             int c = a + b + LambdaDemo.staticValue; // this.value;
             return c;
@@ -271,7 +275,12 @@ class LambdaDemo {
 
     // 实例方法， 进行减法运算
     public lamCalculable2 sub() {
+        int dontchange = 99;
+
         lamCalculable2 insta = (int a, int b) -> {
+            // dontchange += 1;  // 但是对于访问外层局部变量时， 会发生“捕获变量”情况。
+            //                   // Lambda表达式中捕获局部变量时， 会将变量当成final的
+
             // 访问静态成员变量和实例成员变量
             staticValue += 1;
             this.value++;
