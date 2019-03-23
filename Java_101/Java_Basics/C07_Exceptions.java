@@ -1,7 +1,5 @@
 package Java_Basics;
 
-import java.io.UncheckedIOException;
-
 public class C07_Exceptions {
     /*
      * 异常发生的原因有很多，通常包含以下几大类:
@@ -41,7 +39,9 @@ public class C07_Exceptions {
 
     /*
      * Throwable类常用方法
-        *
+        * getMessage()             获得发生异常的详细消息
+        * void printStackTrace()   打印异常堆栈跟踪信息
+        * String toString()        获得异常对象的描述
         *
      */
 
@@ -51,28 +51,41 @@ public class C07_Exceptions {
 
 // 捕获异常
 class Exception_Test {
+
+    public static int divide(int number, int divisor) {
+
+        try {
+            return number / divisor;
+        } catch (Throwable throwable) {
+            System.out.println("getMessage() : " + throwable.getMessage());
+            System.out.println("toString() : " + throwable.toString());
+            System.out.println("printStackTrace()输出信息如下：");
+            throwable.printStackTrace();
+
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
 
-        // 简单捕获
-        try {
-            int x = 1 / 0;
-        } catch(Exception e1) {
-            System.out.println("WTF?");
-            System.out.println(e1);  // >>> java.lang.ArithmeticException: / by zero
-        }
-
-        // 多重捕获
-        try {
-            // 程序代码
-        } catch (ArithmeticException e1) {
-            // 程序代码
-        } catch (UncheckedIOException e2) {
-            // 程序代码
-        } catch (ClassCastException e3) {
-            // 程序代码
-        }
+        int a = 0;
+        int result = divide(5, a);
+        System.out.printf("divide(%d, %d) = %d\n", 5, a, result);
+        System.out.println("done");
+        // >>>
+        // getMessage() : / by zero
+        // toString() : java.lang.ArithmeticException: / by zero
+        // printStackTrace()输出信息如下：
+        // java.lang.ArithmeticException: / by zero
+        // 	at Java_Basics.Exception_Test.divide(C07_Exceptions.java:58)
+        // 	at Java_Basics.Exception_Test.main(C07_Exceptions.java:72)
+        // divide(5, 0) = 0
+        // done
     }
+
 }
+
+
 
 // throws/throw关键字
 // 如果一个方法没有捕获一个检查性异常，那么该方法必须使用throws 关键字来声明。throws关键字放在方法签名的尾部
