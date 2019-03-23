@@ -38,6 +38,13 @@ public class C07_Exceptions {
          * Error用来指示运行时环境发生的错误。
         * 例如，JVM内存溢出。一般地，程序不会从错误中恢复。
      */
+
+    /*
+     * Throwable类常用方法
+        *
+        *
+     */
+
 }
 
 
