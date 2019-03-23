@@ -1,5 +1,10 @@
 package Java_Basics;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class C07_Exceptions {
     /*
      * 异常发生的原因有很多，通常包含以下几大类:
@@ -26,15 +31,33 @@ public class C07_Exceptions {
      * 异常类结构:
         * Throwable
             * Error
-                * 无子类
+                * Java程序通常不捕获Errrr。错误一般发生在严重故障时，它们在Java程序处理的范畴之外。
+                * Error用来指示运行时环境发生的错误。
+                * 例如，JVM内存溢出。一般地，程序不会从错误中恢复。
+                    * 无子类
             * Exception
-                * IOException
-                * RuntimeException
+                * Exception是程序可以恢复的异常， 它是程序员所能掌控的。
+                * 例如： 除零异常、 空指针访问、 网络连接中断和读取不存在的文件等。
+                * 分两种:
+                    * IOException         -- 除RuntimeException以外的异常类
+                    * RuntimeException    -- 运行时异常
+                        * 对于运行时异常通常不采用抛出或捕获处理方式, 而是应该提前预判, 防止这种发生异常, 做到未雨绸缪
+                * 它们的共同特点是:
+                    * 编译器会检查这类异常是否进行了处理
+                    * 即要么捕获(try-catch语句) 要么不抛出(通过在方法后声明throws)
+                    * 否则会发生编译错误
 
-     * Error:
-         * Java程序通常不捕获Errir。错误一般发生在严重故障时，它们在Java程序处理的范畴之外。
-         * Error用来指示运行时环境发生的错误。
-        * 例如，JVM内存溢出。一般地，程序不会从错误中恢复。
+                * 使用逻辑
+                    * 当前方法有能力解决， 则捕获异常进行处理
+                    * 没有能力解决， 则抛出给上层调用方法处理。
+                    * 如果上层调用方法还无力解决， 则继续抛给它的上层调用方法， 异常就是这样向上传递直到有方法处理它
+                    * 如果所有的方法都没有处理该异常， 那么JVM会终止程序运行
+
+                * try和多catch
+                    * 在多个catch代码情况下， 当一个catch代码块捕获到一个异常时， 其他的catch代码块就不再进行匹配(类似if elif的关系)
+                    * 当捕获的多个异常类之间存在父子关系时， 捕获异常顺序与catch代码块的顺序有关。
+                        * 一般先捕获子类， 后捕获父类， 否则子类捕获不到。
+
      */
 
     /*
@@ -66,6 +89,18 @@ class Exception_Test {
         return 0;
     }
 
+    // 上面方法并不好, 看这个改进版:
+    public static int divide2(int number, int divisor) {
+        // 正确处理runtimeException, 不用try和catch,而是提前预判避开
+        //判断除数divisor非零， 防止运行时异常
+        if (divisor != 0) {
+            return number / divisor;
+        }
+        return 0;
+    }
+
+
+
     public static void main(String[] args) {
 
         int a = 0;
@@ -84,6 +119,77 @@ class Exception_Test {
     }
 
 }
+
+
+
+// 单纯使用使用try和catch, 不用throw
+class DateParseTest {
+
+    public static Date readDate() {
+        try {
+            // String str = "2018-8-18";
+            String str = "201A-18-18";
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            // 从字符串中解析日期
+            Date date = df.parse(str);
+            return date;
+        } catch (ParseException e) {
+            System.out.println("处理ParseException…");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        Date date = readDate();
+        System.out.println("日期 = " + date);
+    } //解析日期
+}
+
+
+// 多catch语句
+// try{
+//     //可能会发生异常的语句
+// } catch(Throwable e){
+//     //处理异常e
+// } catch(Throwable e){
+//     //处理异常e
+// } catch(Throwable e){
+//     //处理异常e
+// }
+
+// 多重捕获
+// 如果catch到不同的Exception,用同一个方法处理, 则不必写这么复杂
+// try{
+// //可能会发生异常的语句
+// } catch (IOException | ParseException e) {
+// //调用方法methodA处理
+// }
+
+
+
+// 使用try-catch语句嵌套
+// try{
+//     //可能会发生异常的语句
+//     try {
+//
+//     } catch(Throwable e) {
+//
+//         }
+// } catch(Throwable e){
+//     //处理异常e
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
