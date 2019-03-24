@@ -6,6 +6,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class C07_Exceptions {
+
+    /*
+     * Module java.base
+     * Package java.lang
+     * Class Throwable
+     */
+
+    /*
+     * Module java.base
+     * Package java.lang
+     * Class Exception
+     */
+
     /*
      * 异常发生的原因有很多，通常包含以下几大类:
          * 用户输入了非法数据。
