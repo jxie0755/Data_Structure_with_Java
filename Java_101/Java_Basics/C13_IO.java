@@ -6,3 +6,18 @@ public class C13_IO {
      */
 }
 
+
+class Java_File {
+
+    /*
+     * Module java.base
+     * Package java.io
+     * Class File
+     */
+
+    /*
+     * File类
+     * File类表示一个与平台无关的文件或目录。
+     * File类名很有欺骗性， 初学者会误认为是File对象只是一个文件， 但它也可能是一个目录
+     */
+}
