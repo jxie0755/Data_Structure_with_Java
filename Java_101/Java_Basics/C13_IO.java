@@ -146,13 +146,22 @@ class Java_File {
         File[] files2 = dir2.listFiles(new FileFilter() {
 			@Override
 			public boolean accept(File pathname) {
-				if (pathname.canWrite()){
+				if (pathname.getName().endsWith(".txt")){
 					return true;
 				} else {
 					return false;
 				}
 			}
 		});
+
+        for (File f : files2) {
+            System.out.println(f.getName());
+        }
+        // >>>
+        // file1.txt
+        // file4.txt
+        // file5.txt
+
     }
 }
 
