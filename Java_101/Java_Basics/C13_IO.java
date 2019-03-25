@@ -1,6 +1,7 @@
 package Java_Basics;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -10,6 +11,9 @@ public class C13_IO {
      * 程序经常需要访问文件和目录, 读取文件信息或写入信息到文件, 在Java语言中对文件的读写是通过I/O流技术实现的
      * Java语言使用File类对文件和目录进行操作, 查找文件时需要实现FilenameFilter或FileFilter接口。
      * 另外， 读写文件内容可以通过FileInputStream, FileOutputStream, FileReader和FileWriter类实现, 它们属于I/O流
+
+     * 在编程时尽量使用相对路径， 尽量不要使用绝对路径
+     * 在目录中一个点“.”表示当前目录， 两个点表示“..”表示父目录
      */
 }
 
@@ -51,9 +55,9 @@ class Java_File {
             * String[] list()                          返回当前目录下的文件和目录， 返回值是字符串数组。
             * File[] listFiles()                       返回当前目录下的文件和目录， 返回值是File数组。
 
-            * String[] list(FilenameFilter filter)     返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是字符串数组。
-            * File[] listFiles(FilenameFilter filter)  返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是File数组。
-            * File[] listFiles(FileFilter filter)      返回当前目录下满足指定过滤器的文件和目录， 参数是实现FileFilter接口对象， 返回值是File数组。
+            * String[] list(FilenameFilter filter)     (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是字符串数组。
+            * File[] listFiles(FilenameFilter filter)  (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是File数组。
+            * File[] listFiles(FileFilter filter)      (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FileFilter接口对象， 返回值是File数组。
      */
 
     /*
@@ -124,12 +128,34 @@ class Java_File {
         // >>>  [file1 - Copy (2).txt, file1 - Copy.txt, file1.txt, TD1, TD1 - Copy, TD1 - Copy (2)]
         System.out.println(new ArrayList<File>(Arrays.asList(dir2.listFiles())));  // 返回File实例列表
 
-
-
-
-
-
+        // Filter操作 (新建一个Filter类, 过滤文件类型)
+        Filter filter = new Filter("txt");
+        String[] files = dir2.list(filter); //dir.list();
+        for (String fname : files) {
+            System.out.println(fname);
+        }
+        // >>>
+        // file1.txt
+        // file4.txt
+        // file5.txt
     }
-
 }
 
+
+
+// 自定义基于文件扩展名的文件过滤器
+class Filter implements FilenameFilter {
+    // 文件扩展名
+    String extent;
+
+    // 构造方法
+    Filter(String extent) {
+        this.extent = extent;
+    }
+
+    @ Override
+    public boolean accept(File dir, String name) {
+        // 测试文件扩展名是否为extent所指定的
+        return name.endsWith("." + extent);
+    }
+}
