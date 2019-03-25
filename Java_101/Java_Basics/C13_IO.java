@@ -1,6 +1,8 @@
 package Java_Basics;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 public class C13_IO {
@@ -47,12 +49,23 @@ class Java_File {
         * 目录操作
             * boolean mkdir( )                         创建当前File对象指定的目录。
             * String[] list()                          返回当前目录下的文件和目录， 返回值是字符串数组。
-            * String[] list(FilenameFilter filter)     返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是字符串数组。
             * File[] listFiles()                       返回当前目录下的文件和目录， 返回值是File数组。
+
+            * String[] list(FilenameFilter filter)     返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是字符串数组。
             * File[] listFiles(FilenameFilter filter)  返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是File数组。
             * File[] listFiles(FileFilter filter)      返回当前目录下满足指定过滤器的文件和目录， 参数是实现FileFilter接口对象， 返回值是File数组。
      */
 
+    /*
+     * 对目录操作有两个过滤器接口
+         * FilenameFilter
+         * FileFilter
+         * 它们都只有一个抽象方法accept，
+
+     * accept方法如下
+        * boolean accept(File dir, String name)      测试指定dir目录中是否包含文件名为name的文件。
+        * boolean accept(File pathname)              测试指定路径名是否应该包含在某个路径名列表中。
+     */
 
     public static void main(String[] args) {
 
@@ -101,6 +114,20 @@ class Java_File {
         System.out.println(IOfile.length());
         System.out.println(IOfile.renameTo(new File("./TestDir/File_readIO_renamed.txt")));
         System.out.println(IOfile.delete());  // false 因为文件被改名了
+
+
+        // 目录操作
+        System.out.println(dir2.mkdir());
+        // 也就是创建一个空路径File, 然后真的在电脑中造出这个路径, 如果路径存在就不造了,并返回false
+
+        System.out.println(new ArrayList<String>(Arrays.asList(dir2.list())));
+        // >>>  [file1 - Copy (2).txt, file1 - Copy.txt, file1.txt, TD1, TD1 - Copy, TD1 - Copy (2)]
+        System.out.println(new ArrayList<File>(Arrays.asList(dir2.listFiles())));  // 返回File实例列表
+
+
+
+
+
 
     }
 
