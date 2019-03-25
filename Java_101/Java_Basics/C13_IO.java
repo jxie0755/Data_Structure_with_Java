@@ -1,6 +1,7 @@
 package Java_Basics;
 
 import java.io.File;
+import java.util.Date;
 
 public class C13_IO {
     /*
@@ -38,6 +39,11 @@ class Java_File {
             * boolean canRead( )          测试当前文件是否可读。
             * boolean isFile( )           测试当前文件是否是文件。
             * boolean isDirectory( )       测试当前文件是否是目录
+        * 文件操作
+            * long lastModified( )： 获得文件最近一次修改的时间。
+            * long length( )： 获得文件的长度， 以字节为单位。
+            * boolean delete( )： 删除当前文件。 成功返回 true， 否则返回false。
+            * boolean renameTo(File dest)： 将重新命名当前File对象所表示的文件。 成功返回 true， 否则返回false。
      */
 
 
@@ -76,6 +82,15 @@ class Java_File {
         System.out.println(IOfile.canWrite());      // true
         System.out.println(IOfile.isFile());        // true
         System.out.println(IOfile.isDirectory());   // false
+
+        // 文件操作
+        System.out.println(IOfile.lastModified());        // >>> 1553540161979  // 毫秒
+        Date filetime = new Date(IOfile.lastModified());
+        System.out.println(filetime.toString());          // >>> "Mon Mar 25 14:56:01 EDT 2019"
+
+        System.out.println(IOfile.length());
+        System.out.println(IOfile.renameTo(new File("./TestDir/File_readIO_renamed.txt")));
+        System.out.println(IOfile.delete());  // false 因为文件被改名了
 
 
     }
