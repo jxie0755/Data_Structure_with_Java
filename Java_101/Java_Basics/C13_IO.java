@@ -1,6 +1,7 @@
 package Java_Basics;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -138,6 +139,20 @@ class Java_File {
         // file1.txt
         // file4.txt
         // file5.txt
+
+
+        // 使用内部类在创建和改写FileFilter
+        // 只编辑非只读文件
+        File[] files2 = dir2.listFiles(new FileFilter() {
+			@Override
+			public boolean accept(File pathname) {
+				if (pathname.canWrite()){
+					return true;
+				} else {
+					return false;
+				}
+			}
+		});
     }
 }
 
