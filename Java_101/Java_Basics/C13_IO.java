@@ -38,12 +38,19 @@ class Java_File {
             * boolean canWrite( )         测试当前文件是否可写。
             * boolean canRead( )          测试当前文件是否可读。
             * boolean isFile( )           测试当前文件是否是文件。
-            * boolean isDirectory( )       测试当前文件是否是目录
+            * boolean isDirectory( )      测试当前文件是否是目录
         * 文件操作
-            * long lastModified( )： 获得文件最近一次修改的时间。
-            * long length( )： 获得文件的长度， 以字节为单位。
-            * boolean delete( )： 删除当前文件。 成功返回 true， 否则返回false。
-            * boolean renameTo(File dest)： 将重新命名当前File对象所表示的文件。 成功返回 true， 否则返回false。
+            * long lastModified( )         获得文件最近一次修改的时间。
+            * long length( )               获得文件的长度， 以字节为单位。
+            * boolean delete( )            删除当前文件。 成功返回 true， 否则返回false。
+            * boolean renameTo(File dest)  将重新命名当前File对象所表示的文件。 成功返回 true， 否则返回false。
+        * 目录操作
+            * boolean mkdir( )                         创建当前File对象指定的目录。
+            * String[] list()                          返回当前目录下的文件和目录， 返回值是字符串数组。
+            * String[] list(FilenameFilter filter)     返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是字符串数组。
+            * File[] listFiles()                       返回当前目录下的文件和目录， 返回值是File数组。
+            * File[] listFiles(FilenameFilter filter)  返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是File数组。
+            * File[] listFiles(FileFilter filter)      返回当前目录下满足指定过滤器的文件和目录， 参数是实现FileFilter接口对象， 返回值是File数组。
      */
 
 
@@ -65,6 +72,9 @@ class Java_File {
         System.out.println(dir.getPath()); // >>> ".\TestDir"
         System.out.println(dir.getAbsolutePath());
         // >>> "D:\Documents\GitHub\Data_Structure_with_Java\.\TestDir"
+
+        File dir2 = new File("./TestDir/New Folder");   // 可以识别带空格的路径
+        System.out.println(dir2.exists()); // >>>  true
 
         // 文件
         File IOfile =  new File("./TestDir/File_readIO.txt");
@@ -91,7 +101,6 @@ class Java_File {
         System.out.println(IOfile.length());
         System.out.println(IOfile.renameTo(new File("./TestDir/File_readIO_renamed.txt")));
         System.out.println(IOfile.delete());  // false 因为文件被改名了
-
 
     }
 
