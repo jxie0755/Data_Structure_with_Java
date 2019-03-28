@@ -217,50 +217,51 @@ class Java_Byte_Stream {
         }
 
         // 案例2: 高效复制文件 (大小为2.2G视频)
+        // 为省空间这里视频文件已经不在, 直接comment whole block
         // 这里利用BufferedInputStream和BufferedOutputStream
-        try (FileInputStream in2 = new FileInputStream("./TestDir/testV.mp4");
-             FileOutputStream out2 = new FileOutputStream("./TestDir/testV_buffered_out.mp4");
-             // 使用缓冲字节流
-             BufferedInputStream bis = new BufferedInputStream(in2);
-             BufferedOutputStream bos = new BufferedOutputStream(out2)) {
-
-            long startTime = System.nanoTime();  //开始时间
-            byte[] buffer = new byte[1024];      // 准备一个缓冲区
-            int len = bis.read(buffer);          // 首先读取一次
-
-            while (len != -1) {
-                bos.write(buffer, 0, len);   // 开始写入数据
-                len = bis.read(buffer);          // 再读取一次
-            }
-            long elapsedTime = System.nanoTime() - startTime; //结束时间
-            System.out.println("buffered 耗时： " + (elapsedTime / 1000000.0) + " 毫秒");
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        // 对比不用缓冲字节流的方法1
-        try (FileInputStream in3 = new FileInputStream("./TestDir/testV.mp4");
-             FileOutputStream out3 = new FileOutputStream("./TestDir/testV_out.mp4");){
-
-            long startTime = System.nanoTime(); //开始时间
-            byte[] buffer = new byte[1024];     // 准备一个缓冲区
-            int len = in3.read(buffer);        // 首先读取一次
-
-            while (len != -1) {
-                out3.write(buffer, 0, len);   // 开始写入数据
-                len = in3.read(buffer);           // 再读取一次
-            }
-            //结束时间
-            long elapsedTime = System.nanoTime() - startTime;
-            System.out.println("not buffered 耗时： " + (elapsedTime / 1000000.0) + " 毫秒");
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // try (FileInputStream in2 = new FileInputStream("./TestDir/testV.mp4");
+        //      FileOutputStream out2 = new FileOutputStream("./TestDir/testV_buffered_out.mp4");
+        //      // 使用缓冲字节流
+        //      BufferedInputStream bis = new BufferedInputStream(in2);
+        //      BufferedOutputStream bos = new BufferedOutputStream(out2)) {
+        //
+        //     long startTime = System.nanoTime();  //开始时间
+        //     byte[] buffer = new byte[1024];      // 准备一个缓冲区
+        //     int len = bis.read(buffer);          // 首先读取一次
+        //
+        //     while (len != -1) {
+        //         bos.write(buffer, 0, len);   // 开始写入数据
+        //         len = bis.read(buffer);          // 再读取一次
+        //     }
+        //     long elapsedTime = System.nanoTime() - startTime; //结束时间
+        //     System.out.println("buffered 耗时： " + (elapsedTime / 1000000.0) + " 毫秒");
+        //
+        // } catch (FileNotFoundException e) {
+        //     e.printStackTrace();
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
+        // // 对比不用缓冲字节流的方法1
+        // try (FileInputStream in3 = new FileInputStream("./TestDir/testV.mp4");
+        //      FileOutputStream out3 = new FileOutputStream("./TestDir/testV_out.mp4");){
+        //
+        //     long startTime = System.nanoTime(); //开始时间
+        //     byte[] buffer = new byte[1024];     // 准备一个缓冲区
+        //     int len = in3.read(buffer);        // 首先读取一次
+        //
+        //     while (len != -1) {
+        //         out3.write(buffer, 0, len);   // 开始写入数据
+        //         len = in3.read(buffer);           // 再读取一次
+        //     }
+        //     //结束时间
+        //     long elapsedTime = System.nanoTime() - startTime;
+        //     System.out.println("not buffered 耗时： " + (elapsedTime / 1000000.0) + " 毫秒");
+        //
+        // } catch (FileNotFoundException e) {
+        //     e.printStackTrace();
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
         // >>>
         // buffered 耗时： 2644.297795 毫秒        (快很多)
         // not buffered 耗时： 11545.606955 毫秒
