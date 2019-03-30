@@ -104,5 +104,3 @@ public class C00_Hello_World {
      * （String[] args）：函数的参数，参数类型是一个数组，该数组中的元素师字符串，字符串数组。main(String[] args) 字符串数组的 此时空数组的长度是0，但也可以在 运行的时候向其中传入参数。
      */
 }
-
-

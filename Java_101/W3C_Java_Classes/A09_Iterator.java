@@ -152,4 +152,3 @@ class A09b_ListIterator {
         System.out.println(IL4); // >>>  [1, 2, 5, 3, 1, 4]
     }
 }
-

@@ -63,5 +63,3 @@ class test {
         // 参见C07_Interface
     }
 }
-
-

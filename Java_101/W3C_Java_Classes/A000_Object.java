@@ -56,4 +56,3 @@ class ObjectPerson {
         System.out.println(p1.equals(p2)); // >>>  true
     }
 }
-

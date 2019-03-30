@@ -260,4 +260,3 @@ class TT {
         son_father2.foo(); // >>> from son
     }
 }
-

@@ -508,6 +508,3 @@ class sudokuTest {
         System.out.println("--- "+ (endTime-startTime)/1000  + "s seconds ---");
     }
 }
-
-
-

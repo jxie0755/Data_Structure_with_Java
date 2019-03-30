@@ -76,4 +76,3 @@ class Dog extends Animal implements Comparable<Dog> {
         // >>> [Dog AA, Dog BB, Dog CC]
     }
 }
-

@@ -122,5 +122,3 @@ class C10c_For_loop_Iterator {
         }
     }
 }
-
-

@@ -23,4 +23,3 @@ public class A00_Reference_Types {
         // 这里相当于内存中只存在一个"Hello"
     }
 }
-

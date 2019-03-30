@@ -107,4 +107,3 @@ class Testttt {
         // F1b.foo(8);                   // >>> from Child 222 10  // 可以直接换Child2的方法
     }
 }
-

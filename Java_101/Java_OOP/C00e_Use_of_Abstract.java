@@ -77,4 +77,3 @@ class Abtraction_Test {
         System.out.println(B_sub.ABS_method(5));  // >>> 5  abstract method
     }
 }
-

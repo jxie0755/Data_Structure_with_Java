@@ -319,4 +319,3 @@ class String_zMethods {
         System.out.println(str_g2.trim().length()); // >>>  8            12345678
     }
 }
-

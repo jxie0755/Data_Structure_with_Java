@@ -142,4 +142,3 @@ public class Generics_Statement {
 //         // incompatible types: Object cannot be converted to String
 //     }
 // }
-

@@ -49,5 +49,3 @@ class Solution {
         assert Fib(5 ) == 10: "WTF???";  // 这里不会报错, 只有在console中运行 java -ea Solution才会
     }
 }
-
-

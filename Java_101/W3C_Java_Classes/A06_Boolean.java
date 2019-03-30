@@ -51,4 +51,3 @@ class Boolean_zMethods {
         Boolean bb3 = Boolean.logicalXor(b1, b2);  // true  // 两个值不相同，则异或结果为1。 如果a、b两个值相同，异或结果为0
     }
 }
-

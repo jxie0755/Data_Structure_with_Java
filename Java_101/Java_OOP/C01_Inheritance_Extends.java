@@ -123,7 +123,3 @@ class Vehicle_Test {
         // Grand Cherokee speed: 180
     }
 }
-
-
-
-

@@ -104,4 +104,3 @@ class Math_zMethods {
         // if second para == dd, reurn dd
     }
 }
-

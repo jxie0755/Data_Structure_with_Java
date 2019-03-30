@@ -71,4 +71,3 @@ public class C01b_Primes {
 
     }
 }
-

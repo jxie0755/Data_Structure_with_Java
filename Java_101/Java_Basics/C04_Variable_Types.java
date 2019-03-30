@@ -36,6 +36,3 @@ public class C04_Variable_Types {
         pupAge(); // >>> 7
     }
 }
-
-
-

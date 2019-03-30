@@ -179,5 +179,3 @@ class Collections_for_Map {
         // singletonMap​(K key, V value)
     }
 }
-
-

@@ -155,4 +155,3 @@ class C00_OOP_DogTest {
         // Color: white
     }
 }
-

@@ -121,4 +121,3 @@ final class C00_OOP_Not_Public_final_C {
     * C05_OOP_Multi_C.class
     * B 没有被生成
  */
-

@@ -123,4 +123,3 @@ public class A08cc_LinkedList {
         // It's not a very useful interface
     }
 }
-

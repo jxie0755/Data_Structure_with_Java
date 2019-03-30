@@ -222,5 +222,3 @@ class A05c_StringBuffer {
 
     }
 }
-
-

@@ -446,6 +446,3 @@ class Java_Character_Stream {
 
     }
 }
-
-
-

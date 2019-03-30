@@ -30,4 +30,3 @@ public class C02_Print {
         System.out.printf("\n%d%n", 3123);   // "  3.46"   // "\n"和"%n"都是换行
     }
 }
-

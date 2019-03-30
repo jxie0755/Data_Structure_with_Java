@@ -53,5 +53,3 @@ public class C04b_Variable_Types_Employee {
     }
 
 }
-
-

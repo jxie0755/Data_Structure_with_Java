@@ -84,4 +84,3 @@ public class A08c_ArrayList {
         // 详见Java_Basics.C10b_For_each_Loop
     }
 }
-

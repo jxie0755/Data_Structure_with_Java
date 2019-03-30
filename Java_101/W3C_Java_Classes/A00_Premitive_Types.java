@@ -203,6 +203,3 @@ public class A00_Premitive_Types {
 
     }
 }
-
-
-

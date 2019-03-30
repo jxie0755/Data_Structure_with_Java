@@ -176,8 +176,3 @@ public class C03_Value_Expression {
         // System.out.println(E);  // Error variable not been initialized
     }
 }
-
-
-
-
-

@@ -72,5 +72,3 @@ public class C03b_Operators {
          */
     }
 }
-
-
