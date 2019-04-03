@@ -7,7 +7,7 @@ public class Jump_Game_II {
     // this is to solve Leetcode 45 with recursion method similar to python
 
 
-    Integer jump(List<Integer> nums) {
+    static Integer jump(List<Integer> nums) {
 
         Integer last_idx = nums.size() - 1;
         List<Integer> all_ways = new ArrayList<>();
@@ -47,10 +47,10 @@ public class Jump_Game_II {
 
 
     public static void main(String[] args) {
-        assert (new Jump_Game_II().jump(new ArrayList<>(Arrays.asList(2,1)))) == 1;
-        assert (new Jump_Game_II().jump(new ArrayList<>(Arrays.asList(2,3,1,1,4)))) == 2;
-        assert (new Jump_Game_II().jump(new ArrayList<>(Arrays.asList(5,6,5,3,9,8,3,1,2,8,2,4,8,3,9,1,0,9,4,6,5,9,8,7,4,2,1,0,2)))) == 5;
-        assert (new Jump_Game_II().jump(new ArrayList<>(Arrays.asList(5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5)))) == 5;
+        assert (Jump_Game_II.jump(new ArrayList<>(Arrays.asList(2,1)))) == 1;
+        assert (Jump_Game_II.jump(new ArrayList<>(Arrays.asList(2,3,1,1,4)))) == 2;
+        assert (Jump_Game_II.jump(new ArrayList<>(Arrays.asList(5,6,5,3,9,8,3,1,2,8,2,4,8,3,9,1,0,9,4,6,5,9,8,7,4,2,1,0,2)))) == 5;
+        assert (Jump_Game_II.jump(new ArrayList<>(Arrays.asList(5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5)))) == 5;
 
         System.out.println("All passed");
     }
