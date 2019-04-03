@@ -23,6 +23,22 @@ public class A07_Array {
      * 数组声明完成后， 数组的长度还不能确定， JVM（Java虚拟机） 还没有给元素分配内存空间
      */
 
+    /*
+     * Array 常用方法
+        * .length                          属性, array长度
+        * Array.getLength(arrayName)       长度             # 二者几乎没区别
+
+        * 切片式 get和set
+            * ArrayName[idx]             ---> get
+            * ArrayName[idx] == newValue ---> set
+
+        * 非切片式 get和set
+            * Array.get(ArrayName, idx)
+            * Array.set(ArrayName, idx, value);
+
+        * 注意切片时不能改长度的,所以没有添加和删除的方法
+     */
+
     public static void main(String[] args) {
 
         // 构造方法
@@ -182,5 +198,14 @@ class Array_Application {
         // 13
         // 17
         // 19
+
+
+
+        int[] iii = new int[9];
+        iii[0] = 1;
+        iii[1] = 2;
+        System.out.println(Arrays.toString(iii));
+        System.out.println(iii.length);
+        System.out.println(Array.getLength(iii));
     }
 }
