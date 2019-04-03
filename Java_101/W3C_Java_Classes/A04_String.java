@@ -130,29 +130,29 @@ class String_intern {
         String b = new String("abc");  // 第二次，创建一个对象，堆中的另外一个string对象
         // 总的来说就是一共有两个个"abc", 它们虽然相同,但是互相独立
 
-        System.out.println(a.intern() == b.intern());  // true   // 说明都是指向同一个"abc"
-        System.out.println(a.intern() == b);           // false
-        System.out.println(a.intern() == a);           // false
+        System.out.println(a.intern().equals(b.intern()));  // true   // 说明都是指向同一个"abc"
+        System.out.println(a.intern().equals(b));           // false
+        System.out.println(a.intern().equals(a));           // false
 
          String poolstr = "abc";  // 注意这里没有新建一个String对象,而是直接指向了堆中已有的那个"abc"
         // 直接从字符串常量池中获取
-        System.out.println(a.intern() == poolstr);  // true
-        System.out.println(b.intern() == poolstr);  // true
+        System.out.println(a.intern().equals(poolstr));  // true
+        System.out.println(b.intern().equals(poolstr));  // true
 
 
         // Example 2
         String s0= "kvill";
         String s1= "kvill";
         String s2= "kv" + "ill";
-        System.out.println( s0==s1 ); // true
-        System.out.println( s0==s2 ); // true
+        System.out.println(s0.equals(s1)); // true
+        System.out.println(s0.equals(s2)); // true
         // 用new String() 创建的字符串不是常量，不能在编译期就确定，所以new String() 创建的字符串不放入常量池中，它们有自己的地址空间
         String s00= "kvill";
         String s11 = new String("kvill");
         String s22 = "kv" + new String("ill");
-        System.out.println( s00==s11 );  // false
-        System.out.println( s00==s22 );  // false
-        System.out.println( s11==s22 );  // false
+        System.out.println(s00.equals(s11));  // false
+        System.out.println(s00.equals(s22));  // false
+        System.out.println(s11.equals(s22));  // false
         System.out.println(s00.equals(s11));  // true  // 注意equals只关注内容是否相等
     }
 }
