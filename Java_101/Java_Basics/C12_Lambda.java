@@ -316,6 +316,7 @@ class LambdaDemo2 {
     public static int add(int a, int b) { // 这里add方法参数的数目和类型必须和lambda3一致
         return a + b;
     }
+
     //实例方法，进行减法运算
     // 参数列表要与函数式接口方法calculateInt(int a, int b)兼容
     public int sub(int a, int b) {  // 这里sub方法参数的数目和类型必须和lambda3一致
@@ -323,11 +324,10 @@ class LambdaDemo2 {
     }
 
     public static void display3(lamCalculable3 insta, int n1, int n2) {
-                                // 使用接口实例作为参数
+        // 使用接口实例作为参数
         System.out.println(insta.lambda3(n1, n2));
-                            // 实例调用lambda方法
+        // 实例调用lambda方法
     }
-
 
 
     public static void main(String[] args) {
