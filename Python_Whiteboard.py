@@ -17,3 +17,6 @@ class Solution:
         all_ways = []
         helper(0)
         return min(all_ways)
+
+print("Python:")
+print(Solution().jump([5,6,5,3,9,8,3,1,2,8,2,4,8,3,9,1,0,9,4,6,5,9,8,7,4,2,1,0,2]))
