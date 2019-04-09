@@ -1,9 +1,10 @@
 # Data Structure with Java
 
 This is to learn:
-* CS61B Java Reference 2018 by Josh Hug as Java basic 101.
-* Data Structure by Josh Hug (CS61B) https://sp18.datastructur.es/
-* In addition, Java by Head First Java (2nd Edition) as supplementary reading materials.
+* Java Basics
+
+* [Algorithms, Part I from Princeton on Coursera](https://www.coursera.org/learn/algorithms-part1?utm_medium=lastchance&utm_source=spark)
+
 
 
 ---
