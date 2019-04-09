@@ -22,6 +22,8 @@ public class C12_Package { }
         * 使用 -d 时也可以强行指定在任何地方生成package目录
             * javac -d ~/Documents *.java
             * 这里会先在当前路径先生成Documents, 然后在其中生成com/car或者test的两层路径, 然后*.class文件在此生成.
+
+        * 还可以使用cat *.java命令来在terminal中显示这个java脚本的文字内容
      */
 
     /*
