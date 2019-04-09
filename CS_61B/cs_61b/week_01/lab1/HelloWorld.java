@@ -1,4 +1,4 @@
-package cs_61b.week_01;
+package cs_61b.week_01.lab1;
 
 public class HelloWorld {
     public static void main(String[] args) {
