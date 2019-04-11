@@ -127,9 +127,92 @@ class QuickUnionUF {
         Q2.union(7, 2);
         Q2.union(6, 1);
         Q2.union(7, 3);
-        System.out.println(Q2.root(4));
         System.out.println(Arrays.toString(Q2.id));
+        // [1, 8, 1, 8, 3, 0, 5, 1, 8, 8]
     }
 
 }
+
+
+
+// Quick Union improvement
+// improvement 1: weighting
+// avoid putting taller tree as a sub-tree of a shorter tree, but do the opposite
+class QuickUnionUF_weighted {
+
+    /*
+     * Complexity
+         * initialize - O(N)
+         * union - O(N)
+         * find - O(N)   trees can get tall
+     */
+
+    private int[] id;
+
+    private int[] sz; // add an array to record the size of tree of each element
+                      // 注意这里记录的size是以这个节点为root的size,所以变化root的size,不是root的话,就不会被查到
+
+    public QuickUnionUF_weighted (int N){
+        id = new int[N];
+        for (int i = 0; i < N; i += 1) {
+            id[i] = i;
+        }
+
+        // construct the initial size to be 1
+        sz = new int[N];
+        for (int i = 0; i < N; i += 1) {
+            sz[i] = 1;
+        }
+
+    }
+
+    public int root(int p) {
+        while (id[p] != p) {
+            p = id[p];
+        }
+        return p;
+    }
+
+    public boolean connected(int p, int q) {
+        return this.root(p) == this.root(q);
+    }
+
+    public void union(int p, int q) {
+        int rt_p = this.root(p);
+        int rt_q = this.root(q);
+
+        if (rt_p != rt_q) {
+            if (sz[q] <= sz[p]) {
+                id[rt_q] = rt_p;
+                sz[rt_p] += sz[rt_q];  // 改变这个root的size
+            } else{
+                id[rt_p] = rt_q;
+                sz[rt_q] += sz[rt_p];  // 改变这个root的size
+            }
+
+        }
+
+
+    }
+
+
+    public static void main(String[] args) {
+        QuickUnionUF_weighted Q3 = new QuickUnionUF_weighted(10);
+        Q3.union(4, 3);
+        Q3.union(3, 8);
+        Q3.union(6, 5);
+        Q3.union(9, 4);
+        Q3.union(2, 1);
+        Q3.union(5, 0);
+        Q3.union(7, 2);
+        Q3.union(6, 1);
+        System.out.println(Arrays.toString(Q3.id));
+        // [6, 2, 6, 4, 4, 6, 6, 2, 4, 4]
+        Q3.union(7, 3);
+        System.out.println(Arrays.toString(Q3.id));
+        // [6, 2, 6, 4, 6, 6, 6, 2, 4, 4]
+    }
+
+}
+
 
