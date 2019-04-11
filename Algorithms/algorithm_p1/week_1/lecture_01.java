@@ -143,14 +143,15 @@ class QuickUnionUF_weighted {
     /*
      * Complexity
          * initialize - O(N)
-         * union - O(N)
-         * find - O(N)   trees can get tall
+         * union - O(lg(N))
+         * find - O(lg(N))   trees can get tall
      */
 
     private int[] id;
 
     private int[] sz; // add an array to record the size of tree of each element
                       // 注意这里记录的size是以这个节点为root的size,所以变化root的size,不是root的话,就不会被查到
+                      // 注意size是nodes的总数而不是tree的height
 
     public QuickUnionUF_weighted (int N){
         id = new int[N];
@@ -163,7 +164,6 @@ class QuickUnionUF_weighted {
         for (int i = 0; i < N; i += 1) {
             sz[i] = 1;
         }
-
     }
 
     public int root(int p) {
@@ -189,10 +189,7 @@ class QuickUnionUF_weighted {
                 id[rt_p] = rt_q;
                 sz[rt_q] += sz[rt_p];  // 改变这个root的size
             }
-
         }
-
-
     }
 
 
@@ -211,6 +208,77 @@ class QuickUnionUF_weighted {
         Q3.union(7, 3);
         System.out.println(Arrays.toString(Q3.id));
         // [6, 2, 6, 4, 6, 6, 6, 2, 4, 4]
+    }
+
+}
+
+// Further improvement: Path compression
+class QuickUnionUF_weighted_path_compressed {
+
+    /*
+     * Complexity
+         * initialize - O(N)
+         * union - O(lg*(N))
+         * find - O(lg*(N))
+     */
+
+    private int[] id;
+    private int[] sz;
+    public QuickUnionUF_weighted_path_compressed (int N){
+        id = new int[N];
+        for (int i = 0; i < N; i += 1) {
+            id[i] = i;
+        }
+
+        sz = new int[N];
+        for (int i = 0; i < N; i += 1) {
+            sz[i] = 1;
+        }
+    }
+
+    public int root(int p) {
+        while (id[p] != p) {
+            id[p] = id[id[p]];  // add one line: make every node in path point to its grandparent
+            p = id[p];
+        }
+        return p;
+    }
+
+    public boolean connected(int p, int q) {
+        return this.root(p) == this.root(q);
+    }
+
+    public void union(int p, int q) {
+        int rt_p = this.root(p);
+        int rt_q = this.root(q);
+
+        if (rt_p != rt_q) {
+            if (sz[q] <= sz[p]) {
+                id[rt_q] = rt_p;
+                sz[rt_p] += sz[rt_q];  // 改变这个root的size
+            } else{
+                id[rt_p] = rt_q;
+                sz[rt_q] += sz[rt_p];  // 改变这个root的size
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        QuickUnionUF_weighted_path_compressed Q4 = new QuickUnionUF_weighted_path_compressed(10);
+        Q4.union(4, 3);
+        Q4.union(3, 8);
+        Q4.union(6, 5);
+        Q4.union(9, 4);
+        Q4.union(2, 1);
+        Q4.union(5, 0);
+        Q4.union(7, 2);
+        Q4.union(6, 1);
+        System.out.println(Arrays.toString(Q4.id));
+        // [6, 2, 6, 4, 4, 6, 6, 2, 4, 4]
+        Q4.union(7, 3);
+        System.out.println(Arrays.toString(Q4.id));
+        // [6, 2, 6, 4, 6, 6, 6, 6, 4, 4]
     }
 
 }
