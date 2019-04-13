@@ -153,6 +153,8 @@ class QuickUnionUF_weighted {
                       // 注意这里记录的size是以这个节点为root的size,所以变化root的size,不是root的话,就不会被查到
                       // 注意size是nodes的总数而不是tree的height
 
+    private int[] mx;
+
     public QuickUnionUF_weighted (int N){
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
@@ -164,6 +166,12 @@ class QuickUnionUF_weighted {
         for (int i = 0; i < N; i += 1) {
             sz[i] = 1;
         }
+
+        mx = new int[N];
+        for (int i = 0; i < N; i += 1) {
+            mx[i] = i;
+        }
+
     }
 
     public int root(int p) {
@@ -185,16 +193,32 @@ class QuickUnionUF_weighted {
             if (sz[q] <= sz[p]) {
                 id[rt_q] = rt_p;
                 sz[rt_p] += sz[rt_q];  // 改变这个root的size
+                if (mx[rt_q] > mx[rt_p]) {
+                    mx[rt_p] = mx[rt_q];
+                }
             } else{
                 id[rt_p] = rt_q;
                 sz[rt_q] += sz[rt_p];  // 改变这个root的size
+                if (mx[rt_p] > mx[rt_q]) {
+                    mx[rt_q] = mx[rt_p];
+                }
             }
         }
+    }
+
+    // Quiz
+    // Union-find with specific canonical element.
+    // Add a method find() to the union-find data type so that find(i) returns the largest element in the connected component containing ii.
+    // The operations, union(), connected(), and find() should all take logarithmic time or better.
+    // if a union is {1,2,6,9}, then find(1) == find(2) == find(6) == find(9) == 9
+    public int find(int p) {
+        return mx[this.root(p)];
     }
 
 
     public static void main(String[] args) {
         QuickUnionUF_weighted Q3 = new QuickUnionUF_weighted(10);
+
         Q3.union(4, 3);
         Q3.union(3, 8);
         Q3.union(6, 5);
@@ -203,10 +227,15 @@ class QuickUnionUF_weighted {
         Q3.union(5, 0);
         Q3.union(7, 2);
         Q3.union(6, 1);
-        System.out.println(Arrays.toString(Q3.id));
+        // System.out.println(Arrays.toString(Q3.id));
         // [6, 2, 6, 4, 4, 6, 6, 2, 4, 4]
+
+        System.out.println("test quiz find");
+        assert Q3.find(1) == 7;
+        System.out.println("quiz passed");
+
         Q3.union(7, 3);
-        System.out.println(Arrays.toString(Q3.id));
+        // System.out.println(Arrays.toString(Q3.id));
         // [6, 2, 6, 4, 6, 6, 6, 2, 4, 4]
     }
 
