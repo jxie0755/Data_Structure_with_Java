@@ -1,73 +1,58 @@
 package algorithm_p1.week_1.percolation;
 
+import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
+    private double[] record;
+    private Percolation ps;
+    private int T;
 
-    private double[]    threshold;
 
-    // perform T independent computational experiments on an N-by-N grid
-    public PercolationStats(int N, int T) {
+    // perform T trials independent experiments on an n-by-n grid
+    public PercolationStats(int n, int T) {
+        if (n <= 0 || T <= 0) throw new java.lang.IllegalArgumentException("args must be + int");
 
-        int openCount, row, column;
+        record = new double[T]; // record count for each trial
 
-        if (N <= 0 || T <= 0)
-            throw new IllegalArgumentException("Arguments out of bound");
-
-        threshold = new double[T];
-
-        openCount = 0;
-        for (int i = 0; i < T; i++) {
-            Percolation pl = new Percolation(N);
-            do {
-                row     = StdRandom.uniform(1, N+1);
-                column  = StdRandom.uniform(1, N+1);
-                if (pl.isOpen(row, column))
-                    continue;
-                pl.open(row, column);
-                openCount++;
-            } while (!pl.percolates());
-
-            threshold[i] = (double) openCount / (N * N);
-            openCount = 0;
-            //System.out.printf("threshold[%03d] = %f\n", i, threshold[i]);
+        for (int i = 0; i < T; i++) { // run perc 'T 'times
+            Percolation p = new Percolation(n);
+            int count = 0; // track number of steps to achieve perc
+            while (!p.percolates()) {
+                int row = StdRandom.uniform(1, n + 1);
+                int col = StdRandom.uniform(1, n + 1);
+                if (!p.isOpen(row, col)) {
+                    p.open(row, col);
+                }
+                count++;
+            }
+            double frac = (double) count / (n * n);
+            record[i] = frac;
         }
     }
 
-    // sample mean of percolation threshold
     public double mean() {
-        return StdStats.mean(threshold);
+        return StdStats.mean(record);
     }
 
-    // sample standard deviation of percolation threshold
     public double stddev() {
-        return StdStats.stddev(threshold);
+        return StdStats.stddev(record);
     }
 
-    private double halfInterval() {
-        return 1.96 * stddev() / Math.sqrt(threshold.length);
-    }
-
-    // returns lower bound of the 95% confidence interval
     public double confidenceLo() {
-        return mean() - halfInterval();
+        return mean() - ((1.96 * stddev()) / Math.sqrt(record.length));
     }
 
-    // returns upper bound of the 95% confidence interval
     public double confidenceHi() {
-        return mean() + halfInterval();
+        return mean() + ((1.96 * stddev()) / Math.sqrt(record.length));
     }
 
-    // test client, described below
-    public static void main(String[] args) {
-        // PercolationStats pls = new PercolationStats(Integer.parseInt(args[0]),
-        //             Integer.parseInt(args[1]));
-        //
-        // System.out.printf("mean                     = %f\n", pls.mean());
-        // System.out.printf("stddev                   = %f\n", pls.stddev());
-        // System.out.printf("95%% confidence Interval  = %f, %f\n",
-        //         pls.confidenceLo(), pls.confidenceHi());
+    public static void main(String[] args) {// test client
+        PercolationStats ps = new PercolationStats(20, 100);
+        StdOut.print("mean = " + ps.mean() + "\n");
+        StdOut.print("std dev = " + ps.stddev() + "\n");
+        StdOut.print("95% confidence interval = " + ps.confidenceLo() + ", " + ps.confidenceHi());
     }
 }
 
