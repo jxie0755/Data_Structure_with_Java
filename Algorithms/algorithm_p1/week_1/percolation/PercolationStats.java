@@ -61,13 +61,13 @@ public class PercolationStats {
 
     // test client, described below
     public static void main(String[] args) {
-        PercolationStats pls = new PercolationStats(Integer.parseInt(args[0]),
-                    Integer.parseInt(args[1]));
-
-        System.out.printf("mean                     = %f\n", pls.mean());
-        System.out.printf("stddev                   = %f\n", pls.stddev());
-        System.out.printf("95%% confidence Interval  = %f, %f\n",
-                pls.confidenceLo(), pls.confidenceHi());
+        // PercolationStats pls = new PercolationStats(Integer.parseInt(args[0]),
+        //             Integer.parseInt(args[1]));
+        //
+        // System.out.printf("mean                     = %f\n", pls.mean());
+        // System.out.printf("stddev                   = %f\n", pls.stddev());
+        // System.out.printf("95%% confidence Interval  = %f, %f\n",
+        //         pls.confidenceLo(), pls.confidenceHi());
     }
 }
 
