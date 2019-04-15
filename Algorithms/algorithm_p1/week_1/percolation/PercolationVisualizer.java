@@ -15,8 +15,8 @@
  *  with with site (1, 1) in the upper left-hand corner.
  *
  ******************************************************************************/
+package algorithm_p1.week_1.percolation;
 
-import algorithm_p1.week_1.percolation.Percolation;
 import edu.princeton.cs.algs4.StdDraw;
 
 import java.awt.*;

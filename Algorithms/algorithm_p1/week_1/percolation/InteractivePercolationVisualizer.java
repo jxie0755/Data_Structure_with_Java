@@ -10,8 +10,9 @@
  *  open sites (that aren't full) in white, and blocked sites in black.
  *
  ******************************************************************************/
+package algorithm_p1.week_1.percolation;
 
-import algorithm_p1.week_1.percolation.Percolation;
+
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
 
