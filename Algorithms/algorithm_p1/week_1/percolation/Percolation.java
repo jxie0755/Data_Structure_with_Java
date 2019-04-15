@@ -1,113 +1,108 @@
 package algorithm_p1.week_1.percolation;
 
-import java.util.Arrays;
+import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
-    int total_n;
-    int size;
 
-    int[] id;
-    int[] status;
-    int[] sz;
+    private WeightedQuickUnionUF grid, auxGrid;
+    private boolean[] state;
+    private int N;
 
+    // create N-by-N grid, with all sites blocked
+    public Percolation(int N) {
 
-    // create n-by-n grid, with all sites blocked
-    public Percolation(int n) {
-        this.size = n;
-        this.total_n = n * n + 2;
+        int siteCount = N * N;
+        this.N = N;
 
-        this.id = new int[this.total_n];   // inlcude virtual top open and bottom open sites
+        // index 0 and N^2+1 are reserved for virtual top and bottom sites
+        grid    = new WeightedQuickUnionUF(siteCount + 2);
+        auxGrid = new WeightedQuickUnionUF(siteCount + 1);
+        state   = new boolean[siteCount + 2];
 
-        for (int i = 0; i <= this.total_n - 1; i++) {
-            this.id[i] = i;
+        // Initialize all sites to be blocked.
+        for (int i = 1; i <= siteCount; i++)
+            state[i] = false;
+        // Initialize virtual top and bottom site with open state
+        state[0] = true;
+        state[siteCount+1] = true;
+    }
+
+    // return array index of given row i and column j
+    private int translateCoor(int i, int j) {
+        // Attention: i and j are of range 1 ~ N, NOT 0 ~ N-1.
+        // Throw IndexOutOfBoundsException if i or j is not valid
+        if (i <= 0 || i > N)
+            throw new IndexOutOfBoundsException("row i out of bound");
+        if (j <= 0 || j > N)
+            throw new IndexOutOfBoundsException("column j out of bound");
+
+        return (i - 1) * N + j;
+    }
+
+    private boolean isTopSite(int index) {
+        return index <= N;
+    }
+
+    private boolean isBottomSite(int index) {
+        return index >= (N - 1) * N + 1;
+    }
+
+    // open site (row i, column j) if it is not already
+    public void open(int i, int j) {
+        // All input sites are blocked at first.
+        // Check the state of site before invoking this method.
+        int idx = translateCoor(i, j);
+        state[idx] = true;
+
+        // Traverse surrounding sites, connect all open ones.
+        // Make sure we do not index sites out of bounds.
+        if (i != 1 && isOpen(i-1, j)) {
+            grid.union(idx, translateCoor(i-1, j));
+            auxGrid.union(idx, translateCoor(i-1, j));
         }
-
-        for (int i = 1; i <= n; i++) {
-            this.id[i] = 0;
+        if (i != N && isOpen(i+1, j)) {
+            grid.union(idx, translateCoor(i+1, j));
+            auxGrid.union(idx, translateCoor(i+1, j));
         }
-
-        for (int i = n*(n-1); i <= n*n; i++) {
-            this.id[i] = 26;
+        if (j != 1 && isOpen(i, j-1)) {
+            grid.union(idx, translateCoor(i, j-1));
+            auxGrid.union(idx, translateCoor(i, j-1));
         }
-
-        this.status = new int[this.total_n];
-        status[0] = 1;            // top virtual open
-        status[n * n + 1] = 1;    // bottom virtual open
-
-        this.sz = new int[this.total_n];
-        for (int i = 0; i <= this.total_n - 1; i += 1) {
-            this.sz[i] = 1;
+        if (j != N && isOpen(i, j+1)) {
+            grid.union(idx, translateCoor(i, j+1));
+            auxGrid.union(idx, translateCoor(i, j+1));
         }
-        this.sz[0] = 1 + this.size;
-        this.sz[n * n + 1] = 1 + this.size;
-
-
-    }
-
-
-    // implementation of UF
-    public int translateCoor(int row, int col) {
-        return row * this.size + col + 1;
-    }
-
-    public int root(int p) {
-        while (id[p] != p) {
-            id[p] = id[id[p]];  // add one line: make every node in path point to its grandparent
-            p = id[p];
+        // if site is on top or bottom, connect to corresponding virtual site.
+        if (isTopSite(idx)) {
+            grid.union(0, idx);
+            auxGrid.union(0, idx);
         }
-        return p;
-    }
-
-    public boolean connected(int p, int q) {
-        return this.root(p) == this.root(q);
-    }
-
-    public void union(int p, int q) {
-        int rt_p = this.root(p);
-        int rt_q = this.root(q);
-
-        if (rt_p != rt_q) {
-            if (sz[q] <= sz[p]) {
-                id[rt_q] = rt_p;
-                sz[rt_p] += sz[rt_q];  // 改变这个root的size
-            } else{
-                id[rt_p] = rt_q;
-                sz[rt_q] += sz[rt_p];  // 改变这个root的size
-            }
+        if (isBottomSite(idx))  {
+            grid.union(state.length-1, idx);
         }
     }
 
-    // open site (row, col) if it is not open already
-    public void open(int row, int col) {
-        int idx = this.translateCoor(row, col);
-        this.status[idx] = 1;
-
-        // try to connect with the 4 neighbors
-
-
+    // is site (row i, column j) open?
+    public boolean isOpen(int i, int j) {
+        int idx = translateCoor(i, j);
+        return state[idx];
     }
 
-    // is site (row, col) open?
-    public boolean isOpen(int row, int col) {
-        int idx = this.translateCoor(row, col);
-        return this.status[idx] == 1;
+    // is site (row i, column j) full?
+    public boolean isFull(int i, int j) {
+        // Check if this site is connected to virtual top site
+        int idx = translateCoor(i, j);
+        return grid.connected(0, idx) && auxGrid.connected(0, idx);
     }
-
-    // is site (row, col) full?
-    // public boolean isFull(int row, int col)
-
-    // number of open sites
-    // public int numberOfOpenSites()
 
     // does the system percolate?
-    // public boolean percolates()
+    public boolean percolates() {
+        // Check whether virtual top and bottom sites are connected
+        return grid.connected(0, state.length-1);
+    }
 
-    // test client (optional)
     public static void main(String[] args) {
-        Percolation T1 = new Percolation(5);
-        System.out.println(Arrays.toString(T1.id));
-        System.out.println(Arrays.toString(T1.status));
-        System.out.println(Arrays.toString(T1.sz));
 
     }
+
 }
