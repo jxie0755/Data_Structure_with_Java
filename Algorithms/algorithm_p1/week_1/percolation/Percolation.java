@@ -3,107 +3,89 @@ package algorithm_p1.week_1.percolation;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
-    private WeightedQuickUnionUF matrix;
-    private int edge; // size of the state axis
-    private boolean[][] state; // boolean array ... n.b. initialize F
-    private int top = 0;
-    private int bottom;
 
-    // create n-by-n state, with all sites blocked
-    public Percolation(int n) {
-        edge = n; // site number of boxes
-        // set the bottom as the last
-        bottom = edge * edge + 1;
-        state = new boolean[edge][edge];
-        // intialize a WQU of equal size to array... note the extra 2
-        matrix = new WeightedQuickUnionUF(edge * edge + 2);
+    private WeightedQuickUnionUF model;
+    private int index;
+    private int dimension;
+    private boolean bopen[];
+    private int opensite=0;
+
+    public Percolation(int n) {// create n-by-n grid, with all sites blocked
+        if (n <= 0){
+            throw new java.lang.IllegalArgumentException();
+        }
+        dimension = n;
+        model = new WeightedQuickUnionUF(n*n+2);
+        bopen = new boolean[n*n+2];
+        for (int i = 0; i < n*n+2; i++) {
+            bopen[i] = false;
+        }
+
+        bopen[n*n+1]=true;
+        bopen[n*n]=true;
+
     }
 
-    // state site (row, col) if it is not open already
-    public void open(int row, int col) {
-        state[row - 1][col - 1] = true; // set location to 'T'... check index
+    public void open(int row, int col){    // open site (row, col) if it is not open already
 
-        // if on top or bottom attach to the 'top' node...same for bottom
-        if (row == 1) {
-            matrix.union(xyTo1D(row, col), top);
-        }
-        if (row == edge) {
-            matrix.union(xyTo1D(row, col), top);
+        if (row < 1 || row > dimension || col < 1 || col > dimension ){
+            throw new java.lang.IndexOutOfBoundsException();
         }
 
-        // now edges and corners
-        // if no left most, connect with left
-        if (col > 1 && isOpen(row, col - 1)) {
-            matrix.union(xyTo1D(row, col), xyTo1D(row, col - 1));
-        }
-        // right
-        if (col < edge && isOpen(row, col + 1)) {
-            matrix.union(xyTo1D(row, col), xyTo1D(row, col + 1));
-        }
-        // if not top most, connect with above
-        if (row > 1 && isOpen(row - 1, col)) {
-            matrix.union(xyTo1D(row, col), xyTo1D(row - 1, col));
-        }
-        // bottom
-        if (row < edge && isOpen(row + 1, col)) {
-            matrix.union(xyTo1D(row, col), xyTo1D(row + 1, col));
-        }
-    }
-
-    // is the position (i,j) state
-    public boolean isOpen(int i, int j) {
-        return state[i - 1][j - 1];
-    }
-
-    // Transform linearly so matrix can work...
-    private int xyTo1D(int i, int j) {
-        return edge * (i - 1) + j;
-    }
-
-    // print state
-
-
-    public boolean isFull(int i, int j) {
-
-        if (i > 0 && j > 0 && i <= edge && j <= edge) {
-            return matrix.connected(top, xyTo1D(i, j));
+        if (isOpen(row, col) == true){
+            return;
         }
         else {
-            throw new IndexOutOfBoundsException();
-        }
-    }
 
-    // number of open sites
-    public int numberOfOpenSites() {
-        int counts = 0;
-        // counting True via dbl for loop
-        for (int i = 0; i < edge; i++) {
-            for (int j = 0; j < edge; j++) {
-                if (state[i][j]) {
-                    counts += 1;
-                }
+            if (col != 1 && isOpen(row, col-1)){//left side
+                model.union(conv_index(row, col), conv_index(row, col-1));
             }
+
+            if (col != dimension && isOpen(row, col+1)){//right side
+                model.union(conv_index(row, col), conv_index(row, col+1));
+            }
+
+            if (row != 1 && isOpen(row-1, col)){//top side
+                model.union(conv_index(row, col), conv_index(row-1, col));
+            }
+
+            if (row != dimension && isOpen(row+1, col)){//bottom side
+                model.union(conv_index(row, col), conv_index(row+1, col));
+            }
+          //connect all top and bottom row to virtual site (point n*n-top site,n*n+1-bottom site)
+            if (row == 1){//top row connect to virtual site
+            	model.union(conv_index(row, col), dimension*dimension);
+            }
+            if (row == dimension){//bottom row connect to virtual site
+            	model.union(conv_index(row, col), dimension*dimension+1);
+            }
+            bopen[conv_index(row, col)]=true;
+            opensite++;
         }
-        return counts;
     }
 
-    // does it percolate?
-    public boolean percolates() {
-        return matrix.connected(top, bottom);
+    public boolean isOpen(int row, int col){  // is site (row, col) open?
+        return bopen[conv_index(row, col)];
     }
 
-    public static void main(String[] args) {
-        // testing out Percolation
-        int n = 5;
-        int i = 2;
-        int j = 2;
-        Percolation p = new Percolation(n);
-        System.out.print(p.isOpen(i, j));
-        p.open(i, j);
-        System.out.print(p.isOpen(i, j));
-        System.out.print(p.isOpen(i + 1, j + 2));
-        System.out.print(n);
-        System.out.print(p.numberOfOpenSites());
-        // p.printGrid();
+    public boolean isFull(int row, int col){  // is site (row, col) full?
+        return model.connected(conv_index(row, col),dimension*dimension);
+    }
+
+    public int numberOfOpenSites(){       // number of open sites
+        return opensite;
+    }
+
+    public boolean percolates(){              // does the system percolate?
+        return model.connected(dimension*dimension,dimension*dimension+1);
+    }
+
+    /*public static void main(String[] args){   // test client (optional)
+
+    }*/
+
+    private int conv_index(int row, int col){//convert row and col to index
+        index = row*dimension-dimension+col-1;
+        return index;
     }
 }
