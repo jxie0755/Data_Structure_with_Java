@@ -2,7 +2,7 @@ package algorithm_p1.week_2;
 
 import java.util.Arrays;
 
-public class Stacks_and_Queues {
+public class Alg_Lecture_03_Stacks_and_Queues {
 
     /*
      * Stacks

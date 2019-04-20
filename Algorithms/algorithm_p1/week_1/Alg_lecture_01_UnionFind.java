@@ -2,7 +2,7 @@ package algorithm_p1.week_1;
 
 import java.util.Arrays;
 
-public class lecture_01_UnionFind {
+public class Alg_lecture_01_UnionFind {
 
 }
 
@@ -19,10 +19,10 @@ public class lecture_01_UnionFind {
 // give a set of objects, to tell if two of them is connected or not.
 
 
-// QuickFindUF
+// algor_QuickFindUF
 // use Array, and use index to label the objects, and the value to id the group
 // therefore the two index had the same value, is connected
-class QuickFindUF {
+class algor_QuickFindUF {
     /*
      * Complexity
          * initialize - O(N)
@@ -33,7 +33,7 @@ class QuickFindUF {
 
     private int[] id;
 
-    public QuickFindUF (int N){
+    public algor_QuickFindUF(int N){
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
             id[i] = i;
@@ -59,7 +59,7 @@ class QuickFindUF {
     }
 
     public static void main(String[] args) {
-        QuickFindUF Q1 = new QuickFindUF(10);
+        algor_QuickFindUF Q1 = new algor_QuickFindUF(10);
         Q1.union(1, 2);
         Q1.union(3, 4);
         Q1.union(0, 5);
@@ -74,10 +74,10 @@ class QuickFindUF {
 }
 
 
-// QuickUnionUF
+// algor_QuickUnionUF
 // Use same array id[], as a tree type
 // each index's value is the index of its parent index
-class QuickUnionUF {
+class algor_QuickUnionUF {
 
     /*
      * Complexity
@@ -88,7 +88,7 @@ class QuickUnionUF {
 
     private int[] id;
 
-    public QuickUnionUF (int N){
+    public algor_QuickUnionUF(int N){
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
             id[i] = i;
@@ -117,7 +117,7 @@ class QuickUnionUF {
 
 
     public static void main(String[] args) {
-        QuickUnionUF Q2 = new QuickUnionUF(10);
+        algor_QuickUnionUF Q2 = new algor_QuickUnionUF(10);
         Q2.union(4, 3);
         Q2.union(3, 8);
         Q2.union(6, 5);
@@ -138,7 +138,7 @@ class QuickUnionUF {
 // Quick Union improvement
 // improvement 1: weighting
 // avoid putting taller tree as a sub-tree of a shorter tree, but do the opposite
-class QuickUnionUF_weighted {
+class algor_QuickUnionUF_weighted {
 
     /*
      * Complexity
@@ -155,7 +155,7 @@ class QuickUnionUF_weighted {
 
     private int[] mx;
 
-    public QuickUnionUF_weighted (int N){
+    public algor_QuickUnionUF_weighted(int N){
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
             id[i] = i;
@@ -217,7 +217,7 @@ class QuickUnionUF_weighted {
 
 
     public static void main(String[] args) {
-        QuickUnionUF_weighted Q3 = new QuickUnionUF_weighted(10);
+        algor_QuickUnionUF_weighted Q3 = new algor_QuickUnionUF_weighted(10);
 
         Q3.union(4, 3);
         Q3.union(3, 8);
@@ -242,7 +242,7 @@ class QuickUnionUF_weighted {
 }
 
 // Further improvement: Path compression
-class QuickUnionUF_weighted_path_compressed {
+class algor_QuickUnionUF_weighted_path_compressed {
 
     /*
      * Complexity
@@ -253,7 +253,7 @@ class QuickUnionUF_weighted_path_compressed {
 
     private int[] id;
     private int[] sz;
-    public QuickUnionUF_weighted_path_compressed (int N){
+    public algor_QuickUnionUF_weighted_path_compressed(int N){
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
             id[i] = i;
@@ -294,7 +294,7 @@ class QuickUnionUF_weighted_path_compressed {
 
 
     public static void main(String[] args) {
-        QuickUnionUF_weighted_path_compressed Q4 = new QuickUnionUF_weighted_path_compressed(10);
+        algor_QuickUnionUF_weighted_path_compressed Q4 = new algor_QuickUnionUF_weighted_path_compressed(10);
         Q4.union(4, 3);
         Q4.union(3, 8);
         Q4.union(6, 5);

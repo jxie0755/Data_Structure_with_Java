@@ -1,6 +1,6 @@
 package algorithm_p1.week_1;
 
-public class Lecture_02_Complexity {
+public class Alg_Lecture_02_Complexity {
     /*
      * Tilde
         * leading term for a specific case of algorithm
