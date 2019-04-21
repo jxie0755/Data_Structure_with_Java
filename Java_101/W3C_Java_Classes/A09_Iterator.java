@@ -55,6 +55,10 @@ public class A09_Iterator {
         // WTF d
         // WTF e
 
+        // 以上也等同于for loop完剩下的:
+        // for (Iterator<String> ittt = it; ittt.hasNext(); ) {
+        //     System.out.println("WTF " + ittt.next() + " ");
+        // }
 
         // remove 所以remove必须要跟在next(), remove被next()call到的那个元素, 只能执行一次
         List<String> list2 = new ArrayList<>(Arrays.asList("a", "b", "c", "d", "e"));
@@ -126,14 +130,14 @@ class A09b_ListIterator {
         // next and previous
         List<Integer> IL3 = new ArrayList<>(Arrays.asList(1, 2, 1, 3, 1, 4));
         ListIterator<Integer> IL33 = IL3.listIterator();
-        System.out.println(IL33.next());
-        System.out.println(IL33.next());
-        System.out.println(IL33.next());
-        System.out.println(IL33.previous());
-        System.out.println(IL33.previous());
-        System.out.println(IL33.next());
-        System.out.println(IL33.next());
-        System.out.println(IL33.next());  // cursor after 3
+        System.out.println(IL33.next());        //  1
+        System.out.println(IL33.next());        //  2
+        System.out.println(IL33.next());        //  1
+        System.out.println(IL33.previous());    //  1
+        System.out.println(IL33.previous());    //  2
+        System.out.println(IL33.next());        //  2
+        System.out.println(IL33.next());        //  1
+        System.out.println(IL33.next());        //  3 // cursor after 3
         // 也就是ListIterator 被call next和previous不会让元素消失
 
         // 	nextIndex() and previousIndex()
