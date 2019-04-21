@@ -1,6 +1,7 @@
 package algorithm_p1.week_2;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class Alg_Lecture_03_Stacks_and_Queues {
 
@@ -23,9 +24,17 @@ public class Alg_Lecture_03_Stacks_and_Queues {
     /*
      * Queue
      * Examine the items least recently added
-     * Enqueue (insert) add to the head
+     * Enqueue (insert) push to the head
      * Dequeue (remove) remove the tail
      * 头进尾出
+     */
+
+
+    /*
+     * Generics
+        * Different implementation for each class -- before java 1.5
+        * Casting - create object container then cast into different types - unsatisfactory
+        * Generics - Discover type in the beginning - prefer compile error over runtime error
      */
 
 }
@@ -147,7 +156,7 @@ class algor_ArrayStackOfStringsResizable {
         return idx == 0;
     }
 
-    public void resize(int N) {  // add resize method to double the array size
+    public void resize(int N) {  // push resize method to double the array size
         String[] new_stack = new String[N];
         for (int i = 0; i < idx; i++) {
             new_stack[i] = this.stack[i];
@@ -255,7 +264,7 @@ class algor_ArrayQueueOfStringsResizable {
         return head - tail == 0;
     }
 
-    public void resize(int N) {  // add resize method to double the array size
+    public void resize(int N) {  // push resize method to double the array size
         String[] new_q = new String[N];
         for (int i = 0; i < tail-head; i++) {
             new_q[i] = this.q[i+head];
@@ -298,6 +307,98 @@ class algor_ArrayQueueOfStringsResizable {
         System.out.println(q2.head);
         System.out.println(q2.tail);
     }
-
 }
 
+
+// generic linkedlist
+class genericLinkedStack<Item> {
+    // then use Item to replace all the typing in the following codes
+    private class Node {
+        Item item;
+        Node next;
+    }
+}
+
+class genericArrayStack<Item> {
+    private Item[] s;
+    // Difficulty: Java does not allow generic array
+    // have to be solved by casting
+    public genericArrayStack(int capacity) {
+        this.s = (Item[]) new Object[capacity];
+    }
+}
+
+
+// Use iterator to make stack
+// do not use remove in iterator (not recommending)
+// iterable data type can use for-each loop ( for (type s : iterable) {} )
+
+class IterableArrayStack<Item> implements Iterable<Item> {
+
+    Object[] s;
+    int idx;
+
+    public IterableArrayStack(int N){
+        this.s = (Item[]) new Object[N];
+    }
+
+    public int size() {
+        return s.length;
+    }
+
+    public boolean isEmpty() {
+        return idx == 0;
+    }
+
+    public void push(Item item) {
+        this.s[idx] = item;
+        idx ++;
+    }
+
+    public Item pop() {
+        return (Item) s[--idx];
+    }
+
+    @Override
+    public Iterator<Item> iterator() {
+        return new BIterator();
+    }
+
+    // 创建一个BIterator的内部类
+    private class BIterator implements Iterator<Item> {
+        private int idx = 0;
+
+        @Override
+        public boolean hasNext() {
+            return idx != s.length;
+        }
+
+        @Override
+        public Item next() {
+            return (Item) s[idx++];
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        IterableArrayStack<Integer> b1 = new IterableArrayStack<>(10);
+        b1.push(1);
+        b1.push(2);
+        b1.push(3);
+        b1.push(4);
+        System.out.println(Arrays.toString(b1.s));
+        for (Integer i : b1) {  // now this is iterable
+            if (i != null) {
+                System.out.println(i);
+            }
+        }
+        System.out.println(b1.pop());
+        System.out.println(b1.pop());
+    }
+}
