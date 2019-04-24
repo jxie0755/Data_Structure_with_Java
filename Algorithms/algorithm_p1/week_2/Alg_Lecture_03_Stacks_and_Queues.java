@@ -1,5 +1,7 @@
 package algorithm_p1.week_2;
 
+import edu.princeton.cs.algs4.Stack;
+
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -400,5 +402,65 @@ class IterableArrayStack<Item> implements Iterable<Item> {
         }
         System.out.println(b1.pop());
         System.out.println(b1.pop());
+    }
+}
+
+
+/*
+ * Application
+     * Parsing in a compiler
+     * Java virtual machine
+     * Undo in a word processor
+     * Back button in a Web browser
+     * PostScript language for printers
+     * Implementing funciton calls in a compiler
+ */
+
+
+/*
+ * Dijkstra's two-stack algorithm
+    * calculate (1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )
+        * value stack
+            * operator stack
+        * iterator and
+            * put value in value stack
+            * put operand in operator stack
+            * igonore '('
+            * pop the last two value and operator then evaluate when ')' then put back in value stack
+ */
+
+class DijkstraEvaluate {
+
+    public static double DijkstraEval(String[] args) {
+
+        Stack<String> ops = new Stack<String>();
+        Stack<Double> vals = new Stack<Double>();
+
+        for (String s: args) {
+            if (s.equals("(")) {
+
+            } else if (s.equals("+")) {
+                ops.push(s);
+            } else if (s.equals("*")) {
+                ops.push(s);
+            } else if (s.equals(")")) {
+                String op = ops.pop();
+                if (op.equals("+")) {
+                    vals.push(vals.pop() + vals.pop());
+                } else if (op.equals("*")) {
+                    vals.push(vals.pop() * vals.pop());
+                }
+            } else {
+                vals.push(Double.parseDouble(s));
+            }
+        }
+        return vals.pop();
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(DijkstraEval(
+                new String[]{"(", "1", "+", "(", "(", "2", "+", "3", ")", "*", "(", "4", "*", "5", ")", ")", ")"}
+                ));
     }
 }
