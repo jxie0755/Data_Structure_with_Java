@@ -1,6 +1,5 @@
-package algorithm_p1.week_1.percolation;
+package algorithm_p1.week_2.queues;
 
-import algorithm_p1.week_2.queues.RandomizedQueue;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
