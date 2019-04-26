@@ -4,55 +4,70 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
+    private double[] results;
 
-	private Percolation[] perc;
-	private double sitefraction[];
-	private double times;
+    public PercolationStats(int size, int numExperiments) {
+        assertPositive(size);
+        assertPositive(numExperiments);
+        results = new double[numExperiments];
+        runExperiments(size, numExperiments);
+    }
 
-	public PercolationStats(int n, int trials){    // perform trials independent experiments on an n-by-n grid
-		if (n<=0 || trials <=0){
-			throw new java.lang.IllegalArgumentException();
-		}
-		perc=new Percolation[trials];
-		sitefraction=new double[trials];
-		for(int i = 0; i < trials/*perc.length*/; i++){
-			perc[i] = new Percolation(n);
-		}
-		times=trials;
-	}
-
-	public double mean(){ // sample mean of percolation threshold
-		return StdStats.mean(sitefraction);
-	}
-	public double stddev(){  // sample standard deviation of percolation threshold
-		return StdStats.stddev(sitefraction);
-	}
-	public double confidenceLo(){   // low  endpoint of 95% confidence interval
-		return mean()-1.96*stddev()/Math.sqrt(times);
-	}
-	public double confidenceHi(){  	// high endpoint of 95% confidence interval
-	    return mean()+1.96*stddev()/Math.sqrt(times);
-	}
-
-	public static void main(String[] args) {
-	    int n=Integer.parseInt(args[0]);
-	    int trials=Integer.parseInt(args[1]);
-	    PercolationStats stats= new PercolationStats(n,trials);
-
-        for(int j = 0; j < trials/*perc.length*/; j++){
-            while(stats.perc[j].percolates()!=true){
-                int row=StdRandom.uniform(1, n+1);
-                int col=StdRandom.uniform(1, n+1);
-                if(stats.perc[j].isOpen(row, col)==false){
-                    stats.perc[j].open(row, col);
-                }
-
-            }
-            stats.sitefraction[j]=(double)stats.perc[j].numberOfOpenSites()/(n*n);
-
+    private void assertPositive(int num) {
+        if (num < 1) {
+            throw new IllegalArgumentException();
         }
-        System.out.print("mean\t"+stats.mean()+"\nstddev\t"+stats.stddev());
-        System.out.print("\n95% confidence interval\t["+stats.confidenceLo()+", "+stats.confidenceHi()+"]\n");
-	}
+    }
 
+    private void runExperiments(int size, int numExperiments) {
+        for (int i = 0; i < numExperiments; i++) {
+            results[i] = runExperiment(size);
+        }
+    }
+
+    private double runExperiment(int size) {
+        Percolation p = new Percolation(size);
+        int openSpaces = 0;
+        do {
+            int row = random(size);
+            int col = random(size);
+            if (!p.isOpen(row, col)){
+                p.open(row, col);
+                openSpaces++;
+            }
+        } while (!p.percolates());
+
+        return (double) openSpaces/((double) size*size);
+    }
+
+    private int random(int size) {
+        return StdRandom.uniform(1, size + 1);
+    }
+
+    public double mean() {
+        return StdStats.mean(results);
+    }
+
+    public double stddev() {
+        return StdStats.stddev(results);
+    }
+
+    public double confidenceLo() {
+        return mean() - confidence();
+    }
+
+    private double confidence() {
+        return (1.96 * stddev() / Math.sqrt(results.length));
+    }
+
+    public double confidenceHi() {
+        return mean() + confidence();
+    }
+
+    public static void main(String[] args) {
+        PercolationStats stats = new PercolationStats(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+        System.out.println("mean                    = " + stats.mean());
+        System.out.println("stddev                  = " + stats.stddev());
+        System.out.println("95% confidence interval = " + stats.confidenceLo() + ", " + stats.confidenceHi());
+    }
 }

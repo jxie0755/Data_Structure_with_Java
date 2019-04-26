@@ -3,89 +3,102 @@ package algorithm_p1.week_1.percolation;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
+    private WeightedQuickUnionUF union;
+    private WeightedQuickUnionUF backwash;
+    private boolean[] openSites;
+    private final int SIZE, TOP_INDEX, BOTTOM_INDEX;
 
-    private WeightedQuickUnionUF model;
-    private int index;
-    private int dimension;
-    private boolean bopen[];
-    private int opensite=0;
-
-    public Percolation(int n) {// create n-by-n grid, with all sites blocked
-        if (n <= 0){
-            throw new java.lang.IllegalArgumentException();
-        }
-        dimension = n;
-        model = new WeightedQuickUnionUF(n*n+2);
-        bopen = new boolean[n*n+2];
-        for (int i = 0; i < n*n+2; i++) {
-            bopen[i] = false;
-        }
-
-        bopen[n*n+1]=true;
-        bopen[n*n]=true;
-
+    public Percolation(int size) {
+        int numNodes = size*size + 2;
+        union = new WeightedQuickUnionUF(numNodes);
+        backwash = new WeightedQuickUnionUF(numNodes);
+        openSites = new boolean[size*size];
+        SIZE = size;
+        TOP_INDEX = size * size;
+        BOTTOM_INDEX = size * size + 1;
     }
 
-    public void open(int row, int col){    // open site (row, col) if it is not open already
+    public void open(int row, int col) {
+        assertInRange(row, col);
+        openSite(row, col);
+        connectToVirtualTopNode(row, col);
+        connectToAdjacents(row, col);
+        connectToVirtualBottomNode(row, col);
+    }
 
-        if (row < 1 || row > dimension || col < 1 || col > dimension ){
-            throw new java.lang.IndexOutOfBoundsException();
-        }
-
-        if (isOpen(row, col) == true){
-            return;
-        }
-        else {
-
-            if (col != 1 && isOpen(row, col-1)){//left side
-                model.union(conv_index(row, col), conv_index(row, col-1));
-            }
-
-            if (col != dimension && isOpen(row, col+1)){//right side
-                model.union(conv_index(row, col), conv_index(row, col+1));
-            }
-
-            if (row != 1 && isOpen(row-1, col)){//top side
-                model.union(conv_index(row, col), conv_index(row-1, col));
-            }
-
-            if (row != dimension && isOpen(row+1, col)){//bottom side
-                model.union(conv_index(row, col), conv_index(row+1, col));
-            }
-          //connect all top and bottom row to virtual site (point n*n-top site,n*n+1-bottom site)
-            if (row == 1){//top row connect to virtual site
-            	model.union(conv_index(row, col), dimension*dimension);
-            }
-            if (row == dimension){//bottom row connect to virtual site
-            	model.union(conv_index(row, col), dimension*dimension+1);
-            }
-            bopen[conv_index(row, col)]=true;
-            opensite++;
+    private void assertInRange(int row, int col) {
+        if (row < 1 || row > SIZE || col < 1 || col > SIZE) {
+            throw new IndexOutOfBoundsException();
         }
     }
 
-    public boolean isOpen(int row, int col){  // is site (row, col) open?
-        return bopen[conv_index(row, col)];
+    private void openSite(int row, int col) {
+        openSites[toIndex(row, col)] = true;
     }
 
-    public boolean isFull(int row, int col){  // is site (row, col) full?
-        return model.connected(conv_index(row, col),dimension*dimension);
+    private void connectToVirtualTopNode(int row, int col) {
+        if (row == 1) {
+            union(TOP_INDEX, toIndex(row, col));
+        }
     }
 
-    public int numberOfOpenSites(){       // number of open sites
-        return opensite;
+    private void union(int row, int col) {
+        union.union(row, col);
+        backwash.union(row, col);
     }
 
-    public boolean percolates(){              // does the system percolate?
-        return model.connected(dimension*dimension,dimension*dimension+1);
+    private int toIndex(int row, int col) {
+        return (row - 1) * SIZE + (col - 1);
     }
 
-    /*public static void main(String[] args){   // test client (optional)
+    private void connectToAdjacents(int row, int col) {
+        connectTopNode(row, col);
+        connectBottomNode(row, col);
+        connectLeftNode(row, col);
+        connectRightNode(row, col);
+    }
 
-    }*/
+    private void connectTopNode(int row, int col) {
+        if (row > 1 && isOpen(row - 1, col)) {
+            union(toIndex(row - 1, col), toIndex(row, col));
+        }
+    }
 
-    private int conv_index(int row, int col){//convert row and col to index
-        index = row*dimension-dimension+col-1;
-        return index;
+    private void connectBottomNode(int row, int col) {
+        if (row < SIZE && isOpen(row + 1, col)) {
+            union(toIndex(row + 1, col), toIndex(row, col));
+        }
+    }
+
+    private void connectLeftNode(int row, int col) {
+        if (col > 1 && isOpen(row, col - 1)) {
+            union(toIndex(row, col - 1), toIndex(row, col));
+        }
+    }
+
+    private void connectRightNode(int row, int col) {
+        if (col < SIZE && isOpen(row, col + 1)) {
+            union(toIndex(row, col + 1), toIndex(row, col));
+        }
+    }
+
+    private void connectToVirtualBottomNode(int row, int col) {
+        if (row == SIZE) {
+            backwash.union(BOTTOM_INDEX, toIndex(row, col));
+        }
+    }
+
+    public boolean isOpen(int row, int col) {
+        assertInRange(row, col);
+        return openSites[toIndex(row, col)];
+    }
+
+    public boolean isFull(int row, int col) {
+        assertInRange(row, col);
+        return union.connected(toIndex(row, col), TOP_INDEX);
+    }
+
+    public boolean percolates() {
+        return backwash.connected(BOTTOM_INDEX, TOP_INDEX);
     }
 }
