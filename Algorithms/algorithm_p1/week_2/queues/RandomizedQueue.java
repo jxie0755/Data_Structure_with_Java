@@ -2,11 +2,9 @@ package algorithm_p1.week_2.queues;
 
 import edu.princeton.cs.algs4.StdRandom;
 import java.util.Iterator;
-
 import java.util.NoSuchElementException;
 
 /**
- * Created by longxingyu on 2019/4/18.
  * 由于这个是random读取的原因 所以使用"array"实现更加适合
  */
 public class RandomizedQueue<Item> implements Iterable<Item>{
@@ -28,6 +26,14 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
     // return the number of items on the randomized queue
     public int size() {
         return size;
+    }
+
+    public void resize(int capacity) {
+        Item[] copy = (Item[]) new Object[capacity];
+        for (int i = 0; i < size; i++) {
+            copy[i] = s[i];
+        }
+        s = copy;
     }
 
     // add the item
@@ -89,13 +95,7 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
 
     }
 
-    public void resize(int capacity) {
-        Item[] copy = (Item[]) new Object[capacity];
-        for (int i = 0; i < size; i++) {
-            copy[i] = s[i];
-        }
-        s = copy;
-    }
+
 
     // unit testing (optional)
     public static void main(String[] args) {

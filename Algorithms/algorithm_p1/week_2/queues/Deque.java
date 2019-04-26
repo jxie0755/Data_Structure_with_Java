@@ -3,9 +3,7 @@ package algorithm_p1.week_2.queues;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/**
- * Created by longxingyu on 2019/4/6.
- */
+
 public class Deque<Item> implements Iterable<Item> {
 
     private Node first, last; //双向链表一开始也是有两个点

@@ -3,9 +3,6 @@ package algorithm_p1.week_2.queues;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-/**
- * Created by longxingyu on 2019/4/19.
- */
 public class Permutation {
     public static void main(String[] args) {
         RandomizedQueue<String> randomizedQueue = new RandomizedQueue<>();
