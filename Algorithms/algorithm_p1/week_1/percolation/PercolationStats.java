@@ -4,70 +4,91 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
-    private double[] results;
 
-    public PercolationStats(int size, int numExperiments) {
-        assertPositive(size);
-        assertPositive(numExperiments);
-        results = new double[numExperiments];
-        runExperiments(size, numExperiments);
-    }
+    private static final double CONFIDENCE_95= 1.96;
+    private int n = 0;
+    private int trials = 0;
+    private double[] openSiteFractionArr;
+    private double mean = 0, stddev = 0, confidenceHi = 0, confidenceLo = 0;
 
-    private void assertPositive(int num) {
-        if (num < 1) {
+    // perform trials independent experiments on an n-by-n grid
+    public PercolationStats(int n, int trials) {
+        if (n <= 0 || trials <= 0) {
             throw new IllegalArgumentException();
         }
+        this.n = n;
+        this.trials = trials;
+        this.openSiteFractionArr = new double[trials];
+        runModelAndGetStatResult();
     }
 
-    private void runExperiments(int size, int numExperiments) {
-        for (int i = 0; i < numExperiments; i++) {
-            results[i] = runExperiment(size);
-        }
-    }
-
-    private double runExperiment(int size) {
-        Percolation p = new Percolation(size);
-        int openSpaces = 0;
-        do {
-            int row = random(size);
-            int col = random(size);
-            if (!p.isOpen(row, col)){
-                p.open(row, col);
-                openSpaces++;
-            }
-        } while (!p.percolates());
-
-        return (double) openSpaces/((double) size*size);
-    }
-
-    private int random(int size) {
-        return StdRandom.uniform(1, size + 1);
-    }
-
+    // sample mean of percolation threshold
     public double mean() {
-        return StdStats.mean(results);
+        return this.mean;
     }
 
+    // sample standard deviation of percolation threshold
     public double stddev() {
-        return StdStats.stddev(results);
+        return this.stddev;
     }
 
+    // low  endpoint of 95% confidence interval
     public double confidenceLo() {
-        return mean() - confidence();
+        return this.confidenceLo;
     }
 
-    private double confidence() {
-        return (1.96 * stddev() / Math.sqrt(results.length));
-    }
-
+    // high endpoint of 95% confidence interval
     public double confidenceHi() {
-        return mean() + confidence();
+        return this.confidenceHi;
     }
 
+    // test client (described below)
     public static void main(String[] args) {
-        PercolationStats stats = new PercolationStats(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-        System.out.println("mean                    = " + stats.mean());
-        System.out.println("stddev                  = " + stats.stddev());
-        System.out.println("95% confidence interval = " + stats.confidenceLo() + ", " + stats.confidenceHi());
+        String[] nums = new String[]{"200", "100"};
+        initPercolationStatModel(nums);
+    }
+
+
+    /**
+     *  -----下面是定义的private方法-----
+     */
+    private static void initPercolationStatModel(String[] nums){
+        if (nums.length != 2) {
+            throw new IllegalArgumentException();
+        }
+
+        int n = Integer.parseInt(nums[0]);
+        int trail = Integer.parseInt(nums[1]);
+
+        PercolationStats percolationStats = new PercolationStats(n, trail);
+        System.out.println("mean = " + percolationStats.mean());
+        System.out.println("stddev = " + percolationStats.stddev());
+        System.out.println("95% confidence interval = [" + percolationStats.confidenceHi()
+        + ", " + percolationStats.confidenceLo() + "]");
+    }
+
+    private void runModelAndGetStatResult() {
+        double numberOfSites = this.n * this.n;
+
+        for (int i = 0; i < this.trials; i++) {
+            int openSite = runPercolationModel();
+            double openSiteFraction = (double) openSite / numberOfSites;
+            this.openSiteFractionArr[i] = openSiteFraction;
+        }
+
+        this.mean = StdStats.mean(openSiteFractionArr);
+        this.stddev = StdStats.stddev(openSiteFractionArr);
+        this.confidenceHi = this.mean + CONFIDENCE_95 * stddev / Math.sqrt(trials);
+        this.confidenceLo = this.mean - CONFIDENCE_95 * stddev / Math.sqrt(trials);
+    }
+
+    private int runPercolationModel() {
+        Percolation model = new Percolation(this.n);
+        while (!model.percolates()) {
+            int row = StdRandom.uniform(1, this.n + 1);
+            int col = StdRandom.uniform(1, this.n + 1);
+            model.open(row, col);
+        }
+        return model.numberOfOpenSites();
     }
 }
