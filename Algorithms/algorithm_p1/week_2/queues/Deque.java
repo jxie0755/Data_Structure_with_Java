@@ -131,14 +131,29 @@ public class Deque<Item> implements Iterable<Item> {
 
         // unit testing (optional)
     public static void main(String[] args) {
-        Deque<String> deque = new Deque<>();
-        deque.addFirst("1");
+        // Deque<String> deque = new Deque<>();
+        // deque.addFirst("1");
+        // deque.addFirst("2");
+        // Iterator<String> iterator = deque.iterator();
+        // System.out.println(deque.size());
+        //
+        // while (iterator.hasNext()) {
+        //     System.out.println(iterator.next());
+        // }
+        //
+         Deque<String> deque = new Deque<>();
+        deque.addFirst("3");
         deque.addFirst("2");
-        Iterator<String> iterator = deque.iterator();
-        System.out.println(deque.size());
+        deque.addFirst("1");
+        deque.addLast("3");
+        deque.addLast("2");
+        deque.addLast("1");
+        deque.removeLast();
 
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+        for (Iterator<String> iter = deque.iterator(); iter.hasNext();) {
+            System.out.println(iter.next());
         }
+        System.out.println("deque size = " + deque.size());
+
     }
 }
