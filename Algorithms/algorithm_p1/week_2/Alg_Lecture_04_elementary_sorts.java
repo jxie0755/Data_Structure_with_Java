@@ -167,9 +167,9 @@ class ShellSort {
     public static void h_sort(Comparable[] a, int h) {
 
         int N = a.length;
-        for (int i = h; i < N; i++) {
+        for (int i = h; i < N; i++) {   // starting from index h
             for (int j = i; j > 0; j-=h) {
-                if (j-h >= 0 && less(a[j], a[j-h])) {
+                if (j-h >= 0 && less(a[j], a[j-h])) {  // j jump back in h_steps
                     exch(a, j, j-h);
                 } else {
                     break;
