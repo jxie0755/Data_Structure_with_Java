@@ -36,18 +36,35 @@ public class Alg_Lecture_04_elementary_sorts {
 
 
     /*
+
      * Selection Sort
         * Code omitted, too simple
         * iterate and find the smallest value and swap to the first entry
         * Then continue to do the same thing to remaining array
         * O(N^2/2) always, regardless how the array is sorted
         *
+
      * Insertion Sort
-        * Code omitted, too simple
         * start from first element a[i], iterate to the element a[j]
             * if a[j] > a[i], then keep iterating
             * if a[j] < a[i], then swap the two until the first j element is sorted
-     *
+        * O(N^2/4), slightly better than Selection Sort
+        * Best case: already sorted: O(N-1)
+        * Worst case: O(N^2/2) iteration, O(N^2/2) swaps, slower than Selection
+
+     * Shellsort
+        * Move entries more than one position at a time by h-sorting the array
+        * h-sorting is h interleaved sorted subsequences
+            * L E E A M H L E P S O L T S X R    (h = 4)
+            * L       M       P       T
+            *   E       H       S       S
+            *     E       L       O       X
+            *       A       E       L       R
+        * The code is almost the same as Insertion sort, except:
+            * it goes h steps back, instead of 1 step back when exchanging
+        * Why?
+            * To prepare the array to become partially sorted,
+            * so that insertion sort will be a lot quicker.
      *
      *
      *
@@ -56,8 +73,6 @@ public class Alg_Lecture_04_elementary_sorts {
      *
      *
      */
-
-
 
 }
 
@@ -116,7 +131,6 @@ class InsertionSort {
     public static void sort(Comparable[] a) {
 
         int N = a.length;
-        System.out.println("??");
         for (int i = 0; i < N; i++) {
             for (int j = i; j > 0; j--) {
                 if (less(a[j], a[j-1])) {
@@ -129,9 +143,59 @@ class InsertionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] intarray1 = new Integer[]{1, 4, 3, 6, 4, 8, 4, 7, 9, 3};
+        Integer[] intarray1 = new Integer[]{1, 4, 3, 6, 5, 8, 2, 7, 9, 3};
         InsertionSort.sort(intarray1);
         System.out.println(Arrays.toString(intarray1));
+        // >>> [1, 2, 3, 3, 4, 5, 6, 7, 8, 9]
+    }
+}
+
+
+// Shellsort
+class ShellSort {
+
+    private static boolean less(Comparable v, Comparable w) {
+        return v.compareTo(w) == -1;
     }
 
+    private static void exch(Comparable[] a, int i, int j) {
+        Comparable temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    public static void sort(Comparable[] a, int h) {
+
+        int N = a.length;
+        for (int i = 0; i < N; i++) {
+            for (int j = i; j > 0; j-=h) {
+                if (j-h >= 0 && less(a[j], a[j-h])) {
+                    exch(a, j, j-h);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Integer[] intarray2 = new Integer[]{1, 4, 6, 3, 5, 8, 9, 7, 2, 3};
+        System.out.println(Arrays.toString(intarray2));
+        ShellSort.sort(intarray2, 6);
+        System.out.println(Arrays.toString(intarray2));
+        ShellSort.sort(intarray2, 3);
+        System.out.println(Arrays.toString(intarray2));
+        ShellSort.sort(intarray2, 1);
+        System.out.println(Arrays.toString(intarray2));
+        // >>>
+        // [1, 4, 6, 3, 5, 8, 9, 7, 2, 3]
+        // [1, 4, 2, 3, 5, 8, 9, 7, 6, 3]
+        // [1, 4, 2, 3, 5, 6, 3, 7, 8, 9]
+        // [1, 2, 3, 3, 4, 5, 6, 7, 8, 9]
+    }
 }
+
+
+
+
+
