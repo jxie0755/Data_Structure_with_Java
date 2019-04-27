@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Alg_Lecture_04_elementary_sorts {
 
     /*
-     * To sort a number of elements, first we need to be able to compare elements
+     * To h_sort a number of elements, first we need to be able to compare elements
      * The object type must be implementing the interface Comparable<Item>
      * Following the natural total order rule
         * Antisymmetry: if v <= w and v >= w then v == w
@@ -25,7 +25,7 @@ public class Alg_Lecture_04_elementary_sorts {
         * Exchange (swap the value of a and b)
      */
     private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) == -1;
+        return v.compareTo(w) < 0;
     }
 
     private static void exch(Comparable[] a, int i, int j) {
@@ -60,11 +60,11 @@ public class Alg_Lecture_04_elementary_sorts {
             *   E       H       S       S
             *     E       L       O       X
             *       A       E       L       R
-        * The code is almost the same as Insertion sort, except:
+        * The code is almost the same as Insertion h_sort, except:
             * it goes h steps back, instead of 1 step back when exchanging
         * Why?
             * To prepare the array to become partially sorted,
-            * so that insertion sort will be a lot quicker.
+            * so that insertion h_sort will be a lot quicker.
      *
      *
      *
@@ -119,7 +119,7 @@ class DateCompareExample implements Comparable<DateCompareExample> {
 class InsertionSort {
 
     private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) == -1;
+        return v.compareTo(w) < 0;
     }
 
     private static void exch(Comparable[] a, int i, int j) {
@@ -155,7 +155,7 @@ class InsertionSort {
 class ShellSort {
 
     private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) == -1;
+        return v.compareTo(w) < 0;
     }
 
     private static void exch(Comparable[] a, int i, int j) {
@@ -164,10 +164,10 @@ class ShellSort {
         a[j] = temp;
     }
 
-    public static void sort(Comparable[] a, int h) {
+    public static void h_sort(Comparable[] a, int h) {
 
         int N = a.length;
-        for (int i = 0; i < N; i++) {
+        for (int i = h; i < N; i++) {
             for (int j = i; j > 0; j-=h) {
                 if (j-h >= 0 && less(a[j], a[j-h])) {
                     exch(a, j, j-h);
@@ -179,19 +179,20 @@ class ShellSort {
     }
 
     public static void main(String[] args) {
-        Integer[] intarray2 = new Integer[]{1, 4, 6, 3, 5, 8, 9, 7, 2, 3};
-        System.out.println(Arrays.toString(intarray2));
-        ShellSort.sort(intarray2, 6);
-        System.out.println(Arrays.toString(intarray2));
-        ShellSort.sort(intarray2, 3);
-        System.out.println(Arrays.toString(intarray2));
-        ShellSort.sort(intarray2, 1);
-        System.out.println(Arrays.toString(intarray2));
+        String[] strarray1 = new String[]{"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
+        System.out.println(Arrays.toString(strarray1));
+        ShellSort.h_sort(strarray1, 7);
+        System.out.println(Arrays.toString(strarray1));
+        ShellSort.h_sort(strarray1, 3);
+        System.out.println(Arrays.toString(strarray1));
+        ShellSort.h_sort(strarray1, 1);
+        System.out.println(Arrays.toString(strarray1));
         // >>>
-        // [1, 4, 6, 3, 5, 8, 9, 7, 2, 3]
-        // [1, 4, 2, 3, 5, 8, 9, 7, 6, 3]
-        // [1, 4, 2, 3, 5, 6, 3, 7, 8, 9]
-        // [1, 2, 3, 3, 4, 5, 6, 7, 8, 9]
+        // [S, O, R, T, E, X, A, M, P, L, E]
+        // [M, O, L, E, E, X, A, S, P, R, T]
+        // [A, E, L, E, O, P, M, S, X, R, T]
+        // [A, E, E, L, M, O, P, R, S, T, X]
+
     }
 }
 
