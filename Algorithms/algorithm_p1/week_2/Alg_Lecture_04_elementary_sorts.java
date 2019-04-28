@@ -1,5 +1,7 @@
 package algorithm_p1.week_2;
 
+import edu.princeton.cs.algs4.StdRandom;
+
 import java.util.Arrays;
 
 public class Alg_Lecture_04_elementary_sorts {
@@ -69,8 +71,23 @@ public class Alg_Lecture_04_elementary_sorts {
             * Fast unless array size is huge
             * Tiny, fixed footprint for code (used in embedded systems)
             * Hardware sort prototype
-     *
-     *
+            * Best sequence of increment is still unknown
+
+     * Shuflle sort
+        * How it's done
+            * An array of Integer elements (Ai)
+            * generate a random real number array (Ar) of an array (same length)
+            * Each i is a key to value r.
+            * Sort the (Ar) then move the key along, so that Ai is randomly shuffled
+        * Provide a uniformly random permutation of the input array, provided no duplicate values
+        * This needs to sort everytime, which cost a lot of resource
+        * Do we have a better way to uniformly random permutate in a linear time?
+
+        * Knuth shuffle
+            * Linear time shuffling
+            * In iteration i, pick interger r between 0 and i uniformly at random
+            * Swap a[i] and a[r]
+
      *
      *
      *
@@ -218,6 +235,31 @@ class ShellSort {
         System.out.println(Arrays.toString(strarray2));
     }
 }
+
+// Knuth Shuffle
+class KnuthShuffle {
+
+    private static void exch(Object[] a, int i, int j) {  // No longer need to be Comparable
+        Object temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    public static void shuffle(Object[] a) {
+        int N = a.length;
+        for (int i = 0; i < N; i++) {
+            int r = StdRandom.uniform(i + 1);
+            exch(a, i, r);
+        }
+    }
+
+    public static void main(String[] args) {
+        String[] strarray3 = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
+        KnuthShuffle.shuffle(strarray3);
+        System.out.println(Arrays.toString(strarray3));
+    }
+}
+
 
 
 
