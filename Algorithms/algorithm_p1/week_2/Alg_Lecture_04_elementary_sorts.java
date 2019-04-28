@@ -65,6 +65,10 @@ public class Alg_Lecture_04_elementary_sorts {
         * Why?
             * To prepare the array to become partially sorted,
             * so that insertion h_sort will be a lot quicker.
+        * Useful in practice
+            * Fast unless array size is huge
+            * Tiny, fixed footprint for code (used in embedded systems)
+            * Hardware sort prototype
      *
      *
      *
@@ -178,6 +182,22 @@ class ShellSort {
         }
     }
 
+    public static void sort(Comparable[] a) {
+        /**
+         * apply with 3x + 1 h-sort
+         */
+
+        int h = 1;
+        while (h + 3 <= a.length) {
+            h += 3;
+        }  // get the max h that is smaller than the array length
+
+        while (h >= 1) {
+            ShellSort.h_sort(a, h);
+            h -= 3;
+        } // use a while loop the h-sort the array and decrease the h until it becomes 1
+    }
+
     public static void main(String[] args) {
         String[] strarray1 = new String[]{"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
         System.out.println(Arrays.toString(strarray1));
@@ -192,6 +212,10 @@ class ShellSort {
         // [M, O, L, E, E, X, A, S, P, R, T]
         // [A, E, L, E, O, P, M, S, X, R, T]
         // [A, E, E, L, M, O, P, R, S, T, X]
+
+        String[] strarray2 = new String[]{"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
+        ShellSort.sort(strarray2);
+        System.out.println(Arrays.toString(strarray2));
     }
 }
 
