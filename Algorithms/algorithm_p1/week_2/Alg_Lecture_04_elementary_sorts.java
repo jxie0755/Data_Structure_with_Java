@@ -286,4 +286,9 @@ class KnuthShuffle {
 
 
 
-
+/*
+ * Convex Hull problem
+    * Convex Hull is the small convex that contains all the coordinates
+    * There are points on the corner or on the oundary. Only on the corner is true convex
+    * Out put sequence of vertices in counterclockwise order
+ */
