@@ -248,9 +248,33 @@ class KnuthShuffle {
     public static void shuffle(Object[] a) {
         int N = a.length;
         for (int i = 0; i < N; i++) {
-            int r = StdRandom.uniform(i + 1);
+            int r = StdRandom.uniform(i + 1); // return a random integer in [0:i)
             exch(a, i, r);
         }
+    }
+
+    /**
+     * Suppose card index is 1 to 52 instead of 0 to 51
+     */
+    public static void shufflecards(Object[] a) {
+
+        for (int i = 1; i <= 52; i++) {
+            int r = StdRandom.uniform(51) + 1; // between 0+1 and 50+1 - 1 to 51
+            exch(a, i, r);
+        }
+        /*
+         * bug 1:
+            * Random number r will never be 52, so card[52] can't endup in 52nd place
+            * becaseu it will always be swapped with a card before it.
+         * bug 2:
+            * Shuffle not uniform (should be between 1 and i)
+         * bug 3:
+            * random() uses 32-bit seed only has 2^32 possible shuffles
+            * 52! is the total swap number, it is bigger than 2^32
+         * bug 4:
+            * Seed = milliseconds since midnight 86.4 million shuffles
+         * Exploit: After seeing 5 cards and synchronizing with server clock, it can determine all future cards in real time.
+         */
     }
 
     public static void main(String[] args) {
