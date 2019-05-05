@@ -70,7 +70,5 @@ class Alg_Mergesort {
         Integer[] a = new Integer[]{1, 3, 5, 7, 9, 2, 4, 6, 8, 10};
         merge(a, new Integer[a.length], 0, 4, 9);
         System.out.println(Arrays.toString(a));
-
     }
-
 }
