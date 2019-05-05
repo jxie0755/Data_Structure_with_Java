@@ -1,5 +1,7 @@
 package algorithm_p1.week_3;
 
+import edu.princeton.cs.algs4.Insertion;
+
 import java.util.Arrays;
 
 public class Alg_Lecture_05_Mergesort {
@@ -10,6 +12,11 @@ public class Alg_Lecture_05_Mergesort {
             * Divide array into two halves
             * Recursively sort each half
             * Merge two halves
+
+            * Two much overhead for tiny subarrays
+            * Cutoff to insertion sort for = 7 items
+                * During mergesort, when subarray less than 7,
+                * Use insertion sort to excute the sort instead of merge sort
 
         * Quicksort
             * Honored as one of the top 10 algorithm of 20th centry in science and engineering.
@@ -67,12 +74,22 @@ class Alg_Mergesort {
     }
 
     private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
-        if (hi <= lo) {
+
+        // Original: all the way to the 1 element subarray and merge back
+        // if (hi <= lo) {
+        //     return;
+        // }
+
+        // Add InsertionSort when subarry is shorter than 7
+        int CUTOFF = 7;
+        if (hi <= lo + CUTOFF - 1) {
+            Insertion.sort(a, lo, hi+1);
             return;
         }
 
         int mid = lo + (hi - lo) / 2;
         // recursively divide into smaller arrays
+        System.out.println(lo + " " + mid + " " + hi);
         sort(a, aux, lo, mid);
         sort(a, aux, mid + 1, hi);
         // then recursively merge back
@@ -92,5 +109,11 @@ class Alg_Mergesort {
         Integer[] b = new Integer[]{10, 2, 9, 7, 4, 3, 8, 6, 5, 1};
         sort(b);
         System.out.println(Arrays.toString(b));
+
+        // Example of InsertionSort sort method:
+        Integer[] c = new Integer[]{10, 2, 9, 7, 4, 3, 8, 6, 5, 1};
+        Insertion.sort(c, 0, 3);
+        System.out.println(Arrays.toString(c));
+        // [2, 9, 10, 7, 4, 3, 8, 6, 5, 1]  (index 3 is not included)
     }
 }
