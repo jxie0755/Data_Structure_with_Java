@@ -92,7 +92,12 @@ class Alg_Mergesort {
         System.out.println(lo + " " + mid + " " + hi);
         sort(a, aux, lo, mid);
         sort(a, aux, mid + 1, hi);
+
         // then recursively merge back
+        // Improvement 2: if two subarray is naturally sorted by direction link, then skip the merge:
+        if (!less(a[mid + 1], a[mid])) {
+            return;
+        }
         merge(a, aux, lo, mid, hi);
     }
 
