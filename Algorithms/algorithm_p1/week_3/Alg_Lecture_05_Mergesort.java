@@ -80,7 +80,7 @@ class Alg_Mergesort {
         //     return;
         // }
 
-        // Add InsertionSort when subarry is shorter than 7
+        // Improvement 1: Add InsertionSort when subarry is shorter than 7
         int CUTOFF = 7;
         if (hi <= lo + CUTOFF - 1) {
             Insertion.sort(a, lo, hi+1);
