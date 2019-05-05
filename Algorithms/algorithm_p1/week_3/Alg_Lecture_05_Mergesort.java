@@ -66,7 +66,6 @@ class Alg_Mergesort {
         }
     }
 
-
     private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
         if (hi <= lo) {
             return;
@@ -80,6 +79,10 @@ class Alg_Mergesort {
         merge(a, aux, lo, mid, hi);
     }
 
+    // Overload for direct use
+    private static void sort(Comparable[] a) {
+        sort(a, new Comparable[a.length], 0, a.length - 1);
+    }
 
     public static void main(String[] args) {
         Integer[] a = new Integer[]{1, 3, 5, 7, 9, 2, 4, 6, 8, 10};
@@ -87,7 +90,7 @@ class Alg_Mergesort {
         System.out.println(Arrays.toString(a));
 
         Integer[] b = new Integer[]{10, 2, 9, 7, 4, 3, 8, 6, 5, 1};
-        sort(b, new Integer[a.length], 0, b.length-1);
+        sort(b);
         System.out.println(Arrays.toString(b));
     }
 }
