@@ -66,9 +66,28 @@ class Alg_Mergesort {
         }
     }
 
+
+    private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
+        if (hi <= lo) {
+            return;
+        }
+
+        int mid = lo + (hi - lo) / 2;
+        // recursively divide into smaller arrays
+        sort(a, aux, lo, mid);
+        sort(a, aux, mid + 1, hi);
+        // then recursively merge back
+        merge(a, aux, lo, mid, hi);
+    }
+
+
     public static void main(String[] args) {
         Integer[] a = new Integer[]{1, 3, 5, 7, 9, 2, 4, 6, 8, 10};
         merge(a, new Integer[a.length], 0, 4, 9);
         System.out.println(Arrays.toString(a));
+
+        Integer[] b = new Integer[]{10, 2, 9, 7, 4, 3, 8, 6, 5, 1};
+        sort(b, new Integer[a.length], 0, b.length-1);
+        System.out.println(Arrays.toString(b));
     }
 }
