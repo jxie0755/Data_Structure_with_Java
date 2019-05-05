@@ -44,7 +44,6 @@ class Alg_Mergesort {
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
         }
-        System.out.println(Arrays.toString(aux));
 
         // Merge the two sorted sub-array
         int i = lo;
