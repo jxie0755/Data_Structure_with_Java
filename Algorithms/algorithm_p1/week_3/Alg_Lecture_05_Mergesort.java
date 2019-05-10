@@ -73,6 +73,8 @@ class Alg_Mergesort {
         }
     }
 
+
+    // Recursive version
     private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
 
         // Original: all the way to the 1 element subarray and merge back
@@ -101,10 +103,29 @@ class Alg_Mergesort {
         merge(a, aux, lo, mid, hi);
     }
 
-    // Overload for direct use
+    // Overload for direct use (Recursive version)
     private static void sort(Comparable[] a) {
         sort(a, new Comparable[a.length], 0, a.length - 1);
     }
+
+
+    /*
+     * Bottom-up Mergesort (no recursion version)
+        * break down into 1 unit sub-array
+        * then merge into one array by turn
+     */
+    public static void bottomupsort(Comparable[] a) {
+        int N = a.length;
+        Comparable[] aux = new Comparable[N];
+        for (int sz = 1; sz < N; sz = sz + sz) {
+            for (int lo = 0; lo < N - sz; lo += sz + sz) {
+                merge(a, aux, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
+                                                    // avoid idx exceed at the end
+            }
+        }
+    }
+
+
 
     public static void main(String[] args) {
         Integer[] a = new Integer[]{1, 3, 5, 7, 9, 2, 4, 6, 8, 10};
@@ -120,5 +141,13 @@ class Alg_Mergesort {
         Insertion.sort(c, 0, 3);
         System.out.println(Arrays.toString(c));
         // [2, 9, 10, 7, 4, 3, 8, 6, 5, 1]  (index 3 is not included)
+
+
+        // Example of bottom up sort
+        Integer[] d = new Integer[]{10, 2, 9, 7, 4, 3, 8, 6, 5, 1};
+        Alg_Mergesort.bottomupsort(d);
+        System.out.println(Arrays.toString(d));
+        // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     }
 }
