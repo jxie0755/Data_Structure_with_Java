@@ -37,7 +37,7 @@ class Comparator_test {
         System.out.println(Collections.max(lst));
         // >>>  正常是2
 
-        // 第一种用法. 根据内部类
+        // 第一种用法. 根据自定义Comparator类
         System.out.println(Collections.max(lst, new MyComparator()));
         // >>> -3
 
