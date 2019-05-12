@@ -88,11 +88,6 @@ public class Alg_Lecture_04_elementary_sorts {
             * In iteration i, pick interger r between 0 and i uniformly at random
             * Swap a[i] and a[r]
 
-     *
-     *
-     *
-     *
-     *
      */
 
 }

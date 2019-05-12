@@ -20,6 +20,19 @@ public class Alg_Lecture_05_Mergesort {
 
         * Quicksort
             * Honored as one of the top 10 algorithm of 20th centry in science and engineering.
+
+     * Comparator
+        * Refer to Java_101/W3C_Java_Classes/A11_Comparator.java
+
+     * Stability
+        * retain sort sequence in sections when sort by different way
+            * for example:
+                * student sorted by names first, then sorted by scores
+                * but the students who shares the same scores, will still sorted by names
+            * Insertion sort and Mergesort are stable
+            * Selection sort ans Shellsort are not stable
+        * The key is not to move the equal value sequence pass each other
+
      */
 
 }
