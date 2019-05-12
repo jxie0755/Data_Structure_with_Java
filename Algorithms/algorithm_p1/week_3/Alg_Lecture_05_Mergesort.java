@@ -30,6 +30,8 @@ public class Alg_Lecture_05_Mergesort {
                 * student sorted by names first, then sorted by scores
                 * but the students who shares the same scores, will still sorted by names
             * Insertion sort and Mergesort are stable
+                * Mergesort: depends on the merge section
+                    * if two items are equal, always take the left item -- then it is stable
             * Selection sort ans Shellsort are not stable
         * The key is not to move the equal value sequence pass each other
 
