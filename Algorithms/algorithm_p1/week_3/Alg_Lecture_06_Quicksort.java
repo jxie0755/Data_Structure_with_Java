@@ -93,17 +93,14 @@ class Alg_Quicksort {
         }
 
         exch(a, lo, j);
-        System.out.println("i " + i + " j " + j);
-        System.out.println(Arrays.toString(a));
         return j;
     }
 
 
     private static void sort(Comparable[] a, int lo, int hi) {
         if (hi > lo) {
-            System.out.println("lo: " + lo + " hi: " + hi);
             int j = partition(a, lo, hi);
-            System.out.println(j);
+            System.out.println("lo: " + lo + " hi: " + hi + " j: " + j);
             System.out.println(Arrays.toString(a));
             sort(a, lo, j - 1);
             sort(a, j + 1, hi);
@@ -120,12 +117,12 @@ class Alg_Quicksort {
 
     public static void main(String[] args) {
         Character[] chrarray = new Character[]{'K', 'R', 'A', 'T', 'E', 'L', 'E', 'P', 'U', 'I', 'M', 'Q', 'C', 'X', 'O', 'S'};
-        // System.out.println(partition(chrarray, 0, chrarray.length - 1));
-        // System.out.println(Arrays.toString(chrarray));
+        System.out.println(partition(chrarray, 0, chrarray.length - 1));
+        System.out.println(Arrays.toString(chrarray));
 
         System.out.println("Quicksort implementation");
-        Character[] chrarray2 = new Character[]{'K', 'R', 'A', 'T', 'E', 'L', 'E', 'P', 'U', 'I', 'M', 'Q', 'C', 'X', 'O', 'S'};
-        sort(chrarray2);
+        Integer[] ia = new Integer[]{5, 1, 4, 2, 3, 3, 2, 4, 1, 5};
+        sort(ia);
 
     }
 
