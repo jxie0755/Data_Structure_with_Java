@@ -8,7 +8,7 @@ public class Alg_Lecture_05_Mergesort {
 
     /*
      * Two classic sorting algorithms
-        * Mergesort
+        * Mergesort (Lecture 05)
             * Divide array into two halves
             * Recursively sort each half
             * Merge two halves
@@ -18,14 +18,14 @@ public class Alg_Lecture_05_Mergesort {
                 * During mergesort, when subarray less than 7,
                 * Use insertion sort to excute the sort instead of merge sort
 
-        * Quicksort
+         * Quicksort (Lecture 06)
             * Honored as one of the top 10 algorithm of 20th centry in science and engineering.
 
      * Comparator
-        * Refer to Java_101/W3C_Java_Classes/A11_Comparator.java
+         * Refer to Java_101/W3C_Java_Classes/A11_Comparator.java
 
      * Stability
-        * retain sort sequence in sections when sort by different way
+         * retain sort sequence in sections when sort by different way
             * for example:
                 * student sorted by names first, then sorted by scores
                 * but the students who shares the same scores, will still sorted by names
