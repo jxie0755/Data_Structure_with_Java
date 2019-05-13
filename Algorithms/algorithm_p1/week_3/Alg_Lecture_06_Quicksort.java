@@ -34,38 +34,8 @@ class Alg_Quicksort {
         a[j] = temp;
     }
 
-    // private static int partition(Comparable[] a, int lo, int hi) {
-    //
-    //     int i = lo + 1;
-    //     int j = hi;
-    //     Comparable keyelem = a[lo];
-    //
-    //     while (true) {
-    //
-    //         while (less(a[i], a[lo])) {
-    //             i += 1;
-    //             if (i == hi) {
-    //                 break;
-    //             }
-    //         }
-    //
-    //         while (less(a[lo], a[j])) {
-    //             j -= 1;
-    //             if (j == lo) {
-    //                 break;
-    //             }
-    //         }
-    //
-    //         if (i >= j) {
-    //             break;
-    //         }
-    //         exch(a, i , j);
-    //     }
-    //
-    //     exch(a, lo, j);
-    //     return j;
-    // }
 
+    // This is the key part and the trickiest part
     private static int partition(Comparable[] a, int lo, int hi) {
 
         int i = lo;
@@ -111,6 +81,8 @@ class Alg_Quicksort {
     // Overload for direct use
     public static void sort(Comparable[] a) {
         StdRandom.shuffle(a);  // this shuffle is needed for performance guarantee
+        System.out.println("After shuffle: ");
+        System.out.println(Arrays.toString(a));
         sort(a, 0, a.length - 1);
     }
 
