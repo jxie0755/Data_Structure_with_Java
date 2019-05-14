@@ -48,12 +48,14 @@ class Alg_Quicksort {
                 if (i == hi) {
                     break;
                 }
+                // this if condition is a must
             }
 
             while (less(a[lo], a[--j])) {
                 if (j == lo) {
                     break;
                 }
+                // this if condition could be redundant
             }
 
             if (i >= j) {
