@@ -19,6 +19,25 @@ public class Alg_Lecture_06_Quicksort {
                 * no smaller entry to the right of j
                 * sort each piece recursively
      */
+
+
+    /*
+     * Selection
+        * Goal: Given an array of N items, find the kth largest.
+            * Example:
+                * min: (k=0)
+                * max: (k=N-1)
+                * median: (k=N/2)
+        * Applications
+            * Order statistics
+            * Find the "top k."
+        * Quick-select
+            * Similar idea as Quicksort
+                * Partition first
+                * Divided into two sub-array and recursively run
+            * Takes linear time on average
+            * Quadratic in worst case but shuffle will help to avoid
+     */
 }
 
 
@@ -89,6 +108,29 @@ class Alg_Quicksort {
     }
 
 
+    // Selection: Quick-select, similar idea as Quicksort
+    public static Comparable select(Comparable[] a, int k) {
+
+        // Same reason to shuffle for performance guarantee
+        StdRandom.shuffle(a);
+
+        int lo = 0;
+        int hi = a.length - 1;
+        while (hi > lo) {
+            int j = partition(a, lo, hi);
+            if (j < k) {
+                lo = j + 1;
+            } else if (j > k) {
+                hi = j - 1;
+            } else {
+                return a[k];
+            }
+        }
+        return a[k];
+    }
+
+
+
     public static void main(String[] args) {
         Character[] chrarray = new Character[]{'K', 'R', 'A', 'T', 'E', 'L', 'E', 'P', 'U', 'I', 'M', 'Q', 'C', 'X', 'O', 'S'};
         System.out.println(partition(chrarray, 0, chrarray.length - 1));
@@ -98,6 +140,16 @@ class Alg_Quicksort {
         Integer[] ia = new Integer[]{5, 1, 4, 2, 3, 3, 2, 4, 1, 5};
         sort(ia);
 
+        Integer[] ia2 = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7};
+        System.out.println(select(ia2, 0)); // >>> 0
+        System.out.println(select(ia2, 7)); // >>> 7
+        System.out.println(select(ia2, 2)); // >>> 2
     }
-
 }
+
+
+
+
+
+
+
