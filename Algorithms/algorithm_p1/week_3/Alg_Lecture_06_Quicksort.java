@@ -133,17 +133,17 @@ class Alg_Quicksort {
 
     public static void main(String[] args) {
         Character[] chrarray = new Character[]{'K', 'R', 'A', 'T', 'E', 'L', 'E', 'P', 'U', 'I', 'M', 'Q', 'C', 'X', 'O', 'S'};
-        System.out.println(partition(chrarray, 0, chrarray.length - 1));
+        System.out.println(Alg_Quicksort.partition(chrarray, 0, chrarray.length - 1));
         System.out.println(Arrays.toString(chrarray));
 
         System.out.println("Quicksort implementation");
         Integer[] ia = new Integer[]{5, 1, 4, 2, 3, 3, 2, 4, 1, 5};
-        sort(ia);
+        Alg_Quicksort.sort(ia);
 
         Integer[] ia2 = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7};
-        System.out.println(select(ia2, 0)); // >>> 0
-        System.out.println(select(ia2, 7)); // >>> 7
-        System.out.println(select(ia2, 2)); // >>> 2
+        System.out.println(Alg_Quicksort.select(ia2, 0)); // >>> 0
+        System.out.println(Alg_Quicksort.select(ia2, 7)); // >>> 7
+        System.out.println(Alg_Quicksort.select(ia2, 2)); // >>> 2
     }
 }
 
