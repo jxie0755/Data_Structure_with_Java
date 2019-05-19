@@ -38,6 +38,23 @@ public class Alg_Lecture_06_Quicksort {
             * Takes linear time on average
             * Quadratic in worst case but shuffle will help to avoid
      */
+
+
+    /*
+     * Duplicate Keys
+        * Often, purpose of sort is to bring items with equal keys together
+            * Sort population by age
+            * Find collinear points
+            * Remove duplicates from mailing list
+            * Sort job applicats by college attended
+        * Typical characteristics of such applications
+            * Huge array
+            * Small number of key values
+        * sorting algorithms
+            * Mergesort does not care, always use NlogN
+            * Quicksort goes quadratics unless partitions stops on equal keys
+                * Method: do 3 way partitioning, put all identical items in the middle
+     */
 }
 
 
@@ -130,6 +147,41 @@ class Alg_Quicksort {
     }
 
 
+    // 3-way quicksort, solve duplicated key problem
+    private static void threewaysort(Comparable[] a, int lo, int hi) {
+        if (hi <= lo) {
+            return;
+        }
+
+        int lt = lo;
+        int gt = hi;
+        Comparable v = a[lt];
+
+        int i = lt;
+        while (i <= gt) {
+            int cmp = a[i].compareTo(v);
+            if (cmp < 0) {
+                exch(a, lt, i);
+                lt += 1;
+                i += 1;
+            } else if (cmp > 0) {
+                exch(a, i, gt);
+                gt -= 1;
+            } else {
+                i += 1;
+            }
+        }
+
+        threewaysort(a, lo, lt - 1);
+        threewaysort(a, gt + 1, hi);
+    }
+
+    private static void threewaysort(Comparable[] a) {
+        threewaysort(a, 0, a.length-1);
+    }
+
+
+
 
     public static void main(String[] args) {
         Character[] chrarray = new Character[]{'K', 'R', 'A', 'T', 'E', 'L', 'E', 'P', 'U', 'I', 'M', 'Q', 'C', 'X', 'O', 'S'};
@@ -144,6 +196,11 @@ class Alg_Quicksort {
         System.out.println(Alg_Quicksort.select(ia2, 0)); // >>> 0
         System.out.println(Alg_Quicksort.select(ia2, 7)); // >>> 7
         System.out.println(Alg_Quicksort.select(ia2, 2)); // >>> 2
+
+        // Test 3-way quicksort
+        Integer[] ia3 = new Integer[]{1, 9, 7, 3, 5, 5, 3, 7, 9, 1};
+        threewaysort(ia3);
+        System.out.println(Arrays.toString(ia3));
     }
 }
 
