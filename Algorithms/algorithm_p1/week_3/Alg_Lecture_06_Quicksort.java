@@ -148,11 +148,13 @@ class Alg_Quicksort {
 
 
     // 3-way quicksort, solve duplicated key problem
-    private static void threewaysort(Comparable[] a, int lo, int hi) {
+    // This is not just faster, but also use simpler codes
+    private static void three_way_quicksort(Comparable[] a, int lo, int hi) {
         if (hi <= lo) {
             return;
         }
 
+        // partitioning is directly incorporated into the sort process
         int lt = lo;
         int gt = hi;
         Comparable v = a[lt];
@@ -172,12 +174,15 @@ class Alg_Quicksort {
             }
         }
 
-        threewaysort(a, lo, lt - 1);
-        threewaysort(a, gt + 1, hi);
+        three_way_quicksort(a, lo, lt - 1);
+        three_way_quicksort(a, gt + 1, hi);
     }
 
-    private static void threewaysort(Comparable[] a) {
-        threewaysort(a, 0, a.length-1);
+    private static void three_way_quicksort(Comparable[] a) {
+        // can still use shuffle to improve partitioning method
+        StdRandom.shuffle(a);
+
+        three_way_quicksort(a, 0, a.length-1);
     }
 
 
@@ -198,8 +203,9 @@ class Alg_Quicksort {
         System.out.println(Alg_Quicksort.select(ia2, 2)); // >>> 2
 
         // Test 3-way quicksort
+        System.out.println("Test 3-way quicksort");
         Integer[] ia3 = new Integer[]{1, 9, 7, 3, 5, 5, 3, 7, 9, 1};
-        threewaysort(ia3);
+        three_way_quicksort(ia3);
         System.out.println(Arrays.toString(ia3));
     }
 }
