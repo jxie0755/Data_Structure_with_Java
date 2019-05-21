@@ -189,7 +189,9 @@ class Alg_Quicksort {
 
 
     public static void main(String[] args) {
-        Character[] chrarray = new Character[]{'K', 'R', 'A', 'T', 'E', 'L', 'E', 'P', 'U', 'I', 'M', 'Q', 'C', 'X', 'O', 'S'};
+        Character[] chrarray = new Character[]{
+                'K', 'R', 'A', 'T', 'E', 'L', 'E', 'P', 'U', 'I', 'M', 'Q', 'C', 'X', 'O', 'S'
+        };
         System.out.println(Alg_Quicksort.partition(chrarray, 0, chrarray.length - 1));
         System.out.println(Arrays.toString(chrarray));
 
