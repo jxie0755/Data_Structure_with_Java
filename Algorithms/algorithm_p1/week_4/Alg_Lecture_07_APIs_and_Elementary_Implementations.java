@@ -79,8 +79,8 @@ class BinaryHeap_maxOriented {
 
         BinaryHeap_maxOriented A = new BinaryHeap_maxOriented(new Character[]
                 {
-                        'Z', 'T', 'H', 'R', 'P', 'S', 'O', 'A', 'E', 'I', 'N', 'C'
-                    //   0    1    2    3    4    5    6    7    8    9    10   11
+                        null, 'T', 'H', 'R', 'P', 'S', 'O', 'A', 'E', 'I', 'N', 'C'
+                    //   0     1    2    3    4    5    6    7    8    9    10   11
                 });
 
         A.sink(2);
