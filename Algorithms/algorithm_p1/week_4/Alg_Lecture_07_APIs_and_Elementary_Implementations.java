@@ -71,7 +71,15 @@ class BinaryHeap_maxOriented {
             exch(k, j);
             k = j;
         }
+    }
 
+
+    private Comparable delMax() {
+        Comparable max = heap[1];
+        exch(1, N - 1);
+        sink(1);
+        heap[N-1] = null;
+        return max;
     }
 
 
@@ -86,6 +94,11 @@ class BinaryHeap_maxOriented {
         A.sink(2);
         System.out.println(Arrays.toString(A.heap));
         // >>> [Z, T, S, R, P, N, O, A, E, I, H, C]  sinked H to index 10
+
+        System.out.println(A.delMax());
+        // >>> T
+        System.out.println(Arrays.toString(A.heap));
+        // >>> [null, S, P, R, I, N, O, A, E, C, H, null]
 
     }
 
