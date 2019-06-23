@@ -1,5 +1,7 @@
 package algorithm_p1.week_4;
 
+import java.util.Arrays;
+
 public class Alg_Lecture_07_APIs_and_Elementary_Implementations {
 
     /*
@@ -42,14 +44,14 @@ class BinaryHeap_maxOriented {
     }
 
     // Utility functions
-    private static void exch(Comparable[] a, int i, int j) {
-        Comparable temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
+    private void exch(int i, int j) {
+        Comparable temp = this.heap[i];
+        this.heap[i] = this.heap[j];
+        this.heap[j] = temp;
     }
 
-    private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
+    private boolean less(int v, int w) {
+        return this.heap[v].compareTo(this.heap[w]) < 0;
     }
 
 
@@ -58,9 +60,32 @@ class BinaryHeap_maxOriented {
         // sink idx at k in a binary heap in the form of Comparable[]
         // Restore the order of the binary heap
 
-        while (2 * k <= N) {
-
+        while (2 * k <= N-1) {
+            int j = 2 * k;
+            if (j < N && less(j, j + 1)) {
+                j += 1;
+            }
+            if (!less(k, j)) {
+                break;
+            }
+            exch(k, j);
+            k = j;
         }
+
+    }
+
+
+    public static void main(String[] args) {
+
+        BinaryHeap_maxOriented A = new BinaryHeap_maxOriented(new Character[]
+                {
+                        'Z', 'T', 'H', 'R', 'P', 'S', 'O', 'A', 'E', 'I', 'N', 'C'
+                    //   0    1    2    3    4    5    6    7    8    9    10   11
+                });
+
+        A.sink(2);
+        System.out.println(Arrays.toString(A.heap));
+        // >>> [Z, T, S, R, P, N, O, A, E, I, H, C]  sinked H to index 10
 
     }
 
