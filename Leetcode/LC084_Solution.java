@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class LC84_Solution {
+public class LC084_Solution {
     public int largestRectangleArea(int[] heights) {
         int N = heights.length;
 
@@ -31,7 +31,7 @@ public class LC84_Solution {
 
     public static void main(String[] args) {
         int[] s1 = new int[]{4, 2, 0, 3, 2, 4, 3, 4};
-        LC84_Solution Q1 = new LC84_Solution();
+        LC084_Solution Q1 = new LC084_Solution();
         assert Q1.largestRectangleArea(s1) == 10;
         System.out.println("all passed");
     }
