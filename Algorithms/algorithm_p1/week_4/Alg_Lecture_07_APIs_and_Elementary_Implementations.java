@@ -61,6 +61,8 @@ class BinaryHeap_maxOriented {
         // Restore the order of the binary heap
 
         while (2 * k <= N-1) {
+            System.out.println("K is now " + k + " heap[k] " + heap[k]);
+            System.out.println(Arrays.toString(heap));
             int j = 2 * k;
             if (j < N && less(j, j + 1)) {
                 j += 1;
@@ -76,7 +78,7 @@ class BinaryHeap_maxOriented {
 
     private Comparable delMax() {
         Comparable max = heap[1];
-        exch(1, N - 1);
+        heap[1] = heap[N-1];
         sink(1);
         heap[N-1] = null;
         return max;
@@ -85,20 +87,27 @@ class BinaryHeap_maxOriented {
 
     public static void main(String[] args) {
 
-        BinaryHeap_maxOriented A = new BinaryHeap_maxOriented(new Character[]
+        System.out.println("Test sink");
+        BinaryHeap_maxOriented A1 = new BinaryHeap_maxOriented(new Character[]
                 {
                         null, 'T', 'H', 'R', 'P', 'S', 'O', 'A', 'E', 'I', 'N', 'C'
                     //   0     1    2    3    4    5    6    7    8    9    10   11
                 });
 
-        A.sink(2);
-        System.out.println(Arrays.toString(A.heap));
-        // >>> [Z, T, S, R, P, N, O, A, E, I, H, C]  sinked H to index 10
+        A1.sink(2);
+        System.out.println(Arrays.toString(A1.heap));
+        // >>> [null, T, S, R, P, N, O, A, E, I, H, C]  sinked H to index 10
 
-        System.out.println(A.delMax());
+        System.out.println("Test delMax");
+        BinaryHeap_maxOriented A2 = new BinaryHeap_maxOriented(new Character[]
+                {
+                        null, 'T', 'S', 'R', 'N', 'P', 'O', 'A', 'E', 'I', 'C', 'H'
+                    //   0     1    2    3    4    5    6    7    8    9    10   11
+                });
+        System.out.println(A2.delMax());
         // >>> T
-        System.out.println(Arrays.toString(A.heap));
-        // >>> [null, S, P, R, I, N, O, A, E, C, H, null]
+        System.out.println(Arrays.toString(A2.heap));
+        // >>> [null, S, P, R, N, T, O, A, E, I, C, null]
 
     }
 
