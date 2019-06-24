@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class LC084_Solution {
+
     public int largestRectangleArea(int[] heights) {
         int N = heights.length;
 
