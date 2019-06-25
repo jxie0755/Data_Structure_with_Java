@@ -11,7 +11,7 @@ import java.util.List;
  * Given n non-negative integers representing the histogram's bar height where the width of each bar is 1,
  * find the area of largest rectangle in the histogram.
  */
-public class LC084_Solution {
+public class LC084_Largest_Rectangle_in_Histogram {
 
     public int largestRectangleArea(int[] heights) {
         int N = heights.length;
@@ -40,7 +40,7 @@ public class LC084_Solution {
 
     public static void main(String[] args) {
         int[] s1 = new int[]{4, 2, 0, 3, 2, 4, 3, 4};
-        LC084_Solution Q1 = new LC084_Solution();
+        LC084_Largest_Rectangle_in_Histogram Q1 = new LC084_Largest_Rectangle_in_Histogram();
         assert Q1.largestRectangleArea(s1) == 10;
         System.out.println("all passed");
     }
