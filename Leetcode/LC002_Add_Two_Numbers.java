@@ -1,5 +1,3 @@
-
-
 /**
  * P002 Add Two Numbers
  * Medium
@@ -17,5 +15,11 @@ public class LC002_Add_Two_Numbers {
     //
     // }
 
+
+    public static void main(String[] args) {
+
+
+
+    }
 }
 
