@@ -69,15 +69,20 @@ class ListNode {
         // Test equal
         assert A.equals(D);
 
+        // Test genNode
+        ListNode X = ListNode.genNode(new int[]{10, 20, 30});
+        System.out.println(X.toString());
+        // >>> 10->20->30
+
         // Test hashable
         Map<ListNode, Integer> hmp = new HashMap<>(Map.ofEntries(
-                Map.entry(A, 0),
-                Map.entry(B, 1),
-                Map.entry(C, 2)
+                Map.entry(ListNode.genNode(new int[]{10, 20, 30}), 0),
+                Map.entry(ListNode.genNode(new int[]{40, 50, 60}), 1),
+                Map.entry(ListNode.genNode(new int[]{70, 80, 90}), 2)
                 ));
 
         System.out.println(hmp);
-        // >>> {3=2, 2->3=1, 1->2->3=0}
+        // >>> {10->20->30=0, 70->80->90=2, 40->50->60=1}
     }
 }
 
