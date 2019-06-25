@@ -17,11 +17,11 @@ class ListNode {
         val = x;
     }
 
-    public String toString() {
-        if (this.next != null) {
-            return this.val + "->" + this.next.toString();
+    public static String showString(ListNode A) {
+        if (A.next != null) {
+            return A.val + "->" + showString(A.next);
         } else {
-            return String.valueOf(this.val);
+            return String.valueOf(A.val);
         }
     }
 
@@ -64,14 +64,14 @@ class ListNode {
 
 
         // Test print
-        assert A.toString().equals("1->2->3");
+        assert ListNode.showString(A).equals("1->2->3");
 
         // Test equal
         assert A.equals(D);
 
         // Test genNode
         ListNode X = ListNode.genNode(new int[]{10, 20, 30});
-        System.out.println(X.toString());
+        System.out.println(ListNode.showString(X));
         // >>> 10->20->30
 
         // Test hashable
@@ -82,7 +82,8 @@ class ListNode {
                 ));
 
         System.out.println(hmp);
-        // >>> {10->20->30=0, 70->80->90=2, 40->50->60=1}
+        // >>> {ListNode@4e04a765=0, ListNode@17550481=2, ListNode@783e6358=1}
+
     }
 }
 
