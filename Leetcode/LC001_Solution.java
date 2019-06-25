@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * p001 Two Sum
  * Easy
- *
+ * <p>
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
  */
@@ -16,12 +16,14 @@ public class LC001_Solution {
 
         int[] ans = new int[2];
         Map<Integer, Integer> hmp = new HashMap<>();
-        for (int i : nums) {
-            if (hmp.containsKey(i)) {
-                ans[0] = hmp.get(i);
-                ans[1] = i;
+
+        for (int i = 0; i < nums.length; i++) {
+            int cur = nums[i];
+            if (!hmp.containsKey(cur)) {
+                hmp.put(target - cur, i);
             } else {
-                hmp.put(9-i, i);
+                ans[0] = hmp.get(cur);
+                ans[1] = i;
             }
         }
         return ans;
@@ -31,7 +33,11 @@ public class LC001_Solution {
 
         int[] Q1 = new int[]{2, 7, 11, 15};
         LC001_Solution A1 = new LC001_Solution();
-        assert Arrays.equals(A1.twoSum(Q1, 9), new int[]{2, 7});
+        assert Arrays.equals(A1.twoSum(Q1, 9), new int[]{0, 1});
+
+        int[] Q2 = new int[]{3, 2, 4};
+        LC001_Solution A2 = new LC001_Solution();
+        assert Arrays.equals(A2.twoSum(Q2, 6), new int[]{1, 2});
 
         System.out.println("all passed");
     }
