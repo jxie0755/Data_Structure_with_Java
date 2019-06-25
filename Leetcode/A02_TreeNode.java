@@ -49,7 +49,7 @@ class TreeNode {
 
     // static method to avoid print str instead of identity
     public static String showString(TreeNode A) {
-        return layer(A, 0);
+        return layer(A, 1);
     }
 
 
@@ -66,6 +66,21 @@ class TreeNode {
         } else {
             return false;
         }
+    }
+
+    /**
+     * To generate a perfect binary tree according to a non-empty list of values
+     * The lst must be all filled, even the branch is empty, then use null to suggest the empty treeNode
+     */
+    public static TreeNode genTree(Object[] treelist, int idx) {
+
+        if (idx <= treelist.length && treelist[idx - 1] != null) {
+            TreeNode node = new TreeNode((int)treelist[idx - 1]);
+            node.left = genTree(treelist, idx * 2);
+            node.right = genTree(treelist, idx * 2 + 1);
+            return node;
+        }
+        return null;
     }
 
 
@@ -124,6 +139,16 @@ class TreeNode {
         ));
         System.out.println(hmp);
         // >>> {TreeNode@58651fd0=2, TreeNode@735b5592=1}
+
+
+        // Test genTree
+        TreeNode X = TreeNode.genTree(new Object[]{
+                1,
+                2, 3,
+                null,4,null,5
+        }, 1);
+
+        System.out.println(TreeNode.showString(X));
 
     }
 }
