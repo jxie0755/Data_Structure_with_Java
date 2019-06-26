@@ -116,18 +116,16 @@ class TreeNode {
         System.out.println(TreeNode.showString(A));
         // >>>
         // 1
-        // 2
-        //   4
+        //   2
         //     N
+        //     4
+        //       N
+        //       N
+        //   3
         //     N
-        //   5
-        //     N
-        //     N
-        // 3
-        //   N
-        //   7
-        //     N
-        //     N
+        //     5
+        //       N
+        //       N
 
         // Test equals
         assert A.equals(A2);
@@ -149,6 +147,18 @@ class TreeNode {
         }, 1);
 
         System.out.println(TreeNode.showString(X));
+        // >>>
+        // 1
+        //   2
+        //     N
+        //     4
+        //       N
+        //       N
+        //   3
+        //     N
+        //     5
+        //       N
+        //       N
 
     }
 }
