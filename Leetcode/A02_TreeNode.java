@@ -19,7 +19,7 @@ class TreeNode {
     }
 
     // Utilities for toString
-    private static String stringMultiply(String s, int n){
+    private static String stringMultiply(String s, int n) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
             sb.append(s);
@@ -75,7 +75,7 @@ class TreeNode {
     public static TreeNode genTree(Object[] treelist, int idx) {
 
         if (idx <= treelist.length && treelist[idx - 1] != null) {
-            TreeNode node = new TreeNode((int)treelist[idx - 1]);
+            TreeNode node = new TreeNode((int) treelist[idx - 1]);
             node.left = genTree(treelist, idx * 2);
             node.right = genTree(treelist, idx * 2 + 1);
             return node;
@@ -143,7 +143,7 @@ class TreeNode {
         TreeNode X = TreeNode.genTree(new Object[]{
                 1,
                 2, 3,
-                null,4,null,5
+                null, 4, null, 5
         }, 1);
 
         System.out.println(TreeNode.showString(X));
