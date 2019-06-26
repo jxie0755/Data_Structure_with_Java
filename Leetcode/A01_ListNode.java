@@ -62,7 +62,6 @@ class ListNode {
         D.next = E;
         E.next = F;
 
-
         // Test print
         assert ListNode.showString(A).equals("1->2->3");
 
@@ -74,15 +73,24 @@ class ListNode {
         System.out.println(ListNode.showString(X));
         // >>> 10->20->30
 
+        System.out.println(X.hashCode());
+        // >>> 1531333864
+        System.out.println(Integer.toHexString(X.hashCode()));
+        // >>> 5b464ce8   --------------------------------------------this is how we got this in Map
+        // reference: https://stackoverflow.com/q/56763937/8435726
+
         // Test hashable
         Map<ListNode, Integer> hmp = new HashMap<>(Map.ofEntries(
                 Map.entry(ListNode.genNode(new int[]{10, 20, 30}), 0),
                 Map.entry(ListNode.genNode(new int[]{40, 50, 60}), 1),
-                Map.entry(ListNode.genNode(new int[]{70, 80, 90}), 2)
+                Map.entry(ListNode.genNode(new int[]{70, 80, 90}), 2),
+                Map.entry(X, 3)
                 ));
 
         System.out.println(hmp);
-        // >>> {ListNode@4e04a765=0, ListNode@17550481=2, ListNode@783e6358=1}
+        // >>> {ListNode@4e04a765=3, ListNode@735f7ae5=2, ListNode@17550481=1, ListNode@783e6358=0}
+        //                   |
+        //                   ---------------------------------------------------same as above
 
     }
 }
