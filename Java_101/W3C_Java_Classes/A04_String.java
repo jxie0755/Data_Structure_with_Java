@@ -332,6 +332,10 @@ class String_zMethods {
         for (char cc : c) {
             // use cc
         }
+        //2b:
+        for (int i = 0; i < c.length; i++) {
+            // use c[i]
+        }
 
         //3: in String type
         for (int i = 0; i < str.length(); i++) {
