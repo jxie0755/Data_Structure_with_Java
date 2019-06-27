@@ -86,15 +86,3 @@ public class LC003_Longest_Substring_Without_Repeating_Characters {
 
     }
 }
-
-
-// assert Solution().lengthOfLongestSubstring("") == 0, 'Edge 1'
-// assert Solution().lengthOfLongestSubstring(" ") == 1, 'Edge 2'
-// assert Solution().lengthOfLongestSubstring("au") == 2, 'Edge 3'
-// assert Solution().lengthOfLongestSubstring("aab") == 2, 'Edge 4'
-// assert Solution().lengthOfLongestSubstring("dvdf") == 3, 'Edge 5'
-//
-// assert Solution().lengthOfLongestSubstring("abcabcbb") == 3, 'Example 1, "abc"'
-// assert Solution().lengthOfLongestSubstring("bbbbb") == 1, 'Example 1, "b"'
-// assert Solution().lengthOfLongestSubstring("pwwkew") == 3, 'Example 1, "wke"'
-// print('all passed')
