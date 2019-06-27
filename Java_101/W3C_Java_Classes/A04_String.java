@@ -15,49 +15,49 @@ public class A04_String {
 
     /*
      * String 基本操作
-        * "+"                             可以相加
-        * length()                        长度属性
-        * equals                          相等
-        * equalsIgnoreCase
-        * valueOf                         快速生成一个Object的__str__
+     * "+"                             可以相加
+     * length()                        长度属性
+     * equals                          相等
+     * equalsIgnoreCase
+     * valueOf                         快速生成一个Object的__str__
 
-        * format                          格式化, 用于四舍五入,保留位数等等
-        * compareTo                       比较大小
-        * compareToIgnoreCase
-        * regionMatches                   测试两个字符串各自一个区域是否相等(同长但不同index)
-        * trim()                          返回字符串的副本，忽略前导空白和尾部空python strp
+     * format                          格式化, 用于四舍五入,保留位数等等
+     * compareTo                       比较大小
+     * compareToIgnoreCase
+     * regionMatches                   测试两个字符串各自一个区域是否相等(同长但不同index)
+     * trim()                          返回字符串的副本，忽略前导空白和尾部空python strp
 
-        * split(String X)                 从所有X分割, 并且吞没X
-        * split(String X, int N)          同上, 但是限制最后最多分成N份
+     * split(String X)                 从所有X分割, 并且吞没X
+     * split(String X, int N)          同上, 但是限制最后最多分成N份
 
-        * getChars                        从String中找一段insert到char Array的任意位置 (注意长度)
-        * toCharArray                     整体变成char Array
-        * charAt                          获得一个index的char
+     * getChars                        从String中找一段insert到char Array的任意位置 (注意长度)
+     * toCharArray                     整体变成char Array
+     * charAt                          获得一个index的char
 
-        * indexOf(char)                   返回指定char在此字符串中第一次出现处的索引
-        * indexOf(String)                 返回指定String在此字符串中第一次出现处的索引
+     * indexOf(char)                   返回指定char在此字符串中第一次出现处的索引
+     * indexOf(String)                 返回指定String在此字符串中第一次出现处的索引
 
-        * replace(oldChar, newChar)       批量替换char为另一个
-        * replaceAll(oldStr, newStr)      批量提换String为另一个
-        * replaceFirst(oldStr, newStr)    提换第一个String为另一个
+     * replace(oldChar, newChar)       批量替换char为另一个
+     * replaceAll(oldStr, newStr)      批量提换String为另一个
+     * replaceFirst(oldStr, newStr)    提换第一个String为另一个
 
-        * copyValueOf                     从char Array中提取任意一段变成新String
-        * intern                          一个复制,但是与常量池有关, 用于节省空间
+     * copyValueOf                     从char Array中提取任意一段变成新String
+     * intern                          一个复制,但是与常量池有关, 用于节省空间
 
-        * String substring(idxA)          返回一个新的字符串，它是此字符串的一个子字符串。
-        * String substring(idxA, idxB)    返回一个新字符串，它是此字符串的一个子字符串。
+     * String substring(idxA)          返回一个新的字符串，从idxA一直到末尾
+     * String substring(idxA, idxB)    返回一个新字符串，从[idxA, idxB)
 
-        * startsWith(String)              测试此字符串是否以指定的前缀开始
-        * endsWith(String)                测试此字符串是否以指定的前缀结束
-        * subSequence(idxA, idxB)         返回一个子序列的CharSequence
+     * startsWith(String)              测试此字符串是否以指定的前缀开始
+     * endsWith(String)                测试此字符串是否以指定的前缀结束
+     * subSequence(idxA, idxB)         返回一个子序列的CharSequence
 
-        * toLowerCase()                   将此 String 中的所有字符都转换为小写
-        * toUpperCase()                   将此 String 中的所有字符都转换为大写
+     * toLowerCase()                   将此 String 中的所有字符都转换为小写
+     * toUpperCase()                   将此 String 中的所有字符都转换为大写
 
-        * hashCode()
+     * hashCode()
 
-        * concat                          连接字符串
-        * static String.join(String connecter, String[] or List<String>).  连接string
+     * concat                          连接字符串
+     * static String.join(String connecter, String[] or List<String>).  连接string
      */
 
 }
@@ -134,20 +134,20 @@ class String_intern {
         System.out.println(a.intern().equals(b));           // false
         System.out.println(a.intern().equals(a));           // false
 
-         String poolstr = "abc";  // 注意这里没有新建一个String对象,而是直接指向了堆中已有的那个"abc"
+        String poolstr = "abc";  // 注意这里没有新建一个String对象,而是直接指向了堆中已有的那个"abc"
         // 直接从字符串常量池中获取
         System.out.println(a.intern().equals(poolstr));  // true
         System.out.println(b.intern().equals(poolstr));  // true
 
 
         // Example 2
-        String s0= "kvill";
-        String s1= "kvill";
-        String s2= "kv" + "ill";
+        String s0 = "kvill";
+        String s1 = "kvill";
+        String s2 = "kv" + "ill";
         System.out.println(s0.equals(s1)); // true
         System.out.println(s0.equals(s2)); // true
         // 用new String() 创建的字符串不是常量，不能在编译期就确定，所以new String() 创建的字符串不放入常量池中，它们有自己的地址空间
-        String s00= "kvill";
+        String s00 = "kvill";
         String s11 = new String("kvill");
         String s22 = "kv" + new String("ill");
         System.out.println(s00.equals(s11));  // false
@@ -210,7 +210,7 @@ class String_zMethods {
         // 构造方法
         String str1 = "hello";  // 最简单方式
 
-        char[] helloArray = { 'h', 'e', 'l', 'l', 'o'};  // 从一个char数组创建
+        char[] helloArray = {'h', 'e', 'l', 'l', 'o'};  // 从一个char数组创建
         String[] helloStrArray = {"h", "e", "l", "l", "o"};
         String str2 = new String(helloArray); // 直接convert
 
@@ -248,7 +248,7 @@ class String_zMethods {
         // static String copyValueOf(char[] data)
         String str8 = String.copyValueOf(helloArray);  // { 'h', 'e', 'l', 'l', 'o'}
         // static String copyValueOf(char[] data, int offset, int count)
-        String str9 = String.copyValueOf(helloArray, 1,3);
+        String str9 = String.copyValueOf(helloArray, 1, 3);
         System.out.println(str9);  // >>>  "ell"
 
 
@@ -294,14 +294,14 @@ class String_zMethods {
 
 
         // CharSequence subSequence(int beginIndex, int endIndex) 返回一个新的字符序列，它是此序列的一个子序列。
-        CharSequence cs_new = str_google.subSequence(1,4);
+        CharSequence cs_new = str_google.subSequence(1, 4);
         System.out.println(cs_new); // >>>  oog
 
 
         // String substring(int beginIndex)  返回一个新的字符串，它是此字符串的一个子字符串。
         // String substring(int beginIndex, int endIndex) 返回一个新字符串，它是此字符串的一个子字符串。
         System.out.println(str_google.substring(3)); // >>>  gle
-        System.out.println(str_google.substring(3,5)); // >>>  gl
+        System.out.println(str_google.substring(3, 5)); // >>>  gl
 
 
         //String toLowerCase()  使用默认语言环境的规则将此 String 中的所有字符都转换为小写
@@ -317,5 +317,25 @@ class String_zMethods {
         // String trim() 返回字符串的副本，忽略前导空白和尾部空白。
         System.out.println(str_g2.length());        // >>>  13       "   Google x  "
         System.out.println(str_g2.trim().length()); // >>>  8            12345678
+
+
+        // Iteration of String
+        // 3 methods:
+        // 1: in char type
+        String str = "asdfghjkl";
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+        }
+
+        //2: in char type
+        char[] c = str.toCharArray();
+        for (char cc : c) {
+            // use cc
+        }
+
+        //3: in String type
+        for (int i = 0; i < str.length(); i++) {
+            String subStr = str.substring(i, i + 1);
+        }
     }
 }
