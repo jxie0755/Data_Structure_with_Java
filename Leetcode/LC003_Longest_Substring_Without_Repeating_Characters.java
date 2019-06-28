@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * P003 Longest Substring Without Repeating Characters
@@ -65,9 +64,6 @@ public class LC003_Longest_Substring_Without_Repeating_Characters {
         return s.length();
     }
 
-    // public int lengthOfLongestSubstring(String s) {
-    //
-    // }
 
 
     public static void main(String[] args) {
