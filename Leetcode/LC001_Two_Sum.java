@@ -5,12 +5,16 @@ import java.util.Map;
 /**
  * p001 Two Sum
  * Easy
- * <p>
+ *
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
  * You may assume that each input would have exactly one solution, and you may not use the same element twice.
  */
 public class LC001_Two_Sum {
 
+    /**
+     * Version C
+     * The same method in p167 Two Sum II can be used here
+     */
     public int[] twoSum(int[] nums, int target) {
 
         int[] ans = new int[2];

@@ -11,6 +11,11 @@
  */
 public class LC002_Add_Two_Numbers {
 
+    /**
+     * Version A, Time:  O(n), Space: O(1)
+     * Non-recursion  method
+     * This will protect l1 and l2 from changing
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         ListNode dummy = new ListNode(0);
