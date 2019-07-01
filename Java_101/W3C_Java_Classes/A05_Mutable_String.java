@@ -25,8 +25,8 @@ class A05b_StringBuilder {
      * 常用方法
         * 来自自身
             * 可以直接打印
-            * append                        添加
-            * reverse                   自身反转
+            * append                         添加 (支持添加String和Char两个类型)
+            * reverse                        自身反转
             * delete(idxA, idxB)             删掉一段
             * insert(idx, Obj)               在一个index插入任何Obj的__str__
             * replace(idxA, idxB, Str)       用一个String替换一个子段落 (不一定要等长)
