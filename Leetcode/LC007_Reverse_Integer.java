@@ -4,7 +4,7 @@ public class LC007_Reverse_Integer {
      * Version A, use string method, time O(logN), takes extra space O(LogN)
      * This is not very fast as it convert types back and forth
      */
-    public int reverse_string(int x) {
+    public int reverse_string(int x) {  // renamed
 
         StringBuilder result_string = new StringBuilder();
         String current = String.valueOf(x);
