@@ -14,7 +14,13 @@ public class Type_Convert {
         // double转int
         double A = 1.5;
         int int_A = (int) A;
-        double d_A = (double) int_A;
+        Double d_A = (double) int_A;
+
+        // Long to int
+        Long L = 10000L;
+        int l = L.intValue();
+        // int to Long  # cast
+        Long LL = (long) l;
 
         // int转String
         int B = 1;
