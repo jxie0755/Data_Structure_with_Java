@@ -117,7 +117,7 @@ public class A08cc_LinkedList {
         // clone()
         // Returns a shallow copy of this LinkedList in Object type
         LinkedList<Integer> li2 = (LinkedList<Integer>) li1.clone();
-        // https://stackoverflow.com/q/55170506/8435726
+        // STOF: https://stackoverflow.com/q/55170506/8435726
         // It is implementing the Cloneable interface,
         // which at one point someone must have thought was a good idea.
         // It's not a very useful interface

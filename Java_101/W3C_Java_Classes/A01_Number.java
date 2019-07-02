@@ -89,7 +89,7 @@ class Number_zMethods {
         // Double x4 = 12.5;
         // Byte y4 = (Byte) x4;  // 但是Cast只支持基本类型
         // STOF 解释:
-        // https://stackoverflow.com/a/17281946/8435726
+        // STOF: https://stackoverflow.com/a/17281946/8435726
         // 由于Double, Byte不是继承关系,所以不行,而基本类型的box/unbox是自动的.
 
 

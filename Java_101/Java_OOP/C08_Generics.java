@@ -213,7 +213,7 @@ class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子
 
 // 类型推断
 // 例子
-// https://stackoverflow.com/questions/54623214/java-generic-method-not-working-the-parameter-is-not-being-restricted#54623214
+// STOF: https://stackoverflow.com/questions/54623214/java-generic-method-not-working-the-parameter-is-not-being-restricted#54623214
 class Demo {
 
     // 静态方法pick()在三个地方使用了泛型，分别限定了两个输入参数的类型与返回类型

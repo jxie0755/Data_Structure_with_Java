@@ -77,7 +77,7 @@ class ListNode {
         // >>> 1531333864
         System.out.println(Integer.toHexString(X.hashCode()));
         // >>> 5b464ce8   --------------------------------------------this is how we got this in Map
-        // reference: https://stackoverflow.com/q/56763937/8435726
+        // reference: STOF: https://stackoverflow.com/q/56763937/8435726
 
         // Test hashable
         Map<ListNode, Integer> hmp = new HashMap<>(Map.ofEntries(

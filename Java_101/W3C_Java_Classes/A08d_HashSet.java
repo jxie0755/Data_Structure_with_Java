@@ -51,7 +51,7 @@ public class A08d_HashSet {
         System.out.println(HS2 instanceof java.util.HashSet); // >>> true
 
         // clone()
-        // https://stackoverflow.com/q/55170506/8435726
+        // STOF: https://stackoverflow.com/q/55170506/8435726
         // It is implementing the Cloneable interface,
         // which at one point someone must have thought was a good idea.
         // It's not a very useful interface

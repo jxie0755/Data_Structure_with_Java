@@ -10,7 +10,7 @@ public class C05_Conditional_If_Else {
     * Single line skip {}, multiline needs {}
     * Skip {} does not allow variable statement, as this involves scopes structure
     * Google Java style guide: Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
-    * Blocks: https://stackoverflow.com/questions/15786949/is-there-a-difference-in-removing-the-curly-braces-from-if-statements-in-java
+    * Blocks: STOF: https://stackoverflow.com/questions/15786949/is-there-a-difference-in-removing-the-curly-braces-from-if-statements-in-java
     * Blacks: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html
     * */
 

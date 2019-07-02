@@ -60,7 +60,7 @@ class Collections_for_General {
         // Returns a dynamically typesafe view of the specified collection.
         // checkedList​(List<E> list, Class<E> type)
         // 此逻辑还可以return很多其他Type
-        // https://stackoverflow.com/questions/1161176/what-is-the-collections-checkedlist-call-for-in-java
+        // STOF: https://stackoverflow.com/questions/1161176/what-is-the-collections-checkedlist-call-for-in-java
 
 
         // copy​(List<? super T> dest, List<? extends T> src)

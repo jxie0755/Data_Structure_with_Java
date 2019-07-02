@@ -88,7 +88,7 @@ class Math_zMethods {
         System.out.println(d_down + ">>>>>>>>");  // 4.9E-324
         System.out.println((dd - d_down) == Double.MIN_VALUE);
         System.out.println(Double.MIN_VALUE); // but only worked for 0.0
-        // https://stackoverflow.com/questions/54699305/java-nextup-is-not-adding-float-min-value?noredirect=1#comment96185999_54699305
+        // STOF: https://stackoverflow.com/questions/54699305/java-nextup-is-not-adding-float-min-value?noredirect=1#comment96185999_54699305
         // Your assumption would only be correct if all doubles were evenly spaced, but of course they are not.
 
         // nextAfter

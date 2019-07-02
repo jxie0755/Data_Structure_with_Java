@@ -74,7 +74,7 @@ class Arrays_Grid {
     }
 
     // Build a Pascal Triangle
-    // https://stackoverflow.com/questions/54482724/java-pascal-triangle-initialization-question
+    // STOF: https://stackoverflow.com/questions/54482724/java-pascal-triangle-initialization-question
     public static int[][] Pascal(int N) {
 
         // 动态初始化不规则数组比较麻烦， 不能使用new int[X][Y]语句， 而是先初始化高维数组， 然后再分别逐个初始化低维数组
