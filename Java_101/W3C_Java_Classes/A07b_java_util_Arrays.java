@@ -138,6 +138,8 @@ class Arrays_asList {
         Integer intArray2[] = {21,32,43,45};
         List<Integer> intList2 = Arrays.asList(intArray2);  // >>>  [21, 32, 43, 45]
 
+        // 可以用这个List.contains()来判断一个元素是否在array中 (in array)
+
         // 此List不可更改长度, 文档说说明了:
         // Returns a fixed-size list backed by the specified array
         // intList2.add(99);  // 而且只有在编译时报错, IDE不能提前发现!
