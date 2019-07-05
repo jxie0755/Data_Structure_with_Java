@@ -26,31 +26,31 @@ public class A00_Premitive_Types {
         // byte 基本类型：byte 二进制位数, 包装类：java.lang.Byte
         // byte类型用在大型数组中节约空间，主要代替整数，因为byte变量占用的空间只有int类型的四分之一. 默认值是0
         System.out.println(Byte.SIZE);        // >>> 8
-        System.out.println(Byte.MIN_VALUE);    // >>> -128   (二进制数: -1后面7个0)
-        System.out.println(Byte.MAX_VALUE);    // >>> 127    (二进制数: 7个1)
+        System.out.println(Byte.MIN_VALUE);    // >>> -128   (二进制数: -2^7)
+        System.out.println(Byte.MAX_VALUE);    // >>> 127    (二进制数: 2^7-1)
         byte x1 = 127;    // 给10进制数
         System.out.println();
 
         // short 基本类型：short 二进制位数, 包装类：java.lang.Short
         // short数据类型也可以像byte那样节省空间。一个short变量是int型变量所占空间的二分之一, 默认值是0
         System.out.println(Short.SIZE);      // >>> 16
-        System.out.println(Short.MIN_VALUE);  // >>> -32768  (二进制数: -1后面15个0)
-        System.out.println(Short.MAX_VALUE);  // >>> 32767   (二进制数: 15个1)
+        System.out.println(Short.MIN_VALUE);  // >>> -32768  (二进制数: -2^15)
+        System.out.println(Short.MAX_VALUE);  // >>> 32767   (二进制数: 2^15-1)
         short x2 = 32767;  // 给10进制数
         System.out.println();
 
         // int 基本类型：int 二进制位数, 包装类：java.lang.Integer
         // 一般地整型变量默认为int类型, 默认值是0 (也就是直接声明, 例如 1 是int类型而不是byte,short或者long)
         System.out.println(Integer.SIZE);          // >>> 32
-        System.out.println(Integer.MIN_VALUE);  // >>> -2147483648  (-1后面31个0)
-        System.out.println(Integer.MAX_VALUE);  // >>> 2147483647   (31个1)
+        System.out.println(Integer.MIN_VALUE);  // >>> -2147483648  (-2^31)
+        System.out.println(Integer.MAX_VALUE);  // >>> 2147483647   (2^31-1)
         System.out.println();
 
         // long 基本类型：long 二进制位数, 包装类：java.lang.Long
         // long 这种类型主要使用在需要比较大整数的系统上, 默认值是0L
         System.out.println(Long.SIZE);       // >>> 64
-        System.out.println(Long.MIN_VALUE);   // >>> -9223372036854775808   (-1后面63个0)
-        System.out.println(Long.MAX_VALUE);   // >>> 9223372036854775807    (63个1)
+        System.out.println(Long.MIN_VALUE);   // >>> -9223372036854775808   (-2^63)
+        System.out.println(Long.MAX_VALUE);   // >>> 9223372036854775807    (2^63-1)
         System.out.println();
 
         // float 基本类型：float 二进制位数, 包装类：java.lang.Float
