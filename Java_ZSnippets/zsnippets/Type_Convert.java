@@ -33,6 +33,10 @@ public class Type_Convert {
         char C = 'X';
         String str_C = String.valueOf(C);
 
+        // char转int
+        char N = '5';
+        Integer NN = Character.getNumericValue(N);
+
         //String转char? 可能没必要
         char char_c = str_C.charAt(0);
 
