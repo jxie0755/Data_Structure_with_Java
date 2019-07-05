@@ -139,6 +139,7 @@ class Arrays_asList {
         List<Integer> intList2 = Arrays.asList(intArray2);  // >>>  [21, 32, 43, 45]
 
         // 可以用这个List.contains()来判断一个元素是否在array中 (in array)
+        // 或者判断max和min, 用Collections.min和Collections.max
 
         // 此List不可更改长度, 文档说说明了:
         // Returns a fixed-size list backed by the specified array
