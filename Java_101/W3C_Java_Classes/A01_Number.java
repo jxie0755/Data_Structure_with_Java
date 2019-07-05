@@ -106,7 +106,7 @@ class Number_zMethods {
         // only true if string is "true" or "TRUE" or "True" or even "tRuE" (ignore case)
 
 
-        // valueOf
+        // valueOf  (注意, 不能对Character类使用,必须是String!)
         // 一种更省空间的制造实例的方式 (类方法)
         Integer x4 = Integer.valueOf(9);  // >>> 9
         Double x5 = Double.valueOf(5);   // >>> 5.0

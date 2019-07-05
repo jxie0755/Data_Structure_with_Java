@@ -26,7 +26,7 @@ public class Type_Convert {
         int B = 1;
         String str_B = String.valueOf(B);
 
-        // String转int
+        // String转int (注意, 不能对Character类使用,必须是String!)
         int int_B = Integer.valueOf(str_B);
 
         // char转String
