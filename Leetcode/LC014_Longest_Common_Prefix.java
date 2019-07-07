@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * p014 Longest Common Prefix
@@ -11,9 +9,38 @@ import java.util.List;
 public class LC014_Longest_Common_Prefix {
 
     /**
-     * Version B, Deque method
+     * Version A, Set method
      */
     public String longestCommonPrefix(String[] strs) {
+
+        StringBuilder result = new StringBuilder();
+
+        if (strs.length == 0) {
+            return "";
+        }
+
+        String min_length_str = Collections.min(Arrays.asList(strs), new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.length() - s2.length();
+            }
+        });
+
+        for (int i = 0; i < min_length_str.length(); i += 1) {
+            Character[] temp = new Character[strs.length];
+            for (int j = 0; j < strs.length; j += 1) {
+                temp[j] = strs[j].charAt(i);
+            }
+            Set<Character> set = new HashSet<>(Arrays.asList(temp));
+            if (set.size() == 1) {
+                result.append(temp[0]);
+            } else {
+                break;
+            }
+        }
+
+        return result.toString();
+
 
     }
 
@@ -28,7 +55,5 @@ public class LC014_Longest_Common_Prefix {
         System.out.println("all passed");
 
     }
-
-
 }
 
