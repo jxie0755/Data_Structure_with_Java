@@ -77,7 +77,6 @@ public class LC015_3Sum {
         List<Integer> a54 = new ArrayList<>(Arrays.asList(-4, 2, 2));
         List<Integer> a55 = new ArrayList<>(Arrays.asList(-2, -2, 4));
         List<Integer> a56 = new ArrayList<>(Arrays.asList(-2, 0, 2));
-
         List<List<Integer>> a5 = new ArrayList<>(Arrays.asList(a51, a52, a53, a54, a55, a56));
         assert new LC015_3Sum().threeSum(new int[]{-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6}).equals(a5) : "Example 2";
 
