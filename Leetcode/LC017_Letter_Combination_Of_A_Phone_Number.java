@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * P017 Letter Combination of a Phone Number
@@ -15,11 +13,30 @@ import java.util.List;
  */
 public class LC017_Letter_Combination_Of_A_Phone_Number {
 
+    final static Map<String, String[]> hashtable  = new HashMap<>();
+    static {
+        hashtable.put("0", new String[]{" "});
+        hashtable.put("1", new String[]{""});
+        hashtable.put("2", new String[]{"a", "b", "c"});
+        hashtable.put("3", new String[]{"d", "e", "f"});
+        hashtable.put("4", new String[]{"g", "h", "i"});
+        hashtable.put("5", new String[]{" "});
+        hashtable.put("6", new String[]{" "});
+        hashtable.put("7", new String[]{" "});
+        hashtable.put("8", new String[]{" "});
+        hashtable.put("9", new String[]{" "});
+
+    }
+
+
     /**
      *  Version A, hashtable
      *  Time:  O(n * 3^n)
      */
     public List<String> letterCombinations(String digits) {
+
+
+
 
     }
 
