@@ -13,19 +13,18 @@ import java.util.*;
  */
 public class LC017_Letter_Combination_Of_A_Phone_Number {
 
-    final static Map<String, String[]> hashtable  = new HashMap<>();
+    final static Map<String, List<String>> hashtable  = new HashMap<>();
     static {
-        hashtable.put("0", new String[]{" "});
-        hashtable.put("1", new String[]{""});
-        hashtable.put("2", new String[]{"a", "b", "c"});
-        hashtable.put("3", new String[]{"d", "e", "f"});
-        hashtable.put("4", new String[]{"g", "h", "i"});
-        hashtable.put("5", new String[]{" "});
-        hashtable.put("6", new String[]{" "});
-        hashtable.put("7", new String[]{" "});
-        hashtable.put("8", new String[]{" "});
-        hashtable.put("9", new String[]{" "});
-
+        hashtable.put("0", new ArrayList<>(Arrays.asList(" ")));
+        hashtable.put("1", new ArrayList<>(Arrays.asList("")));
+        hashtable.put("2", new ArrayList<>(Arrays.asList("a", "b", "c")));
+        hashtable.put("3", new ArrayList<>(Arrays.asList("d", "e", "f")));
+        hashtable.put("4", new ArrayList<>(Arrays.asList("g", "h", "i")));
+        hashtable.put("5", new ArrayList<>(Arrays.asList("j", "k", "l")));
+        hashtable.put("6", new ArrayList<>(Arrays.asList("m", "n", "o")));
+        hashtable.put("7", new ArrayList<>(Arrays.asList("p", "q", "r", "s")));
+        hashtable.put("8", new ArrayList<>(Arrays.asList("t", "u", "v")));
+        hashtable.put("9", new ArrayList<>(Arrays.asList("w", "x", "y", "z")));
     }
 
 
@@ -35,9 +34,27 @@ public class LC017_Letter_Combination_Of_A_Phone_Number {
      */
     public List<String> letterCombinations(String digits) {
 
+        List<String> result = new ArrayList<>();
+        int i = 0;
 
+        while (i != digits.length()) {
+            String current = digits.substring(i, i + 1);
 
-
+            if (i == 0) {
+                result = hashtable.get(current);
+            } else {
+                List<String> new_list = hashtable.get(current);
+                List<String> new_result = new ArrayList<>();
+                for (String j : result) {
+                    for (String k : new_list) {
+                        new_result.add(j + k);
+                    }
+                }
+                result = new_result;
+            }
+            i += 1;
+        }
+        return result;
     }
 
     public static void main(String[] args) {
@@ -54,7 +71,7 @@ public class LC017_Letter_Combination_Of_A_Phone_Number {
         List<String> a4 = new ArrayList<>(Arrays.asList("a", "b", "c"));
         assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("2").equals(a4): "Example 1";
 
-        List<String> a5 = new ArrayList<>(Arrays.asList("a", "b", "c"));
+        List<String> a5 = new ArrayList<>(Arrays.asList("a ", "b ", "c "));
         assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("20").equals(a5): "Example 2";
         List<String> a6 = new ArrayList<>(Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"));
         assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("23").equals(a6): "Example 3";
