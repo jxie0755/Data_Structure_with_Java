@@ -17,6 +17,55 @@ public class LC018_4Sum {
 
     public List<List<Integer>> fourSum(int[] nums, int target) {
 
+        List<List<Integer>> result = new ArrayList<>();
+
+        int length = nums.length;
+        if (length < 4) {
+            return result;
+        }
+
+        Arrays.sort(nums);
+        int i = 0;
+
+        while (i < length - 3) {
+            if (i == 0 || nums[i] != nums[i - 1]) {
+                int ii = i + 1;
+
+                while (ii < length - 2) {
+                    if (ii == i + 1 || nums[ii] != nums[ii - 1]) {
+                        int j = ii + 1;
+                        int k = length - 1;
+
+                        while (j < k) {
+                            if (nums[i] + nums[ii] + nums[j] + nums[k] < target) {
+                                j += 1;
+                            } else if (nums[i] + nums[ii] + nums[j] + nums[k] > target) {
+                                k -= 1;
+                            } else {
+                                List<Integer> temp = new ArrayList<>(Arrays.asList(nums[i], nums[ii], nums[j], nums[k]));
+                                result.add(temp);
+                                j += 1;
+                                k -= 1;
+
+                                while (j < k && nums[j] == nums[j - 1]) {
+                                    j += 1;
+                                }
+
+                                while (j < k && nums[k] == nums[k + 1]) {
+                                    k -= 1;
+                                }
+
+                            }
+
+                        }
+                    }
+                    ii += 1;
+                }
+            }
+            i += 1;
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
