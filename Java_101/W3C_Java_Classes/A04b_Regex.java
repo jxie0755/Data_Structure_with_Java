@@ -1,8 +1,12 @@
 package W3C_Java_Classes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class A04b_Regex {
 
@@ -70,7 +74,10 @@ class Regex_Pattern {
 
         * split​(CharSequence input)             根据正则pattern分隔字符
         * split​(CharSequence input, int limit)  重载, 限定split数目
-        * splitAsStream​(CharSequence input)     类似split,但是返回成一个Stream<String>类
+        * splitAsStream​(CharSequence input)     类似split,但是返回成一个Stream<String>类  // TODO learn Stream
+
+        * asMatchPredicate()                    创造一个Predicate实例, 如果match (必须从第一位)
+        * asPredicate()                         创造一个Predicate实例, 如果find  (不必从第一位)
      */
 
 
@@ -81,7 +88,7 @@ class Regex_Pattern {
         // compile​(String regex)                 编译成Pattern类
         // compile​(String regex, int flags)      重载, 但是带flags
         Pattern p1 = Pattern.compile("\\d+?@\\D+?.com");  // 注意java没有raw string, 所以\d要被转义成\\d
-        Pattern p2 = Pattern.compile("[0-9]+?@[a-z]+?.com", Pattern.CASE_INSENSITIVE);  // 注意java没有raw string, 所以\d要被转义成\\d
+        Pattern qq_email_pattern = Pattern.compile("[0-9]+?@qq.com", Pattern.CASE_INSENSITIVE);  // 注意java没有raw string, 所以\d要被转义成\\d
 
         // matches  (必须是要从第一位开始match)
         System.out.println(Pattern.matches("\\d+?@\\D+?.com", "123@qq.com")); // >>> true
@@ -96,10 +103,10 @@ class Regex_Pattern {
 
         // flags()
         System.out.println(p1.flags()); // >>> 0   没有flags就是0
-        System.out.println(p2.flags()); // >>> 2
+        System.out.println(qq_email_pattern.flags()); // >>> 2
 
         // matcher(CharSequence input)
-        Matcher m2 = p2.matcher("a123@qq.com");
+        Matcher m2 = qq_email_pattern.matcher("a123@qq.com");
         System.out.println(m2);  // >>> 不能match的话,Matcher实例也不会为null
 
         // split​(CharSequence input)             根据正则pattern分隔字符
@@ -111,7 +118,20 @@ class Regex_Pattern {
         // >>> [1, 2, 3..4.5]  // 限定只能分成三份, 后面的就不操作了
 
 
+        // 此操作略繁琐, 不如用matcher类来的直观
+        // asMatchPredicate()  创造一个Predicate实例, 如果match (必须从第一位)
+        List<String> emails = new ArrayList<>(Arrays.asList("111@q.com", "163@qq.com", "aaa@qq.com", "1a3@qq.com", "125@qq.com"));
 
+        Predicate<String> qq_email_filter_match = qq_email_pattern.asMatchPredicate();
+        List<String> filtered_emails_match = emails.stream().filter(qq_email_filter_match).collect(Collectors.toList());
+        System.out.println(filtered_emails_match);
+        // >>> [163@qq.com, 125@qq.com]
+
+        // asPredicate()  创造一个Predicate实例, 如果find  (不必从第一位)
+        Predicate<String> qq_email_filter_find = qq_email_pattern.asPredicate();
+        List<String> filtered_emails_find = emails.stream().filter(qq_email_filter_find).collect(Collectors.toList());
+        System.out.println(filtered_emails_find); // >>> [163@qq.com, 125@qq.com]
+        // >>> [163@qq.com, 1a3@qq.com, 125@qq.com]  # 注意只要满足就返回整个1a3@而不是3@
     }
 
 
