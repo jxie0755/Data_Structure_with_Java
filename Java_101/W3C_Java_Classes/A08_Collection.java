@@ -273,7 +273,8 @@ class A08b_List_remove {
 
         // 特殊方法是remove index, remove (重载)
         // 自带return被删去的值,相当于python的pop()!!!!
-        Integer a = LO4.remove(0);            //     [1, 3, 1, 4, 1, 5, 1, 6]
+        Integer a = LO4.remove(0);
+        //     [1, 3, 1, 4, 1, 5, 1, 6]
         System.out.println(a);
         System.out.println(LO4);  // >>>  [1, 3, 1, 4, 1, 5, 1, 6]
 
