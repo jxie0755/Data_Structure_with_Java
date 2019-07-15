@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * p020 Valid Parentheses
  * Easy
@@ -7,11 +9,40 @@
  */
 public class LC020_Valid_Parenthesis {
 
+    private static Map<String, Integer> OPEN_BRACKETS = new HashMap<>();
+    static {
+        OPEN_BRACKETS.put("(", 1);
+        OPEN_BRACKETS.put("{", 2);
+        OPEN_BRACKETS.put("[", 3);
+    }
+
+    private static Map<String, Integer> CLOSE_BRACKETS = new HashMap<>();
+    static {
+        CLOSE_BRACKETS.put(")", 1);
+        CLOSE_BRACKETS.put("}", 2);
+        CLOSE_BRACKETS.put("]", 3);
+    }
+
+
     /**
      * Version A
      */
     public boolean isValid(String s) {
-
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < s.length(); i += 1) {
+            String cur = s.substring(i, i + 1);
+            if (OPEN_BRACKETS.containsKey(cur)) {
+                result.add(OPEN_BRACKETS.get(cur));
+            } else if (CLOSE_BRACKETS.containsKey(cur)) {
+                if (result.size() == 0) {
+                    return false;
+                }
+                if (result.remove(result.size() - 1) != CLOSE_BRACKETS.get(cur)) {
+                    return false;
+                }
+            }
+        }
+        return result.size() == 0;
     }
 
     public static void main(String[] args) {
