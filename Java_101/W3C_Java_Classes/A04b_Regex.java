@@ -204,6 +204,7 @@ class Regex_Matcher {
         // 2B3 g1: 2 g2: B g3: 3
         // 3C4 g1: 3 g2: C g3: 4
         // 4C5 g1: 4 g2: C g3: 5
+        // 注意, 类似iterator, 只能consume一次
 
         Matcher skipped_1 = Pattern.compile("(a)?(bc)").matcher("bc");
         if (skipped_1.find()) {
@@ -226,9 +227,34 @@ class Regex_Matcher {
 
 
         // start(), start(int n), start(String grou_name)
+        Matcher m1b = p1.matcher("#1A2, #2B3, #3C4, #4C5");
+        // "#1A2 ,  #2B3 ,  #3C4 ,  #4C5"
+        //  0123 45 6789 01 2345 67 8901
+        while (m1b.find()) {
+            System.out.println(m1b.group() + " " + m1b.start() + " " + m1b.start(1) + " " + m1b.start("Letter"));
+        }
+        // >>>
+        // #1A2 0 1 2
+        // #2B3 6 7 8
+        // #3C4 12 13 14
+        // #4C5 18 19 20
 
 
         // end(), end(int n), end(String grou_name)
+        // end会跳一位
+        Matcher m1c = p1.matcher("#1A2, #2B3, #3C4, #4C5");
+        // "#1A2 ,  #2B3 ,  #3C4 ,  #4C5"
+        //  0123 45 6789 01 2345 67 8901
+        while (m1c.find()) {
+            System.out.println(m1c.group() + " " + m1c.end() + " " + m1c.end(1) + " " + m1c.end("Letter"));
+        }
+        // >>>
+        // #1A2 4 2 3
+        // #2B3 10 8 9
+        // #3C4 16 14 15
+        // #4C5 22 20 21
+
+        Matcher m1d = p1.matcher("dkd");
 
 
 
