@@ -1,5 +1,9 @@
 package W3C_Java_Classes;
 
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class A04b_Regex {
 
     /*
@@ -35,7 +39,7 @@ class Regex_Pattern {
      */
 
 
-    /* Modifiers
+    /* Flags
      * static int   CANON_EQ          Enables canonical equivalence.
      * static int   CASE_INSENSITIVE  Enables case-insensitive matching.
      * static int   COMMENTS          Permits whitespace and comments in pattern.
@@ -52,9 +56,66 @@ class Regex_Pattern {
 
     /*
      * Pattern 基本操作
-     *
+     * (CharSequence包括String, BuefferedString)
+     * Static
+        * compile​(String regex)                 编译成Pattern类
+        * compile​(String regex, int flags)      重载, 但是带flags
+
+        * matches​(String regex, CharSequence)   安徽是否match
+        * quote​(String s)                       返回这个正则表达式的字面String
+
+     * Instancem ethod
+        * flags()                               返回compile的flags
+        * matcher(CharSequence input)           返回一个matcher类实例 (不match也不为null)
+
+        * split​(CharSequence input)             根据正则pattern分隔字符
+        * split​(CharSequence input, int limit)  重载, 限定split数目
+        * splitAsStream​(CharSequence input)     类似split,但是返回成一个Stream<String>类
      */
 
 
+    public static void main(String[] args) {
+
+        // static方法演示
+
+        // compile​(String regex)                 编译成Pattern类
+        // compile​(String regex, int flags)      重载, 但是带flags
+        Pattern p1 = Pattern.compile("\\d+?@\\D+?.com");  // 注意java没有raw string, 所以\d要被转义成\\d
+        Pattern p2 = Pattern.compile("[0-9]+?@[a-z]+?.com", Pattern.CASE_INSENSITIVE);  // 注意java没有raw string, 所以\d要被转义成\\d
+
+        // matches  (必须是要从第一位开始match)
+        System.out.println(Pattern.matches("\\d+?@\\D+?.com", "123@qq.com")); // >>> true
+        System.out.println(Pattern.matches("\\d+?@\\D+?.com", "a123@qq.com")); // >>> false
+
+        // quote  Returns a literal pattern String for the specified String.
+        System.out.println(Pattern.quote("\\d+?@\\D+?.com")); // >>> \Q\d+?@\D+?.com\E
+
+
+
+        // instance方法演示
+
+        // flags()
+        System.out.println(p1.flags()); // >>> 0   没有flags就是0
+        System.out.println(p2.flags()); // >>> 2
+
+        // matcher(CharSequence input)
+        Matcher m2 = p2.matcher("a123@qq.com");
+        System.out.println(m2);  // >>> 不能match的话,Matcher实例也不会为null
+
+        // split​(CharSequence input)             根据正则pattern分隔字符
+        // split​(CharSequence input, int limit)  重载, 限定split数目
+        Pattern p3 = Pattern.compile("[\\.]+|[,]+");
+        System.out.println(Arrays.toString(p3.split("1,2,,3..4.5")));
+        // >>> [1, 2, 3, 4, 5]
+        System.out.println(Arrays.toString(p3.split("1,2,,3..4.5", 3)));
+        // >>> [1, 2, 3..4.5]  // 限定只能分成三份, 后面的就不操作了
+
+
+
+    }
+
+
 }
+
+
 
