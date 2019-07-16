@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -183,6 +184,7 @@ class Regex_Matcher {
      * reset​(CharSequence input)                    重置并对全新字段做匹配
 
      * hitEnd()                                     只要Matcher检查当前字段到最末,则return True, 无视reset
+     * requireEnd()
 
      * pattern()                                    查看Macther当前匹配的Pattern表达式
      * usePattern​(Pattern newPattern)               修改Macther当前匹配的Pattern表达式
@@ -205,12 +207,11 @@ class Regex_Matcher {
 
      * (static) quoteReplacement​(String s)          配合replaceAll使用, 替换字符串字面意思, 没有转移没有正则表达式功能
 
-     * requireEnd()
-     * results()
+     * toMatchResult()                              返回一个MatchResult类实例, 也就是之前matches,looingAt和find
+                                                    * 确认过后的可以对start,end,group做操作的对象
+     * results()                                    返回一系列的MatchResult对象的Steam todo Learn Stream
 
-     * toMatchResult()
-
-     * toString()
+     * toString()                                   返回Matcher的字符串形式(包含一些信息)
      */
 
     public static void main(String[] args) {
@@ -410,7 +411,24 @@ class Regex_Matcher {
         System.out.println(m_rA_1.replaceAll(Matcher.quoteReplacement("$1-WTF")));
         // >>> DDD $1-WTF XXX $1-WTF YYY   // 这里$1不代表group1而是就是$1这个字符串
 
+        // toMatchResults()
+        // 返回一个MatchResult类实例, 也就是之前matches,looingAt和find确认过后的可以对start,end,group做操作的对象
+        // 只是现在将这个对象独立出来
+        Matcher m_rA_2 = Pattern.compile("(A|a)\\d+").matcher("DDD A123 XXX a456 YYY");
+        if (m_rA_2.find()) {
+            MatchResult r1 = m_rA_2.toMatchResult();
+            System.out.println(r1.group());            // >>> A123
+            System.out.println(m_rA_2.group());        // >>> A123  相同
 
+            // 但是随后可以做其他操作
+            System.out.println(r1.start());  // >>> 4
+            System.out.println(r1.end());  // >>> 8
+            System.out.println(r1.group(1)); // >>> A
+        }
+
+        // toString
+        System.out.println(m_rA_2.toString());
+        // >>> java.util.regex.Matcher[pattern=(A|a)\d+ region=0,21 lastmatch=A123]
 
 
     }
