@@ -197,13 +197,13 @@ class Regex_Matcher {
      * useAnchoringBounds(boolean b)                启用匹配开头和结尾 (超出region指定范围查看)
      * hasAnchoringBounds()                         显示当前是否启用匹配开头和结尾
 
-     * quoteReplacement​(String s)
 
-     * replaceAll​(String replacement)
-     * replaceAll​(Function<MatchResult,​String> replacer)
+     * replaceAll​(String replacement)               相当于py的re.sub, 全部替换, 用$n来表示group名
+     * replaceAll​(Function<MatchResult,​String> replacer)     类似py的re.sub接函数范式处理
+     * * replaceFirst​(String replacement)             相当于py的re.sub, 但是只替换第一个, 用$n来表示group名
+     * replaceFirst​(Function<MatchResult,​String> replacer)   类似py的re.sub接函数范式处理
 
-     * replaceFirst​(String replacement)
-     * replaceFirst​(Function<MatchResult,​String> replacer)
+     * (static) quoteReplacement​(String s)          配合replaceAll使用, 替换字符串字面意思, 没有转移没有正则表达式功能
 
      * requireEnd()
      * results()
@@ -384,6 +384,31 @@ class Regex_Matcher {
         System.out.println(m_hit_end.find());
         System.out.println(m_hit_end.group());  // >>> A123
         // 但是还是可以继续重新查找,但是不能改变之前已经hitEnd这一事实
+
+        // replaceAll​(String replacement)
+        System.out.println("Test replaceALl");
+        Matcher m_rA_1 = Pattern.compile("(A|a)\\d+").matcher("DDD A123 XXX a456 YYY");
+        System.out.println(m_rA_1.replaceAll("WTF"));
+        // >>> DDD WTF XXX WTF YYY
+        System.out.println(m_rA_1.replaceAll("TH"));
+        // >>> DDD TH XXX TH YYY  可重复使用
+        System.out.println(m_rA_1.replaceAll("$1-WTF"));
+        // >>> DDD A-WTF XXX a-WTF YYY      // 使用$1,$2等等来替代group号
+        System.out.println(m_rA_1.replaceAll(mr -> mr.group(1) + mr.group(1).toUpperCase() + "-WTF"));
+        // >>> DDD AA-WTF XXX aA-WTF YYY    // 自带一个lambda函数范式, 可以对group做操作, 然后做其他处理
+
+        // replaceAll​(Function<MatchResult,​String> replacer)
+        // replaceFirst​(String replacement)
+        System.out.println(m_rA_1.replaceFirst("$1-WTF"));
+        // >>> DDD A-WTF XXX a456 YYY
+        System.out.println("Test replaceFirst");
+        // replaceFirst​(Function<MatchResult,​String> replacer)
+        System.out.println(m_rA_1.replaceFirst(mr -> mr.group(1) + mr.group(1).toLowerCase() + "-WTF"));
+        // >>> DDD Aa-WTF XXX a456 YYY
+
+        // quoteReplacement​(String s)
+        System.out.println(m_rA_1.replaceAll(Matcher.quoteReplacement("$1-WTF")));
+        // >>> DDD $1-WTF XXX $1-WTF YYY   // 这里$1不代表group1而是就是$1这个字符串
 
 
 
