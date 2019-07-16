@@ -22,7 +22,7 @@ public class Alg_Lecture_05_Mergesort {
             * Honored as one of the top 10 algorithm of 20th centry in science and engineering.
 
      * Comparator
-         * Refer to Java_101/W3C_Java_Classes/A11_Comparator.java
+         * Refer to Java_101/Java_Classes/A11_Comparator.java
 
      * Stability
          * retain sort sequence in sections when sort by different way
