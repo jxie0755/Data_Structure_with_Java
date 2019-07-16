@@ -90,7 +90,10 @@ class Regex_Pattern {
         // compile​(String regex)                 编译成Pattern类
         // compile​(String regex, int flags)      重载, 但是带flags
         Pattern p1 = Pattern.compile("\\d+?@\\D+?.com");  // 注意java没有raw string, 所以\d要被转义成\\d
-        Pattern qq_email_pattern = Pattern.compile("[0-9]+?@qq.com", Pattern.CASE_INSENSITIVE);  // 注意java没有raw string, 所以\d要被转义成\\d
+        Pattern pCaseInsensitive = Pattern.compile("aaa", Pattern.CASE_INSENSITIVE);
+        System.out.println("case ignored: " + pCaseInsensitive.matcher("aAa").matches());
+
+        Pattern qq_email_pattern = Pattern.compile("[0-9]+?@qq.com");  // 注意java没有raw string, 所以\d要被转义成\\d
 
         // matches  (必须是要从第一位开始match)
         System.out.println(Pattern.matches("\\d+?@\\D+?.com", "123@qq.com")); // >>> true
@@ -162,24 +165,58 @@ class Regex_Matcher {
      * group​(String group_name)                           按group名字返回
      * groupCount()                                 返回被匹配的group的数量
 
-     * start()
-     * start​(int group)
-     * start​(String group_name)
+     * start()                                      显示当前被match到的字段在整个字段中的起始idx
+     * start​(int group)                             显示当前被match到的字段的group(n)在整个字段中的起始idx
+     * start​(String group_name)                     显示当前被match到的字段的group(name)在整个字段中的起始idx
 
-     * end()
-     * end​(int group)
-     * end(String group_name)
+     * end()                                        显示当前被match到的字段在整个字段中的终点idx (跳一位)
+     * end​(int group)                               显示当前被match到的字段的group(n)在整个字段中的终点idx
+     * end(String group_name)                       显示当前被match到的字段的group(name)在整个字段中的终点idx
 
      * appendReplacement​(StringBuffer, String)      返回一个修改了的Macther类实例
      * appendReplacement​(StringBuilder, String)     重载
 
      * appendTail​(StringBuffer sb)                  把最后一个match之后的部分填补上
      * appendTail​(StringBuilder sb)                 重载
+
+     * reset()                                      重置Matcher, 之前被Consume的都清空
+     * reset​(CharSequence input)                    重置并对全新字段做匹配
+
+     * hitEnd()                                     只要Matcher检查当前字段到最末,则return True, 无视reset
+
+     * pattern()                                    查看Macther当前匹配的Pattern表达式
+     * usePattern​(Pattern newPattern)               修改Macther当前匹配的Pattern表达式
+
+     * * region​(int start, int end)                 调整Matcher字段的范围
+     * regionEnd()                                  显示Mactcher当前查看字段的终点
+     * regionStart()                                显示Mactcher当前查看字段的起点
+
+     * useTransparentBounds(boolean b)              启用前后查找 (超出region指定范围查看)
+     * hasTransparentBounds()                       显示当前是否启用前后查找
+
+     * useAnchoringBounds(boolean b)                启用匹配开头和结尾 (超出region指定范围查看)
+     * hasAnchoringBounds()                         显示当前是否启用匹配开头和结尾
+
+     * quoteReplacement​(String s)
+
+     * replaceAll​(String replacement)
+     * replaceAll​(Function<MatchResult,​String> replacer)
+
+     * replaceFirst​(String replacement)
+     * replaceFirst​(Function<MatchResult,​String> replacer)
+
+     * requireEnd()
+     * results()
+
+     * toMatchResult()
+
+     * toString()
      */
 
     public static void main(String[] args) {
 
         // matches, lookingAt, find
+        System.out.println("Test matches, lookingAt, find");
         System.out.println(Pattern.compile("ABC").matcher("ABC").matches());  // >>> true
         System.out.println(Pattern.compile("ABC").matcher("ABCd").matches()); // >>> false
         System.out.println(Pattern.compile("ABC").matcher("dABCd").matches()); // >>> false
@@ -194,6 +231,7 @@ class Regex_Matcher {
 
         // find可以持续搜索
         // group(), group(int n), group(String grou_name)
+        System.out.println("Test group");
         Pattern p1 = Pattern.compile("#(\\d)(?<Letter>\\D)(\\d)");
         Matcher m1 = p1.matcher("#1A2, #2B3, #3C4, #4C5");
         while (m1.find()) {
@@ -228,6 +266,7 @@ class Regex_Matcher {
 
 
         // start(), start(int n), start(String grou_name)
+        System.out.println("Test Start");
         Matcher m1b = p1.matcher("#1A2, #2B3, #3C4, #4C5");
         // "#1A2 ,  #2B3 ,  #3C4 ,  #4C5"
         //  0123 45 6789 01 2345 67 8901
@@ -242,6 +281,7 @@ class Regex_Matcher {
 
 
         // end(), end(int n), end(String grou_name)   end会跳一位
+        System.out.println("Test End");
         Matcher m1c = p1.matcher("#1A2, #2B3, #3C4, #4C5");
         // "#1A2 ,  #2B3 ,  #3C4 ,  #4C5"
         //  0123 45 6789 01 2345 67 8901
@@ -254,26 +294,98 @@ class Regex_Matcher {
         // #3C4 16 14 15
         // #4C5 22 20 21
 
-
-
-
-
-
-
-
-
-
         // appendReplacement​(StringBuffer / StringBuilder, String)
         // 类似python的sub方法
-        Pattern px = Pattern.compile("cat");
-        Matcher mx = px.matcher("one cat two cats in the yard");
+        Pattern p2 = Pattern.compile("(cat)");
+        Matcher m2 = p2.matcher("one cat two cats in the yard");
         StringBuilder sb1 = new StringBuilder();
-        while (mx.find()) {
-            mx.appendReplacement(sb1, "dog");
+        while (m2.find()) {
+            m2.appendReplacement(sb1, "dog");
         }
         // appendTail    // 必须是配合appendReplacement使用
-        mx.appendTail(sb1);
+        m2.appendTail(sb1);
         System.out.println(sb1.toString());
+
+        // reset()
+        // reset​(CharSequence input)
+        System.out.println("Test reset:");
+        Matcher m_reset = Pattern.compile("A\\d+").matcher("A123");
+        System.out.println(m_reset.find()); // >>> true
+        System.out.println(m_reset.find()); // >>> false   // consumed
+        System.out.println(m_reset.find()); // >>> false   // consumed
+        m_reset.reset();
+        System.out.println(m_reset.find()); // >>> true  // reset, reconsume
+        m_reset.reset();
+        System.out.println(m_reset.find()); // >>> true  // reset, reconsume
+        m_reset.reset("A456");
+        if (m_reset.matches()) {
+            System.out.println(m_reset.group()); // >>> A456
+        }
+
+
+        // region​(int start, int end)
+        // regionEnd()
+        // regionStart()
+        System.out.println("Test regions");
+        Matcher m_lookbehind = Pattern.compile("(?<=A)\\d+").matcher("A123");
+        Matcher m_anchor = Pattern.compile("^A\\d+A$").matcher("A13A");
+        // 初始就是整个String字段
+        System.out.println(m_lookbehind.regionStart()); // >>> 0
+        System.out.println(m_lookbehind.regionEnd());   // >>> 4
+        // 调整字段范围
+        m_lookbehind.region(1, 4);
+        System.out.println(m_lookbehind.regionStart()); // >>> 1
+        System.out.println(m_lookbehind.regionEnd());   // >>> 4
+
+
+        // useTransparentBounds(boolean b)
+        // Invoking this method with an argument of true will set this matcher to use transparent bounds.
+        // If the boolean argument is false, then opaque bounds will be used.
+        // By default, a matcher uses opaque bounds
+        System.out.println("Test Transpareent");
+        System.out.println(m_lookbehind.matches()); // >>> false  // 默认为false
+        System.out.println(m_lookbehind.useTransparentBounds(false).matches()); // >>> false  // 强制不看前后查找
+        System.out.println(m_lookbehind.useTransparentBounds(true).matches()); // >>> true    // 强制看的话就能看到
+        // hasTransparentBounds()
+
+        // useAnchoringBounds(boolean b)
+        // Invoking this method with an argument of true will set this matcher to use anchoring bounds.
+        // If the boolean argument is false, then non-anchoring bounds will be used.
+        // By default, a matcher uses anchoring region boundaries.
+        System.out.println("Test anchoring");
+        m_anchor.region(1, 3);
+        System.out.println(m_anchor.matches()); // >>> false
+        System.out.println(m_anchor.useAnchoringBounds(false).matches()); // >>> false
+        System.out.println(m_anchor.useAnchoringBounds(true).matches());  // >>> false
+        // hasAnchoringBounds()
+
+        // pattern()
+        // usePattern​(Pattern newPattern)
+        System.out.println("Test pattern");
+        Matcher m_pp = Pattern.compile("A\\d+").matcher("B123");
+        System.out.println(m_pp.pattern()); // >>> A\d+
+        System.out.println(m_pp.matches()); // >>> false
+        m_pp.usePattern(Pattern.compile("B\\d+"));
+        System.out.println(m_pp.matches()); // >>> true
+
+        // hitEnd()
+        System.out.println("Test hitEnd");
+        Matcher m_hit_end = Pattern.compile("A\\d+").matcher("A123 A456 B789");
+        System.out.println(m_hit_end.find());   // >>> true
+        System.out.println(m_hit_end.group());  // >>> A123
+        System.out.println(m_hit_end.hitEnd()); // >>> false
+        System.out.println(m_hit_end.find());   // >>> true
+        System.out.println(m_hit_end.group());  // >>> A456
+        System.out.println(m_hit_end.hitEnd()); // >>> false  // 注意,这里虽然已经是最后一个,但是没有hitEnd
+        System.out.println(m_hit_end.find());   // >>> true   // 这里才是一直找到了末尾也没找到
+        System.out.println(m_hit_end.hitEnd()); // >>> true  // 这里已经穷尽
+        m_hit_end.reset();
+        System.out.println(m_hit_end.hitEnd()); // >>> true  // 这里仍然已经穷尽
+        System.out.println(m_hit_end.find());
+        System.out.println(m_hit_end.group());  // >>> A123
+        // 但是还是可以继续重新查找,但是不能改变之前已经hitEnd这一事实
+
+
 
 
     }
