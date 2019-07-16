@@ -12,7 +12,7 @@
 *       图灵社区：
 *       http://www.ituring.com.cn/book/2480
 *       百度阅读：
-*       https://yuedu.baidu.com/ebook/7c1499987e192279168884868762caaedd33ba00 
+*       https://yuedu.baidu.com/ebook/7c1499987e192279168884868762caaedd33ba00
 */
 
 
@@ -35,7 +35,6 @@ public class HelloWorld {
 			// 一直循环，直到满足条件在停止线程
 			while (!command.equalsIgnoreCase("exit")) {
 				// 线程开始工作
-				// TODO
 				System.out.println("下载中...");
 				try {
 					// 线程休眠
@@ -49,7 +48,7 @@ public class HelloWorld {
 		// 开始线程t1
 		t1.start();
 
-		try (InputStreamReader ir = new InputStreamReader(System.in); 
+		try (InputStreamReader ir = new InputStreamReader(System.in);
 				BufferedReader in = new BufferedReader(ir)) {
 			// 从键盘接收了一个字符串的输入
 			command = in.readLine();

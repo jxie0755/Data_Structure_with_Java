@@ -183,7 +183,8 @@ class String_regexMethods {
         String SS0 = "ABCDE";
         System.out.println(SS0.matches("CD")); // >>> false
         System.out.println(SS0.matches("NDSFABCDEsdfsd")); // >>> false
-        // TODO learn 正则表达式
+        System.out.println("regex match: " + SS0.matches("^A.*")); // >>> regex match: true
+
 
         // String replaceAll(String regex, String replacement)   使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。
         // String replaceFirst(String regex, String replacement) 使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。

@@ -37,6 +37,8 @@ class Boolean_zMethods {
         // static boolean parseBoolean(String s)
         System.out.println(Boolean.parseBoolean("True")); // >>> true
         System.out.println(Boolean.parseBoolean("yes"));  // >>> false
+        System.out.println(">>>>> " + (Boolean.parseBoolean("asdf"))); // >>> false
+        // only true if string is "true" or "TRUE" or "True" or even "tRuE" (ignore case)
         // 与构造方法类似的逻辑:
         // if the string argument is not null and is equal, ignoring case, to the string "true".
         // Otherwise, a false value is returned, including for a null argument.

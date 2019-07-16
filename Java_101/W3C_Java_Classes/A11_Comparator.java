@@ -51,8 +51,7 @@ class Comparator_test {
         }));
 
         // 第三种: 利用Lambda函数 java7以后才能该用
-        // TODO 学习Lambda函数
-
+        // 参见 Java101/Java_Basics/C12_Lambda
 
         // 第二个例子, 根据一个字典中值的长度来找key (使用内部类)
         Map<String, List<Integer>> Mapp = new HashMap<>(Map.ofEntries(

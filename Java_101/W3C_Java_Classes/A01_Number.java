@@ -99,13 +99,6 @@ class Number_zMethods {
         Double x13 = Double.parseDouble("88.88");
         int intVar3 = Integer.parseInt("ABC", 16);  // 把16进制的数字ABC转换成10进制的数字 (2748)
 
-
-        // TODO
-        // move to Boolean method
-        System.out.println(">>>>> " + (Boolean.parseBoolean("asdf"))); // >>> false
-        // only true if string is "true" or "TRUE" or "True" or even "tRuE" (ignore case)
-
-
         // valueOf  (注意, 不能对Character类使用,必须是String!)
         // 一种更省空间的制造实例的方式 (类方法)
         Integer x4 = Integer.valueOf(9);  // >>> 9
