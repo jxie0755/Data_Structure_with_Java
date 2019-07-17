@@ -3,6 +3,7 @@ package Java_Classes;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class A17_Stream {
@@ -55,6 +56,11 @@ public class A17_Stream {
 
         * 常用方法
 
+        * static方法
+        * Stream.of(Object[])               生成流
+        * Stream.iterate(i, x -> x+1)       生成一个迭代流, 从i开始, 对i做一个lambda函数迭代
+        * IntStream.range(int i, int j)     生成一个迭代流, (i,j]
+
         * Collection.stream()                生成串行流
         * Collection.parallelStream()        生成并行流  (底层多线程工作, 用起来完全一样)
         * parallel()                         将串行流转换成并行流
@@ -65,12 +71,16 @@ public class A17_Stream {
 
         * 中间操作 intermediate operations
         * map(Function)                      类似py的map, high order function处理元素     (可能打乱顺序)
+        * flatMap(Function)
+
         * mapToInt                           转换成int元素
         * mapToDoule                         转换成double元素
         * mapToLong                          转换成long元素
 
         * filter(Function)                   类似py的filter, high order function过滤元素  (不断乱原顺序)
         * limit(n)                           只保留前n个元素
+        * concat(stm1, stm2)                 合并了两个流成为一个流
+        * skip                               跳过前n个元素
         * sorted()                           给元素排序
         * unordered()                        不排序, 但是也不打乱
         * distinct()                         类似set命令, 去重
@@ -113,18 +123,39 @@ public class A17_Stream {
         // 通过Arrays来创造 Arrays.stream(Object[])
         Stream<Integer> AS = Arrays.stream(new Integer[]{1, 2, 3});
 
+        // 创造一个无限流
+        Stream<Integer> inf_stream = Stream.generate(() -> 1);
+        // inf_stream.forEach(System.out::print);  // 无限打印 1111111111111111
+        // 配合limit 施加一个限制
+        Stream<Integer> ninf_stream = Stream.generate(() -> 1).limit(5);
+        // ninf_stream.forEach(System.out::print); // >>> 11111
+
+
         // 使用流的静态方法
         // Stream.of(Object[])
         // IntStream.range(int, int)
+        IntStream.range(1, 5).forEach(System.out::print);
+        // >>> 1234
+
         // Stream.iterate(Object, UnaryOperator)
-        // Stream.iterate(0, n -> n * 2)
-        // generate(Supplier<T> s)如 Stream.generate(Math::random)
+
+        // Stream.iterate(start, n -> n * 2)
+        System.out.println();
+        Stream.iterate(1, x -> x +1).limit(10).forEach(System.out::print);
+        // >>> 12345678910   // 从1开始, 一直加1,重复10次
+
+        // generate(Supplier<T> s)
+        System.out.println();
+        Stream.generate(Math::random).map(i -> (int)(i * 10)).limit(5).forEach(System.out::print);
         // BufferedReader.lines()从文件中获得行的流
         // 随机数流Random.ints()
+
+
 
         // 后面所有例子都是用串行流, 都可以随时被替代成并行流
 
         // forEach
+        System.out.println();
         lst_1_stm.forEach(System.out::println);
         // >>>
         // b
@@ -141,6 +172,10 @@ public class A17_Stream {
                 .collect(Collectors.toList());
         System.out.println(lst_2); // >>> [bb, cc, dd, aa]
 
+        // flatMap
+        List<String> lstr_A = new ArrayList<>(Arrays.asList("A", "B", "C"));
+        List<String> lstr_B = new ArrayList<>(Arrays.asList("D", "E", "F"));
+        // List<String> lstr_merge =
 
         // filter
         List<String> lst_3 = lst_1.stream()
@@ -155,8 +190,22 @@ public class A17_Stream {
                 .collect(Collectors.toList());
         System.out.println(lst_4); // >>> [b, c]
 
+        // skip
+        List<String> lst_4b = lst_1.stream()
+                .skip(2)
+                .collect(Collectors.toList());
+        System.out.println(lst_4b); // >>> [d, a]
+
+        // concat
+        // 将两个Stream合并成一个，这个方法一次只能用来合并两个Stream，不能一次多个Stream合并
+        // 甚至可以不同类(需要转型)
+        Stream<Integer> scon_1 = Stream.of(1, 2, 3);
+        Stream<String>  scon_2 = Stream.of("A", "B", "C");
+        Stream<Object> so_con = Stream.concat(scon_1, scon_2);  // 向上转型为Object
+        so_con.forEach(System.out::print); // >>> 123ABC
 
         // sorted
+        System.out.println();
         List<String> lst_5 = lst_1.stream()
                 .sorted()
                 .collect(Collectors.toList());
