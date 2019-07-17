@@ -56,7 +56,7 @@ public class A17_Stream {
         * 常用方法
 
         * Collection.stream()                生成串行流
-        * Collection.parallelStream()        生成并行流
+        * Collection.parallelStream()        生成并行流  (底层多线程工作, 用起来完全一样)
         * parallel()                         将串行流转换成并行流
         * sequential()                       将并行流转换成串行流
 
@@ -104,7 +104,9 @@ public class A17_Stream {
 
         // Initiation 通过集合来创造, 有两种方式
         // stream() − 为集合创建串行流。
+
         // parallelStream() − 为集合创建并行流。
+
         List<String> lst_1 = new ArrayList<>(Arrays.asList("b", "c", "d", "a"));
         Stream<String> lst_1_stm = lst_1.stream();  // 产生流
 
@@ -119,6 +121,8 @@ public class A17_Stream {
         // generate(Supplier<T> s)如 Stream.generate(Math::random)
         // BufferedReader.lines()从文件中获得行的流
         // 随机数流Random.ints()
+
+        // 后面所有例子都是用串行流, 都可以随时被替代成并行流
 
         // forEach
         lst_1_stm.forEach(System.out::println);
