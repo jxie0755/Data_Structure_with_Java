@@ -334,8 +334,14 @@ class A17c_Optional {
      * orElseGet(Function)              返回内容, 若为空则通过Function制造一个内容返回
      * orElseThrow                      返回内容, 若为空则抛出一个异常或者自定义异常
 
-     * map(Function)                    若不存在内容则返回Optional.empty不然则返回一个Optional[f(content)]
-     *
+     * map(Function)                    若不存在内容则返回Optional.empty, 不然则返回一个Optional[f(item)]
+     * flatMap(Fucntion)                与map相同,但是要求Function直接return一个Optinal对象
+     * filter                           对 Optional 中包含的值进行过滤, 不符合就是Optional.empty不然就是它本身
+
+     * java9 增强
+     * or(action)                       类似map,相当于相反, 若不存在值则返回一个Optional[function], 存在就是返回自己
+     * ifPresentOrElse(action, Runnable emptyAction)    若存在值,则Fucntion(item), 若不存在值则调用emptyAction
+     * stream()                          如果该 Optional 中包含值，那么就返回包含这个值的 Stream；否则空Stream
      */
 
 
@@ -358,8 +364,9 @@ class A17c_Optional {
 
         // isPresent()
         // isEmpty()
-        System.out.println(o_good.isPresent()); // >>> true
         System.out.println(o_emp.isEmpty());   // >>> true
+        System.out.println(o_good.isPresent()); // >>> true
+
 
         // 避免检查空值, 直接操作
         // ifPresent(Function) 如果 Optional 中有值，则对该值调用一个函数，否则什么也不做
@@ -367,20 +374,20 @@ class A17c_Optional {
         o_good.ifPresent(i -> System.out.println(i + i + i)); // >>> DDD
 
         // orElse(item)
-        System.out.println(o_good.orElse("X")); // >>> D  若存在就返回内容
-        System.out.println(o_emp.orElse("X")); // >>> X  若不存在就返回else内容作为默认
+        System.out.println(o_emp.orElse("WTF")); // >>> WTF  若不存在就返回else内容作为默认
+        System.out.println(o_good.orElse("WTF")); // >>> D  若存在就返回内容
 
         // orElseGet(Function)
         // orElseGet 与 orElse 方法的区别在于
         // orElseGet 方法传入的参数为一个 Supplier 接口的实现 ——
-            // 当 Optional 中有值的时候，返回值；
-            // 当 Optional 中没有值的时候，返回从该 Supplier 获得的值
+        // 当 Optional 中有值的时候，返回值；
+        // 当 Optional 中没有值的时候，返回从该 Supplier 获得的值
         String x1 = o_emp.orElseGet(() -> "WTF");
         System.out.println(x1); // >>> WTF
 
         // orElseThrow(Function)
-            // 当 Optional 中有值的时候，返回值
-            // 没有值的时候会抛出异常，抛出的异常由传入的 exceptionSupplier 提供
+        // 当 Optional 中有值的时候，返回值
+        // 没有值的时候会抛出异常，抛出的异常由传入的 exceptionSupplier 提供
         // String x2 = o2.orElseThrow();
 
 
@@ -388,10 +395,34 @@ class A17c_Optional {
         // 如果当前 Optional 为 Optional.empty，则依旧返回 Optional.empty；
         // 否则返回一个新的  Optional，该 Optional 包含的是：函数 mapper 在以 value 作为输入时的输出值
         System.out.println(o_emp.map(i -> i + i)); // >>> Optional.empty
-        System.out.println(o_good.map(i -> i + i)); // >>> Optional[DD]
+        System.out.println(o_good.map(i -> "WTF")); // >>> Optional[WTF]
 
+        // flatMap
+        // 方法与 map 方法的区别在于，
+        // map 方法参数中的函数 mapper 输出的是值，然后 map 方法会使用 Optional.ofNullable 将其包装为 Optional；
+        // 而 flatMap 要求参数中的函数 mapper 输出的就是 Optional
+        System.out.println(o_emp.flatMap(i -> Optional.of("WTF?"))); // >>> Optional.empty
+        System.out.println(o_good.flatMap(i -> Optional.of("WTF?"))); // >>> Optional[WTF]
+
+        // filter
+        System.out.println(o_emp.filter(i -> i.equals("D"))); // >>> Optional.empty
+        System.out.println(o_good.filter(i -> i.equals("D"))); // >>> Optional[D]
+
+        // or
+        System.out.println(o_emp.or(() -> Optional.of("WTF?")));  // >>> Optional[WTF?]
+        System.out.println(o_good.or(() -> Optional.of("WTF?"))); // >>> Optional[D]
+
+        // ifPresentOrElse(action, Runnable emptyAction)
+        o_emp.ifPresentOrElse(i -> System.out.println(i), () -> System.out.println("WTF?"));
+        // >>> Optional[WTF?]
+        o_good.ifPresentOrElse(i -> System.out.println(i), () -> System.out.println("WTF?"));
+        // >>> D
+
+
+        // stream
+        Stream<String> ss1 = o_emp.stream();
+        System.out.println(ss1.collect(Collectors.toList())); // >>> []
+        Stream<String> ss2 = o_good.stream();
+        System.out.println(ss2.collect(Collectors.toList())); // >>> [D]
     }
-
-
-
 }
