@@ -73,6 +73,9 @@ class Math_zMethods {
         double f = Math.random()/Math.nextDown(1.0);
         double x_range = 3*(1.0 - f) + 5*f;  // range(3, 5)
 
+        // 获取随机整数? 比如[0, 100)
+        int random_int = (int) (Math.random() * 100);
+
 
         // nextUp and nextDown
         // float and double
