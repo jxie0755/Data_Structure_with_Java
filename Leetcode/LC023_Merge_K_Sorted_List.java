@@ -30,6 +30,7 @@ public class LC023_Merge_K_Sorted_List {
             curr.next = l2;
         }
 
+
         return dummy.next;
     }
 
