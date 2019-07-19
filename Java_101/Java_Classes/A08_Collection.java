@@ -105,8 +105,8 @@ class A08b_List {
              * hashcode()
 
          * 来自List
-             * get                        相当于lst[i]
-             * set                        相当于lst[i] = n
+             * get(idx i)                        相当于lst[i]
+             * set(idx i, item)                  相当于lst[i] = n
 
              * add​(int index, E element)       相当于insert(重载)
              * addAll​(idx, Collection<?>)      指定index(重载)
