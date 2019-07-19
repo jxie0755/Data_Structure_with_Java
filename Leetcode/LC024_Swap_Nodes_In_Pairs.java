@@ -71,6 +71,9 @@ public class LC024_Swap_Nodes_In_Pairs {
 
         System.out.println("all passed");
 
+        System.out.println(ListNode.genNode(new int[]{}));
+
+
     }
 
 

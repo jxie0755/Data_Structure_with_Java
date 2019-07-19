@@ -18,7 +18,9 @@ class ListNode {
     }
 
     public static String showString(ListNode A) {
-        if (A.next != null) {
+        if (A == null) {
+            return "None";
+        } else if (A.next != null) {
             return A.val + "->" + showString(A.next);
         } else {
             return String.valueOf(A.val);
@@ -36,7 +38,11 @@ class ListNode {
     }
 
     public static ListNode genNode(int[] nodelist) {
-        // must be a none-empty array
+
+        if (nodelist.length == 0) {
+            return null;
+        }
+
         ListNode head = new ListNode(nodelist[0]);
         ListNode cur = head;
         for (int i = 1; i != nodelist.length; i += 1) {
@@ -50,6 +56,9 @@ class ListNode {
 
 
     public static void main(String[] args) {
+
+        ListNode emp = ListNode.genNode(new int[]{});
+        System.out.println(ListNode.showString(emp)); // >>> None
 
         ListNode A = new ListNode(1);
         ListNode B = new ListNode(2);
