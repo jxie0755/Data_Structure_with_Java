@@ -58,6 +58,10 @@ public class LC025_Reverse_Nodes_In_K_Group {
 
     public static void main(String[] args) {
 
+        ListNode Q0 = ListNode.genNode(new int[]{1});
+        ListNode A0 = ListNode.genNode(new int[]{1});
+        assert new LC025_Reverse_Nodes_In_K_Group().reverseKGroup(Q0, 2).equals(A0): "Single";
+
         ListNode Q1 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
         ListNode A1 = ListNode.genNode(new int[]{2, 1, 4, 3, 5});
         assert new LC025_Reverse_Nodes_In_K_Group().reverseKGroup(Q1, 2).equals(A1): "Example 1";
