@@ -13,7 +13,6 @@
  */
 public class LC025_Reverse_Nodes_In_K_Group {
 
-    @Override
     private ListNode reverseNodes(ListNode head) {
         ListNode dummy = new ListNode(0);
         while (head != null) {
