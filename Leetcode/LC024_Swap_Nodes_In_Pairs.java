@@ -5,7 +5,6 @@ import java.util.List;
  * P024 Swap Nodes in Pairs
  * Medium
  * <p>
- * <p>
  * Given a linked list, swap every two adjacent nodes and return its head.
  * You may not modify the values in the list's nodes, only nodes itself may be changed.
  */

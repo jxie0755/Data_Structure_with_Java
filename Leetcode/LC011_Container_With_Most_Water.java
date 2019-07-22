@@ -6,7 +6,6 @@
  * n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0)
  * Find two lines, which together with x-axis forms a container, such that the container contains the most water.
  * <p>
- * <p>
  * Note: You may not slant the container and n is at least 2.
  */
 public class LC011_Container_With_Most_Water {
