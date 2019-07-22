@@ -2,7 +2,7 @@
 /**
  * P005 Longest Palindromic String
  * Medium
- *
+ * <p>
  * Given a string s, find the longest palindromic substring in s.
  * You may assume that the maximum length of s is 1000.
  */
@@ -44,18 +44,18 @@ public class LC005_Longest_Palindromic_Substring {
 
     public static void main(String[] args) {
 
-        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("").equals(""): "Edge 1";
-        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("a").equals("a"): "Edge 2";
-        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("aaa").equals("aaa"): "Edge 3";
+        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("").equals("") : "Edge 1";
+        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("a").equals("a") : "Edge 2";
+        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("aaa").equals("aaa") : "Edge 3";
 
 
-        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("babad").equals("bab"): "Example 1";
+        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("babad").equals("bab") : "Example 1";
 
-        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("cbbd").equals("bb"): "Example 2";
+        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("cbbd").equals("bb") : "Example 2";
 
-        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("bababadddddddddddd") .equals("dddddddddddd"): "Extra 1";
+        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("bababadddddddddddd").equals("dddddddddddd") : "Extra 1";
 
-        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("babababa").equals( "bababab"): "Extra 2";
+        assert new LC005_Longest_Palindromic_Substring().longestPalindrome("babababa").equals("bababab") : "Extra 2";
 
         System.out.println("all passed");
     }

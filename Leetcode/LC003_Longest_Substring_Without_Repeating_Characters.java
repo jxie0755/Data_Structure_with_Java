@@ -1,9 +1,10 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * P003 Longest Substring Without Repeating Characters
  * Medium
- *
+ * <p>
  * Given a string, find the length of the longest substring without repeating characters.
  */
 public class LC003_Longest_Substring_Without_Repeating_Characters {
@@ -53,7 +54,7 @@ public class LC003_Longest_Substring_Without_Repeating_Characters {
         Map<String, Integer> hmp = new HashMap<>();
         int i = 0;
         while (i != s.length()) {
-            String sub = s.substring(i,i+1);
+            String sub = s.substring(i, i + 1);
             if (!hmp.containsKey(sub)) {
                 hmp.put(sub, i);
             } else {
@@ -66,17 +67,16 @@ public class LC003_Longest_Substring_Without_Repeating_Characters {
     }
 
 
-
     public static void main(String[] args) {
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("") == 0: "Edge 1";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring(" ") == 1: "Edge 2";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("au") == 2: "Edge 3";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("aab") == 2: "Edge 4";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("dvdf") == 3: "Edge 5";
+        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("") == 0 : "Edge 1";
+        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring(" ") == 1 : "Edge 2";
+        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("au") == 2 : "Edge 3";
+        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("aab") == 2 : "Edge 4";
+        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("dvdf") == 3 : "Edge 5";
 
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("abcabcbb") == 3: "Example 1: abc";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("bbbbb") == 1: "Example 2: b";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("pwwkew") == 3: "Example 3: wke";
+        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("abcabcbb") == 3 : "Example 1: abc";
+        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("bbbbb") == 1 : "Example 2: b";
+        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("pwwkew") == 3 : "Example 3: wke";
 
         System.out.println("all passed");
 

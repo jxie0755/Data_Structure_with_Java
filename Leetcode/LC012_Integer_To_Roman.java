@@ -4,7 +4,7 @@ import java.util.Map;
 /**
  * p012 Integer to Roman
  * Medium
- *
+ * <p>
  * Given an integer, convert it to a roman numeral.
  * Input is guaranteed to be within the range from 1 to 3999.
  */
@@ -61,7 +61,7 @@ public class LC012_Integer_To_Roman {
         Integer[] base = new Integer[]{1000, 100, 10, 1};
         Integer[] numstr_array = new Integer[4];
         for (int i = 0; i < numstr_rjusted.length(); i += 1) {
-            numstr_array[i] = Integer.valueOf(numstr_rjusted.substring(i, i+1)) * base[i];
+            numstr_array[i] = Integer.valueOf(numstr_rjusted.substring(i, i + 1)) * base[i];
         }
 
 

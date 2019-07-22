@@ -3,7 +3,7 @@ import java.util.Arrays;
 /**
  * p026 Remove duplicates from sorted array
  * Easy
- *
+ * <p>
  * Given a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.
  * Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
  * 意思是不能再造一个新list,而是在原list上改动
@@ -33,19 +33,18 @@ public class LC026_Remove_Duplicates_From_Sorted_Array {
     }
 
 
-
     public static void main(String[] args) {
 
         int[] Q0 = new int[]{};
-        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q0) == 0: "Empty";
-        assert Arrays.equals(Q0, new int[]{}): "Empty revised list";
+        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q0) == 0 : "Empty";
+        assert Arrays.equals(Q0, new int[]{}) : "Empty revised list";
 
-        int[] Q1 = new int[]{1,1};
-        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q1) == 1: "Edge";
-        assert Arrays.equals(Q1, new int[]{1, 1}): "Edge 0 revised list";
+        int[] Q1 = new int[]{1, 1};
+        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q1) == 1 : "Edge";
+        assert Arrays.equals(Q1, new int[]{1, 1}) : "Edge 0 revised list";
 
-        int[] Q2 = new int[]{1,1,2,2,3};
-        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q2) == 3: "Example 1";
+        int[] Q2 = new int[]{1, 1, 2, 2, 3};
+        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q2) == 3 : "Example 1";
         assert Arrays.equals(Q2, new int[]{1, 2, 3, 2, 3}) : "Example 1 revised list";
 
         System.out.println("all passed");

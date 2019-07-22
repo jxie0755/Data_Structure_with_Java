@@ -1,7 +1,7 @@
 /**
  * p021 Merge two sorted list
  * Easy
- *
+ * <p>
  * Merge two sorted linked lists and return it as a new list.
  * The new list should be made by splicing together the nodes of the first two lists.
  */
@@ -33,7 +33,6 @@ public class LC021_Merge_Two_Sorted_List {
         }
 
 
-
         return head.next;
     }
 
@@ -42,7 +41,7 @@ public class LC021_Merge_Two_Sorted_List {
         ListNode l1 = ListNode.genNode(new int[]{1, 2, 4});
         ListNode l2 = ListNode.genNode(new int[]{1, 3, 4});
         ListNode l3 = ListNode.genNode(new int[]{1, 1, 2, 3, 4, 4});
-        assert new LC021_Merge_Two_Sorted_List().mergeTwoLists(l1, l2).equals(l3): "Example 1";
+        assert new LC021_Merge_Two_Sorted_List().mergeTwoLists(l1, l2).equals(l3) : "Example 1";
 
         System.out.println("all passed");
     }

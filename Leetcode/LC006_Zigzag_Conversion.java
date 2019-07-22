@@ -1,22 +1,22 @@
 /**
  * P006 ZigZag Conversion
  * Medium
- *
- *
+ * <p>
+ * <p>
  * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
  * (you may want to display this pattern in a fixed font for better legibility)
- *
+ * <p>
  * n = 3
  * P   A   H   N
  * A P L S I I G
  * Y   I   R
- *
+ * <p>
  * n = 4
  * P     I     N
  * A   L S7  I G
  * Y A   H R 11
  * P     I
- *
+ * <p>
  * And then read line by line: "PAHNAPLSIIGYIR"
  * Write the code that will take a string and make this conversion given a number of rows:
  * string convert(string s, int numRows);
@@ -53,12 +53,12 @@ public class LC006_Zigzag_Conversion {
 
     public static void main(String[] args) {
 
-        assert new LC006_Zigzag_Conversion().convert("", 3).equals(""): "Edge 1";
-        assert new LC006_Zigzag_Conversion().convert("A", 1).equals("A"): "Edge 2";
-        assert new LC006_Zigzag_Conversion().convert("AB", 1).equals("AB"): "Edge 3";
+        assert new LC006_Zigzag_Conversion().convert("", 3).equals("") : "Edge 1";
+        assert new LC006_Zigzag_Conversion().convert("A", 1).equals("A") : "Edge 2";
+        assert new LC006_Zigzag_Conversion().convert("AB", 1).equals("AB") : "Edge 3";
 
-        assert new LC006_Zigzag_Conversion().convert("PAYPALISHIRING", 3).equals("PAHNAPLSIIGYIR"): "Example 1";
-        assert new LC006_Zigzag_Conversion().convert("PAYPALISHIRING", 4).equals("PINALSIGYAHRPI"): "Example 2";
+        assert new LC006_Zigzag_Conversion().convert("PAYPALISHIRING", 3).equals("PAHNAPLSIIGYIR") : "Example 1";
+        assert new LC006_Zigzag_Conversion().convert("PAYPALISHIRING", 4).equals("PINALSIGYAHRPI") : "Example 2";
 
         System.out.println("all passed");
 
