@@ -9,18 +9,18 @@ public class Alg_Lecture_03_Stacks_and_Queues {
 
     /*
      * Stacks
-         * Examine the items most recently added
-         * Operation to the end
-         * push (insert)
-         * pop (remove)
-         * 尾进尾出
+     * Examine the items most recently added
+     * Operation to the end
+     * push (insert)
+     * pop (remove)
+     * 尾进尾出
      * Implementation
-         * Linked list
-            * Every operation takes constant time in the worst case
-            * Uses extra time and time to deal with the links
-         * Array
-            * Every operation takes constant amortized time
-            * Less wasted space
+     * Linked list
+     * Every operation takes constant time in the worst case
+     * Uses extra time and time to deal with the links
+     * Array
+     * Every operation takes constant amortized time
+     * Less wasted space
      */
 
     /*
@@ -34,9 +34,9 @@ public class Alg_Lecture_03_Stacks_and_Queues {
 
     /*
      * Generics
-        * Different implementation for each class -- before java 1.5
-        * Casting - create object container then cast into different types - unsatisfactory
-        * Generics - Discover type in the beginning - prefer compile error over runtime error
+     * Different implementation for each class -- before java 1.5
+     * Casting - create object container then cast into different types - unsatisfactory
+     * Generics - Discover type in the beginning - prefer compile error over runtime error
      */
 
 }
@@ -87,16 +87,16 @@ class algor_ArrayStackOfStrings {
 
     /*
      * This for now does not handle:
-        * Underflow (pop from empty) - Need to throw an excepttion
-        * Overflow (push beyond the capacity) - Need to implement re-size
+     * Underflow (pop from empty) - Need to throw an excepttion
+     * Overflow (push beyond the capacity) - Need to implement re-size
      */
 
     private String[] stack;
     private int idx;
 
     public algor_ArrayStackOfStrings(int capacity) {
-                                    // can not always rely on user to give a capacity
-                                    // this will be solved in the future
+        // can not always rely on user to give a capacity
+        // this will be solved in the future
         stack = new String[capacity];
         idx = 0;
     }
@@ -138,18 +138,18 @@ class algor_ArrayStackOfStringsResizable {
 
     /*
      * This is to solve:
-        * Overflow by growing the size of the array
-        * increase and decrease by 1 is not acceptable
-        * use 'repeated doubling' skill, create a new array doublig the size of the original.
-        * also shrink the array by pop() if the array is too empty
+     * Overflow by growing the size of the array
+     * increase and decrease by 1 is not acceptable
+     * use 'repeated doubling' skill, create a new array doublig the size of the original.
+     * also shrink the array by pop() if the array is too empty
      */
 
     private String[] stack;
     private int idx;
 
     public algor_ArrayStackOfStringsResizable() {
-                                    // can not always rely on user to give a capacity
-                                    // this is solved by resizing, constructor needs no capacity assignment
+        // can not always rely on user to give a capacity
+        // this is solved by resizing, constructor needs no capacity assignment
         stack = new String[1];
         idx = 0;
     }
@@ -268,8 +268,8 @@ class algor_ArrayQueueOfStringsResizable {
 
     public void resize(int N) {  // push resize method to double the array size
         String[] new_q = new String[N];
-        for (int i = 0; i < tail-head; i++) {
-            new_q[i] = this.q[i+head];
+        for (int i = 0; i < tail - head; i++) {
+            new_q[i] = this.q[i + head];
         }
         this.q = new_q;
     }
@@ -323,6 +323,7 @@ class genericLinkedStack<Item> {
 
 class genericArrayStack<Item> {
     private Item[] s;
+
     // Difficulty: Java does not allow generic array
     // have to be solved by casting
     public genericArrayStack(int capacity) {
@@ -340,7 +341,7 @@ class IterableArrayStack<Item> implements Iterable<Item> {
     Object[] s;
     int idx;
 
-    public IterableArrayStack(int N){
+    public IterableArrayStack(int N) {
         this.s = (Item[]) new Object[N];
     }
 
@@ -354,7 +355,7 @@ class IterableArrayStack<Item> implements Iterable<Item> {
 
     public void push(Item item) {
         this.s[idx] = item;
-        idx ++;
+        idx++;
     }
 
     public Item pop() {
@@ -408,25 +409,25 @@ class IterableArrayStack<Item> implements Iterable<Item> {
 
 /*
  * Application
-     * Parsing in a compiler
-     * Java virtual machine
-     * Undo in a word processor
-     * Back button in a Web browser
-     * PostScript language for printers
-     * Implementing funciton calls in a compiler
+ * Parsing in a compiler
+ * Java virtual machine
+ * Undo in a word processor
+ * Back button in a Web browser
+ * PostScript language for printers
+ * Implementing funciton calls in a compiler
  */
 
 
 /*
  * Dijkstra's two-stack algorithm
-    * calculate (1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )
-        * value stack
-            * operator stack
-        * iterator and
-            * put value in value stack
-            * put operand in operator stack
-            * igonore '('
-            * pop the last two value and operator then evaluate when ')' then put back in value stack
+ * calculate (1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )
+ * value stack
+ * operator stack
+ * iterator and
+ * put value in value stack
+ * put operand in operator stack
+ * igonore '('
+ * pop the last two value and operator then evaluate when ')' then put back in value stack
  */
 
 class DijkstraEvaluate {
@@ -436,7 +437,7 @@ class DijkstraEvaluate {
         Stack<String> ops = new Stack<String>();
         Stack<Double> vals = new Stack<Double>();
 
-        for (String s: args) {
+        for (String s : args) {
             if (s.equals("(")) {
 
             } else if (s.equals("+")) {
@@ -461,6 +462,6 @@ class DijkstraEvaluate {
 
         System.out.println(DijkstraEval(
                 new String[]{"(", "1", "+", "(", "(", "2", "+", "3", ")", "*", "(", "4", "*", "5", ")", ")", ")"}
-                ));
+        ));
     }
 }

@@ -3,7 +3,6 @@ import java.util.*;
 // 改进后使用Deque来替换List,作为堆栈的数据结构
 
 
-
 /**
  * This is to create the same sudoku solver algorithm from python version
  * from: sudoku_solver_v3.py by using HashMap
@@ -20,16 +19,16 @@ public class JavaSudokuSolver_v2 {
             "7", "8", "9"));
     // for read grid
     static final Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
-                 Map.entry(1, List.of(7, 10, 1, 4)),
-                 Map.entry(2, List.of(7, 10, 4, 7)),
-                 Map.entry(3, List.of(7, 10, 7, 10)),
-                 Map.entry(4, List.of(4, 7, 1, 4)),
-                 Map.entry(5, List.of(4, 7, 4, 7)),
-                 Map.entry(6, List.of(4, 7, 7, 10)),
-                 Map.entry(7, List.of(1, 4, 1, 4)),
-                 Map.entry(8, List.of(1, 4, 4, 7)),
-                 Map.entry(9, List.of(1, 4, 7, 10))
-     ));
+            Map.entry(1, List.of(7, 10, 1, 4)),
+            Map.entry(2, List.of(7, 10, 4, 7)),
+            Map.entry(3, List.of(7, 10, 7, 10)),
+            Map.entry(4, List.of(4, 7, 1, 4)),
+            Map.entry(5, List.of(4, 7, 4, 7)),
+            Map.entry(6, List.of(4, 7, 7, 10)),
+            Map.entry(7, List.of(1, 4, 1, 4)),
+            Map.entry(8, List.of(1, 4, 4, 7)),
+            Map.entry(9, List.of(1, 4, 7, 10))
+    ));
 
     // all coors
     List<List<Integer>> all_coors = new ArrayList<>();
@@ -82,9 +81,9 @@ public class JavaSudokuSolver_v2 {
     }
 
 
-    String process_raw(String[] row){
+    String process_raw(String[] row) {
         StringBuilder x = new StringBuilder("|");
-        for (String i: row){
+        for (String i : row) {
             if (!valid.contains(i)) {
                 x.append(".");
             } else {
@@ -164,6 +163,7 @@ public class JavaSudokuSolver_v2 {
 
 
     // 基础设施
+
     /**
      * 返回一个行的值
      */
@@ -489,10 +489,6 @@ public class JavaSudokuSolver_v2 {
 }
 
 
-
-
-
-
 class sudokuTest_v2 {
 
     public static void main(String[] args) {
@@ -512,7 +508,7 @@ class sudokuTest_v2 {
 
 
         // Test
-        JavaSudokuSolver_v2 q1 = new JavaSudokuSolver_v2 (hard_10);
+        JavaSudokuSolver_v2 q1 = new JavaSudokuSolver_v2(hard_10);
         q1.solve();
         q1.show_answer();
         q1.show_statistics();
@@ -530,14 +526,14 @@ class sudokuTest_v2 {
                 {"0", "9", "0", "0", "0", "0", "4", "0", "0"}
         };
 
-        double startTime=System.currentTimeMillis();   //获取开始时间
+        double startTime = System.currentTimeMillis();   //获取开始时间
 
         JavaSudokuSolver_v2 q2 = new JavaSudokuSolver_v2(ultimate);
         q2.solve();
         q2.show_answer();
         q2.show_statistics();
 
-        double endTime=System.currentTimeMillis(); //获取结束时间
-        System.out.println("--- "+ (endTime-startTime)/1000  + "s seconds ---");
+        double endTime = System.currentTimeMillis(); //获取结束时间
+        System.out.println("--- " + (endTime - startTime) / 1000 + "s seconds ---");
     }
 }

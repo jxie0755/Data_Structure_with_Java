@@ -3,15 +3,16 @@ package Java_OOP;
 public class C04c_Use_of_Super {
     /*
      * 学习Super的两种形式
-        * super    - super指的是父类, 用super.方法, super.变量来找父类的方法和变量
-        * super()  - super()是专门调用父类的constructor, 用于实现子类的constructor
-        * super跳跃只能跳一级,无法访问父类的父类
+     * super    - super指的是父类, 用super.方法, super.变量来找父类的方法和变量
+     * super()  - super()是专门调用父类的constructor, 用于实现子类的constructor
+     * super跳跃只能跳一级,无法访问父类的父类
      */
 }
 
 
 class C7 {
     String name;
+
     public C7(String name) {
         this.name = name;
         System.out.println("!! " + name + " !!");
@@ -41,7 +42,8 @@ class C8 extends C7 {
         super.foo(s + " <<<your father");  // super用于其他位置, 其实就是代表Parent
     }
 
-    void bar() { }
+    void bar() {
+    }
 
 }
 

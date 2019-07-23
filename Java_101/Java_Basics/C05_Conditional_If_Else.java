@@ -3,26 +3,26 @@ package Java_Basics;// 1.4
 public class C05_Conditional_If_Else {
 
     /*
-    * Same if/else, if/elif/else logic as python
-    * else if will be skipped if first "if" was true
-    * the else if and else actually does not need {} (can also have)
-    * The expressions after ‘?’ and ‘:’ must be the same type of thing; 3<4 ? 1 : "Hello" is erroneous.
-    * Single line skip {}, multiline needs {}
-    * Skip {} does not allow variable statement, as this involves scopes structure
-    * Google Java style guide: Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
-    * Blocks: STOF: https://stackoverflow.com/questions/15786949/is-there-a-difference-in-removing-the-curly-braces-from-if-statements-in-java
-    * Blacks: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html
-    * */
+     * Same if/else, if/elif/else logic as python
+     * else if will be skipped if first "if" was true
+     * the else if and else actually does not need {} (can also have)
+     * The expressions after ‘?’ and ‘:’ must be the same type of thing; 3<4 ? 1 : "Hello" is erroneous.
+     * Single line skip {}, multiline needs {}
+     * Skip {} does not allow variable statement, as this involves scopes structure
+     * Google Java style guide: Braces are used with if, else, for, do and while statements, even when the body is empty or contains only a single statement.
+     * Blocks: STOF: https://stackoverflow.com/questions/15786949/is-there-a-difference-in-removing-the-curly-braces-from-if-statements-in-java
+     * Blacks: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html
+     * */
 
     /*
      * switch语句
      * switch语句判断一个变量与一系列值中某个值是否相等，每个值称为一个分支。
-        * switch语句中的变量类型只能为byte、short、int或者char。
-        * switch语句可以拥有多个case语句。每个case后面跟一个要比较的值和冒号。
-        * case语句中的值的数据类型必须与变量的数据类型相同，而且只能是常量或者字面常量。
-        * 当变量的值与case语句的值相等时，那么case语句之后的语句开始执行，直到break语句出现才会跳出switch语句。
-        * 当遇到break语句时，switch语句终止。程序跳转到switch语句后面的语句执行。case语句不必须要包含break语句。如果没有break语句出现，程序会继续执行下一条case语句，直到出现break语句。
-        * switch语句可以包含一个default分支，该分支必须是switch语句的最后一个分支。default在没有case语句的值和变量值相等的时候执行。default分支不需要break语句。
+     * switch语句中的变量类型只能为byte、short、int或者char。
+     * switch语句可以拥有多个case语句。每个case后面跟一个要比较的值和冒号。
+     * case语句中的值的数据类型必须与变量的数据类型相同，而且只能是常量或者字面常量。
+     * 当变量的值与case语句的值相等时，那么case语句之后的语句开始执行，直到break语句出现才会跳出switch语句。
+     * 当遇到break语句时，switch语句终止。程序跳转到switch语句后面的语句执行。case语句不必须要包含break语句。如果没有break语句出现，程序会继续执行下一条case语句，直到出现break语句。
+     * switch语句可以包含一个default分支，该分支必须是switch语句的最后一个分支。default在没有case语句的值和变量值相等的时候执行。default分支不需要break语句。
      */
 
     public static void main(String[] args) {

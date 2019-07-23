@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
 public class A07b_java_util_Arrays {
 
     /*
@@ -14,33 +13,33 @@ public class A07b_java_util_Arrays {
      * Class Arrays
 
      * Arrays提供一系列操作Array的static方法, 不是这个Array类的定义
-        * binarySearch                    二分查找,需要先排序,如果不在返回 -理论i-1
-        * hashcode()
+     * binarySearch                    二分查找,需要先排序,如果不在返回 -理论i-1
+     * hashcode()
 
-        * toString                                用于打印Array
-        * deepToString​                            用于打印一个多维Array
+     * toString                                用于打印Array
+     * deepToString​                            用于打印一个多维Array
 
-        * copyOf​(int[] o, newLen)                 是浅Copy, 可以从头开始选择任意长度, 注意超长会填充数组类的默认值
-        * copyOfRange​(int[] o, idx1, idx2)        切片复制, 任意片段
+     * copyOf​(int[] o, newLen)                 是浅Copy, 可以从头开始选择任意长度, 注意超长会填充数组类的默认值
+     * copyOfRange​(int[] o, idx1, idx2)        切片复制, 任意片段
 
-        * asList                                  从Array快速创建一个不可变List
-        * deepEquals​(a1, a2)                      对比两个多维array是否相等
+     * asList                                  从Array快速创建一个不可变List
+     * deepEquals​(a1, a2)                      对比两个多维array是否相等
 
-        * fill​(int[] a, , val)                    填充
-        * fill​(int[] a, idxa,, idxb, val)         局部填充
+     * fill​(int[] a, , val)                    填充
+     * fill​(int[] a, idxa,, idxb, val)         局部填充
 
 
-        * parallelSort​(int[] a)                   并行排序, 适用于大数据, 可选片段
-        * parallelSort​(int[] a, idxa, idxb)
+     * parallelSort​(int[] a)                   并行排序, 适用于大数据, 可选片段
+     * parallelSort​(int[] a, idxa, idxb)
 
-        * sort​(int[] a)                           为串行排序, 可选片段
-        * sort​(int[] a, idxa, idxb)
+     * sort​(int[] a)                           为串行排序, 可选片段
+     * sort​(int[] a, idxa, idxb)
 
-        * mismatch​(int[] a, int[] b)              查找两个Arrays从哪个index开始发生分歧,如没有返回-1, 可以选特定子序列
-        * mismatch​(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2)
+     * mismatch​(int[] a, int[] b)              查找两个Arrays从哪个index开始发生分歧,如没有返回-1, 可以选特定子序列
+     * mismatch​(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2)
 
-        * equals​(int[] a, int[] a2)               查找两个Arrays是否相等, 可以选特定子序列
-        * equals​(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2,)
+     * equals​(int[] a, int[] a2)               查找两个Arrays是否相等, 可以选特定子序列
+     * equals​(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2,)
      */
 
     public static void main(String[] args) {
@@ -52,17 +51,17 @@ public class A07b_java_util_Arrays {
         // The array must be sorted (as by the sort(int[]) method) prior to making this call.
         // If it is not sorted, the results are undefined.
 
-        int[] intArray1 = {1,2,3,4,5,6};
+        int[] intArray1 = {1, 2, 3, 4, 5, 6};
         // return index of the search key, if it is contained in the array;
         System.out.println(Arrays.binarySearch(intArray1, 4));  // >>>  3  // index 3
         // return:  otherwise, (-(insertion point) - 1)
-        int[] intArray2 = {1,3,5,6};
+        int[] intArray2 = {1, 3, 5, 6};
         System.out.println(Arrays.binarySearch(intArray2, 4));
         // >>>  4应该在 index 2, 所以返回 -2-1 = -3
 
         // If the array contains multiple elements with the specified value,
         // there is no guarantee which one will be found
-        int[] intArray3 = {1,3,3,3,3,3,3,4,5,6};
+        int[] intArray3 = {1, 3, 3, 3, 3, 3, 3, 4, 5, 6};
         System.out.println(Arrays.binarySearch(intArray3, 3)); // >>> 4,  肯定是对的,但是没法判断它会给哪个index
 
 
@@ -76,15 +75,15 @@ public class A07b_java_util_Arrays {
         // Finds and returns the relative index of the first mismatch
         // between two int arrays over the specified ranges,
         // otherwise return -1 if no mismatch is found.
-        int[] iA1 = {1,2,3,4,5,6};
+        int[] iA1 = {1, 2, 3, 4, 5, 6};
         //           0 1 2 3 4 5
-        int[] iA2 = {1,2,3,5,6,7};
+        int[] iA2 = {1, 2, 3, 5, 6, 7};
         //           0 1 2 3 4 5
-        int[] iA3 = {1,2,3,5,6,7};
+        int[] iA3 = {1, 2, 3, 5, 6, 7};
         //           0 1 2 3 4 5
-        int[] iA4 = {2,3,5,6,7,8};
+        int[] iA4 = {2, 3, 5, 6, 7, 8};
         //           0 1 2 3 4 5
-        int[] iA5 = {1,2,3,5,6,7,8};
+        int[] iA5 = {1, 2, 3, 5, 6, 7, 8};
         //           0 1 2 3 4 5,6
 
         System.out.println(Arrays.mismatch(iA1, iA2)); // >>> 3 (index 3的时候出现不同)
@@ -97,7 +96,6 @@ public class A07b_java_util_Arrays {
         // >>> -1  (iA5 从index1开始的话,和iA4一模一样)
     }
 }
-
 
 
 // 重要的的Arrays static方法
@@ -118,7 +116,6 @@ class Arrays_toString {
 }
 
 
-
 // java.util.Arrays方法, 不是Array
 class Arrays_asList {
 
@@ -131,11 +128,11 @@ class Arrays_asList {
         List<String> strList2 = Arrays.asList(strArray1);  // >>> [A, B, C]
 
         // 但是如果类型是基本类型(int, char, etc...)
-        int intArray1[] = {21,32,43,45};
+        int intArray1[] = {21, 32, 43, 45};
         // List<Integer> intList2 = Arrays.asList(intArray1);  // 就不行!!
         // 这个错误产生的原因可解释为：asList 方法的参数必须是对象或者对象数组，而原生数据类型不是对象
         // 如果需要将一个整型数组转换为 List，那么就将数组的类型声明为 Integer 而不是 int
-        Integer intArray2[] = {21,32,43,45};
+        Integer intArray2[] = {21, 32, 43, 45};
         List<Integer> intList2 = Arrays.asList(intArray2);  // >>>  [21, 32, 43, 45]
 
         // 可以用这个List.contains()来判断一个元素是否在array中 (in array)
@@ -154,7 +151,7 @@ class Arrays_asList {
         System.out.println(intList2b); // >>> [21, 32, 43, 45, 99]
 
         // 添加上new ArrayList 很适用于快速构造一个ArrayList或者List
-        List<Integer> intL = new ArrayList<>(Arrays.asList(1,2,3,4));
+        List<Integer> intL = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
 
         // 另外注意如果直接参数就是一个数组, 返回的是这个数组的List的view, view是受限制的
         // 详见zLearnings.Java_View
@@ -201,14 +198,14 @@ class Arrays_equals {
         // 	equals​(int[] a, int[] a2)
         // 	equals​(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
 
-        int[] intArray1 = {1, 2,3,4, 5,6};
+        int[] intArray1 = {1, 2, 3, 4, 5, 6};
         //                 0  1 2 3  4 5
-        int[] intArray2 = {0,0, 2,3,4, 7};
+        int[] intArray2 = {0, 0, 2, 3, 4, 7};
         //                 0 1  2 3 4  5
 
         System.out.println(Arrays.equals(intArray1, intArray2)); // >>>  false
         System.out.println(Arrays.equals(intArray1, 1, 4,
-                                         intArray2, 2, 5)); // >>>  true
+                intArray2, 2, 5)); // >>>  true
     }
 }
 
@@ -244,10 +241,10 @@ class Arrays_copyOf {
 
         // 相当于切片slice了, 但是换了一种形式
         // copyOf​(int[] original, int newLength)
-        int[] intArray4 = {1,2,3,4,5,6};
-        int[] intArray5 = Arrays.copyOf(intArray4,3); // 小于原长度
+        int[] intArray4 = {1, 2, 3, 4, 5, 6};
+        int[] intArray5 = Arrays.copyOf(intArray4, 3); // 小于原长度
         System.out.println(Arrays.toString(intArray5)); // >>>  [1, 2, 3]
-        int[] intArray6 = Arrays.copyOf(intArray4,10); // 大于原长度, 填充默认值
+        int[] intArray6 = Arrays.copyOf(intArray4, 10); // 大于原长度, 填充默认值
         System.out.println(Arrays.toString(intArray6)); // >>>  [1, 2, 3, 4, 5, 6, 0, 0, 0, 0]
 
         int[] intArray_copy = Arrays.copyOf(intArray4, intArray4.length);
@@ -258,19 +255,19 @@ class Arrays_copyOf {
 
 
         // copyOfRange​(int[] original, int from, int to)
-        int[] intArray7 = Arrays.copyOfRange(intArray4,1, 5); // 从index1开始,长度为4
+        int[] intArray7 = Arrays.copyOfRange(intArray4, 1, 5); // 从index1开始,长度为4
         System.out.println(Arrays.toString(intArray7)); // >>>  [2, 3, 4, 5]
 
 
         // 那么copyOf到底是浅copy还是深copy呢? 是浅Copy
         // java没有自带的deepcopy,只能自己写,用for loop就可以了 (省略)
         System.out.println("\nCopy test, grid: ");
-        int[] iA1 = {1,3,5,7,9};
-        int[] iA2 = {0,2,4,6,8};
-        int[] iA3 = {9,9,9,9,9};
+        int[] iA1 = {1, 3, 5, 7, 9};
+        int[] iA2 = {0, 2, 4, 6, 8};
+        int[] iA3 = {9, 9, 9, 9, 9};
 
-        int[][] grid = {iA1,iA2,iA3};
-        for (int[] i: grid) {
+        int[][] grid = {iA1, iA2, iA3};
+        for (int[] i : grid) {
             System.out.println(Arrays.toString(i));
         }
         // >>>
@@ -280,7 +277,7 @@ class Arrays_copyOf {
 
         System.out.println("Copy of grid");
         int[][] grid_copy = Arrays.copyOf(grid, 3);
-        for (int[] i: grid_copy) {
+        for (int[] i : grid_copy) {
             System.out.println(Arrays.toString(i));
         }
         // >>>
@@ -293,7 +290,7 @@ class Arrays_copyOf {
         iA1[0] = 999;
         iA2[1] = 999;
         iA3[4] = 0;
-        for (int[] i: grid) {
+        for (int[] i : grid) {
             System.out.println(Arrays.toString(i));
         }
         // >>>
@@ -302,7 +299,7 @@ class Arrays_copyOf {
         // [9, 9, 9, 9, 0]
 
         System.out.println("Copy of grid: ");
-        for (int[] i: grid_copy) {
+        for (int[] i : grid_copy) {
             System.out.println(Arrays.toString(i));
         }
         // >>>
@@ -321,20 +318,20 @@ class Arrays_sort {
         // parallelSort​(int[] a)
         // parallelSort​(int[] a, int fromIndex, int toIndex)
         // Sorts the specified range of the array into ascending numerical order.
-        int[] iA6 = {2,3,1,5,4,0};
+        int[] iA6 = {2, 3, 1, 5, 4, 0};
         Arrays.parallelSort(iA6);
         System.out.println(Arrays.toString(iA6)); // >>> [0, 1, 2, 3, 4, 5]
-        char[] cA6 = {'z','n','l','m','6','a'};
+        char[] cA6 = {'z', 'n', 'l', 'm', '6', 'a'};
         Arrays.parallelSort(cA6, 1, 5);
         System.out.println(Arrays.toString(cA6)); // >>> [z, 6, l, m, n, a]
 
         // 为串行排序
         // sort​(int[] a)
         // sort​(int[] a, int fromIndex, int toIndex)
-        int[] iA7 = {2,3,1,5,4,0};
+        int[] iA7 = {2, 3, 1, 5, 4, 0};
         Arrays.sort(iA7);
         System.out.println(Arrays.toString(iA7)); // >>> [0, 1, 2, 3, 4, 5]
-        char[] cA7 = {'z','n','l','m','6','a'};
+        char[] cA7 = {'z', 'n', 'l', 'm', '6', 'a'};
         Arrays.sort(cA7, 1, 5);
         System.out.println(Arrays.toString(cA7)); // >>> [z, 6, l, m, n, a]
 

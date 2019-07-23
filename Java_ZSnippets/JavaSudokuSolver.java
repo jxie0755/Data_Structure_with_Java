@@ -16,16 +16,16 @@ public class JavaSudokuSolver {
             "7", "8", "9"));
     // for read grid
     static Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
-                 Map.entry(1, List.of(7, 10, 1, 4)),
-                 Map.entry(2, List.of(7, 10, 4, 7)),
-                 Map.entry(3, List.of(7, 10, 7, 10)),
-                 Map.entry(4, List.of(4, 7, 1, 4)),
-                 Map.entry(5, List.of(4, 7, 4, 7)),
-                 Map.entry(6, List.of(4, 7, 7, 10)),
-                 Map.entry(7, List.of(1, 4, 1, 4)),
-                 Map.entry(8, List.of(1, 4, 4, 7)),
-                 Map.entry(9, List.of(1, 4, 7, 10))
-     ));
+            Map.entry(1, List.of(7, 10, 1, 4)),
+            Map.entry(2, List.of(7, 10, 4, 7)),
+            Map.entry(3, List.of(7, 10, 7, 10)),
+            Map.entry(4, List.of(4, 7, 1, 4)),
+            Map.entry(5, List.of(4, 7, 4, 7)),
+            Map.entry(6, List.of(4, 7, 7, 10)),
+            Map.entry(7, List.of(1, 4, 1, 4)),
+            Map.entry(8, List.of(1, 4, 4, 7)),
+            Map.entry(9, List.of(1, 4, 7, 10))
+    ));
 
     // all coors
     List<List<Integer>> all_coors = new ArrayList<>();
@@ -76,9 +76,9 @@ public class JavaSudokuSolver {
     }
 
 
-    String process_raw(String[] row){
+    String process_raw(String[] row) {
         StringBuilder x = new StringBuilder("|");
-        for (String i: row){
+        for (String i : row) {
             if (!valid.contains(i)) {
                 x.append(".");
             } else {
@@ -129,16 +129,17 @@ public class JavaSudokuSolver {
      * Define insert movement, by adding value to the baord at coor location
      */
     void insert(List<Integer> coor, String value) {
-        this.hash_board.get(coor).get("cur").set(0,value);
+        this.hash_board.get(coor).get("cur").set(0, value);
         this.count += 1;
     }
 
     void cancel_insert(List<Integer> coor) {
-        this.hash_board.get(coor).get("cur").set(0,blank);
+        this.hash_board.get(coor).get("cur").set(0, blank);
     }
 
 
     // 基础设施
+
     /**
      * 返回一个行的值
      */
@@ -379,7 +380,7 @@ public class JavaSudokuSolver {
      */
     void hyper_move(List<Integer> coor) {
         List<String> possibles = this.hash_board.get(coor).get("possible");
-        String value = possibles.remove(possibles.size()-1);
+        String value = possibles.remove(possibles.size() - 1);
         this.hash_board.get(coor).get("tried").add(value);
         this.insert(coor, value);
         this.guess += 1;
@@ -389,8 +390,8 @@ public class JavaSudokuSolver {
      * Undo a hyper_guess, also remove the deduced history follow by the hyper_guess
      */
     void undo() {
-        List<List<Integer>> undo_deducted = this.deduct_history.remove(this.deduct_history.size()-1);
-        List<Integer> guess_deducted = this.guess_history.get(this.guess_history.size()-1);
+        List<List<Integer>> undo_deducted = this.deduct_history.remove(this.deduct_history.size() - 1);
+        List<Integer> guess_deducted = this.guess_history.get(this.guess_history.size() - 1);
         for (List<Integer> coor : undo_deducted) {
             this.cancel_insert(coor);
         }
@@ -401,7 +402,7 @@ public class JavaSudokuSolver {
      * check if last guess still have possible value
      */
     boolean last_guess_available() {
-        return this.hash_board.get(this.guess_history.get(this.guess_history.size()-1)).get("possible").size() > 0;
+        return this.hash_board.get(this.guess_history.get(this.guess_history.size() - 1)).get("possible").size() > 0;
     }
 
 
@@ -427,12 +428,12 @@ public class JavaSudokuSolver {
                     if (this.last_guess_available()) {
                         break;
                     } else {
-                        this.guess_history.remove(this.guess_history.size()-1);
+                        this.guess_history.remove(this.guess_history.size() - 1);
                         this.guess_layer.add(layer);
                         layer -= 1;
                     }
                 }
-                this.hyper_move(this.guess_history.get(this.guess_history.size()-1));
+                this.hyper_move(this.guess_history.get(this.guess_history.size() - 1));
             }
         }
         System.out.println("Problem solved!");
@@ -451,10 +452,6 @@ public class JavaSudokuSolver {
         System.out.println();
     }
 }
-
-
-
-
 
 
 class sudokuTest {
@@ -494,14 +491,14 @@ class sudokuTest {
                 {"0", "9", "0", "0", "0", "0", "4", "0", "0"}
         };
 
-        double startTime=System.currentTimeMillis();   //获取开始时间
+        double startTime = System.currentTimeMillis();   //获取开始时间
 
         JavaSudokuSolver q2 = new JavaSudokuSolver(ultimate);
         q2.solve();
         q2.show_answer();
         q2.show_statistics();
 
-        double endTime=System.currentTimeMillis(); //获取结束时间
-        System.out.println("--- "+ (endTime-startTime)/1000  + "s seconds ---");
+        double endTime = System.currentTimeMillis(); //获取结束时间
+        System.out.println("--- " + (endTime - startTime) / 1000 + "s seconds ---");
     }
 }

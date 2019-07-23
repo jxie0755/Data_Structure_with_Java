@@ -10,21 +10,21 @@ public class Alg_Lecture_04_elementary_sorts {
      * To h_sort a number of elements, first we need to be able to compare elements
      * The object type must be implementing the interface Comparable<Item>
      * Following the natural total order rule
-        * Antisymmetry: if v <= w and v >= w then v == w
-        * Transitivity: if v <= w and w <= x then v <= x
-        * Totality:     either v <= w or v >= w or both
+     * Antisymmetry: if v <= w and v >= w then v == w
+     * Transitivity: if v <= w and w <= x then v <= x
+     * Totality:     either v <= w or v >= w or both
      * Use compareTo method to compare v and w
      * v.compareTo(w)
-        * v < w return -1
-        * v == w return 0
-        * v > w return 1
+     * v < w return -1
+     * v == w return 0
+     * v > w return 1
      */
 
 
     /*
      * two quick useful sorting abstraction
-        * Less (return True if a < b else False)
-        * Exchange (swap the value of a and b)
+     * Less (return True if a < b else False)
+     * Exchange (swap the value of a and b)
      */
     private static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
@@ -40,53 +40,53 @@ public class Alg_Lecture_04_elementary_sorts {
     /*
 
      * Selection Sort
-        * Code omitted, too simple
-        * iterate and find the smallest value and swap to the first entry
-        * Then continue to do the same thing to remaining array
-        * O(N^2/2) always, regardless how the array is sorted
-        *
+     * Code omitted, too simple
+     * iterate and find the smallest value and swap to the first entry
+     * Then continue to do the same thing to remaining array
+     * O(N^2/2) always, regardless how the array is sorted
+     *
 
      * Insertion Sort
-        * start from first element a[i], iterate to the element a[j]
-            * if a[j] > a[i], then keep iterating
-            * if a[j] < a[i], then swap the two until the first j element is sorted
-        * O(N^2/4), slightly better than Selection Sort
-        * Best case: already sorted: O(N-1)
-        * Worst case: O(N^2/2) iteration, O(N^2/2) swaps, slower than Selection
+     * start from first element a[i], iterate to the element a[j]
+     * if a[j] > a[i], then keep iterating
+     * if a[j] < a[i], then swap the two until the first j element is sorted
+     * O(N^2/4), slightly better than Selection Sort
+     * Best case: already sorted: O(N-1)
+     * Worst case: O(N^2/2) iteration, O(N^2/2) swaps, slower than Selection
 
      * Shellsort
-        * Move entries more than one position at a time by h-sorting the array
-        * h-sorting is h interleaved sorted subsequences
-            * L E E A M H L E P S O L T S X R    (h = 4)
-            * L       M       P       T
-            *   E       H       S       S
-            *     E       L       O       X
-            *       A       E       L       R
-        * The code is almost the same as Insertion h_sort, except:
-            * it goes h steps back, instead of 1 step back when exchanging
-        * Why?
-            * To prepare the array to become partially sorted,
-            * so that insertion h_sort will be a lot quicker.
-        * Useful in practice
-            * Fast unless array size is huge
-            * Tiny, fixed footprint for code (used in embedded systems)
-            * Hardware sort prototype
-            * Best sequence of increment is still unknown
+     * Move entries more than one position at a time by h-sorting the array
+     * h-sorting is h interleaved sorted subsequences
+     * L E E A M H L E P S O L T S X R    (h = 4)
+     * L       M       P       T
+     *   E       H       S       S
+     *     E       L       O       X
+     *       A       E       L       R
+     * The code is almost the same as Insertion h_sort, except:
+     * it goes h steps back, instead of 1 step back when exchanging
+     * Why?
+     * To prepare the array to become partially sorted,
+     * so that insertion h_sort will be a lot quicker.
+     * Useful in practice
+     * Fast unless array size is huge
+     * Tiny, fixed footprint for code (used in embedded systems)
+     * Hardware sort prototype
+     * Best sequence of increment is still unknown
 
      * Shuflle sort
-        * How it's done
-            * An array of Integer elements (Ai)
-            * generate a random real number array (Ar) of an array (same length)
-            * Each i is a key to value r.
-            * Sort the (Ar) then move the key along, so that Ai is randomly shuffled
-        * Provide a uniformly random permutation of the input array, provided no duplicate values
-        * This needs to sort everytime, which cost a lot of resource
-        * Do we have a better way to uniformly random permutate in a linear time?
+     * How it's done
+     * An array of Integer elements (Ai)
+     * generate a random real number array (Ar) of an array (same length)
+     * Each i is a key to value r.
+     * Sort the (Ar) then move the key along, so that Ai is randomly shuffled
+     * Provide a uniformly random permutation of the input array, provided no duplicate values
+     * This needs to sort everytime, which cost a lot of resource
+     * Do we have a better way to uniformly random permutate in a linear time?
 
-        * Knuth shuffle
-            * Linear time shuffling
-            * In iteration i, pick interger r between 0 and i uniformly at random
-            * Swap a[i] and a[r]
+     * Knuth shuffle
+     * Linear time shuffling
+     * In iteration i, pick interger r between 0 and i uniformly at random
+     * Swap a[i] and a[r]
 
      */
 
@@ -128,7 +128,6 @@ class DateCompareExample implements Comparable<DateCompareExample> {
 }
 
 
-
 // Selection Sort (code skipped)
 
 // Insertion Sort
@@ -149,7 +148,7 @@ class InsertionSort {
         int N = a.length;
         for (int i = 0; i < N; i++) {
             for (int j = i; j > 0; j--) {
-                if (less(a[j], a[j-1])) {
+                if (less(a[j], a[j - 1])) {
                     exch(a, j, j - 1);
                 } else {
                     break;
@@ -184,9 +183,9 @@ class ShellSort {
 
         int N = a.length;
         for (int i = h; i < N; i++) {   // starting from index h
-            for (int j = i; j > 0; j-=h) {
-                if (j-h >= 0 && less(a[j], a[j-h])) {  // j jump back in h_steps
-                    exch(a, j, j-h);
+            for (int j = i; j > 0; j -= h) {
+                if (j - h >= 0 && less(a[j], a[j - h])) {  // j jump back in h_steps
+                    exch(a, j, j - h);
                 } else {
                     break;
                 }
@@ -259,15 +258,15 @@ class KnuthShuffle {
         }
         /*
          * bug 1:
-            * Random number r will never be 52, so card[52] can't endup in 52nd place
-            * becaseu it will always be swapped with a card before it.
+         * Random number r will never be 52, so card[52] can't endup in 52nd place
+         * becaseu it will always be swapped with a card before it.
          * bug 2:
-            * Shuffle not uniform (should be between 1 and i)
+         * Shuffle not uniform (should be between 1 and i)
          * bug 3:
-            * random() uses 32-bit seed only has 2^32 possible shuffles
-            * 52! is the total swap number, it is bigger than 2^32
+         * random() uses 32-bit seed only has 2^32 possible shuffles
+         * 52! is the total swap number, it is bigger than 2^32
          * bug 4:
-            * Seed = milliseconds since midnight 86.4 million shuffles
+         * Seed = milliseconds since midnight 86.4 million shuffles
          * Exploit: After seeing 5 cards and synchronizing with server clock, it can determine all future cards in real time.
          */
     }
@@ -283,7 +282,7 @@ class KnuthShuffle {
 
 /*
  * Convex Hull problem
-    * Convex Hull is the small convex that contains all the coordinates
-    * There are points on the corner or on the oundary. Only on the corner is true convex
-    * Out put sequence of vertices in counterclockwise order
+ * Convex Hull is the small convex that contains all the coordinates
+ * There are points on the corner or on the oundary. Only on the corner is true convex
+ * Out put sequence of vertices in counterclockwise order
  */

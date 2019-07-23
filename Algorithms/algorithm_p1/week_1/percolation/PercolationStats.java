@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
 
-    private static final double CONFIDENCE_95= 1.96;
+    private static final double CONFIDENCE_95 = 1.96;
     private int n = 0;
     private int trials = 0;
     private double[] openSiteFractionArr;
@@ -50,9 +50,9 @@ public class PercolationStats {
 
 
     /**
-     *  -----下面是定义的private方法-----
+     * -----下面是定义的private方法-----
      */
-    private static void initPercolationStatModel(String[] nums){
+    private static void initPercolationStatModel(String[] nums) {
         if (nums.length != 2) {
             throw new IllegalArgumentException();
         }
@@ -64,7 +64,7 @@ public class PercolationStats {
         System.out.println("mean = " + percolationStats.mean());
         System.out.println("stddev = " + percolationStats.stddev());
         System.out.println("95% confidence interval = [" + percolationStats.confidenceHi()
-        + ", " + percolationStats.confidenceLo() + "]");
+                + ", " + percolationStats.confidenceLo() + "]");
     }
 
     private void runModelAndGetStatResult() {

@@ -12,16 +12,16 @@ public class A14_Date_Related {
      * Java 8之前日期类是java.util.Date，Date类比较古老，其中的很多方法现在已经废弃了
      * 但是目前仍然有很多程序还在使用Date类，考虑到还有很多程序使用Date类，因此本节还是介绍一下Date类及日期时间相关类的使用
      * 此外Java 8之前与日期时间相关类还有
-         * DateFormat - 用于日期格式化
-         * Calendar   - 日历类
-         * TimeZone   - 是时区类
+     * DateFormat - 用于日期格式化
+     * Calendar   - 日历类
+     * TimeZone   - 是时区类
      */
 
     /*
      * Java 8之后提供了新的日期时间类有三个
-         * LocalDate
-         * LocalTime
-         * LocalDateTime
+     * LocalDate
+     * LocalTime
+     * LocalDateTime
      */
 }
 
@@ -36,30 +36,30 @@ class A14b_Date {
 
     /*
      *  构造方法
-         *  Date()            用当前时间创建Date对象, 精确到毫秒
-         *  Date(long date)   指定标准基准时间以来的毫秒数创建Date对象. 标准基准时间是格林威治时间1970年1月1日00:00:00
+     *  Date()            用当前时间创建Date对象, 精确到毫秒
+     *  Date(long date)   指定标准基准时间以来的毫秒数创建Date对象. 标准基准时间是格林威治时间1970年1月1日00:00:00
 
-         * boolean after(Date when)     测试此日期是否在when日期之后
-         * boolean before(Date when)    测试此日期是否在when日期之前
-         * compareTo(Date anotherDate)
+     * boolean after(Date when)     测试此日期是否在when日期之后
+     * boolean before(Date when)    测试此日期是否在when日期之前
+     * compareTo(Date anotherDate)
 
-         * long getTime()： 返回自1970年1月1日00:00:00以来此Date对象表示的毫秒数
-         * setTime(long time)： 用毫秒数time设置日期对象 time是自1970年1月1日00:00:00以来此Date对象表示的毫秒数
+     * long getTime()： 返回自1970年1月1日00:00:00以来此Date对象表示的毫秒数
+     * setTime(long time)： 用毫秒数time设置日期对象 time是自1970年1月1日00:00:00以来此Date对象表示的毫秒数
 
-                                                                     * get and set(省略) all deprecated
-                                                                         * getDate()
-                                                                         * getDay()
-                                                                         * getHours()
-                                                                         * getMinutes()
-                                                                         * getMonth()
-                                                                         * getSeonds()
-                                                                         * getYear()
+     * get and set(省略) all deprecated
+     * getDate()
+     * getDay()
+     * getHours()
+     * getMinutes()
+     * getMonth()
+     * getSeonds()
+     * getYear()
 
-                                                                     * show as a String all deprecated
-                                                                        * toGMTString()
-                                                                        * toInstant()
-                                                                        * toLocaleString()
-                                                                        * toString
+     * show as a String all deprecated
+     * toGMTString()
+     * toInstant()
+     * toLocaleString()
+     * toString
      */
 
     public static void main(String[] args) {
@@ -102,10 +102,10 @@ class A14c_DateFormat {
      * Date parse(String source)  从给定字符串的开始解析文本，以生成一个日期对象. 如果解析失败则抛出ParseException。
 
      * SimpleDateFormat构造方法
-        * SimpleDateFormat()                用默认的模式和默认语言环境的日期格式符号构造SimpleDateFormat。
-        * SimpleDateFormat(String pattern)  用给定的模式和默认语言环境的日期格式符号构造SimpleDateFormat。
+     * SimpleDateFormat()                用默认的模式和默认语言环境的日期格式符号构造SimpleDateFormat。
+     * SimpleDateFormat(String pattern)  用给定的模式和默认语言环境的日期格式符号构造SimpleDateFormat。
 
-        * parse                             从StringFormat变成Date对象 (注意处理异常)
+     * parse                             从StringFormat变成Date对象 (注意处理异常)
      */
 
     /*
@@ -146,8 +146,8 @@ class A14c_DateFormat {
         System.out.println(df2.format(date1));    // >>>  2009-02-13 18:31:30 PM
         String str = "2018-08-18 08:18:58";
         try {
-           Date date2 = df2.parse(df2.format(date1));
-        }  catch (ParseException ae){
+            Date date2 = df2.parse(df2.format(date1));
+        } catch (ParseException ae) {
             System.out.println(ae);
         }
     }
@@ -169,15 +169,15 @@ class A14d_Calendar {
 
     /*
      * 常用方法
-        * Calendar.getInstance()                       构造方法
-        * set(yyyy, mm, dd)                            设置Calendar时间
-        * set(Calendar.YEAR, yyyy)
-        * set(Calendar.MONTH, mm)
-        * set(Calendar.DATE, dd)
+     * Calendar.getInstance()                       构造方法
+     * set(yyyy, mm, dd)                            设置Calendar时间
+     * set(Calendar.YEAR, yyyy)
+     * set(Calendar.MONTH, mm)
+     * set(Calendar.DATE, dd)
 
-        * getTime                                      转化成Date实例
-        * clear                                        清除(重新初始化日历对象)
-        *
+     * getTime                                      转化成Date实例
+     * clear                                        清除(重新初始化日历对象)
+     *
      */
 
     public static void main(String[] args) {

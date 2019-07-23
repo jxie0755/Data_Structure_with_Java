@@ -7,24 +7,29 @@ import java.util.List;
 public class C03_Polymorph {
     /*
      * 因为Deer类具有多重继承，所以它具有多态性。以上实例解析如下:
-         * 一个 Deer IS-A（是一个） Animal_4
-         * 一个 Deer IS-A（是一个） Vegetarian_4
-         * 一个 Deer IS-A（是一个） Deer_4
-         * 一个 Deer IS-A（是一个） Object
+     * 一个 Deer IS-A（是一个） Animal_4
+     * 一个 Deer IS-A（是一个） Vegetarian_4
+     * 一个 Deer IS-A（是一个） Deer_4
+     * 一个 Deer IS-A（是一个） Object
      */
 }
 
 
 // 多态是同一个行为具有多个不同表现形式或形态的能力。
 
-interface Vegetarian_4{}
-
-class Animal_4{
-    void animal() {System.out.println("I am ANIMAL");}
+interface Vegetarian_4 {
 }
 
-class Deer_4 extends Animal_4 implements Vegetarian_4{
-    void deer() {System.out.println("I am DEER");}
+class Animal_4 {
+    void animal() {
+        System.out.println("I am ANIMAL");
+    }
+}
+
+class Deer_4 extends Animal_4 implements Vegetarian_4 {
+    void deer() {
+        System.out.println("I am DEER");
+    }
 }
 
 class test {
@@ -59,7 +64,7 @@ class test {
         AX.animal();           // >>>  I am ANIMAL
         // 这有什么用?  实际上这种做法很常用, 为了使得代码能够更加灵活, 忽略底层类的
         // 特别是用于interface, 因为interface不能创造实例! 比如:
-        List<Object> objList = new ArrayList<>(Arrays.asList(1,2,3));
+        List<Object> objList = new ArrayList<>(Arrays.asList(1, 2, 3));
         // 参见C07_Interface
     }
 }

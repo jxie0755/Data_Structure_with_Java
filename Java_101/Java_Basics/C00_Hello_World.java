@@ -47,19 +47,19 @@ public class C00_Hello_World {
     }
 
     public static int larger(int x, int y) {
-		if (x > y) {
-			return x;
-		}
-		return y;
-	}
+        if (x > y) {
+            return x;
+        }
+        return y;
+    }
 
     public static void main(String[] args) {  // The main has to be public
-                                              // If private, then there is nothing to execute
+        // If private, then there is nothing to execute
 
         System.out.println("Hello World"); // 打印 Hello World
 
         int x = 5;
-        int y = x +3;  // must also claim y's type
+        int y = x + 3;  // must also claim y's type
         System.out.println("From main():");
         System.out.println(y);
         System.out.println(larger(99, 101));
@@ -79,7 +79,7 @@ public class C00_Hello_World {
          * 源文件(*.java)会被编译成类文件(*.class)
          * 真正被执行的是类
          * 要执行某个程序就代表要命令java虚拟机(JVM)去加载这个类,开始执行它的main(),直到main()被执行完成
-        */
+         */
 
     }
 
@@ -90,11 +90,11 @@ public class C00_Hello_World {
     }
 
     public static int larger_tail(int x, int y) {
-		if (x > y) {
-		    return x;
-		}
-		return y;
-	}
+        if (x > y) {
+            return x;
+        }
+        return y;
+    }
 
     /*
      * public：代表着该函数访问权限是最大的

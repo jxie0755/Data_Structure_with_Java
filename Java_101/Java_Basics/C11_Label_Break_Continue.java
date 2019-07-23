@@ -14,8 +14,9 @@ public class C11_Label_Break_Continue {
 
         // 利用label和break label来实现python的for else和while else
         System.out.println("for...else...");
-        for_loop_1: {   // label the loop
-            for (int x=0; x <= 5; x = x+1) {
+        for_loop_1:
+        {   // label the loop
+            for (int x = 0; x <= 5; x = x + 1) {
                 System.out.println(x);
                 if (x == 3) {
                     System.out.print("found ");
@@ -32,8 +33,9 @@ public class C11_Label_Break_Continue {
         //3
         //found 3
 
-        for_loop_2: {
-            for (int x=0; x <= 5; x = x+1) {
+        for_loop_2:
+        {
+            for (int x = 0; x <= 5; x = x + 1) {
                 System.out.println(x);
                 if (x == 6) {
                     System.out.print("found ");
@@ -53,7 +55,8 @@ public class C11_Label_Break_Continue {
 
         System.out.println();
         System.out.println("while...else...");
-        while_loop_1: {   // label name can repeat
+        while_loop_1:
+        {   // label name can repeat
             int x = 0;
             while (x <= 5) {
                 System.out.println(x);
@@ -73,7 +76,8 @@ public class C11_Label_Break_Continue {
         //3
         //found 3
 
-        while_loop_2: {
+        while_loop_2:
+        {
             int x = 0;
             while (x <= 5) {
                 System.out.println(x);
@@ -96,14 +100,15 @@ public class C11_Label_Break_Continue {
 
 
         // 扩展: break label一次break多个loop
-        multiloop: {
-            for (int x=0; x <= 5; x = x+1) {
+        multiloop:
+        {
+            for (int x = 0; x <= 5; x = x + 1) {
                 System.out.println(x);
-                for (int y=10; y <= 15; y = y+1) {
-                System.out.println(y);
-                if (y == 13) {
-                    break multiloop;
-                }
+                for (int y = 10; y <= 15; y = y + 1) {
+                    System.out.println(y);
+                    if (y == 13) {
+                        break multiloop;
+                    }
                 }
             }
         }
@@ -115,7 +120,8 @@ public class C11_Label_Break_Continue {
         //13   // 直接break了两重for loop, 跳出multiloop
 
         // 扩展: 不止是break loop,可以break任何代码块
-        code_snippet :{
+        code_snippet:
+        {
             int x = 0;
             if (x == 5) {
                 System.out.println(x);
@@ -149,7 +155,7 @@ public class C11_Label_Break_Continue {
 
         // Continue也可以配合label
         label1:
-        for (int x = 1; x <=3; x++) {
+        for (int x = 1; x <= 3; x++) {
             for (int y = 3; y > 0; y--) {
                 if (y == x) {
                     continue label1;

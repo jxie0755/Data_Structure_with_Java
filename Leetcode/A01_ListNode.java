@@ -94,7 +94,7 @@ class ListNode {
                 Map.entry(ListNode.genNode(new int[]{40, 50, 60}), 1),
                 Map.entry(ListNode.genNode(new int[]{70, 80, 90}), 2),
                 Map.entry(X, 3)
-                ));
+        ));
 
         System.out.println(hmp);
         // >>> {ListNode@4e04a765=3, ListNode@735f7ae5=2, ListNode@17550481=1, ListNode@783e6358=0}

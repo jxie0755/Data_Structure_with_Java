@@ -11,8 +11,8 @@ public class C08_Generics {
 
     /*
      * bug可分为两种
-        * 编译时错误 - 编译时错误在编译时可以发现并排除
-        * 运行时错误 - 而运行时错误具有很大的不确定性，在程序运行时才能发现，后果严重
+     * 编译时错误 - 编译时错误在编译时可以发现并排除
+     * 运行时错误 - 而运行时错误具有很大的不确定性，在程序运行时才能发现，后果严重
      */
 
 
@@ -38,13 +38,23 @@ class Box {
     private Object object;
     // set()方法可以接受任何java对象作为参数
 
-    public void set(Object object) { this.object = object; }
-    public Object get() { return object; }
+    public void set(Object object) {
+        this.object = object;
+    }
+
+    public Object get() {
+        return object;
+    }
 
     // 如果不用泛型, 对于generic_box如果要支持多个数据类型, 需要重载方法
-    void write(Integer i, Integer[] ia){}
-    void write(Double  d, Double[] da){}
-    void write(Long l, Long[] la){}
+    void write(Integer i, Integer[] ia) {
+    }
+
+    void write(Double d, Double[] da) {
+    }
+
+    void write(Long l, Long[] la) {
+    }
 }
 
 class Box_Test {
@@ -53,7 +63,7 @@ class Box_Test {
         Box box = new Box();
         box.set("abc");                   // 往box里装了一个String
         // Integer a = (Integer)box.get();   // 但是取出来的时候声明取的是Integer, 这里不会报错
-                     // 注意这里也是用上了向下转型(但没用if所以不安全)
+        // 注意这里也是用上了向下转型(但没用if所以不安全)
         // System.out.println(a);  // 从而就制造了一个bug, 因为box里装的不是Integer
     }
 }
@@ -62,11 +72,17 @@ class Box_Test {
 class Generic_Box<T> {   // 当我们使用该类时会指定T的具体类型，该类型参数可以是类、接口、数组等，但是不能是基本类型
     private T t;
 
-    public void set(T t) { this.t = t; }
-    public T get() { return t; }
+    public void set(T t) {
+        this.t = t;
+    }
+
+    public T get() {
+        return t;
+    }
 
     // 如果使用泛型来做write()就会简单
-    <T> void write(T t, T[] ta){}
+    <T> void write(T t, T[] ta) {
+    }
 
 }
 
@@ -82,10 +98,10 @@ class Generic_Box_Test {
 }
 
 
-
 // 泛型的继承
 interface Pair<K, V> {
     K getKey();
+
     V getValue();
 }
 
@@ -102,6 +118,7 @@ class OrderedPair<K, V> implements Pair<K, V> {
     public K getKey() {
         return key;
     }
+
     public V getValue() {
         return value;
     }
@@ -114,11 +131,11 @@ class Pair_test {
         Pair<String, String> p2 = new OrderedPair<String, String>("hello", "world");
 
         //也可以将new后面的类型参数省略，简写为：
-        Pair<String,Integer> p3 = new OrderedPair<>("Even", 8);
+        Pair<String, Integer> p3 = new OrderedPair<>("Even", 8);
 
         //也可以在尖括号内使用带有类型变量的类型变量，例如：
         OrderedPair<String, ArrayList<Integer>> p4 = new OrderedPair<>("primes", new ArrayList<>(123));
-                                                                                            // |--- 同样可以省略
+        // |--- 同样可以省略
     }
 }
 
@@ -156,7 +173,9 @@ class Util_Test {
 
 class Generic_Box_Num<T extends Number> extends Generic_Box {  //类型参数限定为Number的子类
 
-    public void print_class() { System.out.println(this.get().getClass().getName()); }
+    public void print_class() {
+        System.out.println(this.get().getClass().getName());
+    }
 
     public static void main(String[] args) {
 
@@ -178,21 +197,21 @@ class Generic_Box_Num<T extends Number> extends Generic_Box {  //类型参数限
 class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子类
     private ArrayList<T> contents;
 
-    Generic_Box_Num_2(){
+    Generic_Box_Num_2() {
         this.contents = new ArrayList<>();
     }
 
-    void add(T t){
+    void add(T t) {
         this.contents.add(t);
     }
 
-     void fill(T[] ta){
-        for (T t: ta) {
+    void fill(T[] ta) {
+        for (T t : ta) {
             this.contents.add(t);
         }
     }
 
-    void print_contents(){
+    void print_contents() {
         System.out.println(this.contents);
     }
 
@@ -205,7 +224,7 @@ class Generic_Box_Num_2<T extends Number> {  //类型参数限定为Number的子
         box1.add(456.789);
         box1.print_contents();
         // >>> [123, 456.789]   这里box可以同时支持放入Integer和Double, 因为它们都是Number的子类\
-        box1.fill(new Short[]{10,20,30});
+        box1.fill(new Short[]{10, 20, 30});
         box1.print_contents();  // >>> [123, 456.789, 10, 20, 30]
     }
 }
@@ -361,7 +380,7 @@ class WildcardScenarios {
     // }
 
     // 该方法可以确保编译器通过通配符捕获来推断出参数类型
-    void  foo_fix(List<?> i) {  // 不能前置<?>, 借用private方法来处理
+    void foo_fix(List<?> i) {  // 不能前置<?>, 借用private方法来处理
         fooHelper(i);
     }
 
@@ -373,24 +392,24 @@ class WildcardScenarios {
 /*
  * 什么时候该使用上限通配符，什么时候该使用下限通配符，应该遵循一下几项指导规则。
  * 首先将变量分为in-变量与out-变量:
-     * in-变量持有为当前代码服务的数据
-     * out-变量持有其他地方需要使用的数据
-        * 例如copy(src, dest)方法实现了从src源头将数据复制到dest目的地的功能，那么src就是in-变量，而dest就是out-变量
-        * 当然，在一些情况下，一个变量可能既是in-变量也是out-变量
-            * in-变量使用上限通配符
-            * out-变量使用下限通配符
-            * 当in-变量可以被Object类中的方法访问时，使用无限定通配符
-            * 一个变量既是in-变量也是out-变量时，不使用通配符
-        * 注意，上面的规则不适用于方法的返回类型
+ * in-变量持有为当前代码服务的数据
+ * out-变量持有其他地方需要使用的数据
+ * 例如copy(src, dest)方法实现了从src源头将数据复制到dest目的地的功能，那么src就是in-变量，而dest就是out-变量
+ * 当然，在一些情况下，一个变量可能既是in-变量也是out-变量
+ * in-变量使用上限通配符
+ * out-变量使用下限通配符
+ * 当in-变量可以被Object类中的方法访问时，使用无限定通配符
+ * 一个变量既是in-变量也是out-变量时，不使用通配符
+ * 注意，上面的规则不适用于方法的返回类型
  */
 
 
 // 类型擦除
 /*
  * java编译器在处理泛型的时候，会做下面几件事：
-     * （1）将没有限定的类型参数用Object替换，保证class文件中只含有正常的类、接口与方法；
-     * （2）在必要的时候进行类型转换，保证类型安全；
-     * （3）在泛型的继承上使用桥接方法（bridge methods）保持多态性。
+ * （1）将没有限定的类型参数用Object替换，保证class文件中只含有正常的类、接口与方法；
+ * （2）在必要的时候进行类型转换，保证类型安全；
+ * （3）在泛型的继承上使用桥接方法（bridge methods）保持多态性。
  * 这类操作被称为类型擦除。
  */
 
@@ -421,7 +440,9 @@ class Node_compiler {
         this.next = next;
     }
 
-    public Object getData() { return data; }
+    public Object getData() {
+        return data;
+    }
     // ...
 }
 
@@ -455,7 +476,9 @@ class Node_generics_compiler {
         this.next = next;
     }
 
-    public Comparable getData() { return data;}
+    public Comparable getData() {
+        return data;
+    }
     //...
 }
 
@@ -465,17 +488,21 @@ class Node_suprise<T> {
 
     public T data;
 
-    public Node_suprise(T data) { this.data = data; }
+    public Node_suprise(T data) {
+        this.data = data;
+    }
 
     public void setData(T data) {
-       System.out.println("Node.setData");
+        System.out.println("Node.setData");
         this.data = data;
     }
 }
 
 class MyNode extends Node_suprise<Integer> {
 
-    public MyNode(Integer data) { super(data); }
+    public MyNode(Integer data) {
+        super(data);
+    }
 
     public void setData(Integer data) {
         System.out.println("MyNode.setData");
@@ -505,8 +532,6 @@ class MyNode_Test {
          */
     }
 }
-
-
 
 
 // 最后: 注意事项

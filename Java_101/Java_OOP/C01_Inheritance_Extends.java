@@ -4,11 +4,11 @@ public class C01_Inheritance_Extends {
 
     /*
      * 通过使用关键字extends，子类可以继承父类的除private属性外所有的属性
-         * Animal类是Mammal类的父类。
-         * Animal类是Reptile类的父类。
-         * Mammal类和Reptile类是Animal类的子类。
-         * Dog类既是Mammal类的子类又是Animal类的子类。
-         * 注意, 子类不继承父类的static方法, static方法时属于类的, 不属于对象, 也就不存在继承之说
+     * Animal类是Mammal类的父类。
+     * Animal类是Reptile类的父类。
+     * Mammal类和Reptile类是Animal类的子类。
+     * Dog类既是Mammal类的子类又是Animal类的子类。
+     * 注意, 子类不继承父类的static方法, static方法时属于类的, 不属于对象, 也就不存在继承之说
      */
 
 }
@@ -16,17 +16,17 @@ public class C01_Inheritance_Extends {
 // Inheritance
 
 // Use of extends (Is-A关系)
-class Animal{
+class Animal {
 }
 
 
-class Mammal extends Animal{
+class Mammal extends Animal {
 }
 
-class Reptile extends Animal{
+class Reptile extends Animal {
 }
 
-class Dog extends Mammal{
+class Dog extends Mammal {
 
     public static void main(String[] args) {
         Animal a = new Animal();
@@ -77,15 +77,15 @@ class Vehicle {
 
 }
 
-class SUV extends Vehicle{
+class SUV extends Vehicle {
 
-    public SUV (int year, String build, String model, int MaxSpeed){
+    public SUV(int year, String build, String model, int MaxSpeed) {
         super(year, build, model, MaxSpeed);
     }
 
 }
 
-class Speed{
+class Speed {
     /*
      * Vehicle has speed. Van also has speed
      * 这样就不用将Speed类的全部代码粘贴到Van类中了

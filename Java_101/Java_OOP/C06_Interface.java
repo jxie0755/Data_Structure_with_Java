@@ -4,21 +4,21 @@ public class C06_Interface {
 
     /*
      * 比抽象类更加抽象的是接口， 在接口中所有的方法都是抽象的。
-        * Java 8之后接口中新增加了默认方法， 因此“接口中所有的方法都是抽象的”这个提法在Java 8之后是有待商榷。
+     * Java 8之后接口中新增加了默认方法， 因此“接口中所有的方法都是抽象的”这个提法在Java 8之后是有待商榷。
 
      * 接口Interface 在JAVA编程语言中是一个抽象类型，是抽象方法的集合，接口通常以interface来声明
-        * 一个类通过继承接口的方式，从而来继承接口的抽象方法
+     * 一个类通过继承接口的方式，从而来继承接口的抽象方法
      * 接口并不是类，编写接口的方式和类很相似，但是它们属于不同的概念
-        * 类描述对象的属性和方法。接口则包含类要实现的方法
+     * 类描述对象的属性和方法。接口则包含类要实现的方法
      * 除非实现接口的类是抽象类，否则该类要定义接口中的所有方法
-        * 接口无法 直接 实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类
-        * 另外，在Java中，接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象
+     * 接口无法 直接 实例化，但是可以被实现。一个实现接口的类，必须实现接口内所描述的所有方法，否则就必须声明为抽象类
+     * 另外，在Java中，接口类型可用来声明一个变量，他们可以成为一个空指针，或是被绑定在一个以此接口实现的对象
      */
 
     /*
      * 接口和抽象类的设计目的就是不一样的。接口是对动作的抽象，而抽象类是对根源的抽象
-        * 对于抽象类，比如男人，女人这两个类，那我们可以为这两个类设计一个更高级别的抽象类--人。
-        * 对于接口，我们可以坐着吃饭，可以站着吃饭，可以用筷子吃饭，可以用叉子吃饭，甚至可以学三哥一样用手抓着吃饭，那么可以把这些吃饭的动作抽象成一个接口--吃饭
+     * 对于抽象类，比如男人，女人这两个类，那我们可以为这两个类设计一个更高级别的抽象类--人。
+     * 对于接口，我们可以坐着吃饭，可以站着吃饭，可以用筷子吃饭，可以用叉子吃饭，甚至可以学三哥一样用手抓着吃饭，那么可以把这些吃饭的动作抽象成一个接口--吃饭
 
      * 面向接口编程，你关心的是这些对象的行为特性，而不是具体实现。
      * 比如Map只关心可以根据名字获取值，而不关心是用链表实现的，是用数组实现的，使用哈希表实现的，还是用二叉树实现的。
@@ -27,44 +27,44 @@ public class C06_Interface {
 
     /*
      * 接口与类相似点:
-        * 一个接口可以有多个方法
-        * 接口文件保存在.java结尾的文件中，文件名使用接口名
-        * 接口的字节码文件保存在.class结尾的文件中
-        * 接口相应的字节码文件必须在与包名称相匹配的目录结构中
+     * 一个接口可以有多个方法
+     * 接口文件保存在.java结尾的文件中，文件名使用接口名
+     * 接口的字节码文件保存在.class结尾的文件中
+     * 接口相应的字节码文件必须在与包名称相匹配的目录结构中
 
      * 接口与类的区别：
-        * 接口没有构造方法
-        * 接口不能用于直接实例化对象
-            * 可以通过子类向上转型UpCasting
-        * 接口中所有的方法必须是抽象方法 (除非是static)
-            * 默认为public abstract (即使不写出来)
-        * 接口不能包含成员变量，除了static和final变量
-            * 在接口中成员变量都默认是static final变量， 即省略了public static final修饰符
-        * 接口不是被类继承了，而是要被类实现
-        * 接口支持多重继承
+     * 接口没有构造方法
+     * 接口不能用于直接实例化对象
+     * 可以通过子类向上转型UpCasting
+     * 接口中所有的方法必须是抽象方法 (除非是static)
+     * 默认为public abstract (即使不写出来)
+     * 接口不能包含成员变量，除了static和final变量
+     * 在接口中成员变量都默认是static final变量， 即省略了public static final修饰符
+     * 接口不是被类继承了，而是要被类实现
+     * 接口支持多重继承
 
      * 总结接口特性
-        * 接口不可能是private,但是可以是default或者public (因此需要声明public)
-        * 接口是默认抽象的，当声明一个接口的时候，不必使用abstract关键字。
-        * 接口中每一个方法也是默认抽象的，声明时同样不需要abstract关键子。
-        * 接口中的方法都是public absrtact的, 除非static方法
+     * 接口不可能是private,但是可以是default或者public (因此需要声明public)
+     * 接口是默认抽象的，当声明一个接口的时候，不必使用abstract关键字。
+     * 接口中每一个方法也是默认抽象的，声明时同样不需要abstract关键子。
+     * 接口中的方法都是public absrtact的, 除非static方法
      */
 
     /*
      * 在实现接口的时候，也要注意一些规则：
-        * 在Java中，类的多重继承是不合法，但接口允许多重继承
-        * 一个类可以同时实现多个接口
-        * 一个类只能继承一个类，但是能实现多个接口
-        * 一个接口只能单继承另一个接口，这和类之间的继承比较相似
+     * 在Java中，类的多重继承是不合法，但接口允许多重继承
+     * 一个类可以同时实现多个接口
+     * 一个类只能继承一个类，但是能实现多个接口
+     * 一个接口只能单继承另一个接口，这和类之间的继承比较相似
      */
 
     /*
      * 建立一个公共的父接口:
-        * 正如EventListener接口，这是由几十个其他接口扩展的Java API，你可以使用一个标记接口来建立一组接口的父接口。
-        * 例如：当一个接口继承了EventListener接口，Java虚拟机(JVM)就知道该接口将要被用于一个事件的代理方案。
+     * 正如EventListener接口，这是由几十个其他接口扩展的Java API，你可以使用一个标记接口来建立一组接口的父接口。
+     * 例如：当一个接口继承了EventListener接口，Java虚拟机(JVM)就知道该接口将要被用于一个事件的代理方案。
      * 向一个类添加数据类型:
-        * 这种情况是标记接口最初的目的，实现标记接口的类不需要定义任何接口方法(因为标记接口根本就没有方法)，
-        * 但是该类通过多态性变成一个接口类型。
+     * 这种情况是标记接口最初的目的，实现标记接口的类不需要定义任何接口方法(因为标记接口根本就没有方法)，
+     * 但是该类通过多态性变成一个接口类型。
      */
 
     /*
@@ -77,15 +77,14 @@ public class C06_Interface {
     /*
      * Java8 接口新特性
      * Java 8之前， 尽管Java语言中接口已经非常优秀了， 但相比其他面向对象的语言而言Java接口存在如下不足之处：
-        * 不能可选实现方法， 接口的方法全部是抽象的， 实现接口时必须全部实现接口中方法， 哪怕是有些方法并不需要， 也必须实现。
-        * 没有静态方法
-            * 实现接口时接口中原有的抽象方法在实现类中必须实现
-            * 默认方法可以根据需要有选择实现（覆盖）
-            * 静态方法不需要实现， 实现类中不能拥有接口中的静态方法
+     * 不能可选实现方法， 接口的方法全部是抽象的， 实现接口时必须全部实现接口中方法， 哪怕是有些方法并不需要， 也必须实现。
+     * 没有静态方法
+     * 实现接口时接口中原有的抽象方法在实现类中必须实现
+     * 默认方法可以根据需要有选择实现（覆盖）
+     * 静态方法不需要实现， 实现类中不能拥有接口中的静态方法
      */
 
 }
-
 
 
 interface Animal_5 {
@@ -96,6 +95,7 @@ interface Animal_5 {
 
     // 接口是管理动作的, 不需要初始化实例, 如果需要就不应该做成interface而是做成抽象类或者别的
     public void eat();           // 默认就是抽象方法, 但是可以省略public字符, 因为方法必须被子类实现
+
     abstract void travel();      // 默认就是抽象方法, 但是可以省略abstract字符
 
     // 注意: 静态方法还是需要声明完整, 而且子类不必继承!!(java8)特性
@@ -118,7 +118,7 @@ class Mammal_5 implements Animal_5 {
     String name;
     String type = "Mammal";
 
-    public Mammal_5 (String m_name){
+    public Mammal_5(String m_name) {
         this.name = m_name;
     }
 
@@ -126,6 +126,7 @@ class Mammal_5 implements Animal_5 {
     public void eat() {
         System.out.println("Mammal eats");
     }
+
     public void travel() {
         System.out.println("Mammal travels");
     }
@@ -164,47 +165,59 @@ class Mammal_5 implements Animal_5 {
 }
 
 
-
 // interface的继承, 和多重实现
 interface Sports {
-   void sports1();
-   void sports2();
+    void sports1();
+
+    void sports2();
 }
 
 interface Football extends Sports {
-   void football1(int points);
-   void football2(int points);
+    void football1(int points);
+
+    void football2(int points);
 }
 
 interface Events {
-   int event1(int time);
+    int event1(int time);
 
     // 接口中方法若重复怎么办?
     String football1(String name);
+
     String football2(String name);
 }
 
-interface EPL extends Football, Events { }
+interface EPL extends Football, Events {
+}
 
 
 // 这里演示一个类继承多个接口
 class PremierLeauge_Game_1 implements Football, Events {
 
     // 由于Football继承了Sports的两个方法, 所以在实现类中必须定义全部Football和Sports四个方法
-    public void sports1() { }
-    public void sports2() { }
-    public void football1(int points) { }
-    public void football2(int points) { }
+    public void sports1() {
+    }
+
+    public void sports2() {
+    }
+
+    public void football1(int points) {
+    }
+
+    public void football2(int points) {
+    }
 
     // 另外还要实现多重继承的Events类的方法
     public int event1(int time) {
         return time;
     }
+
     // 虽然football1和football2的方法有了,但是可以重载来实现Events里的方法
-    public String football1(String name){
+    public String football1(String name) {
         return name;
     }
-    public String football2(String name){
+
+    public String football2(String name) {
         return name;
     }
 
@@ -216,7 +229,8 @@ class PremierLeauge_Game_1 implements Football, Events {
 
 
 // 空接口 (标记接口)
-interface EventListener_X {}
+interface EventListener_X {
+}
 
 
 
@@ -228,12 +242,14 @@ interface EventListener_X {}
  */
 
 interface Friend_X {
-    void play() ;
+    void play();
+
     void beFriendly();
 }
 
 interface Pet_X {
-    void play() ;
+    void play();
+
     void beFriendly();
 }
 
@@ -243,8 +259,10 @@ class Dog_X implements Friend_X, Pet_X {
     public void play() {
         System.out.println();
     }
+
     @Override
-    public void beFriendly(){}
+    public void beFriendly() {
+    }
 }
 
 // 还有一种方法就是使用内部类
@@ -253,13 +271,16 @@ class Dog_Y implements Friend_X {
     public void play() {
         System.out.println("Play as Friend");
     }
+
     public void beFriendly() {
         System.out.println("Friendly Friend");
     }
+
     public static class Dog_Y2 implements Pet_X { // 注意内部类要static
         public void play() {
-        System.out.println("Play as Pet");
+            System.out.println("Play as Pet");
         }
+
         public void beFriendly() {
             System.out.println("Friendly Pet");
         }
@@ -283,16 +304,18 @@ class Test {
 // 如果接口要实例化，就涉及到多态
 interface Intf {
     void fook();
+
     void bark();
 }
 
 class CCC implements Intf {
     String name;
-    CCC (String name) {
+
+    CCC(String name) {
         this.name = name;
     }
 
-    public void fook(){
+    public void fook() {
         System.out.println("foo");
     }
 
@@ -300,7 +323,7 @@ class CCC implements Intf {
         System.out.println("bar");
     }
 
-    public  void foobar() {
+    public void foobar() {
         System.out.println("foobar");
     }
 }

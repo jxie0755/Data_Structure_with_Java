@@ -5,15 +5,15 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
     /**
-     *  n = 3
-     *  其数组sites
-     *
-     *  [top]    [ ]    [ ]    [ ]
-     *  [ ]      [1]     [2]    [3]
-     *  [ ]      [4]     [5]    [6]
-     *  [bottom] [7]     [8]    [9]
-     *
-     *  实际的则是 1~9这一块是操作的。
+     * n = 3
+     * 其数组sites
+     * <p>
+     * [top]    [ ]    [ ]    [ ]
+     * [ ]      [1]     [2]    [3]
+     * [ ]      [4]     [5]    [6]
+     * [bottom] [7]     [8]    [9]
+     * <p>
+     * 实际的则是 1~9这一块是操作的。
      */
     private int n;
     private int numOfOpenSites = 0;
@@ -62,9 +62,8 @@ public class Percolation {
     }
 
     // is site (row, col) open?
-    public boolean isOpen(int row, int col)
-    {
-        if (! isValidateValue(row, col)) {
+    public boolean isOpen(int row, int col) {
+        if (!isValidateValue(row, col)) {
             throw new IllegalArgumentException();
         }
         return sites[row][col];
@@ -75,8 +74,7 @@ public class Percolation {
     // can be connected to an open site in the top
     // row via a chain of neighboring (left, right, up, down)
     // open sites.
-    public boolean isFull(int row, int col)
-    {
+    public boolean isFull(int row, int col) {
         if (!isValidateValue(row, col)) {
             throw new IllegalArgumentException();
         }
@@ -88,16 +86,14 @@ public class Percolation {
     }
 
     // number of open sites
-    public int numberOfOpenSites()
-    {
+    public int numberOfOpenSites() {
         return numOfOpenSites;
     }
 
     // does the system percolate?
     // We say the system percolates
     // if there is a full site in the bottom row.
-    public boolean percolates()
-    {
+    public boolean percolates() {
         if (n == 1) {
             return isOpen(1, 1);
         }
@@ -105,7 +101,7 @@ public class Percolation {
     }
 
     /**
-     *  ---- 单独加的private方法 ----
+     * ---- 单独加的private方法 ----
      */
     // 初始化连接上面的定点和第一层，以及连接最后一层
     private void connectTopAndBottomNode() {
@@ -138,7 +134,7 @@ public class Percolation {
     }
 
     // 返回其具体的位置
-    private int getSiteInUfModel (int row, int col) {
+    private int getSiteInUfModel(int row, int col) {
         return (row - 1) * n + col;
     }
 
@@ -149,8 +145,7 @@ public class Percolation {
     }
 
     // test client (optional)
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         In in = new In("http://coursera.cs.princeton.edu/algs4/testing/percolation/input20.txt");
         int n = in.readInt();
 

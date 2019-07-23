@@ -13,9 +13,9 @@ public class A07_Array {
      * Class Array
 
      * 在计算机语言中数组是非常重要的集合类型， 大部分计算机语言中数组具有如下三个基本特性：
-         * 01. 一致性： 数组只能保存相同数据类型元素， 元素的数据类型可以是任何相同的数据类型。
-         * 02. 有序性： 数组中的元素是有序的， 通过下标访问。
-         * 03. 不可变性： 数组一旦初始化， 则长度（数组中元素的个数） 不可变
+     * 01. 一致性： 数组只能保存相同数据类型元素， 元素的数据类型可以是任何相同的数据类型。
+     * 02. 有序性： 数组中的元素是有序的， 通过下标访问。
+     * 03. 不可变性： 数组一旦初始化， 则长度（数组中元素的个数） 不可变
 
      * Java中数组的下标是从零开始
      * Java中的数组本身是引用数据类型， 它的长度属性是length
@@ -25,18 +25,18 @@ public class A07_Array {
 
     /*
      * Array 常用方法
-        * .length                          属性, array长度
-        * Array.getLength(arrayName)       长度             # 二者几乎没区别
+     * .length                          属性, array长度
+     * Array.getLength(arrayName)       长度             # 二者几乎没区别
 
-        * 切片式 get和set
-            * ArrayName[idx]             ---> get
-            * ArrayName[idx] == newValue ---> set
+     * 切片式 get和set
+     * ArrayName[idx]             ---> get
+     * ArrayName[idx] == newValue ---> set
 
-        * 非切片式 get和set
-            * Array.get(ArrayName, idx)
-            * Array.set(ArrayName, idx, value);
+     * 非切片式 get和set
+     * Array.get(ArrayName, idx)
+     * Array.set(ArrayName, idx, value);
 
-        * 注意切片时不能改长度的,所以没有添加和删除的方法
+     * 注意切片时不能改长度的,所以没有添加和删除的方法
      */
 
     public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class A07_Array {
         // System.out.println(A);  Not initialized, only created a null point (linked list)
         A = new int[]{1, 2, 3};   // 必须填充一些内容或者给出长度
         A = new int[100];  // this create a new int list of length at 100
-        int Tarray[] = new int[]{1,2,3};  // This expression will also work
+        int Tarray[] = new int[]{1, 2, 3};  // This expression will also work
         System.out.println(Tarray[1]);  // >>> 2
         // int T[] = new int[3]{1,2,3};
         // Error:(57, 29) java: array creation with both dimension expression and initialization is illegal
@@ -54,7 +54,7 @@ public class A07_Array {
         // direct call elements
         System.out.println(A[0]);            // >>> 1
         System.out.println(A[1]);            // >>> 1
-        System.out.println(A[A.length-1]);   // >>> 1
+        System.out.println(A[A.length - 1]);   // >>> 1
         // System.out.println(A[-1]);            // negative index is not allowed in java as in python
 
         // length
@@ -66,7 +66,7 @@ public class A07_Array {
 
         // 一维数组
         //静态初始化int数组,声明同时初始化数组
-        int intArray1[] = {21,32,43,45};
+        int intArray1[] = {21, 32, 43, 45};
         String strArray1[] = {"A", "B", "C"};
         char[] chaArray = new char[5];
         char cc1 = chaArray[0];
@@ -84,7 +84,7 @@ public class A07_Array {
 
         // boolean Arrays
         boolean[] b1 = new boolean[3];  // Initiation is always filled wilth false
-        for (boolean j: b1) {
+        for (boolean j : b1) {
             System.out.println(j);
         }
         // >>>
@@ -93,10 +93,9 @@ public class A07_Array {
         // false
 
 
-
         // get方法
         // getLength
-        int intArray3[] = {21,32,43,45};
+        int intArray3[] = {21, 32, 43, 45};
         System.out.println(Array.getLength(intArray3));     // >>> 4
         // get
         System.out.println(Array.get(intArray3, 2));  // >>>  43
@@ -105,7 +104,7 @@ public class A07_Array {
         System.out.println(Array.getBoolean(b1, 1)); // >>> false
 
         // set方法
-        Array.set(intArray3,0, 99);
+        Array.set(intArray3, 0, 99);
         System.out.println(Arrays.toString(intArray3));  // >>> [99, 32, 43, 45]
         // set也有专门针对各种其他基本类型的方法比如setBoolean等等
     }
@@ -131,14 +130,14 @@ class BoxedArrays {
         // 所以a变了不会导致strArray变了
 
         // 若是可变类型的数组 (二维数组), 就会出现数组元素变化导致数组变化
-        int[] aa = new int[]{1,3,5,7};
-        int[] bb = new int[]{2,5,8,11};
-        int[] cc = new int[]{3,7,11,15};
+        int[] aa = new int[]{1, 3, 5, 7};
+        int[] bb = new int[]{2, 5, 8, 11};
+        int[] cc = new int[]{3, 7, 11, 15};
 
-        int[][] A = {aa,bb, cc};
+        int[][] A = {aa, bb, cc};
 
         // 打印grid
-        for (int i=0; i<3; i+=1) {
+        for (int i = 0; i < 3; i += 1) {
             System.out.println(Arrays.toString(A[i]));
             // >>>
             // [1, 3, 5, 7]
@@ -151,7 +150,7 @@ class BoxedArrays {
         bb[1] = 99;
         // 若是改变aa,则同样会改变A中的aa
 
-        for (int i=0; i<3; i+=1) {
+        for (int i = 0; i < 3; i += 1) {
             System.out.println(Arrays.toString(A[i]));
             // >>>
             // [123, 3, 5, 7]
@@ -162,12 +161,14 @@ class BoxedArrays {
 }
 
 
-
 class Array_Application {
     // Practice of finding primes with The Sieve of Eratosthenes
-    /** Returns an array, p, of size N+1 such that p[k] is true iff
-      * k is a prime. */
-    public static boolean[] primes (int n) {
+
+    /**
+     * Returns an array, p, of size N+1 such that p[k] is true iff
+     * k is a prime.
+     */
+    public static boolean[] primes(int n) {
         boolean[] prime_sieve = new boolean[n + 1];  // a list of boolean length at n+1, initialized list will be all false!
         // All entries are initially true.
         Arrays.fill(prime_sieve, true);
@@ -198,7 +199,6 @@ class Array_Application {
         // 13
         // 17
         // 19
-
 
 
         int[] iii = new int[9];

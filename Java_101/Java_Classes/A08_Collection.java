@@ -12,38 +12,38 @@ public class A08_Collection {
      * Collection上接Iterable父接口
 
      * Colection下接:
-        * List接口
+     * List接口
      * ArrayList、LinkedList、Vector、Stack
-        * Set接口
+     * Set接口
      * HashSet、LinkedHashSet、TreeSet
-        * Queue
-            * Deque接口 既继承Collection也继承Queue
-            * LinkedList 也继承于Deque和Queue
+     * Queue
+     * Deque接口 既继承Collection也继承Queue
+     * LinkedList 也继承于Deque和Queue
      */
 
     /*
      * Collection 常用方法
-         * 因为Collection子类有Set是无序的, 所以Collection作为通用方法不带任何index参数
+     * 因为Collection子类有Set是无序的, 所以Collection作为通用方法不带任何index参数
 
-         * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
-         * size()
-         * clear()                             清空
-         * isEmpty()                           size==0?
+     * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
+     * size()
+     * clear()                             清空
+     * isEmpty()                           size==0?
 
-         * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
-         * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
+     * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
+     * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
 
-         * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）
-         * removeAll(Collection<?> c)          移除元素集合c
-         * retainAll(Collection<?> c)          仅保留给定集合c中的元素
+     * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）
+     * removeAll(Collection<?> c)          移除元素集合c
+     * retainAll(Collection<?> c)          仅保留给定集合c中的元素
 
-         * contains(Object o)                  判断该集合中是否包含指定对象
-         * containsAll(Collection<?> c)
+     * contains(Object o)                  判断该集合中是否包含指定对象
+     * containsAll(Collection<?> c)
 
-         * equals(Object o)
-         * hashCode()
-         * iterator()
-         * toArray()
+     * equals(Object o)
+     * hashCode()
+     * iterator()
+     * toArray()
      */
 
 }
@@ -82,47 +82,47 @@ class A08b_List {
 
     /*
      * List 最基本的操作
-         * 来自Iterable
-             * forEach()
-             * iterator()
+     * 来自Iterable
+     * forEach()
+     * iterator()
 
-         * 来自Collection
-             * add​(E e)                     相当于append, 附带return boolean
-             * remove​(Object o)             相当于del
+     * 来自Collection
+     * add​(E e)                     相当于append, 附带return boolean
+     * remove​(Object o)             相当于del
 
-             * addAll​(Collection<?> c)      类并集
-             * removeAll​(Collection<?> c)   类差集
-             * retainAll​(Collection<?> c)   类交集
+     * addAll​(Collection<?> c)      类并集
+     * removeAll​(Collection<?> c)   类差集
+     * retainAll​(Collection<?> c)   类交集
 
-             * contains​(Object o)           相当于x in lst
-             * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
+     * contains​(Object o)           相当于x in lst
+     * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
 
-             * size()                       相当于len
-             * equals​(Object o)             相当于 == 但是更准确
-             * clear()
-             * isEmpty()
-             * toArray()
-             * hashcode()
+     * size()                       相当于len
+     * equals​(Object o)             相当于 == 但是更准确
+     * clear()
+     * isEmpty()
+     * toArray()
+     * hashcode()
 
-         * 来自List
-             * get(idx i)                        相当于lst[i]
-             * set(idx i, item)                  相当于lst[i] = n
+     * 来自List
+     * get(idx i)                        相当于lst[i]
+     * set(idx i, item)                  相当于lst[i] = n
 
-             * add​(int index, E element)       相当于insert(重载)
-             * addAll​(idx, Collection<?>)      指定index(重载)
+     * add​(int index, E element)       相当于insert(重载)
+     * addAll​(idx, Collection<?>)      指定index(重载)
 
-             * remove​(int index)                     相当于pop
-             * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
+     * remove​(int index)                     相当于pop
+     * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
 
-             * indexOf​(Object o)
-             * lastIndexOf​(Object o)
-             * containsAll​(Collection<?> c)          相当于 c is a subList of this
+     * indexOf​(Object o)
+     * lastIndexOf​(Object o)
+     * containsAll​(Collection<?> c)          相当于 c is a subList of this
 
-             * copyOf​(Collection<? extends E> coll) (inmutable)
-             * of (build a tuple)
+     * copyOf​(Collection<? extends E> coll) (inmutable)
+     * of (build a tuple)
 
-             * listIterator()
-             * listIterator​(int index)                starting at a specific index
+     * listIterator()
+     * listIterator​(int index)                starting at a specific index
      */
 }
 
@@ -352,34 +352,34 @@ class A08c_Queue {
 
     /*
      * Queue常用方法
-         * 来自Iterable
-             * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
-             * iterator
+     * 来自Iterable
+     * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
+     * iterator
 
-         * 来自Collection
-             * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
-             * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
-             * clear
-             * contains                           判断该集合中是否包含指定对象
-             * containsAll
+     * 来自Collection
+     * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
+     * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
+     * clear
+     * contains                           判断该集合中是否包含指定对象
+     * containsAll
 
-             * equals
-             * hashCode
-             * isEmpty
-             * size
-             * toArray
+     * equals
+     * hashCode
+     * isEmpty
+     * size
+     * toArray
 
-             * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）若不存在返回null
-             * removeAll(Collection<?> c)          移除元素集合c
-             * removeIf
-             * retainAll(Collection<?> c)          仅保留给定集合c中的元素
+     * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）若不存在返回null
+     * removeAll(Collection<?> c)          移除元素集合c
+     * removeIf
+     * retainAll(Collection<?> c)          仅保留给定集合c中的元素
 
-         * 来自Queue
-             * element()                           Retrieves, but does not remove, the head of this queue.
-             * peek()	                         与element相同, 但是如果为空,则返回null而不会报错
-             * poll()	                         在peek()基础上,再移除head, 安全型
-             * offer​(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
-             * remove                             砍头(重载), 并返回head的value
+     * 来自Queue
+     * element()                           Retrieves, but does not remove, the head of this queue.
+     * peek()	                         与element相同, 但是如果为空,则返回null而不会报错
+     * poll()	                         在peek()基础上,再移除head, 安全型
+     * offer​(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
+     * remove                             砍头(重载), 并返回head的value
      */
 }
 
@@ -438,59 +438,59 @@ class A08d_Deque {
 
     /*
      * Deque常用方法
-         * 来自Iterable
-             * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
-             * iterator
+     * 来自Iterable
+     * forEach                             来自Iterable,详见Java_Basics.C10b_For_each_Loop
+     * iterator
 
-             * 来自Collection
-             * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
-             * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
+     * 来自Collection
+     * add(E e)                            向集合中添加一个元素，若添加元素后集合发生了变化就返回boolean (方便Set)
+     * addAll(Collection<?> c)             添加给定集合c中的所有元素到该集合中
 
-             * clear
-             * contains                            判断该集合中是否包含指定对象
-             * containsAll
+     * clear
+     * contains                            判断该集合中是否包含指定对象
+     * containsAll
 
-             * equals
-             * hashCode
-             * isEmpty
-             * size
-             * toArray
+     * equals
+     * hashCode
+     * isEmpty
+     * size
+     * toArray
 
-             * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）若不存在返回null
-             * removeAll(Collection<?> c)          移除元素集合c
-             * removeIf
-             * retainAll(Collection<?> c)          仅保留给定集合c中的元素
+     * remove(Object o)                    移除给定对象的一个实例（有的具体集合类型允许重复元素）若不存在返回null
+     * removeAll(Collection<?> c)          移除元素集合c
+     * removeIf
+     * retainAll(Collection<?> c)          仅保留给定集合c中的元素
 
-         * 来自Queue
-             * element()                          Retrieves, but does not remove, the head of this queue.
-             * peek()	                          与element相同, 但是如果为空,则返回null而不会报错
-             * poll()	                          在peek()基础上,再移除head, 安全型
-             * offer​(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
-             * remove                             砍头(重载), 并返回head的value
+     * 来自Queue
+     * element()                          Retrieves, but does not remove, the head of this queue.
+     * peek()	                          与element相同, 但是如果为空,则返回null而不会报错
+     * poll()	                          在peek()基础上,再移除head, 安全型
+     * offer​(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
+     * remove                             砍头(重载), 并返回head的value
 
-         * 来自Deque
-             * addFirst (E e)             insert at idx0    with capacity allowance
-             * addLast(E e)               insert at the end with capacity allowance
-             * push                       与addFirst完全相同
-             * offerFirst                 addFirst with capacity allowance (boolean确认)
-             * offerLast                  addLast with capacity allowance (boolean确认)
+     * 来自Deque
+     * addFirst (E e)             insert at idx0    with capacity allowance
+     * addLast(E e)               insert at the end with capacity allowance
+     * push                       与addFirst完全相同
+     * offerFirst                 addFirst with capacity allowance (boolean确认)
+     * offerLast                  addLast with capacity allowance (boolean确认)
 
-             * descendingIterator()
+     * descendingIterator()
 
-             * element()                  取head值,但是不去掉head   (non-empty)
-             * getFirst()                 get the first elmement (non-empty) 与element()相同
-             * getLast()                  get the last element   (non-empty)
-             * peekFirst()                安全型getFirst, 防止空表
-             * peekLast()                 安全型getLast, 防止空表
+     * element()                  取head值,但是不去掉head   (non-empty)
+     * getFirst()                 get the first elmement (non-empty) 与element()相同
+     * getLast()                  get the last element   (non-empty)
+     * peekFirst()                安全型getFirst, 防止空表
+     * peekLast()                 安全型getLast, 防止空表
 
-             * pollFirst()                在peekFirst()基础上,再移除head, 安全型
-             * pollLast()                 在peekLast()基础上, 再移除tail, 安全型
-             * pop()                      非安全型pollFirst
+     * pollFirst()                在peekFirst()基础上,再移除head, 安全型
+     * pollLast()                 在peekLast()基础上, 再移除tail, 安全型
+     * pop()                      非安全型pollFirst
 
-             * removeFirst()              非安全型pollFirst, 与pop完全相同
-             * removeLast()               非安全型pollLast
-             * removeFirstOccurrence​(Object o)    从头开始找,直接去值. boolean确认, 非安全型
-             * removeLastOccurrence​(Object o)     从尾开始找,直接去值. boolean确认, 非安全型
+     * removeFirst()              非安全型pollFirst, 与pop完全相同
+     * removeLast()               非安全型pollLast
+     * removeFirstOccurrence​(Object o)    从头开始找,直接去值. boolean确认, 非安全型
+     * removeLastOccurrence​(Object o)     从尾开始找,直接去值. boolean确认, 非安全型
      */
 }
 
@@ -599,30 +599,30 @@ class A08e_Set {
 
     /*
      * Set 最基本的操作
-         * 来自Iterable:
-             * forEach
-             * iterator()
+     * 来自Iterable:
+     * forEach
+     * iterator()
 
-         * 来自Collection (所以Collection的方法不牵涉到任何index)
-             * add​(E e)                     相当于append, 附带return boolean
-             * remove​(Object o)             相当于del
+     * 来自Collection (所以Collection的方法不牵涉到任何index)
+     * add​(E e)                     相当于append, 附带return boolean
+     * remove​(Object o)             相当于del
 
-             * addAll​(Collection<? extends E> c)    // 并集
-             * removeAll​(Collection<?> c)           // 差集
-             * retainAll​(Collection<?> c)           // 交集
+     * addAll​(Collection<? extends E> c)    // 并集
+     * removeAll​(Collection<?> c)           // 差集
+     * retainAll​(Collection<?> c)           // 交集
 
-             * contains​(Object o)           相当于x in Set
-             * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
+     * contains​(Object o)           相当于x in Set
+     * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
 
-             * size()                       相当于len
-             * equals​(Object o)             相当于 == 但是更准确
-             * clear()
-             * isEmpty()
-             * toArray()
+     * size()                       相当于len
+     * equals​(Object o)             相当于 == 但是更准确
+     * clear()
+     * isEmpty()
+     * toArray()
 
-         * 来自Set
-             * of
-             * copyOf
+     * 来自Set
+     * of
+     * copyOf
      */
 }
 

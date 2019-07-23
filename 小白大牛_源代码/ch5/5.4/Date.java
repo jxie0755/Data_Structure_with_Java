@@ -11,10 +11,11 @@ public class Date extends java.util.Date {
         int year = super.getYear() + 1900; // 计算年份
         int month = super.getMonth() + 1; /* 计算月份 */
         int day = super.getDate();
-        
+
         return null;
     }
 
-    public void setString() {}
+    public void setString() {
+    }
 
 }

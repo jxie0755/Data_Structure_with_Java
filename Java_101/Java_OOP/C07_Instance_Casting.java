@@ -26,14 +26,14 @@ public class C07_Instance_Casting {
 
     /*
      * 用法总结:
-        * 向上转型和向下转型,原则上都是用父类作为一个方法的形参(向上转型),给它带入子类的形参, 让它可以分别执行子类的方法
-            * 向上转型的用处是, 执行各子类相同的方法时,避免重载导致代码重复
-            * 向下转型的用处是, 能够使父类形参执行子类实参的独特方法或是附加处理
-        * 这么做的动机:
-            * 为了规避类型检查的特性,只需要用定义一个父类的形参,让他们能在方法中展现出子类实参的特性,
-            * 有些子类中的方法是父类也有的, 虽然被重写, 这样直接对子类call这个方法时安全的(向上转型)
-            * 有些子类中的方法是父类没有的,或者需要对子类进行特别操作, 因此需要根据不同子类来分别对待,这时这个父类形参必须是安全的向下转型回子类实参
-        * 这些都是python作为动态语言不会出现的问题,因为python不检查参数类型,而java会检查,导致了参数不能多态
+     * 向上转型和向下转型,原则上都是用父类作为一个方法的形参(向上转型),给它带入子类的形参, 让它可以分别执行子类的方法
+     * 向上转型的用处是, 执行各子类相同的方法时,避免重载导致代码重复
+     * 向下转型的用处是, 能够使父类形参执行子类实参的独特方法或是附加处理
+     * 这么做的动机:
+     * 为了规避类型检查的特性,只需要用定义一个父类的形参,让他们能在方法中展现出子类实参的特性,
+     * 有些子类中的方法是父类也有的, 虽然被重写, 这样直接对子类call这个方法时安全的(向上转型)
+     * 有些子类中的方法是父类没有的,或者需要对子类进行特别操作, 因此需要根据不同子类来分别对待,这时这个父类形参必须是安全的向下转型回子类实参
+     * 这些都是python作为动态语言不会出现的问题,因为python不检查参数类型,而java会检查,导致了参数不能多态
      */
 
     // 使用转型的优秀例子: 使用List来创造ArrayList
@@ -41,14 +41,20 @@ public class C07_Instance_Casting {
 }
 
 
-
 class China {
-	public void language(){System.out.println("Chinese people speak Chinese");}
+    public void language() {
+        System.out.println("Chinese people speak Chinese");
+    }
 }
 
 class HongKong extends China {
-	public void language(){System.out.println("people lived in HongKong speak Cantonese");}
-	public void location(){System.out.println("South of China");}
+    public void language() {
+        System.out.println("people lived in HongKong speak Cantonese");
+    }
+
+    public void location() {
+        System.out.println("South of China");
+    }
 }
 
 class Geography_Test {
@@ -57,8 +63,8 @@ class Geography_Test {
 
         // 实践向上转型
         System.out.println("\n向上转型第一种写法: ");
-		China a1 = new HongKong();  //子类实例被包装成父类(向上)
-    //   定义变量       实际实例       理解: a1真是身份HongKong实例,但是被包装成父类实例
+        China a1 = new HongKong();  //子类实例被包装成父类(向上)
+        //   定义变量       实际实例       理解: a1真是身份HongKong实例,但是被包装成父类实例
         System.out.println(a1.getClass()); // >>> HongKong  (暴露出真实身份)
         a1.language();       // >>> people lived in HongKong speak Cantonese  (这里可行是因为language()在父类和子类中都存在,所以真实身份(HongKong)的方法被执行)
 
@@ -74,7 +80,6 @@ class Geography_Test {
 
         // 子类引用不能指向父类对象 Hongkong c = (Hongkong)new China()这样是不行的
         // 那么你可能会有疑问，为什么不用HongKong a_X =new HongKong,直接调用location（）方法呢？这样做其实就丧失了面向对象继承多态性的灵活: 见下面例子Material and MyMenu的应用
-
 
 
         // 实践向下转型
@@ -104,42 +109,69 @@ class Geography_Test {
             b22.language(); // >>> people lived in HongKong speak Cantonese
             b22.location(); // >>> South of China
         }
-	}
+    }
 }
 
 // 实战: 利用Casting来简化代码,避免重载, 而且方便未来扩展代码
 class Material {
     String foodtype = "Material";
-    public void intro() { }
+
+    public void intro() {
+    }
 }
 
 //盐类
 class Salt extends Material {
     String foodtype = "Salt";
-    public void intro() { System.out.println("我是盐"); }
-    public void health() { System.out.println("做菜少放盐!");}
+
+    public void intro() {
+        System.out.println("我是盐");
+    }
+
+    public void health() {
+        System.out.println("做菜少放盐!");
+    }
 }
 
 //肉类
 class Meat extends Material {
     String foodtype = "Meat";
-    public void intro() { System.out.println("我是肉"); }
-    public void price() { System.out.println("我很贵!!");}
+
+    public void intro() {
+        System.out.println("我是肉");
+    }
+
+    public void price() {
+        System.out.println("我很贵!!");
+    }
 }
 
 //蔬菜类
 class Vegetable extends Material {
     String foodtype = "Vegetable";
-    public void intro() { System.out.println("我是蔬菜"); }
+
+    public void intro() {
+        System.out.println("我是蔬菜");
+    }
 }
 
 
 class MyMenu {
 
     // 不用casting,为三个子类分别写方法, 相当于使用重载overload
-    public static void add(Salt m) { m.intro(); m.health(); }
-    public static void add(Meat m) { m.intro(); m.price(); }
-    public static void add(Vegetable m) { m.intro(); }
+    public static void add(Salt m) {
+        m.intro();
+        m.health();
+    }
+
+    public static void add(Meat m) {
+        m.intro();
+        m.price();
+    }
+
+    public static void add(Vegetable m) {
+        m.intro();
+    }
     // 如果因为开发需要,必须增加一个新的Material子类Sugar怎么办?
     // public static void add(Sugar m) { m.intro(); }  // 只能手动添加一个新的重载方法
 
@@ -151,7 +183,7 @@ class MyMenu {
             // 这里m_2其实就是((Salt) m), m_2前面的Salt只不过是声明变量前必须给出类型
             m_2.intro();
             m_2.health();           // Salt的特殊方法
-        } else if (m instanceof  Meat) {
+        } else if (m instanceof Meat) {
             ((Meat) m).intro();     // 比Salt更直接的向下转型的写法(其实是一个意思)
             ((Meat) m).price();     // Meat的特殊方法
             System.out.println("肉类含有丰富动物蛋白质");  // 针对Meat的特殊处理
@@ -193,8 +225,8 @@ class MyMenu {
         System.out.println(M1.foodtype); // >>> Material
         System.out.println(M2.foodtype); // >>> Material
         System.out.println(M3.foodtype); // >>> Material
-        System.out.println(((Salt)M1).foodtype);      // >>> Salt
-        System.out.println(((Meat)M2).foodtype);      // >>> Meat
-        System.out.println(((Vegetable)M3).foodtype); // >>> Vegetable
+        System.out.println(((Salt) M1).foodtype);      // >>> Salt
+        System.out.println(((Meat) M2).foodtype);      // >>> Meat
+        System.out.println(((Vegetable) M3).foodtype); // >>> Vegetable
     }
 }

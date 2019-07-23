@@ -14,7 +14,7 @@ public class A09_Iterator {
     public static void main(String[] args) {
 
         // 构造方法
-        List<Integer> IL1 = new ArrayList<>(Arrays.asList(1,2,1,3,1,4));
+        List<Integer> IL1 = new ArrayList<>(Arrays.asList(1, 2, 1, 3, 1, 4));
         Iterator<Integer> IL11 = IL1.iterator();  // 从一个ArrayList来构造
 
         // next
@@ -24,7 +24,7 @@ public class A09_Iterator {
 
         // for loop
         System.out.println();
-        for (Iterator<Integer> iter = IL11; iter.hasNext();) { // 注意这里还需要对Iterator定型
+        for (Iterator<Integer> iter = IL11; iter.hasNext(); ) { // 注意这里还需要对Iterator定型
             // 更多的时候这里才使用 IL1.iterator();
 
             Integer intt = iter.next();
@@ -98,7 +98,7 @@ class A09b_ListIterator {
     public static void main(String[] args) {
 
         // 构造很类似
-        List<Integer> IL1 = new ArrayList<>(Arrays.asList(1,2,1,3,1,4));
+        List<Integer> IL1 = new ArrayList<>(Arrays.asList(1, 2, 1, 3, 1, 4));
         ListIterator<Integer> IL10 = IL1.listIterator();  // 从一个ArrayList来构造
         System.out.println(IL10.toString());  // java.util.ArrayList$ListItr@6e8dacdf 无法被print
 

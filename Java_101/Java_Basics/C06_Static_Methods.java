@@ -33,8 +33,10 @@ public class C06_Static_Methods {
      */
 
 
-    /** Return the square of x */
-    static int square_1 (int x) {
+    /**
+     * Return the square of x
+     */
+    static int square_1(int x) {
         return x * x;
     }
 

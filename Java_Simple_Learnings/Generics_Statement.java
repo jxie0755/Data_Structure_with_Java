@@ -15,24 +15,24 @@ public class Generics_Statement {
         Car c2 = new Car();
         Car c3 = new Car();
 
-        List<Car> carList = List.of(c1,c2,c3);
+        List<Car> carList = List.of(c1, c2, c3);
         System.out.println(carList.get(0).getClass());      // >>> class Car
         System.out.println(carList.get(0) instanceof Car);  // >>> true
 
         carList.get(0).foo();
 
-        List<Object> objList = List.of(c1,c2,c3);
+        List<Object> objList = List.of(c1, c2, c3);
         System.out.println(objList.get(0).getClass());      // >>> class Car
         System.out.println(objList.get(0) instanceof Car);  // >>> true
         // objList.get(0).foo();
 
 
-        List rawList = List.of(c1,c2,c3);
+        List rawList = List.of(c1, c2, c3);
         System.out.println(rawList.get(0).getClass());      // >>> class Car
         System.out.println(rawList.get(0) instanceof Car);  // >>> true
         // rawList.get(0).foo();
 
-        List<?> wtfList = List.of(c1,c2,c3);
+        List<?> wtfList = List.of(c1, c2, c3);
         System.out.println(wtfList.get(0).getClass());      // >>> class Car
         System.out.println(wtfList.get(0) instanceof Car);  // >>> true
         // rawList.get(0).foo();
@@ -43,11 +43,10 @@ public class Generics_Statement {
 // 参见STOF: https://stackoverflow.com/a/2770692/8435726
 /*
  * quick summary
-    * 避免使用raw type,声明尽量准确
-    * raw type被允许是因为兼容老代码, 彼时java还不支持泛型
-    * List和List<?>和List<Object>都是不同的
+ * 避免使用raw type,声明尽量准确
+ * raw type被允许是因为兼容老代码, 彼时java还不支持泛型
+ * List和List<?>和List<Object>都是不同的
  */
-
 
 
 // class MyType<E> {
@@ -118,7 +117,6 @@ public class Generics_Statement {
 //
 //     }
 // }
-
 
 
 // class MyType2<E> {
