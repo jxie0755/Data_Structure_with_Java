@@ -48,7 +48,7 @@ public class LC029_Divide_Two_Integers {
 
 
         if ((dividend < 0 && divisor > 0) || (dividend > 0 && divisor < 0)) {
-            result -= 2 * result;
+            result *= -1;
         }
 
         if (result > Integer.MAX_VALUE) {
