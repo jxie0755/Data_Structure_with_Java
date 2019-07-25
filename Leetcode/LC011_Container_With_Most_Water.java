@@ -30,7 +30,6 @@ public class LC011_Container_With_Most_Water {
         }
 
         return max_area;
-
     }
 
     public static void main(String[] args) {
