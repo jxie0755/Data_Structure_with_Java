@@ -26,7 +26,7 @@ public class LC008_String_To_Integer {
     public int myAtoi(String str) {
 
         // Two hashmap to convert char to digit
-        Character [] digits = new Character[]{
+        Character[] digits = new Character[]{
                 '0', '1', '2', '3',
                 '4', '5', '6', '7',
                 '8', '9'};
@@ -64,14 +64,14 @@ public class LC008_String_To_Integer {
             Long result = 0L;
             Long base = 1L;
 
-            for (int i = extract.length()-1; i >= 0; i -= 1) {
+            for (int i = extract.length() - 1; i >= 0; i -= 1) {
                 Character cur = extract.charAt(i);  // 注意这里不要用Character
                 if (cur == '-' || cur == '+') {
-                }  else {
+                } else {
                     result += (long) Character.getNumericValue(cur) * base;
                     base *= 10;
 
-                    if (result > Integer.MAX_VALUE ) {
+                    if (result > Integer.MAX_VALUE) {
                         if (extract.charAt(0) == '-') {
                             return Integer.MIN_VALUE;
                         } else {
@@ -106,8 +106,8 @@ public class LC008_String_To_Integer {
         assert new LC008_String_To_Integer().myAtoi("-0012a42") == -12 : "Extra 4";
         assert new LC008_String_To_Integer().myAtoi("+0 123") == 0 : "Extra 5";
         assert new LC008_String_To_Integer().myAtoi("-5-") == -5 : "Extra 6";
-        assert new LC008_String_To_Integer().myAtoi("9223372036854775808") == 2147483647: "Extra 7";
-        assert new LC008_String_To_Integer().myAtoi("10000000000000000000000522545459") == 2147483647: "Extra 8, Beyong Long";
+        assert new LC008_String_To_Integer().myAtoi("9223372036854775808") == 2147483647 : "Extra 7";
+        assert new LC008_String_To_Integer().myAtoi("10000000000000000000000522545459") == 2147483647 : "Extra 8, Beyong Long";
 
         System.out.println("all passed");
     }

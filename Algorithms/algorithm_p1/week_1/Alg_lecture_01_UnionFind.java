@@ -8,12 +8,11 @@ public class Alg_lecture_01_UnionFind {
 
 // We introduce the union–find data type and consider several implementations
 // for solving the so-called dynamic connectivity problem:
-    // quick find
-    // quick union
-    // weighted quick union
-    // and weighted quick union with path compression
+// quick find
+// quick union
+// weighted quick union
+// and weighted quick union with path compression
 // Finally, we apply the union–find data type to the percolation problem from physical chemistry.
-
 
 
 // give a set of objects, to tell if two of them is connected or not.
@@ -25,15 +24,15 @@ public class Alg_lecture_01_UnionFind {
 class algor_QuickFindUF {
     /*
      * Complexity
-         * initialize - O(N)
-         * union - O(N)
-         * find - O(1)
-         * too slow for huge problem
+     * initialize - O(N)
+     * union - O(N)
+     * find - O(1)
+     * too slow for huge problem
      */
 
     private int[] id;
 
-    public algor_QuickFindUF(int N){
+    public algor_QuickFindUF(int N) {
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
             id[i] = i;
@@ -81,14 +80,14 @@ class algor_QuickUnionUF {
 
     /*
      * Complexity
-         * initialize - O(N)
-         * union - O(N)
-         * find - O(N)   trees can get tall
+     * initialize - O(N)
+     * union - O(N)
+     * find - O(N)   trees can get tall
      */
 
     private int[] id;
 
-    public algor_QuickUnionUF(int N){
+    public algor_QuickUnionUF(int N) {
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
             id[i] = i;
@@ -134,7 +133,6 @@ class algor_QuickUnionUF {
 }
 
 
-
 // Quick Union improvement
 // improvement 1: weighting
 // avoid putting taller tree as a sub-tree of a shorter tree, but do the opposite
@@ -142,20 +140,20 @@ class algor_QuickUnionUF_weighted {
 
     /*
      * Complexity
-         * initialize - O(N)
-         * union - O(lg(N))
-         * find - O(lg(N))   trees can get tall
+     * initialize - O(N)
+     * union - O(lg(N))
+     * find - O(lg(N))   trees can get tall
      */
 
     private int[] id;
 
     private int[] sz; // add an array to record the size of tree of each element
-                      // 注意这里记录的size是以这个节点为root的size,所以变化root的size,不是root的话,就不会被查到
-                      // 注意size是nodes的总数而不是tree的height
+    // 注意这里记录的size是以这个节点为root的size,所以变化root的size,不是root的话,就不会被查到
+    // 注意size是nodes的总数而不是tree的height
 
     private int[] mx;
 
-    public algor_QuickUnionUF_weighted(int N){
+    public algor_QuickUnionUF_weighted(int N) {
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
             id[i] = i;
@@ -196,7 +194,7 @@ class algor_QuickUnionUF_weighted {
                 if (mx[rt_q] > mx[rt_p]) {
                     mx[rt_p] = mx[rt_q];
                 }
-            } else{
+            } else {
                 id[rt_p] = rt_q;
                 sz[rt_q] += sz[rt_p];  // 改变这个root的size
                 if (mx[rt_p] > mx[rt_q]) {
@@ -246,14 +244,15 @@ class algor_QuickUnionUF_weighted_path_compressed {
 
     /*
      * Complexity
-         * initialize - O(N)
-         * union - O(lg*(N))
-         * find - O(lg*(N))
+     * initialize - O(N)
+     * union - O(lg*(N))
+     * find - O(lg*(N))
      */
 
     private int[] id;
     private int[] sz;
-    public algor_QuickUnionUF_weighted_path_compressed(int N){
+
+    public algor_QuickUnionUF_weighted_path_compressed(int N) {
         id = new int[N];
         for (int i = 0; i < N; i += 1) {
             id[i] = i;
@@ -285,7 +284,7 @@ class algor_QuickUnionUF_weighted_path_compressed {
             if (sz[q] <= sz[p]) {
                 id[rt_q] = rt_p;
                 sz[rt_p] += sz[rt_q];  // 改变这个root的size
-            } else{
+            } else {
                 id[rt_p] = rt_q;
                 sz[rt_q] += sz[rt_p];  // 改变这个root的size
             }

@@ -115,7 +115,7 @@ public class Type_Convert {
         } // 没有直接办法
 
         Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
-                Map.entry(1, List.of(1,2,3,4))
+                Map.entry(1, List.of(1, 2, 3, 4))
         ));
 
     }

@@ -4,7 +4,7 @@ import java.util.Map;
 /**
  * p013 Roman to Integer
  * Easy
- *
+ * <p>
  * Given a roman numeral, convert it to an integer.
  * Input is guaranteed to be within the range from 1 to 3999.
  */
@@ -12,6 +12,7 @@ public class LC013_Roman_To_Integer {
 
 
     static Map<String, Integer> checklist = new HashMap<>();
+
     static {
         checklist.put("CM", 900);
         checklist.put("CD", 400);
@@ -21,7 +22,8 @@ public class LC013_Roman_To_Integer {
         checklist.put("IV", 4);
     }
 
-    static Map<String, Integer> Roman_Nu  = new HashMap<>();
+    static Map<String, Integer> Roman_Nu = new HashMap<>();
+
     static {
         Roman_Nu.put("M", 1000);
         Roman_Nu.put("D", 500);
@@ -58,7 +60,7 @@ public class LC013_Roman_To_Integer {
 
     public static void main(String[] args) {
 
-        assert new LC013_Roman_To_Integer().romanToInt("MMMCDXCIX") == 3499: "Example 1";
+        assert new LC013_Roman_To_Integer().romanToInt("MMMCDXCIX") == 3499 : "Example 1";
         System.out.println("all passed");
 
     }

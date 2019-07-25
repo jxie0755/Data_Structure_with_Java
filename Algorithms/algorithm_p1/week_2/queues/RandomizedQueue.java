@@ -1,13 +1,14 @@
 package algorithm_p1.week_2.queues;
 
 import edu.princeton.cs.algs4.StdRandom;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
  * 由于这个是random读取的原因 所以使用"array"实现更加适合
  */
-public class RandomizedQueue<Item> implements Iterable<Item>{
+public class RandomizedQueue<Item> implements Iterable<Item> {
 
     private int size;
     private Item[] s;
@@ -78,9 +79,10 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
             }
             StdRandom.shuffle(order);
         }
+
         public void remove() {
             throw new UnsupportedOperationException();
-         }
+        }
 
         @Override
         public boolean hasNext() {
@@ -96,7 +98,6 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
     }
 
 
-
     // unit testing (optional)
     public static void main(String[] args) {
         RandomizedQueue<String> randomizedQueue = new RandomizedQueue<>();
@@ -106,8 +107,8 @@ public class RandomizedQueue<Item> implements Iterable<Item>{
         randomizedQueue.enqueue("4");
         randomizedQueue.enqueue("5");
 
-        System.out.println("dequeue = "+randomizedQueue.dequeue());
-        System.out.println("dequeue = "+randomizedQueue.dequeue());
+        System.out.println("dequeue = " + randomizedQueue.dequeue());
+        System.out.println("dequeue = " + randomizedQueue.dequeue());
         Iterator<String> iterator = randomizedQueue.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());

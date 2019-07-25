@@ -9,11 +9,11 @@ public class Deque<Item> implements Iterable<Item> {
     private Node first, last; //双向链表一开始也是有两个点
     /**
      * 双向链表的结构如下
-     *
-     *  first                   last
-     *
-     *  A  --next-> B  --next-> C
-     *     <-pre--     <-pre--
+     * <p>
+     * first                   last
+     * <p>
+     * A  --next-> B  --next-> C
+     * <-pre--     <-pre--
      */
     private int size;
 
@@ -92,7 +92,7 @@ public class Deque<Item> implements Iterable<Item> {
     // remove and return the item from the end
     public Item removeLast() {
         if (isEmpty()) throw new NoSuchElementException("Stack Overflow");
-        Item item  = last.item;
+        Item item = last.item;
         last = last.pre;
         size--;
         if (isEmpty()) {
@@ -111,12 +111,15 @@ public class Deque<Item> implements Iterable<Item> {
     private class DequeIterator implements Iterator<Item> {
 
         private Node cur = first;
+
         public void remove() {
             throw new UnsupportedOperationException();
         }
+
         public boolean hasNext() {
             return cur != null;
         }
+
         public Item next() {
             if (!hasNext()) {
                 throw new NoSuchElementException();
@@ -127,7 +130,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
     }
 
-        // unit testing (optional)
+    // unit testing (optional)
     public static void main(String[] args) {
         // Deque<String> deque = new Deque<>();
         // deque.addFirst("1");
@@ -139,7 +142,7 @@ public class Deque<Item> implements Iterable<Item> {
         //     System.out.println(iterator.next());
         // }
         //
-         Deque<String> deque = new Deque<>();
+        Deque<String> deque = new Deque<>();
         deque.addFirst("3");
         deque.addFirst("2");
         deque.addFirst("1");
@@ -148,7 +151,7 @@ public class Deque<Item> implements Iterable<Item> {
         deque.addLast("1");
         deque.removeLast();
 
-        for (Iterator<String> iter = deque.iterator(); iter.hasNext();) {
+        for (Iterator<String> iter = deque.iterator(); iter.hasNext(); ) {
             System.out.println(iter.next());
         }
         System.out.println("deque size = " + deque.size());

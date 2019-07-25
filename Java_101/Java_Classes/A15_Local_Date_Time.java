@@ -14,28 +14,28 @@ public class A15_Local_Date_Time {
      * LocalDateTime   表示一个不可变的日期和时间。
 
      * 这三个类有类似的方法
-        * 首先先看看创建日期时间对象相关方法， 这三个类并没有提供公有的构造方法，
-            * 创建它们对象可以使用静态工厂方法， 主要有now()和of()方法
+     * 首先先看看创建日期时间对象相关方法， 这三个类并没有提供公有的构造方法，
+     * 创建它们对象可以使用静态工厂方法， 主要有now()和of()方法
 
-        * 日期格式化和解析
-         * Java 8提供的日期格式化类是java.time.format.DateTimeFormatter
-         * DateTimeFormatter中本身没有提供日期格式化和日期解析方法
-         * 这些方法还是由LocalDate、 LocalTime和LocalDateTime提供的
+     * 日期格式化和解析
+     * Java 8提供的日期格式化类是java.time.format.DateTimeFormatter
+     * DateTimeFormatter中本身没有提供日期格式化和日期解析方法
+     * 这些方法还是由LocalDate、 LocalTime和LocalDateTime提供的
 
-            * 日期格式化方法是format
-                * 这三个类每一个都有String format(DateTimeFormatter formatter)
-                * 参数formatter是DateTimeFormatter类型, 通过DateTimeFormatter.ofPattern得到
+     * 日期格式化方法是format
+     * 这三个类每一个都有String format(DateTimeFormatter formatter)
+     * 参数formatter是DateTimeFormatter类型, 通过DateTimeFormatter.ofPattern得到
 
-            * 日期解析方法是parse， 这三个类每一个都有两个版本的parse方法
-            * 全都是static, 参数为CharSequence类(CS)和DateTimeFormatter(DTF)
-                * LocalDateTime parse(CS):        使用默认格式， 从一个文本字符串获取一个LocalDateTime实例， 如2007-12-03T10:15:30。
-                * LocalDateTime parse(CS, DTF):   使用指定格式化， 从文本字符串获取LocalDateTime实例。
+     * 日期解析方法是parse， 这三个类每一个都有两个版本的parse方法
+     * 全都是static, 参数为CharSequence类(CS)和DateTimeFormatter(DTF)
+     * LocalDateTime parse(CS):        使用默认格式， 从一个文本字符串获取一个LocalDateTime实例， 如2007-12-03T10:15:30。
+     * LocalDateTime parse(CS, DTF):   使用指定格式化， 从文本字符串获取LocalDateTime实例。
 
-                * LocalDate parse(CS):            使用默认格式， 从一个文本字符串获取一个LocalDate实例， 如2007-12-03。
-                * LocalDate parse(CS, DTF):       使用指定格式化， 从文本字符串获取LocalDate实例。
+     * LocalDate parse(CS):            使用默认格式， 从一个文本字符串获取一个LocalDate实例， 如2007-12-03。
+     * LocalDate parse(CS, DTF):       使用指定格式化， 从文本字符串获取LocalDate实例。
 
-                * LocalTime parse(cS):            使用默认格式， 从一个文本字符串获取一个LocalTime实例。
-                * LocalTime parse(CS, DTF):       使用指定的格式化， 从文本字符串获取LocalTime实例
+     * LocalTime parse(cS):            使用默认格式， 从一个文本字符串获取一个LocalTime实例。
+     * LocalTime parse(CS, DTF):       使用指定的格式化， 从文本字符串获取LocalTime实例
      */
 
 }

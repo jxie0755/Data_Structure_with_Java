@@ -30,7 +30,6 @@ class Point2 {
 }
 
 
-
 class Father2 {
 
     // 当一个类有多个Constructor的时候, 重载Constructor可以用this来省略一些代码

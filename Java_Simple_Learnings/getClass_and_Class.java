@@ -3,15 +3,15 @@ public class getClass_and_Class {
     /*
      * 学习getClass和instance.class有什么区别
      *  看起来一样?
-        *  但是getClass()是给实例用的
-        *  class是给类用的
+     *  但是getClass()是给实例用的
+     *  class是给类用的
      */
 
 }
 
 
 class GetClassExample {
-    public void func(){
+    public void func() {
 
     }
 }
@@ -44,8 +44,8 @@ class GetABTest {
         GetB b = new GetB();
         GetA ab = new GetB();
 
-        System.out.println(a.getClass()+" "+ GetA.class); // >>>  class ..GetA class ..GetA
-        System.out.println(b.getClass()+" "+ GetB.class); // >>>  class ..GetB class ..GetB
+        System.out.println(a.getClass() + " " + GetA.class); // >>>  class ..GetA class ..GetA
+        System.out.println(b.getClass() + " " + GetB.class); // >>>  class ..GetB class ..GetB
         System.out.println(ab.getClass()); // >>> class ..GetB
         ab = a;
         System.out.println(ab.getClass()); // >>> class ..GetA // 是ab在运行到这一时刻是所属的类型

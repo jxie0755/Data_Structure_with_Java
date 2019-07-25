@@ -9,51 +9,51 @@ public class Alg_Lecture_06_Quicksort {
 
     /*
      * Quicksort
-        * Most important sorting in 20th century
-        * Also a recursive method
-        * Basic plan
-            * shuffle the array
-            * Partition so that, for some j:
-                * entry a[j] is in place
-                * no larger entry to the left of j
-                * no smaller entry to the right of j
-                * sort each piece recursively
+     * Most important sorting in 20th century
+     * Also a recursive method
+     * Basic plan
+     * shuffle the array
+     * Partition so that, for some j:
+     * entry a[j] is in place
+     * no larger entry to the left of j
+     * no smaller entry to the right of j
+     * sort each piece recursively
      */
 
 
     /*
      * Selection
-        * Goal: Given an array of N items, find the kth largest.
-            * Example:
-                * min: (k=0)
-                * max: (k=N-1)
-                * median: (k=N/2)
-        * Applications
-            * Order statistics
-            * Find the "top k."
-        * Quick-select
-            * Similar idea as Quicksort
-                * Partition first
-                * Divided into two sub-array and recursively run
-            * Takes linear time on average
-            * Quadratic in worst case but shuffle will help to avoid
+     * Goal: Given an array of N items, find the kth largest.
+     * Example:
+     * min: (k=0)
+     * max: (k=N-1)
+     * median: (k=N/2)
+     * Applications
+     * Order statistics
+     * Find the "top k."
+     * Quick-select
+     * Similar idea as Quicksort
+     * Partition first
+     * Divided into two sub-array and recursively run
+     * Takes linear time on average
+     * Quadratic in worst case but shuffle will help to avoid
      */
 
 
     /*
      * Duplicate Keys
-        * Often, purpose of sort is to bring items with equal keys together
-            * Sort population by age
-            * Find collinear points
-            * Remove duplicates from mailing list
-            * Sort job applicats by college attended
-        * Typical characteristics of such applications
-            * Huge array
-            * Small number of key values
-        * sorting algorithms
-            * Mergesort does not care, always use NlogN
-            * Quicksort goes quadratics unless partitions stops on equal keys
-                * Method: do 3 way partitioning, put all identical items in the middle
+     * Often, purpose of sort is to bring items with equal keys together
+     * Sort population by age
+     * Find collinear points
+     * Remove duplicates from mailing list
+     * Sort job applicats by college attended
+     * Typical characteristics of such applications
+     * Huge array
+     * Small number of key values
+     * sorting algorithms
+     * Mergesort does not care, always use NlogN
+     * Quicksort goes quadratics unless partitions stops on equal keys
+     * Method: do 3 way partitioning, put all identical items in the middle
      */
 }
 
@@ -97,7 +97,7 @@ class Alg_Quicksort {
             if (i >= j) {
                 break;
             }
-            exch(a, i , j);
+            exch(a, i, j);
         }
 
         exch(a, lo, j);
@@ -182,10 +182,8 @@ class Alg_Quicksort {
         // can still use shuffle to improve partitioning method
         StdRandom.shuffle(a);
 
-        three_way_quicksort(a, 0, a.length-1);
+        three_way_quicksort(a, 0, a.length - 1);
     }
-
-
 
 
     public static void main(String[] args) {

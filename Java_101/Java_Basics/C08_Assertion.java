@@ -22,9 +22,9 @@ public class C08_Assertion {
 
     /*
      * 在IDE中可以通过调整VM的option来使用发现assertion错误
-        * Intellij中, 顶部菜单Run -> Edit Configuration -> 左侧菜单
-        * 可以单独在Application中添加"-ea"命令
-        * 也可以在下面Template中的application模板中添加"-ea"命令到整个project
+     * Intellij中, 顶部菜单Run -> Edit Configuration -> 左侧菜单
+     * 可以单独在Application中添加"-ea"命令
+     * 也可以在下面Template中的application模板中添加"-ea"命令到整个project
      */
 }
 
@@ -46,6 +46,6 @@ class Solution {
         assert Fib(2) == 1;
         System.out.println(Fib(5));
         assert Fib(5) == 5;
-        assert Fib(5 ) == 10: "WTF???";  // 这里不会报错, 只有在console中运行 java -ea Solution才会
+        assert Fib(5) == 10 : "WTF???";  // 这里不会报错, 只有在console中运行 java -ea Solution才会
     }
 }

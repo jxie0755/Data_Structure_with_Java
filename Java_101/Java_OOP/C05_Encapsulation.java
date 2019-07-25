@@ -62,7 +62,7 @@ class RunEncap {
         encap.setAge(20);
         encap.setIdNum("12343ms");
 
-        System.out.println("Name : " + encap.getName() +  " Age : " + encap.getAge() + " ID: " + encap.getIdNum());
+        System.out.println("Name : " + encap.getName() + " Age : " + encap.getAge() + " ID: " + encap.getIdNum());
         // >>> Name : James Age : 20 ID: 12343ms
     }
 }

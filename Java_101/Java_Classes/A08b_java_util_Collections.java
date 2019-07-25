@@ -15,20 +15,20 @@ public class A08b_java_util_Collections {
      * Class Collections
 
      * 最常用方法
-        * addAll      批量add很多个element (到末尾)
-        * copy        更像是copy and paste
-        * min 和 max   容易理解,     可以自定义规则 (key=)
-        * nCopies      一次生成n个相同的值
-        * reverse     反序
-        * sort        按从小到大顺序, 或者自定义规则 (key=)
-        * swap        交换两个值的位置, 很方便
-        * rotate      轮转, 方便
-        * replaceAll  批量替换元素
-        * shuffle     随机排列
+     * addAll      批量add很多个element (到末尾)
+     * copy        更像是copy and paste
+     * min 和 max   容易理解,     可以自定义规则 (key=)
+     * nCopies      一次生成n个相同的值
+     * reverse     反序
+     * sort        按从小到大顺序, 或者自定义规则 (key=)
+     * swap        交换两个值的位置, 很方便
+     * rotate      轮转, 方便
+     * replaceAll  批量替换元素
+     * shuffle     随机排列
 
-        * unmodifiableCollection    返回一个inmutable copy?
-        * singletonCollection       单点, 意义不大
-        * synchronizedCollection    返回一个多线程copy
+     * unmodifiableCollection    返回一个inmutable copy?
+     * singletonCollection       单点, 意义不大
+     * synchronizedCollection    返回一个多线程copy
      */
 
 }
@@ -88,7 +88,7 @@ class Collections_for_General {
         // reverse​(List<?> list)
         // public static <T> Comparator<T> reverseOrder()
         // public static <T> Comparator<T> reverseOrder​(Comparator<T> cmp)
-        List<Integer> IL3 = new ArrayList<>(Arrays.asList(2,3,1,4,6,4,5));
+        List<Integer> IL3 = new ArrayList<>(Arrays.asList(2, 3, 1, 4, 6, 4, 5));
         Collections.reverse(IL3);
         System.out.println(IL3);  // [5, 4, 6, 4, 1, 3, 2]  // 单纯反序
 
@@ -148,7 +148,6 @@ class Collections_for_General {
         // 还是相当于Tuple
     }
 }
-
 
 
 class Collections_for_Set {

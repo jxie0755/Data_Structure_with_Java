@@ -48,11 +48,11 @@ class Math_zMethods {
         double d9 = Math.cbrt(27);  // 3.0
 
         // 三角函数
-        System.out.println("90 度的正弦值：" + Math.sin(Math.PI/2));
+        System.out.println("90 度的正弦值：" + Math.sin(Math.PI / 2));
         System.out.println("0度的余弦值：" + Math.cos(0));
-        System.out.println("60度的正切值：" + Math.tan(Math.PI/3));
+        System.out.println("60度的正切值：" + Math.tan(Math.PI / 3));
         System.out.println("1的反正切值： " + Math.atan(1));
-        System.out.println("π/2的角度值：" + Math.toDegrees(Math.PI/2));
+        System.out.println("π/2的角度值：" + Math.toDegrees(Math.PI / 2));
         System.out.println(Math.PI);
 
 
@@ -70,8 +70,8 @@ class Math_zMethods {
         // As the largest double value less than 1.0 is Math.nextDown(1.0),
         // a value x in the closed range [x1,x2] where x1<=x2
         // may be defined by the statements
-        double f = Math.random()/Math.nextDown(1.0);
-        double x_range = 3*(1.0 - f) + 5*f;  // range(3, 5)
+        double f = Math.random() / Math.nextDown(1.0);
+        double x_range = 3 * (1.0 - f) + 5 * f;  // range(3, 5)
 
         // 获取随机整数? 比如[0, 100)
         int random_int = (int) (Math.random() * 100);

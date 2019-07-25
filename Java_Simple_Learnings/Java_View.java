@@ -4,51 +4,51 @@ public class Java_View {
 
     /*
      * Java中的视图
-        * 常见
-            * Arrays.asList
-                * 支持Arrays get和set
+     * 常见
+     * Arrays.asList
+     * 支持Arrays get和set
 
-            * List.subList​(idx, idx)
-                * 可以双向修改和单向view删除
-                * List增加和修改导致subList作废
-                * 多段subList存在互相干涉,引发冲突的情况
-                * (以后直接新建避免问题) 修改只在原List上改动
+     * List.subList​(idx, idx)
+     * 可以双向修改和单向view删除
+     * List增加和修改导致subList作废
+     * 多段subList存在互相干涉,引发冲突的情况
+     * (以后直接新建避免问题) 修改只在原List上改动
 
-            * Map.entrySet()
-                * 可以单向View删除,单向Map增加
+     * Map.entrySet()
+     * 可以单向View删除,单向Map增加
 
-            * Map.values()
-                * 可以双向删除, 单向Map添加
-                * 双向不能修改(Collection,Map没有修改Key的概念)
+     * Map.values()
+     * 可以双向删除, 单向Map添加
+     * 双向不能修改(Collection,Map没有修改Key的概念)
 
-            * Map.keySet()
-                * 单向Map增加
-                * 单向View不能删除,因为没法访问那个pair, 可以clear()
-                * 双向不能修改(Map没有修改Key的概念)
+     * Map.keySet()
+     * 单向Map增加
+     * 单向View不能删除,因为没法访问那个pair, 可以clear()
+     * 双向不能修改(Map没有修改Key的概念)
 
      */
 
     /*
      * 个人总结
-        * View就是一种视图, 一种特殊的角度去看一个Object, 并没有实体
-        * 举例: 汽车
-            * 一个特殊的view就是每个车轮外放一个摄像机,拍摄车轮, 把4个车轮的画面放在一个屏幕上
-            * (相当于一个有4个轮子的集合)
-            * 这个view可以提供独特信息, 因为平时无法同时看4个轮子
-                * 比如观察磨损
-                * 比如对比大小
-                * 比如检查轮胎品牌
-                * 比如检查轮毂
-            * 但是这个view是不能被随便改变的, 因为它只是摄像机拍摄的画面
-                * 无法加一个不存在的车轮进入到这个集合里
-                * 无法去掉一个车轮
-        * 同理就是HashMap中的Map.values()
-            * 它把一个HashMap中的所有键值提取出来放到一个集合
-            * (想当于给Map加了一个滤镜, 只看values)
-            * 显然, 你可以对比这些values.
-            * 可以遍历
-            * 但是不能增加和减少, 因为你看到的仍然是这个Map object,只不过过滤掉了你不看的信息
-            * 有时可以修改, 因为相当于修改原object
+     * View就是一种视图, 一种特殊的角度去看一个Object, 并没有实体
+     * 举例: 汽车
+     * 一个特殊的view就是每个车轮外放一个摄像机,拍摄车轮, 把4个车轮的画面放在一个屏幕上
+     * (相当于一个有4个轮子的集合)
+     * 这个view可以提供独特信息, 因为平时无法同时看4个轮子
+     * 比如观察磨损
+     * 比如对比大小
+     * 比如检查轮胎品牌
+     * 比如检查轮毂
+     * 但是这个view是不能被随便改变的, 因为它只是摄像机拍摄的画面
+     * 无法加一个不存在的车轮进入到这个集合里
+     * 无法去掉一个车轮
+     * 同理就是HashMap中的Map.values()
+     * 它把一个HashMap中的所有键值提取出来放到一个集合
+     * (想当于给Map加了一个滤镜, 只看values)
+     * 显然, 你可以对比这些values.
+     * 可以遍历
+     * 但是不能增加和减少, 因为你看到的仍然是这个Map object,只不过过滤掉了你不看的信息
+     * 有时可以修改, 因为相当于修改原object
 
 
      * 视图对象可以说是具有限制的集合对象。
@@ -107,8 +107,6 @@ public class Java_View {
         strL4.add(0, "X");
         // System.out.println(strL4_sub2);   // 作废, 即使这一段没有被干涉, index整体变化了
         // strL4_sub2.add(1, "X"); // 不能加
-
-
 
 
         // Map.keySet()

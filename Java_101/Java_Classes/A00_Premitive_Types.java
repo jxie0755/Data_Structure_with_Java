@@ -8,13 +8,13 @@ public class A00_Premitive_Types {
      * 内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。
      * 因此，通过定义不同类型的变量，可以在内存中储存整数、小数或者字符。
      * Java的两大数据类型：
-        * 内置数据类型
-        * 引用数据类型
-            * 引用类型变量由类的构造函数创建，可以使用它们访问所引用的对象。这些变量在声明时被指定为一个特定的类型，比如Employee、Pubby等
-            * 变量一旦声明后，类型就不能被改变了。
-            * 对象、数组都是引用数据类型。
-            * 所有引用类型的默认值都是null。
-            * 一个引用变量可以用来引用与任何与之兼容的类型。例子：Animal animal = new Animal(“giraffe”)。
+     * 内置数据类型
+     * 引用数据类型
+     * 引用类型变量由类的构造函数创建，可以使用它们访问所引用的对象。这些变量在声明时被指定为一个特定的类型，比如Employee、Pubby等
+     * 变量一旦声明后，类型就不能被改变了。
+     * 对象、数组都是引用数据类型。
+     * 所有引用类型的默认值都是null。
+     * 一个引用变量可以用来引用与任何与之兼容的类型。例子：Animal animal = new Animal(“giraffe”)。
      */
 
     // 除此之外其他全是reference types (引用类型) 见 A00_Reference_Types
@@ -73,9 +73,9 @@ public class A00_Premitive_Types {
         // 其他进制数字表示方法
         /*
          * 如果为一个整数变量赋值， 使用二进制数、 八进制数和十六进制数表示， 它们的表示方式分别如下：
-             * 二进制数： 以 0b 或0B为前缀， 注意0是阿拉伯数字， 不要误认为是英文字母o。
-             * 八进制数： 以0为前缀， 注意0是阿拉伯数字。
-             * 十六进制数： 以 0x或0X为前缀， 注意0是阿拉伯数字
+         * 二进制数： 以 0b 或0B为前缀， 注意0是阿拉伯数字， 不要误认为是英文字母o。
+         * 八进制数： 以0为前缀， 注意0是阿拉伯数字。
+         * 十六进制数： 以 0x或0X为前缀， 注意0是阿拉伯数字
          */
         int decimalInt = 28;
 
@@ -93,16 +93,15 @@ public class A00_Premitive_Types {
         double interestRate = 1.56e-2;
 
 
-
         // 字符类型:
 
         // char 基本类型：char 二进制位数, 包装类：java.lang.Character
         // char数据类型可以储存任何字符
         System.out.println(Character.SIZE);  // >>> 16
         // 以数值形式而不是字符形式将Character.MIN_VALUE输出到控制台
-        System.out.println((int)Character.MIN_VALUE); // >>> 0
+        System.out.println((int) Character.MIN_VALUE); // >>> 0
         // 以数值形式而不是字符形式将Character.MAX_VALUE输出到控制台
-        System.out.println((int)Character.MAX_VALUE); // >>> 65535 (2^16-1)
+        System.out.println((int) Character.MAX_VALUE); // >>> 65535 (2^16-1)
 
         // Java中的字符常量必须用单引号括起来的单个字符
         char ch1 = 'A';
@@ -122,15 +121,15 @@ public class A00_Premitive_Types {
          * 本节只讨论数值类型的互相转换
          * 自动类型转换就是需要类型之间转换是自动的， 不需要采取其他手段
          * 总的原则是小范围数据类型可以自动转换为大范围数据类型
-            * byte
-            * short
-            * int      <---> *char*
-            * long
-            * float
-            * double
+         * byte
+         * short
+         * int      <---> *char*
+         * long
+         * float
+         * double
 
-        * *char*类型比较特殊， char自动转换为int、 long、 float和double，
-        * 但byte和short不能自动转换为char， 而且char也不能自动转换为byte或short
+         * *char*类型比较特殊， char自动转换为int、 long、 float和double，
+         * 但byte和short不能自动转换为char， 而且char也不能自动转换为byte或short
          */
 
         // 自动转换:
@@ -185,7 +184,7 @@ public class A00_Premitive_Types {
         float floatNum1 = intNum8 / 3;   // 3.0  // 丢失精度 (两int相除只取int结果)
         //把int变量i强制转换为float
         // 为了防止两个整数进行除法等运算导致小数位被截掉问题， 可以先将其中一个操作数强制类型转换为float, 这样结果必然只能是浮点数
-        float floatNum2  = (float) intNum8 / 3; // 3.33333
+        float floatNum2 = (float) intNum8 / 3; // 3.33333
 
 
         // boolean 数据类型表示一位的信息

@@ -22,8 +22,8 @@ public class Jump_Game_II {
                 Integer cur_value = nums[cur_idx];
 
                 if (cur_value >= last_idx - cur_idx) {
-                    all_ways.add(cur_step+1);
-                } else if (cur_step < hmp.get(cur_idx)){
+                    all_ways.add(cur_step + 1);
+                } else if (cur_step < hmp.get(cur_idx)) {
                     hmp.replace(cur_idx, cur_step);
                     for (int i = 1; i <= cur_value; i += 1) {
                         this.helper(cur_idx + i, cur_step + 1);
@@ -44,12 +44,11 @@ public class Jump_Game_II {
     }
 
 
-
     public static void main(String[] args) {
-        assert (new Jump_Game_II().jump(new int[]{2,1})) == 1;
-        assert (new Jump_Game_II().jump(new int[]{2,3,1,1,4})) == 2;
-        assert (new Jump_Game_II().jump(new int[]{5,6,5,3,9,8,3,1,2,8,2,4,8,3,9,1,0,9,4,6,5,9,8,7,4,2,1,0,2})) == 5;
-        assert (new Jump_Game_II().jump(new int[]{5,6,4,4,6,9,4,4,7,4,4,8,2,6,8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4,4,2,0,3,8,5})) == 5;
+        assert (new Jump_Game_II().jump(new int[]{2, 1})) == 1;
+        assert (new Jump_Game_II().jump(new int[]{2, 3, 1, 1, 4})) == 2;
+        assert (new Jump_Game_II().jump(new int[]{5, 6, 5, 3, 9, 8, 3, 1, 2, 8, 2, 4, 8, 3, 9, 1, 0, 9, 4, 6, 5, 9, 8, 7, 4, 2, 1, 0, 2})) == 5;
+        assert (new Jump_Game_II().jump(new int[]{5, 6, 4, 4, 6, 9, 4, 4, 7, 4, 4, 8, 2, 6, 8, 1, 5, 9, 6, 5, 2, 7, 9, 7, 9, 6, 9, 4, 1, 6, 8, 8, 4, 4, 2, 0, 3, 8, 5})) == 5;
 
         System.out.println("All passed");
     }

@@ -8,32 +8,32 @@ public class Alg_Lecture_05_Mergesort {
 
     /*
      * Two classic sorting algorithms
-        * Mergesort (Lecture 05)
-            * Divide array into two halves
-            * Recursively sort each half
-            * Merge two halves
+     * Mergesort (Lecture 05)
+     * Divide array into two halves
+     * Recursively sort each half
+     * Merge two halves
 
-            * Two much overhead for tiny subarrays
-            * Cutoff to insertion sort for = 7 items
-                * During mergesort, when subarray less than 7,
-                * Use insertion sort to excute the sort instead of merge sort
+     * Two much overhead for tiny subarrays
+     * Cutoff to insertion sort for = 7 items
+     * During mergesort, when subarray less than 7,
+     * Use insertion sort to excute the sort instead of merge sort
 
-         * Quicksort (Lecture 06)
-            * Honored as one of the top 10 algorithm of 20th centry in science and engineering.
+     * Quicksort (Lecture 06)
+     * Honored as one of the top 10 algorithm of 20th centry in science and engineering.
 
      * Comparator
-         * Refer to Java_101/Java_Classes/A11_Comparator.java
+     * Refer to Java_101/Java_Classes/A11_Comparator.java
 
      * Stability
-         * retain sort sequence in sections when sort by different way
-            * for example:
-                * student sorted by names first, then sorted by scores
-                * but the students who shares the same scores, will still sorted by names
-            * Insertion sort and Mergesort are stable
-                * Mergesort: depends on the merge section
-                    * if two items are equal, always take the left item -- then it is stable
-            * Selection sort ans Shellsort are not stable
-        * The key is not to move the equal value sequence pass each other
+     * retain sort sequence in sections when sort by different way
+     * for example:
+     * student sorted by names first, then sorted by scores
+     * but the students who shares the same scores, will still sorted by names
+     * Insertion sort and Mergesort are stable
+     * Mergesort: depends on the merge section
+     * if two items are equal, always take the left item -- then it is stable
+     * Selection sort ans Shellsort are not stable
+     * The key is not to move the equal value sequence pass each other
 
      */
 
@@ -48,7 +48,7 @@ class Alg_Mergesort {
 
     private static boolean isSorted(Comparable[] a, int start, int end) {
         for (int i = start + 1; i <= end; i += 1) {
-            Comparable pre = a[i-1];
+            Comparable pre = a[i - 1];
             Comparable cur = a[i];
             if (pre.compareTo(cur) > 0) {
                 return false;
@@ -60,7 +60,7 @@ class Alg_Mergesort {
     // Must assert first half (lo to mid) and second half (mid to hi) are both sorted
     private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
         assert isSorted(a, lo, mid);
-        assert isSorted(a, mid+1, hi);
+        assert isSorted(a, mid + 1, hi);
 
         // Copy everything to aux
         for (int k = lo; k <= hi; k++) {
@@ -100,7 +100,7 @@ class Alg_Mergesort {
         // Improvement 1: Add InsertionSort when subarry is shorter than 7
         int CUTOFF = 7;
         if (hi <= lo + CUTOFF - 1) {
-            Insertion.sort(a, lo, hi+1);
+            Insertion.sort(a, lo, hi + 1);
             return;
         }
 
@@ -126,8 +126,8 @@ class Alg_Mergesort {
 
     /*
      * Bottom-up Mergesort (no recursion version)
-        * break down into 1 unit sub-array
-        * then merge into one array by turn
+     * break down into 1 unit sub-array
+     * then merge into one array by turn
      */
     public static void bottomupsort(Comparable[] a) {
         int N = a.length;
@@ -135,11 +135,10 @@ class Alg_Mergesort {
         for (int sz = 1; sz < N; sz = sz + sz) {
             for (int lo = 0; lo < N - sz; lo += sz + sz) {
                 merge(a, aux, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
-                                                    // avoid idx exceed at the end
+                // avoid idx exceed at the end
             }
         }
     }
-
 
 
     public static void main(String[] args) {

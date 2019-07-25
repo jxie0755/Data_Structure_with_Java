@@ -35,41 +35,41 @@ class Java_File {
 
     /*
      * 常用方法
-        * 获得文件名
-            * String getName( )           获得文件的名称， 不包括路径。
-            * String getPath( )           获得文件的路径。
-            * String getAbsolutePath( )   获得文件的绝对路径。
-            * String getParent( )         获得文件的上一级目录名。
-        * 文件属性测试
-            * boolean exists( )           测试当前File对象所表示的文件是否存在。
-            * boolean canWrite( )         测试当前文件是否可写。
-            * boolean canRead( )          测试当前文件是否可读。
-            * boolean isFile( )           测试当前文件是否是文件。
-            * boolean isDirectory( )      测试当前文件是否是目录
-        * 文件操作
-            * long lastModified( )         获得文件最近一次修改的时间。
-            * long length( )               获得文件的长度， 以字节为单位。
-            * boolean delete( )            删除当前文件。 成功返回 true， 否则返回false。
-            * boolean renameTo(File dest)  将重新命名当前File对象所表示的文件。 成功返回 true， 否则返回false。
-        * 目录操作
-            * boolean mkdir( )                         创建当前File对象指定的目录。
-            * String[] list()                          返回当前目录下的文件和目录， 返回值是字符串数组。
-            * File[] listFiles()                       返回当前目录下的文件和目录， 返回值是File数组。
+     * 获得文件名
+     * String getName( )           获得文件的名称， 不包括路径。
+     * String getPath( )           获得文件的路径。
+     * String getAbsolutePath( )   获得文件的绝对路径。
+     * String getParent( )         获得文件的上一级目录名。
+     * 文件属性测试
+     * boolean exists( )           测试当前File对象所表示的文件是否存在。
+     * boolean canWrite( )         测试当前文件是否可写。
+     * boolean canRead( )          测试当前文件是否可读。
+     * boolean isFile( )           测试当前文件是否是文件。
+     * boolean isDirectory( )      测试当前文件是否是目录
+     * 文件操作
+     * long lastModified( )         获得文件最近一次修改的时间。
+     * long length( )               获得文件的长度， 以字节为单位。
+     * boolean delete( )            删除当前文件。 成功返回 true， 否则返回false。
+     * boolean renameTo(File dest)  将重新命名当前File对象所表示的文件。 成功返回 true， 否则返回false。
+     * 目录操作
+     * boolean mkdir( )                         创建当前File对象指定的目录。
+     * String[] list()                          返回当前目录下的文件和目录， 返回值是字符串数组。
+     * File[] listFiles()                       返回当前目录下的文件和目录， 返回值是File数组。
 
-            * String[] list(FilenameFilter filter)     (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是字符串数组。
-            * File[] listFiles(FilenameFilter filter)  (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是File数组。
-            * File[] listFiles(FileFilter filter)      (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FileFilter接口对象， 返回值是File数组。
+     * String[] list(FilenameFilter filter)     (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是字符串数组。
+     * File[] listFiles(FilenameFilter filter)  (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是File数组。
+     * File[] listFiles(FileFilter filter)      (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FileFilter接口对象， 返回值是File数组。
      */
 
     /*
      * 对目录操作有两个过滤器接口
-         * FilenameFilter
-         * FileFilter
-         * 它们都只有一个抽象方法accept，
+     * FilenameFilter
+     * FileFilter
+     * 它们都只有一个抽象方法accept，
 
      * accept方法如下
-        * boolean accept(File dir, String name)      测试指定dir目录中是否包含文件名为name的文件。
-        * boolean accept(File pathname)              测试指定路径名是否应该包含在某个路径名列表中。
+     * boolean accept(File dir, String name)      测试指定dir目录中是否包含文件名为name的文件。
+     * boolean accept(File pathname)              测试指定路径名是否应该包含在某个路径名列表中。
      */
 
     public static void main(String[] args) {
@@ -95,7 +95,7 @@ class Java_File {
         System.out.println(dir2.exists()); // >>>  true
 
         // 文件
-        File IOfile =  new File("./TestDir/File_readIO.txt");
+        File IOfile = new File("./TestDir/File_readIO.txt");
         // 这里"."指的是项目的根目录,也就是Data_structure_with_Java下
 
         System.out.println(IOfile.getName()); // >>> "File_readIO.txt"
@@ -144,15 +144,15 @@ class Java_File {
         // 使用内部类在创建和改写FileFilter
         // 只编辑非只读文件
         File[] files2 = dir2.listFiles(new FileFilter() {
-			@Override
-			public boolean accept(File pathname) {
-				if (pathname.getName().endsWith(".txt")){
-					return true;
-				} else {
-					return false;
-				}
-			}
-		});
+            @Override
+            public boolean accept(File pathname) {
+                if (pathname.getName().endsWith(".txt")) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
         for (File f : files2) {
             System.out.println(f.getName());
@@ -165,7 +165,6 @@ class Java_File {
 }
 
 
-
 // 自定义基于文件扩展名的文件过滤器
 class Filter implements FilenameFilter {
     // 文件扩展名
@@ -176,7 +175,7 @@ class Filter implements FilenameFilter {
         this.extent = extent;
     }
 
-    @ Override
+    @Override
     public boolean accept(File dir, String name) {
         // 测试文件扩展名是否为extent所指定的
         return name.endsWith("." + extent);

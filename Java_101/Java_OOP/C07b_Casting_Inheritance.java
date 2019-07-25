@@ -3,14 +3,14 @@ package Java_OOP;
 public class C07b_Casting_Inheritance {
     /*
      *  Java的继承与Python不同
-        *  Python的实例只能来自它本身的类
-        *  由于转型问题的存在, Java可以以子类实例创建父类实例, 这就导致了一个父类实例是否继承子类的属性和方法的问题
-            * 属性
-                * 子类和父类共有的属性 -- 父类实例使用父类的属性
-                * 子类和父类不共有的属性 -- 父类实例不能使用, 除非通过转型
-            * 方法
-                * 子类和父类共有的方法 -- 父类实例使用子类的方法
-                * 子类和父类不共有的方法 -- 父类实例不能使用, 除非通过转型
+     *  Python的实例只能来自它本身的类
+     *  由于转型问题的存在, Java可以以子类实例创建父类实例, 这就导致了一个父类实例是否继承子类的属性和方法的问题
+     * 属性
+     * 子类和父类共有的属性 -- 父类实例使用父类的属性
+     * 子类和父类不共有的属性 -- 父类实例不能使用, 除非通过转型
+     * 方法
+     * 子类和父类共有的方法 -- 父类实例使用子类的方法
+     * 子类和父类不共有的方法 -- 父类实例不能使用, 除非通过转型
      */
 }
 
@@ -18,12 +18,13 @@ public class C07b_Casting_Inheritance {
 // 以下是更清晰演示转型中的继承与多态:
 class Father {
     int i;
-    public Father (){
+
+    public Father() {
         this.i = 0;
     }
 
     public void foo(int n) {
-        System.out.print("from Father2 foo" );
+        System.out.print("from Father2 foo");
         System.out.println(n);
     }
 }
@@ -31,35 +32,37 @@ class Father {
 class Child1 extends Father {
     int i;
     int j = 99;
-    public Child1 (){
+
+    public Child1() {
         this.i = 1;
     }
 
     public void foo(int n) {
         System.out.print("from Child foo 111 ");
-        System.out.println(n+1);
+        System.out.println(n + 1);
     }
 
     public void bar(int n) {
         System.out.print("from Child bar 11111111 ");
-        System.out.println(n+1);
+        System.out.println(n + 1);
     }
 }
 
 class Child2 extends Father {
     int i;
-    public Child2 (){
+
+    public Child2() {
         this.i = 2;
     }
 
     public void foo(int n) {
         System.out.print("from Child foo 222 ");
-        System.out.println(n+2);
+        System.out.println(n + 2);
     }
 
     public void bar(int n) {
         System.out.print("from Child bar 22222222 ");
-        System.out.println(n+2);
+        System.out.println(n + 2);
     }
 }
 

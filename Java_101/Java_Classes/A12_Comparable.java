@@ -20,9 +20,9 @@ public class A12_Comparable {
 
     /*
      * x.compareTo(y) 来“比较x和y的大小”
-         * 若返回“负数”，意味着“x比y小”
-         * 返回“零”，意味着“x等于y”
-         * 返回“正数”，意味着“x大于y”
+     * 若返回“负数”，意味着“x比y小”
+     * 返回“零”，意味着“x等于y”
+     * 返回“正数”，意味着“x大于y”
      */
 
 }
@@ -37,7 +37,7 @@ class Animal {
 
 
 class Dog extends Animal implements Comparable<Dog> {
-                         // 记住不要忘了继承Comparable接口
+    // 记住不要忘了继承Comparable接口
 
     String name;
     int age;

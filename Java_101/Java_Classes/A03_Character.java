@@ -10,7 +10,6 @@ public class A03_Character {
 }
 
 
-
 class Character_zMethods {
 
     public static void main(String[] args) {

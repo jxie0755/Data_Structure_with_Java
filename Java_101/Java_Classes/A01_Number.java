@@ -8,23 +8,23 @@ public class A01_Number {
      * Class Number
 
      * Java Number类
-        * 一般我们可以直接使用基本类型byte, int, long, short, double等等
-        * 然而，在实际开发过程中，我们经常会遇到需要使用对象，而不是内置数据类型的情形。
-        * 为了解决这个问题，Java语言为每一个内置数据类型提供了对应的包装类
-        * 因此这些包装类型都是Number的子类
-            * Byte
-            * Integer
-            * Double
-            * Float
-            * Short
-            * Long
-        * 这种由编译器特别支持的包装称为装箱，所以当内置数据类型被当作对象使用的时候，编译器会把内置类型装箱为包装类.
-        * 相似的，编译器也可以把一个对象拆箱为内置类型
-        * Number类属于java.lang包
+     * 一般我们可以直接使用基本类型byte, int, long, short, double等等
+     * 然而，在实际开发过程中，我们经常会遇到需要使用对象，而不是内置数据类型的情形。
+     * 为了解决这个问题，Java语言为每一个内置数据类型提供了对应的包装类
+     * 因此这些包装类型都是Number的子类
+     * Byte
+     * Integer
+     * Double
+     * Float
+     * Short
+     * Long
+     * 这种由编译器特别支持的包装称为装箱，所以当内置数据类型被当作对象使用的时候，编译器会把内置类型装箱为包装类.
+     * 相似的，编译器也可以把一个对象拆箱为内置类型
+     * Number类属于java.lang包
 
-        * 大数 (Number的两个子类)
-            * BigInteger - 是不可变的任意精度的大整数
-            * BigDecimal - 是不可变的任意精度的有符号十进制数
+     * 大数 (Number的两个子类)
+     * BigInteger - 是不可变的任意精度的大整数
+     * BigDecimal - 是不可变的任意精度的有符号十进制数
      */
 
     // https://docs.oracle.com/en/java/javase/11/
@@ -41,11 +41,9 @@ public class A01_Number {
 }
 
 
-
 // Java Math类方法
 class Number_zMethods {
-    public static void main (String []args)
-    {
+    public static void main(String[] args) {
         // 构造方法
         Integer someInt = new Integer(80);
         // 通过字符串也可以:
@@ -104,7 +102,7 @@ class Number_zMethods {
         Integer x4 = Integer.valueOf(9);  // >>> 9
         Double x5 = Double.valueOf(5);   // >>> 5.0
         Float x6 = Float.valueOf("80.5");  // >>> 80.5
-        Integer x7 = Integer.valueOf("100",2);   // >>> 4 二进制的100也就是十进制的4
+        Integer x7 = Integer.valueOf("100", 2);   // >>> 4 二进制的100也就是十进制的4
         Boolean boo = Boolean.valueOf(true);
         System.out.println(boo);
 

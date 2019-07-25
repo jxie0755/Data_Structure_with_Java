@@ -33,48 +33,48 @@ public class A10_Map {
 
     /*
      * Map常用方法
-         * 来自Map
-             * size()                长度
+     * 来自Map
+     * size()                长度
 
-             * get                   根据Key取Value
-             * getOrDefault​          增强型get, 提供一个default值,如果key不存在
-             * put                   添加新Key和新Value (不能重复Key) (也可以用于修改已有key的值)
-             * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
-             * putAll                批量添加(合并一个Map进来)
+     * get                   根据Key取Value
+     * getOrDefault​          增强型get, 提供一个default值,如果key不存在
+     * put                   添加新Key和新Value (不能重复Key) (也可以用于修改已有key的值)
+     * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
+     * putAll                批量添加(合并一个Map进来)
 
 
-             * remove​(key)           删除并返回Value
-             * remove​(key, value)    增强版remove          返回boolean确认
+     * remove​(key)           删除并返回Value
+     * remove​(key, value)    增强版remove          返回boolean确认
 
-             * replace               修改Key的值
-             * replace​(K key, Vold, Vnew)   增强型replace  返回boolean确认
+     * replace               修改Key的值
+     * replace​(K key, Vold, Vnew)   增强型replace  返回boolean确认
 
-             * clear()               清空
-             * isEmpty()
+     * clear()               清空
+     * isEmpty()
 
-             * containsKey​           k in Map?
-             * containsValue         v in Map?
+     * containsKey​           k in Map?
+     * containsValue         v in Map?
 
-             * CopyOf                inmutable copy
-             * entrySet()            生成Map.Entry集合, 便于iteration
+     * CopyOf                inmutable copy
+     * entrySet()            生成Map.Entry集合, 便于iteration
 
-             * keySet()              提取Key变成Set     (for iteration)
-             * values()              提取Values变成集合  (for iteration)
+     * keySet()              提取Key变成Set     (for iteration)
+     * values()              提取Values变成集合  (for iteration)
 
-             * hashcode()
+     * hashcode()
 
-             * of                   quick inmutable Map (up to 10 pairs)
-             * (static) ofEntries   根据一个Map.Entry的集合实例创造一个相应的Map
-             * (static) entry       为Map.ofEntry添加新的键值对,以创建Map        为initializatin设计, 不限数目
+     * of                   quick inmutable Map (up to 10 pairs)
+     * (static) ofEntries   根据一个Map.Entry的集合实例创造一个相应的Map
+     * (static) entry       为Map.ofEntry添加新的键值对,以创建Map        为initializatin设计, 不限数目
      */
 }
-
 
 
 class A10_Map_Initialization {
 
     // static initializer
     private static final HashMap<String, Integer> staticMap = new HashMap<>();
+
     static {
         staticMap.put("Apple", 1);
         staticMap.put("Chocolate", 2);
@@ -190,9 +190,9 @@ class A10_Map_Entry {
 
     /*
      * 重要方法
-         * getKey()
-         * getValue()
-         * setValue()
+     * getKey()
+     * getValue()
+     * setValue()
      */
 
     // Map.Entry and entry
@@ -216,9 +216,9 @@ class A10_Map_Entry {
         // 方案A: 造一个iterator然后用for loop和while loop
         Iterator iter1 = Map1.entrySet().iterator();
         // while loop
-        while(iter1.hasNext()){
-            Map.Entry<String, Integer> entry= (Map.Entry<String, Integer>) iter1.next();  // 注意转型安全
-            System.out.println("key:"+entry.getKey()+" value"+entry.getValue());
+        while (iter1.hasNext()) {
+            Map.Entry<String, Integer> entry = (Map.Entry<String, Integer>) iter1.next();  // 注意转型安全
+            System.out.println("key:" + entry.getKey() + " value" + entry.getValue());
         }
         // >>>
         // key:A value1
@@ -226,9 +226,9 @@ class A10_Map_Entry {
         // key:C value3
 
         // for loop
-        for (Iterator iter2 = Map1.entrySet().iterator(); iter2.hasNext();) {
-            Map.Entry<String, Integer> entry= (Map.Entry<String, Integer>) iter2.next();  // 注意转型安全
-            System.out.println("key:"+entry.getKey()+" value"+entry.getValue());
+        for (Iterator iter2 = Map1.entrySet().iterator(); iter2.hasNext(); ) {
+            Map.Entry<String, Integer> entry = (Map.Entry<String, Integer>) iter2.next();  // 注意转型安全
+            System.out.println("key:" + entry.getKey() + " value" + entry.getValue());
         }
         // >>> 与上相同
 
@@ -271,7 +271,7 @@ class A10_Map_simple_iteration {
 
 
         // keys
-        for (String k: Map1.keySet()) {
+        for (String k : Map1.keySet()) {
             System.out.println(k);
         }
         // >>>
@@ -281,7 +281,7 @@ class A10_Map_simple_iteration {
 
 
         // values
-        for (Integer v: Map1.values()) {
+        for (Integer v : Map1.values()) {
             System.out.println(v);
         }
         // >>>
@@ -293,7 +293,7 @@ class A10_Map_simple_iteration {
         // 不通过Map.Entry遍历Key和Value也行
         // 只遍历keySet, 但是靠Map.get(key)来取value 或者 Map.replace(key)来换值
         for (String key : Map1.keySet()) {
-            System.out.println("key= "+ key + " and value= " + Map1.get(key));
+            System.out.println("key= " + key + " and value= " + Map1.get(key));
             Map1.replace(key, 9);  // 也可以修改Key的value
             // 注意for-loop期间不要删key
         }
@@ -439,7 +439,7 @@ class A10_Map_zMethods {
         //  The collection is backed by the map, so changes to the map are reflected in the collection,
         //  and vice-versa.
         // 详见zLearnings.Java_View
-        Collection<Integer> v7 =Map7.values();
+        Collection<Integer> v7 = Map7.values();
         System.out.println(v7); // >>>  [9, 6, 8]
 
 

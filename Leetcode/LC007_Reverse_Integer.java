@@ -1,3 +1,12 @@
+/**
+ * p007 Reverse Integer
+ * Easy
+ * <p>
+ * Given a 32-bit signed integer, reverse digits of an integer.
+ * Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range.
+ * For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+ * The 32-bit int data type can hold integer values in the range of âˆ’2,147,483,648 to 2,147,483,647.
+ */
 public class LC007_Reverse_Integer {
 
     /**
@@ -59,13 +68,12 @@ public class LC007_Reverse_Integer {
     }
 
 
-
     public static void main(String[] args) {
 
-        assert new LC007_Reverse_Integer().reverse(123) == 321: "Regular";
-        assert new LC007_Reverse_Integer().reverse(-120) == -21: "Negative jump";
-        assert new LC007_Reverse_Integer().reverse(1534236469) == 0: "Exceed";
-        assert new LC007_Reverse_Integer().reverse(0) == 0: "Zero";
+        assert new LC007_Reverse_Integer().reverse(123) == 321 : "Regular";
+        assert new LC007_Reverse_Integer().reverse(-120) == -21 : "Negative jump";
+        assert new LC007_Reverse_Integer().reverse(1534236469) == 0 : "Exceed";
+        assert new LC007_Reverse_Integer().reverse(0) == 0 : "Zero";
         System.out.println("all passed");
 
     }

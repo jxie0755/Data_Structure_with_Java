@@ -7,9 +7,9 @@ public class Date extends java.util.Date {
      * 容量
      */
     public int size;
-    
+
     int longName1 = 0, longName2 = 0, longName3 = 0, longName4 = 0, longName5 = 0;
-    
+
     boolean boolName1 = true;
 
     public String getString() {
@@ -20,11 +20,11 @@ public class Date extends java.util.Date {
         // ...
 
         if ((longName1 == longName2)
-                || (longName3 == longName4) && (longName3 > longName4) 
+                || (longName3 == longName4) && (longName3 > longName4)
                 && (longName2 > longName5)) {
 
         }
-                 
+
         return null;
     }
 }

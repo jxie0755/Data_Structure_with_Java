@@ -2,12 +2,15 @@ package Java_Basics;// 1.6
 
 public class C01b_Primes {
 
-    /**Print all prime numbers smaller than x*/
-               // void means do not return anything
+    /**
+     * Print all prime numbers smaller than x
+     */
+    // void means do not return anything
     public static void primes_1(int x) {
-        for (int i=2; i <= x; i += 1) {
-            inner: {
-                for (int j = 2; j < (int)Math.pow(i, 0.5) + 1; j += 1) {
+        for (int i = 2; i <= x; i += 1) {
+            inner:
+            {
+                for (int j = 2; j < (int) Math.pow(i, 0.5) + 1; j += 1) {
                     if (i % j == 0) {
                         break inner;
                     }
@@ -23,7 +26,7 @@ public class C01b_Primes {
         if (x == 2) {
             return true;
         } else {
-            for (int i=2; i <= (int)Math.pow(x, 0.5) +1; i += 1) {
+            for (int i = 2; i <= (int) Math.pow(x, 0.5) + 1; i += 1) {
                 if (x % i == 0) {
                     return false;
                 }
@@ -32,7 +35,7 @@ public class C01b_Primes {
         return true;
     }
 
-    public static void primes_2 (int x) {
+    public static void primes_2(int x) {
         for (int i = 2; i <= x; i = i + 1) {
             if (isPrime(i)) {
                 System.out.print(i + " ");
@@ -45,9 +48,10 @@ public class C01b_Primes {
     public static void main(String[] args) {
 
         System.out.println("From loop in main: ");
-        for (int i=2; i <= 20; i += 1) {
-            inner: {
-                for (int j = 2; j < (int)Math.pow(i, 0.5) + 1; j += 1) {
+        for (int i = 2; i <= 20; i += 1) {
+            inner:
+            {
+                for (int j = 2; j < (int) Math.pow(i, 0.5) + 1; j += 1) {
                     if (i % j == 0) {
                         break inner;
                     }

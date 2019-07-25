@@ -57,7 +57,7 @@ public class C09_While_Loop {
         // 但有时候我们需要即使不满足条件，也至少执行一次
         int response = 0;
         do {
-            System.out.println ("reponse is now: " + response);
+            System.out.println("reponse is now: " + response);
             response += 1;
         } while (response != 5);
         // >>>
@@ -75,7 +75,7 @@ public class C09_While_Loop {
 
         // This prints at lease once Hello
         do {
-            System.out.println ("Hello!");
+            System.out.println("Hello!");
         } while (false);
 
         // 其实相当于while True, 执行一段代码, 然后if条件不符合,就break

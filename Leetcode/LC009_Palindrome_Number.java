@@ -1,7 +1,7 @@
 /**
  * p009 Palindrome Number
  * Easy
- *
+ * <p>
  * Determine whether an integer is a palindrome. Do this without extra space.
  * Negative integer will not be a palindrome
  */
@@ -28,7 +28,7 @@ public class LC009_Palindrome_Number {
 
         assert new LC009_Palindrome_Number().isPalindrome(21477412) : "Is palindrome even";
         assert new LC009_Palindrome_Number().isPalindrome(12321) : "Is palindrome odd";
-        assert ! new LC009_Palindrome_Number().isPalindrome(1477412) : "Not palindrome";
+        assert !new LC009_Palindrome_Number().isPalindrome(1477412) : "Not palindrome";
         assert new LC009_Palindrome_Number().isPalindrome(1) : "Single 1";
         assert new LC009_Palindrome_Number().isPalindrome(0) : "Single 0";
 

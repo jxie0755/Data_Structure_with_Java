@@ -141,15 +141,14 @@ public class A17_Stream {
 
         // Stream.iterate(start, n -> n * 2)
         System.out.println();
-        Stream.iterate(1, x -> x +1).limit(10).forEach(System.out::print);
+        Stream.iterate(1, x -> x + 1).limit(10).forEach(System.out::print);
         // >>> 12345678910   // 从1开始, 一直加1,重复10次
 
         // generate(Supplier<T> s)
         System.out.println();
-        Stream.generate(Math::random).map(i -> (int)(i * 10)).limit(5).forEach(System.out::print);
+        Stream.generate(Math::random).map(i -> (int) (i * 10)).limit(5).forEach(System.out::print);
         // BufferedReader.lines()从文件中获得行的流
         // 随机数流Random.ints()
-
 
 
         // 后面所有例子都是用串行流, 都可以随时被替代成并行流
@@ -200,7 +199,7 @@ public class A17_Stream {
         // 将两个Stream合并成一个，这个方法一次只能用来合并两个Stream，不能一次多个Stream合并
         // 甚至可以不同类(需要转型)
         Stream<Integer> scon_1 = Stream.of(1, 2, 3);
-        Stream<String>  scon_2 = Stream.of("A", "B", "C");
+        Stream<String> scon_2 = Stream.of("A", "B", "C");
         Stream<Object> so_con = Stream.concat(scon_1, scon_2);  // 向上转型为Object
         so_con.forEach(System.out::print); // >>> 123ABC
 
@@ -224,8 +223,8 @@ public class A17_Stream {
         // distinct
         List<Integer> numbers2 = Arrays.asList(2, 2, 1, 1, 3, 4, 4, 3);
         List<Integer> n2_remove_repeat = numbers2.stream()
-                . distinct()
-                . collect(Collectors.toList());
+                .distinct()
+                .collect(Collectors.toList());
         System.out.println(n2_remove_repeat); // >>> [2, 1, 3, 4]
 
 
@@ -240,7 +239,6 @@ public class A17_Stream {
         // 9
         // 16                前面的peek用于debug,观察过程
         // [1, 4, 9, 16]
-
 
 
         // Terminal Operation
@@ -286,8 +284,6 @@ public class A17_Stream {
         System.out.println(Arrays.toString(OA)); // >>> [1, 3, 5, 7, 9]
         int[] IA = to_ary.stream().mapToInt(i -> i).toArray(); // 必须是int[]
         System.out.println(Arrays.toString(IA)); // >>> [1, 3, 5, 7, 9]
-
-
 
 
         // findAny()
