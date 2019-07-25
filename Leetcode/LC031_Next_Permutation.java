@@ -41,10 +41,53 @@ import java.util.Arrays;
 public class LC031_Next_Permutation {
 
     /**
+     * Helper function to swap an Array from (start, end)
+     */
+    private void swap_array(int[] nums, int start, int end) {
+
+        if (nums.length > 0 && end > start) {
+            for (int i = start; i <= (end - start) / 2 + start; i += 1) {
+                int temp = nums[i];
+                nums[i] = nums[end - i + start];
+                nums[end - i + start] = temp;
+            }
+        }
+    }
+
+    /**
      * Version B
      */
     public void nextPermutation(int[] nums) {
 
+        int length = nums.length;
+        int cur_i = -1;
+
+        for (int i = length - 2; i >= 0; i -= 1) {
+            if (nums[i] < nums[i + 1]) {
+                cur_i = i;
+                break;
+            }
+        }
+
+        // reverse if the array is already reversely sorted
+        if (cur_i == -1) {
+            this.swap_array(nums, 0, nums.length - 1);
+        } else {
+
+            for (int rev_i = length - 1; rev_i > cur_i; rev_i -= 1) {
+                if (nums[rev_i] > nums[cur_i]) {
+
+                    // Switch
+                    int temp = nums[rev_i];
+                    nums[rev_i] = nums[cur_i];
+                    nums[cur_i] = temp;
+
+                    // reverse the tail back to sorted
+                    this.swap_array(nums, cur_i + 1, nums.length - 1);
+                    break;
+                }
+            }
+        }
     }
 
 
