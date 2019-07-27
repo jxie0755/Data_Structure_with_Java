@@ -11,8 +11,50 @@
  */
 public class LC033_Search_In_Rotated_Sorted_Array {
 
+
+    /**
+     * Version B
+     * Regular while loop, binary search O(logN) * c
+     */
     public int search(int[] nums, int target) {
 
+        if (nums.length == 0) {
+            return -1;
+        }
+
+        int L = 0;
+        int H = nums.length - 1;
+
+        while (L <= H) {
+            int M = (L + H) / 2;
+            int low = nums[L];
+            int mid = nums[M];
+            int high = nums[H];
+
+            if (mid == target) {
+                return M;
+            }
+
+            if (L == H) {
+                if (low == target) {
+                    return L;
+                } else {
+                    return -1;
+                }
+            }
+
+            if (low <= target && target <= mid) {
+                H = M - 1;
+            } else if (mid <= target && target <= high) {
+                L = M + 1;
+            } else if (low > mid) {
+                H = M - 1;
+            } else if (mid >= low) {
+                L = M + 1;
+            }
+        }
+
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -21,10 +63,10 @@ public class LC033_Search_In_Rotated_Sorted_Array {
         assert new LC033_Search_In_Rotated_Sorted_Array().search(Q1, 1) == -1 : "Edge 1";
 
         int[] Q2 = new int[]{1};
-        assert new LC033_Search_In_Rotated_Sorted_Array().search(Q2, 0) == 0 : "Edge 2";
+        assert new LC033_Search_In_Rotated_Sorted_Array().search(Q2, 1) == 0 : "Edge 2";
 
         int[] Q3 = new int[]{0};
-        assert new LC033_Search_In_Rotated_Sorted_Array().search(Q3, 0) == -1 : "Edge 3";
+        assert new LC033_Search_In_Rotated_Sorted_Array().search(Q3, 1) == -1 : "Edge 3";
 
         int[] Q4 = new int[]{4, 5, 6, 7, 0, 1, 2};
         assert new LC033_Search_In_Rotated_Sorted_Array().search(Q4, 0) == 4 : "Example 1";
