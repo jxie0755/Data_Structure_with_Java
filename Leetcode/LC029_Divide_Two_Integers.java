@@ -58,7 +58,6 @@ public class LC029_Divide_Two_Integers {
         } else {
             return (int) result;
         }
-
     }
 
     public static void main(String[] args) {
