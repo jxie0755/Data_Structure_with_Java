@@ -97,12 +97,13 @@ public class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
                 new int[]{10, 13})
                 : "Extra 5";
 
-        int[] Q13 = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 8, 10, 10};
+        int[] Q13 = new int[]{1, 2, 3, 3, 3, 3, 4, 5, 9};
         assert Arrays.equals(
-                new LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array().searchRange(Q13, 4),
-                new int[]{10, 13})
-                : "Extra 5";
+                new LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array().searchRange(Q13, 3),
+                new int[]{2, 5})
+                : "Extra 6";
 
+        System.out.println("all passed");
     }
 }
 
