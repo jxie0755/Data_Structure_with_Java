@@ -21,13 +21,85 @@ public class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
      */
     public int[] searchRange(int[] nums, int target) {
 
+
+        if (nums.length == 0) {
+            return new int[]{-1, -1};
+        }
+        if (nums.length == 1) {
+            if (nums[0] == target) {
+                return new int[]{0, 0};
+            } else {
+                return new int[]{-1, -1};
+            }
+        }
+
+        int L = 0;
+        int H = nums.length - 1;
+        int M = (L + H) / 2;
+
+        // first while loop to find whether target is in the Array
+        while (L <= H) {
+            int check = nums[M];
+            if (check < target) {
+                L = M + 1;
+            } else if (check > target) {
+                H = M - 1;
+            } else {
+                break;
+            }
+            M = (L + H) / 2;
+        }
+
+        if (L > M) {
+            return new int[]{-1, -1};
+        }
+
+        // locate head
+        int Lo = L;
+        int Hi = M;
+        int head;
+        while (true) {
+            head = (Lo + Hi) / 2;
+            int head_value = nums[head];
+
+            if (head_value == target && head == 0) {
+                break;
+            } else if (head_value < target) {
+                Lo = head + 1;
+            } else if (head_value == target && nums[head - 1] == target) {
+                Hi = head - 1;
+            } else {
+                break;
+            }
+        }
+
+        // locate head
+        Lo = M;
+        Hi = H;
+        int tail;
+        while (true) {
+            tail = (Lo + Hi) / 2;
+            int tail_value = nums[tail];
+
+            if (tail_value == target && tail == Hi) {
+                break;
+            } else if (tail_value > target) {
+                Hi = tail - 1;
+            } else if (nums[tail] == target && nums[tail + 1] == target) {
+                Lo = tail + 1;
+            } else {
+                break;
+            }
+        }
+
+        return new int[]{head, tail};
     }
 
     public static void main(String[] args) {
 
         int[] Q1 = new int[]{};
         assert Arrays.equals(
-                new LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array().searchRange(Q1, 8),
+                new LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array().searchRange(Q1, 0),
                 new int[]{-1, -1})
                 : "Edge 1";
 
