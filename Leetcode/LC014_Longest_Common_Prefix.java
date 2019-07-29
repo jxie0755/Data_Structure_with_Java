@@ -1,6 +1,7 @@
 import java.util.*;
 
 /**
+ * https://leetcode.com/problems/longest-common-prefix/
  * p014 Longest Common Prefix
  * Easy
  * <p>

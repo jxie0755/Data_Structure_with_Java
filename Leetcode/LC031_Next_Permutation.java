@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 /**
+ * https://leetcode.com/problems/next-permutation/
  * P031 Next Permutation
  * Medium
  * <p>

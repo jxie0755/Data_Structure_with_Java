@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 /**
+ * https://leetcode.com/problems/remove-element/
  * p027 Remove Element
  * Easy
  * <p>
