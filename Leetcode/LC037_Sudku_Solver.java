@@ -19,6 +19,8 @@ import java.util.*;
  * The given board size is always 9x9.
  * <p>
  * Based on JavaSudokuSolver, but revised to char[][] board
+ *
+ * This will not pass Leetcode as it does not allow some of the implements
  */
 public class LC037_Sudku_Solver {
 
