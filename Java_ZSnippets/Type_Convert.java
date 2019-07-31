@@ -26,6 +26,7 @@ public class Type_Convert {
 
         // String转int (注意, 不能对Character类使用,必须是String!)
         int int_B = Integer.valueOf(str_B);
+        int int_B2 = Integer.parseInt(str_B);  // 推荐
 
         // char转String
         char C = 'X';
