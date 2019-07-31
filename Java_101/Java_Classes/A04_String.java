@@ -56,7 +56,7 @@ public class A04_String {
 
      * hashCode()
 
-     * concat                          连接字符串
+     * concat                          连接字符串 (相当于+)
      * static String.join(String connecter, String[] or List<String>).  连接string
      */
 
