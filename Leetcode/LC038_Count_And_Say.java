@@ -8,9 +8,9 @@
  * 2. 11
  * 3. 21
  * 4. 1211
- * 1 is 11
- * 2 is 12
- * 11 is 21, so next number is: 11 - 12 - 21
+ *    1 is 11
+ *     2 is 12
+ *      11 is 21, so next number is: 11 - 12 - 21
  * 5. 111221
  * <p>
  * each number is a read of previous number
