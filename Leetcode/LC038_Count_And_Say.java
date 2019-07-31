@@ -47,7 +47,7 @@ public class LC038_Count_And_Say {
     }
 
     /**
-     * Version B2 (?????WTF?)
+     * Version B2
      * Use StringBuilder, just to practive
      * Avoid type convert by using StringBuilder from the beginning and iteration
      * This is significantly faster than B1
@@ -82,10 +82,7 @@ public class LC038_Count_And_Say {
         assert new LC038_Count_And_Say().countAndSay(5).equals("111221") : "fifth";
         assert new LC038_Count_And_Say().countAndSay(6).equals("312211") : "sixth";
         assert new LC038_Count_And_Say().countAndSay(10).equals("13211311123113112211") : "Very Long";
-        System.out.println("all passed");  // jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-        // zzzzz
-        // add
-        // ??
+        System.out.println("all passed");
     }
 }
 
