@@ -84,6 +84,7 @@ public class LC038_Count_And_Say {
         assert new LC038_Count_And_Say().countAndSay(10).equals("13211311123113112211") : "Very Long";
         System.out.println("all passed");  // jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
         // zzzzz
+        // add
     }
 }
 
