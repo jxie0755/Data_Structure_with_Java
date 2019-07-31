@@ -47,7 +47,7 @@ public class LC038_Count_And_Say {
     }
 
     /**
-     * Version B2
+     * Version B2 (?????WTF?)
      * Use StringBuilder, just to practive
      * Avoid type convert by using StringBuilder from the beginning and iteration
      * This is significantly faster than B1
