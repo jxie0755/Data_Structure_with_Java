@@ -12,7 +12,6 @@ public class C10_For_Loop {
      * for loop      相当于 for i in range(0, len(array)):
      * for-each loop 相当于 for i in array:
      * for-each loop 也可以用于iterator
-
      * break work the same way as python
      */
 

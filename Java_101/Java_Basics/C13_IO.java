@@ -55,18 +55,17 @@ class Java_File {
      * boolean mkdir( )                         创建当前File对象指定的目录。
      * String[] list()                          返回当前目录下的文件和目录， 返回值是字符串数组。
      * File[] listFiles()                       返回当前目录下的文件和目录， 返回值是File数组。
-
      * String[] list(FilenameFilter filter)     (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是字符串数组。
      * File[] listFiles(FilenameFilter filter)  (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FilenameFilter接口对象， 返回值是File数组。
      * File[] listFiles(FileFilter filter)      (重载)返回当前目录下满足指定过滤器的文件和目录， 参数是实现FileFilter接口对象， 返回值是File数组。
      */
+
 
     /*
      * 对目录操作有两个过滤器接口
      * FilenameFilter
      * FileFilter
      * 它们都只有一个抽象方法accept，
-
      * accept方法如下
      * boolean accept(File dir, String name)      测试指定dir目录中是否包含文件名为name的文件。
      * boolean accept(File pathname)              测试指定路径名是否应该包含在某个路径名列表中。
