@@ -13,7 +13,6 @@ public class C00a_Use_of_Static {
      * 本质上static就是区分实例可用还是类可用
      * static就是实例+类均可用
      * 非static就是必须被实例用,不能被类用
-
      * 本类中:
      * static 的方法 必须运行static的方法和变量
      * (原因很简单, static说明它必须提前加载,所以它用的东西也都是可以提前被加载的,否则会引起冲突)

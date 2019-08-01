@@ -7,25 +7,20 @@ public class Java_View {
      * 常见
      * Arrays.asList
      * 支持Arrays get和set
-
      * List.subList​(idx, idx)
      * 可以双向修改和单向view删除
      * List增加和修改导致subList作废
      * 多段subList存在互相干涉,引发冲突的情况
      * (以后直接新建避免问题) 修改只在原List上改动
-
      * Map.entrySet()
      * 可以单向View删除,单向Map增加
-
      * Map.values()
      * 可以双向删除, 单向Map添加
      * 双向不能修改(Collection,Map没有修改Key的概念)
-
      * Map.keySet()
      * 单向Map增加
      * 单向View不能删除,因为没法访问那个pair, 可以clear()
      * 双向不能修改(Map没有修改Key的概念)
-
      */
 
     /*
@@ -49,8 +44,6 @@ public class Java_View {
      * 可以遍历
      * 但是不能增加和减少, 因为你看到的仍然是这个Map object,只不过过滤掉了你不看的信息
      * 有时可以修改, 因为相当于修改原object
-
-
      * 视图对象可以说是具有限制的集合对象。
      * 不同视图具有不同的操作权限
      * 但是如果调用越权的方法就会抛出异常。

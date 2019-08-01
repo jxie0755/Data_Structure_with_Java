@@ -40,20 +40,16 @@ class Array_and_ArrayList {
  * i其实记录的是数组的首地址，而i[1]其实相当于在i的地址的基础上加上1个整数的地址偏移，然后再取这块地址中的值。
  * List则是不连续的存储结构,List的每个节点都有着一个Next属性，这个属性则记录着他的下一个节点的地址。
  * 也就是说当我们想找第100个节点的时候，他还是需要从第一个节点，然后做99次Next操作，才能找到list[99]节点。
-
  * Array必须要在初始化时分配固定的大小
  * 比如说int[] a = new int[3]; 或者 int[] a = new int[]{1,2,3};
  * 如果我们仅仅写int[] a=new int[]; 编译器就会无情地给我们报错。
-
  * ArryList由于空间不必连续，所以无须指定初始大小,但是它有个initial capacity的概念
  * Java ArrayList do not provide a way to access its current capacity.
  * You can only construct an ArrayList specifying an initial capacity or increase the capacity by calling ensureCapacity().
  * Expanding the capacity of an ArrayList is slow.
  * To avoid this, estimate how many elements are needed and construct an ArrayList of that many plus some extra
-
  * 总结1： 当不确定大小时，最好使用List代替Array。
  * 总结2： 当需要大量的查找操作时，最好使用Array。
-
  * Addtional: 在JKD1.6中实现是，如果通过无参构造的话，初始数组容量为10，每次通过copeOf的方式扩容后容量为原来的1.5倍
  */
 
@@ -73,7 +69,6 @@ class List_and_ArrayList {
      * List list = new LinkedList(); 其它使用了list地方的代码根本不需要改动
      * 理解: List作为父类, 它可以接受各种其他子类和它共有的方法, 这个优势如果建立ArrayList就没有.
      * 假设你开始用 ArrayList alist = new ArrayList(), 这下你有的改了，特别是如果你使用了 ArrayList特有的方法和属性
-
      * 所以这个事是各有利弊:
      * 用List = 就更通用,但是不能使用子类的独特特性, (但是可以通过转型来弥补这一缺陷!, 所以这样写更优!)
      * 用ArrayList = 就专注于ArrayList的独特特性, 但是不好换型 (而且无法转型)
