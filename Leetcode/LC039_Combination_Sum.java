@@ -94,8 +94,6 @@ public class LC039_Combination_Sum {
         assert new LC039_Combination_Sum().combinationSum(q8, 10).equals(a8) : "Extra 1";
 
         System.out.println("all passed");
-
-
     }
 
 }
