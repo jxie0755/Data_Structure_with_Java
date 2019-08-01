@@ -6,7 +6,6 @@ public class A01_Number {
      * Module java.base
      * Package java.lang
      * Class Number
-
      * Java Number类
      * 一般我们可以直接使用基本类型byte, int, long, short, double等等
      * 然而，在实际开发过程中，我们经常会遇到需要使用对象，而不是内置数据类型的情形。
@@ -21,7 +20,6 @@ public class A01_Number {
      * 这种由编译器特别支持的包装称为装箱，所以当内置数据类型被当作对象使用的时候，编译器会把内置类型装箱为包装类.
      * 相似的，编译器也可以把一个对象拆箱为内置类型
      * Number类属于java.lang包
-
      * 大数 (Number的两个子类)
      * BigInteger - 是不可变的任意精度的大整数
      * BigDecimal - 是不可变的任意精度的有符号十进制数

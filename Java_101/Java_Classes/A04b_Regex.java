@@ -25,7 +25,6 @@ public class A04b_Regex {
      * 你需要调用 Pattern 对象的 matcher 方法来获得一个 Matcher 对象。
      * PatternSyntaxException：
      * PatternSyntaxException 是一个非强制异常类，它表示一个正则表达式模式中的语法错误。
-
      * 注意, java给组命名不加P (?<g_name>content)
      */
 

@@ -11,12 +11,10 @@ public class A07_Array {
      * Module java.base
      * Package java.lang.reflect
      * Class Array
-
      * 在计算机语言中数组是非常重要的集合类型， 大部分计算机语言中数组具有如下三个基本特性：
      * 01. 一致性： 数组只能保存相同数据类型元素， 元素的数据类型可以是任何相同的数据类型。
      * 02. 有序性： 数组中的元素是有序的， 通过下标访问。
      * 03. 不可变性： 数组一旦初始化， 则长度（数组中元素的个数） 不可变
-
      * Java中数组的下标是从零开始
      * Java中的数组本身是引用数据类型， 它的长度属性是length
      * 数组可以分为： 一维数组和多维数组
@@ -27,15 +25,12 @@ public class A07_Array {
      * Array 常用方法
      * .length                          属性, array长度
      * Array.getLength(arrayName)       长度             # 二者几乎没区别
-
      * 切片式 get和set
      * ArrayName[idx]             ---> get
      * ArrayName[idx] == newValue ---> set
-
      * 非切片式 get和set
      * Array.get(ArrayName, idx)
      * Array.set(ArrayName, idx, value);
-
      * 注意切片时不能改长度的,所以没有添加和删除的方法
      */
 

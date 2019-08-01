@@ -32,8 +32,6 @@ class A05b_StringBuilder {
      * replace(idxA, idxB, Str)       用一个String替换一个子段落 (不一定要等长)
      * setCharAt(idx, char)           替换单个char
      * setLength(int)                 从头保留长度内的字符串,多余的删去
-
-
      * 其他和String类似的方法
      * char charAt(int index)
      * getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
@@ -130,8 +128,6 @@ class A05c_StringBuffer {
      * replace(idxA, idxB, Str)       用一个String替换一个子段落 (不一定要等长)
      * setCharAt(idx, char)           替换单个char
      * setLength(int)                 从头保留长度内的字符串,多余的删去
-
-
      * 其他和String类似的方法
      * char charAt(int index)
      * getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)

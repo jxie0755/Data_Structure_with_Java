@@ -77,6 +77,7 @@ public class A00_Premitive_Types {
          * 八进制数： 以0为前缀， 注意0是阿拉伯数字。
          * 十六进制数： 以 0x或0X为前缀， 注意0是阿拉伯数字
          */
+
         int decimalInt = 28;
 
         int binaryInt1 = 0b11100;
@@ -127,7 +128,6 @@ public class A00_Premitive_Types {
          * long
          * float
          * double
-
          * *char*类型比较特殊， char自动转换为int、 long、 float和double，
          * 但byte和short不能自动转换为char， 而且char也不能自动转换为byte或short
          */

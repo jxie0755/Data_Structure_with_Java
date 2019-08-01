@@ -23,12 +23,10 @@ public class A17_Stream {
             * +--------------------+       +------+   +------+   +---+   +-------+
               | stream of elements +-----> |filter+-> |sorted+-> |map+-> |collect|
               +--------------------+       +------+   +------+   +---+   +-------+
-
         * Stream（流）是一个来自数据源的元素队列并支持聚合操作
             * 元素是特定类型的对象，形成一个队列。 Java中的Stream并不会存储元素，而是按需计算。
             * 数据源   - 流的来源。 可以是集合，数组，I/O channel， 产生器generator 等。
             * 聚合操作 -  类似SQL语句一样的操作， 比如filter, map, reduce, find, match, sorted等。
-
         * 和以前的Collection操作不同， Stream操作还有两个基础的特征：
             * Pipelining:
                 * 中间操作都会返回流对象本身。 这样多个操作可以串联成一个管道，
@@ -37,46 +35,32 @@ public class A17_Stream {
             * 内部迭代:
                 * 以前对集合遍历都是通过Iterator或者For-Each的方式, 显式的在集合外部进行迭代， 这叫做外部迭代。
                 * Stream提供了内部迭代的方式， 通过访问者模式(Visitor)实现。
-
         * 流和其它集合具体的区别，可以参照下面的列表：
             * 不存储数据。流是基于数据源的对象，它本身不存储数据元素，而是通过管道将数据源的元素传递给操作。
             * 函数式编程。流的操作不会修改数据源，例如filter不会将数据源中的数据删除。
             * 延迟操作。流的很多操作如filter,map等中间操作是延迟执行的，只有到终点操作才会将操作顺序执行。
             * 可以解绑。对于无限数量的流，有些操作是可以在有限的时间完成的，比如limit(n) 或 findFirst()，这些操作可是实现"短路"(Short-circuiting)，访问到有限的元素后就可以返回。
             * 纯消费。流的元素只能访问一次，类似Iterator，操作没有回头路，如果你想从头重新访问流的元素，对不起，你得重新生成一个新的流。
-
-
-
             * streams have three parts:
                 * A data source
                 * Zero or more intermediate operations
                 * Zero or one terminal operation
-
-
-
         * 常用方法
-
         * static方法
         * Stream.of(Object[])               生成流
         * Stream.iterate(i, x -> x+1)       生成一个迭代流, 从i开始, 对i做一个lambda函数迭代
         * IntStream.range(int i, int j)     生成一个迭代流, (i,j]
-
         * Collection.stream()                生成串行流
         * Collection.parallelStream()        生成并行流  (底层多线程工作, 用起来完全一样)
         * parallel()                         将串行流转换成并行流
         * sequential()                       将并行流转换成串行流
-
         * forEach(Lambda)                    for loop迭代
-
-
         * 中间操作 intermediate operations
         * map(Function)                      类似py的map, high order function处理元素     (可能打乱顺序)
         * flatMap(Function)
-
         * mapToInt                           转换成int元素
         * mapToDoule                         转换成double元素
         * mapToLong                          转换成long元素
-
         * filter(Function)                   类似py的filter, high order function过滤元素  (不断乱原顺序)
         * limit(n)                           只保留前n个元素
         * concat(stm1, stm2)                 合并了两个流成为一个流
@@ -85,27 +69,19 @@ public class A17_Stream {
         * unordered()                        不排序, 但是也不打乱
         * distinct()                         类似set命令, 去重
         * peek(Function)                     只看不操作, 用于debug和观察过程
-
-
         * 终点操作 terminal operations
         * allMatch(Function)                 类似python的all, 断言全部元素能在Function中返回true
         * anyMatch(Function)                 类似python的any, 断言有没有任何元素能在Function中返回true
         * noneMatch(Function)                断言没有任何元素能在Function中返回true
-
         * count()                            返回流中元素数目
-
         * collect(Collectors.toList())       转换回list
         * collect(Collectors.joining(String) 连接成String
         * toArray()                          放到一个Array里
-
         * findAny()                          可以判断是否能找到任何元素(通常是中间处理流之后), 返回一个Optional对象
         * findFirst()                        可以判断能找到的第一个元素(通常是中间处理流之后), 返回一个Optional对象
-
         * max(Comparator)                    返回最大值 (装在Optional对象里)
         * min(Comparator)                    返回最小值 (装在Optional对象里)
-
         * reduce                             类似py的reduce, 高阶函数
-
         * Statistics
      */
 

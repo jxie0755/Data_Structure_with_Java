@@ -21,8 +21,6 @@ public class A13_Enum {
      * 而Java 5之后还可以是枚举类型。
      * 另外在switch中使用枚举类型时，switch语句中的case分支语句个数应该对应枚举常量个数，不要多也不要少，
      * 当使用default时default应该只表示等于最后一个枚举常量情况。
-
-
      * 介绍
      * Java枚举类型是一种类， 是引用类型， 具有了面向对象特性， 可以添加方法和成员变量等。
      * 枚举类可以像类一样包含成员变量和成员方法
@@ -37,16 +35,12 @@ public class A13_Enum {
      * Enum常用方法
      * 注意枚举类的中的构造方法只能是私有访问级别， 构造方法可以省略private关键字， 但它仍然是私有的构造方法。
      * 这也说明了枚举类不允许在外部创建对象
-
      * values()            static方法, 返回一个数组, 包含全部枚举类常量
      * int ordinal()       返回枚举常量的顺序。 这个顺序根据枚举常量声明的顺序而定， 顺序从零开始
      * valueOf(str)        静态方法， str是枚举常量对应的字符串， 返回一个包含枚举类型实例
      * equals (==)         对比是否相等
      * name()              返回常量名(String)相当于toString
-
      * getDeclaringClass() 返回这个自定义枚举类的Class
-
-
      * hashcode()
      * compareTo           比较(取决于枚举顺序)
      * clone()

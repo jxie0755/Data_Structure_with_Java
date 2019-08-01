@@ -98,13 +98,17 @@ class A14c_DateFormat {
      */
 
     /*
+     * Module java.base
+     * Package java.text
+     * Class SimpleDateFormat
+     */
+
+    /*
      * String format(Date date)   将一个Date格式化为日期/时间字符串。
      * Date parse(String source)  从给定字符串的开始解析文本，以生成一个日期对象. 如果解析失败则抛出ParseException。
-
      * SimpleDateFormat构造方法
      * SimpleDateFormat()                用默认的模式和默认语言环境的日期格式符号构造SimpleDateFormat。
      * SimpleDateFormat(String pattern)  用给定的模式和默认语言环境的日期格式符号构造SimpleDateFormat。
-
      * parse                             从StringFormat变成Date对象 (注意处理异常)
      */
 
@@ -129,7 +133,6 @@ class A14c_DateFormat {
      * m	Minute in hour	                                  Number	30
      * s	Second in minute	                              Number	55
      * S	Millisecond	                                      Number	978
-
      * z	Time zone	                             General timezone	 Pacific Standard Time; PST; GMT-08:00
      * Z	Time zone	                             RFC 822 timezone	 -0800
      * X	Time zone	                             ISO 8601 timezone -08; -0800; -08:00
@@ -177,7 +180,6 @@ class A14d_Calendar {
 
      * getTime                                      转化成Date实例
      * clear                                        清除(重新初始化日历对象)
-     *
      */
 
     public static void main(String[] args) {
