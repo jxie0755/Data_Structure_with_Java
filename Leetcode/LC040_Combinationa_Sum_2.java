@@ -32,13 +32,14 @@ public class LC040_Combinationa_Sum_2 {
             void process(int[] candidates, int start, List<Integer> intermediate, int target) {
                 if (target == 0 && !result.contains(intermediate)) {
                     result.add(new ArrayList<>(intermediate));  // copy intermediate
-                } else {
-                    while (start < candidates.length && candidates[start] <= target) {
+                }
+
+                while (start < candidates.length && candidates[start] <= target) { // # 相对于P039 加一个去重条件
                         intermediate.add(candidates[start]);
-                        this.process(candidates, start, intermediate, target - candidates[start]);
+                    this.process(candidates, start + 1, intermediate, target - candidates[start]);
+                    // 这里与p039不同,需要跳过, 因为不得重复使用同一个元素
                         intermediate.remove(intermediate.size() - 1);
                         start += 1;
-                    }
                 }
             }
         }
@@ -66,7 +67,7 @@ public class LC040_Combinationa_Sum_2 {
         List<Integer> b1 = new ArrayList<>(Arrays.asList(1, 2, 2));
         List<Integer> b2 = new ArrayList<>(Arrays.asList(5));
         List<List<Integer>> b = new ArrayList<>(Arrays.asList(b1, b2));
-        assert new LC040_Combinationa_Sum_2().combinationSum2(q1, 5).equals(b) : "Example 2";
+        assert new LC040_Combinationa_Sum_2().combinationSum2(q2, 5).equals(b) : "Example 2";
 
         System.out.println("all passed");
     }
