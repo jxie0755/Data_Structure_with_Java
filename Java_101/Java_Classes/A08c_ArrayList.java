@@ -34,7 +34,7 @@ public class A08c_ArrayList {
      * set                        相当于lst[i] = n
      * add​(int index, E element)       相当于insert(重载)
      * addAll​(idx, Collection<?>)      指定index(重载)
-     * remove​(int index)                     相当于pop
+     * remove​(int index)                     相当于pop (直接pop()尾部需要remove(AL.size()-1)
      * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
      * indexOf​(Object o)
      * lastIndexOf​(Object o)
