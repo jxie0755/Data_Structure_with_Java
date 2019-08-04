@@ -91,7 +91,7 @@ public class Type_Convert {
         // Array to ArrayList
         Integer[] X_array = new Integer[]{1, 2, 3, 4};
         List<Integer> int_L = new ArrayList<>(Arrays.asList(X_array));
-        // ArrayList to Array
+        // ArrayList to Array // 注意不能用int
         Integer[] int_array = int_L.toArray(new Integer[int_L.size()]);  // 利用重载方法
 
 
