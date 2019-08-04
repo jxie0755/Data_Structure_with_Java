@@ -10,13 +10,14 @@ public class A08c_ArrayList {
      * Module java.base
      * Package java.util
      * Class ArrayList<E>
-     *ArrayList 最基本的操作
+
+     * ArrayList 最基本的操作
      * 来自Iterable
      * forEach()
      * iterator()
      * 来自Collection
      * add​(E e)                     相当于append, 附带return boolean
-     * remove​(Object o)             相当于del (注意这里操作）
+     * remove​(Object o)             相当于del (注意这里操作) (注意这里如果不存在不会报错，只是简单忽略）
      * addAll​(Collection<?> c)      类并集
      * removeAll​(Collection<?> c)   类差集
      * retainAll​(Collection<?> c)   类交集
