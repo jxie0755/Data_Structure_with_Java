@@ -31,7 +31,7 @@ public class LC041_First_Missing_Positive {
         }
 
         for (int e : nums) {
-            all_int.remove(new Integer(e));
+            all_int.remove(Integer.valueOf(e));
         }
 
         if (all_int.size() == 0) {
