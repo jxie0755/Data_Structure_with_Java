@@ -79,7 +79,7 @@ public class A08c_ArrayList {
         List<Integer> IAL3 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         IAL3.remove(1);  // 这里remove的是
         System.out.println(IAL3); // >>> [1, 3, 4]
-        IAL3.remove(new Integer(1)); // 这样才是remove元素
+        IAL3.remove(Integer.valueOf(1)); // 这样才是remove元素
         System.out.println(IAL3); // >>> [3, 4]
 
         // ensureCapacity​(int minCapacity) // 跳过
