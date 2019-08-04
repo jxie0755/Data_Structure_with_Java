@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * https://leetcode.com/problems/first-missing-positive/
  * P041 First Missing Positive
@@ -13,10 +17,28 @@ public class LC041_First_Missing_Positive {
 
     /**
      * Version A
-     * O(N), space O(N)
+     * O(N), space O(N) (not constant space)
      */
     public int firstMissingPositive(int[] nums) {
 
+        if (nums.length == 0) {
+            return 1;
+        }
+
+        List<Integer> all_int = new ArrayList<>(Arrays.asList());
+        for (int i = 1; i <= nums.length; i += 1) {
+            all_int.add(i);
+        }
+
+        for (int e : nums) {
+            all_int.remove(new Integer(e));
+        }
+
+        if (all_int.size() == 0) {
+            return nums.length + 1;
+        } else {
+            return all_int.get(0);
+        }
     }
 
     public static void main(String[] args) {
