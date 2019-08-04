@@ -139,7 +139,7 @@ class A08b_List_zMethods {
         // System.out.println(LO3 == L2);  就不行
 
 
-        // List接口的专有方法 (除了Collections通用方法多出来的方法)
+        // List接口的专有方法 (除了Collection通用方法多出来的方法)
 
         // get and set
         List<Object> LO6 = new ArrayList<>(Arrays.asList("c", "d", "e"));
