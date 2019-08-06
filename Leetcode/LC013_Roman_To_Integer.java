@@ -11,9 +11,8 @@ import java.util.Map;
  */
 public class LC013_Roman_To_Integer {
 
-
+    // Static helper
     static Map<String, Integer> checklist = new HashMap<>();
-
     static {
         checklist.put("CM", 900);
         checklist.put("CD", 400);
@@ -24,7 +23,6 @@ public class LC013_Roman_To_Integer {
     }
 
     static Map<String, Integer> Roman_Nu = new HashMap<>();
-
     static {
         Roman_Nu.put("M", 1000);
         Roman_Nu.put("D", 500);

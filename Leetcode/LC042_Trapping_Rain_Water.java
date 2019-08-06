@@ -43,9 +43,8 @@ public class LC042_Trapping_Rain_Water {
         return volume;
     }
 
-    /**
-     * Calculate the volume between two peaks
-     */
+    // Helper 1
+    // Calculate the volume between two peaks
     private Integer vol(int[] height) {
         int sec_peak = Math.min(height[0], height[height.length - 1]);
         int volume = 0;
@@ -57,9 +56,8 @@ public class LC042_Trapping_Rain_Water {
         return volume;
     }
 
-    /**
-     * To find the index of peaks, and sort reversely accoridng to the height value at the index
-     */
+    // Helper 2
+    // To find the index of peaks, and sort reversely accoridng to the height value at the index
     private List<Integer> findPeaks(int[] height) {
         Map<Integer, Integer> hmp = new HashMap<>();
 
@@ -78,7 +76,6 @@ public class LC042_Trapping_Rain_Water {
                 hmp.put(i, mid);
             }
         }
-
         List<Integer> lst = new ArrayList<>(hmp.keySet());
         lst.sort(new Comparator<Integer>() {
             @Override

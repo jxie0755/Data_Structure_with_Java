@@ -8,8 +8,31 @@
 public class LC023_Merge_K_Sorted_List {
 
     /**
-     * Merge two sorted linked list to a sorted linked list
+     * Version C2
      */
+    public ListNode mergeKLists(ListNode[] lists) {
+
+        if (lists.length == 0) {
+            return null;
+        }
+
+        int left = 0;
+        int right = lists.length - 1;
+
+        while (right > 0) {
+            if (left >= right) {
+                left = 0;
+            } else {
+                lists[left] = this.merge_two(lists[left], lists[right]);
+                left += 1;
+                right -= 1;
+            }
+        }
+        return lists[0];
+    }
+
+    // Helper
+    // Merge two sorted linked list to a sorted linked list
     private ListNode merge_two(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
         ListNode curr = dummy;
@@ -31,34 +54,7 @@ public class LC023_Merge_K_Sorted_List {
             curr.next = l2;
         }
 
-
         return dummy.next;
-    }
-
-
-    /**
-     * Version C2
-     */
-    public ListNode mergeKLists(ListNode[] lists) {
-
-        if (lists.length == 0) {
-            return null;
-        }
-
-        int left = 0;
-        int right = lists.length - 1;
-
-        while (right > 0) {
-            if (left >= right) {
-                left = 0;
-            } else {
-                lists[left] = this.merge_two(lists[left], lists[right]);
-                left += 1;
-                right -= 1;
-            }
-        }
-
-        return lists[0];
     }
 
     public static void main(String[] args) {
@@ -76,9 +72,6 @@ public class LC023_Merge_K_Sorted_List {
         assert new LC023_Merge_K_Sorted_List().mergeKLists(new ListNode[]{a, b, c}).equals(ans) : "Example";
 
         System.out.println("all passed");
-
-
     }
-
 }
 

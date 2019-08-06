@@ -22,19 +22,15 @@ import java.util.List;
  */
 public class LC036_Valid_Sudoku {
 
-    private boolean correct_line(char[] row) {
-        List<Character> written = new ArrayList<>(Arrays.asList());
-        for (char i : row) {
-            if (i == '.') {
-            } else if (!written.contains(i)) {
-                written.add(i);
-            } else {
-                return false;
-            }
-        }
-        return true;
+    /**
+     * Verion A
+     * 分区推理, 分割成三个helper, 分别检查: 横, 竖, 小九宫
+     */
+    public boolean isValidSudoku(char[][] board) {
+        return this.all_rows(board) && this.all_cols(board) && this.all_blocks(board);
     }
 
+    // Helper 1, 检查所有row是否不发生冲突
     private boolean all_rows(char[][] board) {
         for (char[] row : board) {
             if (!this.correct_line(row)) {
@@ -44,6 +40,7 @@ public class LC036_Valid_Sudoku {
         return true;
     }
 
+    // Helper 2, 检查所有column是否不发生冲突
     private boolean all_cols(char[][] board) {
         for (int i = 0; i < 9; i += 1) {
             char[] col = new char[9];
@@ -57,6 +54,7 @@ public class LC036_Valid_Sudoku {
         return true;
     }
 
+    // Helper 3, 检查所有sub grid是否不发生冲突
     private boolean all_blocks(char[][] board) {
         char[][] blocks = {
                 {board[0][0], board[0][1], board[0][2], board[1][0], board[1][1], board[1][2], board[2][0], board[2][1], board[2][2]},
@@ -78,9 +76,19 @@ public class LC036_Valid_Sudoku {
         return true;
     }
 
-
-    public boolean isValidSudoku(char[][] board) {
-        return this.all_rows(board) && this.all_cols(board) && this.all_blocks(board);
+    // Helper Level 2
+    // 帮助Helper 1,2,3检查冲突
+    private boolean correct_line(char[] row) {
+        List<Character> written = new ArrayList<>(Arrays.asList());
+        for (char i : row) {
+            if (i == '.') {
+            } else if (!written.contains(i)) {
+                written.add(i);
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {

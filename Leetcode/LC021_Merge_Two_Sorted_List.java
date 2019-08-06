@@ -8,7 +8,9 @@
  */
 public class LC021_Merge_Two_Sorted_List {
 
-
+    /**
+     * Version A
+     */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
         ListNode head = new ListNode(0);
@@ -32,7 +34,6 @@ public class LC021_Merge_Two_Sorted_List {
         if (l2 != null) {
             current.next = l2;
         }
-
 
         return head.next;
     }

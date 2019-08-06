@@ -17,20 +17,6 @@
 public class LC029_Divide_Two_Integers {
 
     /**
-     * Helper function to achive log(n) division by doubling mom, before son > mom
-     * Mom and Son are both non-negative integers
-     */
-    private long[] manual_divide(long son, long mom) {
-        long ans = 1;
-        while (son - mom > mom) {
-            mom += mom;
-            ans += ans;
-        }
-        long new_son = son - mom;
-        return new long[]{ans, new_son};
-    }
-
-    /**
      * Version A, integer method
      * 考虑到Integer溢出的问题, 所有数字类型都用long或者转成long,然后最后结果转回int
      */
@@ -59,6 +45,18 @@ public class LC029_Divide_Two_Integers {
         } else {
             return (int) result;
         }
+    }
+
+    // Helper function to achive log(n) division by doubling mom, before son > mom
+    // Mom and Son are both non-negative integers
+    private long[] manual_divide(long son, long mom) {
+        long ans = 1;
+        while (son - mom > mom) {
+            mom += mom;
+            ans += ans;
+        }
+        long new_son = son - mom;
+        return new long[]{ans, new_son};
     }
 
     public static void main(String[] args) {

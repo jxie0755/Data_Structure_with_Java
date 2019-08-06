@@ -10,17 +10,6 @@ import java.util.Map;
  */
 public class LC003_Longest_Substring_Without_Repeating_Characters {
 
-    private static boolean is_no_repeat(String s) {
-        Map<Character, Integer> hmp = new HashMap<>();
-        for (Character i : s.toCharArray()) {
-            if (hmp.containsKey(i)) {
-                return false;
-            }
-            hmp.put(i, 1);
-        }
-        return true;
-    }
-
     /**
      * Version A
      * Brutal force, will fail max time limit
@@ -39,6 +28,18 @@ public class LC003_Longest_Substring_Without_Repeating_Characters {
             }
         }
         return 0;
+    }
+
+    // Helper
+    private static boolean is_no_repeat(String s) {
+        Map<Character, Integer> hmp = new HashMap<>();
+        for (Character i : s.toCharArray()) {
+            if (hmp.containsKey(i)) {
+                return false;
+            }
+            hmp.put(i, 1);
+        }
+        return true;
     }
 
     /**

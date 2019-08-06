@@ -13,8 +13,8 @@ import java.util.Map;
  */
 public class LC020_Valid_Parenthesis {
 
+    // Static helper
     private static Map<String, Integer> OPEN_BRACKETS = new HashMap<>();
-
     static {
         OPEN_BRACKETS.put("(", 1);
         OPEN_BRACKETS.put("{", 2);
@@ -22,7 +22,6 @@ public class LC020_Valid_Parenthesis {
     }
 
     private static Map<String, Integer> CLOSE_BRACKETS = new HashMap<>();
-
     static {
         CLOSE_BRACKETS.put(")", 1);
         CLOSE_BRACKETS.put("}", 2);

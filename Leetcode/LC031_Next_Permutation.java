@@ -42,21 +42,8 @@ import java.util.Arrays;
 public class LC031_Next_Permutation {
 
     /**
-     * Helper function to swap an Array from (start, end)
-     */
-    private void swap_array(int[] nums, int start, int end) {
-
-        if (nums.length > 0 && end > start) {
-            for (int i = start; i <= (end - start) / 2 + start; i += 1) {
-                int temp = nums[i];
-                nums[i] = nums[end - i + start];
-                nums[end - i + start] = temp;
-            }
-        }
-    }
-
-    /**
      * Version B
+     * 根据排序情况直接推理
      */
     public void nextPermutation(int[] nums) {
 
@@ -87,6 +74,18 @@ public class LC031_Next_Permutation {
                     this.swap_array(nums, cur_i + 1, nums.length - 1);
                     break;
                 }
+            }
+        }
+    }
+
+    // Helper function to swap an Array from (start, end)
+    private void swap_array(int[] nums, int start, int end) {
+
+        if (nums.length > 0 && end > start) {
+            for (int i = start; i <= (end - start) / 2 + start; i += 1) {
+                int temp = nums[i];
+                nums[i] = nums[end - i + start];
+                nums[end - i + start] = temp;
             }
         }
     }

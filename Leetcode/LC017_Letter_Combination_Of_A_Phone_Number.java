@@ -13,8 +13,9 @@ import java.util.*;
  */
 public class LC017_Letter_Combination_Of_A_Phone_Number {
 
-    final static Map<String, List<String>> hashtable = new HashMap<>();
 
+    // Static helper
+    final static Map<String, List<String>> hashtable = new HashMap<>();
     static {
         hashtable.put("0", new ArrayList<>(Arrays.asList(" ")));
         hashtable.put("1", new ArrayList<>(Arrays.asList("")));

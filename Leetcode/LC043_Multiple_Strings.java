@@ -10,27 +10,12 @@ import java.util.Map;
  * return the product of num1 and num2, also represented as a string.
  * <p>
  * Note:
- * The length of both num1 and num2 is < 110.
+ * The length of both num1 and num2 is < 110. (Direct math calculation will overflow the number 32/64 bit)
  * Both num1 and num2 contain only digits 0-9.
  * Both num1 and num2 do not contain any leading zero, except the number 0 itself.
  * You must not use any built-in BigInteger library or convert the inputs to integer directly.
  */
 public class LC043_Multiple_Strings {
-
-    static Map<Integer, Character> hmp_n2s = new HashMap<>();
-
-    static {
-        hmp_n2s.put(0, '0');
-        hmp_n2s.put(1, '1');
-        hmp_n2s.put(2, '2');
-        hmp_n2s.put(3, '3');
-        hmp_n2s.put(4, '4');
-        hmp_n2s.put(5, '5');
-        hmp_n2s.put(6, '6');
-        hmp_n2s.put(7, '7');
-        hmp_n2s.put(8, '8');
-        hmp_n2s.put(9, '9');
-    }
 
     static Map<Character, Integer> hmp_s2n = new HashMap<>();
 
@@ -47,34 +32,14 @@ public class LC043_Multiple_Strings {
         hmp_s2n.put('9', 9);
     }
 
-    private String int2str(Integer num) {
-        if (num == 0) {
-            return "0";
-        }
-
-        StringBuilder result = new StringBuilder();
-        while (num != 0) {
-            result.insert(0, hmp_n2s.get(num % 10));
-            num /= 10;
-        }
-
-        return result.toString();
-    }
 
     /**
-     * Version B2
+     * Version C
      * HashMap method
-     * Calulate string by hand calculation method, can avoid overflow of integer/long numbers
-     * Avoid using integer calculation, direct return the String value
+     * Break down to add with manual method
+     * This can completely avoid overflow of integer/long numbers
      */
     public String multiply(String num1, String num2) {
-
-        // generate a reversed string of num1 and num2
-        StringBuilder num1_r = new StringBuilder(num1);
-        num1_r.reverse();
-        StringBuilder num2_r = new StringBuilder(num2);
-        num2_r.reverse();
-
 
         return "1";
 
@@ -87,7 +52,7 @@ public class LC043_Multiple_Strings {
         // assert new LC043_Multiple_Strings().multiply("123", "457").equals("56088") : "Example 1";
         // assert new LC043_Multiple_Strings().multiply("50", "50").equals("2500") : "Extra 1";
 
-        new LC043_Multiple_Strings().multiply("123", "456");
+        System.out.println(new LC043_Multiple_Strings().multiply("11111111111111", "11111111111"));
     }
 
 }

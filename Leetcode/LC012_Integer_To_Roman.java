@@ -11,9 +11,10 @@ import java.util.Map;
  */
 public class LC012_Integer_To_Roman {
 
-    public String intToRoman(int num) {
+    // Static helper
+    static Map<Integer, String> R = new HashMap<>();
 
-        Map<Integer, String> R = new HashMap<>();
+    static {
         R.put(0, "");
         R.put(1, "I");
         R.put(2, "II");
@@ -45,7 +46,13 @@ public class LC012_Integer_To_Roman {
         R.put(1000, "M");
         R.put(2000, "MM");
         R.put(3000, "MMM");
+    }
 
+    /**
+     * Version A
+     * Hashmap method
+     */
+    public String intToRoman(int num) {
 
         String numstr = String.valueOf(num);
 
@@ -65,7 +72,6 @@ public class LC012_Integer_To_Roman {
             numstr_array[i] = Integer.valueOf(numstr_rjusted.substring(i, i + 1)) * base[i];
         }
 
-
         // final result by checking the hashmap
         StringBuilder result = new StringBuilder();
         for (int i : numstr_array) {
@@ -73,15 +79,11 @@ public class LC012_Integer_To_Roman {
         }
 
         return result.toString();
-
     }
 
     public static void main(String[] args) {
-
         assert new LC012_Integer_To_Roman().intToRoman(3888).equals("MMMDCCCLXXXVIII");
         System.out.println("all passed");
-
     }
-
 }
 

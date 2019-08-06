@@ -11,6 +11,15 @@ import java.util.List;
  */
 public class LC022_Generate_Parenthesis {
 
+    /**
+     * STD ans, recursive
+     */
+    public List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<>();
+        return generateP_Helper("", n, n, result);
+    }
+
+    // Helper
     private static List<String> generateP_Helper(String p, int left, int right, List<String> parens) {
         if (left != 0) {
             generateP_Helper(p + "(", left - 1, right, parens);
@@ -24,13 +33,6 @@ public class LC022_Generate_Parenthesis {
         return parens;
     }
 
-    /**
-     * STD ans, recursive
-     */
-    public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList<>();
-        return generateP_Helper("", n, n, result);
-    }
 
     public static void main(String[] args) {
 

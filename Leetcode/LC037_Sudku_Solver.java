@@ -19,13 +19,26 @@ import java.util.*;
  * The given board size is always 9x9.
  * <p>
  * Based on JavaSudokuSolver, but revised to char[][] board
- *
+ * <p>
  * This will not pass Leetcode as it does not allow some of the implements
  */
 public class LC037_Sudku_Solver {
 
+
+    /**
+     * Version A
+     * 利用OOP思想构建, 参考java_ZSnippets/JavaSudokuSolver
+     * 为解体便利, 将原OOP内置入本体作为internal class
+     */
+    public void solveSudoku(char[][] board) {
+        java_sudoku_solver q = new java_sudoku_solver(board);
+        q.solve();
+    }
+
+
     /**
      * Internal class
+     * OOP思想, 利用Hashmap记忆棋盘推理
      */
     static class java_sudoku_solver {
         // constants
@@ -431,17 +444,13 @@ public class LC037_Sudku_Solver {
                 board[9 - y][x - 1] = val;
             }
 
+            // use for printing
             // for (char[] row : board) {
             //     System.out.println(Arrays.toString(row));
             // }
         }
     }
 
-
-    public void solveSudoku(char[][] board) {
-        java_sudoku_solver q = new java_sudoku_solver(board);
-        q.solve();
-    }
 
     public static void main(String[] args) {
         char[][] hard_10 = {

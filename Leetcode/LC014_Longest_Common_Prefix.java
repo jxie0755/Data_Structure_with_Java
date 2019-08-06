@@ -41,8 +41,6 @@ public class LC014_Longest_Common_Prefix {
         }
 
         return result.toString();
-
-
     }
 
     public static void main(String[] args) {
