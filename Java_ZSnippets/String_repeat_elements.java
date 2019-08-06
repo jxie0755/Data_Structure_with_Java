@@ -8,6 +8,9 @@ public class String_repeat_elements {
     public static void main(String[] args) {
         String S = new String(new char[5]).replace("\0", "i");
         System.out.println(S);
+        // >>> iiiii
+        System.out.println(S + "123");
+        // >>> iiiii123
     }
 }
 
