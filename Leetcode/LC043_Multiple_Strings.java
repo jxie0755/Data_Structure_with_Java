@@ -16,7 +16,6 @@ public class LC043_Multiple_Strings {
 
     /**
      * Version C
-     * HashMap method
      * Break down to add with manual method, with string add method
      * This can completely avoid overflow of integer/long numbers
      */
@@ -62,19 +61,15 @@ public class LC043_Multiple_Strings {
 
         while (idx1 >= 0 || idx2 >= 0) {
 
-            int d1;
-            int d2;
+            int d1 = 0;
+            int d2 = 0;
 
             if (idx1 >= 0) {
                 d1 = Character.getNumericValue(num1.charAt(idx1));
-            } else {
-                d1 = 0;
             }
 
             if (idx2 >= 0) {
                 d2 = Character.getNumericValue(num2.charAt(idx2));
-            } else {
-                d2 = 0;
             }
 
             int d_result = d1 + d2 + add_on;
