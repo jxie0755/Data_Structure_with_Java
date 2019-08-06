@@ -30,7 +30,7 @@ public class LC003_Longest_Substring_Without_Repeating_Characters {
         return 0;
     }
 
-    // Helper
+    // Helper - version A
     private static boolean is_no_repeat(String s) {
         Map<Character, Integer> hmp = new HashMap<>();
         for (Character i : s.toCharArray()) {

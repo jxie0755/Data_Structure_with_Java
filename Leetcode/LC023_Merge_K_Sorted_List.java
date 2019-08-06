@@ -31,7 +31,7 @@ public class LC023_Merge_K_Sorted_List {
         return lists[0];
     }
 
-    // Helper
+    // Helper - version C2
     // Merge two sorted linked list to a sorted linked list
     private ListNode merge_two(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);

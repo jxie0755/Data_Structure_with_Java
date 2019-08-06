@@ -47,7 +47,8 @@ public class LC029_Divide_Two_Integers {
         }
     }
 
-    // Helper function to achive log(n) division by doubling mom, before son > mom
+    // Helper - version A
+    // To achive log(n) division by doubling mom, before son > mom
     // Mom and Son are both non-negative integers
     private long[] manual_divide(long son, long mom) {
         long ans = 1;

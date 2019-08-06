@@ -78,7 +78,8 @@ public class LC031_Next_Permutation {
         }
     }
 
-    // Helper function to swap an Array from (start, end)
+    // Helper - version B
+    // Swap an Array from (start, end)
     private void swap_array(int[] nums, int start, int end) {
 
         if (nums.length > 0 && end > start) {

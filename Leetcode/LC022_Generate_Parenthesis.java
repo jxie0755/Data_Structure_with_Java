@@ -19,7 +19,7 @@ public class LC022_Generate_Parenthesis {
         return generateP_Helper("", n, n, result);
     }
 
-    // Helper
+    // Helper - std ans
     private static List<String> generateP_Helper(String p, int left, int right, List<String> parens) {
         if (left != 0) {
             generateP_Helper(p + "(", left - 1, right, parens);

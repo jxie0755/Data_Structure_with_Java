@@ -50,7 +50,7 @@ public class LC043_Multiple_Strings {
         return result;
     }
 
-    // Helper
+    // Helper - version C
     // String "add" function
     private String add(String num1, String num2) {
 
