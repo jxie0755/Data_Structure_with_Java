@@ -11,6 +11,14 @@ public class String_repeat_elements {
         // >>> iiiii
         System.out.println(S + "123");
         // >>> iiiii123
+
+        // 就算是0也要replace
+        String S2 = new String(new char[5]);
+        System.out.println(S2);
+        // >>> empty
+        String S3 = new String(new char[5]).replace("\0", "0");
+        System.out.println(S3);
+        // >>> 00000
     }
 }
 
