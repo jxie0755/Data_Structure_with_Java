@@ -86,12 +86,15 @@ public class Type_Convert {
         List<Object> LOXsetList = new ArrayList<>(new HashSet<>(LOX));
         System.out.println(LOXsetList);  // >>> [1, A, 2, 3]  注意顺序奇怪
 
+        // int[] to Integer[]
+        // 没有直接好的办法
+
 
         // 一维Array和一维ArrayList
         // Array to ArrayList
         Integer[] X_array = new Integer[]{1, 2, 3, 4};
         List<Integer> int_L = new ArrayList<>(Arrays.asList(X_array));
-        // ArrayList to Array // 注意不能用int
+        // ArrayList to Array // 注意Array不能用int[]
         Integer[] int_array = int_L.toArray(new Integer[int_L.size()]);  // 利用重载方法
 
 
