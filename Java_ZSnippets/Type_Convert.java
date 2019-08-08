@@ -1,6 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Type_Convert {
 
@@ -89,9 +87,9 @@ public class Type_Convert {
         System.out.println(LOXsetList);  // >>> [1, A, 2, 3]  注意顺序奇怪
 
         // int[] to Integer[]/List<Integer>
-        // 没有直接好的办法
-        int[] array = {1, 2, 3, 4, 5};
-        List<Integer> list = IntStream.of(array).boxed().collect(Collectors.toCollection(ArrayList::new));
+        // 没有直接好的办法,可以考虑用Stream
+        // int[] array = {1, 2, 3, 4, 5};
+        // List<Integer> list = IntStream.of(array).boxed().collect(Collectors.toCollection(ArrayList::new));
 
 
         // 一维Array和一维ArrayList
