@@ -35,8 +35,6 @@ public class LC048_Rotate_Image {
                 matrix[i][j] = D;
             }
         }
-
-
     }
 
     public static void main(String[] args) {
