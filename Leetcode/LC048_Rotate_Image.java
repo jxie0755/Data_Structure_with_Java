@@ -45,6 +45,7 @@ public class LC048_Rotate_Image {
         };
         new LC048_Rotate_Image().rotate(q1);
         assert Arrays.deepEquals(q1, new int[][]{
+
                 {1}
         }) : "Edge 1";
 
