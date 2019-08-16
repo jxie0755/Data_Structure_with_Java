@@ -26,7 +26,7 @@ public class A08b_java_util_Collections {
      * replaceAll  批量替换元素
      * shuffle     随机排列
 
-     * unmodifiableCollection    返回一个inmutable copy?
+     * unmodifiableCollection    返回一个inmutable copy? (把list转成tuple)
      * singletonCollection       单点, 意义不大
      * synchronizedCollection    返回一个多线程copy
      */
