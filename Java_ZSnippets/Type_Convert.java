@@ -83,8 +83,11 @@ public class Type_Convert {
         // Collection转换  (直接通过constructor)
         // List 和 Set的转换 (list去重)
         List<Object> LOX = new ArrayList<>(Arrays.asList(1, 2, "A", 1, 3, "A"));
-        List<Object> LOXsetList = new ArrayList<>(new HashSet<>(LOX));
+        List<Object> LOXsetList = new ArrayList<>(new HashSet<>(LOX));  // 直接intitate带入另一类Collection
         System.out.println(LOXsetList);  // >>> [1, A, 2, 3]  注意顺序奇怪
+
+        // List to Tupple
+        List<Object> tuple = Collections.unmodifiableList(LOX);
 
         // int[] to Integer[]/List<Integer>
         // 没有直接好的办法,可以考虑用Stream
