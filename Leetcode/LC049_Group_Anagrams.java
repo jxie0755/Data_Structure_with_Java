@@ -59,7 +59,6 @@ public class LC049_Group_Anagrams {
         List<String> a3l2 = new ArrayList<>(Arrays.asList("tan", "nat"));
         List<String> a3l3 = new ArrayList<>(Arrays.asList("bat"));
         List<List<String>> a3 = new ArrayList<>(Arrays.asList(a3l3, a3l2, a3l1));
-        System.out.println((new LC049_Group_Anagrams().groupAnagrams(q3)));
         assert new LC049_Group_Anagrams().groupAnagrams(q3).equals(a3) : "Example 1";
 
         System.out.println("all passed");
