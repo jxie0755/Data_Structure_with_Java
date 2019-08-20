@@ -15,20 +15,42 @@ public class LC050_Pow_X_N {
      * 利用n每翻倍一次, 只是原数平方一次
      */
     public double myPow(double x, int n) {
+        if (x == 0 && n == 0) {
+            throw new IllegalArgumentException();
+        }
 
+        // 指数正负标记
+        boolean isNegative = false;
+
+        // 求n的绝对值
+        if (n < 0) {
+            n = -n;
+            isNegative = true;
+        }
+
+        double result = pow(x, n);
+
+        if (isNegative) {
+            return 1.0 / result;   // 为了连续除法, 先一次算好正指数幂, 再用1/幂
+        } else {
+            return result;
+        }
+    }
+
+    public double pow(double x, int n) {
         if (n == 0) {
             return 1;
-        } else if (n < 0) {
-            return 1 / this.myPow(x, -n);
         } else {
-            double v = this.myPow(x, n / 2);
-            if (n % 2 == 0) {
-                return v * v;
+            double result = pow(x, n / 2);
+            // n是奇数
+            if (n % 2 != 0) {
+                return x * result * result;
             } else {
-                return v * v * x;
+                return result * result;
             }
         }
     }
+
 
     public static void main(String[] args) {
         assert new LC050_Pow_X_N().myPow(2.00000, 10) == Math.pow(2.00000, 10) : "Example 1";
