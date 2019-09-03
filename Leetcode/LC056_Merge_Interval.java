@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -28,13 +27,7 @@ public class LC056_Merge_Interval {
         List<int[]> itvlist = new ArrayList<>(Arrays.asList(intervals));
 
         // sort list
-        itvlist.sort(new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[0] - o2[0];
-            }
-        });
-
+        itvlist.sort((o1, o2) -> o1[0] - o2[0]);
 
         int i = 0;
         while (i != itvlist.size() - 1) {
