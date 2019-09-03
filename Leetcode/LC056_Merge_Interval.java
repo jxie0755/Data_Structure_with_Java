@@ -34,7 +34,7 @@ public class LC056_Merge_Interval {
             int[] first = itvlist.get(i);
             int[] second = itvlist.get(i + 1);
             if (first[1] >= second[0]) {
-                first[1] = Math.max(first[1], second[1]);
+                first[1] = Math.max(first[1], second[1]); // necessary, because [1,4] will be sorted before [2,3]
                 itvlist.remove(i + 1);
             } else {
                 i += 1;
