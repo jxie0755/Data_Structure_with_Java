@@ -89,16 +89,23 @@ public class Type_Convert {
         // List to Tupple
         List<Object> tuple = Collections.unmodifiableList(LOX);
 
+
         // int[] to Integer[]/List<Integer>
         // 没有直接好的办法,可以考虑用Stream
         // int[] array = {1, 2, 3, 4, 5};
         // List<Integer> list = IntStream.of(array).boxed().collect(Collectors.toCollection(ArrayList::new));
 
 
+
         // 一维Array和一维ArrayList
         // Array to ArrayList
         Integer[] X_array = new Integer[]{1, 2, 3, 4};
         List<Integer> int_L = new ArrayList<>(Arrays.asList(X_array));
+
+        List<Integer> int_L_2 = new ArrayList<>();
+        int_L_2.addAll(Arrays.asList(X_array));     // 也可以建空列表, 再addAll
+
+
         // ArrayList to Array // 注意Array不能用int[]
         Integer[] int_array = int_L.toArray(new Integer[int_L.size()]);  // 利用重载方法
 
