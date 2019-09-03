@@ -67,6 +67,11 @@ class Comparator_test {
             }
         })); // >>> D
 
+        // 另一种写法, 使用Lambda函数简化
+        System.out.println(Collections.min(Mapp.keySet(),
+                (o1, o2) -> Mapp.get(o1).size() - Mapp.get(o2).size()));
+        // >>> D
+
 
         // reversed
         List<Integer> lst2 = new ArrayList<>(Arrays.asList(2, 3, 1, 4, 5));
