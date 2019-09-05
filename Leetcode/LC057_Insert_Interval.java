@@ -13,19 +13,37 @@ import java.util.List;
 public class LC057_Insert_Interval {
 
     /**
-     * Version A
-     * Add the new interval to the intervals at the end and let it merge
-     * Merge process will automatically sort and merge
-     * This could be slow as the sorting is complicated
+     * Version B
+     * insert the new interval at the right location of already sorted intervals
+     * then skip the sorting and just merge
      */
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        int[][] new_intervals = Arrays.copyOf(intervals, intervals.length + 1);
-        new_intervals[intervals.length] = newInterval;
-        return this.merge(new_intervals);
+
+        if (intervals.length == 0) {
+            return new int[][]{newInterval};
+        }
+
+        int[][] combined_intervals = new int[intervals.length + 1][];
+        int i = 0;
+        while (i != intervals.length) {
+            if (intervals[i][0] < newInterval[0]) {
+                combined_intervals[i] = intervals[i];
+                i += 1;
+            } else {
+                break;
+            }
+        }
+        combined_intervals[i] = newInterval;
+        while (i != intervals.length) {
+            combined_intervals[i + 1] = intervals[i];
+            i += 1;
+        }
+
+        return this.merge(combined_intervals);
     }
 
     /**
-     * Helper from LC056
+     * Helper modified from LC056
      */
     public int[][] merge(int[][] intervals) {
 
@@ -36,8 +54,8 @@ public class LC057_Insert_Interval {
         // convert to list
         List<int[]> itvlist = new ArrayList<>(Arrays.asList(intervals));
 
-        // sort list
-        itvlist.sort((o1, o2) -> o1[0] - o2[0]);
+        // sort list is skipped
+        // itvlist.sort((o1, o2) -> o1[0] - o2[0]);
 
         int i = 0;
         while (i != itvlist.size() - 1) {
@@ -60,25 +78,37 @@ public class LC057_Insert_Interval {
         assert Arrays.deepEquals(
                 new LC057_Insert_Interval().insert(E0, new int[]{1, 2}),
                 new int[][]{{1, 2}}
-        );
+        ) : "Edge 0";
+
+        int[][] E1 = {{1, 5}};
+        assert Arrays.deepEquals(
+                new LC057_Insert_Interval().insert(E1, new int[]{2, 3}),
+                new int[][]{{1, 5}}
+        ) : "Edge 1";
+
+        int[][] E2 = {{1, 5}};
+        assert Arrays.deepEquals(
+                new LC057_Insert_Interval().insert(E2, new int[]{2, 7}),
+                new int[][]{{1, 7}}
+        ) : "Edge 3";
 
         int[][] S1 = {{1, 3}, {6, 9}};
         assert Arrays.deepEquals(
                 new LC057_Insert_Interval().insert(S1, new int[]{2, 5}),
                 new int[][]{{1, 5}, {6, 9}}
-        );
+        ) : "Example 1";
 
         int[][] S2 = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
         assert Arrays.deepEquals(
                 new LC057_Insert_Interval().insert(S2, new int[]{4, 8}),
                 new int[][]{{1, 2}, {3, 10}, {12, 16}}
-        );
+        ) : "Example 2";
 
         int[][] S2B = {{1, 2}, {3, 7}, {4, 6}, {8, 10}, {12, 16}};
         assert Arrays.deepEquals(
                 new LC057_Insert_Interval().insert(S2B, new int[]{4, 8}),
                 new int[][]{{1, 2}, {3, 10}, {12, 16}}
-        );
+        ) : "Example 2 extended";
 
         System.out.println("all passed");
     }
