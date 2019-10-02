@@ -43,7 +43,6 @@ public class LC061_Roate_List {
         // locate the next node (as the new head), and break link of the two node
         ListNode new_head = find_node_before_break.next;
         find_node_before_break.next = null;
-
         return new_head;
     }
 
