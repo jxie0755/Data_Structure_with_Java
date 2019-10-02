@@ -30,21 +30,21 @@ public class LC061_Roate_List {
         }
 
         // Common cases
+
+        // locate the node before break point
         ListNode find_node_before_break = head;
-        ListNode find_node_after_break = head.next;
         for (int i = 0; i < length - k - 1; i += 1) {
             find_node_before_break = find_node_before_break.next;
-            find_node_after_break = find_node_after_break.next;
         }
 
         // link the end to head to be a loop
         find_end.next = head;
 
-        // break link of the two node, and use the later node as the new head
+        // locate the next node (as the new head), and break link of the two node
+        ListNode new_head = find_node_before_break.next;
         find_node_before_break.next = null;
 
-        // new head is the node after break point
-        return find_node_after_break;
+        return new_head;
     }
 
     public static void main(String[] args) {
