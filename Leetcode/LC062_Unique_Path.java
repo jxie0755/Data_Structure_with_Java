@@ -42,7 +42,7 @@ public class LC062_Unique_Path {
 
         assert new LC062_Unique_Path().uniquePaths(3, 2) == 3 : "Example 1";
         assert new LC062_Unique_Path().uniquePaths(7, 3) == 28 : "Example 2";
-        assert new LC062_Unique_Path().uniquePaths(10, 10) == 48620 : "Example 3";
+        assert new LC062_Unique_Path().uniquePaths(10, 10) == 48620 : "Example 3, large number";
         System.out.println("all passed");
     }
 
