@@ -9,13 +9,14 @@
  * <p>
  * How many possible unique paths are there?
  */
-public class LC062_Unique_Path {
+class LC062_Unique_Path_A {
 
     /**
-     * Version A, best direct math calculation
+     * Version A, best direct math calculation, FAILED
      * This is the same as ProjectEuler p015 lattice paths
      * Use combination method: Combination pick r out of n : n! // r! // (n-r)!
-     * 注意这里要处理大数问题, 阶乘数大了之后, 溢出了int和long的范围
+     * 无法处理大数问题, 阶乘数大了之后, 溢出了int和long的范围
+     * 除非使用string做计算再转换,这样太麻烦
      */
     public int uniquePaths(int m, int n) {
         int total = m + n - 2;
@@ -33,6 +34,32 @@ public class LC062_Unique_Path {
             return x * factorial(x - 1);
         }
     }
+}
+
+
+public class LC062_Unique_Path {
+
+    /**
+     * Version B, use grid iteration
+     * Get last grid value by adding the value of the neighbors from up and left
+     * This can avoid large number factorial calculation
+     */
+    public int uniquePaths(int m, int n) {
+
+        int[][] grid = new int[n][m];
+
+        for (int i = 0; i < n; i += 1) {
+            for (int j = 0; j < m; j += 1) {
+                if (i == 0 || j == 0) {
+                    grid[i][j] = 1;
+                } else {
+                    grid[i][j] = grid[i - 1][j] + grid[i][j - 1];
+                }
+            }
+        }
+
+        return grid[n - 1][m - 1];
+    }
 
 
     public static void main(String[] args) {
@@ -42,9 +69,10 @@ public class LC062_Unique_Path {
 
         assert new LC062_Unique_Path().uniquePaths(3, 2) == 3 : "Example 1";
         assert new LC062_Unique_Path().uniquePaths(7, 3) == 28 : "Example 2";
-        assert new LC062_Unique_Path().uniquePaths(10, 10) == 48620 : "Example 3, large number";
+        assert new LC062_Unique_Path().uniquePaths(23, 12) == 193536720 : "Example 3, large number";
         System.out.println("all passed");
     }
 
 }
+
 
