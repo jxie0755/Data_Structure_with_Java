@@ -47,7 +47,6 @@ public class LC062_Unique_Path {
     public int uniquePaths(int m, int n) {
 
         int[][] grid = new int[n][m];
-
         for (int i = 0; i < n; i += 1) {
             for (int j = 0; j < m; j += 1) {
                 if (i == 0 || j == 0) {
