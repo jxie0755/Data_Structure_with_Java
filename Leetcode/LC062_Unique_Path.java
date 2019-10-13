@@ -56,7 +56,6 @@ public class LC062_Unique_Path {
                 }
             }
         }
-
         return grid[n - 1][m - 1];
     }
 
