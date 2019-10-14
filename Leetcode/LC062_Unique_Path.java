@@ -40,7 +40,7 @@ class LC062_Unique_Path_A {
 public class LC062_Unique_Path {
 
     /**
-     * Version B, use grid iteration
+     * Version C, use grid iteration
      * Get last grid value by adding the value of the neighbors from up and left
      * This can avoid large number factorial calculation
      */
