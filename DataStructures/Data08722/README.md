@@ -14,8 +14,12 @@ As a Java application programmer, you may often use the Collections Framework th
 
 ### Instructor  ###
 Eun Sun Lee (Terry Lee) Assistant Teaching Professor, Institute for Software Research
+
 SCS Email: terrylee@cs.cmu.edu 
+
 Phone: 412-268-1476 
+
 Office: Wean Hall 4126 Office 
+
 hours: after lecture or by appointment
 
