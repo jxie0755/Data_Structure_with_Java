@@ -48,6 +48,11 @@ class Arrays_Grid {
         int arrayY[];
         int[] arrayZ[];
 
+        // 注意
+        // int[][] grid = new int[row_number][column_number]
+        // int row_number = grid.length
+        // int colown_number = grid[0].length
+
         // two dimentional grid
         int[][] A = {
                 {1, 3, 5, 7},    // 0
