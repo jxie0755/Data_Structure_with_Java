@@ -105,9 +105,10 @@ public class Type_Convert {
         List<Integer> int_L_2 = new ArrayList<>();
         int_L_2.addAll(Arrays.asList(X_array));     // 也可以建空列表, 再addAll
 
-
         // ArrayList to Array // 注意Array不能用int[]
         Integer[] int_array = int_L.toArray(new Integer[int_L.size()]);  // 利用重载方法
+
+        // 注意这种转换必须是Integer[] to Arraylist,如果是int[]则没有直接方法, 必须遍历.
 
 
         // 二维Array和而维ArrayList
