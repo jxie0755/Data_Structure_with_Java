@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * https://leetcode.com/problems/plus-one/
@@ -17,35 +15,70 @@ public class LC066_Plus_One {
      * Version A
      * Convert to Arraylist and recursion then convert back
      */
+    // public int[] plusOne(int[] digits) {
+    //
+    //     // Convert data structure to Arralylist, to be processed by helper
+    //     List<Integer> arlist = new ArrayList<>();
+    //     for (int i : digits) {
+    //         arlist.add(i);
+    //     }
+    //
+    //     List<Integer> result = plusOne_helper(arlist);
+    //
+    //     int[] array_result = new int[result.size()];
+    //     for (int i = 0; i < result.size(); i += 1) {
+    //         array_result[i] = result.get(i);
+    //     }
+    //     return array_result;
+    // }
+    //
+    //
+    // private List<Integer> plusOne_helper(List<Integer> digits) {
+    //     if (digits.get(digits.size() - 1) == 9) {
+    //         if (digits.size() == 1) {
+    //             return new ArrayList<>(Arrays.asList(1, 0));
+    //         } else {
+    //             List<Integer> head = plusOne_helper(digits.subList(0, digits.size() - 1));
+    //             head.add(0);
+    //             return head;
+    //         }
+    //     } else {
+    //         digits.set(digits.size() - 1, digits.get(digits.size() - 1) + 1);
+    //         return digits;
+    //     }
+    // }
+
+
+    /**
+     * STD ans
+     * Carry the plus on from low decimal all the way to the top
+     * Expand the array if needed
+     */
     public int[] plusOne(int[] digits) {
 
-        // Convert data structure to Arralylist, to be processed by helper
-        List<Integer> arlist = new ArrayList<>();
-        for (int i : digits) {
-            arlist.add(i);
-        }
+        // 进位标志，下一位来的进位标志
+        int carry = 1;
+        int tmp;
+        for (int i = digits.length - 1; i >= 0; i--) {
+            tmp = digits[i];
+            // 计算当前位的新值
+            digits[i] = (tmp + carry) % 10;
+            // 计算新的进位
+            carry = (tmp + carry) / 10;
 
-        List<Integer> result = plusOne_helper(arlist);
-
-        int[] array_result = new int[result.size()];
-        for (int i = 0; i < result.size(); i += 1) {
-            array_result[i] = result.get(i);
-        }
-        return array_result;
-    }
-
-
-    private List<Integer> plusOne_helper(List<Integer> digits) {
-        if (digits.get(digits.size() - 1) == 9) {
-            if (digits.size() == 1) {
-                return new ArrayList<>(Arrays.asList(1, 0));
-            } else {
-                List<Integer> head = plusOne_helper(digits.subList(0, digits.size() - 1));
-                head.add(0);
-                return head;
+            // 没有进位了就可以退出了
+            if (carry == 0) {
+                break;
             }
+        }
+
+        // 最后还有一个进位
+        if (carry == 1) {
+            int[] result = new int[digits.length + 1];
+            System.arraycopy(digits, 0, result, 1, digits.length);
+            result[0] = carry;
+            return result;
         } else {
-            digits.set(digits.size() - 1, digits.get(digits.size() - 1) + 1);
             return digits;
         }
     }
