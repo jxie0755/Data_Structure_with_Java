@@ -26,7 +26,6 @@ class LC070_Climbing_stairs {
             a = b;
             b = tmp + b;
         }
-
         return a;
     }
 
