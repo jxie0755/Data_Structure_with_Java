@@ -1,6 +1,6 @@
 package Java_Classes;
 
-public class A00_Premitive_Types {
+class A00_Premitive_Types {
 
     /*
      * Java 基本数据类型

@@ -5,7 +5,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 // Array的构造方法, 是在java.lang.reflect.Array
-public class A07_Array {
+class A07_Array {
 
     /*
      * Module java.base

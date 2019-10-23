@@ -1,6 +1,6 @@
 package Java_Basics;// 1.4
 
-public class C05_Conditional_If_Else {
+class C05_Conditional_If_Else {
 
     /*
      * Same if/else, if/elif/else logic as python

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-public class C13_IO {
+class C13_IO {
     /*
      * 程序经常需要访问文件和目录, 读取文件信息或写入信息到文件, 在Java语言中对文件的读写是通过I/O流技术实现的
      * Java语言使用File类对文件和目录进行操作, 查找文件时需要实现FilenameFilter或FileFilter接口。

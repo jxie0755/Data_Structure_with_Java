@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C04c_Use_of_Super {
+class C04c_Use_of_Super {
     /*
      * 学习Super的两种形式
      * super    - super指的是父类, 用super.方法, super.变量来找父类的方法和变量

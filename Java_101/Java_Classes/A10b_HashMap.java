@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class A10b_HashMap {
+class A10b_HashMap {
 
     /*
      * HashMap常用方法

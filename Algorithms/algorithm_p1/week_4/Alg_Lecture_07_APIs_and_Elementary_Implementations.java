@@ -2,7 +2,7 @@ package algorithm_p1.week_4;
 
 import java.util.Arrays;
 
-public class Alg_Lecture_07_APIs_and_Elementary_Implementations {
+class Alg_Lecture_07_APIs_and_Elementary_Implementations {
 
     /*
      * Collections

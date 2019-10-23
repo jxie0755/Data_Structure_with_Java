@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C09_Inner_Class {
+class C09_Inner_Class {
 
     /*
      * 内部类

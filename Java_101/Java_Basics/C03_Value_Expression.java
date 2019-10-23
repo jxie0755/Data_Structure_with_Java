@@ -1,6 +1,6 @@
 package Java_Basics;// 1.3.1 - 1.3.4
 
-public class C03_Value_Expression {
+class C03_Value_Expression {
 
     /* Writing Numbers
      * Ordinary integers in Java, for example, are all in the range −2^31 to 2^31−1, or about ±2 billion

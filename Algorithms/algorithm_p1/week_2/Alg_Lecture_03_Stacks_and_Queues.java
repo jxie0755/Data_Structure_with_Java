@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.Stack;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class Alg_Lecture_03_Stacks_and_Queues {
+class Alg_Lecture_03_Stacks_and_Queues {
 
     /*
      * Stacks

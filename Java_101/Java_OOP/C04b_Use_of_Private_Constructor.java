@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C04b_Use_of_Private_Constructor {
+class C04b_Use_of_Private_Constructor {
     /*
      * 学习private构造器的用法
      * 单例模式

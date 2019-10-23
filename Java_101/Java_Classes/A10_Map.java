@@ -5,7 +5,7 @@ package Java_Classes;
 
 import java.util.*;
 
-public class A10_Map {
+class A10_Map {
 
     /*
      * Module java.base

@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class A04b_Regex {
+class A04b_Regex {
 
     /*
      * Java 正则表达式

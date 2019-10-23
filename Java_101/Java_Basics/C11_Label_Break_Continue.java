@@ -1,6 +1,6 @@
 package Java_Basics;
 
-public class C11_Label_Break_Continue {
+class C11_Label_Break_Continue {
 
     /*
      * Use label to achieve for...else and while...else

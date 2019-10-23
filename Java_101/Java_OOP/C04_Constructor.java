@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C04_Constructor {
+class C04_Constructor {
 
     // 子类是否必须要重写父类的构造函数?
     // 若父类只有构造函数, 则子类必须重写

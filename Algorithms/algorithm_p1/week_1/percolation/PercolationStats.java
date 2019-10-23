@@ -3,7 +3,7 @@ package algorithm_p1.week_1.percolation;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
-public class PercolationStats {
+class PercolationStats {
 
     private static final double CONFIDENCE_95 = 1.96;
     private int n = 0;

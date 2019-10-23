@@ -1,6 +1,6 @@
 package Java_Basics;
 
-public class C09_While_Loop {
+class C09_While_Loop {
 
     /*
      * while loop is more like python, define indicator outside

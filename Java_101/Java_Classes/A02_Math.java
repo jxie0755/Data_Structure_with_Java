@@ -1,6 +1,6 @@
 package Java_Classes;
 
-public class A02_Math {
+class A02_Math {
 
     /*
      * Module java.base

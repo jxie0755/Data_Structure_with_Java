@@ -1,6 +1,6 @@
 package Java_Basics;
 
-public class C00_Hello_World {
+class C00_Hello_World {
     /* 第一个Java程序.
      * 它将打印字符串 Hello World
      */

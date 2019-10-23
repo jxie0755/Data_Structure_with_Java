@@ -16,7 +16,7 @@ package algorithm_p1.week_1.percolation;
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
 
-public class InteractivePercolationVisualizer {
+class InteractivePercolationVisualizer {
 
     public static void main(String[] args) {
         // n-by-n percolation system (read from command-line, default = 10)

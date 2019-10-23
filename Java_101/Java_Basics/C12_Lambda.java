@@ -1,6 +1,6 @@
 package Java_Basics;
 
-public class C12_Lambda {
+class C12_Lambda {
 
     /*
      * Java 8之后推出的Lambda表达式开启了Java语言支持函数式编程 (Functional Programming) 新时代

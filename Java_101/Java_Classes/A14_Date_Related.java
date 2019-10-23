@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class A14_Date_Related {
+class A14_Date_Related {
     /*
      * java.util.Date
      * Java 8之前日期类是java.util.Date，Date类比较古老，其中的很多方法现在已经废弃了

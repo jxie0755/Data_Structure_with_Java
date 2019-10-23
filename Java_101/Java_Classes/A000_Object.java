@@ -1,6 +1,6 @@
 package Java_Classes;
 
-public class A000_Object {
+class A000_Object {
 
     /*
      * Module java.base

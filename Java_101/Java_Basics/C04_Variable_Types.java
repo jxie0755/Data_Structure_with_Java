@@ -1,6 +1,6 @@
 package Java_Basics;
 
-public class C04_Variable_Types {
+class C04_Variable_Types {
 
     /*
      * Java语言支持的变量类型

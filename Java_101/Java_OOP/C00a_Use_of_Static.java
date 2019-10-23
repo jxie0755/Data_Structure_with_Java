@@ -5,7 +5,7 @@ package Java_OOP;
 import java.util.ArrayList;
 import java.util.List;
 
-public class C00a_Use_of_Static {
+class C00a_Use_of_Static {
 
     /*
      * static

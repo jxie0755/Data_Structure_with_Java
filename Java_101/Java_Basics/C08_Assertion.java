@@ -1,6 +1,6 @@
 package Java_Basics;
 
-public class C08_Assertion {
+class C08_Assertion {
     /*
      *  assert关键字用法简单，但是使用assert往往会让你陷入越来越深的陷阱中。应避免使用。笔者经过研究，总结了以下原因：
 

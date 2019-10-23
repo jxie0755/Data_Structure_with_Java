@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class C08_Generics {
+class C08_Generics {
     // Java泛型
     // 使用泛型可以使错误在编译时被探测到，从而增加程序的健壮性
 
@@ -559,7 +559,7 @@ class MyNode_Test {
 
 
 // 不能在静态字段上使用泛型
-// public class MobileDevice <T> {
+// class MobileDevice <T> {
 //     private static T os;  //假如我们定义了一个带泛型的静态字段
 //
 //     // ...

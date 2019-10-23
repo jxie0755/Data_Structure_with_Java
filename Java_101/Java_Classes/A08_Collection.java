@@ -2,7 +2,7 @@ package Java_Classes;
 
 import java.util.*;
 
-public class A08_Collection {
+class A08_Collection {
 
     /*
      * Module java.base

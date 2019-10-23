@@ -21,7 +21,7 @@ import edu.princeton.cs.algs4.StdDraw;
 
 import java.awt.*;
 
-public class PercolationVisualizer {
+class PercolationVisualizer {
 
     // delay in miliseconds (controls animation speed)
     private static final int DELAY = 100;

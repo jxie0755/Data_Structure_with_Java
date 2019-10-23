@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C00c_Use_of_This {
+class C00c_Use_of_This {
     // 学习什么时候该用this
 }
 

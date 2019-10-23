@@ -1,6 +1,6 @@
 package Java_Basics;// 1.1
 
-public class C02_Print {
+class C02_Print {
 
     /*
      * print_class command (keep next print_class/println command at the same as this line)

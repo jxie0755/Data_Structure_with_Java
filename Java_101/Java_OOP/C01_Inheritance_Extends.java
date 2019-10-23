@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C01_Inheritance_Extends {
+class C01_Inheritance_Extends {
 
     /*
      * 通过使用关键字extends，子类可以继承父类的除private属性外所有的属性
@@ -40,10 +40,10 @@ class Dog extends Mammal {
     }
 
 // Java只支持单继承，也就是说，一个类不能继承多个类。
-// public class Dog extends Animal, Mammal{}    是不合法的
+// class Dog extends Animal, Mammal{}    是不合法的
 
 // Java只支持单继承（继承基本类和抽象类），但是我们可以用接口来实现（多继承接口来实现）,脚本结构如
-// public class Apple extends Fruit implements Fruit1, Fruit2{}
+// class Apple extends Fruit implements Fruit1, Fruit2{}
 
 }
 

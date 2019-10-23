@@ -2,7 +2,7 @@ package Java_Classes;
 
 import java.util.*;
 
-public class A09_Iterator {
+class A09_Iterator {
 
     /*
      * Module java.base

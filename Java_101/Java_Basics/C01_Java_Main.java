@@ -1,6 +1,6 @@
 package Java_Basics;// 1.5
 
-public class C01_Java_Main {
+class C01_Java_Main {
 
     // Explanation of main
     // This notation means that the formal parameter, args, is an array of strings

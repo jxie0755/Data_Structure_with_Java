@@ -3,7 +3,7 @@ package algorithm_p1.week_1.percolation;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
-public class Percolation {
+class Percolation {
     /**
      * n = 3
      * 其数组sites

@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.Insertion;
 
 import java.util.Arrays;
 
-public class Alg_Lecture_05_Mergesort {
+class Alg_Lecture_05_Mergesort {
 
     /*
      * Two classic sorting algorithms

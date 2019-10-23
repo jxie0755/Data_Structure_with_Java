@@ -3,7 +3,7 @@ package Java_Classes;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class A08cc_LinkedList {
+class A08cc_LinkedList {
 
     /*
      * Module java.base

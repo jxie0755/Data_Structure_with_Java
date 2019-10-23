@@ -1,6 +1,6 @@
 package Java_Basics;
 
-public class C03b_Operators {
+class C03b_Operators {
     public static void main(String[] args) {
 
         // 一元运算符, 意思是只要一个参数

@@ -1,6 +1,6 @@
 package Java_Classes;
 
-public class A03_Character {
+class A03_Character {
 
     /*
      * Module java.base

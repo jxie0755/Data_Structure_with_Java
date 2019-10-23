@@ -2,7 +2,7 @@ package Java_Classes;
 
 import java.util.*;
 
-public class A11_Comparator {
+class A11_Comparator {
 
     /*
      * Module java.base

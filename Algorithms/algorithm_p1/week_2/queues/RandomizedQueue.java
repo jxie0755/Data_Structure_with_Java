@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 /**
  * 由于这个是random读取的原因 所以使用"array"实现更加适合
  */
-public class RandomizedQueue<Item> implements Iterable<Item> {
+class RandomizedQueue<Item> implements Iterable<Item> {
 
     private int size;
     private Item[] s;

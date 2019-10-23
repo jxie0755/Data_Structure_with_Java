@@ -1,6 +1,6 @@
 package Java_OOP;
 
-public class C06_Interface {
+class C06_Interface {
 
     /*
      * 比抽象类更加抽象的是接口， 在接口中所有的方法都是抽象的。

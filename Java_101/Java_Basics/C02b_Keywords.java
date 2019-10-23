@@ -1,6 +1,6 @@
 package Java_Basics;
 
-public class C02b_Keywords {
+class C02b_Keywords {
     // java一共有50个keyword
 
     /*

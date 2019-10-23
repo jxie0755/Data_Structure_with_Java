@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class C07_Exceptions {
+class C07_Exceptions {
 
     /*
      * Module java.base

@@ -1,7 +1,7 @@
 package Java_Classes;
 
 
-public class A06_Boolean {
+class A06_Boolean {
 
     /*
      * Module java.base

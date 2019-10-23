@@ -2,7 +2,7 @@ package Java_Basics;
 
 import java.io.*;
 
-public class C14_IO_stream {
+class C14_IO_stream {
 
     /*
      * Java将数据的输入输出（I/O） 操作当作“流”来处理

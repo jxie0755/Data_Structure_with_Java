@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class A07b_java_util_Arrays {
+class A07b_java_util_Arrays {
 
     /*
      * Module java.base

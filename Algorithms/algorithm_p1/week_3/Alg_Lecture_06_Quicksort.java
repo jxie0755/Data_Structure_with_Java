@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Arrays;
 
-public class Alg_Lecture_06_Quicksort {
+class Alg_Lecture_06_Quicksort {
 
     /*
      * Quicksort

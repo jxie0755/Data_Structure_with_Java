@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class C03_Polymorph {
+class C03_Polymorph {
     /*
      * 因为Deer类具有多重继承，所以它具有多态性。以上实例解析如下:
      * 一个 Deer IS-A（是一个） Animal_4

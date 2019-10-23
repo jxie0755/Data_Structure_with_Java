@@ -1,6 +1,6 @@
 package Java_Classes;
 
-public class A00_Reference_Types {
+class A00_Reference_Types {
 
     // 除8项基本类型外其他全是reference types (引用类型)
     /*

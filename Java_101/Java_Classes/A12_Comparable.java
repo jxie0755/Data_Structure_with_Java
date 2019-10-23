@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class A12_Comparable {
+class A12_Comparable {
 
     /*
      * Module java.base

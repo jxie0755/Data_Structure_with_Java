@@ -1,6 +1,6 @@
 package Java_Classes;
 
-public class A05_Mutable_String {
+class A05_Mutable_String {
 
     /*
      * String 字符串常量

@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
-public class Deque<Item> implements Iterable<Item> {
+class Deque<Item> implements Iterable<Item> {
 
     private Node first, last; //双向链表一开始也是有两个点
     /**

@@ -1,6 +1,6 @@
 package Java_Basics;// 1.3.5
 
-public class C06_Static_Methods {
+class C06_Static_Methods {
     /*
      * Methods
      * static methods (also called class methods)

@@ -3,7 +3,7 @@ package Java_Classes;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class A08d_HashSet {
+class A08d_HashSet {
 
     /*
      * Module java.base

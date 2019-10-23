@@ -1,6 +1,6 @@
 package Java_Basics.Package_Example_2;
 
-public class C12_Package {
+class C12_Package {
 }
 
 

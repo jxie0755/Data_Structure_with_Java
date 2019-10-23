@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.StdRandom;
 
 import java.util.Arrays;
 
-public class Alg_Lecture_04_elementary_sorts {
+class Alg_Lecture_04_elementary_sorts {
 
     /*
      * To h_sort a number of elements, first we need to be able to compare elements

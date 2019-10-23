@@ -2,7 +2,7 @@ package algorithm_p1.week_1;
 
 import java.util.Arrays;
 
-public class Alg_lecture_01_UnionFind {
+class Alg_lecture_01_UnionFind {
 
 }
 

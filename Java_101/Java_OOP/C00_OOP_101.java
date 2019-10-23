@@ -6,7 +6,7 @@ import Java_Basics.C04b_Variable_Types_Employee;
 import java.util.List;
 
 
-public class C00_OOP_101 {
+class C00_OOP_101 {
     /*
      * 一个类可以包含以下类型变量:
      * 局部变量：在方法、构造方法或者语句块中定义的变量被称为局部变量。变量声明和初始化都是在方法中，方法结束后，变量就会自动销毁。

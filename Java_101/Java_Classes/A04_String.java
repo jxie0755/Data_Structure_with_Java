@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class A04_String {
+class A04_String {
 
     /*
      * Module java.base
