@@ -9,7 +9,7 @@ import java.util.*;
  * raw data must be in String[][] type.
  */
 
-public class JavaSudokuSolver_v2 {
+class JavaSudokuSolver_v2 {
 
     // constants
     static final String blank = "0";

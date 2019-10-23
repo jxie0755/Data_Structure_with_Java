@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Jump_Game_II {
+class Jump_Game_II {
 
     // this is to solve Leetcode 45 with recursion method similar to python
     // Note that this recursive method will not pass either, still exceed max time limit

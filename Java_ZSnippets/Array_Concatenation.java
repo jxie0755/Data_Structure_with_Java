@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class Array_Concatenation {
+class Array_Concatenation {
 
     /*
      * This is to learn how to concatenate two arrays in Java

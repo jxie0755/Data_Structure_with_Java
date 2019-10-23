@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Type_Convert {
+class Type_Convert {
 
     public static void main(String[] args) {
 

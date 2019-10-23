@@ -6,7 +6,7 @@ import java.util.*;
  * raw data must be in String[][] type.
  */
 
-public class JavaSudokuSolver {
+class JavaSudokuSolver {
 
     // constants
     static String blank = "0";

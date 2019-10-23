@@ -1,4 +1,4 @@
-public class Return_Null {
+class Return_Null {
 
     static Integer foo(Integer n) {
         if (n < 10) {

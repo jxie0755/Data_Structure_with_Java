@@ -1,4 +1,4 @@
-public class Switch_Value {
+class Switch_Value {
     public static void main(String[] args) {
         int x, y, temp;
 

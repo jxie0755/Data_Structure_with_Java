@@ -1,4 +1,4 @@
-public class String_repeat_elements {
+class String_repeat_elements {
 
     /*
      * This is to learn how to create a string with repeating elements
