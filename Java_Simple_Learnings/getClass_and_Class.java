@@ -1,4 +1,4 @@
-public class getClass_and_Class {
+class getClass_and_Class {
 
     /*
      * 学习getClass和instance.class有什么区别
@@ -28,7 +28,7 @@ class GetClassTest {
 
 //出现继承时?
 class GetA {
-    public class GetC extends GetA {
+    class GetC extends GetA {
 
     }
 }
@@ -55,5 +55,4 @@ class GetABTest {
         System.out.println(b.getClass().getSuperclass()); // >>> class ..GetA
 
     }
-
 }

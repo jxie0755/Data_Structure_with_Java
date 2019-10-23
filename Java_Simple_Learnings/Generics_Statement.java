@@ -8,7 +8,7 @@ class Car {
     }
 }
 
-public class Generics_Statement {
+class Generics_Statement {
 
     public static void main(String[] args) {
         Car c1 = new Car();

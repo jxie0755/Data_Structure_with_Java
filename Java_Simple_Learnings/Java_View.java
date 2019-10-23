@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Java_View {
+class Java_View {
 
     /*
      * Java中的视图

@@ -1,4 +1,4 @@
-public class max_recursion {
+class max_recursion {
 
     static void maxRecursionDepth(int n) {
         System.out.println(n);

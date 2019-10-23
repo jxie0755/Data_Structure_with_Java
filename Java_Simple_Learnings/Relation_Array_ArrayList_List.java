@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Relation_Array_ArrayList_List {
+class Relation_Array_ArrayList_List {
 
 }
 

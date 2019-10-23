@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Java_Grid {
+class Java_Grid {
 
     // learn Array grid and ArrayList grid
 }
