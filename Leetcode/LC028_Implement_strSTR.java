@@ -5,7 +5,7 @@
  * <p>
  * Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack
  */
-public class LC028_Implement_strSTR {
+class LC028_Implement_strSTR {
 
     /**
      * Version A

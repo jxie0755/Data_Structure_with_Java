@@ -21,7 +21,7 @@
  * Write the code that will take a string and make this conversion given a number of rows:
  * string convert(string s, int numRows);
  */
-public class LC006_Zigzag_Conversion {
+class LC006_Zigzag_Conversion {
 
     /**
      * Version B, Time O(N), spaceO(1)

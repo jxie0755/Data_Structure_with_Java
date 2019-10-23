@@ -9,7 +9,7 @@ import java.util.List;
  * <p>
  * Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
  */
-public class LC054_Spiral_Matrix {
+class LC054_Spiral_Matrix {
 
     /**
      * Version B

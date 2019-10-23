@@ -11,7 +11,7 @@
  * Only constant extra memory is allowed.
  * You may not alter the values in the list's nodes, only nodes itself may be changed.
  */
-public class LC025_Reverse_Nodes_In_K_Group {
+class LC025_Reverse_Nodes_In_K_Group {
 
     private ListNode reverseNodes(ListNode head) {
         ListNode dummy = new ListNode(0);

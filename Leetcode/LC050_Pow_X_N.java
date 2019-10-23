@@ -8,7 +8,7 @@
  * -100.0 < x < 100.0
  * n is a 32-bit signed integer, within the range [−2^31, 2^31 − 1]
  */
-public class LC050_Pow_X_N {
+class LC050_Pow_X_N {
 
     /**
      * Version B

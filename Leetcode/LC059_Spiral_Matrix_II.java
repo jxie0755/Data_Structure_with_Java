@@ -7,7 +7,7 @@ import java.util.Arrays;
  * <p>
  * Given a positive integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
  */
-public class LC059_Spiral_Matrix_II {
+class LC059_Spiral_Matrix_II {
 
     /**
      * Version A

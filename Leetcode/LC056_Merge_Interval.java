@@ -9,7 +9,7 @@ import java.util.List;
  * <p>
  * Given a collection of intervals, merge all overlapping intervals.
  */
-public class LC056_Merge_Interval {
+class LC056_Merge_Interval {
 
     /**
      * Version A1 modified

@@ -7,7 +7,7 @@
  * Note:
  * Given n will always be valid.
  */
-public class LC019_Remove_Nth_Node_From_End_Of_List {
+class LC019_Remove_Nth_Node_From_End_Of_List {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
 

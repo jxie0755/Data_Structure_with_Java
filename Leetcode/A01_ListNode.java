@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class A01_ListNode {
+class A01_ListNode {
 
 }
 

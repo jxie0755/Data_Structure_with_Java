@@ -8,7 +8,7 @@
  * For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
  * The 32-bit int data type can hold integer values in the range of âˆ’2,147,483,648 to 2,147,483,647.
  */
-public class LC007_Reverse_Integer {
+class LC007_Reverse_Integer {
 
     /**
      * Version A, use string method, time O(logN), takes extra space O(LogN)

@@ -9,7 +9,7 @@ import java.util.List;
  * <p>
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
  */
-public class LC022_Generate_Parenthesis {
+class LC022_Generate_Parenthesis {
 
     /**
      * STD ans, recursive

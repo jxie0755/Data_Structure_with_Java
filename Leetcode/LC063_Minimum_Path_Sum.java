@@ -7,7 +7,7 @@
  * <p>
  * Note: You can only move either down or right at any point in time.
  */
-public class LC063_Minimum_Path_Sum {
+class LC063_Minimum_Path_Sum {
 
     public int minPathSum(int[][] grid) {
 

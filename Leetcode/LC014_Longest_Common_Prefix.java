@@ -7,7 +7,7 @@ import java.util.*;
  * <p>
  * Write a function to find the longest common prefix string amongst an array of strings.
  */
-public class LC014_Longest_Common_Prefix {
+class LC014_Longest_Common_Prefix {
 
     /**
      * Version A, Set method

@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Return the sum of the three integers.
  * You may assume that each input would have exactly one solution.
  */
-public class LC016_3Sum_Closest {
+class LC016_3Sum_Closest {
 
     /**
      * Version A

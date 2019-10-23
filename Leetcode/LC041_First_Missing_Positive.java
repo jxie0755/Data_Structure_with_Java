@@ -12,7 +12,7 @@ import java.util.List;
  * Note:
  * Your algorithm should run in O(n) time and uses constant extra space.
  */
-public class LC041_First_Missing_Positive {
+class LC041_First_Missing_Positive {
 
 
     /**

@@ -39,7 +39,7 @@ import java.util.Arrays;
  * (4, 3, 1, 2)
  * (4, 3, 2, 1)
  */
-public class LC031_Next_Permutation {
+class LC031_Next_Permutation {
 
     /**
      * Version B

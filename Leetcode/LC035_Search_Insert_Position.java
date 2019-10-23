@@ -9,7 +9,7 @@ import java.util.Arrays;
  * If not, return the index where it would be if it were inserted in order.
  * You may assume no duplicates in the array
  */
-public class LC035_Search_Insert_Position {
+class LC035_Search_Insert_Position {
 
     /**
      * # Version A, sort first

@@ -10,7 +10,7 @@
  * Note:
  * You can assume that you can always reach the last index.
  */
-public class LC045_Jump_Game_II {
+class LC045_Jump_Game_II {
 
     /**
      * Version C2

@@ -10,7 +10,7 @@
  * An obstacle and empty space is marked as 1 and 0 respectively in the grid.
  * Note: m and n will be at most 100.
  */
-public class LC063_Unique_Path_II {
+class LC063_Unique_Path_II {
 
     /**
      * Similar idea from Leetcode 062 iteration method

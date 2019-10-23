@@ -9,7 +9,7 @@ import java.util.List;
  * Given a linked list, swap every two adjacent nodes and return its head.
  * You may not modify the values in the list's nodes, only nodes itself may be changed.
  */
-public class LC024_Swap_Nodes_In_Pairs {
+class LC024_Swap_Nodes_In_Pairs {
 
 
     /**

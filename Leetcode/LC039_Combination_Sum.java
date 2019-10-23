@@ -16,7 +16,7 @@ import java.util.List;
  * All numbers (including target) will be positive integers.
  * The solution set must not contain duplicate combinations.
  */
-public class LC039_Combination_Sum {
+class LC039_Combination_Sum {
 
     /**
      * Version B

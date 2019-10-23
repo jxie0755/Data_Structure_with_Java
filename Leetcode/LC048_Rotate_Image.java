@@ -12,7 +12,7 @@ import java.util.Arrays;
  * You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
  * Do not return anything, modify matrix in-place instead.
  */
-public class LC048_Rotate_Image {
+class LC048_Rotate_Image {
 
 
     /**

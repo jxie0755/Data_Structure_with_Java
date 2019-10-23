@@ -5,7 +5,7 @@
  * <p>
  * Given two binary strings, return their sum (also a binary string)
  */
-public class LC067_Add_Binary {
+class LC067_Add_Binary {
 
     /**
      * Version C

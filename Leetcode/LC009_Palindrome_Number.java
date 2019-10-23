@@ -6,7 +6,7 @@
  * Determine whether an integer is a palindrome. Do this without extra space.
  * Negative integer will not be a palindrome
  */
-public class LC009_Palindrome_Number {
+class LC009_Palindrome_Number {
 
     /**
      * Version B, divmod method

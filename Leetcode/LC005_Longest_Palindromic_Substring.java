@@ -7,7 +7,7 @@
  * Given a string s, find the longest palindromic substring in s.
  * You may assume that the maximum length of s is 1000.
  */
-public class LC005_Longest_Palindromic_Substring {
+class LC005_Longest_Palindromic_Substring {
 
 
     /**

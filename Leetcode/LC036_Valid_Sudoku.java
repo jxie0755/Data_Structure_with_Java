@@ -20,7 +20,7 @@ import java.util.List;
  * <p>
  * See reference in Java_ZSnippets/JavaSudokuSolver
  */
-public class LC036_Valid_Sudoku {
+class LC036_Valid_Sudoku {
 
     /**
      * Verion A

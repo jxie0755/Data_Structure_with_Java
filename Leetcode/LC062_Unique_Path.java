@@ -13,7 +13,7 @@ import java.util.*;
  */
 
 
-public class LC062_Unique_Path {
+class LC062_Unique_Path {
 
     /**
      * Version A, best direct math calculation, FAILED

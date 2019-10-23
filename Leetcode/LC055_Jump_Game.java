@@ -7,7 +7,7 @@
  * Each element in the array represents your maximum jump length at that position.
  * Determine if you are able to reach the last index.
  */
-public class LC055_Jump_Game {
+class LC055_Jump_Game {
 
     /**
      * STD ans

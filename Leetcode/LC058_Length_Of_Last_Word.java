@@ -9,7 +9,7 @@
  * Note:
  * A word is defined as a character sequence consists of non-space characters only.
  */
-public class LC058_Length_Of_Last_Word {
+class LC058_Length_Of_Last_Word {
 
     /**
      * Version B

@@ -9,7 +9,7 @@
  * <p>
  * Note: You may not slant the container and n is at least 2.
  */
-public class LC011_Container_With_Most_Water {
+class LC011_Container_With_Most_Water {
 
     /**
      * Version C

@@ -22,7 +22,7 @@ import java.util.*;
  * <p>
  * This will not pass Leetcode as it does not allow some of the implements
  */
-public class LC037_Sudku_Solver {
+class LC037_Sudku_Solver {
 
 
     /**

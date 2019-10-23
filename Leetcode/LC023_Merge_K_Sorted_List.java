@@ -5,7 +5,7 @@
  * <p>
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
  */
-public class LC023_Merge_K_Sorted_List {
+class LC023_Merge_K_Sorted_List {
 
     /**
      * Version C2

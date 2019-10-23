@@ -9,7 +9,7 @@
  * <p>
  * You may assume the two numbers do not contain any leading zero, except the number 0 itself.
  */
-public class LC002_Add_Two_Numbers {
+class LC002_Add_Two_Numbers {
 
     /**
      * Version A, Time:  O(n), Space: O(1)

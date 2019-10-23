@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Your algorithm's runtime complexity must be in the order of O(log n).
  * If the target is not found in the array, return [-1, -1]
  */
-public class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
+class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
 
     /**
      * Version B

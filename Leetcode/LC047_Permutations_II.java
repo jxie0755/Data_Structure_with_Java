@@ -9,7 +9,7 @@ import java.util.List;
  * <p>
  * Given a collection of numbers that might contain duplicates, return all possible unique permutations.
  */
-public class LC047_Permutations_II {
+class LC047_Permutations_II {
 
     /**
      * Version D, Pure recursive method

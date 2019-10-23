@@ -11,7 +11,7 @@ import java.util.*;
  * A mapping of digit to letters (just like on the telephone buttons) is given below.
  * Note that 1 does not map to any letters.
  */
-public class LC017_Letter_Combination_Of_A_Phone_Number {
+class LC017_Letter_Combination_Of_A_Phone_Number {
 
 
     // Static helper

@@ -12,7 +12,7 @@ import java.util.List;
  * <p>
  * Note: The solution set must not contain duplicate triplets.
  */
-public class LC015_3Sum {
+class LC015_3Sum {
 
     /**
      * STD ans, Time:  O(n^2)

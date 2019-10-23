@@ -11,7 +11,7 @@ import java.util.Map;
  * Given a string containing just the characters "(", ")", "{", "}", "[" and "]", determine if the input string is valid.
  * The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
  */
-public class LC020_Valid_Parenthesis {
+class LC020_Valid_Parenthesis {
 
     // Static helper
     private static Map<String, Integer> OPEN_BRACKETS = new HashMap<>();

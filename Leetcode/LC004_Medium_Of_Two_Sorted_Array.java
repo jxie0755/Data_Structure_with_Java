@@ -8,7 +8,7 @@
  * Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
  * You may assume nums1 and nums2 cannot be both empty.
  */
-public class LC004_Medium_Of_Two_Sorted_Array {
+class LC004_Medium_Of_Two_Sorted_Array {
 
     /**
      * Version C2, Time O(N), space O(1/2N)

@@ -19,7 +19,7 @@
  * 21 is read off as "one 2, then one 1" or 1211.
  * Given an integer n, generate the nth term of the count-and-say sequence.
  */
-public class LC038_Count_And_Say {
+class LC038_Count_And_Say {
 
     /**
      * Version B1

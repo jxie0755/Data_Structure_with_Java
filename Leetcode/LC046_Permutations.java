@@ -10,7 +10,7 @@ import java.util.List;
  * <p>
  * Given a collection of distinct (数字不会重复) integers, return all possible permutations.
  */
-public class LC046_Permutations {
+class LC046_Permutations {
 
     /**
      * Version D, Pure recursive method

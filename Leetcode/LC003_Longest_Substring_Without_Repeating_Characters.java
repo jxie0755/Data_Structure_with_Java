@@ -8,7 +8,7 @@ import java.util.Map;
  * <p>
  * Given a string, find the length of the longest substring without repeating characters.
  */
-public class LC003_Longest_Substring_Without_Repeating_Characters {
+class LC003_Longest_Substring_Without_Repeating_Characters {
 
     /**
      * Version A

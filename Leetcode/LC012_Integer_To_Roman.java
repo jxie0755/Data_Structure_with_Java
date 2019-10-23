@@ -9,7 +9,7 @@ import java.util.Map;
  * Given an integer, convert it to a roman numeral.
  * Input is guaranteed to be within the range from 1 to 3999.
  */
-public class LC012_Integer_To_Roman {
+class LC012_Integer_To_Roman {
 
     // Static helper
     static Map<Integer, String> R = new HashMap<>();

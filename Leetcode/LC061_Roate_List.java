@@ -5,7 +5,7 @@
  * <p>
  * Given a linked list, rotate the list to the right by k places, where k is non-negative.
  */
-public class LC061_Roate_List {
+class LC061_Roate_List {
 
     public ListNode rotateRight(ListNode head, int k) {
 

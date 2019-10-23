@@ -13,7 +13,7 @@ import java.util.List;
  * Note:
  * The solution set must not contain duplicate quadruplets.
  */
-public class LC018_4Sum {
+class LC018_4Sum {
 
     public List<List<Integer>> fourSum(int[] nums, int target) {
 

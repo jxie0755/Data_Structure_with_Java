@@ -11,7 +11,7 @@ import java.util.*;
  * All inputs will be in lowercase.
  * The order of your output does not matter.
  */
-public class LC049_Group_Anagrams {
+class LC049_Group_Anagrams {
 
     public List<List<String>> groupAnagrams(String[] strs) {
 

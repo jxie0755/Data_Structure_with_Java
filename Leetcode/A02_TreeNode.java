@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class A02_TreeNode {
+class A02_TreeNode {
 
 }
 

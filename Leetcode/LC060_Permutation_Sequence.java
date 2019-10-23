@@ -21,7 +21,7 @@ import java.util.List;
  * Given n will be between 1 and 9 inclusive.
  * Given k will be between 1 and n! inclusive.
  */
-public class LC060_Permutation_Sequence {
+class LC060_Permutation_Sequence {
 
     /**
      * Helper to calculate factorial of an integer....
