@@ -36,12 +36,10 @@ class LC001_Two_Sum {
     public static void main(String[] args) {
 
         int[] Q1 = new int[]{2, 7, 11, 15};
-        LC001_Two_Sum A1 = new LC001_Two_Sum();
-        assert Arrays.equals(A1.twoSum(Q1, 9), new int[]{0, 1});
+        assert Arrays.equals(new LC001_Two_Sum().twoSum(Q1, 9), new int[]{0, 1});
 
         int[] Q2 = new int[]{3, 2, 4};
-        LC001_Two_Sum A2 = new LC001_Two_Sum();
-        assert Arrays.equals(A2.twoSum(Q2, 6), new int[]{1, 2});
+        assert Arrays.equals(new LC001_Two_Sum().twoSum(Q2, 6), new int[]{1, 2});
 
         System.out.println("all passed");
     }
