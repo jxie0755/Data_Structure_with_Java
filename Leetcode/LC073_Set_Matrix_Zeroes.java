@@ -29,7 +29,7 @@ class LC073_Set_Matrix_Zeroes {
         for (List<Integer> coor : coor_list) {
             int x = coor.get(0);
             int y = coor.get(1);
-            for (int i = 0; i < matrix[x].length; i += 1) {
+            for (int i = 0; i < m; i += 1) {
                 matrix[x][i] = 0;
             }
             for (int nn = 0; nn < n; nn += 1) {
