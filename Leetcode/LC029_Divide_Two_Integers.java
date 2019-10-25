@@ -61,15 +61,16 @@ class LC029_Divide_Two_Integers {
     }
 
     public static void main(String[] args) {
+        LC029_Divide_Two_Integers testCase = new LC029_Divide_Two_Integers();
 
-        assert new LC029_Divide_Two_Integers().divide(1, 3) == 0 : "Edge 1";
+        assert testCase.divide(1, 3) == 0 : "Edge 1";
 
-        assert new LC029_Divide_Two_Integers().divide(10, 3) == 3 : "Example 1";
-        assert new LC029_Divide_Two_Integers().divide(7, -3) == -2 : "Example 2";
-        assert new LC029_Divide_Two_Integers().divide(1, 1) == 1 : "Example 3";
+        assert testCase.divide(10, 3) == 3 : "Example 1";
+        assert testCase.divide(7, -3) == -2 : "Example 2";
+        assert testCase.divide(1, 1) == 1 : "Example 3";
 
-        assert new LC029_Divide_Two_Integers().divide(-2147483648, 1) == -2147483648 : "Edge 2";
-        assert new LC029_Divide_Two_Integers().divide(-2147483648, -1) == 2147483647 : "Edge 3";
+        assert testCase.divide(-2147483648, 1) == -2147483648 : "Edge 2";
+        assert testCase.divide(-2147483648, -1) == 2147483647 : "Edge 3";
 
         System.out.println("all passed");
     }

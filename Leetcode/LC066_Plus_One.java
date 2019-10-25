@@ -85,20 +85,21 @@ class LC066_Plus_One {
 
 
     public static void main(String[] args) {
+        LC066_Plus_One testCase = new LC066_Plus_One();
         int[] s1 = new int[]{0};
-        assert Arrays.equals(new LC066_Plus_One().plusOne(s1), new int[]{1}) : "Edge 0";
+        assert Arrays.equals(testCase.plusOne(s1), new int[]{1}) : "Edge 0";
 
         int[] s2 = new int[]{1, 2, 3};
-        assert Arrays.equals(new LC066_Plus_One().plusOne(s2), new int[]{1, 2, 4}) : "Example 1";
+        assert Arrays.equals(testCase.plusOne(s2), new int[]{1, 2, 4}) : "Example 1";
 
         int[] s3 = new int[]{4, 3, 2, 1};
-        assert Arrays.equals(new LC066_Plus_One().plusOne(s3), new int[]{4, 3, 2, 2}) : "Example 2";
+        assert Arrays.equals(testCase.plusOne(s3), new int[]{4, 3, 2, 2}) : "Example 2";
 
         int[] s4 = new int[]{1, 9, 9};
-        assert Arrays.equals(new LC066_Plus_One().plusOne(s4), new int[]{2, 0, 0}) : "Example 3";
+        assert Arrays.equals(testCase.plusOne(s4), new int[]{2, 0, 0}) : "Example 3";
 
         int[] s5 = new int[]{9, 9, 9};
-        assert Arrays.equals(new LC066_Plus_One().plusOne(s5), new int[]{1, 0, 0, 0}) : "Example 4";
+        assert Arrays.equals(testCase.plusOne(s5), new int[]{1, 0, 0, 0}) : "Example 4";
 
         System.out.println("all passed");
 

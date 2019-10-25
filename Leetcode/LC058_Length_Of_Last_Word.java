@@ -33,9 +33,10 @@ class LC058_Length_Of_Last_Word {
     }
 
     public static void main(String[] args) {
-        assert new LC058_Length_Of_Last_Word().lengthOfLastWord("") == 0 : "Edge 1";
-        assert new LC058_Length_Of_Last_Word().lengthOfLastWord(" ") == 0 : "Edge 2";
-        assert new LC058_Length_Of_Last_Word().lengthOfLastWord("Hello World") == 5 : "Regular";
+        LC058_Length_Of_Last_Word testCase = new LC058_Length_Of_Last_Word();
+        assert testCase.lengthOfLastWord("") == 0 : "Edge 1";
+        assert testCase.lengthOfLastWord(" ") == 0 : "Edge 2";
+        assert testCase.lengthOfLastWord("Hello World") == 5 : "Regular";
         System.out.println("all passed");
     }
 }

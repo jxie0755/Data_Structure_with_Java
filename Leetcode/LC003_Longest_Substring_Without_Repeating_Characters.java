@@ -70,15 +70,16 @@ class LC003_Longest_Substring_Without_Repeating_Characters {
 
 
     public static void main(String[] args) {
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("") == 0 : "Edge 1";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring(" ") == 1 : "Edge 2";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("au") == 2 : "Edge 3";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("aab") == 2 : "Edge 4";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("dvdf") == 3 : "Edge 5";
+        LC003_Longest_Substring_Without_Repeating_Characters testCase = new LC003_Longest_Substring_Without_Repeating_Characters();
+        assert testCase.lengthOfLongestSubstring("") == 0 : "Edge 1";
+        assert testCase.lengthOfLongestSubstring(" ") == 1 : "Edge 2";
+        assert testCase.lengthOfLongestSubstring("au") == 2 : "Edge 3";
+        assert testCase.lengthOfLongestSubstring("aab") == 2 : "Edge 4";
+        assert testCase.lengthOfLongestSubstring("dvdf") == 3 : "Edge 5";
 
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("abcabcbb") == 3 : "Example 1: abc";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("bbbbb") == 1 : "Example 2: b";
-        assert new LC003_Longest_Substring_Without_Repeating_Characters().lengthOfLongestSubstring("pwwkew") == 3 : "Example 3: wke";
+        assert testCase.lengthOfLongestSubstring("abcabcbb") == 3 : "Example 1: abc";
+        assert testCase.lengthOfLongestSubstring("bbbbb") == 1 : "Example 2: b";
+        assert testCase.lengthOfLongestSubstring("pwwkew") == 3 : "Example 3: wke";
 
         System.out.println("all passed");
 

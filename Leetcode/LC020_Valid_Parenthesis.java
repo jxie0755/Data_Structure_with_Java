@@ -51,13 +51,14 @@ class LC020_Valid_Parenthesis {
     }
 
     public static void main(String[] args) {
+        LC020_Valid_Parenthesis testCase = new LC020_Valid_Parenthesis();
 
-        assert new LC020_Valid_Parenthesis().isValid("((5+3)*2+1)") : "simple";
-        assert new LC020_Valid_Parenthesis().isValid("{[(3+1)+2]+}") : "Different types";
-        assert !new LC020_Valid_Parenthesis().isValid("(3+{1-1)}") : ") is alone inside {}";
-        assert new LC020_Valid_Parenthesis().isValid("[1+1]+(2*2)-{3/3}") : "Different operators";
-        assert !new LC020_Valid_Parenthesis().isValid("(({[(((1)-2)+3)-3]/3}-3)") : "One is redundant";
-        assert new LC020_Valid_Parenthesis().isValid("2+3") : "No brackets, no problem";
+        assert testCase.isValid("((5+3)*2+1)") : "simple";
+        assert testCase.isValid("{[(3+1)+2]+}") : "Different types";
+        assert !testCase.isValid("(3+{1-1)}") : ") is alone inside {}";
+        assert testCase.isValid("[1+1]+(2*2)-{3/3}") : "Different operators";
+        assert !testCase.isValid("(({[(((1)-2)+3)-3]/3}-3)") : "One is redundant";
+        assert testCase.isValid("2+3") : "No brackets, no problem";
 
         System.out.println("all passed");
 

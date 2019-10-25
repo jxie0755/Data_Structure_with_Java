@@ -35,18 +35,19 @@ class LC022_Generate_Parenthesis {
 
 
     public static void main(String[] args) {
+        LC022_Generate_Parenthesis testCase = new LC022_Generate_Parenthesis();
 
         List<String> a1 = new ArrayList<>(Arrays.asList("()"));
-        assert new LC022_Generate_Parenthesis().generateParenthesis(1).equals(a1) : "Edge 1";
+        assert testCase.generateParenthesis(1).equals(a1) : "Edge 1";
 
         List<String> a2 = new ArrayList<>(Arrays.asList("(())", "()()"));
-        assert new LC022_Generate_Parenthesis().generateParenthesis(2).equals(a2) : "2 pairs";
+        assert testCase.generateParenthesis(2).equals(a2) : "2 pairs";
 
         List<String> a3 = new ArrayList<>(Arrays.asList("((()))", "(()())", "(())()", "()(())", "()()()"));
-        assert new LC022_Generate_Parenthesis().generateParenthesis(3).equals(a3) : "3 pairs";
+        assert testCase.generateParenthesis(3).equals(a3) : "3 pairs";
 
         List<String> a4 = new ArrayList<>(Arrays.asList("(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()", "()()(())", "()()()()"));
-        assert new LC022_Generate_Parenthesis().generateParenthesis(4).equals(a4) : "4 pairs";
+        assert testCase.generateParenthesis(4).equals(a4) : "4 pairs";
 
         System.out.println("all passed");
     }

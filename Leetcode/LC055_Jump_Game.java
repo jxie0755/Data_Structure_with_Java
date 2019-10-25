@@ -31,23 +31,24 @@ class LC055_Jump_Game {
 
 
     public static void main(String[] args) {
+        LC055_Jump_Game testCase = new LC055_Jump_Game();
         int[] q1 = {0};
-        assert new LC055_Jump_Game().canJump(q1) : "Edge 1";
+        assert testCase.canJump(q1) : "Edge 1";
 
         int[] q2 = {0, 0};
-        assert !new LC055_Jump_Game().canJump(q2) : "Edge 2";
+        assert !testCase.canJump(q2) : "Edge 2";
 
         int[] q3 = {1, 0};
-        assert new LC055_Jump_Game().canJump(q3) : "Edge 3";
+        assert testCase.canJump(q3) : "Edge 3";
 
         int[] q4 = {1, 0, 0, 0};
-        assert !new LC055_Jump_Game().canJump(q4) : "Edge 4";
+        assert !testCase.canJump(q4) : "Edge 4";
 
         int[] q5 = {2, 3, 1, 1, 4};
-        assert new LC055_Jump_Game().canJump(q5) : "Example 1";
+        assert testCase.canJump(q5) : "Example 1";
 
         int[] q6 = {3, 2, 1, 0, 4};
-        assert !new LC055_Jump_Game().canJump(q6) : "Example 2";
+        assert !testCase.canJump(q6) : "Example 2";
 
         System.out.println("all passed");
     }

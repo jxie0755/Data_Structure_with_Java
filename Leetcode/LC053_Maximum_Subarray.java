@@ -44,39 +44,40 @@ class LC053_Maximum_Subarray {
     }
 
     public static void main(String[] args) {
+        LC053_Maximum_Subarray testCase = new LC053_Maximum_Subarray();
 
         int[] q1 = {1, 2, 3, 4};
-        assert new LC053_Maximum_Subarray().maxSubArray(q1) == 10 : "All positive";
+        assert testCase.maxSubArray(q1) == 10 : "All positive";
 
         int[] q2 = {-1, -2, -3, -4};
-        assert new LC053_Maximum_Subarray().maxSubArray(q2) == -1 : "All negative";
+        assert testCase.maxSubArray(q2) == -1 : "All negative";
 
         int[] q3 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        assert new LC053_Maximum_Subarray().maxSubArray(q3) == 6 : "mixed positive and negative";
+        assert testCase.maxSubArray(q3) == 6 : "mixed positive and negative";
 
         int[] q4 = {2, 2, 0, -1};
-        assert new LC053_Maximum_Subarray().maxSubArray(q4) == 4 : "with zero";
+        assert testCase.maxSubArray(q4) == 4 : "with zero";
 
         int[] q5 = {-2, -1, -1, -1, -1, -1, -1, -1, 1};
-        assert new LC053_Maximum_Subarray().maxSubArray(q5) == 1 : "a lot of negative";
+        assert testCase.maxSubArray(q5) == 1 : "a lot of negative";
 
         int[] q6 = {0, 0, -3, 1};
-        assert new LC053_Maximum_Subarray().maxSubArray(q6) == 1 : "group of zeros";
+        assert testCase.maxSubArray(q6) == 1 : "group of zeros";
 
         int[] q7 = {1};
-        assert new LC053_Maximum_Subarray().maxSubArray(q7) == 1 : "just 1";
+        assert testCase.maxSubArray(q7) == 1 : "just 1";
 
         int[] q8 = {-1};
-        assert new LC053_Maximum_Subarray().maxSubArray(q8) == -1 : "just -1";
+        assert testCase.maxSubArray(q8) == -1 : "just -1";
 
         int[] q9 = {0};
-        assert new LC053_Maximum_Subarray().maxSubArray(q9) == 0 : "just 0";
+        assert testCase.maxSubArray(q9) == 0 : "just 0";
 
         int[] q10 = {0, -1, -1, 0, 0, 0, -1, -2, -3};
-        assert new LC053_Maximum_Subarray().maxSubArray(q10) == 0 : "onlt one zero";
+        assert testCase.maxSubArray(q10) == 0 : "onlt one zero";
 
         int[] q11 = {0, 0, 0, 0, 0, 0};
-        assert new LC053_Maximum_Subarray().maxSubArray(q11) == 0 : "all zeros";
+        assert testCase.maxSubArray(q11) == 0 : "all zeros";
 
         System.out.println("all passed");
     }

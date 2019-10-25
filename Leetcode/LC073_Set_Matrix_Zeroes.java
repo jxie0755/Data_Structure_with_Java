@@ -39,24 +39,26 @@ class LC073_Set_Matrix_Zeroes {
     }
 
     public static void main(String[] args) {
+        LC073_Set_Matrix_Zeroes testCase = new LC073_Set_Matrix_Zeroes();
+
         int[][] e1 = new int[][]{{}};
-        new LC073_Set_Matrix_Zeroes().setZeroes(e1);
+        testCase.setZeroes(e1);
         assert Arrays.deepEquals(e1, new int[][]{{}}) : "Edge 1";
 
         int[][] e2 = new int[][]{{1}};
-        new LC073_Set_Matrix_Zeroes().setZeroes(e2);
+        testCase.setZeroes(e2);
         assert Arrays.deepEquals(e2, new int[][]{{1}}) : "Edge 2";
 
         int[][] e3 = new int[][]{{0}};
-        new LC073_Set_Matrix_Zeroes().setZeroes(e3);
+        testCase.setZeroes(e3);
         assert Arrays.deepEquals(e3, new int[][]{{0}}) : "Edge 3";
 
         int[][] e4 = new int[][]{{0}, {1}};
-        new LC073_Set_Matrix_Zeroes().setZeroes(e4);
+        testCase.setZeroes(e4);
         assert Arrays.deepEquals(e4, new int[][]{{0}, {0}}) : "Edge 4";
 
         int[][] e5 = new int[][]{{0, 1}};
-        new LC073_Set_Matrix_Zeroes().setZeroes(e5);
+        testCase.setZeroes(e5);
         assert Arrays.deepEquals(e5, new int[][]{{0, 0}}) : "Edge 5";
 
         int[][] s1 = new int[][]{
@@ -64,7 +66,7 @@ class LC073_Set_Matrix_Zeroes {
                 {1, 0, 1},
                 {1, 1, 1}
         };
-        new LC073_Set_Matrix_Zeroes().setZeroes(s1);
+        testCase.setZeroes(s1);
         assert Arrays.deepEquals(s1, new int[][]{
                 {1, 0, 1},
                 {0, 0, 0},
@@ -76,7 +78,7 @@ class LC073_Set_Matrix_Zeroes {
                 {3, 4, 5, 2},
                 {1, 3, 1, 5}
         };
-        new LC073_Set_Matrix_Zeroes().setZeroes(s2);
+        testCase.setZeroes(s2);
         assert Arrays.deepEquals(s2, new int[][]{
                 {0, 0, 0, 0},
                 {0, 4, 5, 0},

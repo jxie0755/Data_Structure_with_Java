@@ -70,25 +70,26 @@ class LC054_Spiral_Matrix {
     }
 
     public static void main(String[] args) {
+        LC054_Spiral_Matrix testCase = new LC054_Spiral_Matrix();
         int[][] q0 = {};
         List<Integer> a0 = new ArrayList<>(Arrays.asList());
-        assert new LC054_Spiral_Matrix().spiralOrder(q0).equals(a0) : "Edge 0";
+        assert testCase.spiralOrder(q0).equals(a0) : "Edge 0";
 
         int[][] q1 = {{}};
         List<Integer> a1 = new ArrayList<>(Arrays.asList());
-        assert new LC054_Spiral_Matrix().spiralOrder(q1).equals(a1) : "Edge 1";
+        assert testCase.spiralOrder(q1).equals(a1) : "Edge 1";
 
         int[][] q2 = {{1}};
         List<Integer> a2 = new ArrayList<>(Arrays.asList(1));
-        assert new LC054_Spiral_Matrix().spiralOrder(q2).equals(a2) : "Edge 2";
+        assert testCase.spiralOrder(q2).equals(a2) : "Edge 2";
 
         int[][] q3 = {{1}, {2}};
         List<Integer> a3 = new ArrayList<>(Arrays.asList(1, 2));
-        assert new LC054_Spiral_Matrix().spiralOrder(q3).equals(a3) : "Edge 3";
+        assert testCase.spiralOrder(q3).equals(a3) : "Edge 3";
 
         int[][] q4 = {{1, 2}};
         List<Integer> a4 = new ArrayList<>(Arrays.asList(1, 2));
-        assert new LC054_Spiral_Matrix().spiralOrder(q4).equals(a4) : "Edge 4";
+        assert testCase.spiralOrder(q4).equals(a4) : "Edge 4";
 
         int[][] q5 = {
                 {1, 2, 3},
@@ -96,7 +97,7 @@ class LC054_Spiral_Matrix {
                 {7, 8, 9}
         };
         List<Integer> a5 = new ArrayList<>(Arrays.asList(1, 2, 3, 6, 9, 8, 7, 4, 5));
-        assert new LC054_Spiral_Matrix().spiralOrder(q5).equals(a5) : "Example 1";
+        assert testCase.spiralOrder(q5).equals(a5) : "Example 1";
 
         int[][] q6 = {
                 {1, 2, 3, 4},
@@ -104,14 +105,14 @@ class LC054_Spiral_Matrix {
                 {9, 10, 11, 12}
         };
         List<Integer> a6 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7));
-        assert new LC054_Spiral_Matrix().spiralOrder(q6).equals(a6) : "Example 2";
+        assert testCase.spiralOrder(q6).equals(a6) : "Example 2";
 
         int[][] q7 = {
                 {1, 2},
                 {3, 4},
         };
         List<Integer> a7 = new ArrayList<>(Arrays.asList(1, 2, 4, 3));
-        assert new LC054_Spiral_Matrix().spiralOrder(q7).equals(a7) : "Example 2";
+        assert testCase.spiralOrder(q7).equals(a7) : "Example 2";
 
         System.out.println("all passed");
 

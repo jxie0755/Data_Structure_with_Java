@@ -47,25 +47,26 @@ class LC002_Add_Two_Numbers {
 
 
     public static void main(String[] args) {
+        LC002_Add_Two_Numbers testCase = new LC002_Add_Two_Numbers();
 
         ListNode a1 = ListNode.genNode(new int[]{0});
         ListNode b1 = ListNode.genNode(new int[]{0, 1});
-        ListNode c1 = new LC002_Add_Two_Numbers().addTwoNumbers(a1, b1);
+        ListNode c1 = testCase.addTwoNumbers(a1, b1);
         assert ListNode.showString(c1).equals("0->1") : "Simple Case 1";
 
         ListNode a2 = new ListNode(9);
         ListNode b2 = new ListNode(9);
-        ListNode c2 = new LC002_Add_Two_Numbers().addTwoNumbers(a2, b2);
+        ListNode c2 = testCase.addTwoNumbers(a2, b2);
         assert ListNode.showString(c2).equals("8->1") : "Simple Case 2";
 
         ListNode a3 = ListNode.genNode(new int[]{2, 4, 3});
         ListNode b3 = ListNode.genNode(new int[]{5, 6, 4});
-        ListNode c3 = new LC002_Add_Two_Numbers().addTwoNumbers(a3, b3);
+        ListNode c3 = testCase.addTwoNumbers(a3, b3);
         assert ListNode.showString(c3).equals("7->0->8") : "Example 1";
 
         ListNode a4 = ListNode.genNode(new int[]{2, 4, 3});
         ListNode b4 = ListNode.genNode(new int[]{8, 9});
-        ListNode c4 = new LC002_Add_Two_Numbers().addTwoNumbers(a4, b4);
+        ListNode c4 = testCase.addTwoNumbers(a4, b4);
         assert ListNode.showString(c4).equals("0->4->4") : "Example 2";
 
         System.out.println("all passed");

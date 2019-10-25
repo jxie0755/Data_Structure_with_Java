@@ -74,39 +74,40 @@ class LC057_Insert_Interval {
     }
 
     public static void main(String[] args) {
+        LC057_Insert_Interval testCase = new LC057_Insert_Interval();
         int[][] E0 = {};
         assert Arrays.deepEquals(
-                new LC057_Insert_Interval().insert(E0, new int[]{1, 2}),
+                testCase.insert(E0, new int[]{1, 2}),
                 new int[][]{{1, 2}}
         ) : "Edge 0";
 
         int[][] E1 = {{1, 5}};
         assert Arrays.deepEquals(
-                new LC057_Insert_Interval().insert(E1, new int[]{2, 3}),
+                testCase.insert(E1, new int[]{2, 3}),
                 new int[][]{{1, 5}}
         ) : "Edge 1";
 
         int[][] E2 = {{1, 5}};
         assert Arrays.deepEquals(
-                new LC057_Insert_Interval().insert(E2, new int[]{2, 7}),
+                testCase.insert(E2, new int[]{2, 7}),
                 new int[][]{{1, 7}}
         ) : "Edge 3";
 
         int[][] S1 = {{1, 3}, {6, 9}};
         assert Arrays.deepEquals(
-                new LC057_Insert_Interval().insert(S1, new int[]{2, 5}),
+                testCase.insert(S1, new int[]{2, 5}),
                 new int[][]{{1, 5}, {6, 9}}
         ) : "Example 1";
 
         int[][] S2 = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
         assert Arrays.deepEquals(
-                new LC057_Insert_Interval().insert(S2, new int[]{4, 8}),
+                testCase.insert(S2, new int[]{4, 8}),
                 new int[][]{{1, 2}, {3, 10}, {12, 16}}
         ) : "Example 2";
 
         int[][] S2B = {{1, 2}, {3, 7}, {4, 6}, {8, 10}, {12, 16}};
         assert Arrays.deepEquals(
-                new LC057_Insert_Interval().insert(S2B, new int[]{4, 8}),
+                testCase.insert(S2B, new int[]{4, 8}),
                 new int[][]{{1, 2}, {3, 10}, {12, 16}}
         ) : "Example 2 extended";
 

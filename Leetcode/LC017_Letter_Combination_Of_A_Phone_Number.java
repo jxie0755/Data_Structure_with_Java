@@ -60,25 +60,26 @@ class LC017_Letter_Combination_Of_A_Phone_Number {
     }
 
     public static void main(String[] args) {
+        LC017_Letter_Combination_Of_A_Phone_Number testCase = new LC017_Letter_Combination_Of_A_Phone_Number();
 
         List<String> a1 = new ArrayList<>();
-        assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("").equals(a1) : "Edge 1";
+        assert testCase.letterCombinations("").equals(a1) : "Edge 1";
 
         List<String> a2 = new ArrayList<>(Arrays.asList(""));
-        assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("1").equals(a2) : "Edge 2";
+        assert testCase.letterCombinations("1").equals(a2) : "Edge 2";
 
         List<String> a3 = new ArrayList<>(Arrays.asList(" "));
-        assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("0").equals(a3) : "Edge 3";
+        assert testCase.letterCombinations("0").equals(a3) : "Edge 3";
 
         List<String> a4 = new ArrayList<>(Arrays.asList("a", "b", "c"));
-        assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("2").equals(a4) : "Example 1";
+        assert testCase.letterCombinations("2").equals(a4) : "Example 1";
 
         List<String> a5 = new ArrayList<>(Arrays.asList("a ", "b ", "c "));
-        assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("20").equals(a5) : "Example 2";
+        assert testCase.letterCombinations("20").equals(a5) : "Example 2";
         List<String> a6 = new ArrayList<>(Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"));
-        assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("23").equals(a6) : "Example 3";
+        assert testCase.letterCombinations("23").equals(a6) : "Example 3";
         List<String> a7 = new ArrayList<>(Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"));
-        assert new LC017_Letter_Combination_Of_A_Phone_Number().letterCombinations("213").equals(a7) : "Example 4";
+        assert testCase.letterCombinations("213").equals(a7) : "Example 4";
 
         System.out.println("all passed");
 

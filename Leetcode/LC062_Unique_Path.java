@@ -81,13 +81,14 @@ class LC062_Unique_Path {
     //     return grid[n - 1][m - 1];
     // }
     public static void main(String[] args) {
-        assert new LC062_Unique_Path().uniquePaths(1, 1) == 1 : "Edge 1";
-        assert new LC062_Unique_Path().uniquePaths(4, 1) == 1 : "Edge 2";
-        assert new LC062_Unique_Path().uniquePaths(1, 4) == 1 : "Edge 3";
+        LC062_Unique_Path testCase = new LC062_Unique_Path();
+        assert testCase.uniquePaths(1, 1) == 1 : "Edge 1";
+        assert testCase.uniquePaths(4, 1) == 1 : "Edge 2";
+        assert testCase.uniquePaths(1, 4) == 1 : "Edge 3";
 
-        assert new LC062_Unique_Path().uniquePaths(3, 2) == 3 : "Example 1";
-        assert new LC062_Unique_Path().uniquePaths(7, 3) == 28 : "Example 2";
-        assert new LC062_Unique_Path().uniquePaths(23, 12) == 193536720 : "Example 3, large number";
+        assert testCase.uniquePaths(3, 2) == 3 : "Example 1";
+        assert testCase.uniquePaths(7, 3) == 28 : "Example 2";
+        assert testCase.uniquePaths(23, 12) == 193536720 : "Example 3, large number";
         System.out.println("all passed");
     }
 }

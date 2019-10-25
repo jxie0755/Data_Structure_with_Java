@@ -56,34 +56,35 @@ class LC004_Medium_Of_Two_Sorted_Array {
     }
 
     public static void main(String[] args) {
+        LC004_Medium_Of_Two_Sorted_Array testCase = new LC004_Medium_Of_Two_Sorted_Array();
 
         int[] a1 = new int[]{};
         int[] a2 = new int[]{1};
-        assert new LC004_Medium_Of_Two_Sorted_Array().findMedianSortedArrays(a1, a2) == 1.0 : "Edge 1";
+        assert testCase.findMedianSortedArrays(a1, a2) == 1.0 : "Edge 1";
 
         int[] b1 = new int[]{2};
         int[] b2 = new int[]{};
-        assert new LC004_Medium_Of_Two_Sorted_Array().findMedianSortedArrays(b1, b2) == 2.0 : "Edge 2";
+        assert testCase.findMedianSortedArrays(b1, b2) == 2.0 : "Edge 2";
 
         int[] c1 = new int[]{1};
         int[] c2 = new int[]{2};
-        assert new LC004_Medium_Of_Two_Sorted_Array().findMedianSortedArrays(c1, c2) == 1.5 : "Edge 3";
+        assert testCase.findMedianSortedArrays(c1, c2) == 1.5 : "Edge 3";
 
         int[] d1 = new int[]{1, 3};
         int[] d2 = new int[]{2};
-        assert new LC004_Medium_Of_Two_Sorted_Array().findMedianSortedArrays(d1, d2) == 2.0 : "Example 1";
+        assert testCase.findMedianSortedArrays(d1, d2) == 2.0 : "Example 1";
 
         int[] e1 = new int[]{1, 2};
         int[] e2 = new int[]{3, 4};
-        assert new LC004_Medium_Of_Two_Sorted_Array().findMedianSortedArrays(e1, e2) == 2.5 : "Example 2";
+        assert testCase.findMedianSortedArrays(e1, e2) == 2.5 : "Example 2";
 
         int[] f1 = new int[]{1, 2, 3, 4};
         int[] f2 = new int[]{2, 3, 4, 5};
-        assert new LC004_Medium_Of_Two_Sorted_Array().findMedianSortedArrays(f1, f2) == 3.0 : "Example 3";
+        assert testCase.findMedianSortedArrays(f1, f2) == 3.0 : "Example 3";
 
         int[] g1 = new int[]{3};
         int[] g2 = new int[]{-2, -1};
-        assert new LC004_Medium_Of_Two_Sorted_Array().findMedianSortedArrays(g1, g2) == -1.0 : "Negative";
+        assert testCase.findMedianSortedArrays(g1, g2) == -1.0 : "Negative";
 
         System.out.println("all passed");
     }

@@ -35,17 +35,18 @@ class LC026_Remove_Duplicates_From_Sorted_Array {
 
 
     public static void main(String[] args) {
+        LC026_Remove_Duplicates_From_Sorted_Array testCase = new LC026_Remove_Duplicates_From_Sorted_Array();
 
         int[] Q0 = new int[]{};
-        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q0) == 0 : "Empty";
+        assert testCase.removeDuplicates(Q0) == 0 : "Empty";
         assert Arrays.equals(Q0, new int[]{}) : "Empty revised list";
 
         int[] Q1 = new int[]{1, 1};
-        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q1) == 1 : "Edge";
+        assert testCase.removeDuplicates(Q1) == 1 : "Edge";
         assert Arrays.equals(Q1, new int[]{1, 1}) : "Edge 0 revised list";
 
         int[] Q2 = new int[]{1, 1, 2, 2, 3};
-        assert new LC026_Remove_Duplicates_From_Sorted_Array().removeDuplicates(Q2) == 3 : "Example 1";
+        assert testCase.removeDuplicates(Q2) == 3 : "Example 1";
         assert Arrays.equals(Q2, new int[]{1, 2, 3, 2, 3}) : "Example 1 revised list";
 
         System.out.println("all passed");

@@ -23,11 +23,12 @@ class LC028_Implement_strSTR {
     }
 
     public static void main(String[] args) {
-        assert new LC028_Implement_strSTR().strStr("", "a") == -1 : "Edge 0";
-        assert new LC028_Implement_strSTR().strStr("", "") == 0 : "Edge 1";
+        LC028_Implement_strSTR testCase = new LC028_Implement_strSTR();
+        assert testCase.strStr("", "a") == -1 : "Edge 0";
+        assert testCase.strStr("", "") == 0 : "Edge 1";
 
-        assert new LC028_Implement_strSTR().strStr("abcdeabcde", "de") == 3 : "Examle 1";
-        assert new LC028_Implement_strSTR().strStr("abcdeabcde", "zz") == -1 : "Example 2";
+        assert testCase.strStr("abcdeabcde", "de") == 3 : "Examle 1";
+        assert testCase.strStr("abcdeabcde", "zz") == -1 : "Example 2";
 
         System.out.println("all passed");
     }

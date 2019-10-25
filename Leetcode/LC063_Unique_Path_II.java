@@ -43,38 +43,39 @@ class LC063_Unique_Path_II {
     }
 
     public static void main(String[] args) {
+        LC063_Unique_Path_II testCase = new LC063_Unique_Path_II();
 
         int[][] e0 = new int[][]{
                 {0}
         };
-        assert new LC063_Unique_Path_II().uniquePathsWithObstacles(e0) == 1 : "Edge 0";
+        assert testCase.uniquePathsWithObstacles(e0) == 1 : "Edge 0";
 
         int[][] e1 = new int[][]{
                 {1}
         };
-        assert new LC063_Unique_Path_II().uniquePathsWithObstacles(e1) == 0 : "Edge 1";
+        assert testCase.uniquePathsWithObstacles(e1) == 0 : "Edge 1";
 
         int[][] e2 = new int[][]{
                 {0, 0},
                 {1, 0}
         };
-        assert new LC063_Unique_Path_II().uniquePathsWithObstacles(e2) == 1 : "Edge 2";
+        assert testCase.uniquePathsWithObstacles(e2) == 1 : "Edge 2";
 
         int[][] e3 = new int[][]{
                 {1, 1}
         };
-        assert new LC063_Unique_Path_II().uniquePathsWithObstacles(e3) == 0 : "Edge 3";
+        assert testCase.uniquePathsWithObstacles(e3) == 0 : "Edge 3";
 
         int[][] e4 = new int[][]{
                 {1, 0}
         };
-        assert new LC063_Unique_Path_II().uniquePathsWithObstacles(e4) == 0 : "Edge 4";
+        assert testCase.uniquePathsWithObstacles(e4) == 0 : "Edge 4";
 
         int[][] e5 = new int[][]{
                 {0, 1},
                 {0, 0}
         };
-        assert new LC063_Unique_Path_II().uniquePathsWithObstacles(e5) == 1 : "Edge 5";
+        assert testCase.uniquePathsWithObstacles(e5) == 1 : "Edge 5";
 
 
         int[][] s1 = new int[][]{
@@ -82,7 +83,7 @@ class LC063_Unique_Path_II {
                 {0, 1, 0},
                 {0, 0, 0},
         };
-        assert new LC063_Unique_Path_II().uniquePathsWithObstacles(s1) == 2 : "Example 1";
+        assert testCase.uniquePathsWithObstacles(s1) == 2 : "Example 1";
 
         int[][] s2 = new int[][]{
                 {0, 0, 0, 0},
@@ -91,7 +92,7 @@ class LC063_Unique_Path_II {
                 {0, 0, 1, 0},
                 {0, 0, 0, 0},
         };
-        assert new LC063_Unique_Path_II().uniquePathsWithObstacles(s2) == 7 : "Example 2";
+        assert testCase.uniquePathsWithObstacles(s2) == 7 : "Example 2";
 
         System.out.println("all passed");
 

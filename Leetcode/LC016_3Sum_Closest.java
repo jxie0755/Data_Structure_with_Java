@@ -54,16 +54,17 @@ class LC016_3Sum_Closest {
     }
 
     public static void main(String[] args) {
+        LC016_3Sum_Closest testCase = new LC016_3Sum_Closest();
 
         // No need to test edge as gurantee to have exactly one solution
         int[] q1 = new int[]{1, 1, 1};
-        assert new LC016_3Sum_Closest().threeSumClosest(q1, 1000) == 3 : "Edge";
+        assert testCase.threeSumClosest(q1, 1000) == 3 : "Edge";
 
         int[] q2 = new int[]{-1, 2, 1, -4};
-        assert new LC016_3Sum_Closest().threeSumClosest(q2, 1) == 2 : "Example 1";
+        assert testCase.threeSumClosest(q2, 1) == 2 : "Example 1";
 
         int[] q3 = new int[]{-1, 2, 1, -1};
-        assert new LC016_3Sum_Closest().threeSumClosest(q3, 0) == 0 : "Match";
+        assert testCase.threeSumClosest(q3, 0) == 0 : "Match";
 
         System.out.println("all passed");
 

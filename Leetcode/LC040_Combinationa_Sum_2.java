@@ -52,6 +52,7 @@ class LC040_Combinationa_Sum_2 {
     }
 
     public static void main(String[] args) {
+        LC040_Combinationa_Sum_2 testCase = new LC040_Combinationa_Sum_2();
 
         int[] q1 = new int[]{10, 1, 2, 7, 6, 1, 5};
         List<Integer> a1 = new ArrayList<>(Arrays.asList(1, 1, 6));
@@ -59,15 +60,14 @@ class LC040_Combinationa_Sum_2 {
         List<Integer> a3 = new ArrayList<>(Arrays.asList(1, 7));
         List<Integer> a4 = new ArrayList<>(Arrays.asList(2, 6));
         List<List<Integer>> a = new ArrayList<>(Arrays.asList(a1, a2, a3, a4));
-        assert new LC040_Combinationa_Sum_2().combinationSum2(q1, 8).equals(a) : "Example 1";
-        System.out.println(new LC040_Combinationa_Sum_2().combinationSum2(q1, 8));
+        assert testCase.combinationSum2(q1, 8).equals(a) : "Example 1";
 
 
         int[] q2 = new int[]{2, 5, 2, 1, 2};
         List<Integer> b1 = new ArrayList<>(Arrays.asList(1, 2, 2));
         List<Integer> b2 = new ArrayList<>(Arrays.asList(5));
         List<List<Integer>> b = new ArrayList<>(Arrays.asList(b1, b2));
-        assert new LC040_Combinationa_Sum_2().combinationSum2(q2, 5).equals(b) : "Example 2";
+        assert testCase.combinationSum2(q2, 5).equals(b) : "Example 2";
 
         System.out.println("all passed");
     }

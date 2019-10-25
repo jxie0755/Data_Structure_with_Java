@@ -57,10 +57,11 @@ class LC047_Permutations_II {
     }
 
     public static void main(String[] args) {
+        LC047_Permutations_II testCase = new LC047_Permutations_II();
         int[] q1 = {1};
         List<Integer> a1r1 = new ArrayList<>(Arrays.asList(1));
         List<List<Integer>> a1 = new ArrayList<>(Arrays.asList(a1r1));
-        assert new LC047_Permutations_II().permuteUnique(q1).equals(a1) : "Edge 1";
+        assert testCase.permuteUnique(q1).equals(a1) : "Edge 1";
 
         int[] q2 = {1, 2, 3};
         List<Integer> a2r1 = new ArrayList<>(Arrays.asList(1, 2, 3));
@@ -70,14 +71,14 @@ class LC047_Permutations_II {
         List<Integer> a2r5 = new ArrayList<>(Arrays.asList(3, 1, 2));
         List<Integer> a2r6 = new ArrayList<>(Arrays.asList(3, 2, 1));
         List<List<Integer>> a2 = new ArrayList<>(Arrays.asList(a2r1, a2r2, a2r3, a2r4, a2r5, a2r6));
-        assert new LC047_Permutations_II().permuteUnique(q2).equals(a2) : "Example 1";
+        assert testCase.permuteUnique(q2).equals(a2) : "Example 1";
 
         int[] q3 = {1, 1, 2};
         List<Integer> a3r1 = new ArrayList<>(Arrays.asList(1, 1, 2));
         List<Integer> a3r2 = new ArrayList<>(Arrays.asList(1, 2, 1));
         List<Integer> a3r3 = new ArrayList<>(Arrays.asList(2, 1, 1));
         List<List<Integer>> a3 = new ArrayList<>(Arrays.asList(a3r1, a3r2, a3r3));
-        assert new LC047_Permutations_II().permuteUnique(q3).equals(a3) : "Example 2";
+        assert testCase.permuteUnique(q3).equals(a3) : "Example 2";
 
         System.out.println("all passed");
     }

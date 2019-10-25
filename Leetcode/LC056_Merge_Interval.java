@@ -46,28 +46,29 @@ class LC056_Merge_Interval {
     }
 
     public static void main(String[] args) {
+        LC056_Merge_Interval testCase = new LC056_Merge_Interval();
 
         int[][] E0 = {{0, 1}};
         assert Arrays.deepEquals(
-                new LC056_Merge_Interval().merge(E0),
+                testCase.merge(E0),
                 new int[][]{{0, 1}}
         );
 
         int[][] S1 = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         assert Arrays.deepEquals(
-                new LC056_Merge_Interval().merge(S1),
+                testCase.merge(S1),
                 new int[][]{{1, 6}, {8, 10}, {15, 18}}
         );
 
         int[][] S1B = {{15, 18}, {1, 3}, {8, 10}, {2, 6}};  // unsorted of S1
         assert Arrays.deepEquals(
-                new LC056_Merge_Interval().merge(S1B),
+                testCase.merge(S1B),
                 new int[][]{{1, 6}, {8, 10}, {15, 18}}
         );
 
         int[][] S2 = {{1, 4}, {4, 5}};
         assert Arrays.deepEquals(
-                new LC056_Merge_Interval().merge(S2),
+                testCase.merge(S2),
                 new int[][]{{1, 5}}
         );
 

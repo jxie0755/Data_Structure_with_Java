@@ -61,11 +61,12 @@ class LC060_Permutation_Sequence {
     }
 
     public static void main(String[] args) {
-        assert new LC060_Permutation_Sequence().getPermutation(4, 1).equals("1234") : "Edge 1";
-        assert new LC060_Permutation_Sequence().getPermutation(3, 3).equals("213") : "Example 1";
-        assert new LC060_Permutation_Sequence().getPermutation(4, 9).equals("2314") : "Example 2";
-        assert new LC060_Permutation_Sequence().getPermutation(8, 29805).equals("68327415") : "Long 1";
-        assert new LC060_Permutation_Sequence().getPermutation(9, 62716).equals("265183794") : "Long 2";
+        LC060_Permutation_Sequence testCase = new LC060_Permutation_Sequence();
+        assert testCase.getPermutation(4, 1).equals("1234") : "Edge 1";
+        assert testCase.getPermutation(3, 3).equals("213") : "Example 1";
+        assert testCase.getPermutation(4, 9).equals("2314") : "Example 2";
+        assert testCase.getPermutation(8, 29805).equals("68327415") : "Long 1";
+        assert testCase.getPermutation(9, 62716).equals("265183794") : "Long 2";
         System.out.println("all passed");
     }
 

@@ -53,11 +53,12 @@ class LC050_Pow_X_N {
 
 
     public static void main(String[] args) {
-        assert new LC050_Pow_X_N().myPow(2.00000, 10) == Math.pow(2.00000, 10) : "Example 1";
-        assert new LC050_Pow_X_N().myPow(2.10000, 3) == Math.pow(2.10000, 3) : "Example 2";
-        assert new LC050_Pow_X_N().myPow(2.00000, -2) == Math.pow(2.00000, -2) : "Example 3";
-        assert new LC050_Pow_X_N().myPow(0.00001, 2147483647) == Math.pow(0.00001, 2147483647) : "Large 1";
-        assert new LC050_Pow_X_N().myPow(2, -2147483648) == Math.pow(2, -2147483648) : "Large 2";
+        LC050_Pow_X_N testCase = new LC050_Pow_X_N();
+        assert testCase.myPow(2.00000, 10) == Math.pow(2.00000, 10) : "Example 1";
+        assert testCase.myPow(2.10000, 3) == Math.pow(2.10000, 3) : "Example 2";
+        assert testCase.myPow(2.00000, -2) == Math.pow(2.00000, -2) : "Example 3";
+        assert testCase.myPow(0.00001, 2147483647) == Math.pow(0.00001, 2147483647) : "Large 1";
+        assert testCase.myPow(2, -2147483648) == Math.pow(2, -2147483648) : "Large 2";
         System.out.println("all passed");
     }
 }

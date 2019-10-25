@@ -30,10 +30,11 @@ class LC070_Climbing_stairs {
     }
 
     public static void main(String[] args) {
-        assert new LC070_Climbing_stairs().climbStairs(1) == 1 : "Edge 1";
-        assert new LC070_Climbing_stairs().climbStairs(2) == 2 : "Example 1";
-        assert new LC070_Climbing_stairs().climbStairs(3) == 3 : "Example 2";
-        assert new LC070_Climbing_stairs().climbStairs(7) == 21 : "Long";
+        LC070_Climbing_stairs testCase = new LC070_Climbing_stairs();
+        assert testCase.climbStairs(1) == 1 : "Edge 1";
+        assert testCase.climbStairs(2) == 2 : "Example 1";
+        assert testCase.climbStairs(3) == 3 : "Example 2";
+        assert testCase.climbStairs(7) == 21 : "Long";
         System.out.println("all passed");
     }
 }

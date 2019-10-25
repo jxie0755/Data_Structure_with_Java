@@ -95,6 +95,7 @@ class LC036_Valid_Sudoku {
     }
 
     public static void main(String[] args) {
+        LC036_Valid_Sudoku testCase = new LC036_Valid_Sudoku();
 
         char[][] example_1 = new char[][]{
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
@@ -108,7 +109,7 @@ class LC036_Valid_Sudoku {
                 {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
         };
 
-        assert new LC036_Valid_Sudoku().isValidSudoku(example_1) : "Example 1";
+        assert testCase.isValidSudoku(example_1) : "Example 1";
 
         char[][] example_2 = new char[][]{
                 {'8', '3', '.', '.', '7', '.', '.', '.', '.'},
@@ -122,7 +123,7 @@ class LC036_Valid_Sudoku {
                 {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
         };
 
-        assert !new LC036_Valid_Sudoku().isValidSudoku(example_2) : "Example 2";
+        assert !testCase.isValidSudoku(example_2) : "Example 2";
 
         char[][] example_3 = new char[][]{
                 {'.', '.', '4', '.', '.', '.', '6', '3', '.'},
@@ -136,7 +137,7 @@ class LC036_Valid_Sudoku {
                 {'.', '.', '.', '.', '.', '.', '.', '.', '.'}
         };
 
-        assert !new LC036_Valid_Sudoku().isValidSudoku(example_3) : "Example 3";
+        assert !testCase.isValidSudoku(example_3) : "Example 3";
 
         System.out.println("all passed");
     }

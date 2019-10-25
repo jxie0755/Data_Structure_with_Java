@@ -89,11 +89,12 @@ class LC043_Multiple_Strings {
     }
 
     public static void main(String[] args) {
-        assert new LC043_Multiple_Strings().multiply("0", "23").equals("0") : "Edge 1";
-        assert new LC043_Multiple_Strings().multiply("2", "23").equals("46") : "Edge 2";
-        assert new LC043_Multiple_Strings().multiply("2", "3").equals("6") : "Example 1";
-        assert new LC043_Multiple_Strings().multiply("123", "456").equals("56088") : "Example 1";
-        assert new LC043_Multiple_Strings().multiply("50", "50").equals("2500") : "Extra 1";
+        LC043_Multiple_Strings testCase = new LC043_Multiple_Strings();
+        assert testCase.multiply("0", "23").equals("0") : "Edge 1";
+        assert testCase.multiply("2", "23").equals("46") : "Edge 2";
+        assert testCase.multiply("2", "3").equals("6") : "Example 1";
+        assert testCase.multiply("123", "456").equals("56088") : "Example 1";
+        assert testCase.multiply("50", "50").equals("2500") : "Extra 1";
         System.out.println("all passed");
     }
 }

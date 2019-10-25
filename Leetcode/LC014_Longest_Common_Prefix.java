@@ -44,12 +44,13 @@ class LC014_Longest_Common_Prefix {
     }
 
     public static void main(String[] args) {
+        LC014_Longest_Common_Prefix testCase = new LC014_Longest_Common_Prefix();
 
         String[] l1 = new String[]{"Denis Xie", "Dennis X", "Dendi Den", "Denn"};
-        assert new LC014_Longest_Common_Prefix().longestCommonPrefix(l1).equals("Den") : "regular test";
+        assert testCase.longestCommonPrefix(l1).equals("Den") : "regular test";
 
         String[] l2 = new String[]{};
-        assert new LC014_Longest_Common_Prefix().longestCommonPrefix(l2).equals("") : "empty";
+        assert testCase.longestCommonPrefix(l2).equals("") : "empty";
 
         System.out.println("all passed");
 

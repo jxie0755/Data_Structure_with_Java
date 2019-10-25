@@ -40,6 +40,7 @@ class LC084_Largest_Rectangle_in_Histogram {
     }
 
     public static void main(String[] args) {
+        LC084_Largest_Rectangle_in_Histogram testCase = new LC084_Largest_Rectangle_in_Histogram();
         int[] s1 = new int[]{4, 2, 0, 3, 2, 4, 3, 4};
         LC084_Largest_Rectangle_in_Histogram Q1 = new LC084_Largest_Rectangle_in_Histogram();
         assert Q1.largestRectangleArea(s1) == 10;

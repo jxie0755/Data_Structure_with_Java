@@ -38,10 +38,11 @@ class LC048_Rotate_Image {
     }
 
     public static void main(String[] args) {
+        LC048_Rotate_Image testCase = new LC048_Rotate_Image();
         int[][] q1 = {
                 {1}
         };
-        new LC048_Rotate_Image().rotate(q1);
+        testCase.rotate(q1);
         assert Arrays.deepEquals(q1, new int[][]{
 
                 {1}
@@ -51,7 +52,7 @@ class LC048_Rotate_Image {
         int[][] q2 = {
                 {}
         };
-        new LC048_Rotate_Image().rotate(q2);
+        testCase.rotate(q2);
         assert Arrays.deepEquals(q2, new int[][]{
                 {}
         }) : "Edge 2";
@@ -62,7 +63,7 @@ class LC048_Rotate_Image {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-        new LC048_Rotate_Image().rotate(q3);
+        testCase.rotate(q3);
         assert Arrays.deepEquals(q3, new int[][]{
                 {7, 4, 1},
                 {8, 5, 2},
@@ -76,7 +77,7 @@ class LC048_Rotate_Image {
                 {13, 3, 6, 7},
                 {15, 14, 12, 16}
         };
-        new LC048_Rotate_Image().rotate(q4);
+        testCase.rotate(q4);
         assert Arrays.deepEquals(q4, new int[][]{
                 {15, 13, 2, 5},
                 {14, 3, 4, 1},

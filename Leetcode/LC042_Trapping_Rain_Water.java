@@ -89,36 +89,37 @@ class LC042_Trapping_Rain_Water {
 
 
     public static void main(String[] args) {
+        LC042_Trapping_Rain_Water testCase = new LC042_Trapping_Rain_Water();
 
         int[] q1 = {};
-        assert new LC042_Trapping_Rain_Water().trap(q1) == 0 : "Edge 1";
+        assert testCase.trap(q1) == 0 : "Edge 1";
 
         int[] q2 = {0};
-        assert new LC042_Trapping_Rain_Water().trap(q2) == 0 : "Edge 2";
+        assert testCase.trap(q2) == 0 : "Edge 2";
 
         int[] q3 = {1};
-        assert new LC042_Trapping_Rain_Water().trap(q3) == 0 : "Edge 3";
+        assert testCase.trap(q3) == 0 : "Edge 3";
 
         int[] q4 = {1, 1};
-        assert new LC042_Trapping_Rain_Water().trap(q4) == 0 : "Edge 4";
+        assert testCase.trap(q4) == 0 : "Edge 4";
 
         int[] q5 = {2, 2, 2};
-        assert new LC042_Trapping_Rain_Water().trap(q5) == 0 : "Edge 5";
+        assert testCase.trap(q5) == 0 : "Edge 5";
 
         int[] q6 = {2, 0, 2};
-        assert new LC042_Trapping_Rain_Water().trap(q6) == 2 : "Edge 6";
+        assert testCase.trap(q6) == 2 : "Edge 6";
 
         int[] q7 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-        assert new LC042_Trapping_Rain_Water().trap(q7) == 6 : "Example 1";
+        assert testCase.trap(q7) == 6 : "Example 1";
 
         int[] q8 = {10, 1, 2, 1, 2, 1, 10};
-        assert new LC042_Trapping_Rain_Water().trap(q8) == 43 : "Example 2";
+        assert testCase.trap(q8) == 43 : "Example 2";
 
         int[] q9 = {5, 5, 1, 7, 1, 1, 5, 2, 7, 6};
-        assert new LC042_Trapping_Rain_Water().trap(q9) == 23 : "Example 3";
+        assert testCase.trap(q9) == 23 : "Example 3";
 
         int[] q10 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-        assert new LC042_Trapping_Rain_Water().trap(q10) == 6 : "Extra 1";
+        assert testCase.trap(q10) == 6 : "Extra 1";
 
         System.out.println("all passed");
     }

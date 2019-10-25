@@ -52,13 +52,14 @@ class LC006_Zigzag_Conversion {
 
 
     public static void main(String[] args) {
+        LC006_Zigzag_Conversion testCase = new LC006_Zigzag_Conversion();
 
-        assert new LC006_Zigzag_Conversion().convert("", 3).equals("") : "Edge 1";
-        assert new LC006_Zigzag_Conversion().convert("A", 1).equals("A") : "Edge 2";
-        assert new LC006_Zigzag_Conversion().convert("AB", 1).equals("AB") : "Edge 3";
+        assert testCase.convert("", 3).equals("") : "Edge 1";
+        assert testCase.convert("A", 1).equals("A") : "Edge 2";
+        assert testCase.convert("AB", 1).equals("AB") : "Edge 3";
 
-        assert new LC006_Zigzag_Conversion().convert("PAYPALISHIRING", 3).equals("PAHNAPLSIIGYIR") : "Example 1";
-        assert new LC006_Zigzag_Conversion().convert("PAYPALISHIRING", 4).equals("PINALSIGYAHRPI") : "Example 2";
+        assert testCase.convert("PAYPALISHIRING", 3).equals("PAHNAPLSIIGYIR") : "Example 1";
+        assert testCase.convert("PAYPALISHIRING", 4).equals("PINALSIGYAHRPI") : "Example 2";
 
         System.out.println("all passed");
 

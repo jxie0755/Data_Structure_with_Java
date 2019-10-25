@@ -20,7 +20,7 @@ class LC069_Sqrt_X {
 
         while (true) {
             long mid = (low + high) / 2;
-            System.out.println(mid);
+            // System.out.println(mid);
             if (mid * mid <= x && (mid + 1) * (mid + 1) > x) {
                 return (int) mid;
             } else if (mid * mid > x) {
@@ -32,12 +32,13 @@ class LC069_Sqrt_X {
     }
 
     public static void main(String[] args) {
-        assert new LC069_Sqrt_X().mySqrt(0) == 0 : "Zero";
-        assert new LC069_Sqrt_X().mySqrt(1) == 1 : "One";
-        assert new LC069_Sqrt_X().mySqrt(4) == 2 : "Four";
-        assert new LC069_Sqrt_X().mySqrt(8) == 2 : "EIGHT";
-        assert new LC069_Sqrt_X().mySqrt(36) == 6 : "THIRTY SIX";
-        // assert new LC069_Sqrt_X().mySqrt(2147395601) == 46340 : "Long";
+        LC069_Sqrt_X testCase = new LC069_Sqrt_X();
+        assert testCase.mySqrt(0) == 0 : "Zero";
+        assert testCase.mySqrt(1) == 1 : "One";
+        assert testCase.mySqrt(4) == 2 : "Four";
+        assert testCase.mySqrt(8) == 2 : "EIGHT";
+        assert testCase.mySqrt(36) == 6 : "THIRTY SIX";
+        // assert testCase.mySqrt(2147395601) == 46340 : "Long";
         System.out.println("all passed");
     }
 

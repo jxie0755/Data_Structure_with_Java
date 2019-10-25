@@ -36,33 +36,34 @@ class LC063_Minimum_Path_Sum {
     }
 
     public static void main(String[] args) {
+        LC063_Minimum_Path_Sum testCase = new LC063_Minimum_Path_Sum();
         int[][] e1 = new int[][]{
                 {}
         };
-        assert new LC063_Minimum_Path_Sum().minPathSum(e1) == 0 : "Edge 1";
+        assert testCase.minPathSum(e1) == 0 : "Edge 1";
 
         int[][] e2 = new int[][]{
                 {1}
         };
-        assert new LC063_Minimum_Path_Sum().minPathSum(e2) == 1 : "Edge 2";
+        assert testCase.minPathSum(e2) == 1 : "Edge 2";
 
         int[][] e3 = new int[][]{
                 {1, 1}
         };
-        assert new LC063_Minimum_Path_Sum().minPathSum(e3) == 2 : "Edge 3";
+        assert testCase.minPathSum(e3) == 2 : "Edge 3";
 
         int[][] e4 = new int[][]{
                 {1},
                 {1}
         };
-        assert new LC063_Minimum_Path_Sum().minPathSum(e4) == 2 : "Edge 4";
+        assert testCase.minPathSum(e4) == 2 : "Edge 4";
 
         int[][] s1 = new int[][]{
                 {1, 3, 1},
                 {1, 5, 1},
                 {4, 2, 1}
         };
-        assert new LC063_Minimum_Path_Sum().minPathSum(s1) == 7 : "Example 1";
+        assert testCase.minPathSum(s1) == 7 : "Example 1";
 
         System.out.println("all passed");
     }

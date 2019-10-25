@@ -26,12 +26,13 @@ class LC009_Palindrome_Number {
     }
 
     public static void main(String[] args) {
+        LC009_Palindrome_Number testCase = new LC009_Palindrome_Number();
 
-        assert new LC009_Palindrome_Number().isPalindrome(21477412) : "Is palindrome even";
-        assert new LC009_Palindrome_Number().isPalindrome(12321) : "Is palindrome odd";
-        assert !new LC009_Palindrome_Number().isPalindrome(1477412) : "Not palindrome";
-        assert new LC009_Palindrome_Number().isPalindrome(1) : "Single 1";
-        assert new LC009_Palindrome_Number().isPalindrome(0) : "Single 0";
+        assert testCase.isPalindrome(21477412) : "Is palindrome even";
+        assert testCase.isPalindrome(12321) : "Is palindrome odd";
+        assert !testCase.isPalindrome(1477412) : "Not palindrome";
+        assert testCase.isPalindrome(1) : "Single 1";
+        assert testCase.isPalindrome(0) : "Single 0";
 
         System.out.println("all passed");
 

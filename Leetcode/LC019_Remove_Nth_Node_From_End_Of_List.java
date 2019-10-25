@@ -33,13 +33,14 @@ class LC019_Remove_Nth_Node_From_End_Of_List {
     }
 
     public static void main(String[] args) {
+        LC019_Remove_Nth_Node_From_End_Of_List testCase = new LC019_Remove_Nth_Node_From_End_Of_List();
 
         ListNode q1 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
         ListNode a1 = ListNode.genNode(new int[]{1, 2, 3, 5});
-        assert new LC019_Remove_Nth_Node_From_End_Of_List().removeNthFromEnd(q1, 2).equals(a1);
+        assert testCase.removeNthFromEnd(q1, 2).equals(a1);
 
         ListNode q2 = ListNode.genNode(new int[]{1});
-        assert new LC019_Remove_Nth_Node_From_End_Of_List().removeNthFromEnd(q2, 1) == null;
+        assert testCase.removeNthFromEnd(q2, 1) == null;
 
         System.out.println("all passed");
 

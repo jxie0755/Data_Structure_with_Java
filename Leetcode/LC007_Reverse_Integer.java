@@ -70,11 +70,12 @@ class LC007_Reverse_Integer {
 
 
     public static void main(String[] args) {
+        LC007_Reverse_Integer testCase = new LC007_Reverse_Integer();
 
-        assert new LC007_Reverse_Integer().reverse(123) == 321 : "Regular";
-        assert new LC007_Reverse_Integer().reverse(-120) == -21 : "Negative jump";
-        assert new LC007_Reverse_Integer().reverse(1534236469) == 0 : "Exceed";
-        assert new LC007_Reverse_Integer().reverse(0) == 0 : "Zero";
+        assert testCase.reverse(123) == 321 : "Regular";
+        assert testCase.reverse(-120) == -21 : "Negative jump";
+        assert testCase.reverse(1534236469) == 0 : "Exceed";
+        assert testCase.reverse(0) == 0 : "Zero";
         System.out.println("all passed");
 
     }

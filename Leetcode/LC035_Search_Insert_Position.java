@@ -31,15 +31,16 @@ class LC035_Search_Insert_Position {
     }
 
     public static void main(String[] args) {
+        LC035_Search_Insert_Position testCase = new LC035_Search_Insert_Position();
 
         int[] E = new int[]{};
-        assert new LC035_Search_Insert_Position().searchInsert(E, 1) == 0 : "Empty";
+        assert testCase.searchInsert(E, 1) == 0 : "Empty";
 
         int[] Q = new int[]{1, 3, 5, 6};
-        assert new LC035_Search_Insert_Position().searchInsert(Q, 5) == 2 : "In the list";
-        assert new LC035_Search_Insert_Position().searchInsert(Q, 2) == 1 : "Not in the list";
-        assert new LC035_Search_Insert_Position().searchInsert(Q, 7) == 4 : "At the end";
-        assert new LC035_Search_Insert_Position().searchInsert(Q, 0) == 0 : "At the beginning";
+        assert testCase.searchInsert(Q, 5) == 2 : "In the list";
+        assert testCase.searchInsert(Q, 2) == 1 : "Not in the list";
+        assert testCase.searchInsert(Q, 7) == 4 : "At the end";
+        assert testCase.searchInsert(Q, 0) == 0 : "At the beginning";
         System.out.println("all passed");
     }
 

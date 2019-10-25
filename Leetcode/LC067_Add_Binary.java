@@ -51,10 +51,11 @@ class LC067_Add_Binary {
     }
 
     public static void main(String[] args) {
-        assert new LC067_Add_Binary().addBinary("0", "0").equals("0") : "Zero";
-        assert new LC067_Add_Binary().addBinary("11", "1").equals("100") : "Example 1";
-        assert new LC067_Add_Binary().addBinary("1010", "1011").equals("10101") : "Example 2";
-        assert new LC067_Add_Binary().addBinary("111", "1").equals("1000") : "Extra 1";
+        LC067_Add_Binary testCase = new LC067_Add_Binary();
+        assert testCase.addBinary("0", "0").equals("0") : "Zero";
+        assert testCase.addBinary("11", "1").equals("100") : "Example 1";
+        assert testCase.addBinary("1010", "1011").equals("10101") : "Example 2";
+        assert testCase.addBinary("111", "1").equals("1000") : "Extra 1";
         System.out.println("all passed");
     }
 

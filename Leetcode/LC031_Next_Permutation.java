@@ -93,45 +93,46 @@ class LC031_Next_Permutation {
 
 
     public static void main(String[] args) {
+        LC031_Next_Permutation testCase = new LC031_Next_Permutation();
 
         int[] Q1 = new int[]{};
-        new LC031_Next_Permutation().nextPermutation(Q1);
+        testCase.nextPermutation(Q1);
         assert Arrays.equals(Q1, new int[]{}) : "Edge 1";
 
         int[] Q2 = new int[]{1};
-        new LC031_Next_Permutation().nextPermutation(Q2);
+        testCase.nextPermutation(Q2);
         assert Arrays.equals(Q2, new int[]{1}) : "Edge 2";
 
         int[] Q3 = new int[]{1, 2};
-        new LC031_Next_Permutation().nextPermutation(Q3);
+        testCase.nextPermutation(Q3);
         assert Arrays.equals(Q3, new int[]{2, 1}) : "Edge 3";
 
         int[] Q4 = new int[]{1, 2, 3};
-        new LC031_Next_Permutation().nextPermutation(Q4);
+        testCase.nextPermutation(Q4);
         assert Arrays.equals(Q4, new int[]{1, 3, 2}) : "Example 1";
 
         int[] Q5 = new int[]{3, 2, 1};
-        new LC031_Next_Permutation().nextPermutation(Q5);
+        testCase.nextPermutation(Q5);
         assert Arrays.equals(Q5, new int[]{1, 2, 3}) : "Example 2";
 
         int[] Q6 = new int[]{1, 1, 5};
-        new LC031_Next_Permutation().nextPermutation(Q6);
+        testCase.nextPermutation(Q6);
         assert Arrays.equals(Q6, new int[]{1, 5, 1}) : "Example 3";
 
         int[] Q7 = new int[]{5, 1, 1};
-        new LC031_Next_Permutation().nextPermutation(Q7);
+        testCase.nextPermutation(Q7);
         assert Arrays.equals(Q7, new int[]{1, 1, 5}) : "Extra 1";
 
         int[] Q8 = new int[]{2, 2, 2};
-        new LC031_Next_Permutation().nextPermutation(Q8);
+        testCase.nextPermutation(Q8);
         assert Arrays.equals(Q8, new int[]{2, 2, 2}) : "Extra 2";
 
         int[] Q9 = new int[]{1, 2, 2, 2};
-        new LC031_Next_Permutation().nextPermutation(Q9);
+        testCase.nextPermutation(Q9);
         assert Arrays.equals(Q9, new int[]{2, 1, 2, 2}) : "Extra 3";
 
         int[] Q10 = new int[]{2, 3, 1};
-        new LC031_Next_Permutation().nextPermutation(Q10);
+        testCase.nextPermutation(Q10);
         assert Arrays.equals(Q10, new int[]{3, 1, 2}) : "Extra 4";
 
         System.out.println("all passed");

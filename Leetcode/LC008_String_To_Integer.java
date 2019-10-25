@@ -92,22 +92,23 @@ class LC008_String_To_Integer {
 
 
     public static void main(String[] args) {
+        LC008_String_To_Integer testCase = new LC008_String_To_Integer();
 
-        assert new LC008_String_To_Integer().myAtoi("ABC") == 0 : "Edge 1";
+        assert testCase.myAtoi("ABC") == 0 : "Edge 1";
 
-        assert new LC008_String_To_Integer().myAtoi("42") == 42 : "Example 1";
-        assert new LC008_String_To_Integer().myAtoi("   -42") == -42 : "Example 2";
-        assert new LC008_String_To_Integer().myAtoi("4193 with words") == 4193 : "Example 3";
-        assert new LC008_String_To_Integer().myAtoi("words and 987") == 0 : "Example 4";
-        assert new LC008_String_To_Integer().myAtoi("-91283472332") == -2147483648 : "Example 5, 32 bit overflow";
-        assert new LC008_String_To_Integer().myAtoi("3.14159") == 3 : "Extra 1";
-        assert new LC008_String_To_Integer().myAtoi("+1") == 1 : "Extra 2";
-        assert new LC008_String_To_Integer().myAtoi("+-2") == 0 : "Extra 3";
-        assert new LC008_String_To_Integer().myAtoi("-0012a42") == -12 : "Extra 4";
-        assert new LC008_String_To_Integer().myAtoi("+0 123") == 0 : "Extra 5";
-        assert new LC008_String_To_Integer().myAtoi("-5-") == -5 : "Extra 6";
-        assert new LC008_String_To_Integer().myAtoi("9223372036854775808") == 2147483647 : "Extra 7";
-        assert new LC008_String_To_Integer().myAtoi("10000000000000000000000522545459") == 2147483647 : "Extra 8, Beyong Long";
+        assert testCase.myAtoi("42") == 42 : "Example 1";
+        assert testCase.myAtoi("   -42") == -42 : "Example 2";
+        assert testCase.myAtoi("4193 with words") == 4193 : "Example 3";
+        assert testCase.myAtoi("words and 987") == 0 : "Example 4";
+        assert testCase.myAtoi("-91283472332") == -2147483648 : "Example 5, 32 bit overflow";
+        assert testCase.myAtoi("3.14159") == 3 : "Extra 1";
+        assert testCase.myAtoi("+1") == 1 : "Extra 2";
+        assert testCase.myAtoi("+-2") == 0 : "Extra 3";
+        assert testCase.myAtoi("-0012a42") == -12 : "Extra 4";
+        assert testCase.myAtoi("+0 123") == 0 : "Extra 5";
+        assert testCase.myAtoi("-5-") == -5 : "Extra 6";
+        assert testCase.myAtoi("9223372036854775808") == 2147483647 : "Extra 7";
+        assert testCase.myAtoi("10000000000000000000000522545459") == 2147483647 : "Extra 8, Beyong Long";
 
         System.out.println("all passed");
     }

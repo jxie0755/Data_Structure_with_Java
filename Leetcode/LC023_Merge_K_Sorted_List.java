@@ -58,18 +58,19 @@ class LC023_Merge_K_Sorted_List {
     }
 
     public static void main(String[] args) {
+        LC023_Merge_K_Sorted_List testCase = new LC023_Merge_K_Sorted_List();
 
-        assert new LC023_Merge_K_Sorted_List().mergeKLists(new ListNode[]{}) == null : "Empty";
+        assert testCase.mergeKLists(new ListNode[]{}) == null : "Empty";
 
         ListNode single = ListNode.genNode(new int[]{1});
-        assert new LC023_Merge_K_Sorted_List().mergeKLists(new ListNode[]{single}).equals(single) : "Single";
+        assert testCase.mergeKLists(new ListNode[]{single}).equals(single) : "Single";
 
         ListNode a = ListNode.genNode(new int[]{1, 4, 5});
         ListNode b = ListNode.genNode(new int[]{1, 3, 4});
         ListNode c = ListNode.genNode(new int[]{2, 6});
         ListNode ans = ListNode.genNode(new int[]{1, 1, 2, 3, 4, 4, 5, 6});
 
-        assert new LC023_Merge_K_Sorted_List().mergeKLists(new ListNode[]{a, b, c}).equals(ans) : "Example";
+        assert testCase.mergeKLists(new ListNode[]{a, b, c}).equals(ans) : "Example";
 
         System.out.println("all passed");
     }

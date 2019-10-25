@@ -75,13 +75,14 @@ class LC038_Count_And_Say {
     }
 
     public static void main(String[] args) {
-        assert new LC038_Count_And_Say().countAndSay(1).equals("1") : "first";
-        assert new LC038_Count_And_Say().countAndSay(2).equals("11") : "second";
-        assert new LC038_Count_And_Say().countAndSay(3).equals("21") : "third";
-        assert new LC038_Count_And_Say().countAndSay(4).equals("1211") : "fourth";
-        assert new LC038_Count_And_Say().countAndSay(5).equals("111221") : "fifth";
-        assert new LC038_Count_And_Say().countAndSay(6).equals("312211") : "sixth";
-        assert new LC038_Count_And_Say().countAndSay(10).equals("13211311123113112211") : "Very Long";
+        LC038_Count_And_Say testCase = new LC038_Count_And_Say();
+        assert testCase.countAndSay(1).equals("1") : "first";
+        assert testCase.countAndSay(2).equals("11") : "second";
+        assert testCase.countAndSay(3).equals("21") : "third";
+        assert testCase.countAndSay(4).equals("1211") : "fourth";
+        assert testCase.countAndSay(5).equals("111221") : "fifth";
+        assert testCase.countAndSay(6).equals("312211") : "sixth";
+        assert testCase.countAndSay(10).equals("13211311123113112211") : "Very Long";
         System.out.println("all passed");
     }
 }

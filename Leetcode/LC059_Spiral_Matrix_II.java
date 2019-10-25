@@ -54,10 +54,11 @@ class LC059_Spiral_Matrix_II {
     }
 
     public static void main(String[] args) {
+        LC059_Spiral_Matrix_II testCase = new LC059_Spiral_Matrix_II();
 
-        assert Arrays.deepEquals(new LC059_Spiral_Matrix_II().generateMatrix(1), new int[][]{{1}}) : "Edge 1";
+        assert Arrays.deepEquals(testCase.generateMatrix(1), new int[][]{{1}}) : "Edge 1";
 
-        assert Arrays.deepEquals(new LC059_Spiral_Matrix_II().generateMatrix(3), new int[][]{
+        assert Arrays.deepEquals(testCase.generateMatrix(3), new int[][]{
                 {1, 2, 3},
                 {8, 9, 4},
                 {7, 6, 5}
