@@ -44,7 +44,6 @@ class LC001_Two_Sum {
 
         System.out.println("all passed");
     }
-
 }
 
 
