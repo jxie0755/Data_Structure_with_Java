@@ -45,7 +45,7 @@ class A04_String {
      * intern                          一个复制,但是与常量池有关, 用于节省空间
 
      * String substring(idxA)          返回一个新的字符串，从idxA一直到末尾
-     * String substring(idxA, idxB)    返回一个新字符串，从[idxA, idxB)
+     * String substring(idxA, idxB)    返回一个新字符串，从[idxA, idxB) (注意java长度可能溢出,而python没问题)
 
      * startsWith(String)              测试此字符串是否以指定的前缀开始
      * endsWith(String)                测试此字符串是否以指定的前缀结束
