@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * https://leetcode.com/problems/minimum-window-substring/
  * P076 Minimum Window Substring
@@ -9,6 +11,9 @@
  * If there is no such window in S that covers all characters in T, return the empty string "".
  * If there is such window, you are guaranteed that there will always be only one unique minimum window in S.
  */
+
+// TODO optimize algorithm to beat time limit
+
 public class LC076_Minimum_Window_Substring {
 
     /**
@@ -18,6 +23,50 @@ public class LC076_Minimum_Window_Substring {
      */
     public String minWindow(String s, String t) {
 
+        int L = s.length();
+        int startLength = t.length();
+
+        // set up t_set and hashmap for counting all in once
+        Set<Character> t_set = new HashSet<>();
+        Map<Character, Integer> hmp = new HashMap<>();
+        for (char c : t.toCharArray()) {
+            t_set.add(c);
+            if (!hmp.containsKey(c)) {
+                hmp.put(c, 1);
+            } else {
+                hmp.replace(c, hmp.get(c) + 1);
+            }
+        }
+
+        List<Integer> indexes_list = new ArrayList<>(Arrays.asList());
+        for (int i = 0; i < L; i++) {
+            if (t_set.contains(s.charAt(i))) {
+                indexes_list.add(i);
+            }
+        }
+
+        for (int lenth = startLength; lenth <= L; lenth += 1) {
+            for (int i : indexes_list) {
+                String window = s.substring(i, Math.min(i + lenth, s.length())); // 防止切片长度溢出
+                boolean flag = false;
+                for (Character c : t_set) {
+                    int count = 0;
+                    for (char cc : window.toCharArray()) {
+                        if (cc == c) {
+                            count += 1;
+                        }
+                    }
+                    if (count < hmp.get(c)) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    return window;
+                }
+            }
+        }
+        return "";
     }
 
     public static void main(String[] args) {
