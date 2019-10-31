@@ -11,6 +11,10 @@ import java.util.List;
  */
 class LC077_Combinations {
 
+    /**
+     * Version A1
+     * Convert the n into an actual list, then use a helper to recursive run on the list
+     */
     public List<List<Integer>> combine(int n, int k) {
         List<Integer> nums = new ArrayList<>();
         for (int i = 1; i <= n; i += 1) {
@@ -19,6 +23,9 @@ class LC077_Combinations {
         return this.combinationSolo(nums, k);
     }
 
+    /**
+     * Helper
+     */
     private List<List<Integer>> combinationSolo(List<Integer> nums, int k) {
 
         List<List<Integer>> result = new ArrayList<>();
