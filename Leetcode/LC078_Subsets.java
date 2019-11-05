@@ -38,8 +38,7 @@ class LC078_Subsets {
         if (k == 0) {
             result.add(new ArrayList<>());
             return result;
-        }
-        if (k == nums.size()) {
+        } else if (k == nums.size()) {
             result.add(nums);
             return result;
         } else if (k == 1) {
