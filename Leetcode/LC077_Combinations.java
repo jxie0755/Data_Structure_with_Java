@@ -30,7 +30,10 @@ class LC077_Combinations {
 
         List<List<Integer>> result = new ArrayList<>();
 
-        if (k == nums.size()) {
+        if (k == 0) {
+            result.add(new ArrayList<>());
+            return result;
+        } else if (k == nums.size()) {
             result.add(nums);
             return result;
         } else if (k == 1) {
