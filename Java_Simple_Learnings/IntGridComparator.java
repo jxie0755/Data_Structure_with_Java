@@ -44,6 +44,5 @@ class IntGridComparator implements Comparator<List<Integer>> {
 
         a4.sort(new IntGridComparator());
         System.out.println(a4);
-
     }
 }
