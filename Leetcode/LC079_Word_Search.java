@@ -138,4 +138,3 @@ public class LC079_Word_Search {
         System.out.println("all passed");
     }
 }
-
