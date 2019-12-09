@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
@@ -27,44 +29,39 @@ import java.util.Arrays;
 public class LC080_Remove_Duplicates_From_Sorted_Array_II {
 
     /**
-     * Version B, Space O(1) using label method
+     * Version C, Space O(1) using single element hash table
      * Need special handling with Array, set it to None (as the length won't change)
      */
     public int removeDuplicates(int[] nums) {
 
-        if (nums.length <= 2) {
-            return nums.length;
+        if (nums.length == 0) {
+            return 0;
         }
 
-        int len = nums.length;
-        int i = 1;
-        int count = 1;
-        boolean duplicate = false;
 
-        while (i != len) {
-            int prev = nums[i - 1];
-            int cur = nums[i];
+        int i = 0;
+        int open = 0;
+        Map<Integer, Integer> hmp = new HashMap<>();
+        hmp.put(nums[0], 0);
 
-            if (cur == prev) {
-                if (!duplicate) {
-                    duplicate = true;
-                    count += 1;
-                    i += 1;
-                } else {
-                    // more complicate pop by move elements one by one
-                    // and also reduce the actual length for while loop
-                    for (int x = i; x < nums.length - 1; x += 1) {
-                        nums[x] = nums[x + 1];
-                    }
-                    len -= 1;
+
+        while (i != nums.length) {
+            int k = nums[i];
+            if (hmp.containsKey(k)) {
+                if (hmp.get(k) < 2) {
+                    hmp.replace(k, hmp.get(k) + 1);
+                    nums[open] = k;
+                    open += 1;
                 }
             } else {
-                duplicate = false;
-                count += 1;
-                i += 1;
+                hmp.clear();
+                hmp.put(k, 1);
+                nums[open] = k;
+                open += 1;
             }
+            i += 1;
         }
-        return count;
+        return open;
     }
 
     public static void main(String[] args) {
