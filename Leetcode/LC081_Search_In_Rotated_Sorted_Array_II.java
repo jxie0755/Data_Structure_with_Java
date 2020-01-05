@@ -18,6 +18,9 @@ import java.util.Arrays;
  */
 class LC081_Search_In_Rotated_Sorted_Array_II {
 
+    /**
+     * Version A
+     */
     public boolean search(int[] nums, int target) {
         int lo = 0;
         int hi = nums.length - 1;
