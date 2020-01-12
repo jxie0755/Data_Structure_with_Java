@@ -65,19 +65,17 @@ class LC025_Reverse_Nodes_In_K_Group {
 
         // test reverseNodes
         ListNode x = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
-        // System.out.println(ListNode.showString(testCase.reverseNodes(x)));
+        assert ListNode.showString(testCase.reverseNodes(x)).equals("5->4->3->2->1");
 
         ListNode Q0 = ListNode.genNode(new int[]{1});
-        ListNode A0 = ListNode.genNode(new int[]{1});
-        assert testCase.reverseKGroup(Q0, 2).equals(A0) : "Single";
+        assert ListNode.showString(testCase.reverseKGroup(Q0, 2)).equals("1") : "Single";
 
         ListNode Q1 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
-        ListNode A1 = ListNode.genNode(new int[]{2, 1, 4, 3, 5});
-        assert testCase.reverseKGroup(Q1, 2).equals(A1) : "Example 1";
+        assert ListNode.showString(testCase.reverseKGroup(Q1, 2)).equals("2->1->4->3->5") : "Example 1";
 
         ListNode Q2 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
         ListNode A2 = ListNode.genNode(new int[]{3, 2, 1, 4, 5});
-        assert testCase.reverseKGroup(Q2, 3).equals(A2) : "Example 2";
+        assert ListNode.showString(testCase.reverseKGroup(Q2, 3)).equals("3->2->1->4->5") : "Example 2";
 
         System.out.println("all passed");
 

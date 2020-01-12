@@ -55,20 +55,16 @@ class LC024_Swap_Nodes_In_Pairs {
         assert testCase.swapPairs(null) == null : "Empty";
 
         ListNode Q1 = ListNode.genNode(new int[]{1});
-        ListNode A1 = ListNode.genNode(new int[]{1});
-        assert testCase.swapPairs(Q1).equals(A1) : "Single";
+        assert ListNode.showString(testCase.swapPairs(Q1)).equals("1") : "Single";
 
         ListNode Q2 = ListNode.genNode(new int[]{1, 2});
-        ListNode A2 = ListNode.genNode(new int[]{2, 1});
-        assert testCase.swapPairs(Q2).equals(A2) : "1 Pair";
+        assert ListNode.showString(testCase.swapPairs(Q2)).equals("2->1") : "1 Pair";
 
         ListNode Q3 = ListNode.genNode(new int[]{1, 2, 3, 4});
-        ListNode A3 = ListNode.genNode(new int[]{2, 1, 4, 3});
-        assert testCase.swapPairs(Q3).equals(A3) : "Even pairs";
+        assert ListNode.showString(testCase.swapPairs(Q3)).equals("2->1->4->3") : "Even pairs";
 
         ListNode Q4 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
-        ListNode A4 = ListNode.genNode(new int[]{2, 1, 4, 3, 5});
-        assert testCase.swapPairs(Q4).equals(A4) : "Odd paris";
+        assert ListNode.showString(testCase.swapPairs(Q4)).equals("2->1->4->3->5") : "Odd paris";
 
         System.out.println("all passed");
     }
