@@ -78,9 +78,6 @@ class LC025_Reverse_Nodes_In_K_Group {
         assert ListNode.showString(testCase.reverseKGroup(Q2, 3)).equals("3->2->1->4->5") : "Example 2";
 
         System.out.println("all passed");
-
-
     }
-
 }
 
