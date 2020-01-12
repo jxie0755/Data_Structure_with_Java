@@ -26,7 +26,6 @@ public class LC083_Remove_Duplicates_From_Sorted_List {
             }
         }
         return head;
-
     }
 
     public static void main(String[] args) {
