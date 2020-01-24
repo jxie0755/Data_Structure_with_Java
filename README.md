@@ -1,10 +1,11 @@
 # Data Structure with Java
 
 This is to learn:
-* Java Basics
-* Java Built-in Data Structures
-* [Algorithms, Part I from Princeton on Coursera](https://www.coursera.org/learn/algorithms-part1?utm_medium=lastchance&utm_source=spark)
-* Practice Leetcode in Java
+- Java Basics
+- Java Built-in Data Structures
+- [Algorithms, Part I from Princeton on Coursera](https://www.coursera.org/learn/algorithms-part1?utm_medium=lastchance&utm_source=spark)
+- Data Structure (Class Notes CMU Data08722)
+- Practice Leetcode in Java
 
 
 ---
