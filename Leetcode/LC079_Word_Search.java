@@ -34,7 +34,7 @@ public class LC079_Word_Search {
     /**
      * A helper function to find whether a word can be found in the matrix
      * 需要使用哈希set来记忆之前走过哪些坐标
-     * (注意这里坐标需要用可哈希的inmutable list来实现）
+     * (注意这里坐标需要用可哈希的inmutable list来实现)
      * (但是Leetcode不允许使用List.of, 因为java 8没有此功能,此方法到Java9才推出)
      */
     private boolean finder(char[][] board, String word, int idx, List<Integer> coor, Set<List<Integer>> prev) {

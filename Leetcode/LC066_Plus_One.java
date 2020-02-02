@@ -56,7 +56,7 @@ class LC066_Plus_One {
      */
     public int[] plusOne(int[] digits) {
 
-        // 进位标志，下一位来的进位标志
+        // 进位标志, 下一位来的进位标志
         int carry = 1;
         int tmp;
         for (int i = digits.length - 1; i >= 0; i--) {
