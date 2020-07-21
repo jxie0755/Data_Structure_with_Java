@@ -36,11 +36,20 @@ class LC001_Two_Sum {
     public static void main(String[] args) {
         LC001_Two_Sum testCase = new LC001_Two_Sum();
 
-        int[] Q1 = new int[]{2, 7, 11, 15};
-        assert Arrays.equals(testCase.twoSum(Q1, 9), new int[]{0, 1});
+        int[] Q1 = new int[]{11, 2, 7, 15};
+        assert Arrays.equals(testCase.twoSum(Q1, 9), new int[]{1, 2}) : "regular";
 
-        int[] Q2 = new int[]{3, 2, 4};
-        assert Arrays.equals(testCase.twoSum(Q2, 6), new int[]{1, 2});
+        int[] Q2 = new int[]{11, 7, 2, 15};
+        assert Arrays.equals(testCase.twoSum(Q2, 9), new int[]{1, 2}) : "regular revert";
+
+        int[] Q3 = new int[]{3, 3};
+        assert Arrays.equals(testCase.twoSum(Q3, 6), new int[]{0, 1}) : "two identical";
+
+        int[] Q4 = new int[]{-1, -2, -3, -4, -5};
+        assert Arrays.equals(testCase.twoSum(Q4, -8), new int[]{2, 4}) : "negative int";
+
+        int[] Q5 = new int[]{3, 2, 4};
+        assert Arrays.equals(testCase.twoSum(Q5, 6), new int[]{1, 2}) : "struggle with 1/2 target";
 
         System.out.println("all passed");
     }
