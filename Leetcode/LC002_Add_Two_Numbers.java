@@ -72,4 +72,3 @@ class LC002_Add_Two_Numbers {
         System.out.println("all passed");
     }
 }
-
