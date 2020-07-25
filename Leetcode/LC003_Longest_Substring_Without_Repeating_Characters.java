@@ -43,7 +43,8 @@ class LC003_Longest_Substring_Without_Repeating_Characters {
     }
 
     /**
-     * Version B1, Time O(N^2), Space O(N)
+     * Version C1, Time O(N^2), Space O(N)
+     * Recursive
      * Find repeating element and start again after the first repeating element
      * This wil pass, but may reach maximum recursion depth in long cases
      */
