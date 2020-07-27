@@ -83,7 +83,5 @@ class LC003_Longest_Substring_Without_Repeating_Characters {
         assert testCase.lengthOfLongestSubstring("pwwkew") == 3 : "Example 3: wke";
 
         System.out.println("all passed");
-
-
     }
 }
