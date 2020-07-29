@@ -85,3 +85,4 @@ class LC003_Longest_Substring_Without_Repeating_Characters {
         System.out.println("all passed");
     }
 }
+
