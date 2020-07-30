@@ -11,35 +11,40 @@ class LC005_Longest_Palindromic_Substring {
 
 
     /**
-     * Version B, O(N^2)
+     * Version C, O(N^2)
+     * Interate the center points and expand on each, easier to read than version B
      */
     public String longestPalindrome(String s) {
 
         int L = s.length();
         String result = "";
 
-        for (int a = 0; a < L; a += 1) {
+        for (int i = 0; i < L; i += 1) {
 
-            int theoretical_length = (Math.min(a - 0, L - a) + 1) * 2;
-            if (theoretical_length < result.length()) {
-                break;
+            // first odd length check
+            int odd_j = i;
+            int odd_k = i;
+            while (odd_j >= 0 && odd_k <= L - 1 && s.charAt(odd_j) == s.charAt(odd_k)) {
+                String temp = s.substring(odd_j, odd_k + 1);
+                if (temp.length() > result.length()) {
+                    result = temp;
+                }
+                odd_j -= 1;
+                odd_k += 1;
             }
 
-            for (int b = a + 1; b < a + 3; b += 1) {
-                int head = a;
-                int tail = b;
-
-                while (head >= 0 && tail <= L && s.charAt(head) == s.charAt(tail - 1)) {
-                    String sample = s.substring(head, tail);
-                    if (sample.length() > result.length()) {
-                        result = sample;
-                    }
-                    head -= 1;
-                    tail += 1;
+            // second even length check, only when found two consecutuve identical
+            int even_j = i;
+            int even_k = i + 1;
+            while (even_j >= 0 && even_k <= L - 1 && s.charAt(even_j) == s.charAt(even_k)) {
+                String temp = s.substring(even_j, even_k + 1);
+                if (temp.length() > result.length()) {
+                    result = temp;
                 }
+                even_j -= 1;
+                even_k += 1;
             }
         }
-
         return result;
     }
 
@@ -61,6 +66,5 @@ class LC005_Longest_Palindromic_Substring {
 
         System.out.println("all passed");
     }
-
 }
 
