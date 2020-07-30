@@ -11,47 +11,61 @@
 class LC004_Medium_Of_Two_Sorted_Array {
 
     /**
-     * Version C2, Time O(N), space O(1/2N)
+     * Version B2, Time O(N), space O(1)
+     * MergeSort like, Same half way method with but only keep tracking the last two in the merge_list
      */
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 
-        int total_length = nums1.length + nums2.length;
-        int mid_idx = total_length / 2;
+        double ans;
+
+        int L1 = nums1.length;
+        int L2 = nums2.length;
+        int total_length = L1 + L2;
 
         int i1 = 0;
         int i2 = 0;
-        int ct = 0;
-        int pre = 0;
-        int cur = 0;
 
-        while (true) {
+        int n = 0;
 
-            if (i1 == nums1.length) {
-                cur = nums2[i2];
-                i2 += 1;
-            } else if (i2 == nums2.length) {
-                cur = nums1[i1];
-                i1 += 1;
-            } else if (nums1[i1] <= nums2[i2]) {
-                cur = nums1[i1];
+        int[] merge_list = new int[2];
+
+        while (n != total_length / 2 + 1) {
+
+            merge_list[0] = merge_list[1];
+
+            int v1;
+            int v2;
+
+            if (i1 < L1) {
+                v1 = nums1[i1];
+            } else {
+                v1 = Integer.MAX_VALUE;
+            }
+
+            if (i2 < L2) {
+                v2 = nums2[i2];
+            } else {
+                v2 = Integer.MAX_VALUE;
+            }
+
+            if (v1 <= v2) {
+                merge_list[1] = v1;
                 i1 += 1;
             } else {
-                cur = nums2[i2];
+                merge_list[1] = v2;
                 i2 += 1;
             }
 
-            if (ct < mid_idx) {
-                pre = cur;
-                ct += 1;
-            } else {
-                break;
-            }
+            n += 1;
+
         }
 
         if (total_length % 2 == 0) {
-            return ((double) cur + pre) / 2;
+            ans = (double) (merge_list[0] + merge_list[1]) / 2;
+        } else {
+            ans = (double) merge_list[1];
         }
-        return (double) cur;
+        return ans;
 
     }
 
@@ -89,4 +103,3 @@ class LC004_Medium_Of_Two_Sorted_Array {
         System.out.println("all passed");
     }
 }
-
