@@ -39,15 +39,17 @@ class LC006_Zigzag_Conversion {
         for (int i = 0; i < numRows; i += 1) {
             for (int j = i; j < s.length(); j += step) {
                 zigzag.append(s.charAt(j));
-                int additional = j + (numRows - 1 - i) * 2;
-                if (0 < i && i < numRows - 1 && additional < s.length()) {
-                    zigzag.append(s.charAt(additional));
+
+                if (0 < i && i < numRows - 1) { // 指定折返区间不能是头尾
+                    int returning_idx = j + (numRows - 1 - i) * 2;
+                    if (returning_idx < s.length()) { // 确保折返idx不超过末尾
+                        zigzag.append(s.charAt(returning_idx));
+                    }
                 }
             }
         }
 
         return zigzag.toString();
-
     }
 
 
