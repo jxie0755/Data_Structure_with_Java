@@ -48,7 +48,6 @@ class LC006_Zigzag_Conversion {
                 }
             }
         }
-
         return zigzag.toString();
     }
 
