@@ -16,22 +16,22 @@ class LC007_Reverse_Integer {
      */
     // public int reverse(int x) {  // renamed
     //
-    //     StringBuilder result_string = new StringBuilder();
+    //     StringBuilder str_result = new StringBuilder();
     //     String current = String.valueOf(x);
     //
     //     Long ans;  // Handle the integer overflow by create ans number in Long first
     //
     //     if (x >= 0) {
     //         for (int i = current.length() - 1; i >= 0; i -= 1) {
-    //             result_string.append(current.charAt(i));
+    //             str_result.append(current.charAt(i));
     //         }
-    //         ans = Long.valueOf(result_string.toString());  // Direct convert string to Long
+    //         ans = Long.valueOf(str_result.toString());  // Direct convert string to Long
     //
     //     } else {
     //         for (int i = current.length() - 1; i > 0; i -= 1) {
-    //             result_string.append(current.charAt(i));
+    //             str_result.append(current.charAt(i));
     //         }
-    //         ans = Long.valueOf(result_string.toString()); // Direct convert string to Long
+    //         ans = Long.valueOf(str_result.toString()); // Direct convert string to Long
     //     }
     //
     //     if (ans <= 2147483647) {  // assure no overlfow integer
@@ -79,6 +79,5 @@ class LC007_Reverse_Integer {
         System.out.println("all passed");
 
     }
-
 }
 
