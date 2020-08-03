@@ -1,4 +1,5 @@
-import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * https://leetcode.com/problems/string-to-integer-atoi/
@@ -23,77 +24,121 @@ class LC008_String_To_Integer {
      * Version A, string method
      * Unable to pass, even with Long, need to use BigInteger
      */
+    // public int myAtoi(String str) {
+    //
+    //     // Two hashmap to convert char to digit
+    //     Character[] digits = new Character[]{
+    //             '0', '1', '2', '3',
+    //             '4', '5', '6', '7',
+    //             '8', '9'};
+    //
+    //     Character[] prefix = new Character[]{'+', '-'};
+    //
+    //     // Get the numeric first (before decimal point)
+    //     boolean found = false;
+    //     StringBuilder extract = new StringBuilder();
+    //     for (char i : str.toCharArray()) {
+    //
+    //         if (i == ' ' && !found) {
+    //
+    //         } else if (Arrays.asList(prefix).contains(i)
+    //         ) {
+    //
+    //             if (!found) {
+    //                 extract.append(i);
+    //                 found = true;
+    //             } else {
+    //                 break;
+    //             }
+    //         } else if (Arrays.asList(digits).contains(i)) {
+    //             extract.append(i);
+    //             found = true;
+    //         } else if (i == '.') {
+    //             break;
+    //         } else {
+    //             break;
+    //         }
+    //     }
+    //     if (extract.length() == 0) {
+    //         return 0;
+    //     } else {
+    //         Long result = 0L;
+    //         Long base = 1L;
+    //
+    //         for (int i = extract.length() - 1; i >= 0; i -= 1) {
+    //             Character cur = extract.charAt(i);  // 注意这里不要用Character
+    //             if (cur == '-' || cur == '+') {
+    //             } else {
+    //                 result += (long) Character.getNumericValue(cur) * base;
+    //                 base *= 10;
+    //
+    //                 if (result > Integer.MAX_VALUE) {
+    //                     if (extract.charAt(0) == '-') {
+    //                         return Integer.MIN_VALUE;
+    //                     } else {
+    //                         return Integer.MAX_VALUE;
+    //                     }
+    //                 }
+    //             }
+    //
+    //         }
+    //
+    //         if (extract.charAt(0) == '-') {
+    //             return result.intValue() * -1;
+    //         }
+    //         return result.intValue();
+    //
+    //     }
+    // }
     public int myAtoi(String str) {
+        /**
+         * Version B, regex
+         */
+        Pattern p = Pattern.compile("^[\\s]*([+\\-]?)([0]*)(\\d+)");
+        // 4部分, 可选的非数字的开头部分, 可选的正负号, 前驱0, 有效数字部分, 非数字的中间项可以直接忽略
+        Matcher m = p.matcher(str);
 
-        // Two hashmap to convert char to digit
-        Character[] digits = new Character[]{
-                '0', '1', '2', '3',
-                '4', '5', '6', '7',
-                '8', '9'};
+        if (m.find()) {  // 注意,matcher必须确认find才可以继续操作
+            String pre = m.group(1);
+            String true_num = m.group(3);
 
-        Character[] prefix = new Character[]{'+', '-'};
-
-        // Get the numeric first (before decimal point)
-        boolean found = false;
-        StringBuilder extract = new StringBuilder();
-        for (char i : str.toCharArray()) {
-
-            if (i == ' ' && !found) {
-
-            } else if (Arrays.asList(prefix).contains(i)
-            ) {
-
-                if (!found) {
-                    extract.append(i);
-                    found = true;
+            // 先确立如果数字长度太长, 超过Interger最大长度就直接判定, 这样可以确保result在Long的范围内
+            if (true_num.length() >= 11) {
+                if (pre.equals("-")) {
+                    return Integer.MIN_VALUE;
                 } else {
-                    break;
+                    return Integer.MAX_VALUE;
                 }
-            } else if (Arrays.asList(digits).contains(i)) {
-                extract.append(i);
-                found = true;
-            } else if (i == '.') {
-                break;
+            }
+
+            long result = 0L;  // 先建立超出int范围的result
+            int base = 1;
+
+            for (int i = true_num.length(); i > 0; i -= 1) {
+                result += Integer.parseInt(true_num.substring(i - 1, i)) * base;
+                base *= 10;
+            }
+
+            if (pre.equals("-")) {
+                result *= -1;
+            }
+
+            // 对result是否在Intgers范围内做出判定
+            if (result > Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            } else if ((result < Integer.MIN_VALUE)) {
+                return Integer.MIN_VALUE;
             } else {
-                break;
+                return (int) result;
             }
-        }
-        if (extract.length() == 0) {
+        } else { // 防止字符中没有数字
             return 0;
-        } else {
-            Long result = 0L;
-            Long base = 1L;
-
-            for (int i = extract.length() - 1; i >= 0; i -= 1) {
-                Character cur = extract.charAt(i);  // 注意这里不要用Character
-                if (cur == '-' || cur == '+') {
-                } else {
-                    result += (long) Character.getNumericValue(cur) * base;
-                    base *= 10;
-
-                    if (result > Integer.MAX_VALUE) {
-                        if (extract.charAt(0) == '-') {
-                            return Integer.MIN_VALUE;
-                        } else {
-                            return Integer.MAX_VALUE;
-                        }
-                    }
-                }
-
-            }
-
-            if (extract.charAt(0) == '-') {
-                return result.intValue() * -1;
-            }
-            return result.intValue();
-
         }
     }
 
 
     public static void main(String[] args) {
         LC008_String_To_Integer testCase = new LC008_String_To_Integer();
-
         assert testCase.myAtoi("ABC") == 0 : "Edge 1";
 
         assert testCase.myAtoi("42") == 42 : "Example 1";
@@ -108,10 +153,11 @@ class LC008_String_To_Integer {
         assert testCase.myAtoi("+0 123") == 0 : "Extra 5";
         assert testCase.myAtoi("-5-") == -5 : "Extra 6";
         assert testCase.myAtoi("9223372036854775808") == 2147483647 : "Extra 7";
+
         assert testCase.myAtoi("10000000000000000000000522545459") == 2147483647 : "Extra 8, Beyong Long";
+        // special case, won't find out it is oversized until to the first digit (even oversize than Long)
 
         System.out.println("all passed");
     }
-
 }
 
