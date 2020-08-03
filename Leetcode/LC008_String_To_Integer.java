@@ -101,7 +101,6 @@ class LC008_String_To_Integer {
         if (m.find()) {  // 注意,matcher必须确认find才可以继续操作
             String pre = m.group(1);
             String true_num = m.group(3);
-
             // 先确立如果数字长度太长, 超过Interger最大长度就直接判定, 这样可以确保result在Long的范围内
             if (true_num.length() >= 11) {
                 if (pre.equals("-")) {
@@ -112,7 +111,7 @@ class LC008_String_To_Integer {
             }
 
             long result = 0L;  // 先建立超出int范围的result
-            int base = 1;
+            long base = 1;     // 注意指数增长也可能超过Integer范围
 
             for (int i = true_num.length(); i > 0; i -= 1) {
                 result += Integer.parseInt(true_num.substring(i - 1, i)) * base;
@@ -126,7 +125,7 @@ class LC008_String_To_Integer {
             // 对result是否在Intgers范围内做出判定
             if (result > Integer.MAX_VALUE) {
                 return Integer.MAX_VALUE;
-            } else if ((result < Integer.MIN_VALUE)) {
+            } else if (result < Integer.MIN_VALUE) {
                 return Integer.MIN_VALUE;
             } else {
                 return (int) result;
@@ -152,9 +151,9 @@ class LC008_String_To_Integer {
         assert testCase.myAtoi("-0012a42") == -12 : "Extra 4";
         assert testCase.myAtoi("+0 123") == 0 : "Extra 5";
         assert testCase.myAtoi("-5-") == -5 : "Extra 6";
-        assert testCase.myAtoi("9223372036854775808") == 2147483647 : "Extra 7";
-
-        assert testCase.myAtoi("10000000000000000000000522545459") == 2147483647 : "Extra 8, Beyong Long";
+        assert testCase.myAtoi("-6147483648") == -2147483648 : "Extra 7, 10 digit length but oversize Integer";
+        assert testCase.myAtoi("9223372036854775808") == 2147483647 : "Extra 8";
+        assert testCase.myAtoi("10000000000000000000000522545459") == 2147483647 : "Extra 9, Beyong Long";
         // special case, won't find out it is oversized until to the first digit (even oversize than Long)
 
         System.out.println("all passed");
