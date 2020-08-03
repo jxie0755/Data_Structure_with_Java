@@ -145,6 +145,7 @@ class LC008_String_To_Integer {
         assert testCase.myAtoi("4193 with words") == 4193 : "Example 3";
         assert testCase.myAtoi("words and 987") == 0 : "Example 4";
         assert testCase.myAtoi("-91283472332") == -2147483648 : "Example 5, 32 bit overflow";
+
         assert testCase.myAtoi("3.14159") == 3 : "Extra 1";
         assert testCase.myAtoi("+1") == 1 : "Extra 2";
         assert testCase.myAtoi("+-2") == 0 : "Extra 3";
@@ -153,6 +154,7 @@ class LC008_String_To_Integer {
         assert testCase.myAtoi("-5-") == -5 : "Extra 6";
         assert testCase.myAtoi("-6147483648") == -2147483648 : "Extra 7, 10 digit length but oversize Integer";
         assert testCase.myAtoi("9223372036854775808") == 2147483647 : "Extra 8";
+
         assert testCase.myAtoi("10000000000000000000000522545459") == 2147483647 : "Extra 9, Beyong Long";
         // special case, won't find out it is oversized until to the first digit (even oversize than Long)
 
