@@ -161,4 +161,3 @@ class LC008_String_To_Integer {
         System.out.println("all passed");
     }
 }
-
