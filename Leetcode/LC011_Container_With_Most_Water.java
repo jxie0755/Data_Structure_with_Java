@@ -61,4 +61,3 @@ class LC011_Container_With_Most_Water {
         System.out.println("all passed");
     }
 }
-
