@@ -13,6 +13,8 @@ class LC011_Container_With_Most_Water {
 
     /**
      * Version C
+     * Start from both end, move the shorter side closer, to compare the possibe volume
+     * Time O(N) Space O(1) locked, best answer
      */
     public int maxArea(int[] height) {
 
