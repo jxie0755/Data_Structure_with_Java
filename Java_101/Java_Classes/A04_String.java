@@ -88,7 +88,7 @@ class String_getChars {
     public static void main(String[] args) {
         String str4 = "hellohellohello";
 
-        // public void getChars​(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+        // public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
         char[] charray1 = {'a', 'b', 'c', 'd', 'e', 'f'};
         str4.getChars(2, 4, charray1, 1);
         // str4 is "hellohellohello", str4[2:4]也就是"ll"
@@ -191,6 +191,8 @@ class String_regexMethods {
         String SS1 = "ABACAD";
         String SR1 = SS1.replaceAll("A", " ");
         System.out.println(SR1); // >>>  " B C D"
+        String SR2 = SS1.replaceFirst("A", "");
+        System.out.println(SR2); // >>>  "BACAD"
 
         // String[] split(String regex)  根据给定正则表达式的匹配拆分此字符串。
         // String[] split(String regex, int limit)  根据匹配给定的正则表达式来拆分此字符串。
@@ -226,8 +228,8 @@ class String_zMethods {
         String str4 = str1 + str2 + str1;              // hellohellohello
 
         // join方法, 把Array变成String
-        // join​(CharSequence delimiter, CharSequence... elements)
-        // join​(CharSequence delimiter, Iterable<? extends CharSequence> elements)
+        // join(CharSequence delimiter, CharSequence... elements)
+        // join(CharSequence delimiter, Iterable<? extends CharSequence> elements)
         // String str4b = String.join("", helloArray); not working
         String str4c = String.join("", helloStrArray);
         List<String> strList = new ArrayList<>(Arrays.asList("1", "2", "3"));
