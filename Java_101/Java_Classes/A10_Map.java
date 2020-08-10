@@ -37,22 +37,22 @@ class A10_Map {
      * size()                长度
 
      * get                   根据Key取Value
-     * getOrDefault​          增强型get, 提供一个default值,如果key不存在
+     * getOrDefault          增强型get, 提供一个default值,如果key不存在
      * put                   添加新Key和新Value (不能重复Key) (也可以用于修改已有key的值)
      * putIfAbsent           安全型添加, 添加后, 存在key就返回原value, 不存在就返回null
      * putAll                批量添加(合并一个Map进来)
 
 
-     * remove​(key)           删除并返回Value
-     * remove​(key, value)    增强版remove          返回boolean确认
+     * remove(key)           删除并返回Value
+     * remove(key, value)    增强版remove          返回boolean确认
 
-     * replace               修改Key的值
-     * replace​(K key, Vold, Vnew)   增强型replace  返回boolean确认
+     * replace(key, value)          修改Key的值
+     * replace(K key, Vold, Vnew)   增强型replace  返回boolean确认
 
      * clear()               清空
      * isEmpty()
 
-     * containsKey​           k in Map?
+     * containsKey           k in Map?
      * containsValue         v in Map?
 
      * CopyOf                inmutable copy
@@ -72,7 +72,7 @@ class A10_Map {
 
 class A10_Map_Initialization {
 
-    // static initializer
+    // static initializer 1
     private static final HashMap<String, Integer> staticMap = new HashMap<>();
 
     static {
