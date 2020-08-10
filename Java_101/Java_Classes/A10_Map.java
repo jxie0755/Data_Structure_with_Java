@@ -307,7 +307,6 @@ class A10_Map_simple_iteration {
     }
 }
 
-
 class A10_Map_zMethods {
 
     public static void main(String[] args) {
@@ -336,7 +335,6 @@ class A10_Map_zMethods {
         Set<Map.Entry<String, Integer>> SS1 = Map1.entrySet();
         System.out.println(SS1); // >>>  [A=1, B=2, C=3]
         // A10_Map_Map_Entry
-
 
         // copyOf(Map<? extends K,? extends V> map)
         // Returns an unmodifiable Map containing the entries of the given Map (therefore it is kind of DeepCopy)
