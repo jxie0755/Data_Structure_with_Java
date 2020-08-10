@@ -10,7 +10,7 @@ class A10_Map {
     /*
      * Module java.base
      * Package java.util
-     * Interface Map<K,​V>
+     * Interface Map<K,V>
 
      * Map接口定义了一个保存key-value的对象
      * 该对象中key值是不存在重复的
@@ -181,7 +181,7 @@ class A10_Map_Entry {
     /*
      * Module java.base
      * Package java.util
-     * Interface Map.Entry<K,​V>
+     * Interface Map.Entry<K,V>
 
      * Map的子接口(注意不是继承, 是内部接口)
      * 这个接口就是用于遍历Map的
@@ -199,7 +199,6 @@ class A10_Map_Entry {
     public static void main(String[] args) {
 
         // Iteration of Map
-
         Map<String, Integer> Map1 = new HashMap<>(Map.ofEntries(
                 Map.entry("A", 1),
                 Map.entry("B", 2),
@@ -259,7 +258,7 @@ class A10_Map_Entry {
 
 class A10_Map_simple_iteration {
 
-    // 要想遍历整个Map的键值对,必须用Map.Entry, 参见A10_Map_Entry
+    // 要想遍历整个Map的键值对,必须用Map.Entry, 参见A10_Map_Entry - 方案B,line 235
     // 研究怎么遍历一个Map的keys和values
     public static void main(String[] args) {
 
@@ -302,8 +301,10 @@ class A10_Map_simple_iteration {
         // key= B and value= 6
         // key= C and value= 8
         System.out.println(Map1); // >>>  {A=9, B=9, C=9}
-    }
 
+        // 通过Map.Entry遍历
+        // 参见Line 235
+    }
 }
 
 
@@ -317,8 +318,8 @@ class A10_Map_zMethods {
         // hashCode()  返回哈希值
         // size()     长度
 
-        // containsKey​(Object key)
-        // containsValue​(Object value)
+        // containsKey(Object key)
+        // containsValue(Object value)
         Map<String, Integer> Map1 = new HashMap<>(Map.ofEntries(
                 Map.entry("A", 1),
                 Map.entry("B", 2),
@@ -337,7 +338,7 @@ class A10_Map_zMethods {
         // A10_Map_Map_Entry
 
 
-        // copyOf​(Map<? extends K,​? extends V> map)
+        // copyOf(Map<? extends K,? extends V> map)
         // Returns an unmodifiable Map containing the entries of the given Map (therefore it is kind of DeepCopy)
         Map<String, Integer> Map2 = Map.copyOf(Map1);
         Map1.replace("B", 9);
@@ -356,11 +357,11 @@ class A10_Map_zMethods {
         // 之后改变Map也会同时改变view, 改变view(比如去掉key)也会改变Map, 但是不能增加key,因为没有对应值
 
 
-        // equals​(Object o)
+        // equals(Object o)
         System.out.println(Map1.equals(Map3)); // >>> true
 
 
-        // forEach​(BiConsumer<? super K,​? super V> action)
+        // forEach(BiConsumer<? super K, ? super V> action)
         // for Loop
         // for (key: Map3) {
         //     System.out.println(key);
@@ -372,7 +373,7 @@ class A10_Map_zMethods {
         Map1.put("D", 4);
         Map1.replace("C", 9);
         System.out.println(Map1); // >>>  {A=1, B=9, C=9, D=4}
-        // getOrDefault​(Object key, V defaultValue)  // 增强型 如果不存在Key则返回default value
+        // getOrDefault(Object key, V defaultValue)  // 增强型 如果不存在Key则返回default value
         System.out.println(Map1.getOrDefault("X", 0)); // >>>  0
 
 
@@ -391,7 +392,7 @@ class A10_Map_zMethods {
         System.out.println(Map4); // >>>  {X=10, A=1, Y=20, B=2, Z=30, C=3}
 
 
-        // putIfAbsent​(K key, V value)   // 安全型put
+        // putIfAbsent(K key, V value)   // 安全型put
         System.out.println(Map4.putIfAbsent("X", 40)); // >>>  10 (若已经存在Key,则返回!原!value
         System.out.println(Map4.putIfAbsent("Q", 40)); // >>>  10 (若不存在key, 则添加参数pair,返回null)
         System.out.println(Map4); // >>> {A=1, Q=40, B=2, C=3, X=10, Y=20, Z=30}
