@@ -77,15 +77,15 @@ class A08b_List {
      * forEach()
      * iterator()
      * 来自Collection
-     * add​(E e)                     相当于append, 附带return boolean
-     * remove​(Object o)             相当于del
-     * addAll​(Collection<?> c)      类并集
-     * removeAll​(Collection<?> c)   类差集
-     * retainAll​(Collection<?> c)   类交集
-     * contains​(Object o)           相当于x in lst
-     * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
+     * add(E e)                     相当于append, 附带return boolean
+     * remove(Object o)             相当于del
+     * addAll(Collection<?> c)      类并集
+     * removeAll(Collection<?> c)   类差集
+     * retainAll(Collection<?> c)   类交集
+     * contains(Object o)           相当于x in lst
+     * containsAll(Collection<?> c) 相当于 lst A is a subList of B
      * size()                       相当于len
-     * equals​(Object o)             相当于 == 但是更准确
+     * equals(Object o)             相当于 == 但是更准确
      * clear()
      * isEmpty()
      * toArray()
@@ -93,17 +93,17 @@ class A08b_List {
      * 来自List
      * get(idx i)                        相当于lst[i]
      * set(idx i, item)                  相当于lst[i] = n
-     * add​(int index, E element)       相当于insert(重载)
-     * addAll​(idx, Collection<?>)      指定index(重载)
-     * remove​(int index)                     相当于pop
-     * subList​(int fromIndex, int toIndex)   相当于切片list[i:j]
-     * indexOf​(Object o)
-     * lastIndexOf​(Object o)
-     * containsAll​(Collection<?> c)          相当于 c is a subList of this
-     * copyOf​(Collection<? extends E> coll) (inmutable)
+     * add(int index, E element)       相当于insert(重载)
+     * addAll(idx, Collection<?>)      指定index(重载)
+     * remove(int index)                     相当于pop
+     * subList(int fromIndex, int toIndex)   相当于切片list[i:j]
+     * indexOf(Object o)
+     * lastIndexOf(Object o)
+     * containsAll(Collection<?> c)          相当于 c is a subList of this
+     * copyOf(Collection<? extends E> coll) (inmutable)
      * of (build a tuple)
      * listIterator()
-     * listIterator​(int index)                starting at a specific index
+     * listIterator(int index)                starting at a specific index
      */
 }
 
@@ -165,14 +165,14 @@ class A08b_List_zMethods {
 
         // 其他注意点, 详见zLearnings.Java_View
 
-        // 	sort​(Comparator<? super E> c)
+        // sort(Comparator<? super E> c)
         // 使用List.sort()传入自己实现Commparator接口的类的对象，实现自定义排序
         // 这里涉及到自行设计一个Comparator所以此方法不常用, 更多的是用java.util.Collections.sort
         // 参见Java_101/Java_Classes/A11_Comparator
 
         // iterator()
         // listIterator()
-        // listIterator​(int index)  starting at a specific index
+        // listIterator(int index)  starting at a specific index
         // 把list变成一个Iterator或者是ListIterator
         // 详见 A09_Iterator
 
@@ -355,7 +355,7 @@ class A08c_Queue {
      * element()                           Retrieves, but does not remove, the head of this queue.
      * peek()	                         与element相同, 但是如果为空,则返回null而不会报错
      * poll()	                         在peek()基础上,再移除head, 安全型
-     * offer​(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
+     * offer(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
      * remove                             砍头(重载), 并返回head的value
      */
 }
@@ -437,7 +437,7 @@ class A08d_Deque {
      * element()                          Retrieves, but does not remove, the head of this queue.
      * peek()	                          与element相同, 但是如果为空,则返回null而不会报错
      * poll()	                          在peek()基础上,再移除head, 安全型
-     * offer​(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
+     * offer(E e)                         如Capacity允许就添加. 返回boolean指示是否成功
      * remove                             砍头(重载), 并返回head的value
      * 来自Deque
      * addFirst (E e)             insert at idx0    with capacity allowance
@@ -456,8 +456,8 @@ class A08d_Deque {
      * pop()                      非安全型pollFirst
      * removeFirst()              非安全型pollFirst, 与pop完全相同
      * removeLast()               非安全型pollLast
-     * removeFirstOccurrence​(Object o)    从头开始找,直接去值. boolean确认, 非安全型
-     * removeLastOccurrence​(Object o)     从尾开始找,直接去值. boolean确认, 非安全型
+     * removeFirstOccurrence(Object o)    从头开始找,直接去值. boolean确认, 非安全型
+     * removeLastOccurrence(Object o)     从尾开始找,直接去值. boolean确认, 非安全型
      */
 }
 
@@ -531,8 +531,8 @@ class A08d_Deque_zMethods {
         System.out.println(d1.removeLast());  // >>>  6
         System.out.println(d1);               // >>>  [1, 2, 3, 4, 5]
 
-        // removeFirstOccurrence​(Object o)
-        // removeLastOccurrence​(Object o)   // boolean确认
+        // removeFirstOccurrence(Object o)
+        // removeLastOccurrence(Object o)   // boolean确认
         Deque<Integer> d2 = new LinkedList<>(Arrays.asList(1, 2, 3, 2, 1));
         System.out.println(d2.removeFirstOccurrence(1)); // >>> true
         System.out.println(d2);                             // >>> [2, 3, 2, 1]
@@ -570,15 +570,15 @@ class A08e_Set {
      * forEach
      * iterator()
      * 来自Collection (所以Collection的方法不牵涉到任何index)
-     * add​(E e)                     相当于append, 附带return boolean
-     * remove​(Object o)             相当于del
-     * addAll​(Collection<? extends E> c)    // 并集
-     * removeAll​(Collection<?> c)           // 差集
-     * retainAll​(Collection<?> c)           // 交集
-     * contains​(Object o)           相当于x in Set
-     * containsAll​(Collection<?> c) 相当于 lst A is a subList of B
+     * add(E e)                     相当于append, 附带return boolean
+     * remove(Object o)             相当于del
+     * addAll(Collection<? extends E> c)    // 并集
+     * removeAll(Collection<?> c)           // 差集
+     * retainAll(Collection<?> c)           // 交集
+     * contains(Object o)           相当于x in Set
+     * containsAll(Collection<?> c) 相当于 lst A is a subList of B
      * size()                       相当于len
-     * equals​(Object o)             相当于 == 但是更准确
+     * equals(Object o)             相当于 == 但是更准确
      * clear()
      * isEmpty()
      * toArray()

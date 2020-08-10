@@ -15,21 +15,21 @@ class A07b_java_util_Arrays {
      * binarySearch                    二分查找,需要先排序,如果不在返回 -理论i-1
      * hashcode()
      * toString                                用于打印Array
-     * deepToString​                            用于打印一个多维Array
-     * copyOf​(int[] o, newLen)                 是浅Copy, 可以从头开始选择任意长度, 注意超长会填充数组类的默认值
-     * copyOfRange​(int[] o, idx1, idx2)        切片复制, 任意片段
+     * deepToString                            用于打印一个多维Array
+     * copyOf(int[] o, newLen)                 是浅Copy, 可以从头开始选择任意长度, 注意超长会填充数组类的默认值
+     * copyOfRange(int[] o, idx1, idx2)        切片复制, 任意片段
      * asList                                  从Array快速创建一个不可变List
-     * deepEquals​(a1, a2)                      对比两个多维array是否相等
-     * fill​(int[] a, , val)                    填充
-     * fill​(int[] a, idxa,, idxb, val)         局部填充
-     * parallelSort​(int[] a)                   并行排序, 适用于大数据, 可选片段
-     * parallelSort​(int[] a, idxa, idxb)
-     * sort​(int[] a)                           为串行排序, 可选片段
-     * sort​(int[] a, idxa, idxb)
-     * mismatch​(int[] a, int[] b)              查找两个Arrays从哪个index开始发生分歧,如没有返回-1, 可以选特定子序列
-     * mismatch​(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2)
-     * equals​(int[] a, int[] a2)               查找两个Arrays是否相等, 可以选特定子序列
-     * equals​(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2,)
+     * deepEquals(a1, a2)                      对比两个多维array是否相等
+     * fill(int[] a, , val)                    填充
+     * fill(int[] a, idxa,, idxb, val)         局部填充
+     * parallelSort(int[] a)                   并行排序, 适用于大数据, 可选片段
+     * parallelSort(int[] a, idxa, idxb)
+     * sort(int[] a)                           为串行排序, 可选片段
+     * sort(int[] a, idxa, idxb)
+     * mismatch(int[] a, int[] b)              查找两个Arrays从哪个index开始发生分歧,如没有返回-1, 可以选特定子序列
+     * mismatch(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2)
+     * equals(int[] a, int[] a2)               查找两个Arrays是否相等, 可以选特定子序列
+     * equals(int[] a, idxa1, idxa2, int[] b, idxb1, idxb2,)
      */
 
     public static void main(String[] args) {
@@ -55,13 +55,13 @@ class A07b_java_util_Arrays {
         System.out.println(Arrays.binarySearch(intArray3, 3)); // >>> 4,  肯定是对的,但是没法判断它会给哪个index
 
 
-        // hashCode​(int[] a)
+        // hashCode(int[] a)
         int hc = Arrays.hashCode(intArray1);
         System.out.println(hc); // >>>  918073252
 
 
-        // mismatch​(int[] a, int[] b)
-        // mismatch​(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
+        // mismatch(int[] a, int[] b)
+        // mismatch(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
         // Finds and returns the relative index of the first mismatch
         // between two int arrays over the specified ranges,
         // otherwise return -1 if no mismatch is found.
@@ -154,7 +154,7 @@ class Arrays_deepMethods {
     public static void main(String[] args) {
         // 用于多维数组
 
-        // deepEquals​(Object[] a1, Object[] a2)
+        // deepEquals(Object[] a1, Object[] a2)
         // Returns true if the two specified arrays are deeply equal to one another.
         int[][] A = {
                 {1, 3, 5, 7},    // 0
@@ -172,7 +172,7 @@ class Arrays_deepMethods {
         };
         System.out.println(Arrays.deepEquals(A, B)); // >>>  false
 
-        // 	deepToString​(Object[] a)
+        // 	deepToString(Object[] a)
         System.out.println(Arrays.deepToString(B));
         // >>>  [[1, 3, 5, 7], [2, 5, 8, 11], [3, 7, 11, 16]]
     }
@@ -185,8 +185,8 @@ class Arrays_equals {
 
         // Equality
 
-        // 	equals​(int[] a, int[] a2)
-        // 	equals​(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
+        // 	equals(int[] a, int[] a2)
+        // 	equals(int[] a, int aFromIndex, int aToIndex, int[] b, int bFromIndex, int bToIndex)
 
         int[] intArray1 = {1, 2, 3, 4, 5, 6};
         //                 0  1 2 3  4 5
@@ -206,8 +206,8 @@ class Arrays_fill {
 
         // fill values in Arrays
 
-        // 	fill​(int[] a, int val)
-        // 	fill​(int[] a, int fromIndex, int toIndex, int val)   // 局部填充
+        // 	fill(int[] a, int val)
+        // 	fill(int[] a, int fromIndex, int toIndex, int val)   // 局部填充
 
         int[] intArray1 = new int[5];
         Arrays.fill(intArray1, 9);
@@ -230,7 +230,7 @@ class Arrays_copyOf {
     public static void main(String[] args) {
 
         // 相当于切片slice了, 但是换了一种形式
-        // copyOf​(int[] original, int newLength)
+        // copyOf(int[] original, int newLength)
         int[] intArray4 = {1, 2, 3, 4, 5, 6};
         int[] intArray5 = Arrays.copyOf(intArray4, 3); // 小于原长度
         System.out.println(Arrays.toString(intArray5)); // >>>  [1, 2, 3]
@@ -244,7 +244,7 @@ class Arrays_copyOf {
         System.out.println("Original: " + Arrays.toString(intArray4));  // Original: [1, 2, 3, 4, 5, 6]
 
 
-        // copyOfRange​(int[] original, int from, int to)
+        // copyOfRange(int[] original, int from, int to)
         int[] intArray7 = Arrays.copyOfRange(intArray4, 1, 5); // 从index1开始,长度为4
         System.out.println(Arrays.toString(intArray7)); // >>>  [2, 3, 4, 5]
 
@@ -305,8 +305,8 @@ class Arrays_sort {
     public static void main(String[] args) {
 
         // 并行排序算法
-        // parallelSort​(int[] a)
-        // parallelSort​(int[] a, int fromIndex, int toIndex)
+        // parallelSort(int[] a)
+        // parallelSort(int[] a, int fromIndex, int toIndex)
         // Sorts the specified range of the array into ascending numerical order.
         int[] iA6 = {2, 3, 1, 5, 4, 0};
         Arrays.parallelSort(iA6);
@@ -316,8 +316,8 @@ class Arrays_sort {
         System.out.println(Arrays.toString(cA6)); // >>> [z, 6, l, m, n, a]
 
         // 为串行排序
-        // sort​(int[] a)
-        // sort​(int[] a, int fromIndex, int toIndex)
+        // sort(int[] a)
+        // sort(int[] a, int fromIndex, int toIndex)
         int[] iA7 = {2, 3, 1, 5, 4, 0};
         Arrays.sort(iA7);
         System.out.println(Arrays.toString(iA7)); // >>> [0, 1, 2, 3, 4, 5]

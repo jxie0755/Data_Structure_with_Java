@@ -64,19 +64,19 @@ class Regex_Pattern {
      * Pattern 基本操作
      * (CharSequence包括String, BuefferedString)
      * Static
-     * compile​(String regex)                 编译成Pattern类
-     * compile​(String regex, int flags)      重载, 但是带flags
+     * compile(String regex)                 编译成Pattern类
+     * compile(String regex, int flags)      重载, 但是带flags
 
-     * matches​(String regex, CharSequence)   安徽是否match
-     * quote​(String s)                       返回这个正则表达式的字面String
+     * matches(String regex, CharSequence)   安徽是否match
+     * quote(String s)                       返回这个正则表达式的字面String
 
      * Instancem ethod
      * flags()                               返回compile的flags
      * matcher(CharSequence input)           返回一个matcher类实例 (不match也不为null)
 
-     * split​(CharSequence input)             根据正则pattern分隔字符
-     * split​(CharSequence input, int limit)  重载, 限定split数目
-     * splitAsStream​(CharSequence input)     类似split,但是返回成一个Stream<String>类  // TODO learn Stream
+     * split(CharSequence input)             根据正则pattern分隔字符
+     * split(CharSequence input, int limit)  重载, 限定split数目
+     * splitAsStream(CharSequence input)     类似split,但是返回成一个Stream<String>类  // TODO learn Stream
 
      * asMatchPredicate()                    创造一个Predicate实例, 如果match (必须从第一位)
      * asPredicate()                         创造一个Predicate实例, 如果find  (不必从第一位)
@@ -87,8 +87,8 @@ class Regex_Pattern {
 
         // static方法演示
 
-        // compile​(String regex)                 编译成Pattern类
-        // compile​(String regex, int flags)      重载, 但是带flags
+        // compile(String regex)                 编译成Pattern类
+        // compile(String regex, int flags)      重载, 但是带flags
         Pattern p1 = Pattern.compile("\\d+?@\\D+?.com");  // 注意java没有raw string, 所以\d要被转义成\\d
         Pattern pCaseInsensitive = Pattern.compile("aaa", Pattern.CASE_INSENSITIVE);
         System.out.println("case ignored: " + pCaseInsensitive.matcher("aAa").matches());
@@ -113,8 +113,8 @@ class Regex_Pattern {
         Matcher m2 = qq_email_pattern.matcher("a123@qq.com");
         System.out.println(m2);  // >>> 不能match的话,Matcher实例也不会为null
 
-        // split​(CharSequence input)             根据正则pattern分隔字符
-        // split​(CharSequence input, int limit)  重载, 限定split数目
+        // split(CharSequence input)             根据正则pattern分隔字符
+        // split(CharSequence input, int limit)  重载, 限定split数目
         Pattern p3 = Pattern.compile("[\\.]+|[,]+");
         System.out.println(Arrays.toString(p3.split("1,2,,3..4.5")));
         // >>> [1, 2, 3, 4, 5]
@@ -156,39 +156,39 @@ class Regex_Matcher {
      * 注意, 只有当matches能成立才能对Macther对象做group, start, end处理
      * 不然必须要执行lookingAt或者find确定为true才能执行group, start, end处理
      * find()           任意包含匹配
-     * find​(int start)  重载, 指定开始idx
+     * find(int start)  重载, 指定开始idx
      * lookingAt()      从头开始, 不一定要到结尾
      * matches()        完整匹配
 
      * group()                                      返回整个被match的String部分 (相当于group(0)
-     * group​(int group)                             按组返回整个被match的String部分 (0组就是整体String)
-     * group​(String group_name)                           按group名字返回
+     * group(int group)                             按组返回整个被match的String部分 (0组就是整体String)
+     * group(String group_name)                           按group名字返回
      * groupCount()                                 返回被匹配的group的数量
 
      * start()                                      显示当前被match到的字段在整个字段中的起始idx
-     * start​(int group)                             显示当前被match到的字段的group(n)在整个字段中的起始idx
-     * start​(String group_name)                     显示当前被match到的字段的group(name)在整个字段中的起始idx
+     * start(int group)                             显示当前被match到的字段的group(n)在整个字段中的起始idx
+     * start(String group_name)                     显示当前被match到的字段的group(name)在整个字段中的起始idx
 
      * end()                                        显示当前被match到的字段在整个字段中的终点idx (跳一位)
-     * end​(int group)                               显示当前被match到的字段的group(n)在整个字段中的终点idx
+     * end(int group)                               显示当前被match到的字段的group(n)在整个字段中的终点idx
      * end(String group_name)                       显示当前被match到的字段的group(name)在整个字段中的终点idx
 
-     * appendReplacement​(StringBuffer, String)      返回一个修改了的Macther类实例
-     * appendReplacement​(StringBuilder, String)     重载
+     * appendReplacement(StringBuffer, String)      返回一个修改了的Macther类实例
+     * appendReplacement(StringBuilder, String)     重载
 
-     * appendTail​(StringBuffer sb)                  把最后一个match之后的部分填补上
-     * appendTail​(StringBuilder sb)                 重载
+     * appendTail(StringBuffer sb)                  把最后一个match之后的部分填补上
+     * appendTail(StringBuilder sb)                 重载
 
      * reset()                                      重置Matcher, 之前被Consume的都清空
-     * reset​(CharSequence input)                    重置并对全新字段做匹配
+     * reset(CharSequence input)                    重置并对全新字段做匹配
 
      * hitEnd()                                     只要Matcher检查当前字段到最末,则return True, 无视reset
      * requireEnd()
 
      * pattern()                                    查看Macther当前匹配的Pattern表达式
-     * usePattern​(Pattern newPattern)               修改Macther当前匹配的Pattern表达式
+     * usePattern(Pattern newPattern)               修改Macther当前匹配的Pattern表达式
 
-     * * region​(int start, int end)                 调整Matcher字段的范围
+     * * region(int start, int end)                 调整Matcher字段的范围
      * regionEnd()                                  显示Mactcher当前查看字段的终点
      * regionStart()                                显示Mactcher当前查看字段的起点
 
@@ -199,12 +199,12 @@ class Regex_Matcher {
      * hasAnchoringBounds()                         显示当前是否启用匹配开头和结尾
 
 
-     * replaceAll​(String replacement)               相当于py的re.sub, 全部替换, 用$n来表示group名
-     * replaceAll​(Function<MatchResult,​String> replacer)     类似py的re.sub接函数范式处理
-     * * replaceFirst​(String replacement)             相当于py的re.sub, 但是只替换第一个, 用$n来表示group名
-     * replaceFirst​(Function<MatchResult,​String> replacer)   类似py的re.sub接函数范式处理
+     * replaceAll(String replacement)               相当于py的re.sub, 全部替换, 用$n来表示group名
+     * replaceAll(Function<MatchResult,String> replacer)     类似py的re.sub接函数范式处理
+     * * replaceFirst(String replacement)             相当于py的re.sub, 但是只替换第一个, 用$n来表示group名
+     * replaceFirst(Function<MatchResult,String> replacer)   类似py的re.sub接函数范式处理
 
-     * (static) quoteReplacement​(String s)          配合replaceAll使用, 替换字符串字面意思, 没有转移没有正则表达式功能
+     * (static) quoteReplacement(String s)          配合replaceAll使用, 替换字符串字面意思, 没有转移没有正则表达式功能
 
      * toMatchResult()                              返回一个MatchResult类实例, 也就是之前matches,looingAt和find
      * 确认过后的可以对start,end,group做操作的对象
@@ -294,7 +294,7 @@ class Regex_Matcher {
         // #3C4 16 14 15
         // #4C5 22 20 21
 
-        // appendReplacement​(StringBuffer / StringBuilder, String)
+        // appendReplacement(StringBuffer / StringBuilder, String)
         // 类似python的sub方法
         Pattern p2 = Pattern.compile("(cat)");
         Matcher m2 = p2.matcher("one cat two cats in the yard");
@@ -307,7 +307,7 @@ class Regex_Matcher {
         System.out.println(sb1.toString());
 
         // reset()
-        // reset​(CharSequence input)
+        // reset(CharSequence input)
         System.out.println("Test reset:");
         Matcher m_reset = Pattern.compile("A\\d+").matcher("A123");
         System.out.println(m_reset.find()); // >>> true
@@ -323,7 +323,7 @@ class Regex_Matcher {
         }
 
 
-        // region​(int start, int end)
+        // region(int start, int end)
         // regionEnd()
         // regionStart()
         System.out.println("Test regions");
@@ -360,7 +360,7 @@ class Regex_Matcher {
         // hasAnchoringBounds()
 
         // pattern()
-        // usePattern​(Pattern newPattern)
+        // usePattern(Pattern newPattern)
         System.out.println("Test pattern");
         Matcher m_pp = Pattern.compile("A\\d+").matcher("B123");
         System.out.println(m_pp.pattern()); // >>> A\d+
@@ -385,7 +385,7 @@ class Regex_Matcher {
         System.out.println(m_hit_end.group());  // >>> A123
         // 但是还是可以继续重新查找,但是不能改变之前已经hitEnd这一事实
 
-        // replaceAll​(String replacement)
+        // replaceAll(String replacement)
         System.out.println("Test replaceALl");
         Matcher m_rA_1 = Pattern.compile("(A|a)\\d+").matcher("DDD A123 XXX a456 YYY");
         System.out.println(m_rA_1.replaceAll("WTF"));
@@ -397,16 +397,16 @@ class Regex_Matcher {
         System.out.println(m_rA_1.replaceAll(mr -> mr.group(1) + mr.group(1).toUpperCase() + "-WTF"));
         // >>> DDD AA-WTF XXX aA-WTF YYY    // 自带一个lambda函数范式, 可以对group做操作, 然后做其他处理
 
-        // replaceAll​(Function<MatchResult,​String> replacer)
-        // replaceFirst​(String replacement)
+        // replaceAll(Function<MatchResult,String> replacer)
+        // replaceFirst(String replacement)
         System.out.println(m_rA_1.replaceFirst("$1-WTF"));
         // >>> DDD A-WTF XXX a456 YYY
         System.out.println("Test replaceFirst");
-        // replaceFirst​(Function<MatchResult,​String> replacer)
+        // replaceFirst(Function<MatchResult,String> replacer)
         System.out.println(m_rA_1.replaceFirst(mr -> mr.group(1) + mr.group(1).toLowerCase() + "-WTF"));
         // >>> DDD Aa-WTF XXX a456 YYY
 
-        // quoteReplacement​(String s)
+        // quoteReplacement(String s)
         System.out.println(m_rA_1.replaceAll(Matcher.quoteReplacement("$1-WTF")));
         // >>> DDD $1-WTF XXX $1-WTF YYY   // 这里$1不代表group1而是就是$1这个字符串
 

@@ -9,7 +9,7 @@ class Array_Concatenation {
      *
      * https://stackoverflow.com/a/49772469/8435726
      * System.arraycopy
-     * public static void arraycopy​(Object src, int srcPos, Object dest, int destPos, int length)
+     * public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
      * src - the source array.
      * srcPos - starting position in the source array.
      * dest - the destination array.
