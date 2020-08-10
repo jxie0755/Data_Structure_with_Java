@@ -32,7 +32,8 @@ class LC014_Longest_Common_Prefix {
             for (int j = 0; j < strs.length; j += 1) {
                 temp[j] = strs[j].charAt(i);
             }
-            Set<Character> set = new HashSet<>(Arrays.asList(temp));
+
+            Set<Character> set = new HashSet<>(Arrays.asList(temp)); // convert the Character Array to a set
             if (set.size() == 1) {
                 result.append(temp[0]);
             } else {
