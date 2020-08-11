@@ -16,15 +16,15 @@ class LC015_3Sum {
 
     /**
      * STD ans, Time:  O(n^2)
+     * Sort first, then iterate the first element, and find the 2nd and 3rd in the tail from two ends.
      */
     public List<List<Integer>> threeSum(int[] nums) {
 
         // sort first
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
-        int i = 0;
 
-        while (i < nums.length - 2) {
+        for (int i = 0; i < nums.length - 2; i += 1) {
 
             if (i == 0 || nums[i] != nums[i - 1]) {
                 int j = i + 1;
@@ -51,7 +51,6 @@ class LC015_3Sum {
                     }
                 }
             }
-            i += 1;
         }
         return result;
     }
