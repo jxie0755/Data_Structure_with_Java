@@ -33,7 +33,7 @@ class LC035_Search_Insert_Position {
     public static void main(String[] args) {
         LC035_Search_Insert_Position testCase = new LC035_Search_Insert_Position();
 
-        int[] E = new int[]{};
+        int[] E = new int[]{0};
         assert testCase.searchInsert(E, 1) == 0 : "Empty";
 
         int[] Q = new int[]{1, 3, 5, 6};

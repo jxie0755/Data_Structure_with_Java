@@ -61,7 +61,7 @@ class LC033_Search_In_Rotated_Sorted_Array {
     public static void main(String[] args) {
         LC033_Search_In_Rotated_Sorted_Array testCase = new LC033_Search_In_Rotated_Sorted_Array();
 
-        int[] Q1 = new int[]{};
+        int[] Q1 = new int[]{0};
         assert testCase.search(Q1, 1) == -1 : "Edge 1";
 
         int[] Q2 = new int[]{1};

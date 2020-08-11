@@ -49,8 +49,8 @@ class LC061_Roate_List {
     public static void main(String[] args) {
         LC061_Roate_List testCase = new LC061_Roate_List();
 
-        ListNode E0 = ListNode.genNode(new int[]{});
-        ListNode E0A = ListNode.genNode(new int[]{});
+        ListNode E0 = ListNode.genNode(new int[]{0});
+        ListNode E0A = ListNode.genNode(new int[]{0});
         assert testCase.rotateRight(E0, 2) == E0A : "Edge 0";
 
         ListNode E1 = ListNode.genNode(new int[]{1});

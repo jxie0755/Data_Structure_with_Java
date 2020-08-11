@@ -57,7 +57,7 @@ class ListNode {
 
     public static void main(String[] args) {
 
-        ListNode emp = ListNode.genNode(new int[]{});
+        ListNode emp = ListNode.genNode(new int[]{0});
         System.out.println(ListNode.showString(emp)); // >>> None
 
         ListNode A = new ListNode(1);

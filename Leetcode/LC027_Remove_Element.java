@@ -35,9 +35,9 @@ class LC027_Remove_Element {
     public static void main(String[] args) {
         LC027_Remove_Element testCase = new LC027_Remove_Element();
 
-        int[] Q0 = new int[]{};
+        int[] Q0 = new int[]{0};
         assert testCase.removeElement(Q0, 3) == 0 : "Edge";
-        assert Arrays.equals(Q0, new int[]{}) : "Edge finish list";
+        assert Arrays.equals(Q0, new int[]{0}) : "Edge finish list";
 
         int[] Q1 = new int[]{3, 2, 2, 3};
         assert testCase.removeElement(Q1, 3) == 2 : "Example 1";

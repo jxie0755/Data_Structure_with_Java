@@ -95,9 +95,9 @@ class LC031_Next_Permutation {
     public static void main(String[] args) {
         LC031_Next_Permutation testCase = new LC031_Next_Permutation();
 
-        int[] Q1 = new int[]{};
+        int[] Q1 = new int[]{0};
         testCase.nextPermutation(Q1);
-        assert Arrays.equals(Q1, new int[]{}) : "Edge 1";
+        assert Arrays.equals(Q1, new int[]{0}) : "Edge 1";
 
         int[] Q2 = new int[]{1};
         testCase.nextPermutation(Q2);

@@ -37,9 +37,9 @@ class LC026_Remove_Duplicates_From_Sorted_Array {
     public static void main(String[] args) {
         LC026_Remove_Duplicates_From_Sorted_Array testCase = new LC026_Remove_Duplicates_From_Sorted_Array();
 
-        int[] Q0 = new int[]{};
+        int[] Q0 = new int[]{0};
         assert testCase.removeDuplicates(Q0) == 0 : "Empty";
-        assert Arrays.equals(Q0, new int[]{}) : "Empty revised list";
+        assert Arrays.equals(Q0, new int[]{0}) : "Empty revised list";
 
         int[] Q1 = new int[]{1, 1};
         assert testCase.removeDuplicates(Q1) == 1 : "Edge";
