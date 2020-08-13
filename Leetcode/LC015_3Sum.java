@@ -90,6 +90,5 @@ class LC015_3Sum {
 
         System.out.println("all passed");
     }
-
 }
 
