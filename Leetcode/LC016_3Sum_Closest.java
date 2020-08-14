@@ -23,8 +23,7 @@ class LC016_3Sum_Closest {
         int diff = Integer.MAX_VALUE;
         int result = Integer.MAX_VALUE;
 
-        int i = 0;
-        while (i < nums.length - 2) {
+        for (int i = 0; i < nums.length - 2; i += 1) {
 
             if (i == 0 || nums[i] != nums[i - 1]) {
                 int j = i + 1;
@@ -48,7 +47,6 @@ class LC016_3Sum_Closest {
                     }
                 }
             }
-            i += 1;
         }
         return result;
     }
@@ -69,6 +67,5 @@ class LC016_3Sum_Closest {
         System.out.println("all passed");
 
     }
-
 }
 
