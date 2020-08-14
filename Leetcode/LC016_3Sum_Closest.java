@@ -43,6 +43,8 @@ class LC016_3Sum_Closest {
                     } else if (three_sum > target) {
                         k -= 1;
                     } else {
+                        // 如果找到一个解, 也就是刚好等于target, 那就直接return
+                        // 不需要像LC015那样去重, 因为我们只找一个答案, 不是一组数组
                         return result;
                     }
                 }
