@@ -24,6 +24,7 @@ class LC015_3Sum {
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
 
+        // Iterate the first element, and find the 2nd and 3rd in the tail from two ends
         for (int i = 0; i < nums.length - 2; i += 1) {
 
             if (i == 0 || nums[i] != nums[i - 1]) {
