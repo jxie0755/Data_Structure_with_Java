@@ -38,12 +38,12 @@ class LC016_3Sum_Closest {
                         result = three_sum;
                     }
 
-                    if (nums[i] + nums[j] + nums[k] < target) {
+                    if (three_sum < target) {
                         j += 1;
-                    } else if (nums[i] + nums[j] + nums[k] > target) {
+                    } else if (three_sum > target) {
                         k -= 1;
                     } else {
-                        return target;
+                        return result;
                     }
                 }
             }
