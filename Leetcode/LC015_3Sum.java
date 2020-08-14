@@ -32,10 +32,11 @@ class LC015_3Sum {
                 int k = nums.length - 1;
 
                 while (j < k) {
+                    int three_sum = nums[i] + nums[j] + nums[k];
 
-                    if (nums[i] + nums[j] + nums[k] < 0) {
+                    if (three_sum < 0) {
                         j += 1;
-                    } else if (nums[i] + nums[j] + nums[k] > 0) {
+                    } else if (three_sum > 0) {
                         k -= 1;
                     } else {
                         List<Integer> cur = new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[k]));
