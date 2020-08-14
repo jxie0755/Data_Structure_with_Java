@@ -15,18 +15,18 @@ class LC017_Letter_Combination_Of_A_Phone_Number {
 
 
     // Static helper
-    final static Map<String, List<String>> hashtable = new HashMap<>();
+    final static Map<String, List<String>> hmp = new HashMap<>();
     static {
-        hashtable.put("0", new ArrayList<>(Arrays.asList(" ")));
-        hashtable.put("1", new ArrayList<>(Arrays.asList("")));
-        hashtable.put("2", new ArrayList<>(Arrays.asList("a", "b", "c")));
-        hashtable.put("3", new ArrayList<>(Arrays.asList("d", "e", "f")));
-        hashtable.put("4", new ArrayList<>(Arrays.asList("g", "h", "i")));
-        hashtable.put("5", new ArrayList<>(Arrays.asList("j", "k", "l")));
-        hashtable.put("6", new ArrayList<>(Arrays.asList("m", "n", "o")));
-        hashtable.put("7", new ArrayList<>(Arrays.asList("p", "q", "r", "s")));
-        hashtable.put("8", new ArrayList<>(Arrays.asList("t", "u", "v")));
-        hashtable.put("9", new ArrayList<>(Arrays.asList("w", "x", "y", "z")));
+        hmp.put("0", new ArrayList<>(Arrays.asList(" ")));
+        hmp.put("1", new ArrayList<>(Arrays.asList("")));
+        hmp.put("2", new ArrayList<>(Arrays.asList("a", "b", "c")));
+        hmp.put("3", new ArrayList<>(Arrays.asList("d", "e", "f")));
+        hmp.put("4", new ArrayList<>(Arrays.asList("g", "h", "i")));
+        hmp.put("5", new ArrayList<>(Arrays.asList("j", "k", "l")));
+        hmp.put("6", new ArrayList<>(Arrays.asList("m", "n", "o")));
+        hmp.put("7", new ArrayList<>(Arrays.asList("p", "q", "r", "s")));
+        hmp.put("8", new ArrayList<>(Arrays.asList("t", "u", "v")));
+        hmp.put("9", new ArrayList<>(Arrays.asList("w", "x", "y", "z")));
     }
 
 
@@ -37,27 +37,26 @@ class LC017_Letter_Combination_Of_A_Phone_Number {
     public List<String> letterCombinations(String digits) {
 
         List<String> result = new ArrayList<>();
-        int i = 0;
 
-        while (i != digits.length()) {
+        for (int i = 0; i < digits.length(); i += 1) {
+
             String current = digits.substring(i, i + 1);
 
             if (i == 0) {
-                result = hashtable.get(current);
+                result = hmp.get(current);
             } else {
-                List<String> new_list = hashtable.get(current);
                 List<String> new_result = new ArrayList<>();
                 for (String j : result) {
-                    for (String k : new_list) {
+                    for (String k : hmp.get(current)) {
                         new_result.add(j + k);
                     }
                 }
                 result = new_result;
             }
-            i += 1;
         }
         return result;
     }
+
 
     public static void main(String[] args) {
         LC017_Letter_Combination_Of_A_Phone_Number testCase = new LC017_Letter_Combination_Of_A_Phone_Number();
