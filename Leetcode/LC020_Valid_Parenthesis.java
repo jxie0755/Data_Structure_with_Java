@@ -28,7 +28,6 @@ class LC020_Valid_Parenthesis {
         CLOSE_BRACKETS.put("]", 3);
     }
 
-
     /**
      * Version A
      */
