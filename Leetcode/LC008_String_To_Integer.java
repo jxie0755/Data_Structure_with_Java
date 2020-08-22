@@ -90,10 +90,13 @@ class LC008_String_To_Integer {
     //
     //     }
     // }
+
+
+    /**
+     * Version B, regex
+     */
     public int myAtoi(String str) {
-        /**
-         * Version B, regex
-         */
+
         Pattern p = Pattern.compile("^[\\s]*([+\\-]?)([0]*)(\\d+)");
         // 4部分, 可选的非数字的开头部分, 可选的正负号, 前驱0, 有效数字部分, 非数字的中间项可以直接忽略
         Matcher m = p.matcher(str);

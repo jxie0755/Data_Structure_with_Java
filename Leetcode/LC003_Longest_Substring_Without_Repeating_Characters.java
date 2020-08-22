@@ -14,33 +14,33 @@ class LC003_Longest_Substring_Without_Repeating_Characters {
      * Version A
      * Brutal force, will fail max time limit
      */
-    public int lengthOfLongestSubstring_brutal(String s) {
-        if (s == null) {
-            return 0;
-        }
-
-        for (int L = s.length(); L > 0; L -= 1) {
-            for (int i = 0; i < s.length() - L + 1; i += 1) {
-                String sample = s.substring(i, i + L);
-                if (is_no_repeat(sample)) {
-                    return sample.length();
-                }
-            }
-        }
-        return 0;
-    }
-
-    // Helper - version A
-    private static boolean is_no_repeat(String s) {
-        Map<Character, Integer> hmp = new HashMap<>();
-        for (Character i : s.toCharArray()) {
-            if (hmp.containsKey(i)) {
-                return false;
-            }
-            hmp.put(i, 1);
-        }
-        return true;
-    }
+    // public int lengthOfLongestSubstring(String s) {
+    //     if (s == null) {
+    //         return 0;
+    //     }
+    //
+    //     for (int L = s.length(); L > 0; L -= 1) {
+    //         for (int i = 0; i < s.length() - L + 1; i += 1) {
+    //             String sample = s.substring(i, i + L);
+    //             if (is_no_repeat(sample)) {
+    //                 return sample.length();
+    //             }
+    //         }
+    //     }
+    //     return 0;
+    // }
+    //
+    // // Helper - version A
+    // private static boolean is_no_repeat(String s) {
+    //     Map<Character, Integer> hmp = new HashMap<>();
+    //     for (Character i : s.toCharArray()) {
+    //         if (hmp.containsKey(i)) {
+    //             return false;
+    //         }
+    //         hmp.put(i, 1);
+    //     }
+    //     return true;
+    // }
 
     /**
      * Version C1, Time O(N^2), Space O(N)
