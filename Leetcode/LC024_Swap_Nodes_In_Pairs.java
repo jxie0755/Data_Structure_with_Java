@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * https://leetcode.com/problems/swap-nodes-in-pairs/
@@ -11,42 +10,62 @@ import java.util.List;
  */
 class LC024_Swap_Nodes_In_Pairs {
 
-
     /**
      * Version A, 用List重排
      */
+    // public ListNode swapPairs(ListNode head) {
+    //
+    //     if (head == null || head.next == null) {
+    //         return head;
+    //     }
+    //
+    //     // create a list of Nodes
+    //     List<ListNode> node_list = new ArrayList<>();
+    //     ListNode cur = head;
+    //     while (cur != null) {
+    //         node_list.add(cur);
+    //         cur = cur.next;
+    //     }
+    //
+    //     // swap in list
+    //     for (int i = 0; i < node_list.size(); i += 2) {
+    //         if (node_list.get(i).next != null) {
+    //             ListNode temp = node_list.get(i);
+    //             node_list.set(i, node_list.get(i + 1));
+    //             node_list.set(i + 1, temp);
+    //         }
+    //     }
+    //
+    //     // re-link
+    //     int i = 0;
+    //     while (i != node_list.size() - 1) {
+    //         node_list.get(i).next = node_list.get(i + 1);
+    //         i += 1;
+    //     }
+    //     node_list.get(i).next = null;
+    //
+    //     return node_list.get(0);
+    // }
+
+
+    /**
+     * Version B1
+     * 递归法交换
+     */
     public ListNode swapPairs(ListNode head) {
 
-        if (head == null || head.next == null) {
+        if (head != null && head.next != null) {
+            ListNode new_head = head.next;
+            ListNode next_pair_first = head.next.next;
+
+            new_head.next = head;
+            head.next = this.swapPairs(next_pair_first);
+
+            return new_head;
+        } else {
             return head;
         }
 
-        // create a list of Nodes
-        List<ListNode> node_list = new ArrayList<>();
-        ListNode cur = head;
-        while (cur != null) {
-            node_list.add(cur);
-            cur = cur.next;
-        }
-
-        // swap in list
-        for (int i = 0; i < node_list.size(); i += 2) {
-            if (node_list.get(i).next != null) {
-                ListNode temp = node_list.get(i);
-                node_list.set(i, node_list.get(i + 1));
-                node_list.set(i + 1, temp);
-            }
-        }
-
-        // re-link
-        int i = 0;
-        while (i != node_list.size() - 1) {
-            node_list.get(i).next = node_list.get(i + 1);
-            i += 1;
-        }
-        node_list.get(i).next = null;
-
-        return node_list.get(0);
     }
 
     public static void main(String[] args) {
