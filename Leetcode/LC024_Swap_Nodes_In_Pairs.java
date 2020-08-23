@@ -80,10 +80,10 @@ class LC024_Swap_Nodes_In_Pairs {
         assert ListNode.showString(testCase.swapPairs(Q2)).equals("2->1") : "1 Pair";
 
         ListNode Q3 = ListNode.genNode(new int[]{1, 2, 3, 4});
-        assert ListNode.showString(testCase.swapPairs(Q3)).equals("2->1->4->3") : "Even pairs";
+        assert ListNode.showString(testCase.swapPairs(Q3)).equals("2->1->4->3") : "Even Length";
 
         ListNode Q4 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
-        assert ListNode.showString(testCase.swapPairs(Q4)).equals("2->1->4->3->5") : "Odd paris";
+        assert ListNode.showString(testCase.swapPairs(Q4)).equals("2->1->4->3->5") : "Odd Length";
 
         System.out.println("all passed");
     }
