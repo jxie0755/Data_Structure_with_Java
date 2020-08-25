@@ -70,6 +70,13 @@ class LC025_Reverse_Nodes_In_K_Group {
         ListNode Q0 = ListNode.genNode(new int[]{1});
         assert ListNode.showString(testCase.reverseKGroup(Q0, 2)).equals("1") : "Single";
 
+        ListNode E1 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
+        assert ListNode.showString(testCase.reverseKGroup(E1, 1)).equals("1->2->3->4->5") : "k=1";
+
+        ListNode E2 = ListNode.genNode(new int[]{1, 2});
+        assert ListNode.showString(testCase.reverseKGroup(E2, 2)).equals("2->1") : "k=length";
+
+
         ListNode Q1 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
         assert ListNode.showString(testCase.reverseKGroup(Q1, 2)).equals("2->1->4->3->5") : "Example 1";
 
