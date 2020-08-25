@@ -16,21 +16,22 @@ class LC026_Remove_Duplicates_From_Sorted_Array {
      */
     public int removeDuplicates(int[] nums) {
 
-        if (nums.length == 0) {
-            return 0;
-        }
+        int check = Integer.MAX_VALUE;
+        int length = 0;
+        int new_idx = 0;
 
-        int index = 1;
-        int start = 0;
         for (int i = 1; i < nums.length; i += 1) {
-            if (nums[start] != nums[i]) {
-                nums[index] = nums[i];
-                index += 1;
-                start = i;
+            int cur = nums[i];
+            if (cur != check) {
+                nums[new_idx] = cur;
+                check = cur;
+                length += 1;
+                new_idx += 1;
             }
         }
 
-        return index;  // 注意, 这里不会减少array长度, 只是把不重复的元素位置提前了
+        return length;
+        // 注意, 这里不会减少array长度, 只是把不重复的元素位置提前了, 返回的是新的去重后的计算长度
     }
 
 
