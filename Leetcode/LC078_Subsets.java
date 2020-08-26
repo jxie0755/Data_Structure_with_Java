@@ -65,7 +65,7 @@ class LC078_Subsets {
     public static void main(String[] args) {
         LC078_Subsets testCase = new LC078_Subsets();
 
-        int[] e1 = new int[]{0};
+        int[] e1 = new int[]{};
         List<List<Integer>> sorted_e1 = testCase.subsets(e1);
         sorted_e1.sort(new IntGridComparator());
         List<List<Integer>> a1 = new ArrayList<>(Arrays.asList());

@@ -16,28 +16,26 @@ class LC027_Remove_Element {
      */
     public int removeElement(int[] nums, int val) {
 
-        int i = 0;
-        int n = 0;
-        int L = nums.length;
+        int new_idx = 0;
+        int new_len = nums.length;
 
-        while (n < nums.length) {
-            if (nums[n] != val) {
-                nums[i] = nums[n];
-                i += 1;
+        for (int i = 0; i < nums.length; i += 1) {
+            if (nums[i] != val) {
+                nums[new_idx] = nums[i];
+                new_idx += 1;
             } else {
-                L -= 1;
+                new_len -= 1;
             }
-            n += 1;
         }
-        return L;
+        return new_len;
     }
 
     public static void main(String[] args) {
         LC027_Remove_Element testCase = new LC027_Remove_Element();
 
-        int[] Q0 = new int[]{0};
+        int[] Q0 = new int[]{};
         assert testCase.removeElement(Q0, 3) == 0 : "Edge";
-        assert Arrays.equals(Q0, new int[]{0}) : "Edge finish list";
+        assert Arrays.equals(Q0, new int[]{}) : "Edge finish list";
 
         int[] Q1 = new int[]{3, 2, 2, 3};
         assert testCase.removeElement(Q1, 3) == 2 : "Example 1";

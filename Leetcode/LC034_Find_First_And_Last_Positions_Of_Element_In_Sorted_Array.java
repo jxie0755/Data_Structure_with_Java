@@ -99,7 +99,7 @@ class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
     public static void main(String[] args) {
         LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array testCase = new LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array();
 
-        int[] Q1 = new int[]{0};
+        int[] Q1 = new int[]{};
         assert Arrays.equals(
                 testCase.searchRange(Q1, 0),
                 new int[]{-1, -1})
