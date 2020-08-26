@@ -12,12 +12,10 @@ class LC028_Implement_strSTR {
      */
     public int strStr(String haystack, String needle) {
         int length = needle.length();
-        int index = 0;
-        while (index <= haystack.length() - length) {
+        for (int index = 0; index <= haystack.length() - length; index += 1) {
             if (haystack.substring(index, index + length).equals(needle)) {
                 return index;
             }
-            index += 1;
         }
         return -1;
     }
