@@ -27,10 +27,15 @@ class LC029_Divide_Two_Integers {
         long mom = Math.abs((long) divisor);
 
         while (son != 0 && son >= mom) {
-            long[] temp = this.manual_divide(son, mom);
-            long temp_result = temp[0];
-            son = temp[1];
-            result += temp_result;
+            long quotient = 1;
+            while (son - mom > mom) {
+                mom += mom;
+                quotient += quotient;
+            }
+
+            son = son - mom;
+            mom = Math.abs((long) divisor);
+            result += quotient;
         }
 
 
@@ -47,18 +52,6 @@ class LC029_Divide_Two_Integers {
         }
     }
 
-    // Helper - version A
-    // To achive log(n) division by doubling mom, before son > mom
-    // Mom and Son are both non-negative integers
-    private long[] manual_divide(long son, long mom) {
-        long ans = 1;
-        while (son - mom > mom) {
-            mom += mom;
-            ans += ans;
-        }
-        long new_son = son - mom;
-        return new long[]{ans, new_son};
-    }
 
     public static void main(String[] args) {
         LC029_Divide_Two_Integers testCase = new LC029_Divide_Two_Integers();
@@ -71,6 +64,7 @@ class LC029_Divide_Two_Integers {
 
         assert testCase.divide(-2147483648, 1) == -2147483648 : "Edge 2";
         assert testCase.divide(-2147483648, -1) == 2147483647 : "Edge 3";
+        assert testCase.divide(-2147483648, -3) == 715827882 : "Edge 3";
 
         System.out.println("all passed");
     }
