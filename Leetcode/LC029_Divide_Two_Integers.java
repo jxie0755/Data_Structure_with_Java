@@ -38,8 +38,8 @@ class LC029_Divide_Two_Integers {
             result += quotient;
         }
 
-
-        if ((dividend < 0 && divisor > 0) || (dividend > 0 && divisor < 0)) {
+        if ((long) dividend * divisor < 0) {
+            // 这里要特别注意原分子*原分母也有可能溢出Integer, 所以必须转型成long
             result *= -1;
         }
 
