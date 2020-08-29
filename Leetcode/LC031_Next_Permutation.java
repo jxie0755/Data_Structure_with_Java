@@ -83,7 +83,7 @@ class LC031_Next_Permutation {
                 second_idx -= 1;
             }
 
-            // Switch
+            // complete the swap
             int temp = nums[second_idx];
             nums[second_idx] = nums[first_idx];
             nums[first_idx] = temp;
@@ -118,7 +118,7 @@ class LC031_Next_Permutation {
                 second_idx -= 1;    /////////// reverse comparison
             }
 
-            // Switch
+            // complete the swap
             int temp = nums[second_idx];
             nums[second_idx] = nums[first_idx];
             nums[first_idx] = temp;
