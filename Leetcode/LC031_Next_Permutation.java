@@ -71,30 +71,25 @@ class LC031_Next_Permutation {
         int second_idx = nums.length - 1;
 
         // 先定位first_idx
-        while (first_idx >= 0) {
-            if (nums[first_idx] < nums[first_idx + 1]) {
-                break;
-            }
+        while (first_idx >= 0 && nums[first_idx] >= nums[first_idx + 1]) {
             first_idx -= 1;
         }
+
         // reverse if the array is already reversely sorted
         if (first_idx == -1) {
             this.swap_array(nums, 0, nums.length - 1);
         } else {
-            while (second_idx > first_idx) {
-                if (nums[second_idx] > nums[first_idx]) {
-                    // Switch
-                    int temp = nums[second_idx];
-                    nums[second_idx] = nums[first_idx];
-                    nums[first_idx] = temp;
-
-
-                    // reverse the tail back to sorted
-                    this.swap_array(nums, first_idx + 1, nums.length - 1);
-                    break;
-                }
+            while (nums[second_idx] <= nums[first_idx]) {
                 second_idx -= 1;
             }
+
+            // Switch
+            int temp = nums[second_idx];
+            nums[second_idx] = nums[first_idx];
+            nums[first_idx] = temp;
+
+            // reverse the tail back to sorted
+            this.swap_array(nums, first_idx + 1, nums.length - 1);
         }
     }
 
@@ -111,30 +106,25 @@ class LC031_Next_Permutation {
         int first_idx = nums.length - 2;
         int second_idx = nums.length - 1;
 
-        while (first_idx >= 0) {
-            if (nums[first_idx] > nums[first_idx + 1]) {  ////////////// reverse comparison
-                break;
-            }
-            first_idx -= 1;
+        while (first_idx >= 0 && nums[first_idx] <= nums[first_idx + 1]) {
+            first_idx -= 1;                      //////// reverse comparison
         }
 
         // reverse if the array is already reversely sorted
         if (first_idx == -1) {
             this.swap_array(nums, 0, nums.length - 1);
         } else {
-            while (second_idx > first_idx) {
-                if (nums[second_idx] < nums[first_idx]) {  ////////////// reverse comparison
-                    // Switch
-                    int temp = nums[second_idx];
-                    nums[second_idx] = nums[first_idx];
-                    nums[first_idx] = temp;
-
-                    // reverse the tail
-                    this.swap_array(nums, first_idx + 1, nums.length - 1);
-                    break;
-                }
-                second_idx -= 1;
+            while (nums[second_idx] >= nums[first_idx]) {
+                second_idx -= 1;    /////////// reverse comparison
             }
+
+            // Switch
+            int temp = nums[second_idx];
+            nums[second_idx] = nums[first_idx];
+            nums[first_idx] = temp;
+
+            // reverse the tail
+            this.swap_array(nums, first_idx + 1, nums.length - 1);
         }
     }
 
