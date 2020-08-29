@@ -123,6 +123,7 @@ class LC031_Next_Permutation {
             nums[second_idx] = nums[first_idx];
             nums[first_idx] = temp;
 
+
             // reverse the tail
             this.swap_array(nums, first_idx + 1, nums.length - 1);
         }
