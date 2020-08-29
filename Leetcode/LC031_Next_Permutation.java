@@ -42,44 +42,9 @@ import java.util.Arrays;
 class LC031_Next_Permutation {
 
     /**
-     * Version B
-     * 根据排序情况直接推理
+     * Helper
+     * Reverse an Array by Swap from (start, end) to mid point
      */
-    public void nextPermutation(int[] nums) {
-
-        int length = nums.length;
-        int cur_i = -1;
-
-        for (int i = length - 2; i >= 0; i -= 1) {
-            if (nums[i] < nums[i + 1]) {
-                cur_i = i;
-                break;
-            }
-        }
-
-        // reverse if the array is already reversely sorted
-        if (cur_i == -1) {
-            this.swap_array(nums, 0, nums.length - 1);
-        } else {
-
-            for (int rev_i = length - 1; rev_i > cur_i; rev_i -= 1) {
-                if (nums[rev_i] > nums[cur_i]) {
-
-                    // Switch
-                    int temp = nums[rev_i];
-                    nums[rev_i] = nums[cur_i];
-                    nums[cur_i] = temp;
-
-                    // reverse the tail back to sorted
-                    this.swap_array(nums, cur_i + 1, nums.length - 1);
-                    break;
-                }
-            }
-        }
-    }
-
-    // Helper - version B
-    // Swap an Array from (start, end)
     private void swap_array(int[] nums, int start, int end) {
 
         if (nums.length > 0 && end > start) {
@@ -92,52 +57,162 @@ class LC031_Next_Permutation {
     }
 
 
+    /**
+     * Version B
+     * 根据排序情况直接推理
+     */
+    public void nextPermutation(int[] nums) {
+
+        if (nums.length == 0) {
+            return;
+        }
+
+        int first_idx = nums.length - 2;
+        int second_idx = nums.length - 1;
+
+        // 先定位first_idx
+        while (first_idx >= 0) {
+            if (nums[first_idx] < nums[first_idx + 1]) {
+                break;
+            }
+            first_idx -= 1;
+        }
+        // reverse if the array is already reversely sorted
+        if (first_idx == -1) {
+            this.swap_array(nums, 0, nums.length - 1);
+        } else {
+            while (second_idx > first_idx) {
+                if (nums[second_idx] > nums[first_idx]) {
+                    // Switch
+                    int temp = nums[second_idx];
+                    nums[second_idx] = nums[first_idx];
+                    nums[first_idx] = temp;
+
+
+                    // reverse the tail back to sorted
+                    this.swap_array(nums, first_idx + 1, nums.length - 1);
+                    break;
+                }
+                second_idx -= 1;
+            }
+        }
+    }
+
+    /**
+     * This the the oppositve function to find previous permutation
+     * Only need to simply modify the two places
+     */
+    public void prevPermutation(int[] nums) {
+
+        if (nums.length == 0) {
+            return;
+        }
+
+        int first_idx = nums.length - 2;
+        int second_idx = nums.length - 1;
+
+        while (first_idx >= 0) {
+            if (nums[first_idx] > nums[first_idx + 1]) {  ////////////// reverse comparison
+                break;
+            }
+            first_idx -= 1;
+        }
+
+        // reverse if the array is already reversely sorted
+        if (first_idx == -1) {
+            this.swap_array(nums, 0, nums.length - 1);
+        } else {
+            while (second_idx > first_idx) {
+                if (nums[second_idx] < nums[first_idx]) {  ////////////// reverse comparison
+                    // Switch
+                    int temp = nums[second_idx];
+                    nums[second_idx] = nums[first_idx];
+                    nums[first_idx] = temp;
+
+                    // reverse the tail
+                    this.swap_array(nums, first_idx + 1, nums.length - 1);
+                    break;
+                }
+                second_idx -= 1;
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         LC031_Next_Permutation testCase = new LC031_Next_Permutation();
 
         int[] Q1 = new int[]{};
         testCase.nextPermutation(Q1);
         assert Arrays.equals(Q1, new int[]{}) : "Edge 1";
+        testCase.prevPermutation(Q1);
+        assert Arrays.equals(Q1, new int[]{}) : "Edge 1 prev";
+
 
         int[] Q2 = new int[]{1};
         testCase.nextPermutation(Q2);
         assert Arrays.equals(Q2, new int[]{1}) : "Edge 2";
+        testCase.prevPermutation(Q2);
+        assert Arrays.equals(Q2, new int[]{1}) : "Edge 2 prev";
+
 
         int[] Q3 = new int[]{1, 2};
         testCase.nextPermutation(Q3);
         assert Arrays.equals(Q3, new int[]{2, 1}) : "Edge 3";
+        testCase.prevPermutation(Q3);
+        assert Arrays.equals(Q3, new int[]{1, 2}) : "Edge 3 prev";
+
 
         int[] Q4 = new int[]{1, 2, 3};
         testCase.nextPermutation(Q4);
         assert Arrays.equals(Q4, new int[]{1, 3, 2}) : "Example 1";
+        testCase.prevPermutation(Q4);
+        assert Arrays.equals(Q4, new int[]{1, 2, 3}) : "Example 1 prev";
+
 
         int[] Q5 = new int[]{3, 2, 1};
         testCase.nextPermutation(Q5);
         assert Arrays.equals(Q5, new int[]{1, 2, 3}) : "Example 2";
+        testCase.prevPermutation(Q5);
+        assert Arrays.equals(Q5, new int[]{3, 2, 1}) : "Example 2 prev";
+
 
         int[] Q6 = new int[]{1, 1, 5};
         testCase.nextPermutation(Q6);
         assert Arrays.equals(Q6, new int[]{1, 5, 1}) : "Example 3";
+        testCase.prevPermutation(Q6);
+        assert Arrays.equals(Q6, new int[]{1, 1, 5}) : "Example 3 prev";
+
 
         int[] Q7 = new int[]{5, 1, 1};
         testCase.nextPermutation(Q7);
         assert Arrays.equals(Q7, new int[]{1, 1, 5}) : "Extra 1";
+        testCase.prevPermutation(Q7);
+        assert Arrays.equals(Q7, new int[]{5, 1, 1}) : "Extra 1 prev";
+
 
         int[] Q8 = new int[]{2, 2, 2};
         testCase.nextPermutation(Q8);
         assert Arrays.equals(Q8, new int[]{2, 2, 2}) : "Extra 2";
+        testCase.prevPermutation(Q8);
+        assert Arrays.equals(Q8, new int[]{2, 2, 2}) : "Extra 2 prev";
+
 
         int[] Q9 = new int[]{1, 2, 2, 2};
         testCase.nextPermutation(Q9);
         assert Arrays.equals(Q9, new int[]{2, 1, 2, 2}) : "Extra 3";
+        testCase.prevPermutation(Q9);
+        assert Arrays.equals(Q9, new int[]{1, 2, 2, 2}) : "Extra 3 prev";
+
 
         int[] Q10 = new int[]{2, 3, 1};
         testCase.nextPermutation(Q10);
         assert Arrays.equals(Q10, new int[]{3, 1, 2}) : "Extra 4";
+        testCase.prevPermutation(Q10);
+        assert Arrays.equals(Q10, new int[]{2, 3, 1}) : "Extra 4 prev";
 
         System.out.println("all passed");
 
     }
-
 }
 
