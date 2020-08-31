@@ -14,7 +14,8 @@ class LC033_Search_In_Rotated_Sorted_Array {
 
 
     /**
-     * Version C
+     * Version B
+     * <p>
      * Binary search, with help of standard binary search for sorted array
      */
     public int search(int[] nums, int target) {
