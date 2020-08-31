@@ -14,8 +14,8 @@ class LC033_Search_In_Rotated_Sorted_Array {
 
 
     /**
-     * Version B
-     * Regular while loop, binary search O(logN) * c
+     * Version C
+     * Binary search, with help of standard binary search for sorted array
      */
     public int search(int[] nums, int target) {
 
@@ -32,29 +32,38 @@ class LC033_Search_In_Rotated_Sorted_Array {
             int mid = nums[M];
             int high = nums[H];
 
-            if (mid == target) {
-                return M;
-            }
-
-            if (L == H) {
-                if (low == target) {
-                    return L;
+            if (mid <= high) {
+                int potential_ans = this.binary_search(nums, M, H, target);
+                if (potential_ans != -1) {
+                    return potential_ans;
                 } else {
-                    return -1;
+                    H = M - 1;
                 }
-            }
-
-            if (low <= target && target <= mid) {
-                H = M - 1;
-            } else if (mid <= target && target <= high) {
-                L = M + 1;
-            } else if (low > mid) {
-                H = M - 1;
-            } else if (mid >= low) {
-                L = M + 1;
+            } else {
+                int potential_ans = this.binary_search(nums, L, M, target);
+                if (potential_ans != -1) {
+                    return potential_ans;
+                } else {
+                    L = M + 1;
+                }
             }
         }
 
+        return -1;
+    }
+
+    public int binary_search(int[] nums, int L, int H, int target) {
+        while (L <= H) {
+            int M = (L + H) / 2;
+            int mid = nums[M];
+            if (mid == target) {
+                return M;
+            } else if (mid < target) {
+                L = M + 1;
+            } else {
+                H = M - 1;
+            }
+        }
         return -1;
     }
 
@@ -102,6 +111,12 @@ class LC033_Search_In_Rotated_Sorted_Array {
 
         int[] E9 = new int[]{8, 9, 10, 1, 2, 3, 4, 5, 6, 7};
         assert testCase.search(E9, 6) == 8 : "Additional 9";
+
+        int[] E10 = new int[]{6, 6, 6, 6, 6, 6, 6, 6, 8, 6};
+        assert testCase.search(E10, 8) == 8 : "Additional 10";
+
+        int[] Ex = new int[]{1, 3};
+        assert testCase.search(Ex, 2) == -1 : "Extra";
 
         System.out.println("all passed");
     }
