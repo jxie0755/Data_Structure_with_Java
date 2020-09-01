@@ -14,7 +14,7 @@ import java.util.Arrays;
 class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
 
     /**
-     * Version B
+     * Version A
      * improved binary search
      * 3 binary search, find catch mid value, and Low/High of the section,
      * Then according to mid value and Low/High to find head and tail by 2 additional binary search
@@ -22,74 +22,63 @@ class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
      */
     public int[] searchRange(int[] nums, int target) {
 
-
-        if (nums.length == 0) {
-            return new int[]{-1, -1};
-        }
-        if (nums.length == 1) {
-            if (nums[0] == target) {
-                return new int[]{0, 0};
-            } else {
-                return new int[]{-1, -1};
-            }
-        }
-
         int L = 0;
         int H = nums.length - 1;
         int M = (L + H) / 2;
+        boolean target_found = false;
+
 
         // first while loop to find whether target is in the Array
         while (L <= H) {
-            int check = nums[M];
-            if (check < target) {
+            M = (L + H) / 2;
+            if (nums[M] < target) {
                 L = M + 1;
-            } else if (check > target) {
+            } else if (nums[M] > target) {
                 H = M - 1;
             } else {
+                target_found = true;
                 break;
             }
-            M = (L + H) / 2;
         }
 
-        if (L > M) {
+        if (!target_found) {
             return new int[]{-1, -1};
         }
 
-        // locate head
-        int Lo = L;
-        int Hi = M;
-        int head;
-        while (true) {
-            head = (Lo + Hi) / 2;
-            int head_value = nums[head];
+        int head = M;
+        int tail = M;
 
-            if (head_value == target && head == 0) {
+        // locate head
+        while (true) {
+            M = (L + head) / 2;
+
+            if (nums[L] == target) {
+                head = L;
                 break;
-            } else if (head_value < target) {
-                Lo = head + 1;
-            } else if (head_value == target && nums[head - 1] == target) {
-                Hi = head - 1;
+            } else if (nums[M] < target) {
+                L = M + 1;
             } else {
-                break;
+                head = M;
+                if (nums[M - 1] != target) {
+                    break;
+                }
             }
         }
 
         // locate head
-        Lo = M;
-        Hi = H;
-        int tail;
         while (true) {
-            tail = (Lo + Hi) / 2;
-            int tail_value = nums[tail];
+            M = (tail + H) / 2;
 
-            if (tail_value == target && tail == Hi) {
+            if (nums[H] == target) {
+                tail = H;
                 break;
-            } else if (tail_value > target) {
-                Hi = tail - 1;
-            } else if (nums[tail] == target && nums[tail + 1] == target) {
-                Lo = tail + 1;
+            } else if (nums[M] > target) {
+                H = M - 1;
             } else {
-                break;
+                tail = M;
+                if (nums[M + 1] != target) {
+                    break;
+                }
             }
         }
 
