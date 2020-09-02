@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * https://leetcode.com/problems/search-insert-position/
  * p035 Search Insert Position
@@ -16,18 +14,15 @@ class LC035_Search_Insert_Position {
      */
     public int searchInsert(int[] nums, int target) {
 
-        int[] new_nums = Arrays.copyOf(nums, nums.length + 1);
-        new_nums[new_nums.length - 1] = target;
-        Arrays.sort(new_nums);
-
-        int index = 0;
-        while (index < new_nums.length) {
-            if (new_nums[index] == target) {
-                return index;
+        int idx = 0;
+        while (idx < nums.length) {
+            if (target > nums[idx]) {
+                idx += 1;
+            } else {
+                return idx;
             }
-            index += 1;
         }
-        return -1;
+        return idx;
     }
 
     public static void main(String[] args) {
