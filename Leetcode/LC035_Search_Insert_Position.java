@@ -7,6 +7,7 @@
  * If not, return the index where it would be if it were inserted in order.
  * You may assume no duplicates in the array
  */
+
 class LC035_Search_Insert_Position {
 
     /**
@@ -32,10 +33,11 @@ class LC035_Search_Insert_Position {
         assert testCase.searchInsert(E, 1) == 0 : "Empty";
 
         int[] Q = new int[]{1, 3, 5, 6};
-        assert testCase.searchInsert(Q, 5) == 2 : "In the list";
         assert testCase.searchInsert(Q, 2) == 1 : "Not in the list";
-        assert testCase.searchInsert(Q, 7) == 4 : "At the end";
         assert testCase.searchInsert(Q, 0) == 0 : "At the beginning";
+        assert testCase.searchInsert(Q, 5) == 2 : "In the list";
+        assert testCase.searchInsert(Q, 7) == 4 : "At the end";
+
         System.out.println("all passed");
     }
 
