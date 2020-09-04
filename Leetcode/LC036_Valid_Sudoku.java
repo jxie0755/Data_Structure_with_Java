@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * https://leetcode.com/problems/valid-sudoku/
  * P036 Valid Sudoku
@@ -82,12 +78,13 @@ class LC036_Valid_Sudoku {
     // Helper - helper 1,2,3
     // 检查冲突
     private boolean correct_line(char[] row) {
-        List<Character> written = new ArrayList<>(Arrays.asList());
+        char cur = 'x';
         for (char i : row) {
             if (i == '.') {
-            } else if (!written.contains(i)) {
-                written.add(i);
-            } else {
+            } else if (cur == 'x') {
+                cur = i;
+            } else if (i == cur) {
+                ;
                 return false;
             }
         }
