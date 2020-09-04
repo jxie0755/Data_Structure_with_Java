@@ -22,57 +22,53 @@
 class LC038_Count_And_Say {
 
     /**
-     * Version B1
+     * Version A
      * Don't have to use StringBuilder, just to practive
      * Avoid type convert by using Stringfrom the beginning and iteration
      */
-    public String countAndSay2(int n) {
-
-        String number = "1";
-        for (int i = 1; i < n; i += 1) {
-            number += " ";
-            int lenth = 1;
-            String result = "";
-            for (int k = 0; k < number.length() - 1; k += 1) {
-                if (number.charAt(k) == number.charAt(k + 1)) {
-                    lenth += 1;
-                } else {
-                    result += String.valueOf(lenth) + number.charAt(k);
-                    lenth = 1;
-                }
-            }
-            number = result;
-        }
-        return number;
-    }
-
-    /**
-     * Version B2
-     * Use StringBuilder, just to practive
-     * Avoid type convert by using StringBuilder from the beginning and iteration
-     * This is significantly faster than B1
-     */
     public String countAndSay(int n) {
 
-        StringBuilder number = new StringBuilder("1");
-        StringBuilder result = new StringBuilder();
+        String ans = "1";
+        if (n == 1) {
+            return ans;
+        } else {
+            for (int i = 0; i < n - 1; i += 1) {
+                ans = this.say(ans);
+            }
+        }
+        return ans;
+    }
 
-        for (int i = 1; i < n; i += 1) {
-            number.append(" ");
-            int lenth = 1;
-            result.delete(0, result.length());
-            for (int k = 0; k < number.length() - 1; k += 1) {
-                if (number.charAt(k) == number.charAt(k + 1)) {
-                    lenth += 1;
+
+    /**
+     * Helper function to say next number based on current number
+     */
+    public String say(String word) {
+        StringBuilder ans = new StringBuilder();
+        String cur = "";
+        int count = 0;
+
+        for (int i = 0; i < word.length(); i += 1) {
+            String letter = word.substring(i, i + 1);
+            if (cur.equals("")) {
+                cur = letter;
+                count += 1;
+            } else {
+                if (letter.equals(cur)) {
+                    count += 1;
                 } else {
-                    result.append(String.valueOf(lenth) + number.charAt(k));  // 注意这里append lenth不能取消String method
-                    lenth = 1;
+                    ans.append(count);
+                    ans.append(cur);
+                    cur = letter;
+                    count = 1;
                 }
             }
-            number.replace(0, number.length(), result.toString());  // 注意这里不能直接number = result, 否则会指向同一个object
         }
-        return number.toString();
+        ans.append(count);
+        ans.append(cur);
+        return ans.toString();
     }
+
 
     public static void main(String[] args) {
         LC038_Count_And_Say testCase = new LC038_Count_And_Say();
