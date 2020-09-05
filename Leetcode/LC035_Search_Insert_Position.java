@@ -11,7 +11,7 @@
 class LC035_Search_Insert_Position {
 
     /**
-     * Version A, sort first
+     * Version A
      */
     public int searchInsert(int[] nums, int target) {
 
