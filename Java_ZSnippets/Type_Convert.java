@@ -96,44 +96,38 @@ class Type_Convert {
         // List<Integer> list = IntStream.of(array).boxed().collect(Collectors.toCollection(ArrayList::new));
 
 
-
-        // 一维Array和一维ArrayList
-        // Array to ArrayList
+        // Array (Interger[]) to ArrayList (List<Integer>)
         Integer[] X_array = new Integer[]{1, 2, 3, 4};
-        List<Integer> int_L = new ArrayList<>(Arrays.asList(X_array));
+        // Method 1
+        List<Integer> X_arrayList_1 = new ArrayList<>(Arrays.asList(X_array));
+        // Mehtod 2
+        List<Integer> X_arrayList_1b = new ArrayList<>();
+        X_arrayList_1b.addAll(Arrays.asList(X_array));     // 也可以建空列表, 再addAll
 
-        List<Integer> int_L_2 = new ArrayList<>();
-        int_L_2.addAll(Arrays.asList(X_array));     // 也可以建空列表, 再addAll
-
-        // ArrayList to Array // 注意Array不能用int[]
-        Integer[] int_array = int_L.toArray(new Integer[int_L.size()]);  // 利用重载方法
+        // ArrayList (List<Integer>) to Array (Interger[])
+        Integer[] int_array = X_arrayList_1.toArray(new Integer[X_arrayList_1.size()]);  // 利用重载方法
 
         // 注意这种转换必须是Integer[] to Arraylist,如果是int[]则没有直接方法, 必须遍历.
 
 
-        // 二维Array和而维ArrayList
-        // 二维Array to 二维ArrayList
-        Integer[][] X_grid = new Integer[][]{
+        // 二维Array (Integer[][]) to 二维ArrayList (List<List<Integer>>)
+        Integer[][] X_array_grid = new Integer[][]{
                 {1, 2},
                 {3, 4}
         };
+        // 间接方法,先定义空grid,然后遍历添加
+        List<List<Integer>> X_list_grid = new ArrayList<>();
+        for (Integer[] array : X_array_grid) {
+            X_list_grid.add(new ArrayList<>(Arrays.asList(array)));
+        }
 
-        List<List<Integer>> list_grid = new ArrayList<>(); // 先定义空表
-        for (Integer[] array : X_grid) {
-            list_grid.add(new ArrayList<>(Arrays.asList(array)));
-        } // 没有直接办法
 
-
-        // 二维ArrayList to 二维Array
-        Integer[][] array_grid = new Integer[list_grid.size()][];
-        for (int i = 0; i < list_grid.size(); i += 1) {
-            List<Integer> to_add = list_grid.get(0);
-            array_grid[i] = to_add.toArray(new Integer[to_add.size()]);
-        } // 没有直接办法
-
-        Map<Integer, List<Integer>> gridmap = new HashMap<>(Map.ofEntries(
-                Map.entry(1, List.of(1, 2, 3, 4))
-        ));
-
+        // 二维ArrayList (List<List<Integer>>) to 二维Array (Integer[][])
+        // 同样没有直接办法,先定义空grid,然后遍历添加
+        Integer[][] x_array_grid_2 = new Integer[X_list_grid.size()][];
+        for (int i = 0; i < X_list_grid.size(); i += 1) {
+            List<Integer> to_add = X_list_grid.get(0);
+            x_array_grid_2[i] = to_add.toArray(new Integer[to_add.size()]);
+        }
     }
 }
