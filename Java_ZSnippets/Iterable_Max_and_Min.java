@@ -18,7 +18,7 @@ public class Iterable_Max_and_Min {
         System.out.println("max_0 = " + max_0 + ", min_0 = " + min_0);
 
         // Use stream method for Array
-        int[] intArray_1 = new int[]{1,2,3,4,5};
+        int[] intArray_1 = new int[]{1, 2, 3, 4, 5};
         double max_1 = Arrays.stream(intArray_1).max().getAsInt();
         double min_1 = Arrays.stream(intArray_1).min().getAsInt();
         System.out.println("max_1 = " + max_1 + ", min_1 = " + min_1);
@@ -28,6 +28,12 @@ public class Iterable_Max_and_Min {
         double max_1b = Collections.max(Arrays.asList(intArray_2));
         double min_1b = Collections.min(Arrays.asList(intArray_2));
         System.out.println("max_1b = " + max_1b + ", min_1b = " + min_1b);
+
+        // Or convert Integer to intStream first
+        double max_1c = Arrays.stream(intArray_2).mapToInt(Integer::intValue).max().getAsInt();
+        double min_1c = Arrays.stream(intArray_2).mapToInt(Integer::intValue).min().getAsInt();
+        System.out.println("max_1c = " + max_1c + ", min_1c = " + min_1c);
+
 
         // Use Collections.max and Collectins.min for Lists
         // see more in Java_101/Java_Classes/A08b_java_util_Collections
