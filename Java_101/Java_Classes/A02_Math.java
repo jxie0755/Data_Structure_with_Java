@@ -60,7 +60,7 @@ class Math_zMethods {
         // int long double float
         double d10 = Math.max(10, 9);  // 10.0
         double d11 = Math.min(10, 9);  // 9.0
-
+        // check Code snippet for max and min in an iterable (Array or ArrayList)
 
         // random
         // Returns a double value with a positive sign,
