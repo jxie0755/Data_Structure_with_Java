@@ -7,7 +7,7 @@ import java.util.List;
  * This is to learn how to get max and min on top of Math.min and Math.max
  */
 
-public class Min_and_Max {
+public class Max_and_Min {
 
     public static void main(String[] args) {
 
