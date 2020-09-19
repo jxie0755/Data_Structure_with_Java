@@ -30,6 +30,8 @@ class MyComparator implements Comparator<Integer> {
 
 
 class Comparator_test {
+    private static Object MyComparator;
+
     public static void main(String[] args) {
         List<Integer> lst = new ArrayList<>(Arrays.asList(-3, -2, -1, 0, 1, 2));
 
@@ -53,6 +55,9 @@ class Comparator_test {
         System.out.println(Collections.max(lst, (a, b) -> a * a - b * b));
         // 参见 Java101/Java_Basics/C12_Lambda
 
+        lst.sort(new MyComparator());
+        System.out.println(lst);
+        // >>> [0, -1, 1, -2, 2, -3]
 
         // 第二个例子, 根据一个字典中值的长度来找key (使用内部类)
         Map<String, List<Integer>> Mapp = new HashMap<>(Map.ofEntries(
