@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,34 +20,26 @@ import java.util.List;
 class LC039_Combination_Sum {
 
     /**
-     * Version B
-     * This used internal helper method, in java, must be implemented through an internal class.
+     * Version D
+     * 自建组合数然后检查每个组合的sum
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
 
-        List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(candidates);
+    }
 
-        // Build an internal class for helper function
-        class Inner {
-            void process(int[] candidates, int start, List<Integer> intermediate, int target) {
-                if (target == 0) {
-                    result.add(new ArrayList<>(intermediate));  // copy intermediate
-                } else {
-                    while (start < candidates.length && candidates[start] <= target) {
-                        intermediate.add(candidates[start]);
-                        this.process(candidates, start, intermediate, target - candidates[start]);
-                        intermediate.remove(intermediate.size() - 1);
-                        start += 1;
-                    }
-                }
-            }
+    /**
+     * self verison of combination algorithm, with repeating
+     * almost the same as py.itertools.combinations_with_replacement
+     */
+    public List<List<Integer>> combinationWR(List<Integer> candidates, int pick) {
+        if (pick == 0) {
+            return new ArrayList<>(Collections.emptyList());;
         }
 
-        Inner helper = new Inner();
-        helper.process(candidates, 0, new ArrayList<>(), target);
+        int p = 1;
+        List<List<Integer>> ans = new ArrayList<>(Collections.emptyList());
 
-        return result;
+
     }
 
 
