@@ -24,27 +24,60 @@ class LC039_Combination_Sum {
      * 自建组合数然后检查每个组合的sum
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        if (candidates.length == 0) {
+            return new ArrayList<>(Collections.emptyList());
+        }
 
+        int max_n = target / Arrays.stream(candidates).min().getAsInt();;
+        List<List<Integer>> result = new ArrayList<>(Collections.emptyList());
+        for (int i = 1; i <= max_n; i += 1) {
+            for (List<Integer> comb : this.combinationWR(candidates, i)) {
+                if (comb.stream().mapToInt(x -> x).sum() == target) { // sum(comb)
+                    result.add(comb);
+                }
+            }
+        }
+        return result;
     }
 
     /**
      * self verison of combination algorithm, with repeating
      * almost the same as py.itertools.combinations_with_replacement
      */
-    public List<List<Integer>> combinationWR(List<Integer> candidates, int pick) {
+    public List<List<Integer>> combinationWR(int[] candidates, int pick) {
         if (pick == 0) {
-            return new ArrayList<>(Collections.emptyList());;
+            return new ArrayList<>(Collections.emptyList());
         }
 
         int p = 1;
         List<List<Integer>> ans = new ArrayList<>(Collections.emptyList());
+        for (int i : candidates) {
+            ans.add(new ArrayList<>(Arrays.asList(i)));
+        }
 
 
+        while (p < pick) {
+            List<List<Integer>> new_ans = new ArrayList<>(Collections.emptyList());
+
+            for (List<Integer> comb : ans) {
+                for (int i : candidates) {
+                    if (i >= Collections.max(comb)) {
+                        List<Integer> new_comb = new ArrayList<>(comb);
+                        new_comb.add(i);
+                        new_ans.add(new_comb);
+                    }
+                }
+            }
+            ans = new_ans;
+            p += 1;
+        }
+        return ans;
     }
 
 
     public static void main(String[] args) {
         LC039_Combination_Sum testCase = new LC039_Combination_Sum();
+
         int[] q1 = {};
         List<List<Integer>> a1 = new ArrayList<>();
         assert testCase.combinationSum(q1, 1).equals(a1) : "Edge 1";
@@ -67,25 +100,65 @@ class LC039_Combination_Sum {
         List<List<Integer>> a5 = new ArrayList<>();
         assert testCase.combinationSum(q5, 5).equals(a5) : "Edge 5";
 
+        // Answers with more than one combination needs to check after sorted
         int[] q6 = {2, 3, 6, 7};
-        List<List<Integer>> a6 = new ArrayList<>();
-        a6.add(new ArrayList<>(Arrays.asList(2, 2, 3)));
-        a6.add(new ArrayList<>(Arrays.asList(7)));
-        assert testCase.combinationSum(q6, 7).equals(a6) : "Example 1";
+        List<List<Integer>> sorted_a6 = new ArrayList<>();
+        sorted_a6.add(new ArrayList<>(Arrays.asList(2, 2, 3)));
+        sorted_a6.add(new ArrayList<>(Arrays.asList(7)));
+
+        List<List<Integer>> a6 = testCase.combinationSum(q6, 7); // sort every combination in a6
+        for (List<Integer> comb : a6) {
+            Collections.sort(comb);
+        }
+        Collections.sort(a6, new IntGridComparator()); // thenm, sort a6
+
+        assert a6.equals(sorted_a6) : "Example 1";
 
         int[] q7 = {2, 3, 5};
-        List<List<Integer>> a7 = new ArrayList<>();
-        a7.add(new ArrayList<>(Arrays.asList(2, 2, 2, 2)));
-        a7.add(new ArrayList<>(Arrays.asList(2, 3, 3)));
-        a7.add(new ArrayList<>(Arrays.asList(3, 5)));
-        assert testCase.combinationSum(q7, 8).equals(a7) : "Example 2";
+        List<List<Integer>> sorted_a7 = new ArrayList<>();
+        sorted_a7.add(new ArrayList<>(Arrays.asList(2, 2, 2, 2)));
+        sorted_a7.add(new ArrayList<>(Arrays.asList(2, 3, 3)));
+        sorted_a7.add(new ArrayList<>(Arrays.asList(3, 5)));
+
+        List<List<Integer>> a7 = testCase.combinationSum(q7, 8); // sort every combination in a7
+        for (List<Integer> comb : a7) {
+            Collections.sort(comb);
+        }
+        Collections.sort(a7, new IntGridComparator()); // thenm, sort a7
+
+        assert a7.equals(sorted_a7) : "Example 2";
 
         int[] q8 = {2, 4};
-        List<List<Integer>> a8 = new ArrayList<>();
-        a8.add(new ArrayList<>(Arrays.asList(2, 2, 2, 2, 2)));
-        a8.add(new ArrayList<>(Arrays.asList(2, 2, 2, 4)));
-        a8.add(new ArrayList<>(Arrays.asList(2, 4, 4)));
-        assert testCase.combinationSum(q8, 10).equals(a8) : "Extra 1";
+        List<List<Integer>> sorted_a8 = new ArrayList<>();
+        sorted_a8.add(new ArrayList<>(Arrays.asList(2, 2, 2, 2, 2)));
+        sorted_a8.add(new ArrayList<>(Arrays.asList(2, 2, 2, 4)));
+        sorted_a8.add(new ArrayList<>(Arrays.asList(2, 4, 4)));
+
+        List<List<Integer>> a8 = testCase.combinationSum(q8, 10); // sort every combination in a8
+        for (List<Integer> comb : a8) {
+            Collections.sort(comb);
+        }
+        Collections.sort(a8, new IntGridComparator()); // thenm, sort a8
+
+        assert a8.equals(sorted_a8) : "Extra 1";
+
+        int[] q9 = {7, 3, 2};
+        List<List<Integer>> sorted_a9 = new ArrayList<>();
+        sorted_a9.add(new ArrayList<>(Arrays.asList(2, 2, 2, 2, 2, 2, 2, 2, 2)));
+        sorted_a9.add(new ArrayList<>(Arrays.asList(2, 2, 2, 2, 2, 2, 3, 3)));
+        sorted_a9.add(new ArrayList<>(Arrays.asList(2, 2, 2, 2, 3, 7)));
+        sorted_a9.add(new ArrayList<>(Arrays.asList(2, 2, 2, 3, 3, 3, 3)));
+        sorted_a9.add(new ArrayList<>(Arrays.asList(2, 2, 7, 7)));
+        sorted_a9.add(new ArrayList<>(Arrays.asList(2, 3, 3, 3, 7)));
+        sorted_a9.add(new ArrayList<>(Arrays.asList(3, 3, 3, 3, 3, 3)));
+
+        List<List<Integer>> a9 = testCase.combinationSum(q9, 18); // sort every combination in a9
+        for (List<Integer> comb : a9) {
+            Collections.sort(comb);
+        }
+        Collections.sort(a9, new IntGridComparator()); // thenm, sort a9
+
+        assert a9.equals(sorted_a9) : "Extra 1";
 
         System.out.println("all passed");
     }
