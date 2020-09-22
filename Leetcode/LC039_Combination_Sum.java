@@ -100,6 +100,7 @@ class LC039_Combination_Sum {
         List<List<Integer>> a5 = new ArrayList<>();
         assert testCase.combinationSum(q5, 5).equals(a5) : "Edge 5";
 
+
         // Answers with more than one combination needs to check after sorted
         int[] q6 = {2, 3, 6, 7};
         List<List<Integer>> sorted_a6 = new ArrayList<>();
