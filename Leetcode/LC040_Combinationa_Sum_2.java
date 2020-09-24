@@ -27,7 +27,7 @@ class LC040_Combinationa_Sum_2 {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(candidates);
 
-        // Build an internal class for helper function
+        // Build an inner class for helper function
         class Inner {
             void process(int[] candidates, int start, List<Integer> intermediate, int target) {
                 if (target == 0 && !result.contains(intermediate)) {
