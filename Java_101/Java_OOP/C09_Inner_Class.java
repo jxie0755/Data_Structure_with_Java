@@ -41,19 +41,12 @@ class Outer1 {
 
     private String x = "OUT";  // Outer1变量
     private static String y = "OUT y";  // Outer1变量y
-
     void foo() { // Outer1 方法
         System.out.println("foooo");
     }
 
     static void bar() {
         System.out.println("barrrr");
-    }
-
-    // 测试调用内部类
-    void test() {
-        Inner1 inner = new Inner1();  // 通过外部类方法创建内部类实例
-        inner.display();
     }
 
     // 建立实例成员内部类
@@ -70,6 +63,13 @@ class Outer1 {
 
         }
     }
+
+    // 测试调用内部类的一个方法
+    void test() {
+        Inner1 inner = new Inner1();  // 通过外部类方法创建内部类实例
+        inner.display();
+    }
+
 
     // 测试
     public static void main(String[] args) {
