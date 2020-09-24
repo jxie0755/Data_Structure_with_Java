@@ -39,7 +39,7 @@ class C09_Inner_Class {
 // 实例成员内部类实例:
 class Outer1 {
 
-    private String x = "Outer X";  // Outer1变量
+    private String x = "Outer x";  // Outer1变量
     private static String y = "Outer y";  // Outer1变量y
     private String z = "Outer z"; // Inner变量
 
@@ -54,16 +54,19 @@ class Outer1 {
     // 建立实例成员内部类
     class Inner1 {
         private String x = "Inner x"; // Inner变量
+        // private static String yy = "Inner yy";  // 注意Inner Class不能有static变量
 
         void display() { // Inner方法
-            Outer1.this.foo();
-            Outer1.bar();
-            // 在内部类中this是引用当前内部类对象。 而要引用外部类对象需要使用“外部类名.this
-            System.out.println(Outer1.this.x + " " + Outer1.y);
-            System.out.println(z);                               // 如果命名不冲突,可以省略Outer1.this
-            System.out.println(this.x);
-            System.out.println(x);
+            // 在内部类中this是引用当前内部类对象。
+            Outer1.this.foo(); // 引用外部类对象的实例方法需要使用“外部类名.this"
+            Outer1.bar();      // 引用外部类对象的静态方法需要使用“外部类名."
 
+            System.out.println(this.x);  // this指的是内部类的实力
+            System.out.println(x);       // 直接找, 即使不指定this, 而外部也有相同的变量名,也是会优先找内部类的
+            System.out.println(Outer1.this.x);  // 所以如果发生命名冲突,想要找外部类的变量,则要加上"Outer1.this."
+
+            System.out.println(Outer1.y);  // 因为y是static所以必须加"Outer1."
+            System.out.println(z);  // 如果命名不冲突,可以省略Outer1.this
         }
     }
 
@@ -84,10 +87,11 @@ class Outer1 {
         // >>>
         // foooo
         // barrrr
-        // Outer X Outer y
+        // Inner x
+        // Inner x
+        // Outer x
+        // Outer y
         // Outer z
-        // Inner x
-        // Inner x
 
         // 通过外部类实例通过new创建内部类实例, 然后用内部类实例访问内部类方法
         System.out.println("\nTest 2:");
@@ -96,10 +100,11 @@ class Outer1 {
         // >>>
         // foooo
         // barrrr
-        // Outer X Outer y
+        // Inner x
+        // Inner x
+        // Outer x
+        // Outer y
         // Outer z
-        // Inner x
-        // Inner x
 
         System.out.println("\nSearching Class:");
         System.out.println(inn1.getClass()); // >>> class Java_OOP.Outer1$Inner3
