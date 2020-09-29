@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * https://leetcode.com/problems/first-missing-positive/
  * P041 First Missing Positive
@@ -16,29 +12,31 @@ class LC041_First_Missing_Positive {
 
 
     /**
-     * Version A
-     * O(N), space O(N) (not constant space)
+     * Version STD
+     * 桶排序
+     * O(N)
      */
     public int firstMissingPositive(int[] nums) {
 
-        if (nums.length == 0) {
-            return 1;
+        int n = nums.length;
+        int i = 0;
+        while (i < n) {
+            if (nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                int A = nums[i];
+                int B = nums[nums[i] - 1];
+                nums[nums[i] - 1] = A;
+                nums[i] = B;
+            } else {
+                i += 1;
+            }
         }
 
-        List<Integer> all_int = new ArrayList<>(Arrays.asList());
-        for (int i = 1; i <= nums.length; i += 1) {
-            all_int.add(i);
+        for (int j = 0; j < n; j += 1) {
+            if (nums[j] != j + 1) {
+                return j + 1;
+            }
         }
-
-        for (int e : nums) {
-            all_int.remove(Integer.valueOf(e));
-        }
-
-        if (all_int.size() == 0) {
-            return nums.length + 1;
-        } else {
-            return all_int.get(0);
-        }
+        return n + 1;
     }
 
     public static void main(String[] args) {
@@ -63,6 +61,9 @@ class LC041_First_Missing_Positive {
 
         int[] q7 = {7, 8, 99, 11, 12};
         assert testCase.firstMissingPositive(q7) == 1 : "Example 3";
+
+        int[] q8 = {2, 2};
+        assert testCase.firstMissingPositive(q8) == 1 : "Extra 1";
 
         System.out.println("all passed");
 
