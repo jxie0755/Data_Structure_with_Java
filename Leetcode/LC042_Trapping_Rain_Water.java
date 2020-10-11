@@ -8,7 +8,7 @@
  */
 class LC042_Trapping_Rain_Water {
 
-    int VOLUME = 0;
+    int VOLUME = 0;  // class attribute to be used by helper
 
     /**
      * Version B
@@ -20,7 +20,7 @@ class LC042_Trapping_Rain_Water {
         this.trap_helper(height, 0, peak_idx, peak_idx);
         this.trap_helper(height, peak_idx+1, height.length, peak_idx);
         int ans = this.VOLUME;
-        this.VOLUME = 0;
+        this.VOLUME = 0;  // reset to zero for next run
         return ans;
     }
 
