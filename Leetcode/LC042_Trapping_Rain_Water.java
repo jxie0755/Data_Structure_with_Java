@@ -1,5 +1,3 @@
-import java.util.*;
-
 /**
  * https://leetcode.com/problems/trapping-rain-water/
  * P042 Trapping Rain Water
@@ -10,81 +8,55 @@ import java.util.*;
  */
 class LC042_Trapping_Rain_Water {
 
+    int VOLUME = 0;
+
     /**
-     * Version A
-     * According to the peak and find the volume in between
+     * Version B
+     * This method no longer needs to generate a peak list, but to recursive check in-place
      */
     public int trap(int[] height) {
 
-        List<Integer> peak_list = this.findPeaks(height);
+        int peak_idx = this.find_max_idx(height, 0, height.length);
+        this.trap_helper(height, 0, peak_idx, peak_idx);
+        this.trap_helper(height, peak_idx+1, height.length, peak_idx);
+        int ans = this.VOLUME;
+        this.VOLUME = 0;
+        return ans;
+    }
 
-        if (peak_list.size() <= 1) {
-            return 0;
+    /**
+     * Helper A: find out the max idx
+     */
+    private Integer find_max_idx(int[] height, int start, int end) {
+        int max_so_far = -1;
+        int max_idx = -1;
+        for (int i = start; i < end; i += 1) {
+            if (height[i] > max_so_far) {
+                max_so_far = height[i];
+                max_idx = i;
+            }
         }
+        return max_idx;
+    }
 
-        int start = Math.min(peak_list.get(0), peak_list.get(1));
-        int end = Math.max(peak_list.get(0), peak_list.get(1));
-        peak_list = peak_list.subList(2, peak_list.size());
-        int volume = this.vol(Arrays.copyOfRange(height, start, end + 1));
-
-        while (peak_list.size() != 0) {
-            int next_peak_idx = peak_list.remove(0);
-            if (next_peak_idx < start) {
-                volume += this.vol(Arrays.copyOfRange(height, next_peak_idx, start + 1));
-                start = next_peak_idx;
-            } else if (next_peak_idx > end) {
-                volume += this.vol(Arrays.copyOfRange(height, end, next_peak_idx + 1));
-                end = next_peak_idx;
+    /**
+     * Helper B: recursively calcualte the volume between two peaks, bidirectional search
+     */
+    private void trap_helper(int[] height, int start, int end, int cur_max_idx) {
+        if (end - start >= 1) {
+            int new_max_idx = this.find_max_idx(height, start, end);
+            if (new_max_idx < cur_max_idx) {
+                for (int i = new_max_idx; i < cur_max_idx; i += 1) {
+                    this.VOLUME += (height[new_max_idx] - height[i]);
+                }
+                this.trap_helper(height, 0, new_max_idx, new_max_idx);
             } else {
-                // pass
+                for (int i = cur_max_idx + 1; i < new_max_idx; i += 1) {
+                    this.VOLUME += (height[new_max_idx] - height[i]);
+                }
+                this.trap_helper(height, new_max_idx + 1, height.length, new_max_idx);
             }
         }
-
-        return volume;
-    }
-
-    // Helper 1 - version A
-    // Calculate the volume between two peaks
-    private Integer vol(int[] height) {
-        int sec_peak = Math.min(height[0], height[height.length - 1]);
-        int volume = 0;
-        for (int i : height) {
-            if (i < sec_peak) {
-                volume += sec_peak - i;
-            }
-        }
-        return volume;
-    }
-
-    // Helper 2 - version A
-    // To find the index of peaks, and sort reversely accoridng to the height value at the index
-    private List<Integer> findPeaks(int[] height) {
-        Map<Integer, Integer> hmp = new HashMap<>();
-
-        int[] temp = new int[height.length + 2];
-        temp[0] = 0;
-        temp[height.length + 1] = 0;
-        for (int i = 1; i < height.length + 1; i += 1) {
-            temp[i] = height[i - 1];
-        }
-
-        for (int i = 0; i < height.length; i += 1) {
-            int prev = temp[i];
-            int mid = temp[i + 1];
-            int aft = temp[i + 2];
-            if (prev <= mid && mid >= aft) {
-                hmp.put(i, mid);
-            }
-        }
-        List<Integer> lst = new ArrayList<>(hmp.keySet());
-        lst.sort(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return hmp.get(o1) - hmp.get(o2);
-            }
-        });
-        Collections.reverse(lst);
-        return lst;
     }
 
 
@@ -120,6 +92,9 @@ class LC042_Trapping_Rain_Water {
 
         int[] q10 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         assert testCase.trap(q10) == 6 : "Extra 1";
+
+        int[] q11 = {8, 5, 4, 1, 8, 9, 3, 0, 0};
+        assert testCase.trap(q11) == 14 : "Extra 2";
 
         System.out.println("all passed");
     }
