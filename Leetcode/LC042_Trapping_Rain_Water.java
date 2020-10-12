@@ -49,12 +49,13 @@ class LC042_Trapping_Rain_Water {
                 for (int i = new_max_idx; i < cur_max_idx; i += 1) {
                     this.VOLUME += (height[new_max_idx] - height[i]);
                 }
-                this.trap_helper(height, 0, new_max_idx, new_max_idx);
+                this.trap_helper(height, 0, new_max_idx, new_max_idx); // sweeping to head
+
             } else {
                 for (int i = cur_max_idx + 1; i < new_max_idx; i += 1) {
                     this.VOLUME += (height[new_max_idx] - height[i]);
                 }
-                this.trap_helper(height, new_max_idx + 1, height.length, new_max_idx);
+                this.trap_helper(height, new_max_idx + 1, height.length, new_max_idx); // sweeping to end
             }
         }
     }
