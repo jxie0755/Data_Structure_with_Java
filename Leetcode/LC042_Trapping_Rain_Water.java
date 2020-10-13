@@ -25,7 +25,7 @@ class LC042_Trapping_Rain_Water {
     }
 
     /**
-     * Helper A: find out the max idx
+     * Helper B1: find out the max idx
      */
     private Integer find_max_idx(int[] height, int start, int end) {
         int max_so_far = -1;
@@ -40,7 +40,7 @@ class LC042_Trapping_Rain_Water {
     }
 
     /**
-     * Helper B: recursively calcualte the volume between two peaks, bidirectional search
+     * Helper B2: recursively calcualte the volume between two peaks, bidirectional search
      */
     private void trap_helper(int[] height, int start, int end, int cur_max_idx) {
         if (end - start >= 1) {
