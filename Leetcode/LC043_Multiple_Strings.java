@@ -15,44 +15,38 @@
 class LC043_Multiple_Strings {
 
     /**
-     * Version C
-     * Break down to add with manual method, with string add method
-     * This can completely avoid overflow of integer/long numbers
+     * Version D
+     * Manual multiply calculations with two helpers
+     * 1. Add: Any two numbers in str
+     * 2. Multiply: Two numbers in str, one to be single digit
      */
     public String multiply(String num1, String num2) {
 
-        if (num1.equals("0")) {
+        if (num1.equals("0") || num2.equals("0")) {
             return "0";
         }
 
-        String result = "0";
-
-        int idx2 = num2.length() - 1;
-        int factor = 0;
-        while (idx2 >= 0) {
-            String to_add = "0";
-            int d2 = Character.getNumericValue(num2.charAt(idx2));
-
-            for (int i = 0; i < d2; i += 1) {
-                to_add = this.add(to_add, num1);
+        int lead = 0;
+        String result = "";
+        int i = num1.length() - 1;
+        while (i >= 0) {
+            Character digit = num1.charAt(i);
+            String mult = this.str_multiply(num2, digit);
+            for (int x = 0; x < lead; x += 1) { // java String can't use "*" like python
+                mult += "0";
             }
-
-            // to add补位0
-            to_add += new String(new char[factor]).replace("\0", "0");
-
-            // result相加本次乘法结果
-            result = this.add(result, to_add);
-
-            factor += 1;
-            idx2 -= 1;
+            result = this.str_add(result, mult);
+            lead += 1;
+            i -= 1;
         }
-
         return result;
+
     }
 
-    // Helper - version C
-    // String "add" function
-    private String add(String num1, String num2) {
+    /**
+     * Helper D1: Add two str numbers
+     */
+    private String str_add(String num1, String num2) {
 
         StringBuilder result = new StringBuilder();
         int add_on = 0;
@@ -88,13 +82,39 @@ class LC043_Multiple_Strings {
         return result.toString();
     }
 
+    /**
+     * Helper D2: Any str number * single digit str number
+     */
+    private String str_multiply(String num1, Character num2) {
+        StringBuilder result = new StringBuilder();
+        int add_on = 0;
+        int i = num1.length() - 1;
+        while (i >= 0) {
+            char digit = num1.charAt(i);
+            int d_result = Character.getNumericValue(digit) * Character.getNumericValue(num2) + add_on;
+            result.insert(0, d_result % 10);
+            add_on = d_result / 10;
+            i -= 1;
+        }
+
+        if (add_on != 0) {
+            result.insert(0, add_on);
+        }
+
+        return result.toString();
+    }
+
+
     public static void main(String[] args) {
         LC043_Multiple_Strings testCase = new LC043_Multiple_Strings();
         assert testCase.multiply("0", "23").equals("0") : "Edge 1";
+        assert testCase.multiply("999", "0").equals("0") : "Extra Edge 1";
         assert testCase.multiply("2", "23").equals("46") : "Edge 2";
+
         assert testCase.multiply("2", "3").equals("6") : "Example 1";
         assert testCase.multiply("123", "456").equals("56088") : "Example 1";
         assert testCase.multiply("50", "50").equals("2500") : "Extra 1";
+
         System.out.println("all passed");
     }
 }
