@@ -27,20 +27,20 @@ class LC045_Jump_Game_II {
 
     // Overload
     public int jump(int[] nums, int cur_idx, int count) {
-        int cur_value = nums[cur_idx];
-        if (cur_idx + cur_value >= nums.length - 1) {
+        int jump_range = nums[cur_idx];
+        if (cur_idx + jump_range >= nums.length - 1) {
             return count + 1;
         } else {
-            int next_idx = 0;
-            int next_value = 0;
-            for (int idx = cur_idx + 1; idx < cur_idx + cur_value + 1; idx += 1) {
-                int idx_value = nums[idx];
-                if (idx + idx_value >= next_idx + next_value) {
-                    next_idx = idx;
-                    next_value = idx_value;
+            int best_next_idx = 0;
+            int best_reach = 0;
+            for (int jump_distance = 1; jump_distance < jump_range + 1; jump_distance += 1) {
+                int can_reach = jump_distance + nums[cur_idx + jump_distance];
+                if (can_reach >= best_reach) {
+                    best_next_idx = cur_idx + jump_distance;
+                    best_reach = can_reach;
                 }
             }
-            return this.jump(nums, next_idx, count + 1);
+            return this.jump(nums, best_next_idx, count + 1);
         }
     }
 
