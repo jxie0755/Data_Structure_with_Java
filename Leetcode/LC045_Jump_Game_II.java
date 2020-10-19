@@ -46,6 +46,10 @@ class LC045_Jump_Game_II {
 
     public static void main(String[] args) {
         LC045_Jump_Game_II testCase = new LC045_Jump_Game_II();
+
+        int[] q0 = {0};
+        assert testCase.jump(q0) == 0 : "Edge 0";
+
         int[] q1 = {2, 1};
         assert testCase.jump(q1) == 1 : "Edge 1";
 
