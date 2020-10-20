@@ -39,7 +39,9 @@ class IntGridComparator implements Comparator<List<Integer>> {
         }
     }
 }
-    public class Customized_Sort {
+
+
+public class Customized_Sort {
 
     public static void main(String[] args) {
         List<Integer> list_1 = new ArrayList<>(Arrays.asList(-3, -2, -1, 0, 1, 2));
