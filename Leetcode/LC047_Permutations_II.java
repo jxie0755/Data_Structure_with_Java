@@ -70,13 +70,14 @@ class LC047_Permutations_II {
         assert testCase.permuteUnique(q1).equals(a1) : "Edge 1";
 
         // Q2 and Q2b
-        List<Integer> a2r1 = new ArrayList<>(Arrays.asList(1, 2, 3));
-        List<Integer> a2r2 = new ArrayList<>(Arrays.asList(1, 3, 2));
-        List<Integer> a2r3 = new ArrayList<>(Arrays.asList(2, 1, 3));
-        List<Integer> a2r4 = new ArrayList<>(Arrays.asList(2, 3, 1));
-        List<Integer> a2r5 = new ArrayList<>(Arrays.asList(3, 1, 2));
-        List<Integer> a2r6 = new ArrayList<>(Arrays.asList(3, 2, 1));
-        List<List<Integer>> a2 = new ArrayList<>(Arrays.asList(a2r1, a2r2, a2r3, a2r4, a2r5, a2r6));
+        List<List<Integer>> a2 = new ArrayList<>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(1, 2, 3)),
+                new ArrayList<>(Arrays.asList(1, 3, 2)),
+                new ArrayList<>(Arrays.asList(2, 1, 3)),
+                new ArrayList<>(Arrays.asList(2, 3, 1)),
+                new ArrayList<>(Arrays.asList(3, 1, 2)),
+                new ArrayList<>(Arrays.asList(3, 2, 1))
+        ));
 
         int[] q2 = {1, 2, 3};
         List<List<Integer>> q2_ans = testCase.permuteUnique(q2);
@@ -89,10 +90,11 @@ class LC047_Permutations_II {
         assert q2b_ans.equals(a2) : "Example 1 additional";
 
         // Q3 and Q3b
-        List<Integer> a3r1 = new ArrayList<>(Arrays.asList(1, 1, 2));
-        List<Integer> a3r2 = new ArrayList<>(Arrays.asList(1, 2, 1));
-        List<Integer> a3r3 = new ArrayList<>(Arrays.asList(2, 1, 1));
-        List<List<Integer>> a3 = new ArrayList<>(Arrays.asList(a3r1, a3r2, a3r3));
+        List<List<Integer>> a3 = new ArrayList<>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(1, 1, 2)),
+                new ArrayList<>(Arrays.asList(1, 2, 1)),
+                new ArrayList<>(Arrays.asList(2, 1, 1))
+        ));
 
         int[] q3 = {1, 1, 2};
         List<List<Integer>> q3_ans = testCase.permuteUnique(q3);
@@ -105,11 +107,12 @@ class LC047_Permutations_II {
         assert q3b_ans.equals(a3) : "Example 2 additional";
 
         // Q4
-        List<Integer> a4r1 = new ArrayList<>(Arrays.asList(0, 3, 3, 3));
-        List<Integer> a4r2 = new ArrayList<>(Arrays.asList(3, 0, 3, 3));
-        List<Integer> a4r3 = new ArrayList<>(Arrays.asList(3, 3, 0, 3));
-        List<Integer> a4r4 = new ArrayList<>(Arrays.asList(3, 3, 3, 0));
-        List<List<Integer>> a4 = new ArrayList<>(Arrays.asList(a4r1, a4r2, a4r3, a4r4));
+        List<List<Integer>> a4 = new ArrayList<>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(0, 3, 3, 3)),
+                new ArrayList<>(Arrays.asList(3, 0, 3, 3)),
+                new ArrayList<>(Arrays.asList(3, 3, 0, 3)),
+                new ArrayList<>(Arrays.asList(3, 3, 3, 0))
+        ));
 
         int[] q4 = {3, 3, 0, 3};
         List<List<Integer>> q4_ans = testCase.permuteUnique(q4);
