@@ -25,6 +25,7 @@ class LC046_Permutations {
         for (int i : nums) {
             nums_list.add(i);
         }
+
         // prepare result
         List<List<Integer>> result = new ArrayList<>();
 
@@ -33,17 +34,18 @@ class LC046_Permutations {
             return result;
         }
 
-        for (int i : nums) {
+        for (int i = 0; i < nums.length; i += 1) {
             List<Integer> sub_list = new ArrayList<>(nums_list);
-            sub_list.remove(Integer.valueOf(i));
+            int picked = sub_list.remove(i);
 
+            // convert sub_list back to Array type
             int[] sub_nums = new int[nums.length - 1];
             for (int k = 0; k < sub_list.size(); k += 1) {
                 sub_nums[k] = sub_list.get(k);
             }
 
             for (List<Integer> per : this.permute(sub_nums)) {
-                List<Integer> to_add = new ArrayList<>(Arrays.asList(i));
+                List<Integer> to_add = new ArrayList<>(Arrays.asList(picked));
                 to_add.addAll(per);
                 result.add(to_add);
             }
