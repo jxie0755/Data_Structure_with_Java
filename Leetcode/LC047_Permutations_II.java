@@ -43,7 +43,7 @@ class LC047_Permutations_II {
      * This also avoid constant type convert between int[] and List<Integer>
      */
     private void permuteUniHelper(List<Integer> lst, List<Integer> permute_list) {
-        if (lst.size() == 0) {
+        if (lst.size() == 0) { // all elements got picked
             this.RESULT.add(permute_list);
         } else {
             List<List<Integer>> sub_list_check = new ArrayList<>();
