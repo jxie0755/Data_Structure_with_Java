@@ -55,20 +55,29 @@ class LC046_Permutations {
 
     public static void main(String[] args) {
         LC046_Permutations testCase = new LC046_Permutations();
+
+        // Q1
+        List<List<Integer>> a1 = new ArrayList<>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(1))
+        ));
+
         int[] q1 = {1};
-        List<Integer> a1r1 = new ArrayList<>(Arrays.asList(1));
-        List<List<Integer>> a1 = new ArrayList<>(Arrays.asList(a1r1));
         assert testCase.permute(q1).equals(a1) : "Edge 1";
 
+        // Q2
+        List<List<Integer>> a2 = new ArrayList<>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(1, 2, 3)),
+                new ArrayList<>(Arrays.asList(1, 3, 2)),
+                new ArrayList<>(Arrays.asList(2, 1, 3)),
+                new ArrayList<>(Arrays.asList(2, 3, 1)),
+                new ArrayList<>(Arrays.asList(3, 1, 2)),
+                new ArrayList<>(Arrays.asList(3, 2, 1))
+        ));
+
         int[] q2 = {1, 2, 3};
-        List<Integer> a2r1 = new ArrayList<>(Arrays.asList(1, 2, 3));
-        List<Integer> a2r2 = new ArrayList<>(Arrays.asList(1, 3, 2));
-        List<Integer> a2r3 = new ArrayList<>(Arrays.asList(2, 1, 3));
-        List<Integer> a2r4 = new ArrayList<>(Arrays.asList(2, 3, 1));
-        List<Integer> a2r5 = new ArrayList<>(Arrays.asList(3, 1, 2));
-        List<Integer> a2r6 = new ArrayList<>(Arrays.asList(3, 2, 1));
-        List<List<Integer>> a2 = new ArrayList<>(Arrays.asList(a2r1, a2r2, a2r3, a2r4, a2r5, a2r6));
-        assert testCase.permute(q2).equals(a2) : "Example 1";
+        List<List<Integer>> q2_ans = testCase.permute(q2);
+        q2_ans.sort(new IntGridComparator());  // must sort to ensure sequence
+        assert q2_ans.equals(a2) : "Example 1";
 
         System.out.println("all passed");
     }

@@ -64,9 +64,13 @@ class LC047_Permutations_II {
 
     public static void main(String[] args) {
         LC047_Permutations_II testCase = new LC047_Permutations_II();
+
+        // Q1
+        List<List<Integer>> a1 = new ArrayList<>(Arrays.asList(
+                new ArrayList<>(Arrays.asList(1))
+        ));
+
         int[] q1 = {1};
-        List<Integer> a1r1 = new ArrayList<>(Arrays.asList(1));
-        List<List<Integer>> a1 = new ArrayList<>(Arrays.asList(a1r1));
         assert testCase.permuteUnique(q1).equals(a1) : "Edge 1";
 
         // Q2 and Q2b
