@@ -22,63 +22,61 @@ class LC048_Rotate_Image {
     public void rotate(int[][] matrix) {
 
         int N = matrix.length;
-        for (int i = 0; i < N / 2; i += 1) {
-            for (int j = i; j < N - i - 1; j += 1) {
-                int A = matrix[i][j];
-                int B = matrix[j][N - i - 1];
-                int C = matrix[N - i - 1][N - j - 1];
-                int D = matrix[N - j - 1][i];
+        for (int row = 0; row < N / 2; row += 1) {
+            for (int col = row; col < N - row - 1; col += 1) {
+                int A = matrix[row][col];
+                int B = matrix[col][N - row - 1];
+                int C = matrix[N - row - 1][N - col - 1];
+                int D = matrix[N - col - 1][row];
 
-                matrix[j][N - i - 1] = A;
-                matrix[N - i - 1][N - j - 1] = B;
-                matrix[N - j - 1][i] = C;
-                matrix[i][j] = D;
+                matrix[col][N - row - 1] = A;
+                matrix[N - row - 1][N - col - 1] = B;
+                matrix[N - col - 1][row] = C;
+                matrix[row][col] = D;
             }
         }
     }
 
     public static void main(String[] args) {
         LC048_Rotate_Image testCase = new LC048_Rotate_Image();
-        int[][] q1 = {
+
+        int[][] E0 = {
+                {}
+        };
+        testCase.rotate(E0);
+        assert Arrays.deepEquals(E0, new int[][]{
+                {}
+        }) : "Edge 0";
+
+        int[][] E1 = {
                 {1}
         };
-        testCase.rotate(q1);
-        assert Arrays.deepEquals(q1, new int[][]{
-
+        testCase.rotate(E1);
+        assert Arrays.deepEquals(E1, new int[][]{
                 {1}
         }) : "Edge 1";
 
-
-        int[][] q2 = {
-                {}
-        };
-        testCase.rotate(q2);
-        assert Arrays.deepEquals(q2, new int[][]{
-                {}
-        }) : "Edge 2";
-
-
-        int[][] q3 = {
+        int[][] Q1 = {
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}
         };
-        testCase.rotate(q3);
-        assert Arrays.deepEquals(q3, new int[][]{
+        testCase.rotate(Q1);
+        assert Arrays.deepEquals(Q1, new int[][]{
                 {7, 4, 1},
                 {8, 5, 2},
                 {9, 6, 3}
         }) : "Example 1";
 
 
-        int[][] q4 = {
+        int[][] Q2 = {
                 {5, 1, 9, 11},
                 {2, 4, 8, 10},
                 {13, 3, 6, 7},
                 {15, 14, 12, 16}
         };
-        testCase.rotate(q4);
-        assert Arrays.deepEquals(q4, new int[][]{
+        testCase.rotate(Q2);
+        assert Arrays.deepEquals(Q2, new int[][]{
                 {15, 13, 2, 5},
                 {14, 3, 4, 1},
                 {12, 6, 8, 9},
@@ -86,8 +84,6 @@ class LC048_Rotate_Image {
         }) : "Example 2";
 
         System.out.println("all passed");
-
     }
-
 }
 
