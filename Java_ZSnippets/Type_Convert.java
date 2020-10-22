@@ -35,6 +35,7 @@ class Type_Convert {
         // char转int
         char N = '5';
         Integer NN = Character.getNumericValue(N);
+        Integer NNN = (int) N; // >>> 53 //According to ASCII char table!
 
         //String转char? 可能没必要
         char char_c = str_C.charAt(0);
