@@ -22,22 +22,20 @@ class LC049_Group_Anagrams {
             return result;
         }
 
-        Map<List<Character>, List<String>> hmp = new HashMap<>();
+        Map<Set<Character>, List<String>> hmp = new HashMap<>();
+
         for (String word : strs) {
-
-            List<Character> word_list = new ArrayList<>();
+            // Different from python, set can be directly used in Map
+            Set<Character> anagram_key = new HashSet<>();
             for (int i = 0; i < word.length(); i += 1) {
-                word_list.add(word.charAt(i));
+                anagram_key.add(word.charAt(i));
             }
-            Collections.sort(word_list);
-            List<Character> word_tuple = Collections.unmodifiableList(word_list);
 
-            if (!hmp.containsKey(word_tuple)) {
-                hmp.put(word_tuple, new ArrayList<>(Arrays.asList(word)));
+            if (!hmp.containsKey(anagram_key)) {
+                hmp.put(anagram_key, new ArrayList<>(Arrays.asList(word)));
             } else {
-                hmp.get(word_tuple).add(word);
+                hmp.get(anagram_key).add(word);
             }
-
         }
         return new ArrayList<>(hmp.values());
     }
@@ -48,19 +46,22 @@ class LC049_Group_Anagrams {
         String[] q1 = {};
         List<String> a1l1 = new ArrayList<>(Arrays.asList());
         List<List<String>> a1 = new ArrayList<>(Arrays.asList(a1l1));
-        assert testCase.groupAnagrams(q1).equals(a1);
+        assert testCase.groupAnagrams(q1).equals(a1) : "Edge 0";
 
         String[] q2 = {"a"};
         List<String> a2l1 = new ArrayList<>(Arrays.asList("a"));
         List<List<String>> a2 = new ArrayList<>(Arrays.asList(a2l1));
-        assert testCase.groupAnagrams(q2).equals(a2);
+        assert testCase.groupAnagrams(q2).equals(a2) : "Edge 1";
 
         String[] q3 = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<String> a3l1 = new ArrayList<>(Arrays.asList("eat", "tea", "ate"));
-        List<String> a3l2 = new ArrayList<>(Arrays.asList("tan", "nat"));
-        List<String> a3l3 = new ArrayList<>(Arrays.asList("bat"));
-        List<List<String>> a3 = new ArrayList<>(Arrays.asList(a3l3, a3l2, a3l1));
-        assert testCase.groupAnagrams(q3).equals(a3) : "Example 1";
+        List<List<String>> sorted_a3 = new ArrayList<>(Arrays.asList(
+                new ArrayList<>(Arrays.asList("bat")),
+                new ArrayList<>(Arrays.asList("eat", "tea", "ate")),
+                new ArrayList<>(Arrays.asList("tan", "nat"))
+        ));
+        List<List<String>> a3 = testCase.groupAnagrams(q3);
+        Collections.sort(a3, new StringListComparator());
+        assert a3.equals(sorted_a3) : "Example 1";
 
         System.out.println("all passed");
     }

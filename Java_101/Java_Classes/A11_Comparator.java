@@ -64,7 +64,7 @@ class Comparator_test {
                 Map.entry("A", List.of(9, 9)),
                 Map.entry("B", List.of(2, 2, 3)),
                 Map.entry("C", List.of(1, 2, 0, 0)),
-                Map.entry("D", List.of(1))
+                Map.entry("D", List.of(100))
         ));
 
         System.out.println(Collections.min(Mapp.keySet(), new Comparator<String>() {
