@@ -42,19 +42,10 @@ class IntGridComparator implements Comparator<List<Integer>> {
  */
 class CharacterComparator implements Comparator<Character> {
     public int compare(Character c1, Character c2) {
-        int c1_char_idx = (int) c1;
-        int c2_char_idx = (int) c2;
-        return c1_char_idx - c2_char_idx;
+        return c1.compareTo(c2);
     }
 }
 
-
-class StringComparator implements Comparator<String> {
-    @Override
-    public int compare(String s1, String s2) {
-        return s1.compareTo(s2);
-    }
-}
 
 class StringListComparator implements Comparator<List<String>> {
 
@@ -82,6 +73,7 @@ class StringListComparator implements Comparator<List<String>> {
             return 1;
         }
     }
+
 }
 
 
@@ -113,7 +105,7 @@ public class Customized_Comparator_Test {
         System.out.println(character_list); // >>> [A, a, b, c]
 
         List<String> string_list = new ArrayList<>(Arrays.asList("apple", "Apple", "A[]le"));
-        string_list.sort(new StringComparator());
+        System.out.println("Apple".compareTo("apple"));
         System.out.println(string_list); // >>> [A[]le, Apple, apple]
 
         List<String> a3l1 = new ArrayList<>(Arrays.asList("eat", "tea", "ate"));
@@ -122,6 +114,9 @@ public class Customized_Comparator_Test {
         List<List<String>> a3 = new ArrayList<>(Arrays.asList(a3l3, a3l2, a3l1));
         Collections.sort(a3, new StringListComparator());
         System.out.println(a3); // >>> [[bat], [eat, tea, ate], [tan, nat]]
+
+        Collections.sort(a3l1);
+        System.out.println(a3l1); // >>> [ate, eat, tea]
     }
 }
 
