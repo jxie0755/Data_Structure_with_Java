@@ -79,6 +79,9 @@ class LC053_Maximum_Subarray {
         int[] q11 = {0, 0, 0, 0, 0, 0};
         assert testCase.maxSubArray(q11) == 0 : "all zeros";
 
+        int[] q12 = {1, 2, 3, -8, 2, 3, 4, -2, 9, -8, 9, -8, -7, -6};
+        assert testCase.maxSubArray(q12) == 17 : "extra";
+
         System.out.println("all passed");
     }
 }
