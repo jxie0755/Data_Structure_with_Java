@@ -15,7 +15,7 @@ class LC053_Maximum_Subarray {
 
         // 一次遍历, 找两组数据
         // 第一组找当前最大值, 如果发现数组内全都不为正, 那就直接返回最大值
-        boolean nonePositive = true;
+        boolean allNegative = true;
         int cur_max = Integer.MIN_VALUE;
 
         // 第二组找Subarray
@@ -25,7 +25,7 @@ class LC053_Maximum_Subarray {
         for (int i : nums) {
 
             if (i > 0) {
-                nonePositive = false;
+                allNegative = false;
             }
 
             if (i > cur_max) {
@@ -36,7 +36,7 @@ class LC053_Maximum_Subarray {
             global_max = Math.max(global_max, local_max);
         }
 
-        if (nonePositive) {
+        if (allNegative) {
             return cur_max;
         } else {
             return global_max;
