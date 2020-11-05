@@ -26,44 +26,36 @@ class LC054_Spiral_Matrix {
         int m = matrix.length;
         int n = matrix[0].length;
 
-        int top = 0;
-        int bot = m - 1;
-        int left = 0;
-        int right = n - 1;
+        int top_idx = 0;
+        int bot_idx = m - 1;
+        int left_idx = 0;
+        int right_idx = n - 1;
 
-        while (top <= bot && left <= right) {
+        while (top_idx <= bot_idx && left_idx <= right_idx) {
 
-            int a = left;
-            while (a <= right) {
-                result.add(matrix[top][a]);
-                a += 1;
+            for (int a = left_idx; a <= right_idx; a += 1) {
+                result.add(matrix[top_idx][a]);
             }
-            top += 1;
+            top_idx += 1;
 
-            int b = top;
-            while (b <= bot) {
-                result.add(matrix[b][right]);
-                b += 1;
+            for (int b = top_idx; b <= bot_idx; b += 1) {
+                result.add(matrix[b][right_idx]);
             }
-            right -= 1;
+            right_idx -= 1;
 
-            int c = right;
-            while (c >= left) {
-                if (top <= bot) {
-                    result.add(matrix[bot][c]);
+            if (top_idx <= bot_idx) {
+                for (int c = right_idx; c >= left_idx; c -= 1) {
+                    result.add(matrix[bot_idx][c]);
                 }
-                c -= 1;
             }
-            bot -= 1;
+            bot_idx -= 1;
 
-            int d = bot;
-            while (d >= top) {
-                if (left <= right) {
-                    result.add(matrix[d][left]);
+            if (left_idx <= right_idx) {
+                for (int d = bot_idx; d >= top_idx; d -= 1) {
+                    result.add(matrix[d][left_idx]);
                 }
-                d -= 1;
             }
-            left += 1;
+            left_idx += 1;
         }
 
         return result;
@@ -114,9 +106,16 @@ class LC054_Spiral_Matrix {
         List<Integer> a7 = new ArrayList<>(Arrays.asList(1, 2, 4, 3));
         assert testCase.spiralOrder(q7).equals(a7) : "Example 2";
 
+        int[][] q8 = {
+                {1, 2},
+                {3, 4},
+                {5, 6},
+                {7, 8}
+        };
+        List<Integer> a8 = new ArrayList<>(Arrays.asList(1, 2, 4, 6, 8, 7, 5, 3));
+        assert testCase.spiralOrder(q8).equals(a8) : "Extra";
+
         System.out.println("all passed");
-
-
     }
 }
 
