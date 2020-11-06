@@ -47,6 +47,12 @@ class LC055_Jump_Game {
         int[] q6 = {3, 2, 1, 0, 4};
         assert !testCase.canJump(q6) : "Example 2";
 
+        int[] q7 = {3, 2, 5, 0, 1, 0, 0, 0};
+        assert testCase.canJump(q7) : "Extra 1";
+
+        int[] q8 = {3, 2, 5, 0, 1, 0, 0, 2, 0, 0, 1};
+        assert !testCase.canJump(q8) : "Extra 2";
+
         System.out.println("all passed");
     }
 }
