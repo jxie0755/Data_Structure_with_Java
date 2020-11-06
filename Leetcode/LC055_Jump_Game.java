@@ -15,17 +15,14 @@ class LC055_Jump_Game {
     public boolean canJump(int[] nums) {
 
         int max_reachable_idx = 0;
-        int idx = 0;
 
-        while (idx != nums.length) {
-            int val = nums[idx];
+        for (int idx = 0; idx < nums.length; idx += 1) {
+            int jump_range = nums[idx];
             if (idx > max_reachable_idx) {
                 return false;
             }
-            max_reachable_idx = Math.max(max_reachable_idx, idx + val);
-            idx += 1;
+            max_reachable_idx = Math.max(max_reachable_idx, idx + jump_range);
         }
-
         return true;
     }
 
