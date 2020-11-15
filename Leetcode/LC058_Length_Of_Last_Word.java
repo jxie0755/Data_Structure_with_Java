@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * https://leetcode.com/problems/length-of-last-word/
  * p058 Length of Last word
@@ -11,22 +14,38 @@
  */
 class LC058_Length_Of_Last_Word {
 
+    // /**
+    //  * Version B
+    //  */
+    // public int lengthOfLastWord(String s) {
+    //     int count = 0;
+    //     for (int idx = s.length()-1; idx >= 0; idx -=1) {
+    //         char x = s.charAt(idx);
+    //         if (x == ' ') {
+    //             if (count != 0) {
+    //                 break;
+    //             }
+    //         } else {
+    //             count += 1;
+    //         }
+    //     }
+    //     return count;
+    // }
+
     /**
-     * Version B
+     * Version C
+     * Regex method
      */
     public int lengthOfLastWord(String s) {
-        int count = 0;
-        for (int idx = s.length()-1; idx >= 0; idx -=1) {
-            char x = s.charAt(idx);
-            if (x == ' ') {
-                if (count != 0) {
-                    break;
-                }
-            } else {
-                count += 1;
-            }
+        Pattern p = Pattern.compile("(.*\\s|\\.*)([A-Za-z]*\\b)");
+        Matcher m = p.matcher(s);
+
+        if (m.find()) {
+            String ans = m.group(2);
+            return ans.length();
+        } else {
+            return 0;
         }
-        return count;
     }
 
     public static void main(String[] args) {
