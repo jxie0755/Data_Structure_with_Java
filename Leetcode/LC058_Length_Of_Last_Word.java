@@ -16,16 +16,13 @@ class LC058_Length_Of_Last_Word {
      */
     public int lengthOfLastWord(String s) {
         int count = 0;
-        int idx = s.length() - 1;
-        while (idx >= 0) {
+        for (int idx = s.length()-1; idx >= 0; idx -=1) {
             char x = s.charAt(idx);
             if (x == ' ') {
-                idx -= 1;
                 if (count != 0) {
                     break;
                 }
             } else {
-                idx -= 1;
                 count += 1;
             }
         }
@@ -36,7 +33,15 @@ class LC058_Length_Of_Last_Word {
         LC058_Length_Of_Last_Word testCase = new LC058_Length_Of_Last_Word();
         assert testCase.lengthOfLastWord("") == 0 : "Edge 1";
         assert testCase.lengthOfLastWord(" ") == 0 : "Edge 2";
+
         assert testCase.lengthOfLastWord("Hello World") == 5 : "Regular";
+
+        assert testCase.lengthOfLastWord("Today is a nice day") == 3 : "Extra 1";
+        assert testCase.lengthOfLastWord("a") == 1 : "Extra 2";
+        assert testCase.lengthOfLastWord(" a") == 1 : "Extra 3";
+        assert testCase.lengthOfLastWord("  a") == 1 : "Extra 4";
+        assert testCase.lengthOfLastWord("  aaaa   ") == 4 : "Extra 5";
+
         System.out.println("all passed");
     }
 }
