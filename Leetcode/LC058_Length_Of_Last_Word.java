@@ -37,7 +37,7 @@ class LC058_Length_Of_Last_Word {
      * Regex method
      */
     public int lengthOfLastWord(String s) {
-        Pattern p = Pattern.compile("(.*\\s|\\.*)([A-Za-z]*\\b)");
+        Pattern p = Pattern.compile("(.*\\s+?|\\s*)([A-Za-z]*\\b)");
         Matcher m = p.matcher(s);
 
         if (m.find()) {
