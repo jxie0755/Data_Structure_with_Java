@@ -23,33 +23,40 @@ class LC059_Spiral_Matrix_II {
         int left = 0;
         int right = n - 1;
 
-        while (top <= bot && left <= right) {
+        while (val <= n*n) {
 
-            for (int a = left; a <= right; a += 1) {
-                matrix[top][a] = val;
-                val += 1;
+            if (val <= n * n) {
+                for (int a = left; a <= right; a += 1) {
+                    matrix[top][a] = val;
+                    val += 1;
+                }
+                top += 1;
             }
-            top += 1;
 
-            for (int b = top; b <= bot; b += 1) {
-                matrix[b][right] = val;
-                val += 1;
+            if (val <= n * n) {
+                for (int b = top; b <= bot; b += 1) {
+                    matrix[b][right] = val;
+                    val += 1;
+                }
+                right -= 1;
             }
-            right -= 1;
 
-            for (int c = right; c >= left; c -= 1) {
-                matrix[bot][c] = val;
-                val += 1;
+            if (val <= n * n) {
+                for (int c = right; c >= left; c -= 1) {
+                    matrix[bot][c] = val;
+                    val += 1;
+                }
+                bot -= 1;
             }
-            bot -= 1;
 
-            for (int d = bot; d >= top; d -= 1) {
-                matrix[d][left] = val;
-                val += 1;
+            if (val <= n * n) {
+                for (int d = bot; d >= top; d -= 1) {
+                    matrix[d][left] = val;
+                    val += 1;
+                }
+                left += 1;
             }
-            left += 1;
         }
-
         return matrix;
     }
 
@@ -62,6 +69,19 @@ class LC059_Spiral_Matrix_II {
                 {1, 2, 3},
                 {8, 9, 4},
                 {7, 6, 5}
+        }) : "Example 1";
+
+        assert Arrays.deepEquals(testCase.generateMatrix(2), new int[][]{
+                {1, 2},
+                {4, 3},
+        }) : "Extra 1";
+
+        assert Arrays.deepEquals(testCase.generateMatrix(4), new int[][]{
+                {1,  2,  3,  4},
+                {12, 13, 14, 5},
+                {11, 16, 15, 6},
+                {10, 9,  8,  7}
+
         }) : "Example 1";
 
         System.out.println("all passed");
