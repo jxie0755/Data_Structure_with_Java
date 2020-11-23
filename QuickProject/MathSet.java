@@ -15,9 +15,7 @@ public class MathSet<Key> {
 
 	// put key into the set
 	public void add(Key key) {
-		if (this.content.containsKey(key)) {
-			this.content.put(key, true);
-		}
+		this.content.replace(key, true);
 	}
 
 	// return set of keys in the universe that are not in the set
