@@ -81,39 +81,5 @@ public class MathSet<Key> {
 		}
 		return size;
 	}
-
-	public static void main(String[] args) {
-		Integer[] universe = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-		MathSet<Integer> uut = new MathSet<Integer>(universe);
-		assertEquals(0, uut.size());
-		assertTrue(uut.isEmpty());
-
-		uut.add(1);
-		assertEquals(1, uut.size());
-		assertFalse(uut.isEmpty());
-
-		uut.add(3);
-		assertEquals(2, uut.size());
-		assertFalse(uut.isEmpty());
-
-		uut.add(3);
-		assertEquals(2, uut.size());
-		assertFalse(uut.isEmpty());
-
-		assertTrue(uut.contains(3));
-		assertFalse(uut.contains(9));
-
-		uut.delete(10);
-		assertEquals(2, uut.size());
-		assertFalse(uut.isEmpty());
-
-		uut.delete(1);
-		assertEquals(1, uut.size());
-		assertFalse(uut.isEmpty());
-
-		uut.delete(3);
-		assertEquals(0, uut.size());
-		assertTrue(uut.isEmpty());
-	}
 }
 
