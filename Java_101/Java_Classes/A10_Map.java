@@ -46,7 +46,7 @@ class A10_Map {
      * remove(key)           删除并返回Value
      * remove(key, value)    增强版remove          返回boolean确认
 
-     * replace(key, value)          修改Key的值
+     * replace(key, value)          修改Key的值 (如果不存在key则不做任何操作)
      * replace(K key, Vold, Vnew)   增强型replace  返回boolean确认
 
      * clear()               清空
