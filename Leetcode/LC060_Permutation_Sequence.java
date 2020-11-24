@@ -47,17 +47,17 @@ class LC060_Permutation_Sequence {
             perm.add(i);
         }
 
-        String seq = "";
+        String result = "";
         k = k - 1;
 
         for (int i = n - 1; i >= 0; i -= 1) {
             int fact = this.factorial(i);
             int curr = perm.remove(k / fact);
-            seq += String.valueOf(curr);
+            result += String.valueOf(curr);
             k %= fact;
         }
 
-        return seq;
+        return result;
     }
 
     public static void main(String[] args) {
