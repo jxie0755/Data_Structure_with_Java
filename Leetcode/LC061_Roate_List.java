@@ -36,6 +36,7 @@ class LC061_Roate_List {
         return new_head;
     }
 
+
     public static void main(String[] args) {
         LC061_Roate_List testCase = new LC061_Roate_List();
 
