@@ -40,21 +40,30 @@ class LC061_Roate_List {
         LC061_Roate_List testCase = new LC061_Roate_List();
 
         ListNode E0 = ListNode.genNode(new int[]{0});
-        ListNode E0A = ListNode.genNode(new int[]{0});
-        assert testCase.rotateRight(E0, 2).equals(E0A) : "Edge 0";
+        assert testCase.rotateRight(E0, 2).equals(E0) : "Edge 0";
 
         ListNode E1 = ListNode.genNode(new int[]{1});
         assert testCase.rotateRight(E1, 2).equals(E1) : "Edge 1";
 
         ListNode E2 = ListNode.genNode(new int[]{1, 2});
-        assert testCase.rotateRight(E2, 1).equals(ListNode.genNode(new int[]{2, 1})) : "Edge 2";
+        assert testCase.rotateRight(E2, 1).equals(
+                ListNode.genNode(new int[]{2, 1})
+        ) : "Edge 2";
 
         ListNode S1 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
-        assert testCase.rotateRight(S1, 2).equals(ListNode.genNode(new int[]{4, 5, 1, 2, 3})) : "Example 2";
+        assert testCase.rotateRight(S1, 2).equals(
+                ListNode.genNode(new int[]{4, 5, 1, 2, 3})
+        ) : "Example 1";
+
         ListNode S2 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
-        assert testCase.rotateRight(S2, 0).equals(ListNode.genNode(new int[]{1, 2, 3, 4, 5})) : "Example 2";
+        assert testCase.rotateRight(S2, 0).equals(
+                ListNode.genNode(new int[]{1, 2, 3, 4, 5})
+        ) : "Example 2";
+
         ListNode S3 = ListNode.genNode(new int[]{0, 1, 2});
-        assert testCase.rotateRight(S3, 4).equals(ListNode.genNode(new int[]{2, 0, 1})) : "Example 3";
+        assert testCase.rotateRight(S3, 4).equals(
+                ListNode.genNode(new int[]{2, 0, 1})
+        ) : "Example 3";
 
         System.out.println("all passed");
     }
