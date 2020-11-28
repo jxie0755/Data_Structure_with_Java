@@ -13,36 +13,26 @@ class LC061_Roate_List {
             return null;
         }
 
-
         // Measure the length of the linked list, and locate the end node
         int length = 1;
-        ListNode find_end = head;
-        while (find_end.next != null) {
-            find_end = find_end.next;
+        ListNode last_node = head;
+        while (last_node.next != null) {
+            last_node = last_node.next;
             length += 1;
         }
 
-        // Special cases
-        if (k % length == 0) {
-            return head;
-        } else if (k > length) {
-            return this.rotateRight(head, k % length);
-        }
-
-        // Common cases
+        // link the end to head to be a loop
+        last_node.next = head;
 
         // locate the node before break point
-        ListNode find_node_before_break = head;
-        for (int i = 0; i < length - k - 1; i += 1) {
-            find_node_before_break = find_node_before_break.next;
+        ListNode node_before_break = head;
+        for (int i = 0; i < length - k % length - 1; i += 1) {
+            node_before_break = node_before_break.next;
         }
 
-        // link the end to head to be a loop
-        find_end.next = head;
-
         // locate the next node (as the new head), and break link of the two node
-        ListNode new_head = find_node_before_break.next;
-        find_node_before_break.next = null;
+        ListNode new_head = node_before_break.next;
+        node_before_break.next = null;
         return new_head;
     }
 
@@ -51,7 +41,7 @@ class LC061_Roate_List {
 
         ListNode E0 = ListNode.genNode(new int[]{0});
         ListNode E0A = ListNode.genNode(new int[]{0});
-        assert testCase.rotateRight(E0, 2) == E0A : "Edge 0";
+        assert testCase.rotateRight(E0, 2).equals(E0A) : "Edge 0";
 
         ListNode E1 = ListNode.genNode(new int[]{1});
         assert testCase.rotateRight(E1, 2).equals(E1) : "Edge 1";
