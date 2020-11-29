@@ -41,7 +41,7 @@ class LC062_Unique_Path {
 
 
     /**
-     * Version B, ecursive method with hashmap memorizaton
+     * Version B, recursive method with hashmap memorizaton
      * Apply in java, keep the hashmap as a class attribute
      */
     Map<List<Integer>, Integer> HMP = new HashMap<>();
@@ -49,7 +49,7 @@ class LC062_Unique_Path {
     public int uniquePaths(int m, int n) {
 
         List<Integer> pair = new ArrayList<>(Arrays.asList(m, n));
-        if (m <= 1 || n <= 1) {
+        if (m == 1 || n == 1) {
             return 1;
         } else if (HMP.containsKey(pair)) {
             return HMP.get(pair);
@@ -80,6 +80,8 @@ class LC062_Unique_Path {
     //     }
     //     return grid[n - 1][m - 1];
     // }
+
+
     public static void main(String[] args) {
         LC062_Unique_Path testCase = new LC062_Unique_Path();
         assert testCase.uniquePaths(1, 1) == 1 : "Edge 1";
