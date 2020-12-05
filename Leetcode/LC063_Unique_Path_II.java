@@ -14,32 +14,32 @@ class LC063_Unique_Path_II {
 
     /**
      * Similar idea from Leetcode 062 iteration method
-     * Additional: set the number of path at the obstacle to be 0
+     * when hitting an obstacle, meansing the path to this point is 0
      */
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
-        int col = obstacleGrid[0].length;
-        int row = obstacleGrid.length;
+        int m = obstacleGrid[0].length; // length
+        int n = obstacleGrid.length;    // width
 
-        int[][] pathgrid = new int[row][col];
+        int[][] pathgrid = new int[n][m];
 
-        for (int row_num = 0; row_num < row; row_num += 1) {
-            for (int col_num = 0; col_num < col; col_num += 1) {
-                if (obstacleGrid[row_num][col_num] == 1) {
-                    pathgrid[row_num][col_num] = 0;
-                } else if (row_num == 0 && col_num == 0) {  // 注意这里要把第一个点设定为1, 除非有障碍物
-                    pathgrid[row_num][col_num] = 1;
-                } else if (row_num == 0) {
-                    pathgrid[row_num][col_num] = pathgrid[row_num][col_num - 1];
-                } else if (col_num == 0) {
-                    pathgrid[row_num][col_num] = pathgrid[row_num - 1][col_num];
+        for (int l = 0; l < n; l += 1) {
+            for (int w = 0; w < m; w += 1) {
+                if (obstacleGrid[l][w] == 1) {
+                    pathgrid[l][w] = 0;
+                } else if (l == 0 && w == 0) {  // 注意这里要把第一个点设定为1, 除非有障碍物
+                    pathgrid[l][w] = 1;
+                } else if (l == 0) {
+                    pathgrid[l][w] = pathgrid[l][w - 1];
+                } else if (w == 0) {
+                    pathgrid[l][w] = pathgrid[l - 1][w];
                 } else {
-                    pathgrid[row_num][col_num] = pathgrid[row_num][col_num - 1] + pathgrid[row_num - 1][col_num];
+                    pathgrid[l][w] = pathgrid[l][w - 1] + pathgrid[l - 1][w];
                 }
             }
         }
 
-        return pathgrid[row - 1][col - 1];
+        return pathgrid[n - 1][m - 1];
     }
 
     public static void main(String[] args) {
@@ -93,6 +93,23 @@ class LC063_Unique_Path_II {
                 {0, 0, 0, 0},
         };
         assert testCase.uniquePathsWithObstacles(s2) == 7 : "Example 2";
+
+        int[][] s3 = new int[][]{
+                {0, 1, 0, 0},
+                {1, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+        };
+        assert testCase.uniquePathsWithObstacles(s3) == 0 : "Extra 1, all blocked";
+
+        int[][] s4 = new int[][]{
+                {0, 1, 0, 0},
+                {0, 0, 0, 0},
+                {1, 0, 0, 0},
+                {0, 0, 0, 0}
+        };
+        assert testCase.uniquePathsWithObstacles(s4) == 0 : "Extra 2, equal to 3 * 3 with no obstacle";
 
         System.out.println("all passed");
 
