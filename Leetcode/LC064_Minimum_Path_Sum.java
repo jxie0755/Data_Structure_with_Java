@@ -7,7 +7,7 @@
  * <p>
  * Note: You can only move either down or right at any point in time.
  */
-class LC063_Minimum_Path_Sum {
+class LC064_Minimum_Path_Sum {
 
     public int minPathSum(int[][] grid) {
 
@@ -36,7 +36,7 @@ class LC063_Minimum_Path_Sum {
     }
 
     public static void main(String[] args) {
-        LC063_Minimum_Path_Sum testCase = new LC063_Minimum_Path_Sum();
+        LC064_Minimum_Path_Sum testCase = new LC064_Minimum_Path_Sum();
         int[][] e1 = new int[][]{
                 {}
         };
