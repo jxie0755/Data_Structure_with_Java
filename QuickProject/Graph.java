@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -70,6 +71,22 @@ public class Graph {
 				if (v == w)
 					count++;
 		return count / 2;
+	}
+
+	public static void main(String[] args) {
+
+		Graph a = new Graph(5);
+		a.addEdge(3, 4);
+		System.out.println(Arrays.toString(a.adj));
+		a.addEdge(2, 3);
+		System.out.println(Arrays.toString(a.adj));
+		a.addEdge(2, 4);
+		System.out.println(Arrays.toString(a.adj));
+		System.out.println(a.adj(3));
+		System.out.println(Graph.numberOfSelfLoops(a));
+
+		//  0   1      2      3        4
+		// [[], [], [4, 3], [2, 4], [2, 3]]
 	}
 
 }
