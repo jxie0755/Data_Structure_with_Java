@@ -50,6 +50,8 @@ public class Graph {
 		return G.adj[v].size();
 	}
 
+
+	// 找出哪个点是连了最多的其他的点
 	public static int maxDegree(Graph G) {
 		int max = 0;
 		for (int v = 0; v < G.V(); v++) {
@@ -60,10 +62,12 @@ public class Graph {
 		return max;
 	}
 
+	// avgDegree = 总边数 / 总点数  (约算成整数)
 	public static int avgDegree(Graph G) {
 		return 2 * G.E() / G.V();
 	}
 
+	// 找出有多少个点是跟自己相连
 	public static int numberOfSelfLoops(Graph G) {
 		int count = 0;
 		for (int v = 0; v < G.V(); v++)
@@ -82,11 +86,17 @@ public class Graph {
 		System.out.println(Arrays.toString(a.adj));
 		a.addEdge(2, 4);
 		System.out.println(Arrays.toString(a.adj));
-		System.out.println(a.adj(3));
-		System.out.println(Graph.numberOfSelfLoops(a));
-
 		//  0   1      2      3        4
 		// [[], [], [4, 3], [2, 4], [2, 3]]
+
+		a.addEdge(1, 3);
+		a.addEdge(2, 2);
+		a.addEdge(3, 3);
+
+		System.out.println(Arrays.toString(a.adj));
+		System.out.println(Graph.avgDegree(a));
+
+		System.out.println(Graph.numberOfSelfLoops(a));
 	}
 
 }
