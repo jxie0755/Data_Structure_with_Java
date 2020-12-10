@@ -92,10 +92,8 @@ public class Graph {
 		a.addEdge(1, 3);
 		a.addEdge(2, 2);
 		a.addEdge(3, 3);
-
 		System.out.println(Arrays.toString(a.adj));
 		System.out.println(Graph.avgDegree(a));
-
 		System.out.println(Graph.numberOfSelfLoops(a));
 	}
 
