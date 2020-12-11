@@ -95,5 +95,4 @@ public class Graph {
 		System.out.println(Graph.avgDegree(a));
 		System.out.println(Graph.numberOfSelfLoops(a));
 	}
-
 }
