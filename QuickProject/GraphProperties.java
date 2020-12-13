@@ -13,8 +13,7 @@ public class GraphProperties {
 	 * shortest path from s to some vertex v, plus the edge from v back to s.
 	 */
 	public int grith() {
-		//replace the throw statement with your implementation
-		throw new UnsupportedOperationException();
+
 	}
 
 	public static void main(String[] args) {
