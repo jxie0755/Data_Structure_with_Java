@@ -15,24 +15,24 @@ class LC064_Minimum_Path_Sum {
             return 0;
         }
 
-        int m = grid[0].length;
-        int n = grid.length;
+        int m = grid.length;
+        int n = grid[0].length;
 
         for (int mm = 0; mm < m; mm += 1) {
             for (int nn = 0; nn < n; nn += 1) {
                 if (nn == 0 && mm == 0) {
                     grid[mm][nn] += 0;
-                } else if (nn == 0) {
-                    grid[nn][mm] += grid[nn][mm - 1];
                 } else if (mm == 0) {
-                    grid[nn][mm] += grid[nn - 1][mm];
+                    grid[mm][nn] += grid[mm][nn - 1];
+                } else if (nn == 0) {
+                    grid[mm][nn] += grid[mm - 1][nn];
                 } else {
-                    grid[nn][mm] += Math.min(grid[nn][mm - 1], grid[nn - 1][mm]);
+                    grid[mm][nn] += Math.min(grid[mm][nn - 1], grid[mm - 1][nn]);
                 }
             }
         }
 
-        return grid[n - 1][m - 1];
+        return grid[m - 1][n - 1];
     }
 
     public static void main(String[] args) {
