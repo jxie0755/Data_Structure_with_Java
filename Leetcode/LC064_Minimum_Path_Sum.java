@@ -21,13 +21,13 @@ class LC064_Minimum_Path_Sum {
         for (int mm = 0; mm < m; mm += 1) {
             for (int nn = 0; nn < n; nn += 1) {
                 if (nn == 0 && mm == 0) {
-
+                    grid[mm][nn] += 0;
                 } else if (nn == 0) {
-                    grid[nn][mm] = grid[nn][mm] + grid[nn][mm - 1];
+                    grid[nn][mm] += grid[nn][mm - 1];
                 } else if (mm == 0) {
-                    grid[nn][mm] = grid[nn][mm] + grid[nn - 1][mm];
+                    grid[nn][mm] += grid[nn - 1][mm];
                 } else {
-                    grid[nn][mm] = grid[nn][mm] + Math.min(grid[nn][mm - 1], grid[nn - 1][mm]);
+                    grid[nn][mm] += Math.min(grid[nn][mm - 1], grid[nn - 1][mm]);
                 }
             }
         }
