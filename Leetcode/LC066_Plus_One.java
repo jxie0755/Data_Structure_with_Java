@@ -100,9 +100,6 @@ class LC066_Plus_One {
         assert Arrays.equals(testCase.plusOne(s5), new int[]{1, 0, 0, 0}) : "Example 4";
 
         System.out.println("all passed");
-
-
     }
-
 }
 
