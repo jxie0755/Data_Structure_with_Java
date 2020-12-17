@@ -59,14 +59,12 @@ class LC066_Plus_One {
         // 进位标志, 下一位来的进位标志
         int carry = 1;
         int tmp;
-        for (int i = digits.length - 1; i >= 0; i--) {
+        for (int i = digits.length - 1; i >= 0; i-=1) {
             tmp = digits[i];
             // 计算当前位的新值
             digits[i] = (tmp + carry) % 10;
-            // 计算新的进位
             carry = (tmp + carry) / 10;
 
-            // 没有进位了就可以退出了
             if (carry == 0) {
                 break;
             }
@@ -77,7 +75,7 @@ class LC066_Plus_One {
             int[] result = new int[digits.length + 1];
             System.arraycopy(digits, 0, result, 1, digits.length);
             result[0] = carry;
-            return result;
+            return result; // in java must buid a new array and return
         } else {
             return digits;
         }
