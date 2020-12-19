@@ -24,7 +24,7 @@ class LC067_Add_Binary {
 
             if (muta_a.length() != 0) {
                 a_end = Character.getNumericValue(muta_a.charAt(muta_a.length() - 1));
-                muta_a.setLength(muta_a.length() - 1);
+                muta_a.setLength(muta_a.length() - 1); // like .pop(), remove the last character
             } else {
                 a_end = 0;
             }
