@@ -50,6 +50,7 @@ class LC067_Add_Binary {
         return result.toString();
     }
 
+
     public static void main(String[] args) {
         LC067_Add_Binary testCase = new LC067_Add_Binary();
         assert testCase.addBinary("0", "0").equals("0") : "Zero";
@@ -58,6 +59,5 @@ class LC067_Add_Binary {
         assert testCase.addBinary("111", "1").equals("1000") : "Extra 1";
         System.out.println("all passed");
     }
-
 }
 
