@@ -15,18 +15,20 @@ class LC069_Sqrt_X {
      * Be careful with the long number x
      */
     public int mySqrt(int x) {
-        long low = 1;
-        long high = x;
+        long lo = 0;
+        long hi = x;
 
         while (true) {
-            long mid = (low + high) / 2;
-            // System.out.println(mid);
+            long mid = (lo + hi) / 2;
             if (mid * mid <= x && (mid + 1) * (mid + 1) > x) {
                 return (int) mid;
-            } else if (mid * mid > x) {
-                high = mid;
             } else {
-                low = mid;
+                if (mid * mid < x) {
+                    lo = mid + 1;
+                }
+                if (mid * mid > x) {
+                    hi = mid - 1;
+                }
             }
         }
     }
@@ -38,7 +40,7 @@ class LC069_Sqrt_X {
         assert testCase.mySqrt(4) == 2 : "Four";
         assert testCase.mySqrt(8) == 2 : "EIGHT";
         assert testCase.mySqrt(36) == 6 : "THIRTY SIX";
-        // assert testCase.mySqrt(2147395601) == 46340 : "Long";
+        assert testCase.mySqrt(2147395601) == 46340 : "Long";
         System.out.println("all passed");
     }
 
