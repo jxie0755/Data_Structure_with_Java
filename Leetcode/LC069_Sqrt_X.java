@@ -38,8 +38,8 @@ class LC069_Sqrt_X {
         assert testCase.mySqrt(0) == 0 : "Zero";
         assert testCase.mySqrt(1) == 1 : "One";
         assert testCase.mySqrt(4) == 2 : "Four";
-        assert testCase.mySqrt(8) == 2 : "EIGHT";
-        assert testCase.mySqrt(36) == 6 : "THIRTY SIX";
+        assert testCase.mySqrt(8) == 2 : "Eight";
+        assert testCase.mySqrt(36) == 6 : "Thirty Six";
         assert testCase.mySqrt(2147395601) == 46340 : "Long";
         System.out.println("all passed");
     }
