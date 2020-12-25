@@ -14,7 +14,9 @@ class LC074_Search_A_2D_Matrix {
     /**
      * Version B
      * Direct binary search on the grid, without flatten
-     * Need to do two binary search
+     * Need to do two binary search:
+     *  First search for a row
+     *  Then find out if the element is in the row
      */
     public boolean searchMatrix(int[][] matrix, int target) {
 
