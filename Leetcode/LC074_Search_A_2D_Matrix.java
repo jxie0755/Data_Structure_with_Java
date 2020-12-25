@@ -24,35 +24,38 @@ class LC074_Search_A_2D_Matrix {
 
         int row_lo = 0;
         int row_hi = matrix.length - 1;
-        int col_lo = 0;
-        int col_hi = matrix[0].length - 1;
-        int row_mid = 0;
-
+        int row_idx = 0;  // must initiate a number to be able to locate if while loop is never entered
         while (row_lo <= row_hi) {
-            row_mid = (row_lo + row_hi) / 2;
-            int row_head = matrix[row_mid][0];
-            int row_tail = matrix[row_mid][matrix[0].length - 1];
-
-            if (row_head <= target && target <= row_tail) {
+            row_idx = (row_lo + row_hi) / 2;
+            int row_head = matrix[row_idx][0];
+            if (row_head > target) {
+                row_hi = row_idx - 1;
+            } else if (row_head == target) {
                 break;
-            } else if (target < row_head) {
-                row_hi = row_mid - 1;
-            } else {
-                row_lo = row_mid + 1;
+            } else if (row_head < target){
+                if (row_idx == matrix.length - 1) {
+                    break;
+                } else {
+                    if (matrix[row_idx + 1][0] <= target) {
+                        row_lo = row_idx + 1;
+                    } else {
+                        break;
+                    }
+                }
             }
         }
 
-        int[] row = matrix[row_mid];
-
+        int[] row = matrix[row_idx];
+        int col_lo = 0;
+        int col_hi = matrix[0].length - 1;
         while (col_lo <= col_hi) {
-            int col_mid = (col_lo + col_hi) / 2;
-            int check = row[col_mid];
-            if (check == target) {
+            int cold_idx = (col_lo + col_hi) / 2;
+            if (row[cold_idx] == target) {
                 return true;
-            } else if (target < check) {
-                col_hi = col_mid - 1;
+            } else if (target < row[cold_idx]) {
+                col_hi = cold_idx - 1;
             } else {
-                col_lo = col_mid + 1;
+                col_lo = cold_idx + 1;
             }
         }
         return false;
@@ -61,10 +64,15 @@ class LC074_Search_A_2D_Matrix {
     public static void main(String[] args) {
         LC074_Search_A_2D_Matrix testCase = new LC074_Search_A_2D_Matrix();
 
+        int[][] e0 = new int[][]{
+        };
+        assert !testCase.searchMatrix(e0, 3) : "Empty";
+
+
         int[][] e1 = new int[][]{
                 {}
         };
-        assert !testCase.searchMatrix(e1, 3) : "Edge 0";
+        assert !testCase.searchMatrix(e1, 3) : "Edge 1";
 
         int[][] e2 = new int[][]{
                 {1},
@@ -72,12 +80,12 @@ class LC074_Search_A_2D_Matrix {
                 {5},
                 {7}
         };
-        assert testCase.searchMatrix(e2, 3) : "Edge 1";
+        assert testCase.searchMatrix(e2, 3) : "Edge 2";
 
         int[][] e3 = new int[][]{
                 {1, 3, 5, 7},
         };
-        assert testCase.searchMatrix(e3, 3) : "Edge 2";
+        assert testCase.searchMatrix(e3, 3) : "Edge 3";
 
         int[][] s1 = new int[][]{
                 {1, 3, 5, 7},
