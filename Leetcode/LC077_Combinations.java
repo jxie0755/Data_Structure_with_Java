@@ -43,15 +43,12 @@ class LC077_Combinations {
             return result;
         } else {
             List<Integer> next_list = new ArrayList<>(nums);
-            int head = next_list.remove(0);
-
+            int tail = next_list.remove(nums.size()-1); // pop at the end
             for (List<Integer> com : this.combinationSolo(next_list, k - 1)) {
-                List<Integer> head_combination = new ArrayList<>(com);
-                head_combination.add(0, head);
-                result.add(head_combination);
+                com.add(tail);
+                result.add(com);
             }
-
-            result.addAll(this.combinationSolo(nums.subList(1, nums.size()), k));
+            result.addAll(this.combinationSolo(next_list, k));
             return result;
         }
     }
@@ -70,6 +67,7 @@ class LC077_Combinations {
         assert E2.equals(A2);
 
         List<List<Integer>> S1 = testCase.combine(5, 3);
+        S1.sort(new IntGridComparator());  // Sort S1 to ensure the sequence is correct
         List<List<Integer>> A3 = new ArrayList<>();
         A3.add(new ArrayList<>(Arrays.asList(1, 2, 3)));
         A3.add(new ArrayList<>(Arrays.asList(1, 2, 4)));
