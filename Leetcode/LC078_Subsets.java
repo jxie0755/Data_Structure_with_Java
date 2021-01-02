@@ -48,15 +48,14 @@ class LC078_Subsets {
             return result;
         } else {
             List<Integer> next_list = new ArrayList<>(nums);
-            int head = next_list.remove(0);
+            int tail = next_list.remove(nums.size() - 1);
 
             for (List<Integer> com : this.combinationSolo(next_list, k - 1)) {
-                List<Integer> head_combination = new ArrayList<>(com);
-                head_combination.add(0, head);
-                result.add(head_combination);
+                com.add(tail);
+                result.add(com);
             }
 
-            result.addAll(this.combinationSolo(nums.subList(1, nums.size()), k));
+            result.addAll(this.combinationSolo(next_list, k));
             return result;
         }
     }
@@ -66,34 +65,34 @@ class LC078_Subsets {
         LC078_Subsets testCase = new LC078_Subsets();
 
         int[] e1 = new int[]{};
-        List<List<Integer>> sorted_e1 = testCase.subsets(e1);
-        sorted_e1.sort(new IntGridComparator());
+        List<List<Integer>> e1_result = testCase.subsets(e1);
+        e1_result.sort(new IntGridComparator());
         List<List<Integer>> a1 = new ArrayList<>(Arrays.asList());
         a1.add(new ArrayList<>(Arrays.asList()));
-        assert sorted_e1.equals(a1) : "Edge 0";
+        assert e1_result.equals(a1) : "Edge 0";
 
         int[] e2 = new int[]{1};
-        List<List<Integer>> sorted_e2 = testCase.subsets(e2);
-        sorted_e2.sort(new IntGridComparator());
+        List<List<Integer>> e2_result = testCase.subsets(e2);
+        e2_result.sort(new IntGridComparator());
         List<List<Integer>> a2 = new ArrayList<>(Arrays.asList());
         a2.add(new ArrayList<>(Arrays.asList()));
         a2.add(new ArrayList<>(Arrays.asList(1)));
         a2.sort(new IntGridComparator());
-        assert sorted_e2.equals(a2) : "Edge 1";
+        assert e2_result.equals(a2) : "Edge 1";
 
         int[] s1 = new int[]{1, 2};
-        List<List<Integer>> sorted_s1 = testCase.subsets(s1);
-        sorted_s1.sort(new IntGridComparator());
+        List<List<Integer>> s1_result = testCase.subsets(s1);
+        s1_result.sort(new IntGridComparator());
         List<List<Integer>> a3 = new ArrayList<>(Arrays.asList());
         a3.add(new ArrayList<>(Arrays.asList()));
         a3.add(new ArrayList<>(Arrays.asList(1)));
         a3.add(new ArrayList<>(Arrays.asList(1, 2)));
         a3.add(new ArrayList<>(Arrays.asList(2)));
-        assert sorted_s1.equals(a3) : "Example 1";
+        assert s1_result.equals(a3) : "Example 1";
 
         int[] s2 = new int[]{1, 2, 3};
-        List<List<Integer>> sorted_s2 = testCase.subsets(s2);
-        sorted_s2.sort(new IntGridComparator());
+        List<List<Integer>> s2_result = testCase.subsets(s2);
+        s2_result.sort(new IntGridComparator());
         List<List<Integer>> a4 = new ArrayList<>(Arrays.asList());
         a4.add(new ArrayList<>(Arrays.asList()));
         a4.add(new ArrayList<>(Arrays.asList(1)));
@@ -103,7 +102,8 @@ class LC078_Subsets {
         a4.add(new ArrayList<>(Arrays.asList(2)));
         a4.add(new ArrayList<>(Arrays.asList(2, 3)));
         a4.add(new ArrayList<>(Arrays.asList(3)));
-        assert sorted_s2.equals(a4) : "Example 2";
+        assert s2_result.equals(a4) : "Example 2";
+        
         System.out.println("all passed");
     }
 }
