@@ -1,6 +1,4 @@
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/word-search/
@@ -13,17 +11,21 @@ import java.util.Set;
 public class LC079_Word_Search {
 
     /**
-     * Version A
+     * Version STD
      */
     public boolean exist(char[][] board, String word) {
 
-        int row = board.length;
-        int col = board[0].length;
+        int height = board.length;
+        int width = board[0].length;
 
-        for (int x = 0; x < row; x += 1) {
-            for (int y = 0; y < col; y += 1) {
-                List<Integer> coor = List.of(x, y);
-                if (this.finder(board, word, 0, coor, new HashSet<>())) {
+        boolean[][] visited = new boolean[board.length][board[0].length];
+        for (boolean[] visited_row : visited) {
+            Arrays.fill(visited_row, false);
+        }
+
+        for (int row = 0; row < height; row += 1) {
+            for (int col = 0; col < width; col += 1) {
+                if (this.existRecu(board, visited, word, row, col)) {
                     return true;
                 }
             }
@@ -33,39 +35,27 @@ public class LC079_Word_Search {
 
     /**
      * A helper function to find whether a word can be found in the matrix
-     * 需要使用哈希set来记忆之前走过哪些坐标
-     * (注意这里坐标需要用可哈希的inmutable list来实现)
-     * (但是Leetcode不允许使用List.of, 因为java 8没有此功能,此方法到Java9才推出)
      */
-    private boolean finder(char[][] board, String word, int idx, List<Integer> coor, Set<List<Integer>> prev) {
-
-        int N = word.length();
-        int x = coor.get(0);
-        int y = coor.get(1);
-        int row = board.length;
-        int col = board[0].length;
-
-        if (idx == N) {
+    private boolean existRecu(char[][] board, boolean[][] visited, String word, int row, int col) {
+        if (word.length() == 0) {
             return true;
-        } else if (x < 0 || x >= row || y < 0 || y >= col) {
+        } else if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) {
             return false;
-        } else if (prev.contains(coor)) {
+        } else if (visited[row][col]) {
             return false;
-        } else if (board[x][y] != word.charAt(idx)) {
+        } else if (board[row][col] != word.charAt(0)) {
             return false;
         } else {
-            HashSet<List<Integer>> new_prev = new HashSet<>(prev);
-            new_prev.add(coor);
+            visited[row][col] = true;
+            boolean result =
+                    this.existRecu(board, visited, word.substring(1), row - 1, col)
+                    || this.existRecu(board, visited, word.substring(1), row + 1, col)
+                    || this.existRecu(board, visited, word.substring(1), row, col - 1)
+                    || this.existRecu(board, visited, word.substring(1), row, col + 1);
 
-            List<Integer> up = List.of(x - 1, y);
-            List<Integer> down = List.of(x + 1, y);
-            List<Integer> left = List.of(x, y - 1);
-            List<Integer> right = List.of(x, y + 1);
+            visited[row][col] = false;
 
-            return this.finder(board, word, idx + 1, up, new_prev)
-                    || this.finder(board, word, idx + 1, down, new_prev)
-                    || this.finder(board, word, idx + 1, left, new_prev)
-                    || this.finder(board, word, idx + 1, right, new_prev);
+            return result;
         }
     }
 
