@@ -30,7 +30,7 @@ class LC036_Valid_Sudoku {
     // 检查所有row是否不发生冲突
     private boolean all_rows(char[][] board) {
         for (char[] row : board) {
-            if (!this.correct_line(row)) {
+            if (this.correct_line(row)) {
                 return false;
             }
         }
@@ -45,7 +45,7 @@ class LC036_Valid_Sudoku {
             for (int j = 0; j < 9; j += 1) {
                 col[j] = board[j][i];
             }
-            if (!this.correct_line(col)) {
+            if (this.correct_line(col)) {
                 return false;
             }
         }
@@ -68,7 +68,7 @@ class LC036_Valid_Sudoku {
         };
 
         for (char[] blk : blocks) {
-            if (!this.correct_line(blk)) {
+            if (this.correct_line(blk)) {
                 return false;
             }
         }
@@ -85,10 +85,10 @@ class LC036_Valid_Sudoku {
                 cur = i;
             } else if (i == cur) {
                 ;
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public static void main(String[] args) {
