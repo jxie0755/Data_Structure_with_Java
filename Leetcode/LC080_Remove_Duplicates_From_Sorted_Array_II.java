@@ -33,35 +33,28 @@ public class LC080_Remove_Duplicates_From_Sorted_Array_II {
      * Need special handling with Array, set it to None (as the length won't change)
      */
     public int removeDuplicates(int[] nums) {
-
-        if (nums.length == 0) {
-            return 0;
-        }
-
-
-        int i = 0;
-        int open = 0;
+        int check_idx = 0;
+        int idx = 0;
         Map<Integer, Integer> hmp = new HashMap<>();
-        hmp.put(nums[0], 0);
+        hmp.put(Integer.MAX_VALUE, 0);
 
-
-        while (i != nums.length) {
-            int k = nums[i];
-            if (hmp.containsKey(k)) {
-                if (hmp.get(k) < 2) {
-                    hmp.replace(k, hmp.get(k) + 1);
-                    nums[open] = k;
-                    open += 1;
+        while (check_idx != nums.length) {
+            int cur = nums[check_idx];
+            if (hmp.containsKey(cur)) {
+                if (hmp.get(cur) < 2) {
+                    hmp.replace(cur, hmp.get(cur) + 1);
+                    nums[idx] = cur;
+                    idx += 1;
                 }
             } else {
                 hmp.clear();
-                hmp.put(k, 1);
-                nums[open] = k;
-                open += 1;
+                hmp.put(cur, 1);
+                nums[idx] = cur;
+                idx += 1;
             }
-            i += 1;
+            check_idx += 1;
         }
-        return open;
+        return idx;
     }
 
     public static void main(String[] args) {
