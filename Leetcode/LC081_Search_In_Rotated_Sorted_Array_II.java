@@ -34,17 +34,9 @@ class LC081_Search_In_Rotated_Sorted_Array_II {
         if (A && B) {
             return this.binarySearch(first, target) || this.binarySearch(second, target);
         } else if (A) {
-            if (this.binarySearch(first, target)) {
-                return true;
-            } else {
-                return this.search(second, target);
-            }
+            return this.binarySearch(first, target) || this.search(second, target);
         } else {
-            if (this.binarySearch(second, target)) {
-                return true;
-            } else {
-                return this.search(first, target);
-            }
+            return this.binarySearch(second, target) ||this.search(first, target);
         }
     }
 
