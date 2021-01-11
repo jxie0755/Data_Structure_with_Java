@@ -81,7 +81,7 @@ class LC077_Combinations {
         A3.add(new ArrayList<>(Arrays.asList(3, 4, 5)));
         assert S1.equals(A3);
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

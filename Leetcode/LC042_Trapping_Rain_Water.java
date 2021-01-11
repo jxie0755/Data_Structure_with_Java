@@ -97,7 +97,7 @@ class LC042_Trapping_Rain_Water {
         int[] q11 = {8, 5, 4, 1, 8, 9, 3, 0, 0};
         assert testCase.trap(q11) == 14 : "Extra 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

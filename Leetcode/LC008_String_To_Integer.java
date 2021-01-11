@@ -161,6 +161,6 @@ class LC008_String_To_Integer {
         assert testCase.myAtoi("10000000000000000000000522545459") == 2147483647 : "Extra 9, Beyong Long";
         // special case, won't find out it is oversized until to the first digit (even oversize than Long)
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

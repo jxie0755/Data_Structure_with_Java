@@ -103,8 +103,8 @@ class LC078_Subsets {
         a4.add(new ArrayList<>(Arrays.asList(2, 3)));
         a4.add(new ArrayList<>(Arrays.asList(3)));
         assert s2_result.equals(a4) : "Example 2";
-        
-        System.out.println("all passed");
+
+        System.out.println("All passed");
     }
 }
 

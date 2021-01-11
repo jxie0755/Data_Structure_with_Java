@@ -83,7 +83,7 @@ class LC048_Rotate_Image {
                 {16, 7, 10, 11}
         }) : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

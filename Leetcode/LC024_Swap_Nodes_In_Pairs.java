@@ -85,7 +85,7 @@ class LC024_Swap_Nodes_In_Pairs {
         ListNode Q4 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});
         assert ListNode.showString(testCase.swapPairs(Q4)).equals("2->1->4->3->5") : "Odd Length";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

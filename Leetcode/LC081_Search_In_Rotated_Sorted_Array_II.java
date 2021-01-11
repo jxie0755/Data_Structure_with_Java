@@ -91,7 +91,7 @@ class LC081_Search_In_Rotated_Sorted_Array_II {
         assert testCase.search(new int[]{3, 1}, 1) : "Additional 2";
         assert !testCase.search(new int[]{1, 3, 5}, 0) : "Additional 3";
         assert !testCase.search(new int[]{0, 1, 2, 3, 3, 3}, 4) : "Additional 4";
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

@@ -125,6 +125,6 @@ public class LC079_Word_Search {
 
         assert testCase.exist(long_board, long_word);
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

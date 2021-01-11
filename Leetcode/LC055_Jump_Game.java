@@ -53,7 +53,7 @@ class LC055_Jump_Game {
         int[] q8 = {3, 2, 5, 0, 1, 0, 0, 2, 0, 0, 1};
         assert !testCase.canJump(q8) : "Extra 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

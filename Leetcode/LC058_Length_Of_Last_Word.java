@@ -61,7 +61,7 @@ class LC058_Length_Of_Last_Word {
         assert testCase.lengthOfLastWord("  a") == 1 : "Extra 4";
         assert testCase.lengthOfLastWord("  aaaa   ") == 4 : "Extra 5";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

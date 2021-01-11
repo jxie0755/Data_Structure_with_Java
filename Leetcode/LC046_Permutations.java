@@ -79,6 +79,6 @@ class LC046_Permutations {
         q2_ans.sort(new IntGridComparator());  // must sort to ensure sequence
         assert q2_ans.equals(a2) : "Example 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

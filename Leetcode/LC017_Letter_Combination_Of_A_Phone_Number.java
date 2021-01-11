@@ -80,7 +80,7 @@ class LC017_Letter_Combination_Of_A_Phone_Number {
         List<String> a7 = new ArrayList<>(Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"));
         assert testCase.letterCombinations("213").equals(a7) : "Example 4";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 

@@ -47,7 +47,7 @@ class LC019_Remove_Nth_Node_From_End_Of_List {
         ListNode a3 = ListNode.genNode(new int[]{1, 2, 3, 5});
         assert testCase.removeNthFromEnd(q3, 2).equals(a3) : "Case 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 

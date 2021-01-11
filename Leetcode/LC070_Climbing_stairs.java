@@ -35,7 +35,7 @@ class LC070_Climbing_stairs {
         assert testCase.climbStairs(2) == 2 : "Example 1";
         assert testCase.climbStairs(3) == 3 : "Example 2";
         assert testCase.climbStairs(7) == 21 : "Long";
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

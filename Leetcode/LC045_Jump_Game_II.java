@@ -66,7 +66,7 @@ class LC045_Jump_Game_II {
                 6, 8, 8, 4, 4, 2, 0, 3, 8, 5};
         assert testCase.jump(q5) == 5 : "Long 3";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

@@ -62,7 +62,7 @@ public class LC082_Remove_Duplicates_From_Sorted_List_II {
         ListNode q8 = ListNode.genNode(new int[]{1, 1, 1, 1});
         assert ListNode.showString(testCase.deleteDuplicates(q8)).equals("None") : "Additional 3";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

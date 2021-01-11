@@ -69,6 +69,6 @@ class LC002_Add_Two_Numbers {
         ListNode c4 = testCase.addTwoNumbers(a4, b4);
         assert ListNode.showString(c4).equals("0->4->4") : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

@@ -66,7 +66,7 @@ class LC061_Roate_List {
                 ListNode.genNode(new int[]{2, 0, 1})
         ) : "Example 3";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

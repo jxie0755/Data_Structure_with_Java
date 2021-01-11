@@ -63,7 +63,7 @@ class LC049_Group_Anagrams {
         Collections.sort(a3, new StringListComparator());
         assert a3.equals(sorted_a3) : "Example 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

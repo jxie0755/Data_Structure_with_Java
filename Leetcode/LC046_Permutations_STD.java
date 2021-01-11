@@ -10,8 +10,8 @@ class LC046_Permutations_STD {
 
     /**
      * STD Ans
-     * 给定一个数组, 返回他的所有排列. 
-     * 解题思路: 使用分治法求解. 
+     * 给定一个数组, 返回他的所有排列.
+     * 解题思路: 使用分治法求解.
      */
     private List<List<Integer>> result;
 
@@ -67,6 +67,6 @@ class LC046_Permutations_STD {
         // assert testCase.permute(q2).equals(a2) : "Example 1";
         // System.out.println(testCase.permute(q2));
         // >>> [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]  // it is not perfect
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

@@ -84,7 +84,7 @@ class LC012_Integer_To_Roman {
     public static void main(String[] args) {
         LC012_Integer_To_Roman testCase = new LC012_Integer_To_Roman();
         assert testCase.intToRoman(3888).equals("MMMDCCCLXXXVIII");
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

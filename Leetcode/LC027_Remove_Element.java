@@ -45,7 +45,7 @@ class LC027_Remove_Element {
         assert testCase.removeElement(Q2, 2) == 5 : "Example 2";
         assert Arrays.equals(Q2, new int[]{0, 1, 3, 0, 4, 0, 4, 2}) : "Example 2 finish list";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

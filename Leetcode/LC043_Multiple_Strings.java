@@ -115,7 +115,7 @@ class LC043_Multiple_Strings {
         assert testCase.multiply("123", "456").equals("56088") : "Example 1";
         assert testCase.multiply("50", "50").equals("2500") : "Extra 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

@@ -201,7 +201,7 @@ class LC031_Next_Permutation {
         testCase.prevPermutation(Q10);
         assert Arrays.equals(Q10, new int[]{2, 3, 1}) : "Extra 4 prev";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 }

@@ -49,7 +49,7 @@ class LC022_Generate_Parenthesis {
         List<String> a4 = new ArrayList<>(Arrays.asList("(((())))", "((()()))", "((())())", "((()))()", "(()(()))", "(()()())", "(()())()", "(())(())", "(())()()", "()((()))", "()(()())", "()(())()", "()()(())", "()()()()"));
         assert testCase.generateParenthesis(4).equals(a4) : "4 pairs";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 
 }

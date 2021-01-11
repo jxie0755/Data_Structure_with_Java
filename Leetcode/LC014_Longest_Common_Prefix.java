@@ -53,7 +53,7 @@ class LC014_Longest_Common_Prefix {
         String[] l2 = new String[]{};
         assert testCase.longestCommonPrefix(l2).equals("") : "empty";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 }

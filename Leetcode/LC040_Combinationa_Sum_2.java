@@ -69,7 +69,7 @@ class LC040_Combinationa_Sum_2 {
         List<List<Integer>> b = new ArrayList<>(Arrays.asList(b1, b2));
         assert testCase.combinationSum2(q2, 5).equals(b) : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 
 }

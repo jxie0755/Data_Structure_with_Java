@@ -50,7 +50,7 @@ class LC026_Remove_Duplicates_From_Sorted_Array {
         assert testCase.removeDuplicates(Q2) == 3 : "Example 1";
         assert Arrays.equals(Q2, new int[]{1, 2, 3, 2, 3}) : "Example 1 revised list";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

@@ -100,6 +100,6 @@ class LC004_Medium_Of_Two_Sorted_Array {
         int[] g2 = new int[]{-2, -1};
         assert testCase.findMedianSortedArrays(g1, g2) == -1.0 : "Negative";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

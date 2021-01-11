@@ -481,7 +481,7 @@ class LC037_Sudku_Solver {
 
         });
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

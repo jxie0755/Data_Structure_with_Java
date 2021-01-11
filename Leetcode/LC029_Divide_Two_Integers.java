@@ -66,7 +66,7 @@ class LC029_Divide_Two_Integers {
         assert testCase.divide(-2147483648, -1) == 2147483647 : "Long 2";
         assert testCase.divide(-2147483648, -3) == 715827882 : "Long 3";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 
 }

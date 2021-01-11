@@ -179,7 +179,7 @@ class LC057_Insert_Interval {
                 new int[][]{{1, 4}, {7, 10}, {11, 12}}
         ) : "Extra 11";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

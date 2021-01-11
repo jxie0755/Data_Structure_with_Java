@@ -80,7 +80,7 @@ class LC038_Count_And_Say {
         assert testCase.countAndSay(5).equals("111221") : "fifth";
         assert testCase.countAndSay(6).equals("312211") : "sixth";
         assert testCase.countAndSay(10).equals("13211311123113112211") : "Very Long";
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

@@ -51,7 +51,7 @@ class LC001_Two_Sum {
         int[] Q5 = new int[]{3, 2, 4};
         assert Arrays.equals(testCase.twoSum(Q5, 6), new int[]{1, 2}) : "struggle with 1/2 target";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

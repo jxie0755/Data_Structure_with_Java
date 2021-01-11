@@ -69,7 +69,7 @@ public class LC075_Sort_Colors {
         testCase.sortColors(s3);
         assert Arrays.equals(s3, new int[]{0, 1}) : "Addtional 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

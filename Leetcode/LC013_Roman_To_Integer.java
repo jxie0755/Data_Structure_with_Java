@@ -61,7 +61,7 @@ class LC013_Roman_To_Integer {
         LC013_Roman_To_Integer testCase = new LC013_Roman_To_Integer();
 
         assert testCase.romanToInt("MMMCDXCIX") == 3499 : "Example 1";
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

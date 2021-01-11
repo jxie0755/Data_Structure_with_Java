@@ -82,7 +82,7 @@ class LC053_Maximum_Subarray {
         int[] q12 = {1, 2, 3, -8, 2, 3, 4, -2, 9, -8, 9, -8, -7, -6};
         assert testCase.maxSubArray(q12) == 17 : "extra";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

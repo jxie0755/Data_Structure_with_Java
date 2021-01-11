@@ -85,7 +85,7 @@ class LC073_Set_Matrix_Zeroes {
                 {0, 3, 1, 0}
         }) : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

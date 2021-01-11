@@ -111,7 +111,7 @@ class LC063_Unique_Path_II {
         };
         assert testCase.uniquePathsWithObstacles(s4) == 0 : "Extra 2, equal to 3 * 3 with no obstacle";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 

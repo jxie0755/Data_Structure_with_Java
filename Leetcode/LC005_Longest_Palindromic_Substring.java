@@ -70,7 +70,7 @@ class LC005_Longest_Palindromic_Substring {
 
         assert testCase.longestPalindrome(a).equals(b) : "Long string";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

@@ -28,6 +28,6 @@ class LC028_Implement_strSTR {
         assert testCase.strStr("abcdeabcde", "de") == 3 : "Examle 1";
         assert testCase.strStr("abcdeabcde", "zz") == -1 : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

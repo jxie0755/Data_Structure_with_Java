@@ -76,7 +76,7 @@ class LC007_Reverse_Integer {
         assert testCase.reverse(-120) == -21 : "Negative jump";
         assert testCase.reverse(1534236469) == 0 : "Exceed";
         assert testCase.reverse(0) == 0 : "Zero";
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 }

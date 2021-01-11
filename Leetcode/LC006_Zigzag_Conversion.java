@@ -62,7 +62,7 @@ class LC006_Zigzag_Conversion {
         assert testCase.convert("PAYPALISHIRING", 3).equals("PAHNAPLSIIGYIR") : "Example 1";
         assert testCase.convert("PAYPALISHIRING", 4).equals("PINALSIGYAHRPI") : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 }

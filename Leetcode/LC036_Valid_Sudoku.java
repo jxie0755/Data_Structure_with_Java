@@ -136,7 +136,7 @@ class LC036_Valid_Sudoku {
 
         assert !testCase.isValidSudoku(example_3) : "Example 3";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

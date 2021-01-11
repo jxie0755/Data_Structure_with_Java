@@ -161,7 +161,7 @@ class LC039_Combination_Sum {
 
         assert a9.equals(sorted_a9) : "Extra 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 
 }

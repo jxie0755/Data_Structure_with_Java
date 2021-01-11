@@ -65,7 +65,7 @@ class LC041_First_Missing_Positive {
         int[] q8 = {2, 2};
         assert testCase.firstMissingPositive(q8) == 1 : "Extra 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 

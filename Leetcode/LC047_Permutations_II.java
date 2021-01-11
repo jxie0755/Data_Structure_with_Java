@@ -123,7 +123,7 @@ class LC047_Permutations_II {
         q4_ans.sort(new IntGridComparator());
         assert q4_ans.equals(a4) : "Extra 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

@@ -97,7 +97,7 @@ class LC074_Search_A_2D_Matrix {
         assert testCase.searchMatrix(s1, 3) : "Example 1";
         assert !testCase.searchMatrix(s1, 13) : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

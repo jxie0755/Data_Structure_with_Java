@@ -78,7 +78,7 @@ class LC056_Merge_Interval {
                 new int[][]{{1, 5}}
         ) : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

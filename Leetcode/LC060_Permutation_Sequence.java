@@ -67,7 +67,7 @@ class LC060_Permutation_Sequence {
         assert testCase.getPermutation(4, 9).equals("2314") : "Example 2";
         assert testCase.getPermutation(8, 29805).equals("68327415") : "Long 1";
         assert testCase.getPermutation(9, 62716).equals("265183794") : "Long 2";
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 
 }

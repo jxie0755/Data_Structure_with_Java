@@ -84,7 +84,7 @@ class LC059_Spiral_Matrix_II {
 
         }) : "Example 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

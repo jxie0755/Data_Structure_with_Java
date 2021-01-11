@@ -82,6 +82,6 @@ class LC084_Largest_Rectangle_in_Histogram {
         }
         assert testCase.largestRectangleArea(long_array) == 1000000 : "Extralong";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

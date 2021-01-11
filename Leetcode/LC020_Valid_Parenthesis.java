@@ -59,7 +59,7 @@ class LC020_Valid_Parenthesis {
         assert !testCase.isValid("(({[(((1)-2)+3)-3]/3}-3)") : "One is redundant";
         assert testCase.isValid("2+3") : "No brackets, no problem";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 

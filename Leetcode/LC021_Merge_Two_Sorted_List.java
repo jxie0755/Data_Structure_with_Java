@@ -45,7 +45,7 @@ class LC021_Merge_Two_Sorted_List {
         ListNode l2 = ListNode.genNode(new int[]{1, 3, 4});
         assert ListNode.showString(testCase.mergeTwoLists(l1, l2)).equals("1->1->2->3->4->4") : "Example 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

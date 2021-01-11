@@ -90,7 +90,7 @@ class LC015_3Sum {
         List<List<Integer>> a7 = new ArrayList<>(Arrays.asList(a71));
         assert testCase.threeSum(new int[]{0, 0, 0}).equals(a7) : "Example 4";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

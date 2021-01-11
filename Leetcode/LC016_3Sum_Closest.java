@@ -66,7 +66,7 @@ class LC016_3Sum_Closest {
         int[] q3 = new int[]{-1, 2, 1, -1};
         assert testCase.threeSumClosest(q3, 0) == 0 : "Match";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 }

@@ -58,6 +58,6 @@ class LC011_Container_With_Most_Water {
         int[] q7 = new int[]{1, 1, 4, 1, 5, 5, 4, 1, 1, 1};
         assert testCase.maxArea(q7) == 16 : "Example 5";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }

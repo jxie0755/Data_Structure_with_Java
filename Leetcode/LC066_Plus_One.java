@@ -99,7 +99,7 @@ class LC066_Plus_One {
         int[] s5 = new int[]{9, 9, 9};
         assert Arrays.equals(testCase.plusOne(s5), new int[]{1, 0, 0, 0}) : "Example 4";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

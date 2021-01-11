@@ -92,7 +92,7 @@ class LC018_4Sum {
         List<List<Integer>> a5 = new ArrayList<>(Arrays.asList(a51, a52, a53, a54, a55, a56, a57, a58));
         assert testCase.fourSum(new int[]{-3, -2, -1, 0, 0, 1, 2, 3}, 0).equals(a5) : "Example 2";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
 
     }
 

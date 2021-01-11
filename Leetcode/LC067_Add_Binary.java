@@ -57,7 +57,7 @@ class LC067_Add_Binary {
         assert testCase.addBinary("11", "1").equals("100") : "Example 1";
         assert testCase.addBinary("1010", "1011").equals("10101") : "Example 2";
         assert testCase.addBinary("111", "1").equals("1000") : "Extra 1";
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

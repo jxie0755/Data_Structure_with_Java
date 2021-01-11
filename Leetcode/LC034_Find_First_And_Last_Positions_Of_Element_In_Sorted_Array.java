@@ -166,7 +166,7 @@ class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
                 new int[]{2, 5})
                 : "Extra 6";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

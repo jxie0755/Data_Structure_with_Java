@@ -75,7 +75,7 @@ public class LC080_Remove_Duplicates_From_Sorted_Array_II {
         assert testCase.removeDuplicates(a3) == 7 : "Example 2";
         assert Arrays.equals(a3, new int[]{0, 0, 1, 1, 2, 3, 3, 3, 3}) : "Example 2 array check";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

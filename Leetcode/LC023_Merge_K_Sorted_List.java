@@ -70,7 +70,7 @@ class LC023_Merge_K_Sorted_List {
         ListNode c = ListNode.genNode(new int[]{2, 6});
         assert ListNode.showString(testCase.mergeKLists(new ListNode[]{a, b, c})).equals("1->1->2->3->4->4->5->6") : "Example";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 }
 

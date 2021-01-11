@@ -65,7 +65,7 @@ class LC064_Minimum_Path_Sum {
         };
         assert testCase.minPathSum(s1) == 7 : "Example 1";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 
 }

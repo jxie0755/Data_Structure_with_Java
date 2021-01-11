@@ -38,7 +38,7 @@ class LC035_Search_Insert_Position {
         assert testCase.searchInsert(Q, 5) == 2 : "In the list";
         assert testCase.searchInsert(Q, 7) == 4 : "At the end";
 
-        System.out.println("all passed");
+        System.out.println("All passed");
     }
 
 }
