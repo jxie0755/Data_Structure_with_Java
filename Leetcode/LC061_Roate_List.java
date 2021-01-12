@@ -40,8 +40,8 @@ class LC061_Roate_List {
     public static void main(String[] args) {
         LC061_Roate_List testCase = new LC061_Roate_List();
 
-        ListNode E0 = ListNode.genNode(new int[]{0});
-        assert testCase.rotateRight(E0, 2).equals(E0) : "Edge 0";
+        ListNode E0 = null;
+        assert testCase.rotateRight(E0, 2) == null: "Empty";
 
         ListNode E1 = ListNode.genNode(new int[]{1});
         assert testCase.rotateRight(E1, 2).equals(E1) : "Edge 1";

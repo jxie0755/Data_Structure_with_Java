@@ -49,10 +49,10 @@ class LC002_Add_Two_Numbers {
     public static void main(String[] args) {
         LC002_Add_Two_Numbers testCase = new LC002_Add_Two_Numbers();
 
-        ListNode a1 = ListNode.genNode(new int[]{0});
+        ListNode a1 = ListNode.genNode(new int[]{1});
         ListNode b1 = ListNode.genNode(new int[]{0, 1});
         ListNode c1 = testCase.addTwoNumbers(a1, b1);
-        assert ListNode.showString(c1).equals("0->1") : "Simple Case 1";
+        assert ListNode.showString(c1).equals("1->1") : "Simple Case 1";
 
         ListNode a2 = new ListNode(9);
         ListNode b2 = new ListNode(9);

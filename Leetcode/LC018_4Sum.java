@@ -66,14 +66,14 @@ class LC018_4Sum {
         LC018_4Sum testCase = new LC018_4Sum();
 
         List<List<Integer>> a1 = new ArrayList<>();
-        assert testCase.fourSum(new int[]{0}, 0).equals(a1) : "Edge 1";
+        assert testCase.fourSum(new int[]{}, 0).equals(a1) : "Empty";
 
         List<List<Integer>> a2 = new ArrayList<>();
-        assert testCase.fourSum(new int[]{1}, 0).equals(a2) : "Edge 2";
+        assert testCase.fourSum(new int[]{1}, 0).equals(a2) : "Edge 1";
 
         List<Integer> a31 = new ArrayList<>(Arrays.asList(0, 0, 0, 0));
         List<List<Integer>> a3 = new ArrayList<>(Arrays.asList(a31));
-        assert testCase.fourSum(new int[]{0, 0, 0, 0}, 0).equals(a3) : "Edge 3";
+        assert testCase.fourSum(new int[]{0, 0, 0, 0}, 0).equals(a3) : "Edge 2";
 
         List<Integer> a41 = new ArrayList<>(Arrays.asList(-2, -1, 1, 2));
         List<Integer> a42 = new ArrayList<>(Arrays.asList(-2, 0, 0, 2));

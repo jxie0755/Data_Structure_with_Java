@@ -85,7 +85,7 @@ class LC066_Plus_One {
     public static void main(String[] args) {
         LC066_Plus_One testCase = new LC066_Plus_One();
         int[] s1 = new int[]{0};
-        assert Arrays.equals(testCase.plusOne(s1), new int[]{1}) : "Edge 0";
+        assert Arrays.equals(testCase.plusOne(s1), new int[]{1}) : "Edge 1";
 
         int[] s2 = new int[]{1, 2, 3};
         assert Arrays.equals(testCase.plusOne(s2), new int[]{1, 2, 4}) : "Example 1";

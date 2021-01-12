@@ -134,23 +134,23 @@ class LC031_Next_Permutation {
 
         int[] Q1 = new int[]{};
         testCase.nextPermutation(Q1);
-        assert Arrays.equals(Q1, new int[]{}) : "Edge 1";
+        assert Arrays.equals(Q1, new int[]{}) : "Emply";
         testCase.prevPermutation(Q1);
-        assert Arrays.equals(Q1, new int[]{}) : "Edge 1 prev";
+        assert Arrays.equals(Q1, new int[]{}) : "Emplety prev";
 
 
         int[] Q2 = new int[]{1};
         testCase.nextPermutation(Q2);
-        assert Arrays.equals(Q2, new int[]{1}) : "Edge 2";
+        assert Arrays.equals(Q2, new int[]{1}) : "Edge 1";
         testCase.prevPermutation(Q2);
-        assert Arrays.equals(Q2, new int[]{1}) : "Edge 2 prev";
+        assert Arrays.equals(Q2, new int[]{1}) : "Edge 1 prev";
 
 
         int[] Q3 = new int[]{1, 2};
         testCase.nextPermutation(Q3);
-        assert Arrays.equals(Q3, new int[]{2, 1}) : "Edge 3";
+        assert Arrays.equals(Q3, new int[]{2, 1}) : "Edge 2";
         testCase.prevPermutation(Q3);
-        assert Arrays.equals(Q3, new int[]{1, 2}) : "Edge 3 prev";
+        assert Arrays.equals(Q3, new int[]{1, 2}) : "Edge 2 prev";
 
 
         int[] Q4 = new int[]{1, 2, 3};

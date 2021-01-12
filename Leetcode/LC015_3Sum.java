@@ -61,13 +61,13 @@ class LC015_3Sum {
         LC015_3Sum testCase = new LC015_3Sum();
 
         List<List<Integer>> a1 = new ArrayList<>();
-        assert testCase.threeSum(new int[]{0}).equals(a1) : "Edge 1";
+        assert testCase.threeSum(new int[]{}).equals(a1) : "Empty";
 
         List<List<Integer>> a2 = new ArrayList<>();
-        assert testCase.threeSum(new int[]{1}).equals(a2) : "Edge 2";
+        assert testCase.threeSum(new int[]{1}).equals(a2) : "Edge 1";
 
         List<List<Integer>> a3 = new ArrayList<>();
-        assert testCase.threeSum(new int[]{1, 1}).equals(a3) : "Edge 3";
+        assert testCase.threeSum(new int[]{1, 1}).equals(a3) : "Edge 2";
 
         List<Integer> a41 = new ArrayList<>(Arrays.asList(-1, -1, 2));
         List<Integer> a42 = new ArrayList<>(Arrays.asList(-1, 0, 1));

@@ -69,7 +69,7 @@ class LC078_Subsets {
         e1_result.sort(new IntGridComparator());
         List<List<Integer>> a1 = new ArrayList<>(Arrays.asList());
         a1.add(new ArrayList<>(Arrays.asList()));
-        assert e1_result.equals(a1) : "Edge 0";
+        assert e1_result.equals(a1) : "Empty";
 
         int[] e2 = new int[]{1};
         List<List<Integer>> e2_result = testCase.subsets(e2);

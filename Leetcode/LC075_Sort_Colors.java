@@ -51,11 +51,11 @@ public class LC075_Sort_Colors {
 
         int[] e1 = new int[]{};
         testCase.sortColors(e1);
-        assert Arrays.equals(e1, new int[]{}) : "Edge 1";
+        assert Arrays.equals(e1, new int[]{}) : "Empty";
 
         int[] e2 = new int[]{0, 0};
         testCase.sortColors(e2);
-        assert Arrays.equals(e2, new int[]{0, 0}) : "Edge 2";
+        assert Arrays.equals(e2, new int[]{0, 0}) : "Edge 1";
 
         int[] s1 = new int[]{2, 0, 2, 1, 1, 0};
         testCase.sortColors(s1);

@@ -9,30 +9,29 @@
 public class LC083_Remove_Duplicates_From_Sorted_List {
 
     /**
-     * Version A, move in place
+     * Version B, move to a new_head
      */
     public ListNode deleteDuplicates(ListNode head) {
-        if (head != null) {
-            ListNode cur = head;
-            ListNode tail = head.next;
-            while (tail != null) {
-                if (cur.val != tail.val) {
-                    cur.next = tail;
-                    cur = cur.next;
-                } else {
-                    cur.next = null;
-                }
-                tail = tail.next;
+        ListNode dumb = new ListNode(Integer.MAX_VALUE);
+        ListNode new_head = dumb;
+        while (head != null) {
+            ListNode next_node = head.next;
+            head.next = null;
+            if (head.val != new_head.val) {
+                new_head.next = head;
+                new_head = new_head.next;
             }
+            head = next_node;
         }
-        return head;
+
+        return dumb.next;
     }
 
     public static void main(String[] args) {
         LC083_Remove_Duplicates_From_Sorted_List testCase = new LC083_Remove_Duplicates_From_Sorted_List();
 
 
-        ListNode q1 = ListNode.genNode(new int[]{0});
+        ListNode q1 = null;
         assert ListNode.showString(testCase.deleteDuplicates(q1)).equals("None") : "Empty";
         // 注意这里不能使用.equals因为null无法比较
 
