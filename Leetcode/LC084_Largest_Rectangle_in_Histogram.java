@@ -44,20 +44,20 @@ class LC084_Largest_Rectangle_in_Histogram {
      * STD method
      */
     public int largestRectangleArea(int[] heights) {
-        List<Integer> increasing = new ArrayList<>(Arrays.asList());
+        List<Integer> increasing_idx = new ArrayList<>(Arrays.asList());
         int area = 0;
-        int i = 0;
+        int cur_idx = 0;
 
-        while (i <= heights.length) {
-            if (increasing.size() == 0 || i < heights.length && heights[i] > heights[increasing.get(increasing.size() - 1)]) {
-                increasing.add(i);
-                i += 1;
+        while (cur_idx <= heights.length) {
+            if (increasing_idx.size() == 0 || cur_idx < heights.length && heights[cur_idx] > heights[increasing_idx.get(increasing_idx.size() - 1)]) {
+                increasing_idx.add(cur_idx);
+                cur_idx += 1;
             } else {
-                int last = increasing.remove(increasing.size() - 1);
-                if (increasing.size() == 0) {
-                    area = Math.max(area, heights[last] * i);
+                int last = increasing_idx.remove(increasing_idx.size() - 1);
+                if (increasing_idx.size() == 0) {
+                    area = Math.max(area, heights[last] * cur_idx);
                 } else {
-                    area = Math.max(area, heights[last] * (i - (increasing.get(increasing.size() - 1)) - 1));
+                    area = Math.max(area, heights[last] * (cur_idx - (increasing_idx.get(increasing_idx.size() - 1)) - 1));
                 }
             }
         }
