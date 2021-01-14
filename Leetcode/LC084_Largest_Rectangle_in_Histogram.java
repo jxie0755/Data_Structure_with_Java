@@ -17,25 +17,24 @@ class LC084_Largest_Rectangle_in_Histogram {
      * Version A
      */
     // public int largestRectangleArea(int[] heights) {
-    //     int N = heights.length;
+    //     int width = heights.length;
     //
-    //     int lowest_idx = 0;
-    //     int lowest = Integer.MAX_VALUE;
-    //
-    //     if (N == 0) {
+    //     if (width == 0) {
     //         return 0;
-    //     } else if (N == 1) {
+    //     } else if (width == 1) {
     //         return heights[0];
     //     } else {
-    //         for (int i = 0; i < N; i++) {
+    //         int lowest_idx = 0;
+    //         int lowest = Integer.MAX_VALUE;
+    //         for (int i = 0; i < width; i++) {
     //             if (heights[i] < lowest) {
     //                 lowest = heights[i];
     //                 lowest_idx = i;
     //             }
     //         }
-    //         int area = lowest * N;
+    //         int area = lowest * width;
     //         int[] first = Arrays.copyOfRange(heights, 0, lowest_idx);
-    //         int[] second = Arrays.copyOfRange(heights, lowest_idx + 1, N);
+    //         int[] second = Arrays.copyOfRange(heights, lowest_idx + 1, width);
     //         List<Integer> sample = new ArrayList<>(Arrays.asList(area, this.largestRectangleArea(first), this.largestRectangleArea(second)));
     //         return Collections.max(sample);
     //     }
