@@ -30,7 +30,7 @@ class LC035_Search_Insert_Position {
         LC035_Search_Insert_Position testCase = new LC035_Search_Insert_Position();
 
         int[] E = new int[]{};
-        assert testCase.searchInsert(E, 1) == 0 : "Empty";
+        assert testCase.searchInsert(E, 1) == 0 : "Edge 0";
 
         int[] Q = new int[]{1, 3, 5, 6};
         assert testCase.searchInsert(Q, 2) == 1 : "Not in the list";

@@ -62,7 +62,7 @@ public class LC080_Remove_Duplicates_From_Sorted_Array_II {
         LC080_Remove_Duplicates_From_Sorted_Array_II testCase = new LC080_Remove_Duplicates_From_Sorted_Array_II();
 
         int[] a0 = new int[]{};
-        assert testCase.removeDuplicates(a0) == 0 : "Empty";
+        assert testCase.removeDuplicates(a0) == 0 : "Edge 0";
 
         int[] a1 = new int[]{1};
         assert testCase.removeDuplicates(a1) == 1 : "Edge 1";

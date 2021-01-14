@@ -39,12 +39,12 @@ class LC026_Remove_Duplicates_From_Sorted_Array {
         LC026_Remove_Duplicates_From_Sorted_Array testCase = new LC026_Remove_Duplicates_From_Sorted_Array();
 
         int[] Q0 = new int[]{};
-        assert testCase.removeDuplicates(Q0) == 0 : "Empty";
-        assert Arrays.equals(Q0, new int[]{}) : "Empty revised list";
+        assert testCase.removeDuplicates(Q0) == 0 : "Edge 0";
+        assert Arrays.equals(Q0, new int[]{}) : "Empty 0 list";
 
         int[] Q1 = new int[]{1, 1};
-        assert testCase.removeDuplicates(Q1) == 1 : "Edge";
-        assert Arrays.equals(Q1, new int[]{1, 1}) : "Edge 0 revised list";
+        assert testCase.removeDuplicates(Q1) == 1 : "Edge 1";
+        assert Arrays.equals(Q1, new int[]{1, 1}) : "Edge 1 revised list";
 
         int[] Q2 = new int[]{1, 1, 2, 2, 3};
         assert testCase.removeDuplicates(Q2) == 3 : "Example 1";

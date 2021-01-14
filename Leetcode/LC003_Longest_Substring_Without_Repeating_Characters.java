@@ -72,7 +72,7 @@ class LC003_Longest_Substring_Without_Repeating_Characters {
 
     public static void main(String[] args) {
         LC003_Longest_Substring_Without_Repeating_Characters testCase = new LC003_Longest_Substring_Without_Repeating_Characters();
-        assert testCase.lengthOfLongestSubstring("") == 0 : "Edge 1";
+        assert testCase.lengthOfLongestSubstring("") == 0 : "Edge 0";
         assert testCase.lengthOfLongestSubstring(" ") == 1 : "Edge 2";
         assert testCase.lengthOfLongestSubstring("au") == 2 : "Edge 3";
         assert testCase.lengthOfLongestSubstring("aab") == 2 : "Edge 4";

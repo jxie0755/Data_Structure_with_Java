@@ -55,7 +55,7 @@ class LC006_Zigzag_Conversion {
     public static void main(String[] args) {
         LC006_Zigzag_Conversion testCase = new LC006_Zigzag_Conversion();
 
-        assert testCase.convert("", 3).equals("") : "Edge 1";
+        assert testCase.convert("", 3).equals("") : "Edge 0";
         assert testCase.convert("A", 1).equals("A") : "Edge 2";
         assert testCase.convert("AB", 1).equals("AB") : "Edge 3";
 

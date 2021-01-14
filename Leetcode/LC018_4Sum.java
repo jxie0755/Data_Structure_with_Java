@@ -66,7 +66,7 @@ class LC018_4Sum {
         LC018_4Sum testCase = new LC018_4Sum();
 
         List<List<Integer>> a1 = new ArrayList<>();
-        assert testCase.fourSum(new int[]{}, 0).equals(a1) : "Empty";
+        assert testCase.fourSum(new int[]{}, 0).equals(a1) : "Edge 0";
 
         List<List<Integer>> a2 = new ArrayList<>();
         assert testCase.fourSum(new int[]{1}, 0).equals(a2) : "Edge 1";

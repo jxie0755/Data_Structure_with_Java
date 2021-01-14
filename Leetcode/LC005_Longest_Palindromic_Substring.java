@@ -51,7 +51,7 @@ class LC005_Longest_Palindromic_Substring {
     public static void main(String[] args) {
         LC005_Longest_Palindromic_Substring testCase = new LC005_Longest_Palindromic_Substring();
 
-        assert testCase.longestPalindrome("").equals("") : "Edge 1";
+        assert testCase.longestPalindrome("").equals("") : "Edge 0";
         assert testCase.longestPalindrome("a").equals("a") : "Edge 2";
         assert testCase.longestPalindrome("aaa").equals("aaa") : "Edge 3";
 

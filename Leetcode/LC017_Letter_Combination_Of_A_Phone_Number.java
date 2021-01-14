@@ -62,7 +62,7 @@ class LC017_Letter_Combination_Of_A_Phone_Number {
         LC017_Letter_Combination_Of_A_Phone_Number testCase = new LC017_Letter_Combination_Of_A_Phone_Number();
 
         List<String> a1 = new ArrayList<>();
-        assert testCase.letterCombinations("").equals(a1) : "Edge 1";
+        assert testCase.letterCombinations("").equals(a1) : "Edge 0";
 
         List<String> a2 = new ArrayList<>(Arrays.asList(""));
         assert testCase.letterCombinations("1").equals(a2) : "Edge 2";

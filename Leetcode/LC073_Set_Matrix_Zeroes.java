@@ -43,7 +43,7 @@ class LC073_Set_Matrix_Zeroes {
 
         int[][] e1 = new int[][]{{}};
         testCase.setZeroes(e1);
-        assert Arrays.deepEquals(e1, new int[][]{{}}) : "Edge 1";
+        assert Arrays.deepEquals(e1, new int[][]{{}}) : "Edge 0";
 
         int[][] e2 = new int[][]{{1}};
         testCase.setZeroes(e2);

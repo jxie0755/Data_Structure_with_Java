@@ -80,25 +80,25 @@ class LC039_Combination_Sum {
 
         int[] q1 = {};
         List<List<Integer>> a1 = new ArrayList<>();
-        assert testCase.combinationSum(q1, 1).equals(a1) : "Edge 1";
+        assert testCase.combinationSum(q1, 1).equals(a1) : "Edge 0";
 
         int[] q2 = {1};
         List<List<Integer>> a2 = new ArrayList<>();
         a2.add(new ArrayList<>(Arrays.asList(1)));
-        assert testCase.combinationSum(q2, 1).equals(a2) : "Edge 2";
+        assert testCase.combinationSum(q2, 1).equals(a2) : "Edge 1";
 
         int[] q3 = {1};
         List<List<Integer>> a3 = new ArrayList<>();
         a3.add(new ArrayList<>(Arrays.asList(1, 1)));
-        assert testCase.combinationSum(q3, 2).equals(a3) : "Edge 3";
+        assert testCase.combinationSum(q3, 2).equals(a3) : "Edge 2";
 
         int[] q4 = {2};
         List<List<Integer>> a4 = new ArrayList<>();
-        assert testCase.combinationSum(q4, 1).equals(a4) : "Edge 4";
+        assert testCase.combinationSum(q4, 1).equals(a4) : "Edge 3";
 
         int[] q5 = {2};
         List<List<Integer>> a5 = new ArrayList<>();
-        assert testCase.combinationSum(q5, 5).equals(a5) : "Edge 5";
+        assert testCase.combinationSum(q5, 5).equals(a5) : "Edge 4";
 
 
         // Answers with more than one combination needs to check after sorted

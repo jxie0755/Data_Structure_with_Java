@@ -74,11 +74,11 @@ class LC004_Medium_Of_Two_Sorted_Array {
 
         int[] a1 = new int[]{};
         int[] a2 = new int[]{1};
-        assert testCase.findMedianSortedArrays(a1, a2) == 1.0 : "Empty 1";
+        assert testCase.findMedianSortedArrays(a1, a2) == 1.0 : "Edge 0";
 
         int[] b1 = new int[]{2};
         int[] b2 = new int[]{};
-        assert testCase.findMedianSortedArrays(b1, b2) == 2.0 : "Empty 2";
+        assert testCase.findMedianSortedArrays(b1, b2) == 2.0 : "Empty 00";
 
         int[] c1 = new int[]{1};
         int[] c2 = new int[]{2};

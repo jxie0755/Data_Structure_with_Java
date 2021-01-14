@@ -92,7 +92,7 @@ class LC034_Find_First_And_Last_Positions_Of_Element_In_Sorted_Array {
         assert Arrays.equals(
                 testCase.searchRange(Q1, 0),
                 new int[]{-1, -1})
-                : "Empty";
+                : "Edge 0";
 
         int[] Q2 = new int[]{8};
         assert Arrays.equals(

@@ -65,22 +65,22 @@ class LC042_Trapping_Rain_Water {
         LC042_Trapping_Rain_Water testCase = new LC042_Trapping_Rain_Water();
 
         int[] q1 = {};
-        assert testCase.trap(q1) == 0 : "Edge 1";
+        assert testCase.trap(q1) == 0 : "Edge 0";
 
         int[] q2 = {0};
-        assert testCase.trap(q2) == 0 : "Edge 2";
+        assert testCase.trap(q2) == 0 : "Edge 1";
 
         int[] q3 = {1};
-        assert testCase.trap(q3) == 0 : "Edge 3";
+        assert testCase.trap(q3) == 0 : "Edge 2";
 
         int[] q4 = {1, 1};
-        assert testCase.trap(q4) == 0 : "Edge 4";
+        assert testCase.trap(q4) == 0 : "Edge 3";
 
         int[] q5 = {2, 2, 2};
-        assert testCase.trap(q5) == 0 : "Edge 5";
+        assert testCase.trap(q5) == 0 : "Edge 4";
 
         int[] q6 = {2, 0, 2};
-        assert testCase.trap(q6) == 2 : "Edge 6";
+        assert testCase.trap(q6) == 2 : "Edge 5";
 
         int[] q7 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         assert testCase.trap(q7) == 6 : "Example 1";

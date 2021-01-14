@@ -71,7 +71,7 @@ class LC024_Swap_Nodes_In_Pairs {
     public static void main(String[] args) {
         LC024_Swap_Nodes_In_Pairs testCase = new LC024_Swap_Nodes_In_Pairs();
 
-        assert testCase.swapPairs(null) == null : "Empty";
+        assert testCase.swapPairs(null) == null : "Edge 0";
 
         ListNode Q1 = ListNode.genNode(new int[]{1});
         assert ListNode.showString(testCase.swapPairs(Q1)).equals("1") : "Single";

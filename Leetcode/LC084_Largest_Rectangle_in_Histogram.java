@@ -66,7 +66,7 @@ class LC084_Largest_Rectangle_in_Histogram {
 
     public static void main(String[] args) {
         LC084_Largest_Rectangle_in_Histogram testCase = new LC084_Largest_Rectangle_in_Histogram();
-        assert testCase.largestRectangleArea(new int[]{}) == 0 : "Empty";
+        assert testCase.largestRectangleArea(new int[]{}) == 0 : "Edge 0";
         assert testCase.largestRectangleArea(new int[]{2}) == 2 : "Edge 1";
         assert testCase.largestRectangleArea(new int[]{1, 2}) == 2 : "Edge 2";
 

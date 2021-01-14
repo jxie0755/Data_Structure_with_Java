@@ -32,7 +32,7 @@ public class LC083_Remove_Duplicates_From_Sorted_List {
 
 
         ListNode q1 = null;
-        assert ListNode.showString(testCase.deleteDuplicates(q1)).equals("None") : "Empty";
+        assert ListNode.showString(testCase.deleteDuplicates(q1)).equals("None") : "Edge 0";
         // 注意这里不能使用.equals因为null无法比较
 
         ListNode q2 = ListNode.genNode(new int[]{4});

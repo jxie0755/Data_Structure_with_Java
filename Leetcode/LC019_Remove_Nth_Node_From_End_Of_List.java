@@ -36,11 +36,11 @@ class LC019_Remove_Nth_Node_From_End_Of_List {
         LC019_Remove_Nth_Node_From_End_Of_List testCase = new LC019_Remove_Nth_Node_From_End_Of_List();
 
         ListNode q1 = ListNode.genNode(new int[]{1});
-        assert testCase.removeNthFromEnd(q1, 1) == null : "Edge 0";
+        assert testCase.removeNthFromEnd(q1, 1) == null : "Edge 1";
 
         ListNode q2 = ListNode.genNode(new int[]{1, 2});
         ListNode a2 = ListNode.genNode(new int[]{2});
-        assert testCase.removeNthFromEnd(q2, 2).equals(a2) : "Edge 1";
+        assert testCase.removeNthFromEnd(q2, 2).equals(a2) : "Edge 2";
 
 
         ListNode q3 = ListNode.genNode(new int[]{1, 2, 3, 4, 5});

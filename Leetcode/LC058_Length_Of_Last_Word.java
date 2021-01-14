@@ -50,8 +50,8 @@ class LC058_Length_Of_Last_Word {
 
     public static void main(String[] args) {
         LC058_Length_Of_Last_Word testCase = new LC058_Length_Of_Last_Word();
-        assert testCase.lengthOfLastWord("") == 0 : "Edge 1";
-        assert testCase.lengthOfLastWord(" ") == 0 : "Edge 2";
+        assert testCase.lengthOfLastWord("") == 0 : "Edge 0";
+        assert testCase.lengthOfLastWord(" ") == 0 : "Edge 1";
 
         assert testCase.lengthOfLastWord("Hello World") == 5 : "Regular";
 

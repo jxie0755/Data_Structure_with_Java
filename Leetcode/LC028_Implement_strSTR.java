@@ -23,7 +23,7 @@ class LC028_Implement_strSTR {
     public static void main(String[] args) {
         LC028_Implement_strSTR testCase = new LC028_Implement_strSTR();
         assert testCase.strStr("", "a") == -1 : "Edge 0";
-        assert testCase.strStr("", "") == 0 : "Edge 1";
+        assert testCase.strStr("", "") == 0 : "Edge 00";
 
         assert testCase.strStr("abcdeabcde", "de") == 3 : "Examle 1";
         assert testCase.strStr("abcdeabcde", "zz") == -1 : "Example 2";

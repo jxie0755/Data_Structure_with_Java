@@ -68,7 +68,7 @@ class LC074_Search_A_2D_Matrix {
 
         int[][] e0 = new int[][]{
         };
-        assert !testCase.searchMatrix(e0, 3) : "Empty";
+        assert !testCase.searchMatrix(e0, 3) : "Edge 0";
 
 
         int[][] e1 = new int[][]{

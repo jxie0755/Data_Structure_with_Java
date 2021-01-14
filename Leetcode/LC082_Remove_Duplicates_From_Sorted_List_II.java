@@ -39,7 +39,7 @@ public class LC082_Remove_Duplicates_From_Sorted_List_II {
         LC082_Remove_Duplicates_From_Sorted_List_II testCase = new LC082_Remove_Duplicates_From_Sorted_List_II();
 
         ListNode q1 = ListNode.genNode(new int[]{});
-        assert ListNode.showString(testCase.deleteDuplicates(q1)).equals("None") : "Empty";
+        assert ListNode.showString(testCase.deleteDuplicates(q1)).equals("None") : "Edge 0";
 
         ListNode q2 = ListNode.genNode(new int[]{1, 1});
         assert ListNode.showString(testCase.deleteDuplicates(q2)).equals("None") : "Edge 1";

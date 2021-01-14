@@ -60,7 +60,7 @@ class LC023_Merge_K_Sorted_List {
     public static void main(String[] args) {
         LC023_Merge_K_Sorted_List testCase = new LC023_Merge_K_Sorted_List();
 
-        assert ListNode.showString(testCase.mergeKLists(new ListNode[]{})).equals("None") : "Empty";
+        assert ListNode.showString(testCase.mergeKLists(new ListNode[]{})).equals("None") : "Edge 0";
 
         ListNode single = ListNode.genNode(new int[]{1});
         assert ListNode.showString(testCase.mergeKLists(new ListNode[]{single})).equals("1") : "Single";

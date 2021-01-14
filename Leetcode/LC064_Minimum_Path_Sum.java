@@ -40,23 +40,23 @@ class LC064_Minimum_Path_Sum {
         int[][] e1 = new int[][]{
                 {}
         };
-        assert testCase.minPathSum(e1) == 0 : "Edge 1";
+        assert testCase.minPathSum(e1) == 0 : "Edge 0";
 
         int[][] e2 = new int[][]{
                 {1}
         };
-        assert testCase.minPathSum(e2) == 1 : "Edge 2";
+        assert testCase.minPathSum(e2) == 1 : "Edge 1";
 
         int[][] e3 = new int[][]{
                 {1, 1}
         };
-        assert testCase.minPathSum(e3) == 2 : "Edge 3";
+        assert testCase.minPathSum(e3) == 2 : "Edge 2";
 
         int[][] e4 = new int[][]{
                 {1},
                 {1}
         };
-        assert testCase.minPathSum(e4) == 2 : "Edge 4";
+        assert testCase.minPathSum(e4) == 2 : "Edge 3";
 
         int[][] s1 = new int[][]{
                 {1, 3, 1},

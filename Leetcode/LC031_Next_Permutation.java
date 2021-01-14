@@ -134,9 +134,9 @@ class LC031_Next_Permutation {
 
         int[] Q1 = new int[]{};
         testCase.nextPermutation(Q1);
-        assert Arrays.equals(Q1, new int[]{}) : "Emply";
+        assert Arrays.equals(Q1, new int[]{}) : "Edge 0";
         testCase.prevPermutation(Q1);
-        assert Arrays.equals(Q1, new int[]{}) : "Emplety prev";
+        assert Arrays.equals(Q1, new int[]{}) : "Edge 0 prev";
 
 
         int[] Q2 = new int[]{1};
