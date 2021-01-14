@@ -117,67 +117,67 @@ class LC057_Insert_Interval {
         assert Arrays.deepEquals(
                 testCase.insert(Ex1, new int[]{1, 2}),
                 new int[][]{{1, 4}, {7, 10}}
-        ) : "Extra 1";
+        ) : "Additional 1";
 
         int[][] Ex2 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex2, new int[]{2, 3}),
                 new int[][]{{1, 4}, {7, 10}}
-        ) : "Extra 2";
+        ) : "Additional 2";
 
         int[][] Ex3 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex3, new int[]{3, 4}),
                 new int[][]{{1, 4}, {7, 10}}
-        ) : "Extra 3";
+        ) : "Additional 3";
 
         int[][] Ex4 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex4, new int[]{4, 5}),
                 new int[][]{{1, 5}, {7, 10}}
-        ) : "Extra 4";
+        ) : "Additional 4";
 
         int[][] Ex5 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex5, new int[]{5, 6}),
                 new int[][]{{1, 4}, {5, 6}, {7, 10}}
-        ) : "Extra 5";
+        ) : "Additional 5";
 
         int[][] Ex6 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex6, new int[]{6, 7}),
                 new int[][]{{1, 4}, {6, 10}}
-        ) : "Extra 6";
+        ) : "Additional 6";
 
         int[][] Ex7 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex7, new int[]{7, 8}),
                 new int[][]{{1, 4}, {7, 10}}
-        ) : "Extra 7";
+        ) : "Additional 7";
 
         int[][] Ex8 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex8, new int[]{8, 9}),
                 new int[][]{{1, 4}, {7, 10}}
-        ) : "Extra 8";
+        ) : "Additional 8";
 
         int[][] Ex9 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex9, new int[]{9, 10}),
                 new int[][]{{1, 4}, {7, 10}}
-        ) : "Extra 9";
+        ) : "Additional 9";
 
         int[][] Ex10 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex10, new int[]{10, 11}),
                 new int[][]{{1, 4}, {7, 11}}
-        ) : "Extra 10";
+        ) : "Additional 10";
 
         int[][] Ex11 = {{1, 4}, {7, 10}};
         assert Arrays.deepEquals(
                 testCase.insert(Ex11, new int[]{11, 12}),
                 new int[][]{{1, 4}, {7, 10}, {11, 12}}
-        ) : "Extra 11";
+        ) : "Additional 11";
 
         System.out.println("All passed");
     }

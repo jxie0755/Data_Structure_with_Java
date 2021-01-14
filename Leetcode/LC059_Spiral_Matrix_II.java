@@ -74,7 +74,7 @@ class LC059_Spiral_Matrix_II {
         assert Arrays.deepEquals(testCase.generateMatrix(2), new int[][]{
                 {1, 2},
                 {4, 3},
-        }) : "Extra 1";
+        }) : "Additional 1";
 
         assert Arrays.deepEquals(testCase.generateMatrix(4), new int[][]{
                 {1,  2,  3,  4},

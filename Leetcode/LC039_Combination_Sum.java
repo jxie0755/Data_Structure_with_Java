@@ -141,7 +141,7 @@ class LC039_Combination_Sum {
         }
         Collections.sort(a8, new IntGridComparator()); // thenm, sort a8
 
-        assert a8.equals(sorted_a8) : "Extra 1";
+        assert a8.equals(sorted_a8) : "Additional 1";
 
         int[] q9 = {7, 3, 2};
         List<List<Integer>> sorted_a9 = new ArrayList<>();
@@ -159,7 +159,7 @@ class LC039_Combination_Sum {
         }
         Collections.sort(a9, new IntGridComparator()); // thenm, sort a9
 
-        assert a9.equals(sorted_a9) : "Extra 1";
+        assert a9.equals(sorted_a9) : "Additional 1";
 
         System.out.println("All passed");
     }

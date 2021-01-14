@@ -113,7 +113,7 @@ class LC054_Spiral_Matrix {
                 {7, 8}
         };
         List<Integer> a8 = new ArrayList<>(Arrays.asList(1, 2, 4, 6, 8, 7, 5, 3));
-        assert testCase.spiralOrder(q8).equals(a8) : "Extra";
+        assert testCase.spiralOrder(q8).equals(a8) : "Additional";
 
         System.out.println("All passed");
     }

@@ -63,7 +63,7 @@ class LC041_First_Missing_Positive {
         assert testCase.firstMissingPositive(q7) == 1 : "Example 3";
 
         int[] q8 = {2, 2};
-        assert testCase.firstMissingPositive(q8) == 1 : "Extra 1";
+        assert testCase.firstMissingPositive(q8) == 1 : "Additional 1";
 
         System.out.println("All passed");
 

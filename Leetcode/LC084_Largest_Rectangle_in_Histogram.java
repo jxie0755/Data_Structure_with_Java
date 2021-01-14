@@ -79,7 +79,7 @@ class LC084_Largest_Rectangle_in_Histogram {
         for (int i = 0; i < 2000; i += 1) {
             long_array[i] = i;
         }
-        assert testCase.largestRectangleArea(long_array) == 1000000 : "Extralong";
+        assert testCase.largestRectangleArea(long_array) == 1000000 : "Additional long";
 
         System.out.println("All passed");
     }

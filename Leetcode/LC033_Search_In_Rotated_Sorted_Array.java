@@ -117,7 +117,7 @@ class LC033_Search_In_Rotated_Sorted_Array {
         assert testCase.search(E10, 8) == 8 : "Additional 10";
 
         int[] Ex = new int[]{1, 3};
-        assert testCase.search(Ex, 2) == -1 : "Extra";
+        assert testCase.search(Ex, 2) == -1 : "Additional";
 
         System.out.println("All passed");
     }

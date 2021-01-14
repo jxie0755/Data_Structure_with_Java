@@ -92,10 +92,10 @@ class LC042_Trapping_Rain_Water {
         assert testCase.trap(q9) == 23 : "Example 3";
 
         int[] q10 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-        assert testCase.trap(q10) == 6 : "Extra 1";
+        assert testCase.trap(q10) == 6 : "Additional 1";
 
         int[] q11 = {8, 5, 4, 1, 8, 9, 3, 0, 0};
-        assert testCase.trap(q11) == 14 : "Extra 2";
+        assert testCase.trap(q11) == 14 : "Additional 2";
 
         System.out.println("All passed");
     }

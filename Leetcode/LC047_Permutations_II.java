@@ -121,7 +121,7 @@ class LC047_Permutations_II {
         int[] q4 = {3, 3, 0, 3};
         List<List<Integer>> q4_ans = testCase.permuteUnique(q4);
         q4_ans.sort(new IntGridComparator());
-        assert q4_ans.equals(a4) : "Extra 1";
+        assert q4_ans.equals(a4) : "Additional 1";
 
         System.out.println("All passed");
     }

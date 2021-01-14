@@ -108,12 +108,12 @@ class LC043_Multiple_Strings {
     public static void main(String[] args) {
         LC043_Multiple_Strings testCase = new LC043_Multiple_Strings();
         assert testCase.multiply("0", "23").equals("0") : "Edge 1";
-        assert testCase.multiply("999", "0").equals("0") : "Extra Edge 1";
+        assert testCase.multiply("999", "0").equals("0") : "Additional Edge 1";
         assert testCase.multiply("2", "23").equals("46") : "Edge 2";
 
         assert testCase.multiply("2", "3").equals("6") : "Example 1";
         assert testCase.multiply("123", "456").equals("56088") : "Example 1";
-        assert testCase.multiply("50", "50").equals("2500") : "Extra 1";
+        assert testCase.multiply("50", "50").equals("2500") : "Additional 1";
 
         System.out.println("All passed");
     }

@@ -101,7 +101,7 @@ class LC063_Unique_Path_II {
                 {0, 0, 0, 0},
                 {0, 0, 0, 0},
         };
-        assert testCase.uniquePathsWithObstacles(s3) == 0 : "Extra 1, all blocked";
+        assert testCase.uniquePathsWithObstacles(s3) == 0 : "Additional 1, all blocked";
 
         int[][] s4 = new int[][]{
                 {0, 1, 0, 0},
@@ -109,7 +109,7 @@ class LC063_Unique_Path_II {
                 {1, 0, 0, 0},
                 {0, 0, 0, 0}
         };
-        assert testCase.uniquePathsWithObstacles(s4) == 0 : "Extra 2, equal to 3 * 3 with no obstacle";
+        assert testCase.uniquePathsWithObstacles(s4) == 0 : "Additional 2, equal to 3 * 3 with no obstacle";
 
         System.out.println("All passed");
 

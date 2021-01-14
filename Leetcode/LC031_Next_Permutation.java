@@ -176,30 +176,30 @@ class LC031_Next_Permutation {
 
         int[] Q7 = new int[]{5, 1, 1};
         testCase.nextPermutation(Q7);
-        assert Arrays.equals(Q7, new int[]{1, 1, 5}) : "Extra 1";
+        assert Arrays.equals(Q7, new int[]{1, 1, 5}) : "Additional 1";
         testCase.prevPermutation(Q7);
-        assert Arrays.equals(Q7, new int[]{5, 1, 1}) : "Extra 1 prev";
+        assert Arrays.equals(Q7, new int[]{5, 1, 1}) : "Additional 1 prev";
 
 
         int[] Q8 = new int[]{2, 2, 2};
         testCase.nextPermutation(Q8);
-        assert Arrays.equals(Q8, new int[]{2, 2, 2}) : "Extra 2";
+        assert Arrays.equals(Q8, new int[]{2, 2, 2}) : "Additional 2";
         testCase.prevPermutation(Q8);
-        assert Arrays.equals(Q8, new int[]{2, 2, 2}) : "Extra 2 prev";
+        assert Arrays.equals(Q8, new int[]{2, 2, 2}) : "Additional 2 prev";
 
 
         int[] Q9 = new int[]{1, 2, 2, 2};
         testCase.nextPermutation(Q9);
-        assert Arrays.equals(Q9, new int[]{2, 1, 2, 2}) : "Extra 3";
+        assert Arrays.equals(Q9, new int[]{2, 1, 2, 2}) : "Additional 3";
         testCase.prevPermutation(Q9);
-        assert Arrays.equals(Q9, new int[]{1, 2, 2, 2}) : "Extra 3 prev";
+        assert Arrays.equals(Q9, new int[]{1, 2, 2, 2}) : "Additional 3 prev";
 
 
         int[] Q10 = new int[]{2, 3, 1};
         testCase.nextPermutation(Q10);
-        assert Arrays.equals(Q10, new int[]{3, 1, 2}) : "Extra 4";
+        assert Arrays.equals(Q10, new int[]{3, 1, 2}) : "Additional 4";
         testCase.prevPermutation(Q10);
-        assert Arrays.equals(Q10, new int[]{2, 3, 1}) : "Extra 4 prev";
+        assert Arrays.equals(Q10, new int[]{2, 3, 1}) : "Additional 4 prev";
 
         System.out.println("All passed");
 
