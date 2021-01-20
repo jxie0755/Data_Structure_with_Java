@@ -20,7 +20,22 @@ class LC088_Merge_Sorted_Array {
      * Version B1, treat as true array
      */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-
+        int merged_idx = 0;
+        int nums2_idx = 0;
+        while (merged_idx != m + n && nums2_idx != n) {
+            int cur = nums1[merged_idx];
+            int check = nums2[nums2_idx];
+            if (check <= cur || merged_idx == m + nums2_idx) {
+                for (int x = merged_idx + 1; x < m + n; x += 1) {
+                    int tmp = nums1[x];
+                    nums1[x] = nums1[merged_idx];
+                    nums1[merged_idx] = tmp;
+                }
+                nums1[merged_idx] = check;
+                nums2_idx += 1;
+            }
+            merged_idx += 1;
+        }
     }
 
     public static void main(String[] args) {
@@ -74,7 +89,7 @@ class LC088_Merge_Sorted_Array {
         int[] q10a = new int[]{-1, 0, 0, 3, 3, 3, 0, 0, 0};
         int[] q10b = new int[]{1, 2, 2};
         testCase.merge(q10a, 6, q10b, 3);
-        assert Arrays.equals(q10a, new int[]{1, 0, 0, 1, 2, 2, 3, 3, 3}) : "T10";
+        assert Arrays.equals(q10a, new int[]{-1, 0, 0, 1, 2, 2, 3, 3, 3}) : "T10";
 
         System.out.println("All passed");
     }
