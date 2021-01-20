@@ -13,6 +13,10 @@
  * Key is to modified nums1, not returning a new list
  */
 class LC088_Merge_Sorted_Array {
+
+    /**
+     * Version B1, treat as true array
+     */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
     }
