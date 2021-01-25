@@ -38,7 +38,7 @@ class LC091_Decode_Ways {
     // }
 
     /**
-     * Version STD, linear iteration
+     * Version STD, linear itreration, dynamic programming
      */
     public int numDecodings(String s) {
 
