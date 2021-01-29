@@ -76,11 +76,11 @@ class A08c_ArrayList {
         System.out.println(SAL1); // >>> [BC]
 
         // 但是如果ArrayList本身就是Integer，如何区分remove的是idx还是元素本身？
-        List<Integer> IAL3 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        IAL3.remove(1);  // 这里remove的是
-        System.out.println(IAL3); // >>> [1, 3, 4]
-        IAL3.remove(Integer.valueOf(1)); // 这样才是remove元素
-        System.out.println(IAL3); // >>> [3, 4]
+        List<Integer> IAL3 = new ArrayList<>(Arrays.asList(1, 2, 3, 1, 4));
+        IAL3.remove(1);  // 这里remove的是IAL3[2]
+        System.out.println(IAL3); // >>> [1, 3, 1, 4]
+        IAL3.remove(Integer.valueOf(1)); // 这样才是remove元素 (the first found)
+        System.out.println(IAL3); // >>> [3, 1, 4]
 
         // ensureCapacity(int minCapacity) // 跳过
 
