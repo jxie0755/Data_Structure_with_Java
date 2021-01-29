@@ -60,12 +60,6 @@ class LC093_Restore_IP_Addresses {
         ) : "Example 1";
 
         System.out.println("All passed");
-
-
-        String x = "0123";
-        System.out.println(Integer.parseInt(x));
-        System.out.println(Integer.valueOf(x));
-
     }
 }
 
