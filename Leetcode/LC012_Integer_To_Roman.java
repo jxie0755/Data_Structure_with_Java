@@ -69,7 +69,7 @@ class LC012_Integer_To_Roman {
         Integer[] base = new Integer[]{1000, 100, 10, 1};
         Integer[] numstr_array = new Integer[4];
         for (int i = 0; i < numstr_rjusted.length(); i += 1) {
-            numstr_array[i] = Integer.valueOf(numstr_rjusted.substring(i, i + 1)) * base[i];
+            numstr_array[i] = Integer.parseInt(numstr_rjusted.substring(i, i + 1)) * base[i];
         }
 
         // final result by checking the hashmap
