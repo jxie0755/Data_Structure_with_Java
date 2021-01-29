@@ -25,8 +25,10 @@ class Type_Convert {
         String str_B = String.valueOf(B);
 
         // String转int (注意, 不能对Character类使用,必须是String!)
-        int int_B = Integer.valueOf(str_B);
-        int int_B2 = Integer.parseInt(str_B);  // 推荐
+        int int_B2 = Integer.parseInt(str_B);  // 推荐 return as int (use == to compare)
+        // String转Integer (注意, 不能对Character类使用,必须是String!)
+        int int_B = Integer.valueOf(str_B);    // return as Integer (use equals to compare)
+
 
         // char转String
         char C = 'X';
