@@ -45,9 +45,8 @@ class LC094_Binary_Tree_Inorder_Traversal {
         LC094_Binary_Tree_Inorder_Traversal testCase = new LC094_Binary_Tree_Inorder_Traversal();
 
         TreeNode t0 = null;
-        assert testCase.inorderTraversal(t0).equals(new ArrayList<>(
-
-        )) : "Edge 0";
+        assert testCase.inorderTraversal(t0).equals(
+                new ArrayList<>()) : "Edge 0";
 
         TreeNode t = TreeNode.genTree(new Object[]{
                 1,
@@ -55,9 +54,8 @@ class LC094_Binary_Tree_Inorder_Traversal {
                 null, null, 3, null
         }, 1);
 
-        assert testCase.inorderTraversal(t).equals(new ArrayList<>(Arrays.asList(
-                1, 3, 2
-        ))) : "Example 1";
+        assert testCase.inorderTraversal(t).equals(
+                new ArrayList<>(Arrays.asList(1, 3, 2))) : "Example 1";
 
         TreeNode t2 = TreeNode.genTree(new Object[]{
                 6,
@@ -65,9 +63,8 @@ class LC094_Binary_Tree_Inorder_Traversal {
                 1, 4, null, 9,
                 null, null, 3, 5, null, null, 8, null
         }, 1);
-        assert testCase.inorderTraversal(t2).equals(new ArrayList<>(Arrays.asList(
-                1, 2, 3, 4, 5, 6, 7, 8, 9
-        ))) : "Additinal 1";
+        assert testCase.inorderTraversal(t2).equals(
+                new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9))) : "Additinal 1";
 
         System.out.println("All passed");
     }
