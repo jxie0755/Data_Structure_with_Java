@@ -26,7 +26,9 @@ class LC094_Binary_Tree_Inorder_Traversal {
             root = (TreeNode) takeout.get(0);
             boolean is_visited = (boolean) takeout.get(1);
             if (root == null) {
-            } else if (is_visited) {
+                continue;
+            }
+            if (is_visited) {
                 result.add(root.val);
             } else {
                 stack.add(new ArrayList<>(Arrays.asList(root.right, false)));
