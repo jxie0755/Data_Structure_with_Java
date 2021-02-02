@@ -16,8 +16,8 @@ public class LC098_Validate_Binary_Search_Tree {
     /**
      * Version STD_B Variation of Morris Traversal method
      */
-    public boolean isValidBST(TreeNode root) {
-
-    }
+    // public boolean isValidBST(TreeNode root) {
+    //
+    // }
 }
 
