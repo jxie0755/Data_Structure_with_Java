@@ -64,7 +64,7 @@ class LC094_Binary_Tree_Inorder_Traversal {
                 null, null, 3, 5, null, null, 8, null
         }, 1);
         assert testCase.inorderTraversal(t2).equals(
-                new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9))) : "Additinal 1";
+                new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9))) : "Additional 1";
 
         System.out.println("All passed");
     }
