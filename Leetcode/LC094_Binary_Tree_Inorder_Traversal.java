@@ -52,7 +52,7 @@ class LC094_Binary_Tree_Inorder_Traversal {
                 1,
                 null, 2,
                 null, null, 3, null
-        }, 1);
+        });
 
         assert testCase.inorderTraversal(t).equals(
                 new ArrayList<>(Arrays.asList(1, 3, 2))) : "Example 1";
@@ -62,7 +62,7 @@ class LC094_Binary_Tree_Inorder_Traversal {
                 2, 7,
                 1, 4, null, 9,
                 null, null, 3, 5, null, null, 8, null
-        }, 1);
+        });
         assert testCase.inorderTraversal(t2).equals(
                 new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9))) : "Additional 1";
 

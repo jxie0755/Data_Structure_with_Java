@@ -83,6 +83,10 @@ class TreeNode {
         return null;
     }
 
+    // Overload for default value
+    public static TreeNode genTree(Object[] treelist) {
+        return genTree(treelist, 1);
+    }
 
     public static void main(String[] args) {
 
@@ -127,8 +131,13 @@ class TreeNode {
         //       N
         //       N
 
+
+        // Test identity
+        assert A != A2;
+
         // Test equals
         assert A.equals(A2);
+
 
         // Test hash
         Map<TreeNode, Integer> hmp = new HashMap<>(Map.ofEntries(
@@ -159,6 +168,5 @@ class TreeNode {
         //     5
         //       N
         //       N
-
     }
 }
