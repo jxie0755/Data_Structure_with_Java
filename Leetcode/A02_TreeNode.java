@@ -156,7 +156,7 @@ class TreeNode {
                 1,
                 2, 3,
                 null, 4, null, 5
-        }, 1);
+        });
 
         System.out.println(TreeNode.showString(X));
         // >>>
