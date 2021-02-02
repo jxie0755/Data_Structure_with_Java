@@ -93,73 +93,73 @@ class TreeNode {
 
     public static void main(String[] args) {
 
-        TreeNode A = new TreeNode(1);
-        TreeNode B = new TreeNode(2);
-        TreeNode C = new TreeNode(3);
-        TreeNode E = new TreeNode(4);
-        TreeNode F = new TreeNode(5);
-        TreeNode G = new TreeNode(6);
-        TreeNode H = new TreeNode(7);
-        A.left = B;
-        A.right = C;
-        B.left = E;
-        B.right = F;
-        C.right = H;
+        TreeNode A1 = TreeNode.genTree(new Object[]{
+                1,
+                2, 3,
+                4,5, null, 7
+        });
 
-        TreeNode A2 = new TreeNode(1);
-        TreeNode B2 = new TreeNode(2);
-        TreeNode C2 = new TreeNode(3);
-        TreeNode E2 = new TreeNode(4);
-        TreeNode F2 = new TreeNode(5);
-        TreeNode G2 = new TreeNode(6);
-        TreeNode H2 = new TreeNode(7);
-        A2.left = B2;
-        A2.right = C2;
-        B2.left = E2;
-        B2.right = F2;
-        C2.right = H2;
+
+        TreeNode A2 = TreeNode.genTree(new Object[]{
+                1,
+                2, 3,
+                4, 5, null, 7
+        });
 
         // Test showString
-        System.out.println(TreeNode.showString(A));
-        // >>>
+        System.out.println(TreeNode.showString(A1));
         // 1
         //   2
-        //     N
         //     4
+        //       N
+        //       N
+        //     5
         //       N
         //       N
         //   3
         //     N
-        //     5
+        //     7
         //       N
         //       N
 
 
         // Test identity
-        assert A != A2;
+        assert A1 != A2 : "Check Identify";
 
         // Test equals
-        assert A.equals(A2);
+        assert A1.equals(A2) : "Check equals";
 
 
         // Test hash
         Map<TreeNode, Integer> hmp = new HashMap<>(Map.ofEntries(
-                Map.entry(A, 1),
-                Map.entry(C, 2)
+                Map.entry(A1, 1),
+                Map.entry(A2, 2)
         ));
         System.out.println(hmp);
-        // >>> {TreeNode@58651fd0=2, TreeNode@735b5592=1}
+        // >>> {TreeNode@396a51ab=2, TreeNode@5034c75a=1}
 
 
         // Test genTree
-        TreeNode X = TreeNode.genTree(new Object[]{
+
+        // Empty Tree
+        TreeNode t1 = TreeNode.genTree(new Object[]{});
+        System.out.println(TreeNode.showString(t1));
+        // N
+
+        // Signle Tree
+        TreeNode t2 = TreeNode.genTree(new Object[]{1});
+        System.out.println(TreeNode.showString(t2));
+        // 1
+        //   N
+        //   N
+
+        // multi-branch tree
+        TreeNode t3 = TreeNode.genTree(new Object[]{
                 1,
                 2, 3,
-                null, 4, null, 5
+                null, 4, 5, null
         });
-
-        System.out.println(TreeNode.showString(X));
-        // >>>
+        System.out.println(TreeNode.showString(t3));
         // 1
         //   2
         //     N
@@ -167,9 +167,9 @@ class TreeNode {
         //       N
         //       N
         //   3
-        //     N
         //     5
         //       N
         //       N
+        //     N
     }
 }
