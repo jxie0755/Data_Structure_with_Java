@@ -71,9 +71,7 @@ class TreeNode {
     /**
      * To generate a perfect binary tree according to a non-empty list of values
      * The lst must be all filled, even the branch is empty, then use null to suggest the empty treeNode
-     * Starting i = 1, and every branch idx of i is i*2 (left) and i*2+1 (right)
-     *
-     * ith is always idx+1, so that need to adjust ith back to idx through ith-1
+     * Starting idx = 0, and every branch idx of i is i*2+1 (left) and i*2+2 (right)
      */
     public static TreeNode genTree(Object[] treelist, int idx) {
 
