@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 class A02_TreeNode {
 
 }
@@ -75,12 +72,12 @@ class TreeNode {
      *
      * ith is always idx+1, so that need to adjust ith back to idx through ith-1
      */
-    public static TreeNode genTree(Object[] treelist, int ith) {
+    public static TreeNode genTree(Object[] treelist, int idx) {
 
-        if (treelist.length >= ith && treelist[ith - 1] != null) {
-            TreeNode node = new TreeNode((int) treelist[ith - 1]);
-            node.left = genTree(treelist, ith * 2);
-            node.right = genTree(treelist, ith * 2 + 1);
+        if (treelist.length >= idx+1 && treelist[idx] != null) {
+            TreeNode node = new TreeNode((int) treelist[idx]);
+            node.left = genTree(treelist, idx * 2 + 1);
+            node.right = genTree(treelist, idx * 2 + 2);
             return node;
         }
         return null;
@@ -93,65 +90,65 @@ class TreeNode {
 
     public static void main(String[] args) {
 
-        TreeNode A1 = TreeNode.genTree(new Object[]{
-                1,
-                2, 3,
-                4,5, null, 7
-        });
-
-
-        TreeNode A2 = TreeNode.genTree(new Object[]{
-                1,
-                2, 3,
-                4, 5, null, 7
-        });
-
-        // Test showString
-        System.out.println(TreeNode.showString(A1));
-        // 1
-        //   2
-        //     4
-        //       N
-        //       N
-        //     5
-        //       N
-        //       N
-        //   3
-        //     N
-        //     7
-        //       N
-        //       N
-
-
-        // Test identity
-        assert A1 != A2 : "Check Identify";
-
-        // Test equals
-        assert A1.equals(A2) : "Check equals";
-
-
-        // Test hash
-        Map<TreeNode, Integer> hmp = new HashMap<>(Map.ofEntries(
-                Map.entry(A1, 1),
-                Map.entry(A2, 2)
-        ));
-        System.out.println(hmp);
-        // >>> {TreeNode@396a51ab=2, TreeNode@5034c75a=1}
-
-
-        // Test genTree
-
-        // Empty Tree
-        TreeNode t1 = TreeNode.genTree(new Object[]{});
-        System.out.println(TreeNode.showString(t1));
-        // N
-
-        // Signle Tree
-        TreeNode t2 = TreeNode.genTree(new Object[]{1});
-        System.out.println(TreeNode.showString(t2));
-        // 1
-        //   N
-        //   N
+        // TreeNode A1 = TreeNode.genTree(new Object[]{
+        //         1,
+        //         2, 3,
+        //         4,5, null, 7
+        // });
+        //
+        //
+        // TreeNode A2 = TreeNode.genTree(new Object[]{
+        //         1,
+        //         2, 3,
+        //         4, 5, null, 7
+        // });
+        //
+        // // Test showString
+        // System.out.println(TreeNode.showString(A1));
+        // // 1
+        // //   2
+        // //     4
+        // //       N
+        // //       N
+        // //     5
+        // //       N
+        // //       N
+        // //   3
+        // //     N
+        // //     7
+        // //       N
+        // //       N
+        //
+        //
+        // // Test identity
+        // assert A1 != A2 : "Check Identify";
+        //
+        // // Test equals
+        // assert A1.equals(A2) : "Check equals";
+        //
+        //
+        // // Test hash
+        // Map<TreeNode, Integer> hmp = new HashMap<>(Map.ofEntries(
+        //         Map.entry(A1, 1),
+        //         Map.entry(A2, 2)
+        // ));
+        // System.out.println(hmp);
+        // // >>> {TreeNode@396a51ab=2, TreeNode@5034c75a=1}
+        //
+        //
+        // // Test genTree
+        //
+        // // Empty Tree
+        // TreeNode t1 = TreeNode.genTree(new Object[]{});
+        // System.out.println(TreeNode.showString(t1));
+        // // N
+        //
+        // // Signle Tree
+        // TreeNode t2 = TreeNode.genTree(new Object[]{1});
+        // System.out.println(TreeNode.showString(t2));
+        // // 1
+        // //   N
+        // //   N
 
         // multi-branch tree
         TreeNode t3 = TreeNode.genTree(new Object[]{
