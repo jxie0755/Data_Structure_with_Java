@@ -155,17 +155,17 @@ class TreeNode {
         TreeNode t3 = TreeNode.genTree(new Object[]{
                 1,
                 2, 3,
-                null, 4, 5, null
+                null, 14, 15, null
         });
         System.out.println(TreeNode.showString(t3));
         // 1
         //   2
         //     N
-        //     4
+        //     14
         //       N
         //       N
         //   3
-        //     5
+        //     15
         //       N
         //       N
         //     N
