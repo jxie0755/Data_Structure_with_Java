@@ -28,20 +28,20 @@ class TreeNode {
     }
 
     // Utilities for toString
-    private static String layer(TreeNode T, int L) {
+    private static String layer(TreeNode T, String default_s, int L) {
 
         if (T == null) {
             return "N";
         }
 
         String s = Integer.toString(T.val);
-        String space = stringMultiply("  ", L);
+        String space = stringMultiply(default_s, L);
         if (T.left != null && T.right != null) {
-            return s + "\n" + space + layer(T.left, L + 1) + "\n" + space + layer(T.right, L + 1);
+            return s + "\n" + space + layer(T.left, default_s, L + 1) + "\n" + space + layer(T.right, default_s, L + 1);
         } else if (T.left != null && T.right == null) {
-            return s + "\n" + space + layer(T.left, L + 1) + "\n" + space + "N";
+            return s + "\n" + space + layer(T.left, default_s, L + 1) + "\n" + default_s + "N";
         } else if (T.left == null && T.right != null) {
-            return s + "\n" + space + "N" + "\n" + space + layer(T.right, L + 1);
+            return s + "\n" + space + "N" + "\n" + space + layer(T.right, default_s, L + 1);
         } else {
             return s + "\n" + space + "N" + '\n' + space + "N";
         }
@@ -49,7 +49,7 @@ class TreeNode {
 
     // static method to avoid print str instead of identity
     public static String showString(TreeNode A) {
-        return layer(A, 1);
+        return layer(A, "  ", 1);
     }
 
 
