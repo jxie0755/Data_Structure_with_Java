@@ -65,20 +65,50 @@ class TreeNode {
         }
     }
 
+
+    /**
+     * equals method, must assume `this` will never be null
+     * Method is exclude all false scenario
+     */
     public boolean equals(TreeNode other) {
 
-        // this look very complicated to avoid when left/right is null and cannot be called equals.
-        if (this.left == null && other.left == null && this.right == null && other.right == null) {
-            return this.val == other.val;
-        } else if (this.left != null && other.left != null && this.right != null && other.right != null) {
-            return this.val == other.val && this.left.equals(other.left) && this.right.equals(other.right);
-        } else if (this.left != null && other.left != null && this.right == null && other.right == null) {
-            return this.val == other.val && this.left.equals(other.left);
-        } else if (this.left == null && other.left == null && this.right != null && other.right != null) {
-            return this.val == other.val && this.right.equals(other.right);
-        } else {
+        // if (this.left == null && other.left == null && this.right == null && other.right == null) {
+        //     return this.val == other.val;
+        // } else if (this.left != null && other.left != null && this.right != null && other.right != null) {
+        //     return this.val == other.val && this.left.equals(other.left) && this.right.equals(other.right);
+        // } else if (this.left != null && other.left != null && this.right == null && other.right == null) {
+        //     return this.val == other.val && this.left.equals(other.left);
+        // } else if (this.left == null && other.left == null && this.right != null && other.right != null) {
+        //     return this.val == other.val && this.right.equals(other.right);
+        // } else {
+        //     return false;
+        // }
+
+        if (other == null) { // since this will never be null
             return false;
         }
+
+        if (this.val != other.val) { // Different Values
+            return false;
+        }
+
+        // avoid this.left being null
+        if (this.left == null && other.left != null) {
+            return false;
+        }
+        if (this.left != null && !this.left.equals(other.left)) {
+            return false;
+        }
+
+        // avoid right.left being null
+        if (this.right == null && other.right != null) {
+            return false;
+        }
+        if (this.right != null && !this.right.equals(other.right)) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
