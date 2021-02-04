@@ -49,6 +49,7 @@ public class LC096_Unique_Binary_Search_Trees {
         LC096_Unique_Binary_Search_Trees testCase = new LC096_Unique_Binary_Search_Trees();
 
         assert testCase.numTrees(3) == 5 : "Example 1";
+        assert testCase.numTrees(4) == 14 : "Additional 1";
         assert testCase.numTrees(19) == 1767263190 : "Long 1";
 
         System.out.println("All passed");
