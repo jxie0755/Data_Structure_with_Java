@@ -53,18 +53,21 @@ class TreeNode {
     }
 
 
-    public static boolean isEqual(TreeNode A, TreeNode B) {
-        if (A == null && B == null) {
+    /**
+     * Obsolette due to java equal function limitation
+     * Only works as static method for class
+     */
+    public static boolean isEqual(TreeNode self, TreeNode other) {
+        if (self == null && other == null) {
             return true;
-        } else if (A != null && B != null) {
-            return A.val == B.val
-                    && A.left.equals(B.left)
-                    && A.right.equals(B.right);
-        } else {
+        } else if (self == null || other == null) {
             return false;
+        } else {
+            return self.val == other.val
+                    && isEqual(self.left, other.left)
+                    && isEqual(self.right, other.right);
         }
     }
-
 
     /**
      * equals method, must assume `this` will never be null
@@ -165,10 +168,10 @@ class TreeNode {
 
 
         // Test identity
-        // assert A1 != A2 : "Check Identify";
+        assert A1 != A2 : "Check Identify";
 
         // Test equals
-        // assert A1.equals(A2) : "Check equals";
+        assert A1.equals(A2) : "Check equals";
 
 
         // Test hash
@@ -177,18 +180,21 @@ class TreeNode {
                 Map.entry(A2, 2)
         ));
         System.out.println(hmp);
+        System.out.println("\n");
         // >>> {TreeNode@396a51ab=2, TreeNode@5034c75a=1}
 
 
         // Test genTree
 
         // Empty Tree
+        System.out.println("Verify printing null tree");
         TreeNode t1 = TreeNode.genTree(new Object[]{});
         System.out.println(TreeNode.showString(t1));
         // N
 
         // Signle Tree
         TreeNode t2 = TreeNode.genTree(new Object[]{1});
+        System.out.println("Verify printng single node tree");
         System.out.println(TreeNode.showString(t2));
         // 1
         //   N
@@ -200,6 +206,7 @@ class TreeNode {
                 2, 3,
                 null, 14, 15, null
         });
+        System.out.println("Verify printing complicated tree");
         System.out.println(TreeNode.showString(t3));
         // 1
         //   2
