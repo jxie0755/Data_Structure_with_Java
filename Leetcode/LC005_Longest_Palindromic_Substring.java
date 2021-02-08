@@ -48,6 +48,9 @@ class LC005_Longest_Palindromic_Substring {
         return result;
     }
 
+    //TODO: Practice Manacher's algorithm (Dynamic Programming)
+
+
     public static void main(String[] args) {
         LC005_Longest_Palindromic_Substring testCase = new LC005_Longest_Palindromic_Substring();
 

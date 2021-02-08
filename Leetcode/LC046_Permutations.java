@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -18,40 +19,82 @@ class LC046_Permutations {
      * py中形参为List[int],输出List[List[int]], 本题java形参为int[], 所以需要转换成ArrayList处理,最后要转回int[]用于递归
      * java不得使用list comprehension,所以要扩展开来变成一个for loop
      */
+    // public List<List<Integer>> permute(int[] nums) {
+    //
+    //     // Prepare nums in List<Integer> form
+    //     List<Integer> nums_list = new ArrayList<>();
+    //     for (int i : nums) {
+    //         nums_list.add(i);
+    //     }
+    //
+    //     // prepare result
+    //     List<List<Integer>> result = new ArrayList<>();
+    //
+    //     if (nums.length == 1) {
+    //         result.add(nums_list);
+    //         return result;
+    //     }
+    //
+    //     for (int i = 0; i < nums.length; i += 1) {
+    //         List<Integer> sub_list = new ArrayList<>(nums_list);
+    //         int picked = sub_list.remove(i);
+    //
+    //         // convert sub_list back to Array type
+    //         int[] sub_nums = new int[nums.length - 1];
+    //         for (int k = 0; k < sub_list.size(); k += 1) {
+    //             sub_nums[k] = sub_list.get(k);
+    //         }
+    //
+    //         for (List<Integer> per : this.permute(sub_nums)) {
+    //             List<Integer> to_add = new ArrayList<>(Arrays.asList(picked));
+    //             to_add.addAll(per);
+    //             result.add(to_add);
+    //         }
+    //     }
+    //     return result;
+    // }
+
+
+    /**
+     * STD Ans
+     * 给定一个数组, 返回他的所有排列.
+     * 解题思路: 使用分治法求解.
+     */
+    private List<List<Integer>> result;
+
     public List<List<Integer>> permute(int[] nums) {
 
-        // Prepare nums in List<Integer> form
-        List<Integer> nums_list = new ArrayList<>();
-        for (int i : nums) {
-            nums_list.add(i);
+        result = new LinkedList<>();
+        if (nums != null) {
+            permute(0, nums);
         }
 
-        // prepare result
-        List<List<Integer>> result = new ArrayList<>();
-
-        if (nums.length == 1) {
-            result.add(nums_list);
-            return result;
-        }
-
-        for (int i = 0; i < nums.length; i += 1) {
-            List<Integer> sub_list = new ArrayList<>(nums_list);
-            int picked = sub_list.remove(i);
-
-            // convert sub_list back to Array type
-            int[] sub_nums = new int[nums.length - 1];
-            for (int k = 0; k < sub_list.size(); k += 1) {
-                sub_nums[k] = sub_list.get(k);
-            }
-
-            for (List<Integer> per : this.permute(sub_nums)) {
-                List<Integer> to_add = new ArrayList<>(Arrays.asList(picked));
-                to_add.addAll(per);
-                result.add(to_add);
-            }
-        }
         return result;
     }
+
+    private void permute(int i, int[] nums) {
+
+        if (i == nums.length) {
+            List<Integer> l = new ArrayList<>();
+            for (int n : nums) {
+                l.add(n);
+            }
+            result.add(l);
+        } else {
+            for (int j = i; j < nums.length; j++) {
+                swap(nums, j, i);
+                permute(i + 1, nums);
+                swap(nums, j, i);
+            }
+        }
+    }
+
+    private void swap(int[] nums, int x, int y) {
+        int tmp = nums[x];
+        nums[x] = nums[y];
+        nums[y] = tmp;
+    }
+
 
     public static void main(String[] args) {
         LC046_Permutations testCase = new LC046_Permutations();

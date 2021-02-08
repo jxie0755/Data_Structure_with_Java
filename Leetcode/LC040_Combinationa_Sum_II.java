@@ -16,7 +16,7 @@ import java.util.List;
  * The difference between the P039 and P040 is that the candidates can be duplicated in P040 but not in P039
  * The solution set must not contain duplicate combinations.
  */
-class LC040_Combinationa_Sum_2 {
+class LC040_Combinationa_Sum_II {
 
     /**
      * Version B
@@ -52,7 +52,7 @@ class LC040_Combinationa_Sum_2 {
     }
 
     public static void main(String[] args) {
-        LC040_Combinationa_Sum_2 testCase = new LC040_Combinationa_Sum_2();
+        LC040_Combinationa_Sum_II testCase = new LC040_Combinationa_Sum_II();
 
         int[] q1 = new int[]{10, 1, 2, 7, 6, 1, 5};
         List<Integer> a1 = new ArrayList<>(Arrays.asList(1, 1, 6));
