@@ -75,6 +75,7 @@ class TreeNode {
      */
     public boolean equals(TreeNode other) {
 
+        // Obsolette
         // if (this.left == null && other.left == null && this.right == null && other.right == null) {
         //     return this.val == other.val;
         // } else if (this.left != null && other.left != null && this.right != null && other.right != null) {
