@@ -40,7 +40,7 @@ class LC008_String_To_Integer {
     //     for (char i : str.toCharArray()) {
     //
     //         if (i == ' ' && !found) {
-    //
+    //             ; // pass
     //         } else if (Arrays.asList(prefix).contains(i)
     //         ) {
     //
@@ -87,7 +87,6 @@ class LC008_String_To_Integer {
     //             return result.intValue() * -1;
     //         }
     //         return result.intValue();
-    //
     //     }
     // }
 

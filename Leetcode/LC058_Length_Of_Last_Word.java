@@ -14,9 +14,9 @@ import java.util.regex.Pattern;
  */
 class LC058_Length_Of_Last_Word {
 
-    // /**
-    //  * Version B
-    //  */
+    /**
+     * Version B
+     */
     // public int lengthOfLastWord(String s) {
     //     int count = 0;
     //     for (int idx = s.length()-1; idx >= 0; idx -=1) {
@@ -24,6 +24,8 @@ class LC058_Length_Of_Last_Word {
     //         if (x == ' ') {
     //             if (count != 0) {
     //                 break;
+    //             } else {
+    //                 ; // pass
     //             }
     //         } else {
     //             count += 1;

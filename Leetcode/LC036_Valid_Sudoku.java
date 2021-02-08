@@ -81,10 +81,10 @@ class LC036_Valid_Sudoku {
         char cur = 'x';
         for (char i : row) {
             if (i == '.') {
+                ; // pass
             } else if (cur == 'x') {
                 cur = i;
             } else if (i == cur) {
-                ;
                 return true;
             }
         }
