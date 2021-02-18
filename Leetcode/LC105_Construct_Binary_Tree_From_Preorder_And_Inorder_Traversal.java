@@ -1,4 +1,5 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
@@ -16,31 +17,41 @@ class LC105_Construct_Binary_Tree_From_Preorder_And_Inorder_Traversal {
      * Version A2
      */
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (inorder.length == 0) {
+
+        // convert int[] to List<Integer>
+        List<Integer> preorderList = new ArrayList<>();
+        for (int i : preorder) {
+            preorderList.add(i);
+        }
+
+        List<Integer> inorderList = new ArrayList<>();
+        for (int i : inorder) {
+            inorderList.add(i);
+        }
+
+        // return with overload function
+        return this.buildTree(preorderList, inorderList);
+    }
+
+    /**
+     * Helper, overload with List<> preorder and inorder
+     */
+    public TreeNode buildTree(List<Integer> preorder, List<Integer> inorder) {
+        if (inorder.isEmpty()) {
             return null;
         } else {
-            int root_val = preorder[0];
-            int in_idx = 0;
-            for (int i = 0; i < inorder.length; i += 1) {
-                if (inorder[i] == root_val) {
-                    in_idx = i;
-                    break;
-                }
-            }
-
+            int root_val = preorder.remove(0); // pop
+            int in_idx = inorder.indexOf(root_val);
             TreeNode T = new TreeNode(root_val);
 
-            int[] L_list = Arrays.copyOfRange(inorder, 0, in_idx);
-            if (L_list.length != 0) {
-                preorder = Arrays.copyOfRange(preorder, 1, preorder.length);
-                T.left = this.buildTree(preorder, L_list);
+            List<Integer> L_inorderList = inorder.subList(0, in_idx);
+            if (!L_inorderList.isEmpty()) {
+                T.left = this.buildTree(preorder, L_inorderList);
             }
 
-            int[] R_list = Arrays.copyOfRange(inorder, in_idx + 1, inorder.length);
-            if (R_list.length != 0) {
-                preorder = Arrays.copyOfRange(preorder, 1, preorder.length);
-
-                T.right = this.buildTree(preorder, R_list);
+            List<Integer> R_inorderList = inorder.subList(in_idx + 1, inorder.size());
+            if (!R_inorderList.isEmpty()) {
+                T.right = this.buildTree(preorder, R_inorderList);
             }
             return T;
         }
@@ -66,6 +77,22 @@ class LC105_Construct_Binary_Tree_From_Preorder_And_Inorder_Traversal {
                 9, 20,
                 null, null, 15, 7
         })) : "Example 1";
+
+        int[] p3 = new int[]{3, 1, 2, 4};
+        int[] i3 = new int[]{1, 2, 3, 4};
+        assert testCase.buildTree(p3, i3).equals(TreeNode.genTree(new Object[]{
+                3,
+                1, 4,
+                null, 2, null, null
+        })) : "Additional 1";
+
+        int[] p4 = new int[]{1, 2, 4, 5, 3, 6, 7};
+        int[] i4 = new int[]{4, 2, 5, 1, 6, 3, 7};
+        assert testCase.buildTree(p4, i4).equals(TreeNode.genTree(new Object[]{
+                1,
+                2, 3,
+                4, 5, 6, 7
+        })) : "Additional 2";
 
         System.out.println("All passed");
     }
