@@ -36,25 +36,25 @@ class LC105_Construct_Binary_Tree_From_Preorder_And_Inorder_Traversal {
     /**
      * Helper, overload with List<> preorder and inorder
      */
-    public TreeNode buildTree(List<Integer> preorder, List<Integer> inorder) {
-        if (inorder.isEmpty()) {
+    public TreeNode buildTree(List<Integer> preorderList, List<Integer> inorderList) {
+        if (inorderList.isEmpty()) {
             return null;
-        } else {
-            int root_val = preorder.remove(0); // pop
-            int in_idx = inorder.indexOf(root_val);
-            TreeNode T = new TreeNode(root_val);
-
-            List<Integer> L_inorderList = inorder.subList(0, in_idx);
-            if (!L_inorderList.isEmpty()) {
-                T.left = this.buildTree(preorder, L_inorderList);
-            }
-
-            List<Integer> R_inorderList = inorder.subList(in_idx + 1, inorder.size());
-            if (!R_inorderList.isEmpty()) {
-                T.right = this.buildTree(preorder, R_inorderList);
-            }
-            return T;
         }
+
+        int root_val = preorderList.remove(0); // pop
+        int in_idx = inorderList.indexOf(root_val);
+        TreeNode T = new TreeNode(root_val);
+
+        List<Integer> L_inorderList = inorderList.subList(0, in_idx);
+        if (!L_inorderList.isEmpty()) {
+            T.left = this.buildTree(preorderList, L_inorderList);
+        }
+
+        List<Integer> R_inorderList = inorderList.subList(in_idx + 1, inorderList.size());
+        if (!R_inorderList.isEmpty()) {
+            T.right = this.buildTree(preorderList, R_inorderList);
+        }
+        return T;
     }
 
     public static void main(String[] args) {
