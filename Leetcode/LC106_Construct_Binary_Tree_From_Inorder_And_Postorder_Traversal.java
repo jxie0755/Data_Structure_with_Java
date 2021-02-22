@@ -54,6 +54,7 @@ class LC106_Construct_Binary_Tree_From_Inorder_And_Postorder_Traversal {
         return T;
     }
 
+
     public static void main(String[] args) {
         LC106_Construct_Binary_Tree_From_Inorder_And_Postorder_Traversal testCase = new LC106_Construct_Binary_Tree_From_Inorder_And_Postorder_Traversal();
 
