@@ -12,6 +12,9 @@ import java.util.List;
  * You may assume that duplicates do not exist in the tree.
  */
 class LC106_Construct_Binary_Tree_From_Inorder_And_Postorder_Traversal {
+    /**
+     * Version A2
+     */
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         // convert int[] to List<Integer>
         List<Integer> inorderList = new ArrayList<>();
