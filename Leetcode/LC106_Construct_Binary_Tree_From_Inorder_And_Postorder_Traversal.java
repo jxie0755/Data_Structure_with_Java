@@ -42,14 +42,10 @@ class LC106_Construct_Binary_Tree_From_Inorder_And_Postorder_Traversal {
 
 
         List<Integer> R_inorderList = inorderList.subList(in_idx + 1, inorderList.size());
-        if (!postorderList.isEmpty() && R_inorderList.contains(postorderList.get(postorderList.size() - 1))) {
-            T.right = this.buildTree(R_inorderList, postorderList);
-        }
+        T.right = this.buildTree(R_inorderList, postorderList);
 
         List<Integer> L_inorderList = inorderList.subList(0, in_idx);
-        if (!postorderList.isEmpty() && L_inorderList.contains(postorderList.get(postorderList.size() - 1))) {
-            T.left = this.buildTree(L_inorderList, postorderList);
-        }
+        T.left = this.buildTree(L_inorderList, postorderList);
 
         return T;
     }
