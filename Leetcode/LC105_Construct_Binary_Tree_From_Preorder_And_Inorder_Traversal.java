@@ -46,14 +46,11 @@ class LC105_Construct_Binary_Tree_From_Preorder_And_Inorder_Traversal {
         TreeNode T = new TreeNode(root_val);
 
         List<Integer> L_inorderList = inorderList.subList(0, in_idx);
-        if (!L_inorderList.isEmpty()) {
-            T.left = this.buildTree(preorderList, L_inorderList);
-        }
+        T.left = this.buildTree(preorderList, L_inorderList);
 
         List<Integer> R_inorderList = inorderList.subList(in_idx + 1, inorderList.size());
-        if (!R_inorderList.isEmpty()) {
-            T.right = this.buildTree(preorderList, R_inorderList);
-        }
+        T.right = this.buildTree(preorderList, R_inorderList);
+
         return T;
     }
 
