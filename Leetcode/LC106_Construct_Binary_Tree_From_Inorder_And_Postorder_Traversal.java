@@ -31,6 +31,7 @@ class LC106_Construct_Binary_Tree_From_Inorder_And_Postorder_Traversal {
         return this.buildTree(inorderList, postorderList);
     }
 
+
     public TreeNode buildTree(List<Integer> inorderList, List<Integer> postorderList) {
         if (inorderList.isEmpty()) {
             return null;
