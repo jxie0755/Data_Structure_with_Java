@@ -22,8 +22,10 @@ class LC108_Convert_Sorted_Array_To_Binary_Search_Tree {
         int mid_idx = nums.length / 2;
         int mid_val = nums[mid_idx];
         TreeNode T = new TreeNode(mid_val);
+
         T.left = this.sortedArrayToBST(Arrays.copyOfRange(nums, 0, mid_idx));
         T.right = this.sortedArrayToBST(Arrays.copyOfRange(nums, mid_idx + 1, nums.length));
+
         return T;
     }
 
