@@ -15,6 +15,7 @@ import java.util.List;
 class LC109_Convert_Sorted_List_To_Binary_Search_Tree {
     /**
      * Version A
+     * Use helper from LC108, but with List<Integer> structure
      */
     public TreeNode sortedListToBST(ListNode head) {
         if (head == null) {
