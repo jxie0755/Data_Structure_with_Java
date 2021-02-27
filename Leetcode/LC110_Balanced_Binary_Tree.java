@@ -16,6 +16,9 @@ class LC110_Balanced_Binary_Tree {
 
     Map<TreeNode, Integer> MAX_DEPTH_HMP = new HashMap<>();
 
+    /**
+     * Verison A2 with Memoization
+     */
     public boolean isBalanced(TreeNode root) {
         if (root == null) {
             return true;
