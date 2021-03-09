@@ -21,12 +21,12 @@ class LC102_Bianry_Tree_Level_Order_Traversal {
             return result;
         }
 
-        List<TreeNode> layer = new ArrayList<>(Arrays.asList(root));
-        while (!layer.isEmpty()) {
+        List<TreeNode> current = new ArrayList<>(Arrays.asList(root));
+        while (!current.isEmpty()) {
             List<TreeNode> next_layer = new ArrayList<>(Arrays.asList());
             List<Integer> node_vals = new ArrayList<>(Arrays.asList());
 
-            for (TreeNode node : layer) {
+            for (TreeNode node : current) {
                 node_vals.add(node.val);
 
                 if (node.left != null) {
@@ -37,7 +37,7 @@ class LC102_Bianry_Tree_Level_Order_Traversal {
                 }
             }
 
-            layer = next_layer;
+            current = next_layer;
             result.add(node_vals);
         }
         return result;
