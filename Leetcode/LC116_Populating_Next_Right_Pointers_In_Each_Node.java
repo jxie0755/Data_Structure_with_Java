@@ -55,6 +55,10 @@ class Node {
 
 
 class LC116_Populating_Next_Right_Pointers_In_Each_Node {
+    /**
+     * Version A
+     * Modified from levelOrderTraversal
+     */
     public Node connect(Node root) {
         if (root != null) {
             List<Node> current = new ArrayList<>(Arrays.asList(root));
