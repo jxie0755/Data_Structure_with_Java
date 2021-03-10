@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/combination-sum-ii/
- * P040 Combination Sum II
+ * LC040 Combination Sum II
  * Medium
  * <p>
  * Given a collection of candidate numbers (candidates) and a target number (target),
@@ -13,7 +13,7 @@ import java.util.List;
  * <p>
  * Note:
  * All numbers (including target) will be positive integers.
- * The difference between the P039 and P040 is that the candidates can be duplicated in P040 but not in P039
+ * The difference between the LC039 and LC040 is that the candidates can be duplicated in LC040 but not in LC039
  * The solution set must not contain duplicate combinations.
  */
 class LC040_Combinationa_Sum_II {
@@ -34,12 +34,12 @@ class LC040_Combinationa_Sum_II {
                     result.add(new ArrayList<>(intermediate));  // copy intermediate
                 }
 
-                while (start < candidates.length && candidates[start] <= target) { // # 相对于P039 加一个去重条件
-                        intermediate.add(candidates[start]);
+                while (start < candidates.length && candidates[start] <= target) { // # 相对于LC039 加一个去重条件
+                    intermediate.add(candidates[start]);
                     this.process(candidates, start + 1, intermediate, target - candidates[start]);
-                    // 这里与p039不同,需要跳过, 因为不得重复使用同一个元素
-                        intermediate.remove(intermediate.size() - 1);
-                        start += 1;
+                    // 这里与LC039不同,需要跳过, 因为不得重复使用同一个元素
+                    intermediate.remove(intermediate.size() - 1);
+                    start += 1;
                 }
             }
         }

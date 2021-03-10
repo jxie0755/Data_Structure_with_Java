@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/word-search/
- * P079 Word Search
+ * LC079 Word Search
  * Medium
  * <p>
  * Given a 2D board and a word, find if the word exists in the grid.

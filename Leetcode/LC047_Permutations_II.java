@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/permutations-ii/
- * P047 Permutations II
+ * LC047 Permutations II
  * Medium
  * <p>
  * Given a collection of numbers that might contain duplicates, return all possible unique permutations.

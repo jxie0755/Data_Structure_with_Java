@@ -1,7 +1,7 @@
 
 /**
  * https://leetcode.com/problems/median-of-two-sorted-arrays/
- * P004 Median of Two Sorted Array
+ * LC004 Median of Two Sorted Array
  * Hard
  * <p>
  * There are two sorted arrays nums1 and nums2 of size m and n respectively.

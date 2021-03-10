@@ -1,7 +1,7 @@
 
 /**
  * https://leetcode.com/problems/longest-palindromic-substring/
- * P005 Longest Palindromic String
+ * LC005 Longest Palindromic String
  * Medium
  * <p>
  * Given a string s, find the longest palindromic substring in s.

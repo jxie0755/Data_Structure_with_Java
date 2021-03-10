@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
- * P116 Populating Next Right Pointers in Each Node
+ * LC116 Populating Next Right Pointers in Each Node
  * Medium
  * <p>
  * You are given a perfect binary tree where:

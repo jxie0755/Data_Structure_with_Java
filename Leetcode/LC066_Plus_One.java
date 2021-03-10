@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/plus-one/
- * p066 Plus One
+ * LC066 Plus One
  * Easy
  * <p>
  * Given a non-empty array of digits representing a non-negative integer, plus one to the integer.

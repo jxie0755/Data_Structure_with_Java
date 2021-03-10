@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/subsets/
- * P078 Subsets
+ * LC078 Subsets
  * Medium
  * <p>
  * Given a set of distinct integers, nums, return all possible subsets (the power set).

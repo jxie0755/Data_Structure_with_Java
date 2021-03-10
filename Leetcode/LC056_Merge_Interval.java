@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/merge-intervals/
- * P056 Merge Intervals
+ * LC056 Merge Intervals
  * Medium
  * <p>
  * Given a collection of intervals, merge all overlapping intervals.

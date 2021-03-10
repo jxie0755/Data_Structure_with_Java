@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https: // leetcode.com / problems / symmetric - tree /
- * P101 Symmetric Tree
+ * LC101 Symmetric Tree
  * Easy
  * <p>
  * Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center)

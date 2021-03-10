@@ -3,7 +3,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
- * P106 Construct Binary Tree from Inorder and Postorder Traversal
+ * LC106 Construct Binary Tree from Inorder and Postorder Traversal
  * Medium
  * <p>
  * Given inorder and postorder traversal of a tree, construct the binary tree.

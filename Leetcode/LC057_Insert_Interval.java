@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/insert-interval/
- * P057 Insert Interval
+ * LC057 Insert Interval
  * Hard
  * <p>
  * Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).

@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/generate-parentheses/
- * p22 Generate Parentheses
+ * LC022 Generate Parentheses
  * Medium
  * <p>
  * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.

@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
- * P103 Binary Tree Zigzag Level Order Traversal
+ * LC103 Binary Tree Zigzag Level Order Traversal
  * Medium
  * <p>
  * <p>

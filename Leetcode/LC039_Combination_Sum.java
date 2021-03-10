@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/combination-sum/
- * P039 Cobination Sum
+ * LC039 Cobination Sum
  * Medium
  * <p>
  * Given a set of candidate numbers (candidates) (without duplicates) and a target number (target),

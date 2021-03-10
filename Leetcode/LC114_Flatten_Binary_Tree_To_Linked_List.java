@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
- * P114 Flatten Binary Tree to Linked List
+ * LC114 Flatten Binary Tree to Linked List
  * Medium
  * <p>
  * Given a binary tree, flatten it to a linked list in-place.

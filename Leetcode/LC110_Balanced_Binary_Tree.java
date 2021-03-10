@@ -3,7 +3,7 @@ import java.util.Map;
 
 /**
  * https://leetcode.com/problems/balanced-binary-tree/
- * P110 Balanced Binary Tree
+ * LC110 Balanced Binary Tree
  * Easy
  * <p>
  * <p>

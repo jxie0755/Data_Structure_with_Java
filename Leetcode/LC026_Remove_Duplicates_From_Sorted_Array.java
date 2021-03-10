@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/remove-duplicates-from-sorted-array/
- * p026 Remove duplicates from sorted array
+ * LC026 Remove duplicates from sorted array
  * Easy
  * <p>
  * Given a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.

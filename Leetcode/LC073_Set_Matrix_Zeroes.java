@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/set-matrix-zeroes/
- * P073 Set Matrix Zeroes
+ * LC073 Set Matrix Zeroes
  * Medium
  * <p>
  * Given a m x n matrix, if an element is 0, set its entire row and column to 0.

@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
- * P080 Remove Duplicates from Sorted Array II
+ * LC080 Remove Duplicates from Sorted Array II
  * Medium
  * <p>
  * <p>

@@ -2,7 +2,7 @@ import java.util.*;
 
 /**
  * https://leetcode.com/problems/sudoku-solver/
- * P037 Sudoku Solver
+ * LC037 Sudoku Solver
  * Hard
  * <p>
  * Write a program to solve a Sudoku puzzle by filling the empty cells.

@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/rotate-image/
- * P048 Roate Image
+ * LC048 Roate Image
  * Medium
  * <p>
  * You are given an n x n 2D matrix representing an image.

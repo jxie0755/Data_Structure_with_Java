@@ -3,7 +3,7 @@ import java.util.regex.Pattern;
 
 /**
  * https://leetcode.com/problems/length-of-last-word/
- * p058 Length of Last word
+ * LC058 Length of Last word
  * Easy
  * <p>
  * Given a string s consists of upper/lower-case alphabets and empty space characters " ", return the length of last word in the string.

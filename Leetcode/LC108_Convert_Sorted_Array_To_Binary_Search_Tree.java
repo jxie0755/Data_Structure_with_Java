@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
- * P108 Convert Sorted Array to Binary Search Tree
+ * LC108 Convert Sorted Array to Binary Search Tree
  * Easy
  * <p>
  * <p>

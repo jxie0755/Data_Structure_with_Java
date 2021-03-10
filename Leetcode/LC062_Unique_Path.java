@@ -2,7 +2,7 @@ import java.util.*;
 
 /**
  * https://leetcode.com/problems/unique-paths/
- * P062 Unique Paths
+ * LC062 Unique Paths
  * Medium
  * <p>
  * A robot is located at the top-left corner of a m x n grid (marked "Start" in the diagram below).
@@ -17,7 +17,7 @@ class LC062_Unique_Path {
 
     /**
      * Version A, best direct math calculation, FAILED
-     * This is the same as ProjectEuler p015 lattice paths
+     * This is the same as ProjectEuler LC015 lattice paths
      * Use combination method: Combination pick r out of n : n! // r! // (n-r)!
      * 无法处理大数问题, 阶乘数大了之后, 溢出了int和long的范围
      * 除非使用string做计算再转换,这样太麻烦

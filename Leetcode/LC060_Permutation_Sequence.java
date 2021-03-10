@@ -3,7 +3,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/permutation-sequence/
- * P060 Permutation Sequence
+ * LC060 Permutation Sequence
  * Medium
  * <p>
  * The set [1,2,3,...,n] contains a total of n! unique permutations.

@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/binary-tree-level-order-traversal/
- * P102 Binary Tree Level Order Traversal
+ * LC102 Binary Tree Level Order Traversal
  * Medium
  * <p>
  * <p>

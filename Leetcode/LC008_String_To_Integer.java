@@ -3,7 +3,7 @@ import java.util.regex.Pattern;
 
 /**
  * https://leetcode.com/problems/string-to-integer-atoi/
- * P008 String to Integer (atoi)
+ * LC008 String to Integer (atoi)
  * Medium
  * <p>
  * Implement atoi which converts a string to an integer.

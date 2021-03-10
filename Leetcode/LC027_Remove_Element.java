@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/remove-element/
- * p027 Remove Element
+ * LC027 Remove Element
  * Easy
  * <p>
  * Given an array and a value, remove all instances of that value in-place and return the new length.

@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/spiral-matrix/
- * P054 Spiral Matrix
+ * LC054 Spiral Matrix
  * Medium
  * <p>
  * Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.

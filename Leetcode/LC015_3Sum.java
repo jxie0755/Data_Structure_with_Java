@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/3sum/
- * P015 3Sum
+ * LC015 3Sum
  * Medium
  * <p>
  * Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0?

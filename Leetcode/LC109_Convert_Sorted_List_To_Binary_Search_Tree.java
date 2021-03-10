@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
- * P109 Convert Sorted List to Binary Search Tree
+ * LC109 Convert Sorted List to Binary Search Tree
  * Medium
  * <p>
  * <p>

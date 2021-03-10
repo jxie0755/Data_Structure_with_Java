@@ -1,6 +1,6 @@
 /**
  * https://leetcode.com/problems/validate-binary-search-tree/
- * P098 Validate Binary Search Tree
+ * LC098 Validate Binary Search Tree
  * Medium
  * <p>
  * <p>

@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
- * P081 Search in Rotated Sorted Array II
+ * LC081 Search in Rotated Sorted Array II
  * Medium
  * <p>
  * Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.

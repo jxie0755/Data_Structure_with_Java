@@ -2,7 +2,7 @@
 
 /**
  * https://leetcode.com/problems/swap-nodes-in-pairs/
- * P024 Swap Nodes in Pairs
+ * LC024 Swap Nodes in Pairs
  * Medium
  * <p>
  * Given a linked list, swap every two adjacent nodes and return its head.
