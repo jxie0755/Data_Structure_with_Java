@@ -15,8 +15,7 @@ class LC118_Pascal_Triangle {
      */
     public List<List<Integer>> generate(int numRows) {
         if (numRows == 0) {
-            return new ArrayList<>(Arrays.asList(
-            ));
+            return new ArrayList<>();
         } else if (numRows == 1) {
             return new ArrayList<>(Arrays.asList(
                     new ArrayList<>(Arrays.asList(1))
@@ -28,7 +27,7 @@ class LC118_Pascal_Triangle {
 
             List<Integer> layer = new ArrayList<>(Arrays.asList(1, 1));
 
-            for (int i = 0; i < numRows - 1; i += 1) {
+            for (int i = 1; i < numRows; i += 1) {
                 result.add(layer);
                 List<Integer> new_layer = new ArrayList<>(Arrays.asList(1));
                 for (int j = 0; j < layer.size() - 1; j += 1) {
