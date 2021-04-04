@@ -11,6 +11,9 @@ import java.util.Arrays;
  * Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
  */
 class LC123_Best_Time_To_Buy_And_Sell_Stock_III {
+    /**
+     * Version A
+     */
     public int maxProfit(int[] prices) {
         int profit = 0;
         for (int i = 0; i < prices.length; i += 1) {
