@@ -12,12 +12,15 @@
 class LC125_Valid_Palindrome {
 
     public boolean isPalindrome(String s) {
-
+        return true;
     }
 
     public static void main(String[] args) {
+        LC125_Valid_Palindrome testCase = new LC125_Valid_Palindrome();
 
+        assert testCase.isPalindrome("A man, a plan, a canal: Panama") : "Example 1";
+        assert !testCase.isPalindrome("race a car") : "Example 2";
+        System.out.println("All passed");
     }
-
 }
 
