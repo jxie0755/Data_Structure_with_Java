@@ -11,16 +11,33 @@
  */
 class LC125_Valid_Palindrome {
 
-    public boolean isPalindrome(String s) {
-        return true;
-    }
-
+    /**
+     * Version B
+     */
+    // public boolean isPalindrome(String s) {
+    //     int left = 0;
+    //     int right = s.length() - 1;
+    //
+    //     while (left < right) {
+    //         while (left < right && s.charAt(left)) {
+    //
+    //         }
+    //     }
+    // }
     public static void main(String[] args) {
-        LC125_Valid_Palindrome testCase = new LC125_Valid_Palindrome();
+        // LC125_Valid_Palindrome testCase = new LC125_Valid_Palindrome();
+        //
+        // assert testCase.isPalindrome("A man, a plan, a canal: Panama") : "Example 1";
+        // assert !testCase.isPalindrome("race a car") : "Example 2";
+        // System.out.println("All passed");
 
-        assert testCase.isPalindrome("A man, a plan, a canal: Panama") : "Example 1";
-        assert !testCase.isPalindrome("race a car") : "Example 2";
-        System.out.println("All passed");
+        String s = "A B C 0123 abc";
+        char A = s.charAt(0);
+        char space = s.charAt(1);
+        char zero = s.charAt(6);
+        char aa = s.charAt(11);
+
+
     }
 }
 
