@@ -35,7 +35,6 @@ class LC009_Palindrome_Number {
         assert testCase.isPalindrome(0) : "Single 0";
 
         System.out.println("All passed");
-
     }
 }
 
