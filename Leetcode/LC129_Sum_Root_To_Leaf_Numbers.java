@@ -23,7 +23,6 @@ public class LC129_Sum_Root_To_Leaf_Numbers {
      */
     public int sumNumbers(TreeNode root) {
         this.convert_all_path(0, root);
-        System.out.println(this.all_path_num);
         int result = 0;
         for (int i : all_path_num) {
             result += i;
