@@ -8,6 +8,9 @@
 
 public class LC032_Longest_Valid_Parentheses {
 
+    /**
+     * Version C, stack method
+     */
     public int longestValidParentheses(String s) {
 
     }
