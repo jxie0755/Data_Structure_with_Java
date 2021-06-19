@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * https://leetcode.com/problems/longest-valid-parentheses/
  * LC020 Longest Valid Parentheses
@@ -12,8 +16,80 @@ public class LC032_Longest_Valid_Parentheses {
      * Version C, stack method
      */
     public int longestValidParentheses(String s) {
+        if (s.length() == 0) {
+            return 0;
+        }
+
+        List<Integer> trans_data = new ArrayList<>(Arrays.asList());
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                trans_data.add(1);
+            } else {
+                trans_data.add(-1);
+            }
+        }
+
+        boolean merged = true;
+        while (merged) {
+            merged = false;
+            List<Integer> stack = new ArrayList<>(Arrays.asList());
+            List<Integer> new_trans_data = new ArrayList<>(Arrays.asList());
+
+            for (int elem : trans_data) {
+                if (elem == 1) {
+                    if (stack.isEmpty()) {
+                        stack.add(elem);
+                    } else {
+                        new_trans_data.addAll(stack);
+                        stack.clear();
+                        stack.add(elem);
+                    }
+                } else if (elem == -1) {
+                    if (!stack.isEmpty() && stack.get(0) == 1) {
+                        stack.add(elem);
+                        if (stack.size() == 2) {
+                            new_trans_data.add(2);
+                        } else {
+                            new_trans_data.add(stack.get(1) + 2);
+                        }
+                        stack.clear();
+                        merged = true;
+                    } else {
+                        new_trans_data.addAll(stack);
+                        stack.clear();
+                        new_trans_data.add(elem);
+                    }
+                } else {
+                    if (!stack.isEmpty() && stack.get(stack.size() - 1) > 1) {
+                        stack.set(stack.size() - 1, stack.get(stack.size() - 1) + elem);
+                    } else {
+                        stack.add(elem);
+                    }
+                }
+            }
+
+            if (!stack.isEmpty()) {
+                new_trans_data.addAll(stack);
+            }
+            trans_data = new_trans_data;
+
+        }
+
+        int ans = 0;
+        for (int i : trans_data) {
+            if (i > ans) {
+                ans = i;
+            }
+        }
+        if (ans >= 2) {
+            return ans;
+        } else {
+            return 0;
+        }
+
 
     }
+
 
     public static void main(String[] args) {
         LC032_Longest_Valid_Parentheses testCase = new LC032_Longest_Valid_Parentheses();
