@@ -20,6 +20,7 @@ public class LC032_Longest_Valid_Parentheses {
             return 0;
         }
 
+        // translate the brackets into 1 and -1
         List<Integer> trans_data = new ArrayList<>(Arrays.asList());
         for (char c : s.toCharArray()) {
             if (c == '(') {
@@ -29,6 +30,7 @@ public class LC032_Longest_Valid_Parentheses {
             }
         }
 
+        // while loop to merge pairs
         boolean merged = true;
         while (merged) {
             merged = false;
@@ -75,6 +77,7 @@ public class LC032_Longest_Valid_Parentheses {
 
         }
 
+        // return the max value only if max value >= 2, otherwise they are single brackets (-1 or 1)
         int ans = 0;
         for (int i : trans_data) {
             if (i > ans) {
@@ -86,8 +89,6 @@ public class LC032_Longest_Valid_Parentheses {
         } else {
             return 0;
         }
-
-
     }
 
 
