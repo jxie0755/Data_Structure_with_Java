@@ -21,7 +21,7 @@ import java.util.List;
 class LC116_Populating_Next_Right_Pointers_In_Each_Node {
 
     /**
-     * 建立一个内部Node类作为测试用
+     * 建立一个内部类Node作为测试用 inner class
      */
     static class Node {
         public int val;

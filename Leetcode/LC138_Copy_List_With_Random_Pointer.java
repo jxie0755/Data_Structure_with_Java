@@ -18,7 +18,7 @@ import java.util.Map;
 public class LC138_Copy_List_With_Random_Pointer {
 
     /**
-     * 建立一个内部类作为测试使用
+     * 建立一个内部类Node作为测试使用 inner class
      */
     static class Node {
         int val;
