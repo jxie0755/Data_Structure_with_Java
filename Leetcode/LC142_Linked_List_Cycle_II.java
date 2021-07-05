@@ -14,6 +14,10 @@ import java.util.Set;
  * Note: Do not modify the linked list.
  */
 public class LC142_Linked_List_Cycle_II {
+
+    /**
+     * Version A, use set to fast search iterated nodes
+     */
     public ListNode detectCycle(ListNode head) {
         Set<ListNode> ss = new HashSet<>(Arrays.asList());
         while (head != null) {
