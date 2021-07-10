@@ -49,8 +49,6 @@ public class LC143_Reorder_List {
             head = head_next;
             reversed_second_half = second_next;
         }
-
-
     }
 
     public static void main(String[] args) {
